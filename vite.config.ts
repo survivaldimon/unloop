@@ -6,4 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "./",
   plugins: [react(), tailwindcss()],
+  server: {
+    // Honor the harness-assigned port when launched via .claude/launch.json.
+    port: Number(process.env.PORT) || 5173,
+  },
 });
