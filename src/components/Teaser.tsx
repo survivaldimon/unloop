@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
 import { paymentsEnabled } from "../lib/payments";
 import { t, useLang } from "../i18n";
+import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import LoopDiagram from "./LoopDiagram";
 
@@ -20,6 +22,10 @@ export default function Teaser({
   const ui = t(lang).teaser;
   const pattern = getPattern(lang, result.pattern);
   const confirming = payState === "confirming";
+
+  useEffect(() => {
+    track("teaser_view", { pattern: result.pattern });
+  }, [result.pattern]);
 
   return (
     <div className="flex flex-col gap-6 py-4">

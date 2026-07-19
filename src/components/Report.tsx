@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
 import { t, useLang } from "../i18n";
+import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import type { LlmChapters } from "../lib/supabase";
 import LoopDiagram from "./LoopDiagram";
@@ -75,6 +77,10 @@ export default function Report({
   const ui = t(lang).report;
   const pattern = getPattern(lang, result.pattern);
   const secondary = result.secondary ? getPattern(lang, result.secondary) : null;
+
+  useEffect(() => {
+    track("report_view", { pattern: result.pattern });
+  }, [result.pattern]);
 
   const personalFallback = ui.fallback({
     patternName: pattern.name,

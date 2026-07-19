@@ -14,6 +14,7 @@ import {
   saveSession,
   type LlmChapters,
 } from "./lib/supabase";
+import { identifyEmail, setAnalyticsContext, track } from "./lib/analytics";
 import { detectLang, persistLang, LangContext, UI, type Lang } from "./i18n";
 
 type Step = "landing" | "quiz" | "analyzing" | "email" | "teaser" | "report";
@@ -66,17 +67,31 @@ export default function App() {
     persistLang(lang);
     document.documentElement.lang = lang;
     document.title = UI[lang].title;
+    setAnalyticsContext({ lang });
   }, [lang]);
 
+  useEffect(() => {
+    track("page_view", { step });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (result?.pattern) setAnalyticsContext({ pattern: result.pattern });
+  }, [result?.pattern]);
+
   const finishQuiz = (final: Answers) => {
+    const finalResult = score(final, lang);
     setAnswers(final);
     setStep("analyzing");
-    void saveSession({ answers: final, result: score(final, lang), stage: "completed" });
+    track("quiz_complete", { pattern: finalResult.pattern });
+    void saveSession({ answers: final, result: finalResult, stage: "completed" });
   };
 
   const submitEmail = (value: string) => {
     setEmail(value);
     setStep("teaser");
+    track("email_submitted");
+    identifyEmail(value);
     if (result) void saveSession({ answers, result, email: value, stage: "email" });
   };
 
@@ -131,6 +146,9 @@ export default function App() {
   }, [step]);
 
   const startUnlock = () => {
+    // Fires on the click itself: with payments on, the gap to report_view is
+    // checkout abandonment; the webhook-driven unlock() must not re-fire it.
+    track("unlock_click");
     if (!paymentsEnabled) {
       unlock();
       return;
@@ -155,7 +173,10 @@ export default function App() {
   };
 
   const switchLang = (next: Lang) => {
-    if (next !== lang) setLang(next);
+    if (next !== lang) {
+      track("lang_switch", { to: next });
+      setLang(next);
+    }
   };
 
   return (
@@ -175,11 +196,24 @@ export default function App() {
           ))}
         </div>
 
-        {step === "landing" && <Landing onStart={() => setStep("quiz")} />}
+        {step === "landing" && (
+          <Landing
+            onStart={() => {
+              track("quiz_start");
+              setStep("quiz");
+            }}
+          />
+        )}
         {step === "quiz" && <Quiz initialAnswers={answers} onFinish={finishQuiz} />}
         {step === "analyzing" && <Analyzing onDone={() => setStep("email")} />}
         {step === "email" && (
-          <EmailCapture onSubmit={submitEmail} onSkip={() => setStep("teaser")} />
+          <EmailCapture
+            onSubmit={submitEmail}
+            onSkip={() => {
+              track("email_skipped");
+              setStep("teaser");
+            }}
+          />
         )}
         {step === "teaser" && result && (
           <Teaser result={result} onUnlock={startUnlock} payState={payState} />

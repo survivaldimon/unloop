@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { INSIGHT_BLOCKS } from "../content/insights";
 import { getInsight, getQuestions } from "../content/localized";
+import { track } from "../lib/analytics";
 import { t, useLang } from "../i18n";
 import type { QuizQuestion } from "../types";
 import type { Answers } from "../lib/scoring";
@@ -87,6 +88,11 @@ export default function Quiz({
           onSelect={(optionId) => {
             const updated = { ...answers, [screen.q.id]: optionId };
             setAnswers(updated);
+            track("question_answered", {
+              question_id: screen.q.id,
+              block: screen.q.block,
+              index: questions.indexOf(screen.q) + 1,
+            });
             // Small delay so the selection state is visible before the slide.
             setTimeout(() => advance(updated), 180);
           }}
@@ -144,6 +150,11 @@ function InsightView({
   const lang = useLang();
   const ui = t(lang).quiz;
   const { title, body } = getInsight(lang, afterBlock, answers);
+
+  useEffect(() => {
+    track("insight_view", { block: afterBlock });
+  }, [afterBlock]);
+
   return (
     <div className="flex flex-1 flex-col justify-center gap-5 py-8">
       <span className="rise text-xs font-semibold tracking-widest text-violet uppercase">
