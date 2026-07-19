@@ -37,6 +37,26 @@ function timingSafeEqual(a: string, b: string): boolean {
 }
 
 /**
+ * The Standard Webhooks secret is conventionally `whsec_<base64-key>` where the
+ * key is base64-DECODED before HMAC, but Polar's docs describe using the secret
+ * string as-is. Accept both interpretations — verification with two candidate
+ * keys derived from the same secret does not weaken it.
+ */
+function candidateKeys(secret: string): Uint8Array[] {
+  const keys: Uint8Array[] = [new TextEncoder().encode(secret)];
+  const stripped = secret.replace(/^(whsec_|polar_whs_)/, "");
+  if (stripped !== secret) {
+    keys.push(new TextEncoder().encode(stripped));
+    try {
+      keys.push(Uint8Array.from(atob(stripped), (c) => c.charCodeAt(0)));
+    } catch {
+      // stripped part is not valid base64 — skip that candidate
+    }
+  }
+  return keys;
+}
+
+/**
  * Standard Webhooks: signed content is `${webhook-id}.${webhook-timestamp}.${body}`,
  * signature header is a space-delimited list of `v1,<base64 hmac-sha256>`.
  */
@@ -54,25 +74,26 @@ async function verifySignature(
   if (!Number.isFinite(tsNum)) return false;
   if (Math.abs(Date.now() / 1000 - tsNum) > SIGNATURE_TOLERANCE_SECONDS) return false;
 
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const mac = await crypto.subtle.sign(
-    "HMAC",
-    key,
-    new TextEncoder().encode(`${id}.${ts}.${rawBody}`),
-  );
-  const expected = btoa(String.fromCharCode(...new Uint8Array(mac)));
-
-  return sigHeader
+  const payload = new TextEncoder().encode(`${id}.${ts}.${rawBody}`);
+  const provided = sigHeader
     .split(" ")
     .map((s) => s.trim())
     .filter((s) => s.startsWith("v1,"))
-    .some((s) => timingSafeEqual(s.slice(3), expected));
+    .map((s) => s.slice(3));
+
+  for (const keyBytes of candidateKeys(secret)) {
+    const key = await crypto.subtle.importKey(
+      "raw",
+      keyBytes,
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
+    const mac = await crypto.subtle.sign("HMAC", key, payload);
+    const expected = btoa(String.fromCharCode(...new Uint8Array(mac)));
+    if (provided.some((p) => timingSafeEqual(p, expected))) return true;
+  }
+  return false;
 }
 
 const UUID_RE =
