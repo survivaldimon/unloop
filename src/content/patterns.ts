@@ -344,11 +344,11 @@ const GENERIC_SLOTS: Record<"en" | "ru", Record<string, string>> = {
     fear: "the fear that started all of this",
   },
   ru: {
-    silence_thought: "прогнать тишину через все фильтры",
+    silence_thought: "прокрутить всё ещё раз по кругу",
     distance_feeling: "то самое знакомое сжатие в груди",
     first_move: "твой фирменный ход",
     ending: "финал, который ты знаешь наизусть",
-    fear: "страх, с которого всё началось",
+    fear: "что всё опять повторится",
   },
 };
 
