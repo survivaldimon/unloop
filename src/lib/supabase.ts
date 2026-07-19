@@ -43,6 +43,31 @@ export async function saveSession(data: {
   }
 }
 
+/** Fire-and-forget "your result" email via the send-result edge function; silent no-op without a backend. */
+export async function sendResultEmail(args: {
+  email: string;
+  lang: "en" | "ru";
+  patternName: string;
+  tagline: string;
+  insights: string[];
+}): Promise<void> {
+  if (!supabase) return;
+  try {
+    await supabase.functions.invoke("unloop-send-result", {
+      body: {
+        session_id: getSessionId(),
+        email: args.email,
+        lang: args.lang,
+        pattern_name: args.patternName,
+        tagline: args.tagline,
+        insights: args.insights,
+      },
+    });
+  } catch {
+    // non-fatal
+  }
+}
+
 /**
  * Returns the paid_at timestamp for this session, or null if unpaid.
  * paid_at is set exclusively by the unloop-payment-webhook edge function.

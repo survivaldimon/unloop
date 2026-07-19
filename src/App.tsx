@@ -12,9 +12,12 @@ import {
   generateLlmChapters,
   getSessionId,
   saveSession,
+  sendResultEmail,
   type LlmChapters,
 } from "./lib/supabase";
 import { identifyEmail, setAnalyticsContext, track } from "./lib/analytics";
+import { fillSlots } from "./content/patterns";
+import { getPattern } from "./content/localized";
 import { detectLang, persistLang, LangContext, UI, type Lang } from "./i18n";
 
 type Step = "landing" | "quiz" | "analyzing" | "email" | "teaser" | "report";
@@ -92,7 +95,19 @@ export default function App() {
     setStep("teaser");
     track("email_submitted");
     identifyEmail(value);
-    if (result) void saveSession({ answers, result, email: value, stage: "email" });
+    if (result) {
+      const pattern = getPattern(lang, result.pattern);
+      // The send function only mails addresses already stored on the session, so save first.
+      void saveSession({ answers, result, email: value, stage: "email" }).then(() =>
+        sendResultEmail({
+          email: value,
+          lang,
+          patternName: pattern.name,
+          tagline: pattern.tagline,
+          insights: pattern.teaserInsights.map((line) => fillSlots(line, result.quotes, lang)),
+        }),
+      );
+    }
   };
 
   const unlock = () => {
