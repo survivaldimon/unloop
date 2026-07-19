@@ -1,19 +1,25 @@
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
+import { paymentsEnabled } from "../lib/payments";
 import { t, useLang } from "../i18n";
 import type { ScoreResult } from "../types";
 import LoopDiagram from "./LoopDiagram";
 
+export type PayState = "idle" | "confirming" | "error";
+
 export default function Teaser({
   result,
   onUnlock,
+  payState = "idle",
 }: {
   result: ScoreResult;
   onUnlock: () => void;
+  payState?: PayState;
 }) {
   const lang = useLang();
   const ui = t(lang).teaser;
   const pattern = getPattern(lang, result.pattern);
+  const confirming = payState === "confirming";
 
   return (
     <div className="flex flex-col gap-6 py-4">
@@ -51,10 +57,20 @@ export default function Teaser({
           style={{ background: "linear-gradient(180deg, transparent, #16121f 70%)" }}
         />
         <div className="absolute inset-x-6 bottom-6">
-          <button className="btn-primary" onClick={onUnlock}>
-            {ui.unlock}
+          <button
+            className="btn-primary disabled:opacity-60"
+            onClick={onUnlock}
+            disabled={confirming}
+          >
+            {confirming ? ui.confirming : ui.unlock}
           </button>
-          <p className="mt-2 text-center text-xs text-mist/70">{ui.testNote}</p>
+          {payState === "error" ? (
+            <p className="mt-2 text-center text-xs text-rose">{ui.payError}</p>
+          ) : (
+            <p className="mt-2 text-center text-xs text-mist/70">
+              {paymentsEnabled ? ui.payNote : ui.testNote}
+            </p>
+          )}
         </div>
       </div>
 

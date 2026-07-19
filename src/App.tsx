@@ -1,12 +1,19 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Landing from "./components/Landing";
 import Quiz from "./components/Quiz";
 import Analyzing from "./components/Analyzing";
 import EmailCapture from "./components/EmailCapture";
-import Teaser from "./components/Teaser";
+import Teaser, { type PayState } from "./components/Teaser";
 import Report from "./components/Report";
 import { score, type Answers } from "./lib/scoring";
-import { generateLlmChapters, saveSession, type LlmChapters } from "./lib/supabase";
+import { openCheckout, paymentsEnabled } from "./lib/payments";
+import {
+  fetchPaidAt,
+  generateLlmChapters,
+  getSessionId,
+  saveSession,
+  type LlmChapters,
+} from "./lib/supabase";
 import { detectLang, persistLang, LangContext, UI, type Lang } from "./i18n";
 
 type Step = "landing" | "quiz" | "analyzing" | "email" | "teaser" | "report";
@@ -40,6 +47,8 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(saved?.unlocked ?? false);
   const [llm, setLlm] = useState<LlmChapters | null>(null);
   const [llmLoading, setLlmLoading] = useState(false);
+  const [payState, setPayState] = useState<PayState>("idle");
+  const pollTimer = useRef<number | null>(null);
 
   const result = useMemo(
     () =>
@@ -72,6 +81,7 @@ export default function App() {
   };
 
   const unlock = () => {
+    setPayState("idle");
     setUnlocked(true);
     setStep("report");
     if (result) {
@@ -84,6 +94,56 @@ export default function App() {
     }
   };
 
+  /** Poll paid_at (set by the payment webhook) until it appears, then unlock. */
+  const awaitPaymentConfirmation = () => {
+    setPayState("confirming");
+    const startedAt = Date.now();
+    const tick = async () => {
+      const paidAt = await fetchPaidAt();
+      if (paidAt) {
+        unlock();
+        return;
+      }
+      if (Date.now() - startedAt > 90_000) {
+        setPayState("error");
+        return;
+      }
+      pollTimer.current = window.setTimeout(tick, 2500);
+    };
+    void tick();
+  };
+
+  useEffect(
+    () => () => {
+      if (pollTimer.current !== null) window.clearTimeout(pollTimer.current);
+    },
+    [],
+  );
+
+  // A paid session that never saw the webhook confirmation (tab closed mid-checkout,
+  // storage restored on another device) unlocks itself on return to the teaser.
+  useEffect(() => {
+    if (!paymentsEnabled || unlocked || step !== "teaser") return;
+    void fetchPaidAt().then((paidAt) => {
+      if (paidAt) unlock();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step]);
+
+  const startUnlock = () => {
+    if (!paymentsEnabled) {
+      unlock();
+      return;
+    }
+    openCheckout({
+      sessionId: getSessionId(),
+      email: email || undefined,
+      lang,
+      onPaid: awaitPaymentConfirmation,
+      onError: () => setPayState("error"),
+    }).catch(() => setPayState("error"));
+  };
+
   const restart = () => {
     localStorage.removeItem(STORAGE_KEY);
     setStep("landing");
@@ -91,6 +151,7 @@ export default function App() {
     setEmail("");
     setUnlocked(false);
     setLlm(null);
+    setPayState("idle");
   };
 
   const switchLang = (next: Lang) => {
@@ -120,7 +181,9 @@ export default function App() {
         {step === "email" && (
           <EmailCapture onSubmit={submitEmail} onSkip={() => setStep("teaser")} />
         )}
-        {step === "teaser" && result && <Teaser result={result} onUnlock={unlock} />}
+        {step === "teaser" && result && (
+          <Teaser result={result} onUnlock={startUnlock} payState={payState} />
+        )}
         {step === "report" && result && unlocked && (
           <Report result={result} llm={llm} llmLoading={llmLoading} onRestart={restart} />
         )}

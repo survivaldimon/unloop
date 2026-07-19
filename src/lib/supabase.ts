@@ -27,22 +27,36 @@ export async function saveSession(data: {
 }): Promise<void> {
   if (!supabase) return;
   try {
-    await supabase.from("sessions").upsert(
-      {
-        id: getSessionId(),
-        answers: data.answers,
-        pattern: data.result?.pattern ?? null,
-        anx: data.result?.anx ?? null,
-        avo: data.result?.avo ?? null,
-        raw_scores: data.result?.raw ?? null,
-        email: data.email ?? undefined,
-        stage: data.stage,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "id" },
-    );
+    // anon has no direct table access — writes go through a security-definer RPC
+    await supabase.rpc("unloop_save_session", {
+      p_id: getSessionId(),
+      p_answers: data.answers,
+      p_pattern: data.result?.pattern ?? null,
+      p_anx: data.result?.anx ?? null,
+      p_avo: data.result?.avo ?? null,
+      p_raw_scores: data.result?.raw ?? null,
+      p_email: data.email ?? null,
+      p_stage: data.stage,
+    });
   } catch {
     // non-fatal
+  }
+}
+
+/**
+ * Returns the paid_at timestamp for this session, or null if unpaid.
+ * paid_at is set exclusively by the unloop-payment-webhook edge function.
+ */
+export async function fetchPaidAt(): Promise<string | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await supabase.rpc("unloop_get_paid_status", {
+      p_session_id: getSessionId(),
+    });
+    if (error) return null;
+    return typeof data === "string" && data ? data : null;
+  } catch {
+    return null;
   }
 }
 
