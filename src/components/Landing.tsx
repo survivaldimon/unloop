@@ -8,7 +8,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
   return (
     <div className="flex flex-1 flex-col justify-between">
       <header className="rise pt-2 text-sm font-semibold tracking-widest text-mist">
-        UNLOOP
+        LOOPLORE
       </header>
 
       <main className="flex flex-col gap-6 py-8">

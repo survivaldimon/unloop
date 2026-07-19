@@ -21,7 +21,7 @@
 | Секрет | Назначение | Сейчас |
 |---|---|---|
 | `RESEND_API_KEY` | ключ API Resend | **отсутствует** — функция отвечает `email_not_configured` |
-| `RESEND_FROM` | адрес отправителя | не задан → дефолт `Unloop <onboarding@resend.dev>` (dev-режим) |
+| `RESEND_FROM` | адрес отправителя | не задан → дефолт `Looplore <onboarding@resend.dev>` (dev-режим) |
 | `UNLOOP_SITE_URL` | ссылка кнопки CTA | не задан → дефолт `https://survivaldimon.github.io/unloop/` |
 
 Положить ключ в Vault (не светится в env):
@@ -56,7 +56,7 @@ npx supabase secrets set RESEND_API_KEY=re_xxxxxxxx --project-ref ncfpxetzmeeqxg
 3. Дождаться статуса **Verified** в Resend (обычно минуты, до 72 ч).
 4. **Сменить отправителя**:
    ```bash
-   npx supabase secrets set "RESEND_FROM=Unloop <hello@looplore.app>" --project-ref ncfpxetzmeeqxgqidosj
+   npx supabase secrets set "RESEND_FROM=Looplore <hello@looplore.app>" --project-ref ncfpxetzmeeqxgqidosj
    ```
    (редеплой функции не нужен — env подхватывается сразу).
 5. Если сайт переехал с github.io на свой домен — обновить ссылку кнопки:

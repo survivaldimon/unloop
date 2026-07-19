@@ -83,7 +83,7 @@ const OUTPUT_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const SYSTEM_PROMPT_BASE = `You write two short chapters of a personal relationship-pattern report for Unloop, a pop-psychology self-reflection test grounded in attachment theory.
+const SYSTEM_PROMPT_BASE = `You write two short chapters of a personal relationship-pattern report for Looplore, a pop-psychology self-reflection test grounded in attachment theory.
 
 Voice: warm but unsentimental, precise, a little literary. Second person. No clinical jargon, no diagnosis, no therapy-speak, no toxic-positivity. Sound like a perceptive friend who happens to know attachment theory. Never mention 'test', 'answers', 'quiz' mechanics more than once. Never invent facts about the reader beyond what the data supports.
 

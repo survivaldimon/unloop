@@ -59,7 +59,7 @@ Polar → webhook order.paid → edge fn unloop-polar-webhook
 2. Organization settings → создать **Organization Access Token**
    (`polar_oat_…`).
 3. `POLAR_ACCESS_TOKEN=<токен> node scripts/polar-setup.mjs` — создаст продукт
-   «Unloop Full Report» ($24) и webhook-endpoint `order.paid` → напечатает
+   «Looplore Full Report» ($24) и webhook-endpoint `order.paid` → напечатает
    4 SQL-команды для Vault (product id, webhook secret и т.д.). Выполнить их
    в SQL-редакторе Supabase или отдать Claude.
 4. `.env.local`: `VITE_PAYMENTS_ENABLED=true`, `VITE_PAYMENTS_PROVIDER=polar`

@@ -77,7 +77,7 @@ export interface UiStrings {
 
 export const UI: Record<Lang, UiStrings> = {
   en: {
-    title: "Unloop — Why do your relationships end the same way?",
+    title: "Looplore — Why do your relationships end the same way?",
     landing: {
       h1a: "You don't have bad luck in love.",
       h1b: "You have a loop.",
@@ -145,7 +145,7 @@ export const UI: Record<Lang, UiStrings> = {
       writing: "Writing your personal read…",
       retake: "Retake the test",
       disclaimer:
-        "Unloop is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
+        "Looplore is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
         `Across 28 scored answers, your responses kept returning to one shape: ${tagline.toLowerCase()} ` +
         `Your anxiety signal scored ${anx}/100 and your avoidance signal ${avo}/100 — ` +
@@ -157,7 +157,7 @@ export const UI: Record<Lang, UiStrings> = {
     loop: { back: "↺ back to 1", scrambleSlot: "your own words from the test" },
   },
   ru: {
-    title: "Unloop — Почему твои отношения заканчиваются одинаково?",
+    title: "Looplore — Почему твои отношения заканчиваются одинаково?",
     landing: {
       h1a: "Это не невезение в любви.",
       h1b: "Это твой замкнутый круг.",
@@ -225,7 +225,7 @@ export const UI: Record<Lang, UiStrings> = {
       writing: "Пишем твоё личное прочтение…",
       retake: "Пройти тест заново",
       disclaimer:
-        "Unloop — инструмент саморефлексии на основе исследований привязанности. Это не терапия, не диагностика и не медицинская рекомендация.",
+        "Looplore — инструмент саморефлексии на основе исследований привязанности. Это не терапия, не диагностика и не медицинская рекомендация.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
         `В 28 ответах раз за разом проступает одна и та же форма: ${tagline.toLowerCase()} ` +
         `Твой сигнал тревожности — ${anx}/100, избегания — ${avo}/100: ровно та смесь, ` +

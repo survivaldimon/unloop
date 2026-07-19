@@ -11,7 +11,7 @@ interface ImportMetaEnv {
   readonly VITE_PADDLE_ENV?: string;
   /** Paddle client-side token: test_… for sandbox, live_… for production */
   readonly VITE_PADDLE_CLIENT_TOKEN?: string;
-  /** Paddle price id (pri_…) of the Unloop Full Report one-time price */
+  /** Paddle price id (pri_…) of the Looplore Full Report one-time price */
   readonly VITE_PADDLE_PRICE_ID?: string;
   /** PostHog project API key (phc_…); absent = analytics is a no-op */
   readonly VITE_POSTHOG_KEY?: string;

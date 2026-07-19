@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * One-shot Polar configuration for Unloop: creates the $24 one-time product and
+ * One-shot Polar configuration for Looplore: creates the $24 one-time product and
  * the order.paid webhook endpoint pointing at the Supabase edge function.
  * Safe to re-run — existing entities are reused, not duplicated.
  *
@@ -16,7 +16,7 @@ const TOKEN = process.env.POLAR_ACCESS_TOKEN;
 const ENV = process.env.POLAR_ENV === "production" ? "production" : "sandbox";
 const BASE = ENV === "production" ? "https://api.polar.sh" : "https://sandbox-api.polar.sh";
 
-const PRODUCT_NAME = "Unloop Full Report";
+const PRODUCT_NAME = "Looplore Full Report";
 const PRICE_USD_CENTS = 2400; // $24.00
 const WEBHOOK_URL =
   "https://ncfpxetzmeeqxgqidosj.supabase.co/functions/v1/unloop-polar-webhook";

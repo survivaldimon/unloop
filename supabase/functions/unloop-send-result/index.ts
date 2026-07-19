@@ -7,7 +7,7 @@ const CORS = {
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 /** Until the domain is verified, Resend only allows onboarding@resend.dev → account owner's inbox. */
-const DEFAULT_FROM = "Unloop <onboarding@resend.dev>";
+const DEFAULT_FROM = "Looplore <onboarding@resend.dev>";
 const DEFAULT_SITE_URL = "https://survivaldimon.github.io/unloop/";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -34,9 +34,9 @@ const COPY: Record<"en" | "ru", Copy> = {
     cta: "Open my full report →",
     note: "Your full breakdown is on the site: your loop step by step, where it comes from, and how to break it.",
     footerReason:
-      "You're getting this one-time email because you asked for a copy of your Unloop result.",
+      "You're getting this one-time email because you asked for a copy of your Looplore result.",
     disclaimer:
-      "Unloop is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
+      "Looplore is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
   },
   ru: {
     subject: (p) => `У твоего круга есть имя: ${p}`,
@@ -47,9 +47,9 @@ const COPY: Record<"en" | "ru", Copy> = {
     cta: "Открыть полный разбор →",
     note: "Полный разбор ждёт на сайте: твой круг по шагам, откуда он взялся и как его разорвать.",
     footerReason:
-      "Это разовое письмо: ты оставил(а) свой адрес после теста Unloop, чтобы получить копию результата.",
+      "Это разовое письмо: ты оставил(а) свой адрес после теста Looplore, чтобы получить копию результата.",
     disclaimer:
-      "Unloop — инструмент саморефлексии на основе исследований привязанности. Это не терапия, не диагностика и не медицинская рекомендация.",
+      "Looplore — инструмент саморефлексии на основе исследований привязанности. Это не терапия, не диагностика и не медицинская рекомендация.",
   },
 };
 
