@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-ink: #0d0b14;
+  --color-ink-2: #16121f;
+  --color-ink-3: #201a2e;
+  --color-mist: #b9b3c9;
+  --color-paper: #f2eff7;
+  --color-rose: #f472b6;
+  --color-violet: #a78bfa;
+  --color-amber: #fbbf24;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #f472b6 10%, #a78bfa 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply block w-full rounded-2xl px-6 py-4 text-center text-base font-semibold text-white transition active:scale-[0.98];
+  background: linear-gradient(100deg, #ec4899, #8b5cf6);
+  box-shadow: 0 8px 30px -8px rgba(196, 100, 235, 0.55);
+}
+
+.btn-option {
+  @apply block w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
+}
+.btn-option:hover {
+  @apply border-white/25 bg-white/[0.08];
+}
+
+.card {
+  @apply rounded-3xl border border-white/10 bg-white/[0.04] p-6;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.19s; }
+.rise-4 { animation-delay: 0.26s; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
