@@ -1,8 +1,5 @@
-/**
- * Paddle Billing overlay checkout (Paddle.js v2), behind VITE_PAYMENTS_ENABLED.
- * When the flag is off (or config is incomplete) the app falls back to the
- * free test-mode unlock button.
- */
+/** Paddle Billing overlay checkout (Paddle.js v2). */
+import type { CheckoutOptions, PaymentProvider } from "./types";
 
 declare global {
   interface Window {
@@ -20,21 +17,12 @@ declare global {
   }
 }
 
-const enabled = import.meta.env.VITE_PAYMENTS_ENABLED === "true";
 const token = import.meta.env.VITE_PADDLE_CLIENT_TOKEN as string | undefined;
 const priceId = import.meta.env.VITE_PADDLE_PRICE_ID as string | undefined;
 const paddleEnv =
   (import.meta.env.VITE_PADDLE_ENV as string | undefined) === "production"
     ? "production"
     : "sandbox";
-
-export const paymentsEnabled: boolean = enabled && !!token && !!priceId;
-
-if (enabled && !paymentsEnabled) {
-  console.warn(
-    "VITE_PAYMENTS_ENABLED is true but VITE_PADDLE_CLIENT_TOKEN / VITE_PADDLE_PRICE_ID are missing — falling back to test unlock",
-  );
-}
 
 let scriptPromise: Promise<void> | null = null;
 let initialized = false;
@@ -59,19 +47,8 @@ function loadScript(): Promise<void> {
   return scriptPromise;
 }
 
-/**
- * Opens the Paddle overlay checkout. `onPaid` fires on the checkout.completed
- * event — payment is only *trusted* once the webhook sets paid_at in Supabase,
- * so callers should poll the paid status after this fires.
- */
-export async function openCheckout(opts: {
-  sessionId: string;
-  email?: string;
-  lang: "en" | "ru";
-  onPaid: () => void;
-  onError?: () => void;
-}): Promise<void> {
-  if (!paymentsEnabled || !token || !priceId) throw new Error("payments disabled");
+async function openCheckout(opts: CheckoutOptions): Promise<void> {
+  if (!token || !priceId) throw new Error("paddle not configured");
   await loadScript();
   const paddle = window.Paddle;
   if (!paddle) throw new Error("paddle.js unavailable");
@@ -113,3 +90,9 @@ export async function openCheckout(opts: {
     },
   });
 }
+
+export const paddleProvider: PaymentProvider = {
+  name: "Paddle",
+  configured: !!token && !!priceId,
+  openCheckout,
+};

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@polar-sh/checkout": "^0.4.0",
     "@supabase/supabase-js": "^2.49.0",
     "posthog-js": "^1.404.1",
     "react": "^19.0.0",

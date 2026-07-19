@@ -39,7 +39,7 @@ export interface UiStrings {
     loopTitle: string;
     unlock: string;
     testNote: string;
-    payNote: string;
+    payNote: (provider: string) => string;
     confirming: string;
     payError: string;
     inReport: string;
@@ -112,7 +112,7 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Your loop · 5 steps",
       unlock: "Unlock my full report",
       testNote: "test mode · payment off · one tap to unlock",
-      payNote: "one-time payment · secure checkout by Paddle",
+      payNote: (provider) => `one-time payment · secure checkout by ${provider}`,
       confirming: "Payment received — unlocking your report…",
       payError:
         "We couldn't confirm the payment automatically. If you were charged, reload this page in a minute — your report will be waiting.",
@@ -192,7 +192,7 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Твой круг · 5 шагов",
       unlock: "Открыть полный разбор",
       testNote: "тестовый режим · оплата выключена · открывается в один тап",
-      payNote: "разовый платёж · безопасная оплата через Paddle",
+      payNote: (provider) => `разовый платёж · безопасная оплата через ${provider}`,
       confirming: "Оплата получена — открываем твой разбор…",
       payError:
         "Не получилось автоматически подтвердить оплату. Если деньги списались — обнови страницу через минуту, разбор будет ждать тебя.",

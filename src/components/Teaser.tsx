@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
-import { paymentsEnabled } from "../lib/payments";
+import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
 import { t, useLang } from "../i18n";
 import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
@@ -74,7 +74,7 @@ export default function Teaser({
             <p className="mt-2 text-center text-xs text-rose">{ui.payError}</p>
           ) : (
             <p className="mt-2 text-center text-xs text-mist/70">
-              {paymentsEnabled ? ui.payNote : ui.testNote}
+              {paymentsEnabled ? ui.payNote(paymentsProviderName) : ui.testNote}
             </p>
           )}
         </div>
