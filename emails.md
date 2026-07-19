@@ -7,7 +7,7 @@
   Защита: письмо уходит **только** на адрес, уже сохранённый в `unloop_sessions.email` для этой сессии,
   и **только один раз** на сессию (колонка `result_email_sent_at`).
 - **Шаблон письма** EN/RU: тёмная тема сайта, table-верстка + inline-стили (читаемо в Gmail),
-  имя паттерна, тизер из 2 инсайтов, кнопка «Открыть полный разбор» → `https://survivaldimon.github.io/unloop/`.
+  имя паттерна, тизер из 2 инсайтов, кнопка «Открыть полный разбор» → `https://looplore.app/`.
   Plain-text версия прилагается. Исходник: `supabase/functions/unloop-send-result/index.ts`.
 - **Вызов на клиенте**: `submitEmail` в `src/App.tsx` → `saveSession(...)` → `sendResultEmail(...)`
   (fire-and-forget, переход к тизеру не блокируется; no-op без настроенного бэкенда).
@@ -22,7 +22,7 @@
 |---|---|---|
 | `RESEND_API_KEY` | ключ API Resend | **отсутствует** — функция отвечает `email_not_configured` |
 | `RESEND_FROM` | адрес отправителя | не задан → дефолт `Looplore <onboarding@resend.dev>` (dev-режим) |
-| `UNLOOP_SITE_URL` | ссылка кнопки CTA | не задан → дефолт `https://survivaldimon.github.io/unloop/` |
+| `UNLOOP_SITE_URL` | ссылка кнопки CTA | не задан → дефолт `https://looplore.app/` |
 
 Положить ключ в Vault (не светится в env):
 
