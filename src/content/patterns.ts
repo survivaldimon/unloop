@@ -330,23 +330,28 @@ export const PATTERNS: Record<PatternId, Pattern> = {
 export function fillSlots(
   text: string,
   quotes: Partial<Record<string, string>>,
+  lang: "en" | "ru" = "en",
 ): string {
-  return text.replace(/\{(\w+)\}/g, (_, key) => quotes[key] ?? genericSlot(key));
+  return text.replace(/\{(\w+)\}/g, (_, key) => quotes[key] ?? genericSlot(key, lang));
 }
 
-function genericSlot(key: string): string {
-  switch (key) {
-    case "silence_thought":
-      return "run the silence through every filter you have";
-    case "distance_feeling":
-      return "that old familiar pull in your chest";
-    case "first_move":
-      return "your signature move";
-    case "ending":
-      return "the ending you already know by heart";
-    case "fear":
-      return "the fear that started all of this";
-    default:
-      return "…";
-  }
+const GENERIC_SLOTS: Record<"en" | "ru", Record<string, string>> = {
+  en: {
+    silence_thought: "run the silence through every filter you have",
+    distance_feeling: "that old familiar pull in your chest",
+    first_move: "your signature move",
+    ending: "the ending you already know by heart",
+    fear: "the fear that started all of this",
+  },
+  ru: {
+    silence_thought: "прогнать тишину через все фильтры",
+    distance_feeling: "то самое знакомое сжатие в груди",
+    first_move: "твой фирменный ход",
+    ending: "финал, который ты знаешь наизусть",
+    fear: "страх, с которого всё началось",
+  },
+};
+
+function genericSlot(key: string, lang: "en" | "ru"): string {
+  return GENERIC_SLOTS[lang][key] ?? "…";
 }

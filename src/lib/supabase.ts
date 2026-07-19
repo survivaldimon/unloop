@@ -52,12 +52,16 @@ export interface LlmChapters {
 }
 
 /** Calls the generate-report edge function; returns null on any failure so the UI can fall back. */
-export async function generateLlmChapters(result: ScoreResult): Promise<LlmChapters | null> {
+export async function generateLlmChapters(
+  result: ScoreResult,
+  lang: "en" | "ru" = "en",
+): Promise<LlmChapters | null> {
   if (!supabase) return null;
   try {
     const { data, error } = await supabase.functions.invoke("unloop-generate-report", {
       body: {
         session_id: getSessionId(),
+        lang,
         pattern: result.pattern,
         secondary: result.secondary,
         anx: result.anx,

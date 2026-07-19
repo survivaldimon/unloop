@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
-
-const STEPS = [
-  "Reading your 28 scored answers…",
-  "Mapping anxiety and avoidance signals…",
-  "Isolating your trigger profile…",
-  "Reconstructing your loop, step by step…",
-];
+import { t, useLang } from "../i18n";
 
 export default function Analyzing({ onDone }: { onDone: () => void }) {
+  const steps = t(useLang()).analyzing;
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    if (step >= STEPS.length) {
-      const t = setTimeout(onDone, 400);
-      return () => clearTimeout(t);
+    if (step >= steps.length) {
+      const timer = setTimeout(onDone, 400);
+      return () => clearTimeout(timer);
     }
-    const t = setTimeout(() => setStep(step + 1), 1100);
-    return () => clearTimeout(t);
-  }, [step, onDone]);
+    const timer = setTimeout(() => setStep(step + 1), 1100);
+    return () => clearTimeout(timer);
+  }, [step, steps.length, onDone]);
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-8 text-center">
@@ -26,7 +21,7 @@ export default function Analyzing({ onDone }: { onDone: () => void }) {
         <div className="absolute inset-3 animate-pulse rounded-full bg-violet/20" />
       </div>
       <div className="flex flex-col gap-2">
-        {STEPS.slice(0, step + 1).map((s, i) => (
+        {steps.slice(0, step + 1).map((s, i) => (
           <p
             key={s}
             className={`text-[15px] ${i === step ? "pulse-soft text-paper" : "text-mist/50"}`}

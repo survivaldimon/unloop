@@ -1,14 +1,8 @@
-import type { Answers } from "../lib/scoring";
-import { partialLean } from "../lib/scoring";
+/** English copy for mid-quiz insight screens. Russian mirror lives in ./ru/insights.ts. */
+export const INSIGHT_BLOCKS = [2, 3, 4];
 
-export interface InsightScreen {
-  afterBlock: number;
-  kicker: string;
-  build: (answers: Answers) => { title: string; body: string };
-}
-
-const LEAN_COPY: Record<
-  ReturnType<typeof partialLean>,
+export const LEAN_COPY: Record<
+  "anx" | "avo" | "mixed" | "steady",
   { early: [string, string]; trigger: [string, string]; moves: [string, string] }
 > = {
   anx: {
@@ -68,14 +62,3 @@ const LEAN_COPY: Record<
     ],
   },
 };
-
-export const INSIGHT_SCREENS: InsightScreen[] = [2, 3, 4].map((block) => ({
-  afterBlock: block,
-  kicker: `Checkpoint ${block - 1} of 3`,
-  build: (answers) => {
-    const lean = partialLean(answers);
-    const key = block === 2 ? "early" : block === 3 ? "trigger" : "moves";
-    const [title, body] = LEAN_COPY[lean][key];
-    return { title, body };
-  },
-}));

@@ -1,4 +1,8 @@
-import { QUESTIONS, SCORED_QUESTIONS } from "../content/questions";
+import { SCORED_QUESTIONS } from "../content/questions";
+// Circular with localized.ts by design: both sides only touch each other's
+// exports at call time, which ESM resolves safely.
+import { getQuestions } from "../content/localized";
+import type { Lang } from "../i18n";
 import type { PatternId, ScaleId, ScoreResult } from "../types";
 
 const SCALES: ScaleId[] = ["ANX", "AVO", "PROTEST", "RUMIN", "TEST", "CARE", "DEACT", "SUFF"];
@@ -28,13 +32,16 @@ const AVO_SUBS: Array<[ScaleId, PatternId]> = [
   ["SUFF", "fortress"],
 ];
 
-export function score(answers: Answers): ScoreResult {
+/** Weights always come from the EN source; `lang` only affects quoted answer text. */
+export function score(answers: Answers, lang: Lang = "en"): ScoreResult {
   const raw = Object.fromEntries(SCALES.map((s) => [s, 0])) as Record<ScaleId, number>;
   const quotes: ScoreResult["quotes"] = {};
   let status = "";
   let goal = "";
 
-  for (const q of QUESTIONS) {
+  const questions = getQuestions(lang);
+
+  for (const q of questions) {
     const opt = q.options.find((o) => o.id === answers[q.id]);
     if (!opt) continue;
     if (q.id === "q2") status = opt.text;
@@ -74,7 +81,7 @@ export function score(answers: Answers): ScoreResult {
   return { raw, anx, avo, pattern, secondary, quotes, status, goal };
 }
 
-/** Partial scores over answered questions — used by insight screens mid-quiz. */
+/** Partial scores over answered questions — used by insight screens mid-quiz. Language-agnostic. */
 export function partialLean(answers: Answers): "anx" | "avo" | "mixed" | "steady" {
   const raw = { ANX: 0, AVO: 0, secure: 0 };
   for (const q of SCORED_QUESTIONS) {

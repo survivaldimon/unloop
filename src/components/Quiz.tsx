@@ -1,23 +1,23 @@
 import { useMemo, useState } from "react";
-import { QUESTIONS } from "../content/questions";
-import { INSIGHT_SCREENS } from "../content/insights";
+import { INSIGHT_BLOCKS } from "../content/insights";
+import { getInsight, getQuestions } from "../content/localized";
+import { t, useLang } from "../i18n";
 import type { QuizQuestion } from "../types";
 import type { Answers } from "../lib/scoring";
 
 type Screen =
   | { type: "question"; q: QuizQuestion }
-  | { type: "insight"; afterBlock: number; kicker: string };
+  | { type: "insight"; afterBlock: number };
 
-function buildScreens(): Screen[] {
+function buildScreens(questions: QuizQuestion[]): Screen[] {
   const screens: Screen[] = [];
-  for (let i = 0; i < QUESTIONS.length; i++) {
-    const q = QUESTIONS[i];
+  for (let i = 0; i < questions.length; i++) {
+    const q = questions[i];
     screens.push({ type: "question", q });
-    const next = QUESTIONS[i + 1];
+    const next = questions[i + 1];
     const blockEnds = !next || next.block !== q.block;
-    const insight = INSIGHT_SCREENS.find((s) => s.afterBlock === q.block);
-    if (blockEnds && insight) {
-      screens.push({ type: "insight", afterBlock: q.block, kicker: insight.kicker });
+    if (blockEnds && INSIGHT_BLOCKS.includes(q.block)) {
+      screens.push({ type: "insight", afterBlock: q.block });
     }
   }
   return screens;
@@ -30,7 +30,9 @@ export default function Quiz({
   initialAnswers: Answers;
   onFinish: (answers: Answers) => void;
 }) {
-  const screens = useMemo(buildScreens, []);
+  const lang = useLang();
+  const questions = getQuestions(lang);
+  const screens = useMemo(() => buildScreens(questions), [questions]);
   const [answers, setAnswers] = useState<Answers>(initialAnswers);
 
   const firstUnanswered = screens.findIndex(
@@ -38,8 +40,8 @@ export default function Quiz({
   );
   const [index, setIndex] = useState(firstUnanswered === -1 ? 0 : firstUnanswered);
 
-  const questionCount = QUESTIONS.length;
-  const answeredCount = QUESTIONS.filter((q) => answers[q.id]).length;
+  const questionCount = questions.length;
+  const answeredCount = questions.filter((q) => answers[q.id]).length;
   const progress = Math.round((answeredCount / questionCount) * 100);
 
   const advance = (updated: Answers) => {
@@ -79,7 +81,7 @@ export default function Quiz({
 
       {screen.type === "question" ? (
         <QuestionScreen
-          key={screen.q.id}
+          key={`${screen.q.id}-${lang}`}
           q={screen.q}
           selected={answers[screen.q.id]}
           onSelect={(optionId) => {
@@ -90,7 +92,12 @@ export default function Quiz({
           }}
         />
       ) : (
-        <InsightView key={`insight-${screen.afterBlock}`} answers={answers} afterBlock={screen.afterBlock} kicker={screen.kicker} onNext={() => advance(answers)} />
+        <InsightView
+          key={`insight-${screen.afterBlock}-${lang}`}
+          answers={answers}
+          afterBlock={screen.afterBlock}
+          onNext={() => advance(answers)}
+        />
       )}
     </div>
   );
@@ -128,27 +135,26 @@ function QuestionScreen({
 function InsightView({
   answers,
   afterBlock,
-  kicker,
   onNext,
 }: {
   answers: Answers;
   afterBlock: number;
-  kicker: string;
   onNext: () => void;
 }) {
-  const screen = INSIGHT_SCREENS.find((s) => s.afterBlock === afterBlock)!;
-  const { title, body } = screen.build(answers);
+  const lang = useLang();
+  const ui = t(lang).quiz;
+  const { title, body } = getInsight(lang, afterBlock, answers);
   return (
     <div className="flex flex-1 flex-col justify-center gap-5 py-8">
       <span className="rise text-xs font-semibold tracking-widest text-violet uppercase">
-        {kicker}
+        {ui.checkpoint(afterBlock - 1)}
       </span>
       <h2 className="font-display rise rise-1 text-[1.8rem] leading-tight font-semibold">
         {title}
       </h2>
       <p className="rise rise-2 text-[16px] leading-relaxed text-mist">{body}</p>
       <button className="btn-primary rise rise-3 mt-4" onClick={onNext}>
-        Continue →
+        {ui.next}
       </button>
     </div>
   );
