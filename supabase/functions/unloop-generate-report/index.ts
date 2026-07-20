@@ -96,6 +96,22 @@ const LANG_SUFFIX: Record<string, string> = {
   ru: "\n\nОбе главы напиши по-русски, на «ты». Пиши как сильный русский автор поп-психологии, а не как переводчик: короткие фразы, живой разговорный ритм, никакого канцелярита, причастных цепочек и дословных калек с английского. Перечитай мысленно каждую фразу: если так не скажет живой человек — переформулируй. Цитаты ответов пользователя уже на русском — вплетай их дословно и так, чтобы падежи и род сходились. Название паттерна используй русское (поле nameRu).",
 };
 
+let cachedRequirePayment: boolean | null = null;
+
+/** Payment gate: env var first, Vault (unloop_get_secret) as fallback. */
+async function getRequirePayment(admin: ReturnType<typeof createClient>): Promise<boolean> {
+  if (cachedRequirePayment !== null) return cachedRequirePayment;
+  let value = Deno.env.get("UNLOOP_REQUIRE_PAYMENT") ?? "";
+  if (!value) {
+    const { data } = await admin.rpc("unloop_get_secret", {
+      secret_name: "UNLOOP_REQUIRE_PAYMENT",
+    });
+    if (typeof data === "string") value = data;
+  }
+  cachedRequirePayment = value.toLowerCase() === "true";
+  return cachedRequirePayment;
+}
+
 let cachedApiKey: string | null = null;
 
 async function getApiKey(admin: ReturnType<typeof createClient>): Promise<string | null> {
@@ -145,10 +161,9 @@ Deno.serve(async (req: Request) => {
       .eq("id", session_id)
       .maybeSingle();
 
-    // Off until launch: set UNLOOP_REQUIRE_PAYMENT=true to refuse generating for
+    // UNLOOP_REQUIRE_PAYMENT=true (env or Vault) refuses to generate for
     // sessions the payment webhook hasn't marked as paid.
-    const requirePayment =
-      (Deno.env.get("UNLOOP_REQUIRE_PAYMENT") ?? "").toLowerCase() === "true";
+    const requirePayment = await getRequirePayment(admin);
     if (requirePayment && !existing?.paid_at) {
       return json({ error: "payment_required" }, 402);
     }
