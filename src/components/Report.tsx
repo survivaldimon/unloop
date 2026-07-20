@@ -139,7 +139,7 @@ export default function Report({
             <LogoMark />
             LOOPLORE
           </span>
-          <span className="folio-no pr-20">{ui.header}</span>
+          <span className="folio-no">{ui.header}</span>
         </div>
         <hr className="hairline mt-2.5" />
         <div className="mt-6">

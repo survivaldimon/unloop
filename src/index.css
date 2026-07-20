@@ -151,6 +151,8 @@ body {
 /* Оглавление с точечными лидерами */
 .toc-dots {
   flex: 1;
+  /* без min-width многострочный пункт съедает всю ширину и точки исчезают */
+  min-width: 2.25rem;
   border-bottom: 1px dotted color-mix(in srgb, var(--color-mist) 50%, transparent);
   transform: translateY(-3px);
 }

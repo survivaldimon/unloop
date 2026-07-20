@@ -57,7 +57,8 @@ export default function Quiz({
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="flex items-center gap-3 pt-1">
+      {/* pt-6 keeps the counter clear of the fixed language switcher on phone widths */}
+      <div className="flex items-center gap-3 pt-6">
         <button
           className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-paper/20 bg-paper/5 text-[17px] text-paper/85 transition hover:border-brass hover:text-brass-2 active:scale-95 disabled:pointer-events-none disabled:opacity-0"
           disabled={index === 0}
@@ -127,6 +128,7 @@ function QuestionScreen({
   selected: string | undefined;
   onSelect: (optionId: string) => void;
 }) {
+  const letters = useLang() === "ru" ? "абвгде" : "abcdef";
   return (
     <div className="flex flex-1 flex-col gap-7 py-8">
       <h2 className="font-display rise text-[1.7rem] leading-snug font-semibold">{q.prompt}</h2>
@@ -140,7 +142,7 @@ function QuestionScreen({
             onClick={() => onSelect(o.id)}
           >
             <span className="opt-letter" aria-hidden="true">
-              {"abcdef"[i]}
+              {letters[i]}
             </span>
             <span>{o.text}</span>
           </button>

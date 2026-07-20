@@ -4,7 +4,8 @@ import LandingDial from "./LandingDial";
 import LogoMark from "./LogoMark";
 
 export default function Landing({ onStart }: { onStart: () => void }) {
-  const ui = t(useLang()).landing;
+  const lang = useLang();
+  const ui = t(lang).landing;
 
   return (
     <div className="flex flex-1 flex-col justify-between">
@@ -30,7 +31,12 @@ export default function Landing({ onStart }: { onStart: () => void }) {
           <LandingDial />
         </div>
 
-        <h1 className="font-display rise rise-1 relative z-10 mt-40 text-[2.7rem] leading-[1.04] font-semibold">
+        {/* русские фразы длиннее — на 2.7rem герой разрастается до 6 строк и уводит CTA под фолд */}
+        <h1
+          className={`font-display rise rise-1 relative z-10 mt-40 leading-[1.04] font-semibold ${
+            lang === "ru" ? "text-[2.125rem]" : "text-[2.7rem]"
+          }`}
+        >
           {ui.h1a}
           <br />
           <span className="text-brass italic">{ui.h1b}</span>
