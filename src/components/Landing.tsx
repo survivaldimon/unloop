@@ -1,5 +1,6 @@
 import { t, useLang } from "../i18n";
 import { ROMAN } from "../lib/visual";
+import LandingDial from "./LandingDial";
 import LogoMark from "./LogoMark";
 
 export default function Landing({ onStart }: { onStart: () => void }) {
@@ -17,14 +18,27 @@ export default function Landing({ onStart }: { onStart: () => void }) {
         <hr className="hairline mt-2.5" />
       </header>
 
-      <main className="flex flex-col py-8">
-        <h1 className="font-display rise rise-1 text-[2.5rem] leading-[1.06] font-semibold">
+      <main className="relative flex flex-col py-8">
+        <div
+          className="rise pointer-events-none absolute -top-4 -right-24 w-[330px] select-none"
+          style={{
+            maskImage: "radial-gradient(closest-side, black 62%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(closest-side, black 62%, transparent 100%)",
+          }}
+          aria-hidden="true"
+        >
+          <LandingDial />
+        </div>
+
+        <h1 className="font-display rise rise-1 relative z-10 mt-40 text-[2.7rem] leading-[1.04] font-semibold">
           {ui.h1a}
           <br />
           <span className="text-brass italic">{ui.h1b}</span>
         </h1>
 
-        <p className="rise rise-2 mt-6 text-[17px] leading-relaxed text-mist">{ui.body}</p>
+        <p className="rise rise-2 relative z-10 mt-6 text-[17px] leading-relaxed text-mist">
+          {ui.body}
+        </p>
 
         <div className="rise rise-3 mt-7 flex flex-col divide-y divide-paper/10 border-y border-paper/10">
           {ui.bullets.map((b, i) => (

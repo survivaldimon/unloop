@@ -222,7 +222,7 @@ export default function App() {
 
   return (
     <LangContext.Provider value={lang}>
-      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-10 pt-6">
+      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pb-10 pt-6">
         <div className="fixed top-3 right-3 z-50 flex gap-1 rounded-full border border-paper/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
           {(["en", "ru"] as Lang[]).map((l) => (
             <button

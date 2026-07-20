@@ -21,6 +21,25 @@ body {
   color: var(--color-paper);
   font-family: var(--font-sans);
   min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brass) 45%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brass) 70%, transparent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin-slow,
+  .rise,
+  .pulse-soft,
+  .loop-draw {
+    animation: none !important;
+  }
 }
 
 /* Тёплый свет лампы над страницей — едва заметный */
@@ -54,12 +73,18 @@ body {
 }
 
 .btn-primary {
-  @apply block w-full rounded-lg px-6 py-4 text-center text-base font-semibold transition active:scale-[0.98];
+  @apply block w-full rounded-lg px-6 py-4 text-center text-base font-semibold;
   background: var(--color-brass);
   color: #1a140d;
+  transition:
+    background 0.2s ease,
+    transform 0.12s ease;
 }
 .btn-primary:hover {
   background: var(--color-brass-2);
+}
+.btn-primary:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 .btn-ghost {
@@ -73,17 +98,36 @@ body {
 }
 
 .btn-option {
-  @apply block w-full rounded-lg border px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
+  @apply flex w-full items-baseline gap-3 rounded-lg border px-4 py-4 text-left text-[15px] leading-snug;
   border-color: rgba(242, 234, 217, 0.12);
   background: rgba(242, 234, 217, 0.03);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.12s ease;
 }
 .btn-option:hover {
-  border-color: rgba(242, 234, 217, 0.28);
+  border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
   background: rgba(242, 234, 217, 0.06);
+}
+.btn-option:active {
+  transform: scale(0.985);
 }
 .btn-option.selected {
   border-color: var(--color-brass);
   background: color-mix(in srgb, var(--color-brass) 12%, transparent);
+}
+.opt-letter {
+  @apply w-5 flex-none text-center text-[15px] font-semibold italic;
+  font-family: var(--font-display);
+  color: color-mix(in srgb, var(--color-brass) 75%, transparent);
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+.btn-option.selected .opt-letter {
+  color: var(--color-brass-2);
+  transform: scale(1.2);
 }
 
 /* Буквица первой страницы отчёта */
