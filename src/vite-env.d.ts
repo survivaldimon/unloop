@@ -17,6 +17,8 @@ interface ImportMetaEnv {
   readonly VITE_POSTHOG_KEY?: string;
   /** PostHog API host; defaults to the EU cloud */
   readonly VITE_POSTHOG_HOST?: string;
+  /** Meta (Facebook) Pixel id; absent = pixel is a no-op */
+  readonly VITE_META_PIXEL_ID?: string;
 }
 
 interface ImportMeta {

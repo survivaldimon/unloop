@@ -124,6 +124,12 @@ export default function App() {
     }
   };
 
+  /** Confirmed payment (webhook set paid_at) — the revenue event, then unlock. */
+  const unlockPaid = () => {
+    track("purchase");
+    unlock();
+  };
+
   /** Poll paid_at (set by the payment webhook) until it appears, then unlock. */
   const awaitPaymentConfirmation = () => {
     setPayState("confirming");
@@ -131,7 +137,7 @@ export default function App() {
     const tick = async () => {
       const paidAt = await fetchPaidAt();
       if (paidAt) {
-        unlock();
+        unlockPaid();
         return;
       }
       if (Date.now() - startedAt > 90_000) {
@@ -155,7 +161,7 @@ export default function App() {
   useEffect(() => {
     if (!paymentsEnabled || unlocked || step !== "teaser") return;
     void fetchPaidAt().then((paidAt) => {
-      if (paidAt) unlock();
+      if (paidAt) unlockPaid();
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);

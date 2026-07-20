@@ -4,6 +4,7 @@
  * metadata.session_id), then opened in an embedded overlay via @polar-sh/checkout.
  */
 import { supabase } from "../supabase";
+import { getFbc, getFbp } from "../attribution";
 import type { CheckoutOptions, PaymentProvider } from "./types";
 
 async function openCheckout(opts: CheckoutOptions): Promise<void> {
@@ -14,6 +15,10 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
       session_id: opts.sessionId,
       email: opts.email ?? null,
       lang: opts.lang,
+      // Meta ad-click cookies ride along into order metadata so the webhook's
+      // server-side Purchase event can be attributed to the ad click.
+      fbp: getFbp(),
+      fbc: getFbc(),
     },
   });
   if (error || typeof data?.url !== "string") {
