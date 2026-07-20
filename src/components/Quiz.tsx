@@ -66,13 +66,25 @@ export default function Quiz({
         >
           ←
         </button>
-        <div className="h-1 flex-1 overflow-hidden rounded-full bg-paper/10">
+        <div className="relative flex-1">
+          <div className="h-px bg-paper/15" />
+          {[0, 25, 50, 75, 100].map((p) => (
+            <span
+              key={p}
+              className="absolute -top-[3px] h-[7px] w-px bg-paper/20"
+              style={{ left: `${p}%` }}
+            />
+          ))}
           <div
-            className="h-full rounded-full bg-brass transition-all duration-500"
+            className="absolute top-0 left-0 h-px bg-brass transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
+          <span
+            className="absolute -top-[4px] h-[9px] w-[2px] bg-brass-2 transition-all duration-500"
+            style={{ left: `${progress}%` }}
+          />
         </div>
-        <span className="w-10 text-right text-xs tabular-nums text-mist/70">
+        <span className="font-display w-12 text-right text-[13px] tabular-nums text-mist/80 italic">
           {answeredCount}/{questionCount}
         </span>
       </div>
@@ -152,14 +164,25 @@ function InsightView({
     track("insight_view", { block: afterBlock });
   }, [afterBlock]);
 
+  const n = afterBlock - 1;
+
   return (
-    <div className="flex flex-1 flex-col justify-center gap-5 py-8">
-      <span className="overline-label rise text-brass">{ui.checkpoint(afterBlock - 1)}</span>
-      <h2 className="font-display rise rise-1 text-[1.8rem] leading-tight font-semibold">
-        {title}
-      </h2>
+    <div className="flex flex-1 flex-col justify-center py-8">
+      <div className="relative pl-14">
+        <span
+          className="font-display rise absolute top-[-14px] left-0 text-[64px] leading-none font-bold italic text-brass/20 select-none"
+          aria-hidden="true"
+        >
+          {String(n).padStart(2, "0")}
+        </span>
+        <p className="font-display rise text-[13px] text-mist italic">{ui.checkpoint(n)}</p>
+        <h2 className="font-display rise rise-1 mt-1 text-[1.8rem] leading-tight font-semibold">
+          {title}
+        </h2>
+      </div>
+      <hr className="hairline rise rise-1 mt-4 mb-5" />
       <p className="rise rise-2 text-[16px] leading-relaxed text-mist">{body}</p>
-      <button className="btn-primary rise rise-3 mt-4" onClick={onNext}>
+      <button className="btn-primary rise rise-3 mt-8" onClick={onNext}>
         {ui.next}
       </button>
     </div>

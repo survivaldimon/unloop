@@ -38,8 +38,23 @@ body {
   @apply text-xs font-semibold tracking-[0.22em] uppercase;
 }
 
+/* Строка-фолио: вордмарка + номер, как колонтитул прибора */
+.folio {
+  @apply flex items-baseline justify-between text-[11px] font-semibold tracking-[0.3em];
+  color: var(--color-brass);
+}
+.folio .folio-no {
+  @apply text-[11px] font-medium tracking-[0.14em];
+  color: color-mix(in srgb, var(--color-mist) 85%, transparent);
+}
+
+.hairline {
+  border: 0;
+  border-top: 1px solid rgba(242, 234, 217, 0.12);
+}
+
 .btn-primary {
-  @apply block w-full rounded-xl px-6 py-4 text-center text-base font-semibold transition active:scale-[0.98];
+  @apply block w-full rounded-lg px-6 py-4 text-center text-base font-semibold transition active:scale-[0.98];
   background: var(--color-brass);
   color: #1a140d;
 }
@@ -48,7 +63,7 @@ body {
 }
 
 .btn-ghost {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-3 text-sm font-medium transition active:scale-[0.98];
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border px-5 py-3 text-sm font-medium transition active:scale-[0.98];
   border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
   color: var(--color-brass-2);
 }
@@ -58,7 +73,7 @@ body {
 }
 
 .btn-option {
-  @apply block w-full rounded-xl border px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
+  @apply block w-full rounded-lg border px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
   border-color: rgba(242, 234, 217, 0.12);
   background: rgba(242, 234, 217, 0.03);
 }
@@ -71,34 +86,29 @@ body {
   background: color-mix(in srgb, var(--color-brass) 12%, transparent);
 }
 
-.card {
-  @apply rounded-2xl border p-6;
-  border-color: rgba(242, 234, 217, 0.1);
-  background: var(--color-ink-2);
-}
-
-/* Книжный разделитель: линия — ромб — линия */
-.divider {
-  @apply flex items-center gap-3;
-  color: color-mix(in srgb, var(--color-brass) 55%, transparent);
-}
-.divider::before,
-.divider::after {
-  content: "";
-  @apply h-px flex-1;
-  background: color-mix(in srgb, var(--color-brass) 30%, transparent);
-}
-
-/* Тонкие линейки по бокам вордмарки */
-.wordmark {
-  @apply flex items-center gap-4 text-xs font-semibold tracking-[0.3em];
+/* Буквица первой страницы отчёта */
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 0.85;
   color: var(--color-brass);
+  float: left;
+  padding: 5px 8px 0 0;
 }
-.wordmark::before,
-.wordmark::after {
-  content: "";
-  @apply h-px flex-1;
-  background: color-mix(in srgb, var(--color-brass) 35%, transparent);
+
+/* Запечатанный текст тизера (сам текст подменяется скремблом против devtools) */
+.sealed-text {
+  filter: blur(5px);
+  user-select: none;
+}
+
+/* Оглавление с точечными лидерами */
+.toc-dots {
+  flex: 1;
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-mist) 50%, transparent);
+  transform: translateY(-3px);
 }
 
 @keyframes rise {
@@ -125,6 +135,14 @@ body {
 }
 .pulse-soft {
   animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+/* Медленно вращающееся пунктирное кольцо циферблата */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 80s linear infinite;
 }
 
 @keyframes loop-draw {

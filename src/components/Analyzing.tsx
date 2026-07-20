@@ -16,22 +16,26 @@ export default function Analyzing({ onDone }: { onDone: () => void }) {
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-8 text-center">
-      <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
-        <circle cx="36" cy="36" r="30" fill="none" stroke="rgba(242,234,217,0.1)" strokeWidth="1.5" />
+      <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
+        <circle cx="48" cy="48" r="44" fill="none" stroke="rgba(242,234,217,.12)" strokeWidth="6" strokeDasharray="1 5.5" />
+        <circle cx="48" cy="48" r="38" fill="none" stroke="rgba(242,234,217,.08)" strokeWidth="1" />
+        <g className="spin-slow" style={{ transformOrigin: "48px 48px", animationDuration: "14s" }}>
+          <circle cx="48" cy="48" r="33" fill="none" stroke="rgba(200,154,78,.4)" strokeWidth="1" strokeDasharray="2 8" />
+        </g>
         <circle
           className="loop-draw"
-          cx="36"
-          cy="36"
-          r="30"
+          cx="48"
+          cy="48"
+          r="33"
           fill="none"
           stroke="var(--color-brass)"
           strokeWidth="2.5"
           strokeLinecap="round"
-          transform="rotate(-90 36 36)"
+          transform="rotate(-90 48 48)"
         />
         <text
-          x="36"
-          y="43"
+          x="48"
+          y="55"
           textAnchor="middle"
           fontSize="20"
           fill="var(--color-brass)"
@@ -44,9 +48,11 @@ export default function Analyzing({ onDone }: { onDone: () => void }) {
         {steps.slice(0, step + 1).map((s, i) => (
           <p
             key={s}
-            className={`text-[15px] ${i === step ? "pulse-soft text-paper" : "text-mist/50"}`}
+            className={`text-[15px] ${
+              i === step ? "pulse-soft font-display text-paper italic" : "text-mist/50"
+            }`}
           >
-            {i < step ? "✓ " : ""}
+            {i < step ? "— " : ""}
             {s}
           </p>
         ))}

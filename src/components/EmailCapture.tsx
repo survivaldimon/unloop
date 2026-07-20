@@ -30,7 +30,7 @@ export default function EmailCapture({
           placeholder="you@example.com"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="w-full rounded-xl border border-paper/15 bg-paper/[0.04] px-5 py-4 text-[16px] outline-none placeholder:text-mist/40 focus:border-brass"
+          className="w-full rounded-lg border border-paper/15 bg-paper/[0.04] px-5 py-4 text-[16px] outline-none placeholder:text-mist/40 focus:border-brass"
         />
         <button className="btn-primary disabled:opacity-40" disabled={!valid} type="submit">
           {ui.submit}

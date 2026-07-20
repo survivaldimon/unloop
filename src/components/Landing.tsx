@@ -1,28 +1,35 @@
 import { t, useLang } from "../i18n";
+import { ROMAN } from "../lib/visual";
 
 export default function Landing({ onStart }: { onStart: () => void }) {
   const ui = t(useLang()).landing;
 
   return (
     <div className="flex flex-1 flex-col justify-between">
-      <header className="wordmark rise pt-3">LOOPLORE</header>
+      <header className="rise pt-3">
+        <div className="folio">LOOPLORE</div>
+        <hr className="hairline mt-2.5" />
+      </header>
 
-      <main className="flex flex-col gap-6 py-8">
+      <main className="flex flex-col py-8">
         <h1 className="font-display rise rise-1 text-[2.5rem] leading-[1.06] font-semibold">
           {ui.h1a}
           <br />
           <span className="text-brass italic">{ui.h1b}</span>
         </h1>
 
-        <p className="rise rise-2 text-[17px] leading-relaxed text-mist">{ui.body}</p>
+        <p className="rise rise-2 mt-6 text-[17px] leading-relaxed text-mist">{ui.body}</p>
 
-        <ul className="rise rise-3 flex flex-col gap-3 text-[15px] text-paper/90">
-          {ui.bullets.map((b) => (
-            <li key={b} className="flex gap-3">
-              <span className="text-brass/80">◆</span> {b}
-            </li>
+        <div className="rise rise-3 mt-7 flex flex-col divide-y divide-paper/10 border-y border-paper/10">
+          {ui.bullets.map((b, i) => (
+            <div key={b} className="flex items-baseline gap-4 py-3.5">
+              <span className="font-display w-6 flex-none text-right text-[15px] font-semibold text-brass italic">
+                {ROMAN[i]}
+              </span>
+              <span className="text-[15px] leading-snug text-paper/90">{b}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       </main>
 
       <footer className="rise rise-4 flex flex-col gap-4 pb-2">

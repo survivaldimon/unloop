@@ -31,6 +31,7 @@ export default function ShareCard({
   const getBlob = async (): Promise<Blob> => {
     if (blobRef.current?.key === cardKey) return blobRef.current.blob;
     const blob = await renderShareCard({
+      patternId,
       patternName,
       shareLine,
       kicker: ui.kicker,

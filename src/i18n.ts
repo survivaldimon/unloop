@@ -33,10 +33,12 @@ export interface UiStrings {
   };
   analyzing: string[];
   email: { title: string; body: string; submit: string; skip: string };
+  axes: { anx: string; avo: string };
   teaser: {
     kicker: string;
     showsTitle: string;
     loopTitle: string;
+    sealedNote: string;
     unlock: string;
     testNote: string;
     payNote: (provider: string) => string;
@@ -107,10 +109,12 @@ export const UI: Record<Lang, UiStrings> = {
       submit: "Show my results →",
       skip: "Skip — just show me",
     },
+    axes: { anx: "anxiety", avo: "avoidance" },
     teaser: {
       kicker: "Your relationship pattern",
       showsTitle: "What your answers show",
       loopTitle: "Your loop · 5 steps",
+      sealedNote: "Steps three to five are sealed — they open with the full report.",
       unlock: "Unlock my full report",
       testNote: "test mode · payment off · one tap to unlock",
       payNote: (provider) => `one-time payment · secure checkout by ${provider}`,
@@ -192,10 +196,12 @@ export const UI: Record<Lang, UiStrings> = {
       submit: "Показать результат →",
       skip: "Пропустить и посмотреть сразу",
     },
+    axes: { anx: "тревожность", avo: "избегание" },
     teaser: {
       kicker: "Твой паттерн в отношениях",
       showsTitle: "Что видно по твоим ответам",
       loopTitle: "Твой круг · 5 шагов",
+      sealedNote: "Шаги с третьего по пятый запечатаны — они откроются с полным разбором.",
       unlock: "Открыть полный разбор",
       testNote: "тестовый режим · оплата отключена · открывается по кнопке",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider}`,
