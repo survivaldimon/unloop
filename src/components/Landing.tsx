@@ -1,6 +1,7 @@
 import { t, useLang } from "../i18n";
 import { ROMAN } from "../lib/visual";
 import LandingDial from "./LandingDial";
+import LegalLinks from "./LegalLinks";
 import LogoMark from "./LogoMark";
 
 export default function Landing({ onStart }: { onStart: () => void }) {
@@ -63,6 +64,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
           {ui.cta}
         </button>
         <p className="text-center text-xs leading-relaxed text-mist/70">{ui.note}</p>
+        <LegalLinks />
       </footer>
     </div>
   );

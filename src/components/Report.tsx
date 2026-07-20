@@ -8,6 +8,7 @@ import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import type { LlmChapters } from "../lib/supabase";
 import AxisGauges from "./AxisGauges";
+import LegalLinks from "./LegalLinks";
 import LogoMark from "./LogoMark";
 import LoopDial from "./LoopDial";
 import LoopSteps from "./LoopSteps";
@@ -255,6 +256,7 @@ export default function Report({
         >
           {ui.retake}
         </button>
+        <LegalLinks />
       </footer>
     </div>
   );

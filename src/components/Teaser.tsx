@@ -8,6 +8,7 @@ import { t, useLang } from "../i18n";
 import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import AxisGauges from "./AxisGauges";
+import LegalLinks from "./LegalLinks";
 import LogoMark from "./LogoMark";
 import LoopDial from "./LoopDial";
 import LoopSteps from "./LoopSteps";
@@ -150,6 +151,9 @@ export default function Teaser({
 
       <hr className="hairline mt-8" />
       <p className="mt-3 text-xs leading-relaxed text-mist/50">{ui.disclaimer}</p>
+      <div className="mt-3">
+        <LegalLinks />
+      </div>
     </div>
   );
 }

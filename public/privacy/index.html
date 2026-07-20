@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Looplore</title>
+    <meta name="description" content="Privacy Policy for Looplore: what we collect, why, and the choices you have." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#151110" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --ink: #151110; --ink2: #1d1815; --paper: #f2ead9;
+        --mist: #a5988a; --brass: #c89a4e; --brass2: #e0b869;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: radial-gradient(120% 80% at 50% -10%, #211a14 0%, var(--ink) 60%) fixed var(--ink);
+        color: var(--paper);
+        font-family: "Inter", system-ui, sans-serif;
+        line-height: 1.65;
+        padding: 24px 20px 64px;
+      }
+      .page { max-width: 40rem; margin: 0 auto; }
+      .folio {
+        display: flex; align-items: baseline; justify-content: space-between;
+        font-size: 11px; font-weight: 600; letter-spacing: 0.3em; color: var(--brass);
+      }
+      .folio a { color: var(--brass); text-decoration: none; }
+      .lang { letter-spacing: normal; display: flex; gap: 2px; }
+      .lang button {
+        background: none; border: 0; cursor: pointer; font: inherit;
+        color: var(--mist); font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+        padding: 2px 7px; border-radius: 99px; text-transform: uppercase;
+      }
+      .lang button.on { color: var(--paper); background: rgba(200, 154, 78, 0.25); }
+      hr { border: 0; border-top: 1px solid rgba(242, 234, 217, 0.12); margin: 10px 0 0; }
+      h1 {
+        font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 600;
+        font-size: 2rem; line-height: 1.15; margin: 40px 0 6px;
+      }
+      .date { font-size: 12px; color: var(--mist); font-style: italic; font-family: "Fraunces", Georgia, serif; }
+      h2 {
+        font-family: "Fraunces", Georgia, serif; font-weight: 600;
+        font-size: 1.15rem; margin: 30px 0 8px;
+      }
+      h2 .no { font-style: italic; color: var(--brass); margin-right: 8px; }
+      p, li { font-size: 15px; color: rgba(242, 234, 217, 0.9); margin: 0 0 10px; }
+      ul { padding-left: 20px; margin: 0 0 10px; }
+      li { margin-bottom: 6px; }
+      li b { color: var(--paper); font-weight: 600; }
+      a { color: var(--brass2); text-decoration: none; }
+      a:hover { text-decoration: underline; text-underline-offset: 3px; }
+      .foot { margin-top: 48px; font-size: 12px; color: rgba(165, 152, 138, 0.7); }
+      [hidden] { display: none; }
+      ::selection { background: rgba(200, 154, 78, 0.45); }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="folio">
+          <a href="/">LOOPLORE</a>
+          <span class="lang">
+            <button id="btn-en">EN</button>
+            <button id="btn-ru">RU</button>
+          </span>
+        </div>
+        <hr />
+      </header>
+
+      <article id="doc-en">
+        <h1>Privacy Policy</h1>
+        <p class="date">Effective 20 July 2026</p>
+
+        <h2><span class="no">1.</span>Who we are</h2>
+        <p>Looplore (looplore.app) is a self-reflection tool operated from the Republic of Kazakhstan. For anything privacy-related, write to <a href="mailto:support@looplore.app">support@looplore.app</a>.</p>
+
+        <h2><span class="no">2.</span>What we collect</h2>
+        <ul>
+          <li><b>Quiz answers.</b> The options you pick, including how you describe feelings and situations in relationships. Answers are stored under a random session ID — we never ask for your name.</li>
+          <li><b>Email — optional.</b> If you leave it, we use it to send your results and occasional product updates. You can skip it and still see everything.</li>
+          <li><b>Payment data.</b> Handled entirely by Polar, our merchant of record. We never see your card details — we only receive confirmation that a session was paid.</li>
+          <li><b>Usage data.</b> Funnel steps, pages, device and browser info — collected via PostHog (servers in the EU).</li>
+          <li><b>Advertising data.</b> If you arrived from an ad: campaign tags (UTM) and Meta’s _fbp/_fbc cookies. When a purchase happens we send Meta a standard conversion event (with your email as a SHA-256 hash, if you provided one) so ads can be measured.</li>
+        </ul>
+
+        <h2><span class="no">3.</span>AI processing</h2>
+        <p>Two chapters of the paid report are drafted by an AI model (Anthropic’s Claude) from your answers. Under Anthropic’s API terms this data is not used to train their models.</p>
+
+        <h2><span class="no">4.</span>Where your data lives</h2>
+        <p>We rely on a small set of processors: Supabase (database and report generation), PostHog EU (analytics), Polar (payments), Resend (email delivery), Anthropic (AI chapters), Meta (ad measurement). Each processes data on our behalf under its own security and privacy terms.</p>
+
+        <h2><span class="no">5.</span>What we don’t do</h2>
+        <p>We don’t sell your personal information. We don’t share your quiz answers with advertisers — ad platforms only receive standard conversion events, never the content of what you answered.</p>
+
+        <h2><span class="no">6.</span>Cookies and local storage</h2>
+        <p>Looplore itself uses your browser’s localStorage (session ID, quiz progress, language) rather than cookies. PostHog and Meta set their own identifiers (such as _fbp/_fbc). You can clear all of these in your browser settings at any time.</p>
+
+        <h2><span class="no">7.</span>Retention and deletion</h2>
+        <p>We keep session data while we operate the service so your report stays available. To have your data deleted, email <a href="mailto:support@looplore.app">support@looplore.app</a> — ideally from the address you left in the quiz so we can find your session.</p>
+
+        <h2><span class="no">8.</span>Your rights</h2>
+        <p>Depending on where you live (for example the GDPR in Europe or the CCPA/CPRA in California), you may have the right to access, correct, delete or restrict the processing of your data, and to opt out of “sharing” for advertising. Write to us and we will honor such requests regardless of where you live.</p>
+
+        <h2><span class="no">9.</span>Children</h2>
+        <p>Looplore is for adults 18+. We do not knowingly collect data from children.</p>
+
+        <h2><span class="no">10.</span>Changes</h2>
+        <p>The current version of this policy always lives at looplore.app/privacy/; material changes will carry a new effective date above.</p>
+
+        <p class="foot"><a href="/">← Back to Looplore</a> · <a href="/terms/">Terms of Use</a></p>
+      </article>
+
+      <article id="doc-ru" hidden>
+        <h1>Политика конфиденциальности</h1>
+        <p class="date">Действует с 20 июля 2026</p>
+
+        <h2><span class="no">1.</span>Кто мы</h2>
+        <p>Looplore (looplore.app) — инструмент саморефлексии, управляемый из Республики Казахстан. По любым вопросам о данных пиши на <a href="mailto:support@looplore.app">support@looplore.app</a>.</p>
+
+        <h2><span class="no">2.</span>Что мы собираем</h2>
+        <ul>
+          <li><b>Ответы на тест.</b> Выбранные варианты, включая то, как ты описываешь чувства и ситуации в отношениях. Ответы хранятся под случайным идентификатором сессии — имени мы не спрашиваем.</li>
+          <li><b>Email — по желанию.</b> Если оставишь, пришлём на него результат и изредка — новости продукта. Можно пропустить и всё равно увидеть результат.</li>
+          <li><b>Платёжные данные.</b> Полностью на стороне Polar, нашего мерчант-партнёра. Данных карты мы не видим — нам приходит только подтверждение, что сессия оплачена.</li>
+          <li><b>Данные использования.</b> Шаги воронки, страницы, устройство и браузер — через PostHog (серверы в ЕС).</li>
+          <li><b>Рекламные данные.</b> Если ты пришёл из рекламы: метки кампаний (UTM) и куки Meta _fbp/_fbc. При покупке мы отправляем Meta стандартное событие конверсии (email — только в виде SHA-256-хэша, если ты его оставлял), чтобы измерять рекламу.</li>
+        </ul>
+
+        <h2><span class="no">3.</span>Обработка ИИ</h2>
+        <p>Две главы платного разбора пишет ИИ-модель (Claude от Anthropic) на основе твоих ответов. По условиям API Anthropic эти данные не используются для обучения моделей.</p>
+
+        <h2><span class="no">4.</span>Где живут данные</h2>
+        <p>Мы работаем с небольшим набором обработчиков: Supabase (база и генерация разбора), PostHog EU (аналитика), Polar (платежи), Resend (доставка писем), Anthropic (ИИ-главы), Meta (измерение рекламы). Каждый обрабатывает данные по нашему поручению на своих условиях безопасности.</p>
+
+        <h2><span class="no">5.</span>Чего мы не делаем</h2>
+        <p>Мы не продаём персональные данные. Мы не передаём рекламным площадкам содержание твоих ответов — они получают только стандартные события конверсии.</p>
+
+        <h2><span class="no">6.</span>Куки и localStorage</h2>
+        <p>Сам Looplore использует localStorage браузера (идентификатор сессии, прогресс теста, язык), а не куки. PostHog и Meta ставят собственные идентификаторы (например, _fbp/_fbc). Всё это можно очистить в настройках браузера в любой момент.</p>
+
+        <h2><span class="no">7.</span>Хранение и удаление</h2>
+        <p>Данные сессий хранятся, пока работает сервис, — чтобы твой разбор оставался доступным. Чтобы удалить свои данные, напиши на <a href="mailto:support@looplore.app">support@looplore.app</a> — лучше с адреса, который ты оставлял в тесте: так мы найдём твою сессию.</p>
+
+        <h2><span class="no">8.</span>Твои права</h2>
+        <p>В зависимости от места жительства (например, GDPR в Европе или CCPA/CPRA в Калифорнии) у тебя может быть право на доступ, исправление, удаление и ограничение обработки данных, а также на отказ от «передачи» данных для рекламы. Напиши нам — мы выполним такой запрос, где бы ты ни жил.</p>
+
+        <h2><span class="no">9.</span>Дети</h2>
+        <p>Looplore — для взрослых 18+. Мы сознательно не собираем данные детей.</p>
+
+        <h2><span class="no">10.</span>Изменения</h2>
+        <p>Актуальная версия политики всегда доступна на looplore.app/privacy/; существенные изменения получают новую дату вверху страницы.</p>
+
+        <p class="foot"><a href="/">← Вернуться в Looplore</a> · <a href="/terms/">Условия использования</a></p>
+      </article>
+    </div>
+
+    <script>
+      (function () {
+        var KEY = "unloop_lang";
+        var en = document.getElementById("doc-en");
+        var ru = document.getElementById("doc-ru");
+        var bEn = document.getElementById("btn-en");
+        var bRu = document.getElementById("btn-ru");
+        function apply(lang) {
+          var isRu = lang === "ru";
+          en.hidden = isRu;
+          ru.hidden = !isRu;
+          bEn.classList.toggle("on", !isRu);
+          bRu.classList.toggle("on", isRu);
+          document.documentElement.lang = isRu ? "ru" : "en";
+          document.title = isRu ? "Политика конфиденциальности — Looplore" : "Privacy Policy — Looplore";
+        }
+        function set(lang) {
+          try { localStorage.setItem(KEY, lang); } catch (e) {}
+          apply(lang);
+        }
+        var saved = null;
+        try { saved = localStorage.getItem(KEY); } catch (e) {}
+        apply(saved === "ru" ? "ru" : "en");
+        bEn.addEventListener("click", function () { set("en"); });
+        bRu.addEventListener("click", function () { set("ru"); });
+      })();
+    </script>
+  </body>
+</html>
