@@ -170,7 +170,7 @@ async function sendMetaPurchase(
           user_data: userData,
           custom_data: {
             currency: currency.toUpperCase(),
-            value: typeof amount === "number" ? amount / 100 : 24,
+            value: typeof amount === "number" ? amount / 100 : 14.99,
           },
         },
       ],

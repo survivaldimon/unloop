@@ -42,6 +42,8 @@ export interface UiStrings {
     loopTitle: string;
     sealedNote: string;
     unlock: string;
+    offerLabel: string;
+    offerTimer: (time: string) => string;
     testNote: string;
     payNote: (provider: string) => string;
     confirming: string;
@@ -119,6 +121,8 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Your loop · 5 steps",
       sealedNote: "Steps three to five are sealed — they open with the full report.",
       unlock: "Unlock my full report",
+      offerLabel: "special offer",
+      offerTimer: (time) => `price locked for ${time}`,
       testNote: "test mode · payment off · one tap to unlock",
       payNote: (provider) => `one-time payment · secure checkout by ${provider}`,
       confirming: "Payment received — unlocking your report…",
@@ -207,6 +211,8 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Твой круг · 5 шагов",
       sealedNote: "Шаги с третьего по пятый запечатаны — они откроются с полным разбором.",
       unlock: "Открыть полный разбор",
+      offerLabel: "спецпредложение",
+      offerTimer: (time) => `цена держится ещё ${time}`,
       testNote: "тестовый режим · оплата отключена · открывается по кнопке",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider}`,
       confirming: "Оплата прошла — открываем разбор…",

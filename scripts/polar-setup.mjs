@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * One-shot Polar configuration for Looplore: creates the $24 one-time product and
- * the order.paid webhook endpoint pointing at the Supabase edge function.
+ * One-shot Polar configuration for Looplore: creates the $14.99 one-time product
+ * and the order.paid webhook endpoint pointing at the Supabase edge function.
  * Safe to re-run — existing entities are reused, not duplicated.
  *
  * Usage:
@@ -17,7 +17,7 @@ const ENV = process.env.POLAR_ENV === "production" ? "production" : "sandbox";
 const BASE = ENV === "production" ? "https://api.polar.sh" : "https://sandbox-api.polar.sh";
 
 const PRODUCT_NAME = "Looplore Full Report";
-const PRICE_USD_CENTS = 2400; // $24.00
+const PRICE_USD_CENTS = 1499; // $14.99 — the teaser shows this against a $24.99 anchor (src/lib/offer.ts)
 const WEBHOOK_URL =
   "https://ncfpxetzmeeqxgqidosj.supabase.co/functions/v1/unloop-polar-webhook";
 
@@ -42,7 +42,7 @@ async function polar(method, path, body) {
   return json;
 }
 
-// 1. Product ($24 one-time)
+// 1. Product ($14.99 one-time)
 const products = await polar("GET", "/v1/products/?is_archived=false&limit=100");
 let product = (products.items ?? []).find((p) => p.name === PRODUCT_NAME);
 if (product) {

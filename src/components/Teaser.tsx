@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
+import { REPORT_PRICE_USD } from "../lib/meta";
+import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../lib/offer";
 import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
 import { getSessionId } from "../lib/supabase";
 import { PATTERN_ACCENT, ROMAN, readingNo, withAlpha } from "../lib/visual";
@@ -33,6 +35,7 @@ export default function Teaser({
   const pattern = getPattern(lang, result.pattern);
   const accent = PATTERN_ACCENT[result.pattern];
   const confirming = payState === "confirming";
+  const countdown = useOfferCountdown();
 
   useEffect(() => {
     track("teaser_view", { pattern: result.pattern });
@@ -115,6 +118,16 @@ export default function Teaser({
       </div>
 
       <div className="mt-5">
+        {paymentsEnabled && (
+          <div className="mb-4 text-center">
+            <p className="text-[11px] tracking-[0.16em] text-mist uppercase">{ui.offerLabel}</p>
+            <p className="font-display mt-1.5 text-[24px] leading-none italic">
+              <s className="mr-2.5 text-[17px] text-mist/55">{formatUsd(COMPARE_PRICE_USD)}</s>
+              <span className="font-semibold text-brass-2">{formatUsd(REPORT_PRICE_USD)}</span>
+            </p>
+            <p className="mt-1.5 text-[11px] text-mist/80 tabular-nums">{ui.offerTimer(countdown)}</p>
+          </div>
+        )}
         <button className="btn-primary disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
           {confirming ? ui.confirming : ui.unlock}
         </button>

@@ -8,7 +8,7 @@
  */
 
 /** Must match the Polar product price; the server-side event carries the exact order amount. */
-export const REPORT_PRICE_USD = 24;
+export const REPORT_PRICE_USD = 14.99;
 
 const pixelId = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 
