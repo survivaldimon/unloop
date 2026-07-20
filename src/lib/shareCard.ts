@@ -255,7 +255,10 @@ export async function shareCardBlob(blob: Blob, fileName: string): Promise<Share
   const file = new File([blob], fileName, { type: "image/png" });
   if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
     try {
-      await navigator.share({ files: [file], url: "https://looplore.app/" });
+      // Files only: with a url alongside, many share targets (Telegram,
+      // WhatsApp) keep the link and silently drop the image. The domain is
+      // printed on the card itself.
+      await navigator.share({ files: [file] });
       return "web_share";
     } catch (e) {
       // AbortError = user closed the sheet; fall through to download otherwise

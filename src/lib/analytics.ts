@@ -112,6 +112,16 @@ export function track(
   }
 }
 
+/** Re-registers the session join key after a retake resets the session id. */
+export function refreshSessionContext(): void {
+  if (!enabled) return;
+  try {
+    posthog.register({ session_db_id: getSessionId() });
+  } catch {
+    // non-fatal
+  }
+}
+
 /** Super-props (lang, pattern) merged into every subsequent event. */
 export function setAnalyticsContext(props: { lang?: string; pattern?: string }): void {
   if (!enabled) return;

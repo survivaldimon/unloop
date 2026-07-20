@@ -18,6 +18,14 @@ export function getSessionId(): string {
   return id;
 }
 
+/**
+ * Starts a fresh anonymous session (retake): the next getSessionId() mints a
+ * new id, so a past payment on this device doesn't auto-unlock the new report.
+ */
+export function resetSessionId(): void {
+  localStorage.removeItem("unloop_session_id");
+}
+
 /** Fire-and-forget persistence; the funnel must work even with no backend configured. */
 export async function saveSession(data: {
   answers: Answers;

@@ -100,7 +100,7 @@ export const UI: Record<Lang, UiStrings> = {
       checkpoint: (n) => `Checkpoint ${n} of 3`,
     },
     analyzing: [
-      "Reading your 28 scored answers…",
+      "Reading your 32 answers…",
       "Mapping anxiety and avoidance signals…",
       "Isolating your trigger profile…",
       "Reconstructing your loop, step by step…",
@@ -154,7 +154,7 @@ export const UI: Record<Lang, UiStrings> = {
       disclaimer:
         "Looplore is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
-        `Across 28 scored answers, your responses kept returning to one shape: ${tagline.toLowerCase()} ` +
+        `Across your 32 answers, your responses kept returning to one shape: ${tagline.toLowerCase()} ` +
         `Your anxiety signal scored ${anx}/100 and your avoidance signal ${avo}/100 — ` +
         `the exact mix that powers ${patternName} loop you'll see below.` +
         (secondaryName
@@ -187,7 +187,7 @@ export const UI: Record<Lang, UiStrings> = {
       checkpoint: (n) => `Чекпоинт ${n} из 3`,
     },
     analyzing: [
-      "Обрабатываем твои 28 ответов…",
+      "Обрабатываем твои 32 ответа…",
       "Считаем баланс тревожности и избегания…",
       "Составляем карту твоих триггеров…",
       "Собираем твой круг, шаг за шагом…",
@@ -241,7 +241,7 @@ export const UI: Record<Lang, UiStrings> = {
       disclaimer:
         "Looplore — инструмент саморефлексии, опирающийся на исследования привязанности. Это не терапия, не диагностика и не замена помощи специалиста.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
-        `Твои 28 ответов раз за разом складываются в одну и ту же фигуру. ${tagline} ` +
+        `Твои 32 ответа раз за разом складываются в одну и ту же фигуру. ${tagline} ` +
         `Тревожность — ${anx} из 100, избегание — ${avo} из 100: именно это сочетание ` +
         `и крутит твой круг — «${patternName}». Он ниже, шаг за шагом.` +
         (secondaryName

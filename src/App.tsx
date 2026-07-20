@@ -11,11 +11,12 @@ import {
   fetchPaidAt,
   generateLlmChapters,
   getSessionId,
+  resetSessionId,
   saveSession,
   sendResultEmail,
   type LlmChapters,
 } from "./lib/supabase";
-import { identifyEmail, setAnalyticsContext, track } from "./lib/analytics";
+import { identifyEmail, refreshSessionContext, setAnalyticsContext, track } from "./lib/analytics";
 import { fillSlots } from "./content/patterns";
 import { getPattern } from "./content/localized";
 import { detectLang, persistLang, LangContext, UI, type Lang } from "./i18n";
@@ -211,6 +212,10 @@ export default function App() {
 
   const restart = () => {
     localStorage.removeItem(STORAGE_KEY);
+    // A retake is a new reading: new session id, new save row, new paywall —
+    // a past payment on this device must not auto-unlock the next report.
+    resetSessionId();
+    refreshSessionContext();
     setStep("landing");
     setAnswers({});
     setEmail("");

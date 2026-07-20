@@ -80,8 +80,12 @@ body {
     background 0.2s ease,
     transform 0.12s ease;
 }
-.btn-primary:hover {
-  background: var(--color-brass-2);
+/* hover — только там, где есть настоящий курсор: на таче :hover залипает после
+   тапа, и следующий вопрос появляется с «подсвеченной» опцией под пальцем */
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: var(--color-brass-2);
+  }
 }
 .btn-primary:active {
   transform: translateY(1px) scale(0.99);
@@ -92,9 +96,11 @@ body {
   border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
   color: var(--color-brass-2);
 }
-.btn-ghost:hover {
-  border-color: var(--color-brass);
-  background: color-mix(in srgb, var(--color-brass) 10%, transparent);
+@media (hover: hover) {
+  .btn-ghost:hover {
+    border-color: var(--color-brass);
+    background: color-mix(in srgb, var(--color-brass) 10%, transparent);
+  }
 }
 
 .btn-option {
@@ -106,9 +112,11 @@ body {
     background 0.18s ease,
     transform 0.12s ease;
 }
-.btn-option:hover {
-  border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
-  background: rgba(242, 234, 217, 0.06);
+@media (hover: hover) {
+  .btn-option:hover {
+    border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
+    background: rgba(242, 234, 217, 0.06);
+  }
 }
 .btn-option:active {
   transform: scale(0.985);
