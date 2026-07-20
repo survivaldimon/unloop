@@ -1,5 +1,11 @@
 # Email «твой результат» — состояние и чек-лист включения
 
+> **СТАТУС 21.07.2026: ВКЛЮЧЕНО И ПРОВЕРЕНО.** Аккаунт Resend — looplore.app@gmail.com;
+> домен looplore.app верифицирован (DKIM + SPF/MX на поддомене `send`, DMARC p=none);
+> `RESEND_API_KEY` в Vault; отправитель по умолчанию — `Looplore <hello@looplore.app>`
+> (функция v4); ответы на hello@ форвардятся через Cloudflare Email Routing в проектный
+> Gmail. E2E-письмо доставлено. Таблица ниже — историческая справка.
+
 ## Что уже сделано
 
 - **Edge-функция `unloop-send-result`** (Supabase, проект kabinet `ncfpxetzmeeqxgqidosj`) — задеплоена.
