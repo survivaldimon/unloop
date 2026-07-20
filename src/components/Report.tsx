@@ -8,6 +8,7 @@ import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import type { LlmChapters } from "../lib/supabase";
 import AxisGauges from "./AxisGauges";
+import LogoMark from "./LogoMark";
 import LoopDial from "./LoopDial";
 import LoopSteps from "./LoopSteps";
 import ShareCard from "./ShareCard";
@@ -134,7 +135,10 @@ export default function Report({
     <div className="flex flex-col py-4">
       <header className="rise">
         <div className="folio">
-          <span>LOOPLORE</span>
+          <span className="flex items-center gap-2">
+            <LogoMark />
+            LOOPLORE
+          </span>
           <span className="folio-no pr-20">{ui.header}</span>
         </div>
         <hr className="hairline mt-2.5" />

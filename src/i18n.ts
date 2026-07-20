@@ -7,7 +7,9 @@ const LANG_KEY = "unloop_lang";
 export function detectLang(): Lang {
   const saved = localStorage.getItem(LANG_KEY);
   if (saved === "en" || saved === "ru") return saved;
-  return navigator.language?.toLowerCase().startsWith("ru") ? "ru" : "en";
+  // EN is the product's default everywhere (including SEO); RU is opt-in
+  // via the language switcher only.
+  return "en";
 }
 
 export function persistLang(lang: Lang): void {

@@ -8,6 +8,7 @@ import { t, useLang } from "../i18n";
 import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import AxisGauges from "./AxisGauges";
+import LogoMark from "./LogoMark";
 import LoopDial from "./LoopDial";
 import LoopSteps from "./LoopSteps";
 import ShareCard from "./ShareCard";
@@ -46,7 +47,12 @@ export default function Teaser({
   return (
     <div className="flex flex-col py-4">
       <header className="rise">
-        <div className="folio">LOOPLORE</div>
+        <div className="folio">
+          <span className="flex items-center gap-2">
+            <LogoMark />
+            LOOPLORE
+          </span>
+        </div>
         <hr className="hairline mt-2.5" />
       </header>
 

@@ -8,6 +8,12 @@ export interface CheckoutOptions {
    * callers poll the paid status after this fires.
    */
   onPaid: () => void;
+  /**
+   * Fires when the checkout UI closes without a success signal. The buyer may
+   * still have paid (lost postMessage, portal navigation) — callers should
+   * silently re-check the paid status.
+   */
+  onClosed?: () => void;
   onError?: () => void;
 }
 

@@ -166,6 +166,25 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
+  // Same safety net when the tab regains focus/visibility: on mobile the buyer
+  // often hops to a mail app mid-checkout and the page never remounts.
+  useEffect(() => {
+    if (!paymentsEnabled || unlocked || step !== "teaser") return;
+    const recheck = () => {
+      if (document.visibilityState !== "visible") return;
+      void fetchPaidAt().then((paidAt) => {
+        if (paidAt) unlock();
+      });
+    };
+    window.addEventListener("focus", recheck);
+    document.addEventListener("visibilitychange", recheck);
+    return () => {
+      window.removeEventListener("focus", recheck);
+      document.removeEventListener("visibilitychange", recheck);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, unlocked]);
+
   const startUnlock = () => {
     // Fires on the click itself: with payments on, the gap to report_view is
     // checkout abandonment; the webhook-driven unlock() must not re-fire it.
@@ -179,6 +198,13 @@ export default function App() {
       email: email || undefined,
       lang,
       onPaid: awaitPaymentConfirmation,
+      // Overlay closed without a success signal — the payment may still have
+      // landed (lost postMessage), so re-check quietly without an error state.
+      onClosed: () => {
+        void fetchPaidAt().then((paidAt) => {
+          if (paidAt) unlock();
+        });
+      },
       onError: () => setPayState("error"),
     }).catch(() => setPayState("error"));
   };
