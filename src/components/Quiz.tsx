@@ -59,7 +59,7 @@ export default function Quiz({
     <div className="flex flex-1 flex-col">
       <div className="flex items-center gap-3 pt-1">
         <button
-          className="text-mist/60 disabled:opacity-0"
+          className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-paper/20 bg-paper/5 text-[17px] text-paper/85 transition hover:border-brass hover:text-brass-2 active:scale-95 disabled:pointer-events-none disabled:opacity-0"
           disabled={index === 0}
           onClick={() => setIndex(Math.max(0, index - 1))}
           aria-label="Back"

@@ -12,6 +12,17 @@ const CORS = {
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+// Origins allowed to host the embedded checkout iframe. Polar posts the
+// loaded/confirmed/success messages to this origin — without it the parent
+// page never learns the payment finished (the unlock then only happens via
+// the webhook + reload safety net).
+const EMBED_ORIGINS = new Set([
+  "https://looplore.app",
+  "https://www.looplore.app",
+  "https://survivaldimon.github.io",
+]);
+const LOCALHOST_RE = /^http:\/\/localhost(:\d+)?$/;
+
 const secretCache = new Map<string, string>();
 
 async function getSecret(
@@ -51,6 +62,10 @@ Deno.serve(async (req: Request) => {
     }
     const email = typeof body?.email === "string" && body.email ? body.email : null;
 
+    const origin = req.headers.get("origin");
+    const embedOrigin =
+      origin && (EMBED_ORIGINS.has(origin) || LOCALHOST_RE.test(origin)) ? origin : null;
+
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
@@ -75,6 +90,7 @@ Deno.serve(async (req: Request) => {
       body: JSON.stringify({
         products: [productId],
         metadata: { session_id: sessionId },
+        ...(embedOrigin ? { embed_origin: embedOrigin } : {}),
         ...(email ? { customer_email: email } : {}),
       }),
     });

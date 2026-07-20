@@ -24,7 +24,10 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
   const { PolarEmbedCheckout } = await import("@polar-sh/checkout/embed");
   const checkout = await PolarEmbedCheckout.create(data.url, { theme: "dark" });
 
+  let succeeded = false;
+
   checkout.addEventListener("success", () => {
+    succeeded = true;
     // Close the overlay after a beat so the buyer lands on the unlocked report
     // instead of Polar's success screen (its "Access my purchases" CTA leads
     // to the customer portal, away from the app).
@@ -36,6 +39,12 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
       }
     }, 1500);
     opts.onPaid();
+  });
+
+  checkout.addEventListener("close", () => {
+    // The buyer may have paid even if the success message never reached us
+    // (e.g. the overlay navigated to the customer portal before closing).
+    if (!succeeded) opts.onClosed?.();
   });
 }
 

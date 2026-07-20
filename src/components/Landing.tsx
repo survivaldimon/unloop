@@ -1,5 +1,6 @@
 import { t, useLang } from "../i18n";
 import { ROMAN } from "../lib/visual";
+import LogoMark from "./LogoMark";
 
 export default function Landing({ onStart }: { onStart: () => void }) {
   const ui = t(useLang()).landing;
@@ -7,7 +8,12 @@ export default function Landing({ onStart }: { onStart: () => void }) {
   return (
     <div className="flex flex-1 flex-col justify-between">
       <header className="rise pt-3">
-        <div className="folio">LOOPLORE</div>
+        <div className="folio">
+          <span className="flex items-center gap-2">
+            <LogoMark />
+            LOOPLORE
+          </span>
+        </div>
         <hr className="hairline mt-2.5" />
       </header>
 
