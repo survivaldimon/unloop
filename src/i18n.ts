@@ -73,6 +73,7 @@ export interface UiStrings {
     }) => string;
   };
   loop: { back: string; scrambleSlot: string };
+  share: { button: string; kicker: string; saved: string };
 }
 
 export const UI: Record<Lang, UiStrings> = {
@@ -155,6 +156,11 @@ export const UI: Record<Lang, UiStrings> = {
           : ""),
     },
     loop: { back: "↺ back to 1", scrambleSlot: "your own words from the test" },
+    share: {
+      button: "Share my pattern",
+      kicker: "My relationship pattern",
+      saved: "Card saved · link copied",
+    },
   },
   ru: {
     title: "Looplore — Почему твои отношения заканчиваются одинаково?",
@@ -235,6 +241,11 @@ export const UI: Record<Lang, UiStrings> = {
           : ""),
     },
     loop: { back: "↺ и снова шаг 1", scrambleSlot: "твои слова из теста" },
+    share: {
+      button: "Поделиться паттерном",
+      kicker: "Мой паттерн в отношениях",
+      saved: "Карточка сохранена · ссылка скопирована",
+    },
   },
 };
 

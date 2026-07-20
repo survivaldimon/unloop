@@ -66,13 +66,10 @@ export default function Quiz({
         >
           ←
         </button>
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
+        <div className="h-1 flex-1 overflow-hidden rounded-full bg-paper/10">
           <div
-            className="h-full rounded-full transition-all duration-500"
-            style={{
-              width: `${progress}%`,
-              background: "linear-gradient(90deg,#ec4899,#8b5cf6)",
-            }}
+            className="h-full rounded-full bg-brass transition-all duration-500"
+            style={{ width: `${progress}%` }}
           />
         </div>
         <span className="w-10 text-right text-xs tabular-nums text-mist/70">
@@ -126,7 +123,7 @@ function QuestionScreen({
           <button
             key={o.id}
             className={`btn-option rise rise-${Math.min(i + 1, 4)} ${
-              selected === o.id ? "!border-violet !bg-violet/15" : ""
+              selected === o.id ? "selected" : ""
             }`}
             onClick={() => onSelect(o.id)}
           >
@@ -157,9 +154,7 @@ function InsightView({
 
   return (
     <div className="flex flex-1 flex-col justify-center gap-5 py-8">
-      <span className="rise text-xs font-semibold tracking-widest text-violet uppercase">
-        {ui.checkpoint(afterBlock - 1)}
-      </span>
+      <span className="overline-label rise text-brass">{ui.checkpoint(afterBlock - 1)}</span>
       <h2 className="font-display rise rise-1 text-[1.8rem] leading-tight font-semibold">
         {title}
       </h2>

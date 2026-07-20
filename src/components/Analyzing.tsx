@@ -16,10 +16,30 @@ export default function Analyzing({ onDone }: { onDone: () => void }) {
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-8 text-center">
-      <div className="relative h-16 w-16">
-        <div className="absolute inset-0 animate-spin rounded-full border-2 border-white/10 border-t-violet" />
-        <div className="absolute inset-3 animate-pulse rounded-full bg-violet/20" />
-      </div>
+      <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+        <circle cx="36" cy="36" r="30" fill="none" stroke="rgba(242,234,217,0.1)" strokeWidth="1.5" />
+        <circle
+          className="loop-draw"
+          cx="36"
+          cy="36"
+          r="30"
+          fill="none"
+          stroke="var(--color-brass)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          transform="rotate(-90 36 36)"
+        />
+        <text
+          x="36"
+          y="43"
+          textAnchor="middle"
+          fontSize="20"
+          fill="var(--color-brass)"
+          fontFamily="var(--font-display)"
+        >
+          ↺
+        </text>
+      </svg>
       <div className="flex flex-col gap-2">
         {steps.slice(0, step + 1).map((s, i) => (
           <p

@@ -3,14 +3,16 @@
 @theme {
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --color-ink: #0d0b14;
-  --color-ink-2: #16121f;
-  --color-ink-3: #201a2e;
-  --color-mist: #b9b3c9;
-  --color-paper: #f2eff7;
-  --color-rose: #f472b6;
-  --color-violet: #a78bfa;
-  --color-amber: #fbbf24;
+  /* «Полночный переплёт»: тёплый уголь, кремовая бумага, латунь */
+  --color-ink: #151110;
+  --color-ink-2: #1d1815;
+  --color-ink-3: #272019;
+  --color-mist: #a5988a;
+  --color-paper: #f2ead9;
+  --color-brass: #c89a4e;
+  --color-brass-2: #e0b869;
+  --color-ember: #cd6b4e;
+  --color-sage: #a3b18a;
 }
 
 html,
@@ -21,32 +23,82 @@ body {
   min-height: 100dvh;
 }
 
+/* Тёплый свет лампы над страницей — едва заметный */
+body {
+  background:
+    radial-gradient(120% 80% at 50% -10%, #211a14 0%, var(--color-ink) 60%)
+    fixed;
+}
+
 .font-display {
   font-family: var(--font-display);
 }
 
-.text-gradient {
-  background: linear-gradient(100deg, #f472b6 10%, #a78bfa 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.overline-label {
+  @apply text-xs font-semibold tracking-[0.22em] uppercase;
 }
 
 .btn-primary {
-  @apply block w-full rounded-2xl px-6 py-4 text-center text-base font-semibold text-white transition active:scale-[0.98];
-  background: linear-gradient(100deg, #ec4899, #8b5cf6);
-  box-shadow: 0 8px 30px -8px rgba(196, 100, 235, 0.55);
+  @apply block w-full rounded-xl px-6 py-4 text-center text-base font-semibold transition active:scale-[0.98];
+  background: var(--color-brass);
+  color: #1a140d;
+}
+.btn-primary:hover {
+  background: var(--color-brass-2);
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-3 text-sm font-medium transition active:scale-[0.98];
+  border-color: color-mix(in srgb, var(--color-brass) 45%, transparent);
+  color: var(--color-brass-2);
+}
+.btn-ghost:hover {
+  border-color: var(--color-brass);
+  background: color-mix(in srgb, var(--color-brass) 10%, transparent);
 }
 
 .btn-option {
-  @apply block w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
+  @apply block w-full rounded-xl border px-5 py-4 text-left text-[15px] leading-snug transition active:scale-[0.98];
+  border-color: rgba(242, 234, 217, 0.12);
+  background: rgba(242, 234, 217, 0.03);
 }
 .btn-option:hover {
-  @apply border-white/25 bg-white/[0.08];
+  border-color: rgba(242, 234, 217, 0.28);
+  background: rgba(242, 234, 217, 0.06);
+}
+.btn-option.selected {
+  border-color: var(--color-brass);
+  background: color-mix(in srgb, var(--color-brass) 12%, transparent);
 }
 
 .card {
-  @apply rounded-3xl border border-white/10 bg-white/[0.04] p-6;
+  @apply rounded-2xl border p-6;
+  border-color: rgba(242, 234, 217, 0.1);
+  background: var(--color-ink-2);
+}
+
+/* Книжный разделитель: линия — ромб — линия */
+.divider {
+  @apply flex items-center gap-3;
+  color: color-mix(in srgb, var(--color-brass) 55%, transparent);
+}
+.divider::before,
+.divider::after {
+  content: "";
+  @apply h-px flex-1;
+  background: color-mix(in srgb, var(--color-brass) 30%, transparent);
+}
+
+/* Тонкие линейки по бокам вордмарки */
+.wordmark {
+  @apply flex items-center gap-4 text-xs font-semibold tracking-[0.3em];
+  color: var(--color-brass);
+}
+.wordmark::before,
+.wordmark::after {
+  content: "";
+  @apply h-px flex-1;
+  background: color-mix(in srgb, var(--color-brass) 35%, transparent);
 }
 
 @keyframes rise {
@@ -73,4 +125,14 @@ body {
 }
 .pulse-soft {
   animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+@keyframes loop-draw {
+  0% { stroke-dashoffset: 210; }
+  60% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -210; }
+}
+.loop-draw {
+  stroke-dasharray: 210;
+  animation: loop-draw 2.2s ease-in-out infinite;
 }

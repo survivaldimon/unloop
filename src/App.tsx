@@ -197,13 +197,13 @@ export default function App() {
   return (
     <LangContext.Provider value={lang}>
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-10 pt-6">
-        <div className="fixed top-3 right-3 z-50 flex gap-1 rounded-full border border-white/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
+        <div className="fixed top-3 right-3 z-50 flex gap-1 rounded-full border border-paper/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
           {(["en", "ru"] as Lang[]).map((l) => (
             <button
               key={l}
               onClick={() => switchLang(l)}
               className={`rounded-full px-2.5 py-1 uppercase transition ${
-                lang === l ? "bg-violet/30 text-paper" : "text-mist/60 hover:text-paper"
+                lang === l ? "bg-brass/25 text-paper" : "text-mist/60 hover:text-paper"
               }`}
             >
               {l}

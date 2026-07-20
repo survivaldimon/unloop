@@ -32,7 +32,8 @@ export type AnalyticsEvent =
   | "teaser_view"
   | "unlock_click"
   | "report_view"
-  | "lang_switch";
+  | "lang_switch"
+  | "share";
 
 export function track(
   event: AnalyticsEvent,

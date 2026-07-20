@@ -6,6 +6,7 @@ import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
 import type { LlmChapters } from "../lib/supabase";
 import LoopDiagram from "./LoopDiagram";
+import ShareCard from "./ShareCard";
 
 function Chapter({
   label,
@@ -18,10 +19,9 @@ function Chapter({
 }) {
   return (
     <section className="card">
-      <p className="text-xs font-semibold tracking-widest text-violet uppercase">{label}</p>
-      <h2 className="font-display mt-1 mb-4 text-[1.45rem] leading-tight font-semibold">
-        {title}
-      </h2>
+      <p className="overline-label text-brass">{label}</p>
+      <h2 className="font-display mt-1 text-[1.5rem] leading-tight font-semibold">{title}</h2>
+      <div className="mt-2 mb-4 h-px w-10 bg-brass/50" />
       {children}
     </section>
   );
@@ -53,7 +53,7 @@ function LlmText({
     return (
       <div className="flex flex-col gap-2">
         {[100, 92, 96, 60].map((w, i) => (
-          <div key={i} className="pulse-soft h-4 rounded bg-white/10" style={{ width: `${w}%` }} />
+          <div key={i} className="pulse-soft h-4 rounded bg-paper/10" style={{ width: `${w}%` }} />
         ))}
         <p className="mt-2 text-xs text-mist/60">{loadingLabel}</p>
       </div>
@@ -92,15 +92,17 @@ export default function Report({
 
   return (
     <div className="flex flex-col gap-5 py-4">
-      <header className="rise text-center">
-        <p className="text-xs font-semibold tracking-widest text-mist uppercase">{ui.header}</p>
-        <h1 className="font-display text-gradient mt-2 text-[2.4rem] leading-none font-bold">
+      <header className="rise py-4 text-center">
+        <p className="overline-label text-mist">{ui.header}</p>
+        <div className="divider mx-auto mt-4 max-w-[16rem]">◆</div>
+        <h1 className="font-display mt-4 text-[2.5rem] leading-none font-bold italic">
           {pattern.name}
         </h1>
-        <p className="mt-2 text-sm text-mist">
+        <p className="mt-3 text-sm text-mist">
           {ui.statLine(result.anx, result.avo)}
           {secondary ? ui.streak(secondary.name) : ""}
         </p>
+        <div className="divider mx-auto mt-4 max-w-[16rem]">◆</div>
       </header>
 
       <Chapter label={ui.chapter(1)} title={ui.chapters.personal}>
@@ -132,8 +134,10 @@ export default function Report({
       <Chapter label={ui.chapter(5)} title={ui.chapters.breaking}>
         <div className="flex flex-col gap-4">
           {pattern.breaking.map((b, i) => (
-            <div key={i} className="flex gap-3">
-              <span className="font-display text-xl font-semibold text-rose">{i + 1}</span>
+            <div key={i} className="flex gap-4">
+              <span className="font-display text-2xl leading-7 font-semibold text-brass italic">
+                {i + 1}
+              </span>
               <p className="text-[15px] leading-relaxed text-paper/90">
                 {fillSlots(b, result.quotes, lang)}
               </p>
@@ -143,27 +147,32 @@ export default function Report({
       </Chapter>
 
       <Chapter label={ui.chapter(6)} title={ui.chapters.flags}>
-        <p className="mb-2 text-xs font-semibold tracking-widest text-emerald-400 uppercase">
-          {ui.safe}
-        </p>
+        <p className="overline-label mb-2 text-xs text-sage">{ui.safe}</p>
         <ul className="mb-5 flex flex-col gap-2">
           {pattern.greenFlags.map((g) => (
             <li key={g} className="flex gap-2 text-[15px] leading-relaxed text-paper/90">
-              <span className="text-emerald-400">✓</span> {g}
+              <span className="text-sage">✓</span> {g}
             </li>
           ))}
         </ul>
-        <p className="mb-2 text-xs font-semibold tracking-widest text-rose uppercase">
-          {ui.retrigger}
-        </p>
+        <p className="overline-label mb-2 text-xs text-ember">{ui.retrigger}</p>
         <ul className="flex flex-col gap-2">
           {pattern.redFlags.map((r) => (
             <li key={r} className="flex gap-2 text-[15px] leading-relaxed text-paper/90">
-              <span className="text-rose">✗</span> {r}
+              <span className="text-ember">✗</span> {r}
             </li>
           ))}
         </ul>
       </Chapter>
+
+      <div className="py-2">
+        <ShareCard
+          patternId={result.pattern}
+          patternName={pattern.name}
+          shareLine={pattern.shareLine}
+          withPreview
+        />
+      </div>
 
       <footer className="flex flex-col gap-4 pt-2 text-center">
         <p className="text-xs leading-relaxed text-mist/50">{ui.disclaimer}</p>

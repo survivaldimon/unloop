@@ -2,7 +2,7 @@ import { fillSlots, type Pattern } from "../content/patterns";
 import { t, useLang } from "../i18n";
 import type { ScoreResult } from "../types";
 
-const STEP_COLORS = ["#f472b6", "#e879a9", "#c084fc", "#a78bfa", "#818cf8"];
+const STEP_COLORS = ["#e0b869", "#d5a75c", "#c89a4e", "#cd8551", "#cd6b4e"];
 
 export default function LoopDiagram({
   pattern,
@@ -25,13 +25,13 @@ export default function LoopDiagram({
           <div key={step.label} className="flex gap-4">
             <div className="flex flex-col items-center">
               <div
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold text-ink"
+                className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-ink"
                 style={{ background: STEP_COLORS[i] }}
               >
                 {i + 1}
               </div>
               {i < pattern.loop.length - 1 && (
-                <div className="w-px flex-1 bg-white/15" style={{ minHeight: 24 }} />
+                <div className="w-px flex-1 bg-paper/15" style={{ minHeight: 24 }} />
               )}
               {i === pattern.loop.length - 1 && (
                 <div className="mt-1 text-xs whitespace-nowrap text-mist/50">{ui.back}</div>
