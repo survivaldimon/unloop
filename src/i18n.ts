@@ -42,14 +42,19 @@ export interface UiStrings {
     loopTitle: string;
     sealedNote: string;
     unlock: string;
-    offerLabel: string;
-    offerTimer: (time: string) => string;
+    reportReady: string;
+    reportReadySub: string;
+    stats: [string, string, string];
+    tocTitle: string;
+    sealedTag: string;
+    toc: { n: string; title: string; hook: string; sealed: boolean }[];
+    excerptKicker: string;
+    excerptMore: string;
+    offerHolds: string;
     testNote: string;
     payNote: (provider: string) => string;
     confirming: string;
     payError: string;
-    inReport: string;
-    bullets: string[];
     disclaimer: string;
   };
   report: {
@@ -121,21 +126,61 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Your loop · 5 steps",
       sealedNote: "Steps three to five are sealed — they open with the full report.",
       unlock: "Unlock my full report",
-      offerLabel: "special offer",
-      offerTimer: (time) => `price locked for ${time}`,
+      reportReady: "Your full report is already assembled",
+      reportReadySub: "all that's left is to unseal it",
+      stats: [
+        "chapters about you",
+        "chapters written fresh from your answers",
+        "of your answers behind it",
+      ],
+      tocTitle: "contents",
+      sealedTag: "sealed",
+      toc: [
+        {
+          n: "I",
+          title: "Your personal read",
+          hook: "two chapters written from your own answers — no templates",
+          sealed: false,
+        },
+        {
+          n: "II",
+          title: "How it reads from their side",
+          hook: "the early pull, the growing strain, the misread",
+          sealed: false,
+        },
+        {
+          n: "III",
+          title: "Where your loop comes from",
+          hook: "the root of the pattern — not “blame your parents”",
+          sealed: true,
+        },
+        {
+          n: "IV",
+          title: "Steps III–V of your loop, by name",
+          hook: "including the move you don’t notice",
+          sealed: true,
+        },
+        {
+          n: "V",
+          title: "How to break the loop",
+          hook: "four interrupts, each tied to your step",
+          sealed: true,
+        },
+        {
+          n: "VI",
+          title: "Your flags",
+          hook: "what’s a real signal in a partner — and what’s just your alarm",
+          sealed: true,
+        },
+      ],
+      excerptKicker: "chapter I opens like this",
+      excerptMore: "…the rest is in the full report",
+      offerHolds: "price locked for",
       testNote: "test mode · payment off · one tap to unlock",
       payNote: (provider) => `one-time payment · secure checkout by ${provider}`,
       confirming: "Payment received — unlocking your report…",
       payError:
         "We couldn't confirm the payment automatically. If you were charged, reload this page in a minute — your report will be waiting.",
-      inReport: "In the full report",
-      bullets: [
-        "Your complete 5-step loop, built from your answers",
-        "Where the pattern comes from — and what it protects",
-        "How it reads from your partner's side",
-        "4 loop interrupts: what to do at the exact moment it grips",
-        "Your green flags & red flags — who is safe for your pattern",
-      ],
       disclaimer:
         "For self-reflection, not diagnosis. If relationships bring you persistent distress, a licensed therapist beats any test.",
     },
@@ -211,21 +256,61 @@ export const UI: Record<Lang, UiStrings> = {
       loopTitle: "Твой круг · 5 шагов",
       sealedNote: "Шаги с третьего по пятый запечатаны — они откроются с полным разбором.",
       unlock: "Открыть полный разбор",
-      offerLabel: "спецпредложение",
-      offerTimer: (time) => `цена держится ещё ${time}`,
+      reportReady: "Твой полный разбор уже собран",
+      reportReadySub: "осталось только распечатать его",
+      stats: [
+        "глав про тебя",
+        "главы пишутся заново под твои ответы",
+        "твоих ответа в основе",
+      ],
+      tocTitle: "оглавление",
+      sealedTag: "запечатано",
+      toc: [
+        {
+          n: "I",
+          title: "Твоё личное прочтение",
+          hook: "две главы из твоих же ответов, не шаблон",
+          sealed: false,
+        },
+        {
+          n: "II",
+          title: "Как это читается с той стороны",
+          hook: "ранний магнит, растущее напряжение, ошибка прочтения",
+          sealed: false,
+        },
+        {
+          n: "III",
+          title: "Откуда взялся твой круг",
+          hook: "корень паттерна — и это не про то, кто виноват",
+          sealed: true,
+        },
+        {
+          n: "IV",
+          title: "Шаги III–V круга, по именам",
+          hook: "включая ход, который ты за собой не замечаешь",
+          sealed: true,
+        },
+        {
+          n: "V",
+          title: "Как разорвать круг",
+          hook: "четыре приёма-прерывателя, каждый — под твой шаг",
+          sealed: true,
+        },
+        {
+          n: "VI",
+          title: "Твои флаги",
+          hook: "что в новом партнёре сигнал, а что — твоя тревога",
+          sealed: true,
+        },
+      ],
+      excerptKicker: "глава I начинается так",
+      excerptMore: "…дальше — в полном разборе",
+      offerHolds: "цена держится ещё",
       testNote: "тестовый режим · оплата отключена · открывается по кнопке",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider}`,
       confirming: "Оплата прошла — открываем разбор…",
       payError:
         "Не удалось подтвердить оплату автоматически. Если деньги списались — обнови страницу через минуту: разбор уже будет ждать.",
-      inReport: "В полном разборе",
-      bullets: [
-        "Все 5 шагов твоего круга, собранные из твоих ответов",
-        "Откуда взялся паттерн и от чего он тебя защищает",
-        "Как твой паттерн выглядит глазами партнёра",
-        "4 способа разорвать круг: что делать в момент, когда накрыло",
-        "Зелёные и красные флаги: с кем тебе спокойно, а с кем круг закрутится снова",
-      ],
       disclaimer:
         "Тест — для саморефлексии, а не для диагноза. Если отношения приносят постоянную боль, самый сильный ход — живой психотерапевт.",
     },

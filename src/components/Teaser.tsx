@@ -5,7 +5,7 @@ import { REPORT_PRICE_USD } from "../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../lib/offer";
 import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
 import { getSessionId } from "../lib/supabase";
-import { PATTERN_ACCENT, ROMAN, readingNo, withAlpha } from "../lib/visual";
+import { PATTERN_ACCENT, readingNo, withAlpha } from "../lib/visual";
 import { t, useLang } from "../i18n";
 import { track } from "../lib/analytics";
 import type { ScoreResult } from "../types";
@@ -36,6 +36,14 @@ export default function Teaser({
   const accent = PATTERN_ACCENT[result.pattern];
   const confirming = payState === "confirming";
   const countdown = useOfferCountdown();
+  // The unpaid opening of chapter I — same generator the report's fallback uses.
+  const excerpt = t(lang).report.fallback({
+    patternName: pattern.name,
+    tagline: pattern.tagline,
+    anx: result.anx,
+    avo: result.avo,
+    secondaryName: result.secondary ? getPattern(lang, result.secondary).name : null,
+  });
 
   useEffect(() => {
     track("teaser_view", { pattern: result.pattern });
@@ -117,41 +125,95 @@ export default function Teaser({
         <p className="font-display mt-4 text-[13px] text-mist/90 italic">{ui.sealedNote}</p>
       </div>
 
-      <div className="mt-5">
-        {paymentsEnabled && (
-          <div className="mb-4 text-center">
-            <p className="text-[11px] tracking-[0.16em] text-mist uppercase">{ui.offerLabel}</p>
-            <p className="font-display mt-1.5 text-[24px] leading-none italic">
-              <s className="mr-2.5 text-[17px] text-mist/55">{formatUsd(COMPARE_PRICE_USD)}</s>
-              <span className="font-semibold text-brass-2">{formatUsd(REPORT_PRICE_USD)}</span>
-            </p>
-            <p className="mt-1.5 text-[11px] text-mist/80 tabular-nums">{ui.offerTimer(countdown)}</p>
-          </div>
-        )}
-        <button className="btn-primary disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
-          {confirming ? ui.confirming : ui.unlock}
-        </button>
-        {payState === "error" ? (
-          <p className="mt-2 text-center text-xs text-ember">{ui.payError}</p>
-        ) : (
-          <p className="mt-2 text-center text-xs text-mist/70">
-            {paymentsEnabled ? ui.payNote(paymentsProviderName) : ui.testNote}
-          </p>
-        )}
+      <div className="mt-10 text-center">
+        <p className="font-display text-[17px] italic" style={{ color: accent.bright }}>
+          {ui.reportReady}
+        </p>
+        <p className="mt-1 text-[12px] text-mist">{ui.reportReadySub}</p>
       </div>
 
-      <div className="mt-10">
-        <p className="font-display text-[16px] font-medium">{ui.inReport}</p>
-        <hr className="hairline mt-2 mb-4" />
-        <ul className="flex flex-col gap-2.5">
-          {ui.bullets.map((line, i) => (
-            <li key={line} className="flex items-baseline gap-2 text-[13.5px] text-paper/90">
-              <span>{line}</span>
+      <div className="mt-4 flex gap-2 text-center">
+        {(["6", "2", "32"] as const).map((n, i) => (
+          <div key={n} className="flex-1 rounded-[10px] border border-paper/15 px-1 py-2.5">
+            <p className="font-display text-[24px] leading-none italic text-brass-2">{n}</p>
+            <p className="mt-1.5 text-[11px] leading-tight text-mist">{ui.stats[i]}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6">
+        <p className="text-[11px] tracking-[0.16em] text-mist uppercase">{ui.tocTitle}</p>
+        <div className="mt-2.5 flex flex-col gap-2.5">
+          {ui.toc.map((row) => (
+            <div key={row.n} className="flex items-baseline gap-2 text-[13px] leading-snug">
+              <span className="font-display w-5 flex-none text-brass italic">{row.n}</span>
+              <span className="text-paper/90">
+                {row.title} <span className="text-mist">— {row.hook}</span>
+              </span>
               <span className="toc-dots" />
-              <span className="font-display text-[12px] text-brass italic">{ROMAN[i]}</span>
-            </li>
+              {row.sealed && (
+                <span className="flex-none text-[9px] tracking-[0.14em] text-ember uppercase">
+                  {ui.sealedTag}
+                </span>
+              )}
+            </div>
           ))}
-        </ul>
+        </div>
+      </div>
+
+      <hr className="hairline mt-6" />
+      <div className="mt-4">
+        <p className="text-[11px] tracking-[0.16em] text-mist uppercase">{ui.excerptKicker}</p>
+        <p
+          className="font-display mt-2 max-h-[5em] overflow-hidden text-[14.5px] leading-relaxed italic"
+          style={{
+            WebkitMaskImage: "linear-gradient(180deg, #000 30%, transparent 95%)",
+            maskImage: "linear-gradient(180deg, #000 30%, transparent 95%)",
+          }}
+        >
+          {excerpt}
+        </p>
+        <p className="mt-1 text-[12px] text-mist italic">{ui.excerptMore}</p>
+      </div>
+
+      <div className="mt-6">
+        {paymentsEnabled ? (
+          <div className="rounded-xl border border-brass/50 p-4 text-center">
+            <p className="text-[14px]">
+              <s className="text-mist/60">{formatUsd(COMPARE_PRICE_USD)}</s>{" "}
+              <span className="font-display text-[20px] font-medium text-brass-2 italic">
+                {formatUsd(REPORT_PRICE_USD)}
+              </span>{" "}
+              <span className="text-[12px] text-mist">· {ui.offerHolds}</span>
+            </p>
+            <p className="font-display text-[44px] leading-tight text-brass-2 tabular-nums">
+              {countdown}
+            </p>
+            <button
+              className="btn-primary mt-2 disabled:opacity-60"
+              onClick={onUnlock}
+              disabled={confirming}
+            >
+              {confirming ? ui.confirming : ui.unlock}
+            </button>
+            {payState === "error" ? (
+              <p className="mt-2 text-xs text-ember">{ui.payError}</p>
+            ) : (
+              <p className="mt-2 text-[11px] text-mist/70">{ui.payNote(paymentsProviderName)}</p>
+            )}
+          </div>
+        ) : (
+          <div>
+            <button className="btn-primary disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
+              {confirming ? ui.confirming : ui.unlock}
+            </button>
+            {payState === "error" ? (
+              <p className="mt-2 text-center text-xs text-ember">{ui.payError}</p>
+            ) : (
+              <p className="mt-2 text-center text-xs text-mist/70">{ui.testNote}</p>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="mt-8">
