@@ -6,8 +6,8 @@ const CORS = {
 };
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
-/** Until the domain is verified, Resend only allows onboarding@resend.dev → account owner's inbox. */
-const DEFAULT_FROM = "Looplore <onboarding@resend.dev>";
+/** looplore.app is verified in Resend; RESEND_FROM env var overrides if ever needed. */
+const DEFAULT_FROM = "Looplore <hello@looplore.app>";
 const DEFAULT_SITE_URL = "https://looplore.app/";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
