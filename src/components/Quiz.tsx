@@ -103,7 +103,7 @@ export default function Quiz({
               index: questions.indexOf(screen.q) + 1,
             });
             // Small delay so the selection state is visible before the slide.
-            setTimeout(() => advance(updated), 180);
+            setTimeout(() => advance(updated), 240);
           }}
         />
       ) : (
@@ -129,7 +129,7 @@ function QuestionScreen({
 }) {
   return (
     <div className="flex flex-1 flex-col gap-7 py-8">
-      <h2 className="font-display rise text-[1.55rem] leading-snug font-semibold">{q.prompt}</h2>
+      <h2 className="font-display rise text-[1.7rem] leading-snug font-semibold">{q.prompt}</h2>
       <div className="flex flex-col gap-3">
         {q.options.map((o, i) => (
           <button
@@ -139,7 +139,10 @@ function QuestionScreen({
             }`}
             onClick={() => onSelect(o.id)}
           >
-            {o.text}
+            <span className="opt-letter" aria-hidden="true">
+              {"abcdef"[i]}
+            </span>
+            <span>{o.text}</span>
           </button>
         ))}
       </div>
