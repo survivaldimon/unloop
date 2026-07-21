@@ -62,6 +62,17 @@ function escapeHtml(s: string): string {
 }
 
 const BODY_FONT = "-apple-system,'Segoe UI',Roboto,Arial,sans-serif";
+const SERIF = "Georgia,'Times New Roman',serif";
+// The site's "instrument" palette, flattened to solid colors for email clients.
+const INK = "#151110";
+const INK_CARD = "#1d1815";
+const PAPER = "#f2ead9";
+const MIST = "#a5988a";
+const BRASS = "#c89a4e";
+const BRASS_BRIGHT = "#e0b869";
+const RULE = "#37302a";
+const FOOTNOTE = "#7a7268";
+const ROMAN = ["I", "II", "III"];
 
 /** Table-based dark-theme email; every style inline so Gmail keeps the look. */
 function renderHtml(
@@ -73,10 +84,10 @@ function renderHtml(
 ): string {
   const insightRows = insights
     .map(
-      (line) => `
+      (line, i) => `
         <tr>
-          <td valign="top" style="padding:0 12px 14px 0;color:#f472b6;font-family:${BODY_FONT};font-size:14px;line-height:1.6;">&#9670;</td>
-          <td style="padding:0 0 14px 0;color:#f2eff7;font-family:${BODY_FONT};font-size:15px;line-height:1.6;">${escapeHtml(line)}</td>
+          <td valign="baseline" style="padding:0 12px 14px 0;color:${BRASS};font-family:${SERIF};font-size:15px;font-style:italic;line-height:1.6;">${ROMAN[i] ?? "·"}</td>
+          <td style="padding:0 0 14px 0;color:${PAPER};font-family:${BODY_FONT};font-size:15px;line-height:1.6;">${escapeHtml(line)}</td>
         </tr>`,
     )
     .join("");
@@ -84,38 +95,44 @@ function renderHtml(
   return `<!doctype html>
 <html lang="und">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#0d0b14;" bgcolor="#0d0b14">
+<body style="margin:0;padding:0;background:${INK};" bgcolor="${INK}">
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">${escapeHtml(copy.preheader)}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0d0b14" style="background:#0d0b14;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${INK}" style="background:${INK};">
     <tr>
       <td align="center" style="padding:40px 16px;">
         <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;">
           <tr>
-            <td align="center" style="padding-bottom:8px;">
-              <p style="margin:0;color:#b9b3c9;font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.kicker)}</p>
+            <td align="center" style="padding-bottom:14px;">
+              <p style="margin:0;color:${MIST};font-family:${SERIF};font-size:12px;letter-spacing:5px;">LOOPLORE</p>
+            </td>
+          </tr>
+          <tr><td style="border-top:1px solid ${RULE};font-size:0;line-height:0;">&nbsp;</td></tr>
+          <tr>
+            <td align="center" style="padding-top:16px;">
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.kicker)}</p>
             </td>
           </tr>
           <tr>
             <td align="center">
-              <h1 style="margin:8px 0 0;color:#a78bfa;font-family:Georgia,'Times New Roman',serif;font-size:36px;line-height:1.1;font-weight:700;">${escapeHtml(patternName)}</h1>
+              <h1 style="margin:10px 0 0;color:${BRASS_BRIGHT};font-family:${SERIF};font-size:34px;line-height:1.15;font-weight:500;font-style:italic;">${escapeHtml(patternName)}</h1>
             </td>
           </tr>
           <tr>
             <td align="center" style="padding:14px 24px 6px;">
-              <p style="margin:0;color:#f2eff7;font-family:${BODY_FONT};font-size:17px;line-height:1.45;">${escapeHtml(tagline)}</p>
+              <p style="margin:0;color:${PAPER};font-family:${SERIF};font-size:17px;line-height:1.5;font-style:italic;">${escapeHtml(tagline)}</p>
             </td>
           </tr>
           <tr>
             <td align="center" style="padding:4px 24px 24px;">
-              <p style="margin:0;color:#b9b3c9;font-family:${BODY_FONT};font-size:14px;line-height:1.5;">${escapeHtml(copy.intro)}</p>
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:14px;line-height:1.5;">${escapeHtml(copy.intro)}</p>
             </td>
           </tr>
           <tr>
             <td style="padding:0 0 8px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#16121f" style="background:#16121f;border:1px solid #2a2438;border-radius:20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${INK_CARD}" style="background:${INK_CARD};border:1px solid ${RULE};border-radius:14px;">
                 <tr>
                   <td style="padding:24px 24px 12px;">
-                    <p style="margin:0 0 16px;color:#b9b3c9;font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.insightsTitle)}</p>
+                    <p style="margin:0 0 16px;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.insightsTitle)}</p>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${insightRows}
                     </table>
                   </td>
@@ -127,8 +144,8 @@ function renderHtml(
             <td align="center">
               <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:20px auto 0;">
                 <tr>
-                  <td bgcolor="#8b5cf6" style="border-radius:14px;background:linear-gradient(100deg,#ec4899,#8b5cf6);">
-                    <a href="${siteUrl}" style="display:inline-block;padding:15px 34px;color:#ffffff;font-family:${BODY_FONT};font-size:16px;font-weight:600;text-decoration:none;border-radius:14px;">${escapeHtml(copy.cta)}</a>
+                  <td bgcolor="${BRASS_BRIGHT}" style="border-radius:10px;background:${BRASS_BRIGHT};">
+                    <a href="${siteUrl}" style="display:inline-block;padding:14px 34px;color:${INK};font-family:${BODY_FONT};font-size:16px;font-weight:600;text-decoration:none;border-radius:10px;">${escapeHtml(copy.cta)}</a>
                   </td>
                 </tr>
               </table>
@@ -136,16 +153,16 @@ function renderHtml(
           </tr>
           <tr>
             <td align="center" style="padding:18px 30px 0;">
-              <p style="margin:0;color:#b9b3c9;font-family:${BODY_FONT};font-size:13px;line-height:1.6;">${escapeHtml(copy.note)}</p>
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:13px;line-height:1.6;">${escapeHtml(copy.note)}</p>
             </td>
           </tr>
           <tr>
             <td style="padding:36px 10px 0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #2a2438;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid ${RULE};">
                 <tr>
                   <td style="padding-top:18px;">
-                    <p style="margin:0 0 8px;color:#6f6a80;font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.footerReason)}</p>
-                    <p style="margin:0;color:#6f6a80;font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.disclaimer)}</p>
+                    <p style="margin:0 0 8px;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.footerReason)}</p>
+                    <p style="margin:0;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.disclaimer)}</p>
                   </td>
                 </tr>
               </table>
