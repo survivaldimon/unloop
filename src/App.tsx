@@ -282,7 +282,9 @@ export default function App() {
             }}
           />
         )}
-        {step === "quiz" && <Quiz initialAnswers={answers} onFinish={finishQuiz} />}
+        {step === "quiz" && (
+          <Quiz initialAnswers={answers} onProgress={setAnswers} onFinish={finishQuiz} />
+        )}
         {step === "analyzing" && <Analyzing onDone={() => setStep("email")} />}
         {step === "email" && (
           <EmailCapture

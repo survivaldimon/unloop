@@ -26,9 +26,11 @@ function buildScreens(questions: QuizQuestion[]): Screen[] {
 
 export default function Quiz({
   initialAnswers,
+  onProgress,
   onFinish,
 }: {
   initialAnswers: Answers;
+  onProgress: (answers: Answers) => void;
   onFinish: (answers: Answers) => void;
 }) {
   const lang = useLang();
@@ -98,6 +100,9 @@ export default function Quiz({
           onSelect={(optionId) => {
             const updated = { ...answers, [screen.q.id]: optionId };
             setAnswers(updated);
+            // Lift every answer up so a mid-quiz reload (tab evicted, accidental
+            // swipe-back) resumes at the first unanswered question, not question 1.
+            onProgress(updated);
             track("question_answered", {
               question_id: screen.q.id,
               block: screen.q.block,
