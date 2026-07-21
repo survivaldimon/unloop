@@ -26,8 +26,17 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="background:#151110">
+    <div id="root">
+      <!-- Static skeleton: replaced by React on mount. On a slow connection the
+           visitor sees the branded folio instead of a blank ink screen. -->
+      <style>
+        @keyframes ll-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.9; } }
+      </style>
+      <div style="min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#151110">
+        <span style="font-family:Georgia,'Times New Roman',serif;font-size:13px;letter-spacing:0.42em;color:#f2ead9;animation:ll-pulse 1.6s ease-in-out infinite">LOOPLORE</span>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
