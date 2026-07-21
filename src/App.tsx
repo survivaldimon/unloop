@@ -8,6 +8,7 @@ import Report from "./components/Report";
 import { score, type Answers } from "./lib/scoring";
 import { openCheckout, paymentsEnabled } from "./lib/payments";
 import {
+  adoptSession,
   fetchPaidAt,
   generateLlmChapters,
   getSessionId,
@@ -76,6 +77,31 @@ export default function App() {
 
   useEffect(() => {
     track("page_view", { step });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Email deep link (?s=<session id>): adopt the session and restore the funnel
+  // from the server — the mail app or another device has no localStorage state.
+  useEffect(() => {
+    const s = new URLSearchParams(window.location.search).get("s");
+    if (!s || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return;
+    window.history.replaceState(null, "", window.location.pathname);
+    void adoptSession(s).then((restored) => {
+      if (!restored) return;
+      refreshSessionContext();
+      setAnswers(restored.answers);
+      const paid = Boolean(restored.paidAt);
+      setUnlocked(paid);
+      setStep(paid ? "report" : "teaser");
+      if (paid) {
+        const restoredResult = score(restored.answers, lang);
+        setLlmLoading(true);
+        void generateLlmChapters(restoredResult, lang).then((chapters) => {
+          setLlm(chapters);
+          setLlmLoading(false);
+        });
+      }
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

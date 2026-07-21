@@ -26,6 +26,27 @@ export function resetSessionId(): void {
   localStorage.removeItem("unloop_session_id");
 }
 
+/**
+ * Restores a session opened from an email deep link (?s=<id>): adopts the id on
+ * this device and returns its server-side state. Possession of the session UUID
+ * is the capability — the RPC exposes only answers and paid_at.
+ */
+export async function adoptSession(
+  id: string,
+): Promise<{ answers: Answers; paidAt: string | null } | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await supabase.rpc("unloop_get_session", { p_session_id: id });
+    if (error || !data || typeof data !== "object") return null;
+    const answers = (data as { answers?: Answers }).answers;
+    if (!answers || typeof answers !== "object" || Object.keys(answers).length === 0) return null;
+    localStorage.setItem("unloop_session_id", id);
+    return { answers, paidAt: (data as { paid_at?: string | null }).paid_at ?? null };
+  } catch {
+    return null;
+  }
+}
+
 /** Fire-and-forget persistence; the funnel must work even with no backend configured. */
 export async function saveSession(data: {
   answers: Answers;

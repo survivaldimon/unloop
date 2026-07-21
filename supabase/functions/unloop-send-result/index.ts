@@ -273,7 +273,10 @@ Deno.serve(async (req: Request) => {
     }
 
     const copy = COPY[lang];
-    const siteUrl = Deno.env.get("UNLOOP_SITE_URL") || DEFAULT_SITE_URL;
+    // Deep link: ?s=<session id> lets the site restore this session's result
+    // on whatever device the email is opened on.
+    const siteBase = Deno.env.get("UNLOOP_SITE_URL") || DEFAULT_SITE_URL;
+    const siteUrl = `${siteBase}${siteBase.includes("?") ? "&" : "?"}s=${session_id}`;
     const from = Deno.env.get("RESEND_FROM") || DEFAULT_FROM;
 
     const res = await fetch(RESEND_ENDPOINT, {
