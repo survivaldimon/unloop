@@ -2,12 +2,22 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// base: "./" so the build works from a GitHub Pages subpath
+// base: "/" — the site is served from the domain root (looplore.app); the /loop
+// entry needs absolute asset URLs, a relative base would resolve them under /loop/.
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [react(), tailwindcss()],
   server: {
     // Honor the harness-assigned port when launched via .claude/launch.json.
     port: Number(process.env.PORT) || 5173,
+  },
+  build: {
+    rollupOptions: {
+      // Two HTML entries, one shared bundle: "/" = photo read, "/loop" = quiz.
+      input: {
+        main: "index.html",
+        loop: "loop/index.html",
+      },
+    },
   },
 });

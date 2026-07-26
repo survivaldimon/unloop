@@ -70,6 +70,15 @@ function forwardToMeta(
         content_category: "report_teaser",
       });
       break;
+    case "photo_upload":
+      metaTrackCustom("PhotoUpload");
+      break;
+    case "photo_teaser_view":
+      metaTrack("ViewContent", {
+        content_name: "photo_read",
+        content_category: "photo_teaser",
+      });
+      break;
     case "unlock_click":
       metaTrack("InitiateCheckout", { value: REPORT_PRICE_USD, currency: "USD" });
       break;
@@ -96,7 +105,16 @@ export type AnalyticsEvent =
   | "report_view"
   | "lang_switch"
   | "share"
-  | "purchase";
+  | "purchase"
+  // Photo funnel ("/" since 07.2026). Monetization events (email_submitted,
+  // unlock_click, purchase) are shared with the quiz and carry funnel:"photo".
+  | "photo_view"
+  | "photo_upload"
+  | "photo_context_done"
+  | "photo_scan_done"
+  | "photo_reject"
+  | "photo_teaser_view"
+  | "photo_report_view";
 
 export function track(
   event: AnalyticsEvent,

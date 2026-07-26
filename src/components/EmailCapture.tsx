@@ -4,9 +4,14 @@ import { t, useLang } from "../i18n";
 export default function EmailCapture({
   onSubmit,
   onSkip,
+  title,
+  body,
 }: {
   onSubmit: (email: string) => void;
   onSkip: () => void;
+  /** Copy overrides for non-quiz funnels (the defaults are quiz wording). */
+  title?: string;
+  body?: string;
 }) {
   const ui = t(useLang()).email;
   const [value, setValue] = useState("");
@@ -14,8 +19,10 @@ export default function EmailCapture({
 
   return (
     <div className="flex flex-1 flex-col justify-center gap-6">
-      <h2 className="font-display rise text-[1.9rem] leading-tight font-semibold">{ui.title}</h2>
-      <p className="rise rise-1 text-[16px] leading-relaxed text-mist">{ui.body}</p>
+      <h2 className="font-display rise text-[1.9rem] leading-tight font-semibold">
+        {title ?? ui.title}
+      </h2>
+      <p className="rise rise-1 text-[16px] leading-relaxed text-mist">{body ?? ui.body}</p>
       <form
         className="rise rise-2 flex flex-col gap-3"
         onSubmit={(e) => {
