@@ -17,6 +17,7 @@ export default function PhotoTeaser({
   teaser,
   useCase,
   previewUrl,
+  photoCount,
   paymentsEnabled,
   sessionId,
   onUnlock,
@@ -24,6 +25,7 @@ export default function PhotoTeaser({
   teaser: PhotoTeaserData;
   useCase: PhotoUseCase;
   previewUrl: string | null;
+  photoCount: number;
   paymentsEnabled: boolean;
   sessionId: string;
   onUnlock: () => void;
@@ -36,9 +38,10 @@ export default function PhotoTeaser({
   }, []);
 
   const contextTitle = PHOTO_COPY.report.sections.context_read[useCase] ?? "Stranger read";
-  const toc = ui.toc.map((row) =>
-    row.title === "Context read" ? { ...row, title: contextTitle } : row,
-  );
+  const toc = [
+    ...ui.toc.map((row) => (row.title === "Context read" ? { ...row, title: contextTitle } : row)),
+    ...(photoCount > 1 ? [ui.tocSetRow] : []),
+  ];
 
   return (
     <div className="flex flex-col py-4">
@@ -62,8 +65,13 @@ export default function PhotoTeaser({
 
       {previewUrl && (
         <div className="rise rise-2 mx-auto mt-6 w-32 overflow-hidden rounded-xl border border-brass/40">
-          <img src={previewUrl} alt="Your photo" className="block w-full" />
+          <img src={previewUrl} alt="Main photo" className="block w-full" />
         </div>
+      )}
+      {photoCount > 1 && (
+        <p className="rise rise-2 mt-2 text-center text-[12px] text-mist">
+          {ui.photosNote(photoCount)}
+        </p>
       )}
 
       {/* Two open observations, numbered like the quiz insight bands */}

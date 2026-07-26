@@ -1,7 +1,7 @@
 node_modules
 dist
-# dev-only test asset for the photo funnel (never ship a face in the repo)
-public/photoread-test.webp
+# dev-only test assets for the photo funnel (never ship a face in the repo)
+public/photoread-test*.webp
 supabase/.temp
 .env
 .env.local

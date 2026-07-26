@@ -10,6 +10,8 @@ const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
 
 const SESSION_KEY = "photoread_session_id";
 
+export const MAX_PHOTOS = 6;
+
 export function getPhotoSessionId(): string {
   let id = localStorage.getItem(SESSION_KEY);
   if (!id) {
@@ -19,18 +21,20 @@ export function getPhotoSessionId(): string {
   return id;
 }
 
-/** A new photo is a new reading: new id, new row, new paywall. */
+/** A new photo set is a new reading: new id, new row, new paywall. */
 export function resetPhotoSessionId(): void {
   localStorage.removeItem(SESSION_KEY);
 }
 
-export type PhotoSubject = "me" | "us";
+export type PhotoSubject = "me" | "us" | "other";
 export type PhotoUseCase = "dating" | "social" | "professional" | "curious";
 
 export interface PhotoContext {
   subject: PhotoSubject;
   age_range: string | null;
   use_case: PhotoUseCase;
+  /** Required (true) when subject is "other" — the uploader's responsibility confirmation. */
+  consent_third_party?: boolean;
 }
 
 export interface PhotoTeaserData {
@@ -42,24 +46,49 @@ export interface PhotoScales {
   confidence: number;
   approachability: number;
   intentionality: number;
+  warmth: number;
+  status_signal: number;
+  authenticity: number;
+}
+
+export interface SignalItem {
+  one_line: string;
+  strength: number;
+}
+
+export interface GuessItem {
+  guess: string;
+  why: string;
+}
+
+export interface PhotosVerdict {
+  best_index: number;
+  weakest_index: number;
+  ordering_advice: string;
+  per_photo: { index: number; one_line: string }[];
 }
 
 export interface PhotoReportData {
   first_impression: string;
+  ten_second_story: { half_second: string; three_seconds: string; ten_seconds: string };
   pose_presence: string;
   style_signals: string;
+  setting_framing: string;
+  signals: { pose: SignalItem; style: SignalItem; setting: SignalItem; framing: SignalItem };
+  guesses: { occupation: GuessItem; lifestyle: GuessItem; vibe: GuessItem };
   the_tell: string;
   context_read: string;
   green_flag: string;
   red_flag: string;
   one_change: string;
   scales: PhotoScales;
+  photos_verdict: PhotosVerdict | null;
 }
 
 export type RejectReason = "no_person" | "minor" | "nsfw" | "declined" | "failed";
 
 export type AnalyzeResult =
-  | { kind: "ok"; teaser: PhotoTeaserData; fitnessMode: boolean }
+  | { kind: "ok"; teaser: PhotoTeaserData; fitnessMode: boolean; photoCount: number }
   | { kind: "rejected"; reason: RejectReason };
 
 /**
@@ -89,20 +118,25 @@ async function callFn(
   return { status: res.status, data };
 }
 
-export async function analyzePhoto(args: {
-  imageBase64: string;
+export async function analyzePhotos(args: {
+  imagesBase64: string[];
   context: PhotoContext;
 }): Promise<AnalyzeResult> {
   try {
     const { status, data } = await callFn("photoread-analyze", {
       session_id: getPhotoSessionId(),
-      image_base64: args.imageBase64,
+      images_base64: args.imagesBase64.slice(0, MAX_PHOTOS),
       context: args.context,
     });
     if (status === 200 && data?.teaser) {
       const teaser = data.teaser as PhotoTeaserData;
       if (Array.isArray(teaser.observations) && teaser.locked_hint) {
-        return { kind: "ok", teaser, fitnessMode: Boolean(data.fitness_mode) };
+        return {
+          kind: "ok",
+          teaser,
+          fitnessMode: Boolean(data.fitness_mode),
+          photoCount: Number(data.photo_count) || args.imagesBase64.length,
+        };
       }
     }
     if (status === 422) {

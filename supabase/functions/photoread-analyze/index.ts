@@ -7,30 +7,42 @@ const CORS = {
 };
 
 const TEASER_MODEL = "claude-haiku-4-5";
+const MAX_PHOTOS = 6;
 
-const SUBJECTS = new Set(["me", "us"]);
+const SUBJECTS = new Set(["me", "us", "other"]);
 const AGE_RANGES = new Set(["18-24", "25-34", "35-44", "45+"]);
 const USE_CASES = new Set(["dating", "social", "professional", "curious"]);
 
+// One screening call covers the whole set: per-photo verdicts, same order.
 const MODERATION_SCHEMA = {
   type: "object",
   properties: {
-    real_person_photo: {
-      type: "boolean",
-      description:
-        "The image is a real photograph (not a drawing, meme, screenshot of text, or object shot) showing at least one visible human",
-    },
-    appears_minor: {
-      type: "boolean",
-      description: "Any person shown could plausibly be under 18",
-    },
-    nsfw: { type: "boolean", description: "Nudity or sexually explicit content" },
-    shirtless: {
-      type: "boolean",
-      description: "A person is shirtless or wearing only underwear/swimwear",
+    photos: {
+      type: "array",
+      description: "One entry per provided image, in the same order",
+      items: {
+        type: "object",
+        properties: {
+          has_person: {
+            type: "boolean",
+            description: "A real human is visible in this photograph",
+          },
+          appears_minor: {
+            type: "boolean",
+            description: "Any person shown could plausibly be under 18",
+          },
+          nsfw: { type: "boolean", description: "Nudity or sexually explicit content" },
+          shirtless: {
+            type: "boolean",
+            description: "A person is shirtless or wearing only underwear/swimwear",
+          },
+        },
+        required: ["has_person", "appears_minor", "nsfw", "shirtless"],
+        additionalProperties: false,
+      },
     },
   },
-  required: ["real_person_photo", "appears_minor", "nsfw", "shirtless"],
+  required: ["photos"],
   additionalProperties: false,
 } as const;
 
@@ -52,10 +64,29 @@ const TEASER_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-// Framing rules validated in Phase 0 (26.07.2026): first-person self-attestation,
-// "how it reads" language, never "who you really are", no profiler/hidden-traits
-// wording (that framing trips refusals on every model).
-const VOICE_SYSTEM = `You are The Outside View — the analysis engine of Looplore, an entertainment self-awareness app. A user uploaded their own photo to learn how it reads to strangers in the first 3 seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice to use this particular photo — and describe how the photo READS to others, never who the person "really is". Voice: perceptive, candid, warm but unsentimental, second person ("you"), always anchored to exact visible details. Never mention being an AI, never moralize, never pad with disclaimers.`;
+// Framing validated in Phase 0 + v2 decision (26.07.2026): third-person voice
+// ("the person in this photo", "they"), uploader-consent context, "how it
+// reads" language, never profiler/hidden-traits wording.
+const VOICE_SYSTEM = `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted a photo to learn how it reads to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of this particular photo — and describe how the photo READS to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`;
+
+function attestationFor(subject: string, ageRange: string | null, useCase: string): string {
+  return [
+    subject === "other"
+      ? "The uploader states this photo shows another person, confirms they have that person's permission to run this read, and takes responsibility for the upload."
+      : subject === "us"
+        ? "The uploader states this photo shows themself together with someone close to them."
+        : "The uploader states this photo shows themself.",
+    ageRange ? `Age range of the main person shown: ${ageRange}.` : "",
+    {
+      dating: "The photo is mainly used on dating apps.",
+      social: "The photo is mainly used on social media.",
+      professional: "The photo is mainly used in professional contexts (LinkedIn, work profiles).",
+      curious: "The uploader is curious how the photo reads to strangers.",
+    }[useCase as "dating" | "social" | "professional" | "curious"] ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
 
 let cachedApiKey: string | null = null;
 
@@ -91,6 +122,13 @@ function parseStructured(response: { content: Array<{ type: string; text?: strin
   }
 }
 
+interface Screening {
+  has_person: boolean;
+  appears_minor: boolean;
+  nsfw: boolean;
+  shirtless: boolean;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   const json = (body: unknown, status = 200) =>
@@ -102,21 +140,31 @@ Deno.serve(async (req: Request) => {
   try {
     const body = await req.json();
     const sessionId = body?.session_id;
-    const imageB64 = body?.image_base64;
+    // v2 shape: images_base64: string[] (1..6, [0] is the main photo).
+    const images = Array.isArray(body?.images_base64) ? (body.images_base64 as unknown[]) : null;
     const context = body?.context ?? {};
-    const subject = SUBJECTS.has(context.subject) ? context.subject : "me";
-    const ageRange = AGE_RANGES.has(context.age_range) ? context.age_range : null;
-    const useCase = USE_CASES.has(context.use_case) ? context.use_case : "curious";
+    const subject = SUBJECTS.has(context.subject) ? (context.subject as string) : "me";
+    const ageRange = AGE_RANGES.has(context.age_range) ? (context.age_range as string) : null;
+    const useCase = USE_CASES.has(context.use_case) ? (context.use_case as string) : "curious";
+    const consentThirdParty = Boolean(context.consent_third_party);
 
     if (
       typeof sessionId !== "string" ||
       !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(sessionId) ||
-      typeof imageB64 !== "string" ||
-      imageB64.length < 5000 ||
-      imageB64.length > 2_500_000
+      !images ||
+      images.length < 1 ||
+      images.length > MAX_PHOTOS ||
+      images.some(
+        (img) => typeof img !== "string" || img.length < 5000 || img.length > 2_500_000,
+      )
     ) {
       return json({ error: "bad_request" }, 400);
     }
+    // Third-party uploads require the explicit responsibility confirmation.
+    if (subject === "other" && !consentThirdParty) {
+      return json({ error: "consent_required" }, 400);
+    }
+    const imagesB64 = images as string[];
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -126,66 +174,54 @@ Deno.serve(async (req: Request) => {
     if (!apiKey) return json({ error: "llm_not_configured" }, 500);
     const anthropic = new Anthropic({ apiKey });
 
-    const imageBlock = {
-      type: "image",
-      source: { type: "base64", media_type: "image/jpeg", data: imageB64 },
-    } as const;
+    const imageBlocks = imagesB64.map((data) => ({
+      type: "image" as const,
+      source: { type: "base64" as const, media_type: "image/jpeg" as const, data },
+    }));
 
-    // 1. Moderation gate — cheap structured screening before anything is stored.
+    // 1. One moderation pass over the whole set, before anything is stored.
     const modResponse = await anthropic.messages.create({
       model: TEASER_MODEL,
-      max_tokens: 120,
+      max_tokens: 400,
       output_config: { format: { type: "json_schema", schema: MODERATION_SCHEMA } },
       messages: [
         {
           role: "user",
           content: [
-            imageBlock,
+            ...imageBlocks,
             {
               type: "text",
-              text: "Screening check for a photo-upload product. Answer strictly about what is visible in the image.",
+              text: `Screening check for a photo-upload product. ${imagesB64.length} image(s) provided. For EACH image, in order, answer strictly about what is visible.`,
             },
           ],
         },
       ],
     });
-    const moderation = parseStructured(modResponse) as {
-      real_person_photo: boolean;
-      appears_minor: boolean;
-      nsfw: boolean;
-      shirtless: boolean;
-    } | null;
-    if (!moderation) return json({ error: "moderation_failed" }, 500);
-    if (!moderation.real_person_photo) return json({ error: "rejected", reason: "no_person" }, 422);
-    if (moderation.appears_minor) return json({ error: "rejected", reason: "minor" }, 422);
-    if (moderation.nsfw) return json({ error: "rejected", reason: "nsfw" }, 422);
+    const moderation = parseStructured(modResponse) as { photos: Screening[] } | null;
+    if (!moderation?.photos?.length) return json({ error: "moderation_failed" }, 500);
+    const shots = moderation.photos.slice(0, imagesB64.length);
+    if (shots.some((s) => s.appears_minor)) return json({ error: "rejected", reason: "minor" }, 422);
+    if (shots.some((s) => s.nsfw)) return json({ error: "rejected", reason: "nsfw" }, 422);
+    // The main photo must show a person; extra shots may be scenery/hobby shots.
+    if (!shots[0]?.has_person) return json({ error: "rejected", reason: "no_person" }, 422);
+    const fitnessMode = shots.some((s) => s.shirtless);
 
-    // 2. Store the photo (private bucket; report generation reads it back after payment).
-    const photoPath = `${sessionId.toLowerCase()}.jpg`;
-    const upload = await admin.storage
-      .from("photoread")
-      .upload(photoPath, b64ToBytes(imageB64), { contentType: "image/jpeg", upsert: true });
-    if (upload.error) {
-      console.error("photoread-analyze upload", upload.error);
-      return json({ error: "storage_failed" }, 500);
+    // 2. Store the set (private bucket; the report reads it back after payment).
+    const photoPaths: string[] = [];
+    for (let i = 0; i < imagesB64.length; i++) {
+      const path = `${sessionId.toLowerCase()}/${i + 1}.jpg`;
+      const upload = await admin.storage
+        .from("photoread")
+        .upload(path, b64ToBytes(imagesB64[i]), { contentType: "image/jpeg", upsert: true });
+      if (upload.error) {
+        console.error("photoread-analyze upload", upload.error);
+        return json({ error: "storage_failed" }, 500);
+      }
+      photoPaths.push(path);
     }
 
-    // 3. Teaser — two open observations plus one locked hook.
-    const attestation = [
-      subject === "us"
-        ? "The photo shows me together with someone close to me; I'm the one who uploaded it."
-        : "The person in this photo is me.",
-      ageRange ? `My age range: ${ageRange}.` : "",
-      {
-        dating: "I mainly use this photo on dating apps.",
-        social: "I mainly use this photo on social media.",
-        professional: "I mainly use this photo in professional contexts (LinkedIn, work profiles).",
-        curious: "I'm just curious how this photo reads.",
-      }[useCase],
-    ]
-      .filter(Boolean)
-      .join(" ");
-
+    // 3. Teaser — main photo only (fast + cheap); the paid report covers the set.
+    const attestation = attestationFor(subject, ageRange, useCase);
     const teaserResponse = await anthropic.messages.create({
       model: TEASER_MODEL,
       max_tokens: 600,
@@ -195,10 +231,10 @@ Deno.serve(async (req: Request) => {
         {
           role: "user",
           content: [
-            imageBlock,
+            imageBlocks[0],
             {
               type: "text",
-              text: `${attestation}\n\nGive me the teaser of my read: exactly TWO observations — each 1–2 sentences, each anchored to a concrete visible detail, at least one should genuinely surprise me. Then one locked_hint sentence that teases the single most revealing thing this photo shows — specific enough to feel real, but do not reveal what it is.`,
+              text: `${attestation}\n\nGive the teaser of this read: exactly TWO observations — each 1–2 sentences, each anchored to a concrete visible detail, at least one should genuinely surprise the uploader. Then one locked_hint sentence that teases the single most revealing thing this photo shows — specific enough to feel real, but do not reveal what it is.`,
             },
           ],
         },
@@ -221,9 +257,16 @@ Deno.serve(async (req: Request) => {
       id: sessionId.toLowerCase(),
       stage: "teaser",
       lang: "en",
-      context: { subject, age_range: ageRange, use_case: useCase },
-      photo_path: photoPath,
-      moderation,
+      context: {
+        subject,
+        age_range: ageRange,
+        use_case: useCase,
+        consent_third_party: subject === "other" ? true : undefined,
+        photo_count: imagesB64.length,
+      },
+      photo_path: photoPaths[0],
+      photo_paths: photoPaths,
+      moderation: { photos: shots, shirtless: fitnessMode },
       teaser,
       updated_at: new Date().toISOString(),
     });
@@ -232,7 +275,7 @@ Deno.serve(async (req: Request) => {
       return json({ error: "db_failed" }, 500);
     }
 
-    return json({ ok: true, teaser, fitness_mode: moderation.shirtless });
+    return json({ ok: true, teaser, fitness_mode: fitnessMode, photo_count: imagesB64.length });
   } catch (err) {
     console.error("photoread-analyze error", err);
     return json({ error: "internal" }, 500);

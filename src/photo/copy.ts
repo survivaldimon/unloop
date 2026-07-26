@@ -1,7 +1,8 @@
 /**
  * All photo-funnel copy in one place (EN-only for the MVP launch; the photo
  * product targets the EN market and RU would need a native rewrite, not a
- * translation — founder's standing rule).
+ * translation — founder's standing rule). Voice decision 26.07: the analysis
+ * itself is written in third person ("the person in this photo", "they").
  */
 
 export const PHOTO_COPY = {
@@ -9,20 +10,22 @@ export const PHOTO_COPY = {
   folioTag: "PHOTO READ",
 
   landing: {
-    h1a: "Your photo talks.",
+    h1a: "A photo talks.",
     h1b: "Hear what it says.",
-    body: "One photo in — the outside view out: what your pose, your style and your framing tell a stranger in the first 3 seconds. Including the one thing you don't see.",
+    body: "Upload up to six photos and get the outside view: what pose, style and framing tell a stranger in the first 3 seconds — including the one thing nobody notices about their own photos.",
     bullets: [
-      "A stranger's first read of you — spelled out, detail by detail",
+      "A stranger's first read — spelled out, detail by detail",
       "Built only on what actually shows: pose, styling, setting, framing",
-      "The Tell: the one signal you're sending without knowing it",
+      "The Tell: the one signal the photo sends without anyone knowing",
     ],
-    uploadIdle: "Add your photo",
-    uploadSub: "One clear photo of you. JPG or PNG.",
-    uploadBusy: "Preparing your photo…",
-    retake: "Choose another",
-    cta: "Read my photo",
-    note: "18+ · Your photo is deleted within 24 hours · Never used to train AI",
+    uploadIdle: "Add a photo",
+    uploadSub: "A clear photo of a person. JPG or PNG.",
+    uploadBusy: "Preparing the photo…",
+    addMore: "Add another photo",
+    addMoreSub: (left: number) => `optional — up to ${left} more`,
+    mainTag: "main",
+    cta: (count: number) => (count > 1 ? `Read these ${count} photos` : "Read this photo"),
+    note: "18+ · Photos are deleted within 24 hours · Never used to train AI",
   },
 
   context: {
@@ -34,11 +37,12 @@ export const PHOTO_COPY = {
         options: [
           { value: "me", label: "Just me" },
           { value: "us", label: "Me with someone close" },
+          { value: "other", label: "Someone else" },
         ],
       },
       {
         id: "age_range",
-        title: "Your age range?",
+        title: "Age range of the person in the photo?",
         options: [
           { value: "18-24", label: "18–24" },
           { value: "25-34", label: "25–34" },
@@ -57,7 +61,13 @@ export const PHOTO_COPY = {
         ],
       },
     ],
-    consent: "By continuing you confirm you're 18+ and this is your photo.",
+    thirdParty: {
+      title: "One confirmation first",
+      body: "This photo shows someone else. By continuing you confirm you have their permission to run this read, and you take responsibility for the upload. The read describes how the photo comes across — impressions, not facts about them.",
+      confirm: "I confirm — continue",
+      back: "Go back",
+    },
+    consent: "By continuing you confirm you're 18+ and have the right to use this photo.",
   },
 
   scanning: {
@@ -66,50 +76,59 @@ export const PHOTO_COPY = {
       "Decoding style and grooming signals…",
       "Weighing the setting and framing…",
       "Running the 3-second first-impression pass…",
-      "Writing your read…",
+      "Writing the read…",
     ],
     slowNote: "A careful read takes a few extra seconds.",
   },
 
   rejects: {
-    no_person: "We couldn't find a person in that photo. Try one where you're clearly visible.",
-    minor: "This photo looks like it may show someone under 18. We only read photos of adults.",
-    nsfw: "That photo is a bit much for us. Try one with more clothes on.",
+    no_person: "We couldn't find a person in the main photo. Try one where they're clearly visible.",
+    minor: "One of these photos looks like it may show someone under 18. We only read photos of adults.",
+    nsfw: "One of these photos is a bit much for us. Try ones with more clothes on.",
     declined: "The read didn't come through for this photo. Try a different one.",
     failed: "Something broke on our side. Give it another try in a moment.",
   },
 
   teaser: {
     kicker: "the outside view",
-    title: "Your photo said more than you planned.",
+    title: "This photo said more than it planned.",
+    photosNote: (count: number) => `${count} photos in this reading — the teaser reads the main one.`,
     lockedTag: "sealed",
     lockedTitle: "The Tell",
     tocTitle: "In the full read",
     toc: [
       { n: "I", title: "First impression", hook: "the 3-second verdict", sealed: false },
-      { n: "II", title: "Pose & presence", hook: "what your body language broadcasts", sealed: false },
-      { n: "III", title: "Style signals", hook: "what your choices say about status and effort", sealed: true },
-      { n: "IV", title: "The Tell", hook: "the detail you don't know you're showing", sealed: true },
-      { n: "V", title: "Context read", hook: "how this lands where you actually use it", sealed: true },
-      { n: "VI", title: "Green flag · Red flag", hook: "what pulls people in, what makes them pause", sealed: true },
-      { n: "VII", title: "The one change", hook: "the single move that shifts the whole read", sealed: true },
+      { n: "II", title: "The 10-second story", hook: "how the read unfolds as they keep looking", sealed: false },
+      { n: "III", title: "Pose & presence", hook: "what the body language broadcasts", sealed: true },
+      { n: "IV", title: "Style signals", hook: "what the choices say about status and effort", sealed: true },
+      { n: "V", title: "Setting & framing", hook: "what the background gives away", sealed: true },
+      { n: "VI", title: "Signal breakdown", hook: "pose · style · setting · framing, measured", sealed: true },
+      { n: "VII", title: "What strangers would guess", hook: "job, lifestyle, vibe — the assumptions", sealed: true },
+      { n: "VIII", title: "The Tell", hook: "the detail they don't know they're showing", sealed: true },
+      { n: "IX", title: "Context read", hook: "how it lands where the photo actually lives", sealed: true },
+      { n: "X", title: "Flags & the one change", hook: "what pulls people in, and the single fix", sealed: true },
     ],
-    scalesNote: "Plus your perception dials: confidence · approachability · intentionality.",
+    tocSetRow: { n: "XI", title: "Set verdict", hook: "which photo leads, which to drop", sealed: true },
+    scalesNote: "Plus the perception radar — six dials: confidence · approachability · intentionality · warmth · status · authenticity.",
     offerHolds: "price holds for",
-    unlock: "Unlock my full read",
+    unlock: "Unlock the full read",
     confirming: "Confirming your payment…",
     payError: "Payment didn't go through. Try again.",
     testNote: "Test build — the full read unlocks without charge.",
     disclaimer:
-      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about you.",
+      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
   },
 
   report: {
-    header: "Your read",
+    header: "The read",
     sections: {
       first_impression: "First impression",
+      ten_second_story: "The 10-second story",
       pose_presence: "Pose & presence",
       style_signals: "Style signals",
+      setting_framing: "Setting & framing",
+      signal_breakdown: "Signal breakdown",
+      guesses: "What strangers would guess",
       the_tell: "The Tell",
       context_read: {
         dating: "Dating read",
@@ -119,23 +138,37 @@ export const PHOTO_COPY = {
       } as Record<string, string>,
       flags: "Green flag · Red flag",
       one_change: "The one change",
+      set_verdict: "Set verdict",
     },
-    scalesTitle: "Perception dials",
+    guessLabels: {
+      occupation: "occupation guess",
+      lifestyle: "lifestyle guess",
+      vibe: "vibe guess",
+    },
+    guessNote: "Strangers' assumptions — not facts.",
+    timeMarks: { half_second: "0.5s", three_seconds: "3s", ten_seconds: "10s" },
+    signalLabels: { pose: "Pose", style: "Style", setting: "Setting", framing: "Framing" },
+    scalesTitle: "Perception radar",
     scales: {
       confidence: "Confidence",
       approachability: "Approachability",
       intentionality: "Intentionality",
+      warmth: "Warmth",
+      status_signal: "Status",
+      authenticity: "Authenticity",
     },
-    scalesNote: "How the photo reads — not who you are.",
-    writing: "Writing your read…",
+    scalesNote: "How the photo reads — not who anyone is.",
+    leadTag: "lead",
+    dropTag: "drop",
+    writing: "Writing the read…",
     reportError: "The full read didn't come through. Try again in a moment.",
     retake: "Read another photo",
     disclaimer:
-      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about you.",
+      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
   },
 
   email: {
-    title: "Where should we send your read?",
-    body: "Your teaser is ready now; the link lets you reopen it on any device. No newsletters, no spam — one email with your result.",
+    title: "Where should we send the read?",
+    body: "The teaser is ready now; the link lets you reopen this reading on any device. No newsletters, no spam — one email with the result.",
   },
 } as const;

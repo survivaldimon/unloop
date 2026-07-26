@@ -4,7 +4,7 @@ import { identifyEmail, refreshSessionContext, track } from "../lib/analytics";
 import { LangContext } from "../i18n";
 import {
   adoptPhotoSession,
-  analyzePhoto,
+  analyzePhotos,
   fetchPhotoReport,
   getPhotoSessionId,
   resetPhotoSessionId,
@@ -20,6 +20,7 @@ import PhotoLanding from "./components/PhotoLanding";
 import PhotoReport from "./components/PhotoReport";
 import PhotoTeaser from "./components/PhotoTeaser";
 import Scanning from "./components/Scanning";
+import type { PreparedPhoto } from "./resize";
 
 type Step = "landing" | "context" | "scanning" | "email" | "teaser" | "report";
 
@@ -36,6 +37,7 @@ interface Saved {
   email: string;
   unlocked: boolean;
   teaser: PhotoTeaserData | null;
+  photoCount: number;
 }
 
 const STORAGE_KEY = "photoread_state_v1";
@@ -49,7 +51,7 @@ function load(): Saved | null {
   }
 }
 
-/** The photo itself lives only in memory — a reload mid-scan restarts the upload. */
+/** Photos live only in memory — a reload mid-scan restarts the upload. */
 function initialStep(saved: Saved | null): Step {
   if (!saved) return "landing";
   if (saved.step === "context" || saved.step === "scanning") return "landing";
@@ -65,20 +67,21 @@ export default function PhotoApp() {
   const [email, setEmail] = useState(saved?.email ?? "");
   const [unlocked, setUnlocked] = useState(saved?.unlocked ?? false);
   const [teaser, setTeaser] = useState<PhotoTeaserData | null>(saved?.teaser ?? null);
+  const [photoCount, setPhotoCount] = useState(saved?.photoCount ?? 1);
   const [report, setReport] = useState<PhotoReportData | null>(null);
   const [reportLoading, setReportLoading] = useState(false);
   const [reportError, setReportError] = useState(false);
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
-  // In-memory only: base64 for the API, data URL for previews.
-  const photoRef = useRef<{ base64: string; previewUrl: string } | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  // In-memory only: base64 for the API, data URLs for previews.
+  const photosRef = useRef<PreparedPhoto[]>([]);
+  const [previews, setPreviews] = useState<string[]>([]);
 
   useEffect(() => {
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ step, context, email, unlocked, teaser } satisfies Saved),
+      JSON.stringify({ step, context, email, unlocked, teaser, photoCount } satisfies Saved),
     );
-  }, [step, context, email, unlocked, teaser]);
+  }, [step, context, email, unlocked, teaser, photoCount]);
 
   useEffect(() => {
     document.title = PHOTO_COPY.title;
@@ -108,19 +111,18 @@ export default function PhotoApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const startScan = (photo: { base64: string; previewUrl: string }, ctx: PhotoContext) => {
-    photoRef.current = photo;
-    setPreviewUrl(photo.previewUrl);
+  const startScan = (ctx: PhotoContext) => {
     setContext(ctx);
     setRejectReason(null);
     setStep("scanning");
     void savePhotoSession({ context: ctx, stage: "scanning" });
   };
 
-  const onScanDone = (result: Awaited<ReturnType<typeof analyzePhoto>>) => {
+  const onScanDone = (result: Awaited<ReturnType<typeof analyzePhotos>>) => {
     if (result.kind === "ok") {
       setTeaser(result.teaser);
-      track("photo_scan_done", { funnel: "photo" });
+      setPhotoCount(result.photoCount);
+      track("photo_scan_done", { funnel: "photo", photos: result.photoCount });
       setStep("email");
     } else {
       setRejectReason(result.reason);
@@ -165,13 +167,14 @@ export default function PhotoApp() {
     localStorage.removeItem(STORAGE_KEY);
     resetPhotoSessionId();
     refreshSessionContext();
-    photoRef.current = null;
-    setPreviewUrl(null);
+    photosRef.current = [];
+    setPreviews([]);
     setStep("landing");
     setContext(null);
     setEmail("");
     setUnlocked(false);
     setTeaser(null);
+    setPhotoCount(1);
     setReport(null);
     setReportError(false);
     setRejectReason(null);
@@ -183,27 +186,32 @@ export default function PhotoApp() {
         {step === "landing" && (
           <PhotoLanding
             rejectReason={rejectReason}
-            onReady={(photo) => {
-              track("photo_upload", { funnel: "photo" });
-              photoRef.current = photo;
-              setPreviewUrl(photo.previewUrl);
+            onReady={(photos) => {
+              track("photo_upload", { funnel: "photo", photos: photos.length });
+              photosRef.current = photos;
+              setPreviews(photos.map((p) => p.previewUrl));
               setStep("context");
             }}
           />
         )}
-        {step === "context" && previewUrl && (
+        {step === "context" && previews[0] && (
           <ContextQuestions
-            previewUrl={previewUrl}
+            previewUrl={previews[0]}
             onDone={(ctx) => {
-              track("photo_context_done", { funnel: "photo" });
-              if (photoRef.current) startScan(photoRef.current, ctx);
+              track("photo_context_done", { funnel: "photo", subject: ctx.subject });
+              startScan(ctx);
             }}
           />
         )}
-        {step === "scanning" && photoRef.current && context && (
+        {step === "scanning" && photosRef.current.length > 0 && context && (
           <Scanning
-            previewUrl={photoRef.current.previewUrl}
-            run={() => analyzePhoto({ imageBase64: photoRef.current!.base64, context })}
+            previewUrl={photosRef.current[0].previewUrl}
+            run={() =>
+              analyzePhotos({
+                imagesBase64: photosRef.current.map((p) => p.base64),
+                context,
+              })
+            }
             onDone={onScanDone}
           />
         )}
@@ -222,7 +230,8 @@ export default function PhotoApp() {
           <PhotoTeaser
             teaser={teaser}
             useCase={context?.use_case ?? "curious"}
-            previewUrl={previewUrl}
+            previewUrl={previews[0] ?? null}
+            photoCount={photoCount}
             paymentsEnabled={PHOTO_PAYMENTS_ENABLED}
             sessionId={getPhotoSessionId()}
             onUnlock={unlock}
@@ -235,7 +244,7 @@ export default function PhotoApp() {
             error={reportError}
             onRetry={loadReport}
             useCase={context?.use_case ?? "curious"}
-            previewUrl={previewUrl}
+            previews={previews}
             sessionId={getPhotoSessionId()}
             onRestart={restart}
           />
