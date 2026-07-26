@@ -193,6 +193,22 @@ export async function savePhotoSession(data: {
   }
 }
 
+/**
+ * Fire-and-forget "your read" email. The edge function only mails the address
+ * already stored on the session row (and only once), so call this after the
+ * savePhotoSession({ email }) write has landed.
+ */
+export async function sendPhotoResultEmail(email: string): Promise<void> {
+  try {
+    await callFn("photoread-send-result", {
+      session_id: getPhotoSessionId(),
+      email,
+    });
+  } catch {
+    // non-fatal
+  }
+}
+
 /** paid_at is set exclusively by the payment webhook. */
 export async function fetchPhotoPaidAt(): Promise<string | null> {
   if (!supabase) return null;

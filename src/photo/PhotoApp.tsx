@@ -11,6 +11,7 @@ import {
   getPhotoSessionId,
   resetPhotoSessionId,
   savePhotoSession,
+  sendPhotoResultEmail,
   type PhotoContext,
   type PhotoReportData,
   type PhotoTeaserData,
@@ -135,7 +136,10 @@ export default function PhotoApp() {
     setStep("teaser");
     track("email_submitted", { funnel: "photo" });
     identifyEmail(value);
-    void savePhotoSession({ email: value, stage: "email" });
+    // The send function only mails addresses already stored on the session, so save first.
+    void savePhotoSession({ email: value, stage: "email" }).then(() =>
+      sendPhotoResultEmail(value),
+    );
   };
 
   const loadReport = () => {
