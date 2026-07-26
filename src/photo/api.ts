@@ -4,6 +4,7 @@
  * touches tables directly — only security-definer RPCs and edge functions.
  */
 import { supabase } from "../lib/supabase";
+import type { Lang } from "../i18n";
 
 const FN_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
@@ -121,12 +122,14 @@ async function callFn(
 export async function analyzePhotos(args: {
   imagesBase64: string[];
   context: PhotoContext;
+  lang: Lang;
 }): Promise<AnalyzeResult> {
   try {
     const { status, data } = await callFn("photoread-analyze", {
       session_id: getPhotoSessionId(),
       images_base64: args.imagesBase64.slice(0, MAX_PHOTOS),
       context: args.context,
+      lang: args.lang,
     });
     if (status === 200 && data?.teaser) {
       const teaser = data.teaser as PhotoTeaserData;
@@ -174,11 +177,12 @@ export async function fetchPhotoReport(): Promise<ReportResult> {
   }
 }
 
-/** Fire-and-forget persistence of context/email/stage via the save RPC. */
+/** Fire-and-forget persistence of context/email/stage/lang via the save RPC. */
 export async function savePhotoSession(data: {
   context?: PhotoContext;
   email?: string;
   stage?: string;
+  lang?: Lang;
 }): Promise<void> {
   if (!supabase) return;
   try {
@@ -187,6 +191,7 @@ export async function savePhotoSession(data: {
       p_context: data.context ?? null,
       p_email: data.email ?? null,
       p_stage: data.stage ?? null,
+      p_lang: data.lang ?? null,
     });
   } catch {
     // non-fatal
@@ -229,6 +234,8 @@ export interface AdoptedPhotoSession {
   teaser: PhotoTeaserData | null;
   paidAt: string | null;
   hasReport: boolean;
+  /** The reading's own language — teaser/report text can't be relabeled to a different one. */
+  lang: Lang;
 }
 
 /** Restores a session opened from an email deep link (?p=<id>). */
@@ -243,6 +250,7 @@ export async function adoptPhotoSession(id: string): Promise<AdoptedPhotoSession
       teaser?: PhotoTeaserData | null;
       paid_at?: string | null;
       has_report?: boolean;
+      lang?: string | null;
     };
     if (!row.teaser) return null;
     localStorage.setItem(SESSION_KEY, id);
@@ -252,6 +260,7 @@ export async function adoptPhotoSession(id: string): Promise<AdoptedPhotoSession
       teaser: row.teaser,
       paidAt: row.paid_at ?? null,
       hasReport: Boolean(row.has_report),
+      lang: row.lang === "ru" ? "ru" : "en",
     };
   } catch {
     return null;

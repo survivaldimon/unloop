@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
+import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
 import { paymentsProviderName } from "../../lib/payments";
 import { readingNo } from "../../lib/visual";
-import { PHOTO_COPY } from "../copy";
+import { getPhotoCopy } from "../copy";
 import Em from "./Em";
 import type { PayState } from "../PhotoApp";
 import type { PhotoTeaserData, PhotoUseCase } from "../api";
@@ -34,6 +35,7 @@ export default function PhotoTeaser({
   sessionId: string;
   onUnlock: () => void;
 }) {
+  const PHOTO_COPY = getPhotoCopy(useLang());
   const ui = PHOTO_COPY.teaser;
   const countdown = useOfferCountdown();
   const confirming = payState === "confirming";

@@ -1,4 +1,5 @@
-import { PHOTO_COPY } from "../copy";
+import { useLang } from "../../i18n";
+import { getPhotoCopy } from "../copy";
 import type { PhotoScales } from "../api";
 
 /** Six-axis perception radar in the «прибор» style: dotted hex rings, brass polygon. */
@@ -26,7 +27,7 @@ function ring(frac: number): string {
 }
 
 export default function RadarSix({ scales }: { scales: PhotoScales }) {
-  const labels = PHOTO_COPY.report.scales;
+  const labels = getPhotoCopy(useLang()).report.scales;
   const values = AXES.map(({ key }) => Math.max(0, Math.min(100, Math.round(scales[key] ?? 0))));
   const polygon = AXES.map(({ angle }, i) => pt(angle, (R * values[i]) / 100).join(",")).join(" ");
 
