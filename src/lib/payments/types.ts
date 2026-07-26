@@ -3,6 +3,12 @@ export interface CheckoutOptions {
   email?: string;
   lang: "en" | "ru";
   /**
+   * Checkout-session edge function to call. Defaults to the quiz's
+   * unloop-polar-checkout; the photo funnel passes photoread-polar-checkout
+   * (different Polar product, metadata.kind="photoread" webhook routing).
+   */
+  endpoint?: string;
+  /**
    * Fires when the provider reports a successful payment client-side.
    * Payment is only *trusted* once the webhook sets paid_at in Supabase —
    * callers poll the paid status after this fires.

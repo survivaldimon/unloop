@@ -10,7 +10,7 @@ import type { CheckoutOptions, PaymentProvider } from "./types";
 async function openCheckout(opts: CheckoutOptions): Promise<void> {
   if (!supabase) throw new Error("supabase not configured");
 
-  const { data, error } = await supabase.functions.invoke("unloop-polar-checkout", {
+  const { data, error } = await supabase.functions.invoke(opts.endpoint ?? "unloop-polar-checkout", {
     body: {
       session_id: opts.sessionId,
       email: opts.email ?? null,

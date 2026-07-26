@@ -116,6 +116,7 @@ export const PHOTO_COPY = {
     unlock: "Unlock the full read",
     confirming: "Confirming your payment…",
     payError: "Payment didn't go through. Try again.",
+    payNote: (provider: string) => `Secure checkout by ${provider} · instant unlock after payment`,
     testNote: "Test build — the full read unlocks without charge.",
     disclaimer:
       "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",

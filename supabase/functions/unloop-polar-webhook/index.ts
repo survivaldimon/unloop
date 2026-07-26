@@ -1,4 +1,5 @@
-// Polar webhook → marks unloop_sessions.paid_at on order.paid.
+// Polar webhook → marks paid_at on order.paid. Routes by checkout metadata:
+// kind="photoread" → photoread_sessions, otherwise unloop_sessions (quiz).
 // Auth: Standard Webhooks signature (verify_jwt is disabled for this function).
 // Secret: POLAR_WEBHOOK_SECRET (polar_whs_…) env var, falling back to Supabase
 // Vault via the service-role-only RPC unloop_get_secret.
@@ -238,6 +239,11 @@ Deno.serve(async (req: Request) => {
       return json({ ok: false, reason: "missing_session_id" });
     }
 
+    // Product routing: photo-funnel checkouts carry metadata.kind="photoread"
+    // (set by photoread-polar-checkout); everything else is the quiz.
+    const table =
+      order?.metadata?.kind === "photoread" ? "photoread_sessions" : "unloop_sessions";
+
     const paidMeta = {
       provider: "polar",
       order_id: order.id ?? null,
@@ -249,9 +255,9 @@ Deno.serve(async (req: Request) => {
     const paidAt = order.created_at ?? new Date().toISOString();
 
     const { data: existing } = await admin
-      .from("unloop_sessions")
+      .from(table)
       .select("paid_at, email")
-      .eq("id", sessionId)
+      .eq("id", sessionId.toLowerCase())
       .maybeSingle();
 
     if (existing?.paid_at) {
@@ -260,19 +266,19 @@ Deno.serve(async (req: Request) => {
 
     if (existing) {
       const { error } = await admin
-        .from("unloop_sessions")
+        .from(table)
         .update({
           paid_at: paidAt,
           paid_meta: paidMeta,
           stage: "paid",
           updated_at: new Date().toISOString(),
         })
-        .eq("id", sessionId);
+        .eq("id", sessionId.toLowerCase());
       if (error) throw error;
     } else {
       // Funnel row missing (e.g. cleared storage) — create a minimal paid session.
-      const { error } = await admin.from("unloop_sessions").insert({
-        id: sessionId,
+      const { error } = await admin.from(table).insert({
+        id: sessionId.toLowerCase(),
         paid_at: paidAt,
         paid_meta: paidMeta,
         stage: "paid",

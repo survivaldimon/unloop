@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import EmailCapture from "../components/EmailCapture";
 import { identifyEmail, refreshSessionContext, track } from "../lib/analytics";
+import { openCheckout, paymentsEnabled } from "../lib/payments";
 import { LangContext } from "../i18n";
 import {
+  fetchPhotoPaidAt,
   adoptPhotoSession,
   analyzePhotos,
   fetchPhotoReport,
@@ -24,12 +26,7 @@ import type { PreparedPhoto } from "./resize";
 
 type Step = "landing" | "context" | "scanning" | "email" | "teaser" | "report";
 
-/**
- * Payments for the photo product are not wired yet (the Polar product doesn't
- * exist — pending founder approval). Until then the paywall renders fully but
- * the CTA unlocks without charge, mirroring the quiz's pre-launch test mode.
- */
-const PHOTO_PAYMENTS_ENABLED = false;
+export type PayState = "idle" | "confirming" | "error";
 
 interface Saved {
   step: Step;
@@ -72,6 +69,8 @@ export default function PhotoApp() {
   const [reportLoading, setReportLoading] = useState(false);
   const [reportError, setReportError] = useState(false);
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
+  const [payState, setPayState] = useState<PayState>("idle");
+  const pollTimer = useRef<number | null>(null);
   // In-memory only: base64 for the API, data URLs for previews.
   const photosRef = useRef<PreparedPhoto[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
@@ -150,17 +149,98 @@ export default function PhotoApp() {
   };
 
   const unlock = () => {
+    setPayState("idle");
+    setUnlocked(true);
+    setStep("report");
+    track("photo_report_view", { funnel: "photo" });
+    void savePhotoSession({ stage: "unlocked" });
+    loadReport();
+  };
+
+  /** Confirmed payment (webhook set paid_at) — the revenue event, then unlock. */
+  const unlockPaid = () => {
+    track("purchase", { funnel: "photo", sid: getPhotoSessionId() });
+    unlock();
+  };
+
+  /** Poll paid_at (set by the payment webhook) until it appears, then unlock. */
+  const awaitPaymentConfirmation = () => {
+    setPayState("confirming");
+    const startedAt = Date.now();
+    const tick = async () => {
+      const paidAt = await fetchPhotoPaidAt();
+      if (paidAt) {
+        unlockPaid();
+        return;
+      }
+      if (Date.now() - startedAt > 90_000) {
+        setPayState("error");
+        return;
+      }
+      pollTimer.current = window.setTimeout(tick, 2500);
+    };
+    void tick();
+  };
+
+  useEffect(
+    () => () => {
+      if (pollTimer.current !== null) window.clearTimeout(pollTimer.current);
+    },
+    [],
+  );
+
+  // A paid session that never saw the webhook confirmation (tab closed
+  // mid-checkout, storage restored elsewhere) unlocks itself on the teaser.
+  useEffect(() => {
+    if (!paymentsEnabled || unlocked || step !== "teaser") return;
+    void fetchPhotoPaidAt().then((paidAt) => {
+      if (paidAt) unlockPaid();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step]);
+
+  // Same safety net when the tab regains focus/visibility: on mobile the buyer
+  // often hops to a mail app mid-checkout and the page never remounts.
+  useEffect(() => {
+    if (!paymentsEnabled || unlocked || step !== "teaser") return;
+    const recheck = () => {
+      if (document.visibilityState !== "visible") return;
+      void fetchPhotoPaidAt().then((paidAt) => {
+        if (paidAt) unlock();
+      });
+    };
+    window.addEventListener("focus", recheck);
+    document.addEventListener("visibilitychange", recheck);
+    return () => {
+      window.removeEventListener("focus", recheck);
+      document.removeEventListener("visibilitychange", recheck);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, unlocked]);
+
+  const startUnlock = () => {
+    // Fires on the click itself: with payments on, the gap to photo_report_view
+    // is checkout abandonment; the webhook-driven unlock() must not re-fire it.
     track("unlock_click", { funnel: "photo" });
-    if (!PHOTO_PAYMENTS_ENABLED) {
-      // Test mode — mirrors the quiz's pre-payments flow.
-      setUnlocked(true);
-      setStep("report");
-      track("photo_report_view", { funnel: "photo" });
-      void savePhotoSession({ stage: "unlocked" });
-      loadReport();
+    if (!paymentsEnabled) {
+      unlock();
       return;
     }
-    // TODO(polar): openCheckout with the photo product id once it exists.
+    openCheckout({
+      endpoint: "photoread-polar-checkout",
+      sessionId: getPhotoSessionId(),
+      email: email || undefined,
+      lang: "en",
+      onPaid: awaitPaymentConfirmation,
+      // Overlay closed without a success signal — the payment may still have
+      // landed (lost postMessage), so re-check quietly without an error state.
+      onClosed: () => {
+        void fetchPhotoPaidAt().then((paidAt) => {
+          if (paidAt) unlock();
+        });
+      },
+      onError: () => setPayState("error"),
+    }).catch(() => setPayState("error"));
   };
 
   const restart = () => {
@@ -232,9 +312,10 @@ export default function PhotoApp() {
             useCase={context?.use_case ?? "curious"}
             previewUrl={previews[0] ?? null}
             photoCount={photoCount}
-            paymentsEnabled={PHOTO_PAYMENTS_ENABLED}
+            paymentsEnabled={paymentsEnabled}
+            payState={payState}
             sessionId={getPhotoSessionId()}
-            onUnlock={unlock}
+            onUnlock={startUnlock}
           />
         )}
         {step === "report" && unlocked && (

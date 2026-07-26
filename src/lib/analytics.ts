@@ -83,10 +83,12 @@ function forwardToMeta(
       metaTrack("InitiateCheckout", { value: REPORT_PRICE_USD, currency: "USD" });
       break;
     case "purchase":
+      // props.sid overrides the dedup id for non-quiz funnels (photo sessions
+      // have their own id namespace); the quiz keeps the legacy default.
       metaTrack(
         "Purchase",
         { value: REPORT_PRICE_USD, currency: "USD" },
-        `purchase_${getSessionId()}`,
+        `purchase_${typeof props?.sid === "string" ? props.sid : getSessionId()}`,
       );
       break;
   }

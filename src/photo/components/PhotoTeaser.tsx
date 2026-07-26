@@ -4,9 +4,11 @@ import LogoMark from "../../components/LogoMark";
 import { track } from "../../lib/analytics";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
+import { paymentsProviderName } from "../../lib/payments";
 import { readingNo } from "../../lib/visual";
 import { PHOTO_COPY } from "../copy";
 import Em from "./Em";
+import type { PayState } from "../PhotoApp";
 import type { PhotoTeaserData, PhotoUseCase } from "../api";
 
 /** Filler lines under the blur — never real content, just texture. */
@@ -19,6 +21,7 @@ export default function PhotoTeaser({
   previewUrl,
   photoCount,
   paymentsEnabled,
+  payState = "idle",
   sessionId,
   onUnlock,
 }: {
@@ -27,11 +30,13 @@ export default function PhotoTeaser({
   previewUrl: string | null;
   photoCount: number;
   paymentsEnabled: boolean;
+  payState?: PayState;
   sessionId: string;
   onUnlock: () => void;
 }) {
   const ui = PHOTO_COPY.teaser;
   const countdown = useOfferCountdown();
+  const confirming = payState === "confirming";
 
   useEffect(() => {
     track("photo_teaser_view", { funnel: "photo" });
@@ -149,10 +154,16 @@ export default function PhotoTeaser({
           <p className="font-display text-[44px] leading-tight text-brass-2 tabular-nums">
             {countdown}
           </p>
-          <button className="btn-primary mt-2" onClick={onUnlock}>
-            {ui.unlock}
+          <button className="btn-primary mt-2 disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
+            {confirming ? ui.confirming : ui.unlock}
           </button>
-          {!paymentsEnabled && <p className="mt-2 text-[11px] text-mist/70">{ui.testNote}</p>}
+          {payState === "error" ? (
+            <p className="mt-2 text-xs text-ember">{ui.payError}</p>
+          ) : (
+            <p className="mt-2 text-[11px] text-mist/70">
+              {paymentsEnabled ? ui.payNote(paymentsProviderName) : ui.testNote}
+            </p>
+          )}
         </div>
       </div>
 
