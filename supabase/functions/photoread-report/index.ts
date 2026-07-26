@@ -8,6 +8,9 @@ const CORS = {
 
 const REPORT_MODEL = "claude-sonnet-5";
 
+type Lang = "en" | "ru";
+const LANGS = new Set(["en", "ru"]);
+
 const SIGNAL_ITEM = {
   type: "object",
   properties: {
@@ -140,9 +143,39 @@ const REPORT_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const VOICE_SYSTEM = `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted photos to learn how they read to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of these particular photos — and describe how the photos READ to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". The guesses section is explicitly a stranger's assumptions, not facts. Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Every prose section must reference at least one concrete detail visible in these specific photos. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`;
+// RU added 27.07.2026 alongside the client localization — same gender-agreement
+// approach as photoread-analyze (infer from visual presentation for agreement
+// only, generic-masculine "человек" fallback when ambiguous; never asserted
+// as fact). Validated on the Anna/Mark test packs before this shipped to prod.
+const VOICE_SYSTEM: Record<Lang, string> = {
+  en: `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted photos to learn how they read to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of these particular photos — and describe how the photos READ to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". The guesses section is explicitly a stranger's assumptions, not facts. Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Every prose section must reference at least one concrete detail visible in these specific photos. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`,
+  ru: `Ты — The Outside View, аналитический модуль Looplore, развлекательного приложения о социальном восприятии. Человек загрузил фото, чтобы узнать, как они читаются незнакомцу в первые секунды. Анализируй ТОЛЬКО видимые сигналы — позу, осанку, манеру держаться, выбор одежды и ухоженность, обстановку, кадрирование и сам выбор именно этих фото — и описывай, как фото ЧИТАЮТСЯ окружающими, а не кто человек на самом деле. Говори о человеке на фото в третьем лице; если на фото двое — читай пару и её видимую динамику. Никогда не обращайся к человеку на «ты» или «вы». Где возможно, предпочитай настоящее время — это естественно для разбора фото и снимает половину вопросов с родом. Там, где по-русски не обойтись без грамматического рода (притяжательные, прошедшее время), определяй его по визуальной презентации — исключительно для согласования слов, никогда не заявляй пол как факт; если презентация неоднозначна, используй «человек» с обычным для этого слова согласованием, а не гадай. Пиши строго на русском языке — ни одного английского слова или фразы посреди русского текста, даже короткого; если нужен термин без явного русского аналога, подбирай русское описание, а не переключайся на английский. Раздел с догадками — это явно предположения незнакомцев, а не факты. Голос: проницательный, откровенный, тёплый, но не сентиментальный, всегда опирается на конкретные видимые детали. Каждый раздел с прозой должен ссылаться минимум на одну конкретную деталь, видимую именно на этих фото. Только обычный текст — без markdown. Никогда не упоминай, что ты ИИ, не читай морали, не добавляй лишних оговорок.`,
+};
 
-function attestationFor(subject: string, ageRange: string | null, useCase: string): string {
+function attestationFor(
+  lang: Lang,
+  subject: string,
+  ageRange: string | null,
+  useCase: string,
+): string {
+  if (lang === "ru") {
+    return [
+      subject === "other"
+        ? "Человек, загрузивший фото, подтверждает: на них — другой человек, разрешение на этот разбор получено, ответственность за загрузку человек берёт на себя."
+        : subject === "us"
+          ? "Загрузивший фото человек подтверждает, что на них — он сам вместе с близким человеком."
+          : "Загрузивший фото человек подтверждает, что на них — он сам.",
+      ageRange ? `Возрастной диапазон основного человека на фото: ${ageRange}.` : "",
+      {
+        dating: "Фото в основном используются в приложениях знакомств — context_read описывает, как они читаются там.",
+        social: "Фото в основном используются в соцсетях — context_read описывает, как они читаются там.",
+        professional: "Фото используются в профессиональном контексте — context_read описывает, как они читаются там.",
+        curious: "Загрузившему просто любопытно — context_read описывает, как фото читаются незнакомцам в целом.",
+      }[useCase as "dating" | "social" | "professional" | "curious"] ?? "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  }
   return [
     subject === "other"
       ? "The uploader states these photos show another person, confirms they have that person's permission to run this read, and takes responsibility for the upload."
@@ -260,10 +293,15 @@ Deno.serve(async (req: Request) => {
 
     const { data: row, error: rowError } = await admin
       .from("photoread_sessions")
-      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at, photo_deleted_at")
+      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at, photo_deleted_at, lang")
       .eq("id", sessionId.toLowerCase())
       .maybeSingle();
     if (rowError || !row) return json({ error: "not_found" }, 404);
+
+    // The report generates once and is cached forever (source photos are
+    // deleted right after) — language is whatever the session was analyzed
+    // in, never the caller's current language preference.
+    const lang: Lang = LANGS.has(row.lang) ? (row.lang as Lang) : "en";
 
     // Idempotency: one generated report per session, then served from the DB.
     if (row.report) {
@@ -304,27 +342,34 @@ Deno.serve(async (req: Request) => {
     const useCase = context.use_case ?? "curious";
     const shirtless = Boolean((row.moderation as { shirtless?: boolean } | null)?.shirtless);
 
-    const attestation = [
-      attestationFor(context.subject ?? "me", context.age_range ?? null, useCase),
-      // Phase-0 finding: body-rating framing on visible-physique photos trips guardrails;
-      // presentation-signals framing does not.
-      shirtless
-        ? "Note: a photo shows visible physique. Keep every comment on presentation choices and signals — what the framing and styling communicate — never rate the body or attractiveness."
-        : "",
-    ]
+    // Phase-0 finding: body-rating framing on visible-physique photos trips
+    // guardrails; presentation-signals framing does not. Translated with the
+    // same operational rigor as the rest of the attestation, not as casual
+    // copy — validated on anna_6_beach (swimwear) before this shipped.
+    const shirtlessGuardrail = shirtless
+      ? lang === "ru"
+        ? "Важно: на одном из фото видна открытая физическая форма (голый торс/купальник). Комментируй только выбор презентации и сигналы — что сообщают кадрирование и стиль, — никогда не оценивай тело или привлекательность."
+        : "Note: a photo shows visible physique. Keep every comment on presentation choices and signals — what the framing and styling communicate — never rate the body or attractiveness."
+      : "";
+    const attestation = [attestationFor(lang, context.subject ?? "me", context.age_range ?? null, useCase), shirtlessGuardrail]
       .filter(Boolean)
       .join(" ");
 
     const multi = imagesB64.length > 1;
-    const task = multi
-      ? `${imagesB64.length} photos are provided, in order; photo 1 is the main one. Write the full read: the deep sections are about photo 1, informed by the rest of the set. In photos_verdict compare all photos: pick the strongest and weakest, one line each, and give ordering advice. The scales are perception readings of how the set comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`
-      : `One photo is provided. Write the full read; set photos_verdict to null. The scales are perception readings of how the photo comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`;
+    const task =
+      lang === "ru"
+        ? multi
+          ? `Предоставлено ${imagesB64.length} фото по порядку; фото 1 — главное. Напиши полный разбор: глубокие разделы посвящены фото 1, с учётом остального набора. В photos_verdict сравни все фото: выбери самое сильное и самое слабое, по одной строке на каждое, и дай совет по порядку. Шкалы — это восприятие того, как читается набор, а не факты о человеке. the_tell должен быть по-настоящему неочевидным — деталь, которую сам человек на фото никогда бы не заметил за собой.`
+          : `Предоставлено одно фото. Напиши полный разбор; поставь photos_verdict в null. Шкалы — это восприятие того, как читается фото, а не факты о человеке. the_tell должен быть по-настоящему неочевидным — деталь, которую сам человек на фото никогда бы не заметил за собой.`
+        : multi
+          ? `${imagesB64.length} photos are provided, in order; photo 1 is the main one. Write the full read: the deep sections are about photo 1, informed by the rest of the set. In photos_verdict compare all photos: pick the strongest and weakest, one line each, and give ordering advice. The scales are perception readings of how the set comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`
+          : `One photo is provided. Write the full read; set photos_verdict to null. The scales are perception readings of how the photo comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`;
 
     const response = await anthropic.messages.create({
       model: REPORT_MODEL,
       max_tokens: 3500,
       thinking: { type: "disabled" },
-      system: VOICE_SYSTEM,
+      system: VOICE_SYSTEM[lang],
       output_config: { format: { type: "json_schema", schema: REPORT_SCHEMA } },
       messages: [
         {

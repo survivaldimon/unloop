@@ -9,11 +9,16 @@ const CORS = {
 const TEASER_MODEL = "claude-haiku-4-5";
 const MAX_PHOTOS = 6;
 
+type Lang = "en" | "ru";
+const LANGS = new Set(["en", "ru"]);
+
 const SUBJECTS = new Set(["me", "us", "other"]);
 const AGE_RANGES = new Set(["18-24", "25-34", "35-44", "45+"]);
 const USE_CASES = new Set(["dating", "social", "professional", "curious"]);
 
 // One screening call covers the whole set: per-photo verdicts, same order.
+// Schema descriptions are model-facing instructions, not user-facing copy —
+// left in English regardless of session language.
 const MODERATION_SCHEMA = {
   type: "object",
   properties: {
@@ -66,10 +71,41 @@ const TEASER_SCHEMA = {
 
 // Framing validated in Phase 0 + v2 decision (26.07.2026): third-person voice
 // ("the person in this photo", "they"), uploader-consent context, "how it
-// reads" language, never profiler/hidden-traits wording.
-const VOICE_SYSTEM = `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted a photo to learn how it reads to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of this particular photo — and describe how the photo READS to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`;
+// reads" language, never profiler/hidden-traits wording. RU added 27.07.2026:
+// Russian has no natural gender-neutral third-person singular, so the model
+// infers grammatical gender from visual presentation for word AGREEMENT ONLY
+// (never states it as a fact) and falls back to the generic-masculine
+// agreement that "человек" normally takes when presentation is ambiguous —
+// validated on the same Anna/Mark test packs used for the EN Phase-0.
+const VOICE_SYSTEM: Record<Lang, string> = {
+  en: `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted a photo to learn how it reads to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of this particular photo — and describe how the photo READS to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`,
+  ru: `Ты — The Outside View, аналитический модуль Looplore, развлекательного приложения о социальном восприятии. Человек загрузил фото, чтобы узнать, как оно читается незнакомцу в первые секунды. Анализируй ТОЛЬКО видимые сигналы — позу, осанку, манеру держаться, выбор одежды и ухоженность, обстановку, кадрирование и сам выбор именно этого фото — и описывай, как фото ЧИТАЕТСЯ окружающими, а не кто человек на самом деле. Говори о человеке на фото в третьем лице; если на фото двое — читай пару и её видимую динамику. Никогда не обращайся к человеку на «ты» или «вы». Где возможно, предпочитай настоящее время («держится», «выбирает», «стоит») — это естественно для разбора фото и снимает половину вопросов с родом. Там, где по-русски не обойтись без грамматического рода (притяжательные, прошедшее время), определяй его по визуальной презентации — исключительно для согласования слов, никогда не заявляй пол как факт; если презентация неоднозначна, используй «человек» с обычным для этого слова согласованием, а не гадай. Пиши строго на русском языке — ни одного английского слова или фразы посреди русского текста, даже короткого; если нужен термин без явного русского аналога, подбирай русское описание, а не переключайся на английский. Голос: проницательный, откровенный, тёплый, но не сентиментальный, всегда опирается на конкретные видимые детали. Только обычный текст, без markdown. Никогда не упоминай, что ты ИИ, не читай морали, не добавляй лишних оговорок.`,
+};
 
-function attestationFor(subject: string, ageRange: string | null, useCase: string): string {
+function attestationFor(
+  lang: Lang,
+  subject: string,
+  ageRange: string | null,
+  useCase: string,
+): string {
+  if (lang === "ru") {
+    return [
+      subject === "other"
+        ? "Человек, загрузивший фото, подтверждает: на нём — другой человек, разрешение на этот разбор получено, ответственность за загрузку человек берёт на себя."
+        : subject === "us"
+          ? "Загрузивший фото человек подтверждает, что на нём — он сам вместе с близким человеком."
+          : "Загрузивший фото человек подтверждает, что на нём — он сам.",
+      ageRange ? `Возрастной диапазон человека на фото: ${ageRange}.` : "",
+      {
+        dating: "Фото в основном используется в приложениях знакомств.",
+        social: "Фото в основном используется в соцсетях.",
+        professional: "Фото используется в профессиональном контексте (LinkedIn, рабочие профили).",
+        curious: "Загрузившему просто любопытно, как фото читается незнакомцам.",
+      }[useCase as "dating" | "social" | "professional" | "curious"] ?? "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  }
   return [
     subject === "other"
       ? "The uploader states this photo shows another person, confirms they have that person's permission to run this read, and takes responsibility for the upload."
@@ -86,6 +122,13 @@ function attestationFor(subject: string, ageRange: string | null, useCase: strin
   ]
     .filter(Boolean)
     .join(" ");
+}
+
+function teaserTask(lang: Lang): string {
+  if (lang === "ru") {
+    return "Дай тизер этого разбора: ровно ДВА наблюдения — каждое 1–2 предложения, каждое опирается на конкретную видимую деталь, хотя бы одно должно по-настоящему удивить загрузившего. Затем одна фраза locked_hint, которая намекает на самое красноречивое, что показывает это фото — достаточно конкретная, чтобы звучать правдоподобно, но не раскрывающая, в чём именно дело.";
+  }
+  return "Give the teaser of this read: exactly TWO observations — each 1–2 sentences, each anchored to a concrete visible detail, at least one should genuinely surprise the uploader. Then one locked_hint sentence that teases the single most revealing thing this photo shows — specific enough to feel real, but do not reveal what it is.";
 }
 
 let cachedApiKey: string | null = null;
@@ -147,6 +190,7 @@ Deno.serve(async (req: Request) => {
     const ageRange = AGE_RANGES.has(context.age_range) ? (context.age_range as string) : null;
     const useCase = USE_CASES.has(context.use_case) ? (context.use_case as string) : "curious";
     const consentThirdParty = Boolean(context.consent_third_party);
+    const lang: Lang = LANGS.has(body?.lang) ? (body.lang as Lang) : "en";
 
     if (
       typeof sessionId !== "string" ||
@@ -221,11 +265,11 @@ Deno.serve(async (req: Request) => {
     }
 
     // 3. Teaser — main photo only (fast + cheap); the paid report covers the set.
-    const attestation = attestationFor(subject, ageRange, useCase);
+    const attestation = attestationFor(lang, subject, ageRange, useCase);
     const teaserResponse = await anthropic.messages.create({
       model: TEASER_MODEL,
       max_tokens: 600,
-      system: VOICE_SYSTEM,
+      system: VOICE_SYSTEM[lang],
       output_config: { format: { type: "json_schema", schema: TEASER_SCHEMA } },
       messages: [
         {
@@ -234,7 +278,7 @@ Deno.serve(async (req: Request) => {
             imageBlocks[0],
             {
               type: "text",
-              text: `${attestation}\n\nGive the teaser of this read: exactly TWO observations — each 1–2 sentences, each anchored to a concrete visible detail, at least one should genuinely surprise the uploader. Then one locked_hint sentence that teases the single most revealing thing this photo shows — specific enough to feel real, but do not reveal what it is.`,
+              text: `${attestation}\n\n${teaserTask(lang)}`,
             },
           ],
         },
@@ -256,7 +300,7 @@ Deno.serve(async (req: Request) => {
     const { error: upsertError } = await admin.from("photoread_sessions").upsert({
       id: sessionId.toLowerCase(),
       stage: "teaser",
-      lang: "en",
+      lang,
       context: {
         subject,
         age_range: ageRange,
