@@ -25,7 +25,9 @@ export const PHOTO_COPY = {
     addMoreSub: (left: number) => `optional — up to ${left} more`,
     mainTag: "main",
     cta: (count: number) => (count > 1 ? `Read these ${count} photos` : "Read this photo"),
-    note: "18+ · Photos are deleted within 24 hours · Never used to train AI",
+    // TODO: restore the "deleted within 24 hours" promise once the storage
+    // TTL cleanup ships — never advertise a guarantee the backend doesn't keep.
+    note: "18+ · Photos stay private · Never used to train AI",
   },
 
   context: {
