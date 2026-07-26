@@ -286,6 +286,42 @@ Deno.serve(async (req: Request) => {
       if (error) throw error;
     }
 
+    // Photo product: materialize the paid report right now, in the background.
+    // A buyer who closed the tab still gets the finished read via the ?p= email
+    // link, and the source photos get deleted immediately after generation
+    // (photoread-report removes them once the report is cached) instead of
+    // waiting for the hourly cleanup. The report function is idempotent, so a
+    // webhook retry at worst re-serves the cached report.
+    if (table === "photoread_sessions") {
+      const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+      const materialize = fetch(
+        `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${anonKey}`,
+            apikey: anonKey,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ session_id: sessionId.toLowerCase() }),
+        },
+      )
+        .then(async (res) => {
+          if (!res.ok) {
+            console.error("photoread materialize failed", res.status, await res.text());
+          }
+        })
+        .catch((err) => console.error("photoread materialize error", err));
+      const runtime = (
+        globalThis as { EdgeRuntime?: { waitUntil(p: Promise<unknown>): void } }
+      ).EdgeRuntime;
+      // waitUntil keeps the instance alive past the response; outside the
+      // Supabase runtime just let the promise float rather than delaying the
+      // webhook ack (Polar would retry on a slow response).
+      if (runtime?.waitUntil) runtime.waitUntil(materialize);
+      else void materialize;
+    }
+
     // After the row is marked paid: the purchase signal for Meta Ads. Polar's
     // checkout email is the fallback matcher for sessions that skipped ours.
     const buyerEmail =

@@ -25,9 +25,10 @@ export const PHOTO_COPY = {
     addMoreSub: (left: number) => `optional — up to ${left} more`,
     mainTag: "main",
     cta: (count: number) => (count > 1 ? `Read these ${count} photos` : "Read this photo"),
-    // TODO: restore the "deleted within 24 hours" promise once the storage
-    // TTL cleanup ships — never advertise a guarantee the backend doesn't keep.
-    note: "18+ · Photos stay private · Never used to train AI",
+    // Backed by real cleanup since 26.07.2026: photoread-report deletes photos
+    // the moment the paid report is cached, photoread-cleanup (hourly pg_cron)
+    // sweeps unpaid sessions older than 24h.
+    note: "18+ · Photos are deleted within 24 hours · Never used to train AI",
   },
 
   context: {

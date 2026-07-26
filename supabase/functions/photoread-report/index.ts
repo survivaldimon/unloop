@@ -203,6 +203,38 @@ async function blobToB64(blob: Blob): Promise<string> {
   return btoa(bin);
 }
 
+function pathsFromRow(row: { photo_path?: unknown; photo_paths?: unknown }): string[] {
+  return Array.isArray(row.photo_paths) && row.photo_paths.length > 0
+    ? (row.photo_paths as string[])
+    : typeof row.photo_path === "string" && row.photo_path
+      ? [row.photo_path]
+      : [];
+}
+
+/**
+ * The report is cached in the DB, so the source photos are no longer needed:
+ * delete them from the bucket and mark the row. Only marks photo_deleted_at
+ * when the storage removal actually succeeded — a failed removal is retried
+ * the next time the cached report is served.
+ */
+async function deletePhotos(
+  admin: ReturnType<typeof createClient>,
+  sessionId: string,
+  paths: string[],
+): Promise<void> {
+  if (paths.length === 0) return;
+  const { error: removeError } = await admin.storage.from("photoread").remove(paths);
+  if (removeError) {
+    console.error("photoread-report photo cleanup", sessionId, removeError);
+    return;
+  }
+  const { error: markError } = await admin
+    .from("photoread_sessions")
+    .update({ photo_deleted_at: new Date().toISOString(), photo_path: null, photo_paths: null })
+    .eq("id", sessionId);
+  if (markError) console.error("photoread-report cleanup mark", sessionId, markError);
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   const json = (body: unknown, status = 200) =>
@@ -228,25 +260,26 @@ Deno.serve(async (req: Request) => {
 
     const { data: row, error: rowError } = await admin
       .from("photoread_sessions")
-      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at")
+      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at, photo_deleted_at")
       .eq("id", sessionId.toLowerCase())
       .maybeSingle();
     if (rowError || !row) return json({ error: "not_found" }, 404);
 
     // Idempotency: one generated report per session, then served from the DB.
-    if (row.report) return json(row.report);
+    if (row.report) {
+      // If an earlier post-report photo cleanup failed, retry it here.
+      if (!row.photo_deleted_at) {
+        await deletePhotos(admin, sessionId.toLowerCase(), pathsFromRow(row));
+      }
+      return json(row.report);
+    }
 
     const requirePayment = await getRequirePayment(admin);
     if (requirePayment && !row.paid_at) {
       return json({ error: "payment_required" }, 402);
     }
 
-    const paths: string[] =
-      Array.isArray(row.photo_paths) && row.photo_paths.length > 0
-        ? (row.photo_paths as string[])
-        : row.photo_path
-          ? [row.photo_path as string]
-          : [];
+    const paths = pathsFromRow(row);
     if (paths.length === 0) return json({ error: "photo_expired" }, 410);
 
     const imagesB64: string[] = [];
@@ -314,10 +347,18 @@ Deno.serve(async (req: Request) => {
     if (!textBlock) return json({ error: "empty_response" }, 500);
     const report = JSON.parse((textBlock as { text: string }).text);
 
-    await admin
+    const { error: saveError } = await admin
       .from("photoread_sessions")
       .update({ report, stage: "report", updated_at: new Date().toISOString() })
       .eq("id", sessionId.toLowerCase());
+    if (saveError) console.error("photoread-report save", saveError);
+
+    // Photos exist only to produce this report; delete them as soon as the
+    // report is safely cached in the DB (never before — a paid session must
+    // not end up with neither report nor photos).
+    if (!saveError) {
+      await deletePhotos(admin, sessionId.toLowerCase(), paths);
+    }
 
     return json(report);
   } catch (err) {
