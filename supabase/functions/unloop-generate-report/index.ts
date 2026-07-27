@@ -1,5 +1,6 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -112,6 +113,22 @@ async function getRequirePayment(admin: ReturnType<typeof createClient>): Promis
   return cachedRequirePayment;
 }
 
+let cachedCreditsEnabled: boolean | null = null;
+
+/** Credit-economy switch (docs/credits-economy.md): supersedes the boolean gate. */
+async function getCreditsEnabled(admin: ReturnType<typeof createClient>): Promise<boolean> {
+  if (cachedCreditsEnabled !== null) return cachedCreditsEnabled;
+  let value = Deno.env.get("CREDITS_ENABLED") ?? "";
+  if (!value) {
+    const { data } = await admin.rpc("unloop_get_secret", {
+      secret_name: "CREDITS_ENABLED",
+    });
+    if (typeof data === "string") value = data;
+  }
+  cachedCreditsEnabled = value.toLowerCase() === "true";
+  return cachedCreditsEnabled;
+}
+
 let cachedApiKey: string | null = null;
 
 async function getApiKey(admin: ReturnType<typeof createClient>): Promise<string | null> {
@@ -157,20 +174,40 @@ Deno.serve(async (req: Request) => {
     // Idempotency: one generated report per session per language, then served from the DB.
     const { data: existing } = await admin
       .from("unloop_sessions")
-      .select("report, paid_at")
+      .select("report, paid_at, user_id")
       .eq("id", session_id)
       .maybeSingle();
 
-    // UNLOOP_REQUIRE_PAYMENT=true (env or Vault) refuses to generate for
-    // sessions the payment webhook hasn't marked as paid.
-    const requirePayment = await getRequirePayment(admin);
-    if (requirePayment && !existing?.paid_at) {
-      return json({ error: "payment_required" }, 402);
-    }
-
+    // A cached report was already paid for (or predates the gate) — serve it.
     const cached = existing?.report?.[lang];
     if (cached?.personalRead && cached?.outside) {
       return json(cached);
+    }
+
+    // Payment gate. Credit mode: paid_at sessions stay grandfathered free;
+    // everything else debits the session owner once — the idempotency key
+    // makes retries and the second language free. Legacy mode keeps the old
+    // boolean paid_at check.
+    if (await getCreditsEnabled(admin)) {
+      if (!existing?.paid_at) {
+        if (!existing?.user_id) {
+          return json({ error: "payment_required" }, 402);
+        }
+        const spend = await admin.rpc("credits_spend", {
+          p_user_id: existing.user_id,
+          p_amount: CREDIT_COSTS.report_quiz,
+          p_kind: "spend_report",
+          p_key: `report:${session_id}`,
+          p_ref: session_id,
+          p_meta: null,
+        });
+        if (spend.error || spend.data?.ok !== true) {
+          const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+          return json({ error: "payment_required", balance }, 402);
+        }
+      }
+    } else if ((await getRequirePayment(admin)) && !existing?.paid_at) {
+      return json({ error: "payment_required" }, 402);
     }
 
     const apiKey = await getApiKey(admin);

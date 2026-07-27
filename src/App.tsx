@@ -2,10 +2,24 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Landing from "./components/Landing";
 import Quiz from "./components/Quiz";
 import Analyzing from "./components/Analyzing";
+import BalanceChip from "./components/BalanceChip";
 import EmailCapture from "./components/EmailCapture";
+import ReportChat from "./components/ReportChat";
 import Teaser, { type PayState } from "./components/Teaser";
+import TopUpModal from "./components/TopUpModal";
 import Report from "./components/Report";
 import { score, type Answers } from "./lib/scoring";
+import {
+  CREDIT_COSTS,
+  CREDIT_PACKS,
+  creditsEnabled,
+  ensureAccount,
+  fetchMyBalance,
+  fetchSessionState,
+  linkSession,
+  stateUnlocks,
+  type PackId,
+} from "./lib/credits";
 import { openCheckout, paymentsEnabled } from "./lib/payments";
 import {
   adoptSession,
@@ -54,6 +68,9 @@ export default function App() {
   const [llm, setLlm] = useState<LlmChapters | null>(null);
   const [llmLoading, setLlmLoading] = useState(false);
   const [payState, setPayState] = useState<PayState>("idle");
+  const [myBalance, setMyBalance] = useState<number | null>(null);
+  const [topUpCost, setTopUpCost] = useState<number | null>(null);
+  const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
 
   const result = useMemo(
@@ -79,6 +96,48 @@ export default function App() {
     track("page_view", { step });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Credit mode: a returning visitor may already be signed in — show the chip.
+  useEffect(() => {
+    if (!creditsEnabled) return;
+    void fetchMyBalance().then(setMyBalance);
+  }, []);
+
+  const refreshBalance = () => {
+    if (!creditsEnabled) return;
+    void fetchMyBalance().then((balance) => {
+      if (balance !== null) setMyBalance(balance);
+    });
+  };
+
+  /** Balance for the poll: the signed-in account, else the linked session's owner. */
+  const currentBalance = async (): Promise<number | null> => {
+    const mine = await fetchMyBalance();
+    if (mine !== null) return mine;
+    const state = await fetchSessionState("quiz", getSessionId());
+    return state?.linked ? state.balance : null;
+  };
+
+  /**
+   * Post-checkout truth: legacy paid, already debited, or the freshly granted
+   * balance now covers the read (the generation call then debits it).
+   */
+  const checkUnlocked = async (): Promise<boolean> => {
+    if (!creditsEnabled) return Boolean(await fetchPaidAt());
+    const state = await fetchSessionState("quiz", getSessionId());
+    if (state?.linked) setMyBalance(state.balance);
+    return stateUnlocks(state, CREDIT_COSTS.report_quiz);
+  };
+
+  /**
+   * Passive safety nets must NOT auto-debit a balance the visitor hasn't
+   * chosen to spend — they only reopen sessions that are already paid for.
+   */
+  const sessionAlreadyUnlocked = async (): Promise<boolean> => {
+    if (!creditsEnabled) return Boolean(await fetchPaidAt());
+    const state = await fetchSessionState("quiz", getSessionId());
+    return Boolean(state && (state.legacyPaid || state.spent));
+  };
 
   // Email deep link (?s=<session id>): adopt the session and restore the funnel
   // from the server — the mail app or another device has no localStorage state.
@@ -122,6 +181,14 @@ export default function App() {
     setStep("teaser");
     track("email_submitted");
     identifyEmail(value);
+    // Silent account: the balance needs an owner before the paywall shows up.
+    if (creditsEnabled) {
+      void ensureAccount(value).then((status) => {
+        if (status === "ready") {
+          void linkSession("quiz", getSessionId()).then(refreshBalance);
+        }
+      });
+    }
     if (result) {
       const pattern = getPattern(lang, result.pattern);
       // The send function only mails addresses already stored on the session, so save first.
@@ -147,24 +214,31 @@ export default function App() {
       void generateLlmChapters(result, lang).then((chapters) => {
         setLlm(chapters);
         setLlmLoading(false);
+        // The generation call is what debits the 95 credits — re-read the chip.
+        refreshBalance();
       });
     }
   };
 
-  /** Confirmed payment (webhook set paid_at) — the revenue event, then unlock. */
-  const unlockPaid = () => {
-    track("purchase");
+  /** Confirmed payment — the revenue event, then unlock. */
+  const unlockPaid = (packId?: PackId) => {
+    if (creditsEnabled && packId) {
+      // PostHog-only on purpose: the Meta Purchase for packs comes from the
+      // webhook's Conversions API event (dedup id = order id).
+      track("credits_purchase", { pack: packId, value: CREDIT_PACKS[packId].usd });
+    } else {
+      track("purchase");
+    }
     unlock();
   };
 
-  /** Poll paid_at (set by the payment webhook) until it appears, then unlock. */
-  const awaitPaymentConfirmation = () => {
+  /** Poll the paid state (set by the payment webhook) until it appears, then unlock. */
+  const awaitPaymentConfirmation = (packId?: PackId) => {
     setPayState("confirming");
     const startedAt = Date.now();
     const tick = async () => {
-      const paidAt = await fetchPaidAt();
-      if (paidAt) {
-        unlockPaid();
+      if (await checkUnlocked()) {
+        unlockPaid(packId);
         return;
       }
       if (Date.now() - startedAt > 90_000) {
@@ -187,8 +261,8 @@ export default function App() {
   // storage restored on another device) unlocks itself on return to the teaser.
   useEffect(() => {
     if (!paymentsEnabled || unlocked || step !== "teaser") return;
-    void fetchPaidAt().then((paidAt) => {
-      if (paidAt) unlockPaid();
+    void sessionAlreadyUnlocked().then((ok) => {
+      if (ok) unlockPaid();
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
@@ -199,8 +273,8 @@ export default function App() {
     if (!paymentsEnabled || unlocked || step !== "teaser") return;
     const recheck = () => {
       if (document.visibilityState !== "visible") return;
-      void fetchPaidAt().then((paidAt) => {
-        if (paidAt) unlock();
+      void sessionAlreadyUnlocked().then((ok) => {
+        if (ok) unlock();
       });
     };
     window.addEventListener("focus", recheck);
@@ -212,28 +286,81 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, unlocked]);
 
-  const startUnlock = () => {
+  const startUnlock = (packId?: PackId) => {
     // Fires on the click itself: with payments on, the gap to report_view is
     // checkout abandonment; the webhook-driven unlock() must not re-fire it.
-    track("unlock_click");
+    const creditPack = creditsEnabled && paymentsEnabled && packId ? packId : undefined;
+    track(
+      "unlock_click",
+      creditPack ? { pack: creditPack, value: CREDIT_PACKS[creditPack].usd } : undefined,
+    );
     if (!paymentsEnabled) {
       unlock();
       return;
     }
     openCheckout({
+      ...(creditPack
+        ? { endpoint: "credits-polar-checkout", packId: creditPack, funnel: "quiz" as const }
+        : {}),
       sessionId: getSessionId(),
       email: email || undefined,
       lang,
-      onPaid: awaitPaymentConfirmation,
+      onPaid: () => awaitPaymentConfirmation(creditPack),
       // Overlay closed without a success signal — the payment may still have
       // landed (lost postMessage), so re-check quietly without an error state.
       onClosed: () => {
-        void fetchPaidAt().then((paidAt) => {
-          if (paidAt) unlock();
+        void checkUnlocked().then((ok) => {
+          if (ok) unlock();
         });
       },
       onError: () => setPayState("error"),
     }).catch(() => setPayState("error"));
+  };
+
+  /** Cross-sell path: the visitor's balance already covers this read. */
+  const unlockWithBalance = () => {
+    track("unlock_click", { mode: "balance" });
+    void linkSession("quiz", getSessionId()).then(unlock);
+  };
+
+  /** Mid-flow top-up: buy a pack, wait for the webhook grant, resume. */
+  const buyTopUp = (packId: PackId) => {
+    setTopUpBusy(true);
+    track("unlock_click", { pack: packId, value: CREDIT_PACKS[packId].usd, context: "topup" });
+    const before = myBalance ?? 0;
+    openCheckout({
+      endpoint: "credits-polar-checkout",
+      packId,
+      funnel: "quiz",
+      sessionId: getSessionId(),
+      email: email || undefined,
+      lang,
+      onPaid: () => {
+        const startedAt = Date.now();
+        const tick = async () => {
+          const balance = await currentBalance();
+          if (balance !== null && balance > before) {
+            setMyBalance(balance);
+            setTopUpBusy(false);
+            setTopUpCost(null);
+            track("credits_purchase", {
+              pack: packId,
+              value: CREDIT_PACKS[packId].usd,
+              context: "topup",
+            });
+            return;
+          }
+          if (Date.now() - startedAt > 90_000) {
+            setTopUpBusy(false);
+            return;
+          }
+          pollTimer.current = window.setTimeout(tick, 2500);
+        };
+        void tick();
+      },
+      onClosed: () => setTopUpBusy(false),
+      onError: () => setTopUpBusy(false),
+    }).catch(() => setTopUpBusy(false));
   };
 
   const restart = () => {
@@ -248,6 +375,10 @@ export default function App() {
     setUnlocked(false);
     setLlm(null);
     setPayState("idle");
+    setTopUpCost(null);
+    setTopUpBusy(false);
+    // The balance survives a retake on purpose — it belongs to the account.
+    refreshBalance();
   };
 
   const switchLang = (next: Lang) => {
@@ -260,18 +391,23 @@ export default function App() {
   return (
     <LangContext.Provider value={lang}>
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pb-10 pt-6">
-        <div className="fixed top-3 right-3 z-50 flex gap-1 rounded-full border border-paper/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
-          {(["en", "ru"] as Lang[]).map((l) => (
-            <button
-              key={l}
-              onClick={() => switchLang(l)}
-              className={`rounded-full px-2.5 py-1 uppercase transition ${
-                lang === l ? "bg-brass/25 text-paper" : "text-mist/60 hover:text-paper"
-              }`}
-            >
-              {l}
-            </button>
-          ))}
+        <div className="fixed top-3 right-3 z-50 flex items-center gap-2">
+          {creditsEnabled && myBalance !== null && (
+            <BalanceChip balance={myBalance} onClick={() => setTopUpCost(0)} />
+          )}
+          <div className="flex gap-1 rounded-full border border-paper/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
+            {(["en", "ru"] as Lang[]).map((l) => (
+              <button
+                key={l}
+                onClick={() => switchLang(l)}
+                className={`rounded-full px-2.5 py-1 uppercase transition ${
+                  lang === l ? "bg-brass/25 text-paper" : "text-mist/60 hover:text-paper"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
         </div>
 
         {step === "landing" && (
@@ -296,10 +432,47 @@ export default function App() {
           />
         )}
         {step === "teaser" && result && (
-          <Teaser result={result} onUnlock={startUnlock} payState={payState} />
+          <Teaser
+            result={result}
+            onUnlock={startUnlock}
+            payState={payState}
+            balance={myBalance}
+            onUnlockWithCredits={unlockWithBalance}
+          />
         )}
         {step === "report" && result && unlocked && (
-          <Report result={result} llm={llm} llmLoading={llmLoading} onRestart={restart} />
+          <Report
+            result={result}
+            llm={llm}
+            llmLoading={llmLoading}
+            onRestart={restart}
+            chat={
+              creditsEnabled ? (
+                <ReportChat
+                  funnel="quiz"
+                  sessionId={getSessionId()}
+                  onInsufficient={(balance) => {
+                    setMyBalance(balance);
+                    setTopUpCost(CREDIT_COSTS.chat_question);
+                  }}
+                  onBalance={setMyBalance}
+                />
+              ) : undefined
+            }
+          />
+        )}
+
+        {creditsEnabled && topUpCost !== null && (
+          <TopUpModal
+            balance={myBalance ?? 0}
+            cost={topUpCost}
+            busy={topUpBusy}
+            onBuy={buyTopUp}
+            onClose={() => {
+              setTopUpCost(null);
+              setTopUpBusy(false);
+            }}
+          />
         )}
       </div>
     </LangContext.Provider>

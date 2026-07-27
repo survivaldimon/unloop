@@ -15,6 +15,8 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
       session_id: opts.sessionId,
       email: opts.email ?? null,
       lang: opts.lang,
+      ...(opts.packId ? { pack_id: opts.packId } : {}),
+      ...(opts.funnel ? { funnel: opts.funnel } : {}),
       // Meta ad-click cookies ride along into order metadata so the webhook's
       // server-side Purchase event can be attributed to the ad click.
       fbp: getFbp(),

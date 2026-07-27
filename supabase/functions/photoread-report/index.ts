@@ -1,5 +1,6 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -193,6 +194,22 @@ async function getRequirePayment(admin: ReturnType<typeof createClient>): Promis
   return cachedRequirePayment;
 }
 
+let cachedCreditsEnabled: boolean | null = null;
+
+/** Credit-economy switch (docs/credits-economy.md): supersedes the boolean gate. */
+async function getCreditsEnabled(admin: ReturnType<typeof createClient>): Promise<boolean> {
+  if (cachedCreditsEnabled !== null) return cachedCreditsEnabled;
+  let value = Deno.env.get("CREDITS_ENABLED") ?? "";
+  if (!value) {
+    const { data } = await admin.rpc("unloop_get_secret", {
+      secret_name: "CREDITS_ENABLED",
+    });
+    if (typeof data === "string") value = data;
+  }
+  cachedCreditsEnabled = value.toLowerCase() === "true";
+  return cachedCreditsEnabled;
+}
+
 async function blobToB64(blob: Blob): Promise<string> {
   const bytes = new Uint8Array(await blob.arrayBuffer());
   let bin = "";
@@ -260,7 +277,7 @@ Deno.serve(async (req: Request) => {
 
     const { data: row, error: rowError } = await admin
       .from("photoread_sessions")
-      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at, photo_deleted_at")
+      .select("report, teaser, context, moderation, photo_path, photo_paths, paid_at, photo_deleted_at, user_id")
       .eq("id", sessionId.toLowerCase())
       .maybeSingle();
     if (rowError || !row) return json({ error: "not_found" }, 404);
@@ -274,8 +291,27 @@ Deno.serve(async (req: Request) => {
       return json(row.report);
     }
 
-    const requirePayment = await getRequirePayment(admin);
-    if (requirePayment && !row.paid_at) {
+    // Payment gate. Credit mode: paid_at sessions stay grandfathered free;
+    // everything else debits the session owner once — the idempotency key
+    // makes the webhook materialize call and client retries free. Legacy mode
+    // keeps the old boolean paid_at check.
+    if (await getCreditsEnabled(admin)) {
+      if (!row.paid_at) {
+        if (!row.user_id) return json({ error: "payment_required" }, 402);
+        const spend = await admin.rpc("credits_spend", {
+          p_user_id: row.user_id,
+          p_amount: CREDIT_COSTS.report_photo,
+          p_kind: "spend_photo",
+          p_key: `report:${sessionId.toLowerCase()}`,
+          p_ref: sessionId.toLowerCase(),
+          p_meta: null,
+        });
+        if (spend.error || spend.data?.ok !== true) {
+          const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+          return json({ error: "payment_required", balance }, 402);
+        }
+      }
+    } else if ((await getRequirePayment(admin)) && !row.paid_at) {
       return json({ error: "payment_required" }, 402);
     }
 

@@ -107,11 +107,14 @@ export default function Report({
   llm,
   llmLoading,
   onRestart,
+  chat,
 }: {
   result: ScoreResult;
   llm: LlmChapters | null;
   llmLoading: boolean;
   onRestart: () => void;
+  /** Credit-mode follow-up chat, injected by App right after the chapters. */
+  chat?: React.ReactNode;
 }) {
   const lang = useLang();
   const ui = t(lang).report;
@@ -237,6 +240,8 @@ export default function Report({
           ))}
         </ul>
       </Chapter>
+
+      {chat}
 
       <div className="mt-12">
         <ShareCard

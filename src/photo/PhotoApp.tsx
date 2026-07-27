@@ -1,6 +1,20 @@
 import { useEffect, useRef, useState } from "react";
+import BalanceChip from "../components/BalanceChip";
 import EmailCapture from "../components/EmailCapture";
+import ReportChat from "../components/ReportChat";
+import TopUpModal from "../components/TopUpModal";
 import { identifyEmail, refreshSessionContext, track } from "../lib/analytics";
+import {
+  CREDIT_COSTS,
+  CREDIT_PACKS,
+  creditsEnabled,
+  ensureAccount,
+  fetchMyBalance,
+  fetchSessionState,
+  linkSession,
+  stateUnlocks,
+  type PackId,
+} from "../lib/credits";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
 import { LangContext } from "../i18n";
 import {
@@ -71,6 +85,9 @@ export default function PhotoApp() {
   const [reportError, setReportError] = useState(false);
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
   const [payState, setPayState] = useState<PayState>("idle");
+  const [myBalance, setMyBalance] = useState<number | null>(null);
+  const [topUpCost, setTopUpCost] = useState<number | null>(null);
+  const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
   // In-memory only: base64 for the API, data URLs for previews.
   const photosRef = useRef<PreparedPhoto[]>([]);
@@ -88,6 +105,42 @@ export default function PhotoApp() {
     track("photo_view", { funnel: "photo" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Credit mode: a returning visitor may already be signed in — show the chip.
+  useEffect(() => {
+    if (!creditsEnabled) return;
+    void fetchMyBalance().then(setMyBalance);
+  }, []);
+
+  const refreshBalance = () => {
+    if (!creditsEnabled) return;
+    void fetchMyBalance().then((balance) => {
+      if (balance !== null) setMyBalance(balance);
+    });
+  };
+
+  /** Balance for the poll: the signed-in account, else the linked session's owner. */
+  const currentBalance = async (): Promise<number | null> => {
+    const mine = await fetchMyBalance();
+    if (mine !== null) return mine;
+    const state = await fetchSessionState("photoread", getPhotoSessionId());
+    return state?.linked ? state.balance : null;
+  };
+
+  /** Post-checkout truth: legacy paid, already debited, or balance now covers the read. */
+  const checkUnlocked = async (): Promise<boolean> => {
+    if (!creditsEnabled) return Boolean(await fetchPhotoPaidAt());
+    const state = await fetchSessionState("photoread", getPhotoSessionId());
+    if (state?.linked) setMyBalance(state.balance);
+    return stateUnlocks(state, CREDIT_COSTS.report_photo);
+  };
+
+  /** Passive safety nets never auto-debit — only already-paid sessions reopen. */
+  const sessionAlreadyUnlocked = async (): Promise<boolean> => {
+    if (!creditsEnabled) return Boolean(await fetchPhotoPaidAt());
+    const state = await fetchSessionState("photoread", getPhotoSessionId());
+    return Boolean(state && (state.legacyPaid || state.spent));
+  };
 
   // Email deep link (?p=<session id>): restore the funnel from the server.
   useEffect(() => {
@@ -136,6 +189,14 @@ export default function PhotoApp() {
     setStep("teaser");
     track("email_submitted", { funnel: "photo" });
     identifyEmail(value);
+    // Silent account: the balance needs an owner before the paywall shows up.
+    if (creditsEnabled) {
+      void ensureAccount(value).then((status) => {
+        if (status === "ready") {
+          void linkSession("photoread", getPhotoSessionId()).then(refreshBalance);
+        }
+      });
+    }
     // The send function only mails addresses already stored on the session, so save first.
     void savePhotoSession({ email: value, stage: "email" }).then(() =>
       sendPhotoResultEmail(value),
@@ -149,6 +210,8 @@ export default function PhotoApp() {
       setReportLoading(false);
       if (res.kind === "ok") setReport(res.report);
       else setReportError(true);
+      // The report call is what debits the 95 credits — re-read the chip.
+      refreshBalance();
     });
   };
 
@@ -161,20 +224,29 @@ export default function PhotoApp() {
     loadReport();
   };
 
-  /** Confirmed payment (webhook set paid_at) — the revenue event, then unlock. */
-  const unlockPaid = () => {
-    track("purchase", { funnel: "photo", sid: getPhotoSessionId() });
+  /** Confirmed payment — the revenue event, then unlock. */
+  const unlockPaid = (packId?: PackId) => {
+    if (creditsEnabled && packId) {
+      // PostHog-only on purpose: the Meta Purchase for packs comes from the
+      // webhook's Conversions API event (dedup id = order id).
+      track("credits_purchase", {
+        funnel: "photo",
+        pack: packId,
+        value: CREDIT_PACKS[packId].usd,
+      });
+    } else {
+      track("purchase", { funnel: "photo", sid: getPhotoSessionId() });
+    }
     unlock();
   };
 
-  /** Poll paid_at (set by the payment webhook) until it appears, then unlock. */
-  const awaitPaymentConfirmation = () => {
+  /** Poll the paid state (set by the payment webhook) until it appears, then unlock. */
+  const awaitPaymentConfirmation = (packId?: PackId) => {
     setPayState("confirming");
     const startedAt = Date.now();
     const tick = async () => {
-      const paidAt = await fetchPhotoPaidAt();
-      if (paidAt) {
-        unlockPaid();
+      if (await checkUnlocked()) {
+        unlockPaid(packId);
         return;
       }
       if (Date.now() - startedAt > 90_000) {
@@ -197,8 +269,8 @@ export default function PhotoApp() {
   // mid-checkout, storage restored elsewhere) unlocks itself on the teaser.
   useEffect(() => {
     if (!paymentsEnabled || unlocked || step !== "teaser") return;
-    void fetchPhotoPaidAt().then((paidAt) => {
-      if (paidAt) unlockPaid();
+    void sessionAlreadyUnlocked().then((ok) => {
+      if (ok) unlockPaid();
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
@@ -209,8 +281,8 @@ export default function PhotoApp() {
     if (!paymentsEnabled || unlocked || step !== "teaser") return;
     const recheck = () => {
       if (document.visibilityState !== "visible") return;
-      void fetchPhotoPaidAt().then((paidAt) => {
-        if (paidAt) unlock();
+      void sessionAlreadyUnlocked().then((ok) => {
+        if (ok) unlock();
       });
     };
     window.addEventListener("focus", recheck);
@@ -222,29 +294,88 @@ export default function PhotoApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, unlocked]);
 
-  const startUnlock = () => {
+  const startUnlock = (packId?: PackId) => {
     // Fires on the click itself: with payments on, the gap to photo_report_view
     // is checkout abandonment; the webhook-driven unlock() must not re-fire it.
-    track("unlock_click", { funnel: "photo" });
+    const creditPack = creditsEnabled && paymentsEnabled && packId ? packId : undefined;
+    track(
+      "unlock_click",
+      creditPack
+        ? { funnel: "photo", pack: creditPack, value: CREDIT_PACKS[creditPack].usd }
+        : { funnel: "photo" },
+    );
     if (!paymentsEnabled) {
       unlock();
       return;
     }
     openCheckout({
-      endpoint: "photoread-polar-checkout",
+      endpoint: creditPack ? "credits-polar-checkout" : "photoread-polar-checkout",
+      ...(creditPack ? { packId: creditPack, funnel: "photoread" as const } : {}),
       sessionId: getPhotoSessionId(),
       email: email || undefined,
       lang: "en",
-      onPaid: awaitPaymentConfirmation,
+      onPaid: () => awaitPaymentConfirmation(creditPack),
       // Overlay closed without a success signal — the payment may still have
       // landed (lost postMessage), so re-check quietly without an error state.
       onClosed: () => {
-        void fetchPhotoPaidAt().then((paidAt) => {
-          if (paidAt) unlock();
+        void checkUnlocked().then((ok) => {
+          if (ok) unlock();
         });
       },
       onError: () => setPayState("error"),
     }).catch(() => setPayState("error"));
+  };
+
+  /** Cross-sell path: the visitor's balance already covers this read. */
+  const unlockWithBalance = () => {
+    track("unlock_click", { funnel: "photo", mode: "balance" });
+    void linkSession("photoread", getPhotoSessionId()).then(unlock);
+  };
+
+  /** Mid-flow top-up: buy a pack, wait for the webhook grant, resume. */
+  const buyTopUp = (packId: PackId) => {
+    setTopUpBusy(true);
+    track("unlock_click", {
+      funnel: "photo",
+      pack: packId,
+      value: CREDIT_PACKS[packId].usd,
+      context: "topup",
+    });
+    const before = myBalance ?? 0;
+    openCheckout({
+      endpoint: "credits-polar-checkout",
+      packId,
+      funnel: "photoread",
+      sessionId: getPhotoSessionId(),
+      email: email || undefined,
+      lang: "en",
+      onPaid: () => {
+        const startedAt = Date.now();
+        const tick = async () => {
+          const balance = await currentBalance();
+          if (balance !== null && balance > before) {
+            setMyBalance(balance);
+            setTopUpBusy(false);
+            setTopUpCost(null);
+            track("credits_purchase", {
+              funnel: "photo",
+              pack: packId,
+              value: CREDIT_PACKS[packId].usd,
+              context: "topup",
+            });
+            return;
+          }
+          if (Date.now() - startedAt > 90_000) {
+            setTopUpBusy(false);
+            return;
+          }
+          pollTimer.current = window.setTimeout(tick, 2500);
+        };
+        void tick();
+      },
+      onClosed: () => setTopUpBusy(false),
+      onError: () => setTopUpBusy(false),
+    }).catch(() => setTopUpBusy(false));
   };
 
   const restart = () => {
@@ -262,11 +393,20 @@ export default function PhotoApp() {
     setReport(null);
     setReportError(false);
     setRejectReason(null);
+    setTopUpCost(null);
+    setTopUpBusy(false);
+    // The balance survives a retake on purpose — it belongs to the account.
+    refreshBalance();
   };
 
   return (
     <LangContext.Provider value="en">
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pb-10 pt-6">
+        {creditsEnabled && myBalance !== null && (
+          <div className="fixed top-3 right-3 z-50">
+            <BalanceChip balance={myBalance} onClick={() => setTopUpCost(0)} />
+          </div>
+        )}
         {step === "landing" && (
           <PhotoLanding
             rejectReason={rejectReason}
@@ -320,6 +460,8 @@ export default function PhotoApp() {
             payState={payState}
             sessionId={getPhotoSessionId()}
             onUnlock={startUnlock}
+            balance={myBalance}
+            onUnlockWithCredits={unlockWithBalance}
           />
         )}
         {step === "report" && unlocked && (
@@ -332,6 +474,32 @@ export default function PhotoApp() {
             previews={previews}
             sessionId={getPhotoSessionId()}
             onRestart={restart}
+            chat={
+              creditsEnabled && report ? (
+                <ReportChat
+                  funnel="photoread"
+                  sessionId={getPhotoSessionId()}
+                  onInsufficient={(balance) => {
+                    setMyBalance(balance);
+                    setTopUpCost(CREDIT_COSTS.chat_question);
+                  }}
+                  onBalance={setMyBalance}
+                />
+              ) : undefined
+            }
+          />
+        )}
+
+        {creditsEnabled && topUpCost !== null && (
+          <TopUpModal
+            balance={myBalance ?? 0}
+            cost={topUpCost}
+            busy={topUpBusy}
+            onBuy={buyTopUp}
+            onClose={() => {
+              setTopUpCost(null);
+              setTopUpBusy(false);
+            }}
           />
         )}
       </div>

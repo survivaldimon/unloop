@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import CreditPaywall from "../../components/CreditPaywall";
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
 import { track } from "../../lib/analytics";
+import { CREDIT_COSTS, creditsEnabled, type PackId } from "../../lib/credits";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
 import { paymentsProviderName } from "../../lib/payments";
@@ -24,6 +26,8 @@ export default function PhotoTeaser({
   payState = "idle",
   sessionId,
   onUnlock,
+  balance = null,
+  onUnlockWithCredits,
 }: {
   teaser: PhotoTeaserData;
   useCase: PhotoUseCase;
@@ -32,7 +36,12 @@ export default function PhotoTeaser({
   paymentsEnabled: boolean;
   payState?: PayState;
   sessionId: string;
-  onUnlock: () => void;
+  /** Credit mode passes the chosen pack; the legacy paywall passes nothing. */
+  onUnlock: (packId?: PackId) => void;
+  /** Known credit balance, shown under the pack cards. */
+  balance?: number | null;
+  /** Balance covers the read — unlock straight from it (no checkout). */
+  onUnlockWithCredits?: () => void;
 }) {
   const ui = PHOTO_COPY.teaser;
   const countdown = useOfferCountdown();
@@ -143,28 +152,38 @@ export default function PhotoTeaser({
       </div>
 
       <div className="mt-7">
-        <div className="rounded-xl border border-brass/50 p-4 text-center">
-          <p className="text-[14px]">
-            <s className="text-mist/60">{formatUsd(COMPARE_PRICE_USD)}</s>{" "}
-            <span className="font-display text-[20px] font-medium text-brass-2 italic">
-              {formatUsd(REPORT_PRICE_USD)}
-            </span>{" "}
-            <span className="text-[12px] text-mist">· {ui.offerHolds}</span>
-          </p>
-          <p className="font-display text-[44px] leading-tight text-brass-2 tabular-nums">
-            {countdown}
-          </p>
-          <button className="btn-primary mt-2 disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
-            {confirming ? ui.confirming : ui.unlock}
-          </button>
-          {payState === "error" ? (
-            <p className="mt-2 text-xs text-ember">{ui.payError}</p>
-          ) : (
-            <p className="mt-2 text-[11px] text-mist/70">
-              {paymentsEnabled ? ui.payNote(paymentsProviderName) : ui.testNote}
+        {creditsEnabled && paymentsEnabled ? (
+          <CreditPaywall
+            balance={balance}
+            cost={CREDIT_COSTS.report_photo}
+            payState={payState}
+            onSelect={(packId) => onUnlock(packId)}
+            onUnlockWithCredits={onUnlockWithCredits}
+          />
+        ) : (
+          <div className="rounded-xl border border-brass/50 p-4 text-center">
+            <p className="text-[14px]">
+              <s className="text-mist/60">{formatUsd(COMPARE_PRICE_USD)}</s>{" "}
+              <span className="font-display text-[20px] font-medium text-brass-2 italic">
+                {formatUsd(REPORT_PRICE_USD)}
+              </span>{" "}
+              <span className="text-[12px] text-mist">· {ui.offerHolds}</span>
             </p>
-          )}
-        </div>
+            <p className="font-display text-[44px] leading-tight text-brass-2 tabular-nums">
+              {countdown}
+            </p>
+            <button className="btn-primary mt-2 disabled:opacity-60" onClick={() => onUnlock()} disabled={confirming}>
+              {confirming ? ui.confirming : ui.unlock}
+            </button>
+            {payState === "error" ? (
+              <p className="mt-2 text-xs text-ember">{ui.payError}</p>
+            ) : (
+              <p className="mt-2 text-[11px] text-mist/70">
+                {paymentsEnabled ? ui.payNote(paymentsProviderName) : ui.testNote}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       <hr className="hairline mt-8" />

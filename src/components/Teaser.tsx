@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
+import { CREDIT_COSTS, creditsEnabled, type PackId } from "../lib/credits";
 import { REPORT_PRICE_USD } from "../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../lib/offer";
 import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
 import { getSessionId } from "../lib/supabase";
+import CreditPaywall from "./CreditPaywall";
 import { PATTERN_ACCENT, readingNo, withAlpha } from "../lib/visual";
 import { t, useLang } from "../i18n";
 import { track } from "../lib/analytics";
@@ -24,10 +26,17 @@ export default function Teaser({
   result,
   onUnlock,
   payState = "idle",
+  balance = null,
+  onUnlockWithCredits,
 }: {
   result: ScoreResult;
-  onUnlock: () => void;
+  /** Credit mode passes the chosen pack; the legacy paywall passes nothing. */
+  onUnlock: (packId?: PackId) => void;
   payState?: PayState;
+  /** Known credit balance, shown under the pack cards. */
+  balance?: number | null;
+  /** Balance covers the read — unlock straight from it (no checkout). */
+  onUnlockWithCredits?: () => void;
 }) {
   const lang = useLang();
   const ui = t(lang).teaser;
@@ -177,7 +186,15 @@ export default function Teaser({
       </div>
 
       <div className="mt-6">
-        {paymentsEnabled ? (
+        {creditsEnabled && paymentsEnabled ? (
+          <CreditPaywall
+            balance={balance}
+            cost={CREDIT_COSTS.report_quiz}
+            payState={payState}
+            onSelect={(packId) => onUnlock(packId)}
+            onUnlockWithCredits={onUnlockWithCredits}
+          />
+        ) : paymentsEnabled ? (
           <div className="rounded-xl border border-brass/50 p-4 text-center">
             <p className="text-[14px]">
               <s className="text-mist/60">{formatUsd(COMPARE_PRICE_USD)}</s>{" "}
@@ -191,7 +208,7 @@ export default function Teaser({
             </p>
             <button
               className="btn-primary mt-2 disabled:opacity-60"
-              onClick={onUnlock}
+              onClick={() => onUnlock()}
               disabled={confirming}
             >
               {confirming ? ui.confirming : ui.unlock}
@@ -204,7 +221,7 @@ export default function Teaser({
           </div>
         ) : (
           <div>
-            <button className="btn-primary disabled:opacity-60" onClick={onUnlock} disabled={confirming}>
+            <button className="btn-primary disabled:opacity-60" onClick={() => onUnlock()} disabled={confirming}>
               {confirming ? ui.confirming : ui.unlock}
             </button>
             {payState === "error" ? (

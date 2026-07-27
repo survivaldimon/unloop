@@ -6,6 +6,7 @@
 // Per the Standard Webhooks spec the HMAC key is the secret's raw bytes
 // (Polar's polar_whs_… string used as-is, NOT base64-decoded).
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { CREDIT_PACKS, isPackId } from "../_shared/credits-config.ts";
 
 const SIGNATURE_TOLERANCE_SECONDS = 300;
 
@@ -128,6 +129,8 @@ async function sendMetaPurchase(
     email: string | null;
     order: Record<string, unknown> & { metadata?: Record<string, unknown> };
     paidAt: string;
+    /** Dedup id override — credit packs use the order id (one session can buy many packs). */
+    eventId?: string;
   },
 ): Promise<void> {
   try {
@@ -165,7 +168,7 @@ async function sendMetaPurchase(
         {
           event_name: "Purchase",
           event_time: eventTime,
-          event_id: `purchase_${args.sessionId}`,
+          event_id: args.eventId ?? `purchase_${args.sessionId}`,
           action_source: "website",
           event_source_url: SITE_URL,
           user_data: userData,
@@ -195,6 +198,80 @@ async function sendMetaPurchase(
   } catch (err) {
     console.error("meta capi purchase error", err);
   }
+}
+
+/**
+ * Fire photoread-report in the background so a buyer who closed the tab still
+ * gets the finished read via the ?p= email link; the report function is
+ * idempotent and (in credit mode) debits the session owner exactly once.
+ */
+function materializePhotoReport(sessionId: string): void {
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const materialize = fetch(
+    `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${anonKey}`,
+        apikey: anonKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ session_id: sessionId }),
+    },
+  )
+    .then(async (res) => {
+      if (!res.ok) {
+        console.error("photoread materialize failed", res.status, await res.text());
+      }
+    })
+    .catch((err) => console.error("photoread materialize error", err));
+  const runtime = (
+    globalThis as { EdgeRuntime?: { waitUntil(p: Promise<unknown>): void } }
+  ).EdgeRuntime;
+  // waitUntil keeps the instance alive past the response; outside the Supabase
+  // runtime just let the promise float rather than delaying the webhook ack.
+  if (runtime?.waitUntil) runtime.waitUntil(materialize);
+  else void materialize;
+}
+
+/**
+ * Who gets the credits of a pack order. In order of trust: the signed-in user
+ * stamped by credits-polar-checkout → the funnel session's owner → the account
+ * matching the Polar order email → a fresh account on that email (Polar always
+ * collects one). By-email attachment can only ever ADD credits to an account,
+ * never read it, so email knowledge gains an attacker nothing.
+ */
+async function resolveCreditsUser(
+  admin: ReturnType<typeof createClient>,
+  metadata: Record<string, unknown>,
+  order: Record<string, unknown> & { customer?: { email?: unknown } },
+): Promise<string | null> {
+  const metaUser = metadata.user_id;
+  if (typeof metaUser === "string" && UUID_RE.test(metaUser)) return metaUser;
+
+  const table =
+    metadata.funnel === "photoread" ? "photoread_sessions" : "unloop_sessions";
+  const sid =
+    typeof metadata.session_id === "string" && UUID_RE.test(metadata.session_id)
+      ? metadata.session_id.toLowerCase()
+      : null;
+  if (sid) {
+    const { data } = await admin.from(table).select("user_id").eq("id", sid).maybeSingle();
+    if (typeof data?.user_id === "string" && data.user_id) return data.user_id;
+  }
+
+  const email =
+    typeof order?.customer?.email === "string" && order.customer.email
+      ? order.customer.email
+      : null;
+  if (!email) return null;
+  const { data: byEmail } = await admin.rpc("credits_user_id_by_email", { p_email: email });
+  if (typeof byEmail === "string" && byEmail) return byEmail;
+  const created = await admin.auth.admin.createUser({ email, email_confirm: true });
+  if (created.data?.user?.id) return created.data.user.id;
+  // Lost a race against a concurrent signup on the same email — look it up again.
+  const { data: retry } = await admin.rpc("credits_user_id_by_email", { p_email: email });
+  return typeof retry === "string" && retry ? retry : null;
 }
 
 Deno.serve(async (req: Request) => {
@@ -232,6 +309,102 @@ Deno.serve(async (req: Request) => {
     }
 
     const order = event.data ?? {};
+    const metadata = (order?.metadata ?? {}) as Record<string, unknown>;
+
+    // --- Credit packs (credits-polar-checkout stamps kind="credits") --------
+    if (metadata.kind === "credits") {
+      const orderId =
+        (typeof order.id === "string" && order.id) ||
+        (typeof order.checkout_id === "string" && order.checkout_id) ||
+        null;
+      if (!orderId) {
+        console.error("credits order without id");
+        return json({ ok: false, reason: "missing_order_id" });
+      }
+
+      const userId = await resolveCreditsUser(admin, metadata, order);
+      if (!userId) {
+        // No user hint and no order email — retrying won't invent one.
+        console.error("credits order without resolvable user", orderId);
+        return json({ ok: false, reason: "unresolvable_user" });
+      }
+
+      // Pack size comes from OUR config, not from client-influenceable data;
+      // metadata only says which pack the checkout was created for.
+      const pack = isPackId(metadata.pack) ? CREDIT_PACKS[metadata.pack] : null;
+      if (!pack) {
+        console.error("credits order with unknown pack", orderId, metadata.pack);
+        return json({ ok: false, reason: "unknown_pack" });
+      }
+      const bonus =
+        typeof metadata.bonus === "number" && Number.isFinite(metadata.bonus)
+          ? Math.max(0, Math.min(Math.round(metadata.bonus), pack.credits))
+          : 0;
+
+      const grantMeta = {
+        pack: pack.id,
+        order_id: orderId,
+        amount: order.total_amount ?? null,
+        currency: order.currency ?? null,
+      };
+      const granted = await admin.rpc("credits_grant", {
+        p_user_id: userId,
+        p_amount: pack.credits,
+        p_kind: "purchase",
+        p_key: `order:${orderId}`,
+        p_ref: orderId,
+        p_meta: grantMeta,
+      });
+      if (granted.error || granted.data?.ok !== true) {
+        // 500 → Polar retries; the idempotency key makes retries safe.
+        console.error("credits grant failed", orderId, granted.error ?? granted.data);
+        return json({ error: "grant_failed" }, 500);
+      }
+      if (bonus > 0) {
+        const bonusGrant = await admin.rpc("credits_grant", {
+          p_user_id: userId,
+          p_amount: bonus,
+          p_kind: "bonus_timer",
+          p_key: `order:${orderId}:bonus`,
+          p_ref: orderId,
+          p_meta: grantMeta,
+        });
+        if (bonusGrant.error) console.error("bonus grant failed", orderId, bonusGrant.error);
+      }
+
+      // Link the funnel session to the buyer so the report functions know whom
+      // to debit, then (photo) materialize the read in the background.
+      const sid =
+        typeof metadata.session_id === "string" && UUID_RE.test(metadata.session_id)
+          ? metadata.session_id.toLowerCase()
+          : null;
+      const funnel = metadata.funnel === "photoread" ? "photoread" : "quiz";
+      if (sid) {
+        const table = funnel === "photoread" ? "photoread_sessions" : "unloop_sessions";
+        const { error: linkError } = await admin
+          .from(table)
+          .update({ user_id: userId, updated_at: new Date().toISOString() })
+          .eq("id", sid)
+          .is("user_id", null);
+        if (linkError) console.error("session link failed", sid, linkError);
+        if (funnel === "photoread") materializePhotoReport(sid);
+      }
+
+      await sendMetaPurchase(admin, {
+        sessionId: sid ?? orderId,
+        email:
+          typeof order?.customer?.email === "string" && order.customer.email
+            ? order.customer.email
+            : null,
+        order,
+        paidAt: order.created_at ?? new Date().toISOString(),
+        eventId: `purchase_${orderId}`,
+      });
+
+      return json({ ok: true, credits: pack.credits + bonus });
+    }
+
+    // --- Legacy single-product orders (pre-credits paid_at flow) ------------
     const sessionId = order?.metadata?.session_id;
     if (typeof sessionId !== "string" || !UUID_RE.test(sessionId)) {
       // Retrying will not add the missing metadata — acknowledge and log.
@@ -288,38 +461,9 @@ Deno.serve(async (req: Request) => {
 
     // Photo product: materialize the paid report right now, in the background.
     // A buyer who closed the tab still gets the finished read via the ?p= email
-    // link, and the source photos get deleted immediately after generation
-    // (photoread-report removes them once the report is cached) instead of
-    // waiting for the hourly cleanup. The report function is idempotent, so a
-    // webhook retry at worst re-serves the cached report.
+    // link, and the source photos get deleted immediately after generation.
     if (table === "photoread_sessions") {
-      const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
-      const materialize = fetch(
-        `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${anonKey}`,
-            apikey: anonKey,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ session_id: sessionId.toLowerCase() }),
-        },
-      )
-        .then(async (res) => {
-          if (!res.ok) {
-            console.error("photoread materialize failed", res.status, await res.text());
-          }
-        })
-        .catch((err) => console.error("photoread materialize error", err));
-      const runtime = (
-        globalThis as { EdgeRuntime?: { waitUntil(p: Promise<unknown>): void } }
-      ).EdgeRuntime;
-      // waitUntil keeps the instance alive past the response; outside the
-      // Supabase runtime just let the promise float rather than delaying the
-      // webhook ack (Polar would retry on a slow response).
-      if (runtime?.waitUntil) runtime.waitUntil(materialize);
-      else void materialize;
+      materializePhotoReport(sessionId.toLowerCase());
     }
 
     // After the row is marked paid: the purchase signal for Meta Ads. Polar's

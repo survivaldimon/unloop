@@ -80,7 +80,12 @@ function forwardToMeta(
       });
       break;
     case "unlock_click":
-      metaTrack("InitiateCheckout", { value: REPORT_PRICE_USD, currency: "USD" });
+      metaTrack("InitiateCheckout", {
+        // Credit-mode clicks carry the selected pack's price; legacy defaults
+        // to the single-product price.
+        value: typeof props?.value === "number" ? props.value : REPORT_PRICE_USD,
+        currency: "USD",
+      });
       break;
     case "purchase":
       // props.sid overrides the dedup id for non-quiz funnels (photo sessions
@@ -116,7 +121,15 @@ export type AnalyticsEvent =
   | "photo_scan_done"
   | "photo_reject"
   | "photo_teaser_view"
-  | "photo_report_view";
+  | "photo_report_view"
+  // Credit economy (docs/credits-economy.md §11). credits_purchase is
+  // deliberately PostHog-only: the Meta Purchase for packs comes from the
+  // webhook's Conversions API event (event_id = purchase_<order_id>), so the
+  // browser pixel sending its own would double-count.
+  | "pack_select"
+  | "credits_purchase"
+  | "topup_view"
+  | "chat_question";
 
 export function track(
   event: AnalyticsEvent,

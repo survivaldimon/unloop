@@ -84,6 +84,7 @@ export default function PhotoReport({
   previews,
   sessionId,
   onRestart,
+  chat,
 }: {
   report: PhotoReportData | null;
   loading: boolean;
@@ -94,6 +95,8 @@ export default function PhotoReport({
   previews: string[];
   sessionId: string;
   onRestart: () => void;
+  /** Credit-mode follow-up chat, injected by PhotoApp after the read. */
+  chat?: React.ReactNode;
 }) {
   const ui = PHOTO_COPY.report;
   const contextTitle = ui.sections.context_read[useCase] ?? "Stranger read";
@@ -295,6 +298,8 @@ export default function PhotoReport({
           )}
         </div>
       )}
+
+      {chat}
 
       <div className="mt-10 flex flex-col items-center gap-4">
         <button className="btn-ghost" onClick={onRestart}>
