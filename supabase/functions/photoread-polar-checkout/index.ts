@@ -24,6 +24,16 @@ const EMBED_ORIGINS = new Set([
 ]);
 const LOCALHOST_RE = /^http:\/\/localhost(:\d+)?$/;
 
+// Polar's hosted checkout only supports this locale set (verified against
+// polar.sh/docs/features/checkout/localization, 27.07.2026) — notably no
+// Russian. Passing an unsupported code is undocumented behavior on a
+// payment-critical endpoint, so only forward `lang` when Polar actually
+// understands it; otherwise the checkout falls back to its own browser-based
+// auto-detection, same as before this session-language plumbing existed.
+const POLAR_LOCALES = new Set([
+  "en", "nl", "es", "fr", "sv", "de", "hu", "it", "pt", "pt-PT", "ko", "ja", "tr", "pl",
+]);
+
 const secretCache = new Map<string, string>();
 
 async function getSecret(
@@ -62,6 +72,7 @@ Deno.serve(async (req: Request) => {
       return json({ error: "bad_request" }, 400);
     }
     const email = typeof body?.email === "string" && body.email ? body.email : null;
+    const locale = typeof body?.lang === "string" && POLAR_LOCALES.has(body.lang) ? body.lang : null;
 
     const origin = req.headers.get("origin");
     const embedOrigin =
@@ -111,6 +122,7 @@ Deno.serve(async (req: Request) => {
         },
         ...(embedOrigin ? { embed_origin: embedOrigin } : {}),
         ...(email ? { customer_email: email } : {}),
+        ...(locale ? { locale } : {}),
       }),
     });
     if (!res.ok) {

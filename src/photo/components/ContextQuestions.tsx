@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { PHOTO_COPY } from "../copy";
+import { useLang } from "../../i18n";
+import { getPhotoCopy } from "../copy";
 import type { PhotoContext, PhotoSubject, PhotoUseCase } from "../api";
 
 const LETTERS = ["a", "b", "c", "d"];
@@ -11,7 +12,7 @@ export default function ContextQuestions({
   previewUrl: string;
   onDone: (ctx: PhotoContext) => void;
 }) {
-  const ui = PHOTO_COPY.context;
+  const ui = getPhotoCopy(useLang()).context;
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});

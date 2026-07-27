@@ -2,7 +2,10 @@
 // sends ONLY to the address already stored on the session row, only once per
 // session (result_email_sent_at). Content comes from the row's teaser jsonb —
 // the client sends nothing but { session_id, email }, so the payload can't be
-// spoofed. EN-only, third-person voice (v2 decision 26.07.2026).
+// spoofed. Third-person voice (v2 decision 26.07.2026). Language comes from
+// the session row (not a client-supplied body param, unlike unloop-send-result)
+// — this is the reading's original language, not the recipient's current
+// toggle state, which matters on a repeat deep-link open.
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const CORS = {
@@ -18,20 +21,53 @@ const DEFAULT_SITE_URL = "https://looplore.app/";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-const COPY = {
-  subject: "This photo said more than it planned",
-  preheader: "Two things a stranger reads in the first seconds — and one detail still sealed.",
-  kicker: "Your photo read",
-  headline: "This photo said more than it planned.",
-  intro: "You asked for a copy of this reading — two things it already shows, one still sealed.",
-  insightsTitle: "What a stranger reads first",
-  sealedLabel: "Sealed · The Tell",
-  cta: "Open the full read →",
-  note: "The full read is on the site: the 3-second first impression, the 10-second story, pose and style signals, The Tell, and the perception radar. The link opens this reading on any device.",
-  footerReason:
-    "You're getting this one-time email because you asked for a copy of a Looplore photo read.",
-  disclaimer:
-    "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
+type Lang = "en" | "ru";
+const LANGS = new Set(["en", "ru"]);
+
+interface Copy {
+  subject: string;
+  preheader: string;
+  kicker: string;
+  headline: string;
+  intro: string;
+  insightsTitle: string;
+  sealedLabel: string;
+  cta: string;
+  note: string;
+  footerReason: string;
+  disclaimer: string;
+}
+
+const COPY: Record<Lang, Copy> = {
+  en: {
+    subject: "This photo said more than it planned",
+    preheader: "Two things a stranger reads in the first seconds — and one detail still sealed.",
+    kicker: "Your photo read",
+    headline: "This photo said more than it planned.",
+    intro: "You asked for a copy of this reading — two things it already shows, one still sealed.",
+    insightsTitle: "What a stranger reads first",
+    sealedLabel: "Sealed · The Tell",
+    cta: "Open the full read →",
+    note: "The full read is on the site: the 3-second first impression, the 10-second story, pose and style signals, The Tell, and the perception radar. The link opens this reading on any device.",
+    footerReason:
+      "You're getting this one-time email because you asked for a copy of a Looplore photo read.",
+    disclaimer:
+      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
+  },
+  ru: {
+    subject: "Это фото сказало больше, чем хотело",
+    preheader: "Два наблюдения, которые незнакомец считывает за первые секунды — и одна деталь всё ещё под печатью.",
+    kicker: "Твой фото-разбор",
+    headline: "Это фото сказало больше, чем хотело.",
+    intro: "Ты просил(а) копию этого разбора — вот два наблюдения, которые он уже показывает, и одно пока запечатано.",
+    insightsTitle: "Что незнакомец считывает первым",
+    sealedLabel: "Запечатано · The Tell",
+    cta: "Открыть полный разбор →",
+    note: "Полный разбор ждёт на сайте: 3-секундное первое впечатление, история за 10 секунд, сигналы позы и стиля, The Tell и радар восприятия. Ссылка откроет этот разбор на любом устройстве.",
+    footerReason: "Это разовое письмо: ты попросил(а) копию фото-разбора Looplore.",
+    disclaimer:
+      "The Outside View — развлекательный продукт для саморефлексии. Он описывает, как фото может читаться незнакомцам — впечатления, а не факты о человеке.",
+  },
 };
 
 function escapeHtml(s: string): string {
@@ -56,7 +92,13 @@ const FOOTNOTE = "#7a7268";
 const ROMAN = ["I", "II", "III"];
 
 /** Table-based dark-theme email; every style inline so Gmail keeps the look. */
-function renderHtml(observations: string[], lockedHint: string, siteUrl: string): string {
+function renderHtml(
+  copy: Copy,
+  lang: Lang,
+  observations: string[],
+  lockedHint: string,
+  siteUrl: string,
+): string {
   const observationRows = observations
     .map(
       (line, i) => `
@@ -68,10 +110,10 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
     .join("");
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${lang}">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:${INK};" bgcolor="${INK}">
-  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">${escapeHtml(COPY.preheader)}</div>
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">${escapeHtml(copy.preheader)}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${INK}" style="background:${INK};">
     <tr>
       <td align="center" style="padding:40px 16px;">
@@ -84,17 +126,17 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
           <tr><td style="border-top:1px solid ${RULE};font-size:0;line-height:0;">&nbsp;</td></tr>
           <tr>
             <td align="center" style="padding-top:16px;">
-              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(COPY.kicker)}</p>
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.kicker)}</p>
             </td>
           </tr>
           <tr>
             <td align="center">
-              <h1 style="margin:10px 0 0;color:${BRASS_BRIGHT};font-family:${SERIF};font-size:30px;line-height:1.2;font-weight:500;font-style:italic;">${escapeHtml(COPY.headline)}</h1>
+              <h1 style="margin:10px 0 0;color:${BRASS_BRIGHT};font-family:${SERIF};font-size:30px;line-height:1.2;font-weight:500;font-style:italic;">${escapeHtml(copy.headline)}</h1>
             </td>
           </tr>
           <tr>
             <td align="center" style="padding:14px 24px 24px;">
-              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:14px;line-height:1.5;">${escapeHtml(COPY.intro)}</p>
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:14px;line-height:1.5;">${escapeHtml(copy.intro)}</p>
             </td>
           </tr>
           <tr>
@@ -102,7 +144,7 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${INK_CARD}" style="background:${INK_CARD};border:1px solid ${RULE};border-radius:14px;">
                 <tr>
                   <td style="padding:24px 24px 12px;">
-                    <p style="margin:0 0 16px;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(COPY.insightsTitle)}</p>
+                    <p style="margin:0 0 16px;color:${MIST};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.insightsTitle)}</p>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${observationRows}
                     </table>
                   </td>
@@ -112,7 +154,7 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid ${RULE};">
                       <tr>
                         <td style="padding-top:16px;">
-                          <p style="margin:0 0 6px;color:${BRASS};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(COPY.sealedLabel)}</p>
+                          <p style="margin:0 0 6px;color:${BRASS};font-family:${BODY_FONT};font-size:11px;letter-spacing:3px;text-transform:uppercase;">${escapeHtml(copy.sealedLabel)}</p>
                           <p style="margin:0;color:${MIST};font-family:${SERIF};font-size:15px;line-height:1.6;font-style:italic;">${escapeHtml(lockedHint)}</p>
                         </td>
                       </tr>
@@ -127,7 +169,7 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
               <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:20px auto 0;">
                 <tr>
                   <td bgcolor="${BRASS_BRIGHT}" style="border-radius:10px;background:${BRASS_BRIGHT};">
-                    <a href="${siteUrl}" style="display:inline-block;padding:14px 34px;color:${INK};font-family:${BODY_FONT};font-size:16px;font-weight:600;text-decoration:none;border-radius:10px;">${escapeHtml(COPY.cta)}</a>
+                    <a href="${siteUrl}" style="display:inline-block;padding:14px 34px;color:${INK};font-family:${BODY_FONT};font-size:16px;font-weight:600;text-decoration:none;border-radius:10px;">${escapeHtml(copy.cta)}</a>
                   </td>
                 </tr>
               </table>
@@ -135,7 +177,7 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
           </tr>
           <tr>
             <td align="center" style="padding:18px 30px 0;">
-              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:13px;line-height:1.6;">${escapeHtml(COPY.note)}</p>
+              <p style="margin:0;color:${MIST};font-family:${BODY_FONT};font-size:13px;line-height:1.6;">${escapeHtml(copy.note)}</p>
             </td>
           </tr>
           <tr>
@@ -143,8 +185,8 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid ${RULE};">
                 <tr>
                   <td style="padding-top:18px;">
-                    <p style="margin:0 0 8px;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(COPY.footerReason)}</p>
-                    <p style="margin:0;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(COPY.disclaimer)}</p>
+                    <p style="margin:0 0 8px;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.footerReason)}</p>
+                    <p style="margin:0;color:${FOOTNOTE};font-family:${BODY_FONT};font-size:12px;line-height:1.6;">${escapeHtml(copy.disclaimer)}</p>
                   </td>
                 </tr>
               </table>
@@ -158,21 +200,21 @@ function renderHtml(observations: string[], lockedHint: string, siteUrl: string)
 </html>`;
 }
 
-function renderText(observations: string[], lockedHint: string, siteUrl: string): string {
+function renderText(copy: Copy, observations: string[], lockedHint: string, siteUrl: string): string {
   return [
-    COPY.kicker.toUpperCase(),
+    copy.kicker.toUpperCase(),
     "",
-    COPY.headline,
+    copy.headline,
     "",
-    `${COPY.insightsTitle}:`,
+    `${copy.insightsTitle}:`,
     ...observations.map((line) => `  • ${line}`),
     "",
-    `${COPY.sealedLabel}: ${lockedHint}`,
+    `${copy.sealedLabel}: ${lockedHint}`,
     "",
-    `${COPY.cta.replace(/\s*→\s*$/, "")}: ${siteUrl}`,
+    `${copy.cta.replace(/\s*(→|→)\s*$/, "")}: ${siteUrl}`,
     "",
-    COPY.footerReason,
-    COPY.disclaimer,
+    copy.footerReason,
+    copy.disclaimer,
   ].join("\n");
 }
 
@@ -225,7 +267,7 @@ Deno.serve(async (req: Request) => {
     // Only send to the address this session actually captured, and only once per session.
     const { data: session } = await admin
       .from("photoread_sessions")
-      .select("email, result_email_sent_at, teaser")
+      .select("email, result_email_sent_at, teaser, lang")
       .eq("id", sessionId)
       .maybeSingle();
     if (!session || (session.email ?? "").toLowerCase() !== email.toLowerCase()) {
@@ -234,6 +276,12 @@ Deno.serve(async (req: Request) => {
     if (session.result_email_sent_at) {
       return json({ ok: true, deduped: true });
     }
+
+    // The reading's own language, not whatever the recipient's browser/toggle
+    // is set to right now — the teaser text below was generated in this
+    // language and can't be relabeled.
+    const lang: Lang = LANGS.has(session.lang) ? (session.lang as Lang) : "en";
+    const copy = COPY[lang];
 
     const teaser = (session.teaser ?? null) as {
       observations?: unknown;
@@ -266,9 +314,9 @@ Deno.serve(async (req: Request) => {
       body: JSON.stringify({
         from,
         to: [email],
-        subject: COPY.subject,
-        html: renderHtml(observations, lockedHint, siteUrl),
-        text: renderText(observations, lockedHint, siteUrl),
+        subject: copy.subject,
+        html: renderHtml(copy, lang, observations, lockedHint, siteUrl),
+        text: renderText(copy, observations, lockedHint, siteUrl),
       }),
     });
 

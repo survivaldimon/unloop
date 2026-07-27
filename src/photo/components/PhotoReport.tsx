@@ -1,7 +1,8 @@
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
+import { useLang } from "../../i18n";
 import { readingNo } from "../../lib/visual";
-import { PHOTO_COPY } from "../copy";
+import { getPhotoCopy } from "../copy";
 import Em from "./Em";
 import RadarSix from "./RadarSix";
 import type { PhotoReportData, PhotoUseCase, SignalItem } from "../api";
@@ -98,6 +99,7 @@ export default function PhotoReport({
   /** Credit-mode follow-up chat, injected by PhotoApp after the read. */
   chat?: React.ReactNode;
 }) {
+  const PHOTO_COPY = getPhotoCopy(useLang());
   const ui = PHOTO_COPY.report;
   const contextTitle = ui.sections.context_read[useCase] ?? "Stranger read";
   const verdict = report?.photos_verdict ?? null;

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { PHOTO_COPY } from "../copy";
+import { useLang } from "../../i18n";
+import { getPhotoCopy } from "../copy";
 import type { AnalyzeResult } from "../api";
 
 /**
@@ -19,7 +20,8 @@ export default function Scanning({
   run: () => Promise<AnalyzeResult>;
   onDone: (result: AnalyzeResult) => void;
 }) {
-  const steps = PHOTO_COPY.scanning.steps;
+  const copy = getPhotoCopy(useLang());
+  const steps = copy.scanning.steps;
   const [step, setStep] = useState(0);
   const [slow, setSlow] = useState(false);
   const resultRef = useRef<AnalyzeResult | null>(null);
@@ -103,7 +105,7 @@ export default function Scanning({
             {s}
           </p>
         ))}
-        {slow && <p className="mt-2 text-[12px] text-mist/60">{PHOTO_COPY.scanning.slowNote}</p>}
+        {slow && <p className="mt-2 text-[12px] text-mist/60">{copy.scanning.slowNote}</p>}
       </div>
     </div>
   );

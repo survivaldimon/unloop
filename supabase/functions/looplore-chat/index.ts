@@ -30,6 +30,11 @@ const QUIZ_LANG_SUFFIX: Record<string, string> = {
   ru: "\n\nОтвечай по-русски, на «ты», как сильный автор поп-психологии: короткие фразы, живой ритм, без канцелярита и калек с английского.",
 };
 
+const PHOTO_LANG_SUFFIX: Record<string, string> = {
+  en: "\n\nAnswer in English.",
+  ru: "\n\nОтвечай по-русски: короткие фразы, живой ритм, без канцелярита и калек с английского.",
+};
+
 const PHOTO_SYSTEM = `You are The Outside View — the analysis engine of Looplore, answering a follow-up question about a photo read you already produced. The source photos are deleted (privacy promise); everything you know is in the written read provided. Never claim to re-look at the photos — reason from the read's own observations.
 
 Voice: perceptive, candid, warm but unsentimental, anchored to the concrete details already named in the read. Third person about the person in the photo ("they/their"); address the asker as "you" only about their choices (which photo to lead with, what to change). Impressions, not facts about anyone.
@@ -153,7 +158,9 @@ Deno.serve(async (req: Request) => {
     const anthropic = new Anthropic({ apiKey });
 
     const system =
-      funnel === "photoread" ? PHOTO_SYSTEM : QUIZ_SYSTEM + QUIZ_LANG_SUFFIX[lang];
+      funnel === "photoread"
+        ? PHOTO_SYSTEM + PHOTO_LANG_SUFFIX[lang]
+        : QUIZ_SYSTEM + QUIZ_LANG_SUFFIX[lang];
     const contextPayload =
       funnel === "photoread"
         ? { read: report, uploader_context: row.context ?? null }

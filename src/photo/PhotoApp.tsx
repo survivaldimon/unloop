@@ -3,7 +3,7 @@ import BalanceChip from "../components/BalanceChip";
 import EmailCapture from "../components/EmailCapture";
 import ReportChat from "../components/ReportChat";
 import TopUpModal from "../components/TopUpModal";
-import { identifyEmail, refreshSessionContext, track } from "../lib/analytics";
+import { identifyEmail, refreshSessionContext, setAnalyticsContext, track } from "../lib/analytics";
 import {
   CREDIT_COSTS,
   CREDIT_PACKS,
@@ -16,7 +16,7 @@ import {
   type PackId,
 } from "../lib/credits";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
-import { LangContext } from "../i18n";
+import { detectLang, persistLang, LangContext, type Lang } from "../i18n";
 import {
   fetchPhotoPaidAt,
   adoptPhotoSession,
@@ -31,7 +31,7 @@ import {
   type PhotoTeaserData,
   type RejectReason,
 } from "./api";
-import { PHOTO_COPY } from "./copy";
+import { getPhotoCopy } from "./copy";
 import ContextQuestions from "./components/ContextQuestions";
 import PhotoLanding from "./components/PhotoLanding";
 import PhotoReport from "./components/PhotoReport";
@@ -74,6 +74,7 @@ function initialStep(saved: Saved | null): Step {
 
 export default function PhotoApp() {
   const saved = load();
+  const [lang, setLang] = useState<Lang>(detectLang());
   const [step, setStep] = useState<Step>(initialStep(saved));
   const [context, setContext] = useState<PhotoContext | null>(saved?.context ?? null);
   const [email, setEmail] = useState(saved?.email ?? "");
@@ -101,7 +102,13 @@ export default function PhotoApp() {
   }, [step, context, email, unlocked, teaser, photoCount]);
 
   useEffect(() => {
-    document.title = PHOTO_COPY.title;
+    persistLang(lang);
+    document.documentElement.lang = lang;
+    document.title = getPhotoCopy(lang).title;
+    setAnalyticsContext({ lang });
+  }, [lang]);
+
+  useEffect(() => {
     track("photo_view", { funnel: "photo" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -143,6 +150,9 @@ export default function PhotoApp() {
   };
 
   // Email deep link (?p=<session id>): restore the funnel from the server.
+  // The reading's language is whatever it was analyzed in — the teaser/report
+  // text can't be relabeled, so the whole UI switches to match it rather than
+  // leaving the current toggle position mismatched against the content.
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get("p");
     if (!p || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(p)) return;
@@ -150,6 +160,7 @@ export default function PhotoApp() {
     void adoptPhotoSession(p).then((restored) => {
       if (!restored) return;
       refreshSessionContext();
+      setLang(restored.lang);
       setTeaser(restored.teaser);
       setContext(restored.context);
       const paid = Boolean(restored.paidAt);
@@ -164,11 +175,18 @@ export default function PhotoApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const switchLang = (next: Lang) => {
+    if (next !== lang) {
+      track("lang_switch", { to: next, funnel: "photo" });
+      setLang(next);
+    }
+  };
+
   const startScan = (ctx: PhotoContext) => {
     setContext(ctx);
     setRejectReason(null);
     setStep("scanning");
-    void savePhotoSession({ context: ctx, stage: "scanning" });
+    void savePhotoSession({ context: ctx, stage: "scanning", lang });
   };
 
   const onScanDone = (result: Awaited<ReturnType<typeof analyzePhotos>>) => {
@@ -198,7 +216,7 @@ export default function PhotoApp() {
       });
     }
     // The send function only mails addresses already stored on the session, so save first.
-    void savePhotoSession({ email: value, stage: "email" }).then(() =>
+    void savePhotoSession({ email: value, stage: "email", lang }).then(() =>
       sendPhotoResultEmail(value),
     );
   };
@@ -220,7 +238,7 @@ export default function PhotoApp() {
     setUnlocked(true);
     setStep("report");
     track("photo_report_view", { funnel: "photo" });
-    void savePhotoSession({ stage: "unlocked" });
+    void savePhotoSession({ stage: "unlocked", lang });
     loadReport();
   };
 
@@ -313,7 +331,7 @@ export default function PhotoApp() {
       ...(creditPack ? { packId: creditPack, funnel: "photoread" as const } : {}),
       sessionId: getPhotoSessionId(),
       email: email || undefined,
-      lang: "en",
+      lang,
       onPaid: () => awaitPaymentConfirmation(creditPack),
       // Overlay closed without a success signal — the payment may still have
       // landed (lost postMessage), so re-check quietly without an error state.
@@ -348,7 +366,7 @@ export default function PhotoApp() {
       funnel: "photoread",
       sessionId: getPhotoSessionId(),
       email: email || undefined,
-      lang: "en",
+      lang,
       onPaid: () => {
         const startedAt = Date.now();
         const tick = async () => {
@@ -400,13 +418,28 @@ export default function PhotoApp() {
   };
 
   return (
-    <LangContext.Provider value="en">
+    <LangContext.Provider value={lang}>
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pb-10 pt-6">
-        {creditsEnabled && myBalance !== null && (
-          <div className="fixed top-3 right-3 z-50">
+        <div className="fixed top-3 right-3 z-50 flex items-center gap-2">
+          {creditsEnabled && myBalance !== null && (
             <BalanceChip balance={myBalance} onClick={() => setTopUpCost(0)} />
+          )}
+          <div className="flex gap-1 rounded-full border border-paper/10 bg-ink-2/80 p-1 text-xs font-semibold backdrop-blur">
+            {(["en", "ru"] as Lang[]).map((l) => (
+              <button
+                key={l}
+                onClick={() => switchLang(l)}
+                className={`rounded-full px-2.5 py-1 uppercase transition ${
+                  lang === l ? "bg-brass/25 text-paper" : "text-mist/60 hover:text-paper"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
           </div>
-        )}
+        </div>
+
+
         {step === "landing" && (
           <PhotoLanding
             rejectReason={rejectReason}
@@ -434,6 +467,7 @@ export default function PhotoApp() {
               analyzePhotos({
                 imagesBase64: photosRef.current.map((p) => p.base64),
                 context,
+                lang,
               })
             }
             onDone={onScanDone}
@@ -441,8 +475,8 @@ export default function PhotoApp() {
         )}
         {step === "email" && (
           <EmailCapture
-            title={PHOTO_COPY.email.title}
-            body={PHOTO_COPY.email.body}
+            title={getPhotoCopy(lang).email.title}
+            body={getPhotoCopy(lang).email.body}
             onSubmit={submitEmail}
             onSkip={() => {
               track("email_skipped", { funnel: "photo" });

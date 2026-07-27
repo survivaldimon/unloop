@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
+import { useLang } from "../../i18n";
 import { ROMAN } from "../../lib/visual";
 import { MAX_PHOTOS, type RejectReason } from "../api";
-import { PHOTO_COPY } from "../copy";
+import { getPhotoCopy } from "../copy";
 import { preparePhoto, type PreparedPhoto } from "../resize";
 
 export default function PhotoLanding({
@@ -13,6 +14,8 @@ export default function PhotoLanding({
   rejectReason: RejectReason | null;
   onReady: (photos: PreparedPhoto[]) => void;
 }) {
+  const lang = useLang();
+  const PHOTO_COPY = getPhotoCopy(lang);
   const ui = PHOTO_COPY.landing;
   const inputRef = useRef<HTMLInputElement>(null);
   const [photos, setPhotos] = useState<PreparedPhoto[]>([]);
@@ -56,7 +59,11 @@ export default function PhotoLanding({
       </header>
 
       <main className="flex flex-col py-7">
-        <h1 className="font-display rise rise-1 text-[2.7rem] leading-[1.04] font-semibold">
+        <h1
+          className={`font-display rise rise-1 leading-[1.04] font-semibold ${
+            lang === "ru" ? "text-[2.25rem]" : "text-[2.7rem]"
+          }`}
+        >
           {ui.h1a}
           <br />
           <span className="text-brass italic">{ui.h1b}</span>
