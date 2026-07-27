@@ -84,6 +84,14 @@ Deno.serve(async (req: Request) => {
     const userId = created.data.user?.id;
     if (!userId) return json({ error: "internal" }, 500);
 
+    // The CRM's handle_new_user trigger fires on the bare insert BEFORE GoTrue
+    // applies our app_metadata (it lands in a follow-up update), so the
+    // in-trigger guard can't see the flag. Deterministic cleanup instead: this
+    // path only runs for brand-new users, so the only profile that can exist
+    // is the auto-created trial row — remove it.
+    const { error: profileError } = await admin.from("profiles").delete().eq("id", userId);
+    if (profileError) console.error("credits-auth profile cleanup", profileError);
+
     // Signup grant — idempotent per account, so a client retry can't double it.
     const grant = await admin.rpc("credits_grant", {
       p_user_id: userId,

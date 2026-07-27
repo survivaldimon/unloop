@@ -274,7 +274,15 @@ async function resolveCreditsUser(
     email_confirm: true,
     app_metadata: { app: "looplore" },
   });
-  if (created.data?.user?.id) return created.data.user.id;
+  const createdId = created.data?.user?.id;
+  if (createdId) {
+    // GoTrue applies app_metadata AFTER the insert, so the CRM trigger fires
+    // before the flag exists — remove the auto-created trial profile. Safe:
+    // this path only runs for brand-new users.
+    const { error: profileError } = await admin.from("profiles").delete().eq("id", createdId);
+    if (profileError) console.error("credits profile cleanup", profileError);
+    return createdId;
+  }
   // Lost a race against a concurrent signup on the same email — look it up again.
   const { data: retry } = await admin.rpc("credits_user_id_by_email", { p_email: email });
   return typeof retry === "string" && retry ? retry : null;
