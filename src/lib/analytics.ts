@@ -129,7 +129,13 @@ export type AnalyticsEvent =
   | "pack_select"
   | "credits_purchase"
   | "topup_view"
-  | "chat_question";
+  | "chat_question"
+  // Psychological tests (/tests, docs/tests-integration.md). PostHog-only for
+  // now: the tests are top-of-funnel, the Meta events still fire on the paid
+  // steps they lead into.
+  | "tests_catalogue_view"
+  | "test_start"
+  | "test_complete";
 
 export function track(
   event: AnalyticsEvent,

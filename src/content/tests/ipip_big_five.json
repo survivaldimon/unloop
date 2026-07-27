@@ -1,0 +1,4268 @@
+{
+  "id": "ipip_big_five",
+  "title": {
+    "ru": "Тест Большой Пятёрки (IPIP)",
+    "en": "Big Five Personality Test (IPIP)"
+  },
+  "description": {
+    "ru": "Оцените себя по пяти основным факторам личности: Экстраверсия, Доброжелательность, Добросовестность, Эмоциональная стабильность и Интеллект. Ответьте честно, как вы обычно ведете себя.",
+    "en": "Assess yourself on five major personality factors: Extraversion, Agreeableness, Conscientiousness, Emotional Stability, and Intellect. Answer honestly, as you generally are."
+  },
+  "categoryId": "personality",
+  "estimatedMinutes": 10,
+  "scoring": "likert",
+  "factorIds": [
+    "extraversion",
+    "agreeableness",
+    "conscientiousness",
+    "emotional_stability",
+    "intellect"
+  ],
+  "factorNames": {
+    "extraversion": {
+      "ru": "Экстраверсия",
+      "en": "Extraversion"
+    },
+    "agreeableness": {
+      "ru": "Доброжелательность",
+      "en": "Agreeableness"
+    },
+    "conscientiousness": {
+      "ru": "Добросовестность",
+      "en": "Conscientiousness"
+    },
+    "emotional_stability": {
+      "ru": "Эмоциональная стабильность",
+      "en": "Emotional Stability"
+    },
+    "intellect": {
+      "ru": "Интеллект/Воображение",
+      "en": "Intellect/Imagination"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Я - душа компании.",
+        "en": "Am the life of the party."
+      },
+      "factorId": "extraversion",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Я мало беспокоюсь о других.",
+        "en": "Feel little concern for others."
+      },
+      "factorId": "agreeableness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я всегда готов(а) к делам.",
+        "en": "Am always prepared."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я легко впадаю в стресс.",
+        "en": "Get stressed out easily."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "У меня богатый словарный запас.",
+        "en": "Have a rich vocabulary."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Я мало разговариваю.",
+        "en": "Don't talk a lot."
+      },
+      "factorId": "extraversion",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я интересуюсь людьми.",
+        "en": "Am interested in people."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я оставляю свои вещи где попало.",
+        "en": "Leave my belongings around."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я расслаблен(а) большую часть времени.",
+        "en": "Am relaxed most of the time."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Мне трудно понимать абстрактные идеи.",
+        "en": "Have difficulty understanding abstract ideas."
+      },
+      "factorId": "intellect",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я чувствую себя комфортно среди людей.",
+        "en": "Feel comfortable around people."
+      },
+      "factorId": "extraversion",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Я оскорбляю людей.",
+        "en": "Insult people."
+      },
+      "factorId": "agreeableness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я обращаю внимание на детали.",
+        "en": "Pay attention to details."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я беспокоюсь о разных вещах.",
+        "en": "Worry about things."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "У меня яркое воображение.",
+        "en": "Have a vivid imagination."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Я держусь в тени.",
+        "en": "Keep in the background."
+      },
+      "factorId": "extraversion",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я сочувствую чувствам других.",
+        "en": "Sympathize with others' feelings."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Я создаю беспорядок из вещей.",
+        "en": "Make a mess of things."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Я редко чувствую грусть.",
+        "en": "Seldom feel blue."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Мне неинтересны абстрактные идеи.",
+        "en": "Am not interested in abstract ideas."
+      },
+      "factorId": "intellect",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я начинаю разговоры.",
+        "en": "Start conversations."
+      },
+      "factorId": "extraversion",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Меня не интересуют проблемы других людей.",
+        "en": "Am not interested in other people's problems."
+      },
+      "factorId": "agreeableness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я сразу же выполняю дела по дому.",
+        "en": "Get chores done right away."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Меня легко вывести из равновесия.",
+        "en": "Am easily disturbed."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "У меня превосходные идеи.",
+        "en": "Have excellent ideas."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Мне мало что сказать.",
+        "en": "Have little to say."
+      },
+      "factorId": "extraversion",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "У меня мягкое сердце.",
+        "en": "Have a soft heart."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я часто забываю положить вещи на свои места.",
+        "en": "Often forget to put things back in their proper place."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я легко расстраиваюсь.",
+        "en": "Get upset easily."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "У меня плохое воображение.",
+        "en": "Do not have a good imagination."
+      },
+      "factorId": "intellect",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я разговариваю с разными людьми на вечеринках.",
+        "en": "Talk to a lot of different people at parties."
+      },
+      "factorId": "extraversion",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Мне неинтересны другие люди.",
+        "en": "Am not really interested in others."
+      },
+      "factorId": "agreeableness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Я люблю порядок.",
+        "en": "Like order."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Моё настроение часто меняется.",
+        "en": "Change my mood a lot."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Я быстро понимаю вещи.",
+        "en": "Am quick to understand things."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Мне не нравится привлекать к себе внимание.",
+        "en": "Don't like to draw attention to myself."
+      },
+      "factorId": "extraversion",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Я выделяю время для других.",
+        "en": "Take time out for others."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Я уклоняюсь от своих обязанностей.",
+        "en": "Shirk my duties."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "У меня частые перепады настроения.",
+        "en": "Have frequent mood swings."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "Я использую сложные слова.",
+        "en": "Use difficult words."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Мне не против быть в центре внимания.",
+        "en": "Don't mind being the center of attention."
+      },
+      "factorId": "extraversion",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Я чувствую эмоции других людей.",
+        "en": "Feel others' emotions."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "text": {
+        "ru": "Я следую расписанию.",
+        "en": "Follow a schedule."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "text": {
+        "ru": "Меня легко раздражить.",
+        "en": "Get irritated easily."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "text": {
+        "ru": "Я трачу время на размышления о вещах.",
+        "en": "Spend time reflecting on things."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "text": {
+        "ru": "Я молчалив(а) рядом с незнакомцами.",
+        "en": "Am quiet around strangers."
+      },
+      "factorId": "extraversion",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "text": {
+        "ru": "Я помогаю людям чувствовать себя комфортно.",
+        "en": "Make people feel at ease."
+      },
+      "factorId": "agreeableness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "text": {
+        "ru": "Я требователен(а) в своей работе.",
+        "en": "Am exacting in my work."
+      },
+      "factorId": "conscientiousness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "text": {
+        "ru": "Я часто чувствую грусть.",
+        "en": "Often feel blue."
+      },
+      "factorId": "emotional_stability",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q50",
+      "text": {
+        "ru": "Я полон(а) идей.",
+        "en": "Am full of ideas."
+      },
+      "factorId": "intellect",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "very_inaccurate",
+          "text": {
+            "ru": "Совершенно неточно",
+            "en": "Very Inaccurate"
+          },
+          "score": 1
+        },
+        {
+          "id": "moderately_inaccurate",
+          "text": {
+            "ru": "Скорее неточно",
+            "en": "Moderately Inaccurate"
+          },
+          "score": 2
+        },
+        {
+          "id": "neither",
+          "text": {
+            "ru": "Ни точно, ни неточно",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "score": 3
+        },
+        {
+          "id": "moderately_accurate",
+          "text": {
+            "ru": "Скорее точно",
+            "en": "Moderately Accurate"
+          },
+          "score": 4
+        },
+        {
+          "id": "very_accurate",
+          "text": {
+            "ru": "Совершенно точно",
+            "en": "Very Accurate"
+          },
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "gregariousness": 1,
+      "warmth": 0.8,
+      "positive_emotions": 0.8,
+      "social_confidence": 0.7,
+      "liveliness": 0.7,
+      "social_boldness": 0.6,
+      "expressiveness": 0.5,
+      "intrinsic_motivation": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.2
+    },
+    "q2": {
+      "empathy": 1,
+      "compassion": 0.9,
+      "tender_mindedness": 0.8,
+      "emotional_intelligence": 0.6,
+      "trust": 0.5,
+      "altruism": 0.5,
+      "callousness": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.4,
+      "thinking": 0.3
+    },
+    "q3": {
+      "organization": 1,
+      "responsibility": 0.8,
+      "self_discipline": 0.7,
+      "achievement_striving": 0.6,
+      "deliberation": 0.6,
+      "competence": 0.5,
+      "achievement_motivation": 0.4,
+      "extraversion": 0.4,
+      "judging": 0.4
+    },
+    "q4": {
+      "stress_tolerance": -1,
+      "anxiety": 0.9,
+      "emotional_resilience": -0.8,
+      "calmness": -0.8,
+      "emotional_reactivity": 0.7,
+      "vulnerability": 0.6,
+      "composure": 0.5,
+      "feeling": 0.4
+    },
+    "q5": {
+      "verbal_intelligence": 1,
+      "intellectual_curiosity": 0.7,
+      "learning_ability": 0.6,
+      "ideas": 0.5,
+      "verbal_communication": 0.4,
+      "self_discipline": 0.3,
+      "intuition": 0.3
+    },
+    "q6": {
+      "gregariousness": -0.9,
+      "expressiveness": 0.8,
+      "social_confidence": 0.6,
+      "warmth": 0.5,
+      "liveliness": 0.4,
+      "self_consciousness": 0.3,
+      "extraversion": 0.4,
+      "introversion": 0.4
+    },
+    "q7": {
+      "empathy": 0.9,
+      "social_perception": 0.8,
+      "emotional_intelligence": 0.7,
+      "curiosity": 0.6,
+      "warmth": 0.5,
+      "trust": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.4
+    },
+    "q8": {
+      "order": -1,
+      "organization": 0.9,
+      "self_discipline": 0.6,
+      "responsibility": 0.4,
+      "judging": 0.4,
+      "perceiving": 0.3
+    },
+    "q9": {
+      "calmness": 1,
+      "stress_tolerance": 0.9,
+      "emotional_resilience": 0.8,
+      "composure": 0.7,
+      "anxiety": -0.6,
+      "mood_stability": 0.5,
+      "feeling": 0.4
+    },
+    "q10": {
+      "abstract_reasoning": -1,
+      "intellectual_curiosity": -0.7,
+      "cognitive_flexibility": 0.6,
+      "ideas": -0.5,
+      "learning_ability": 0.4,
+      "intuition": 0.4,
+      "sensing": 0.4
+    },
+    "q11": {
+      "social_confidence": 1,
+      "warmth": 0.8,
+      "social_boldness": 0.7,
+      "gregariousness": 0.6,
+      "self_consciousness": -0.5,
+      "positive_emotions": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.2
+    },
+    "q12": {
+      "politeness": -1,
+      "empathy": -0.9,
+      "compassion": -0.8,
+      "callousness": 0.7,
+      "straightforwardness": 0.5,
+      "anger": 0.4,
+      "impulsiveness": 0.3,
+      "extraversion": 0.4,
+      "feeling": 0.4,
+      "thinking": 0.3
+    },
+    "q13": {
+      "competence": 1,
+      "perfectionism": 0.8,
+      "diligence": 0.7,
+      "attention_control": 0.7,
+      "dutifulness": 0.5,
+      "critical_thinking": 0.4,
+      "sensing": 0.4
+    },
+    "q14": {
+      "worry_tendency": 1,
+      "anxiety": 0.9,
+      "rumination": 0.8,
+      "calmness": -0.7,
+      "stress_tolerance": -0.6,
+      "catastrophizing": 0.5,
+      "feeling": 0.4
+    },
+    "q15": {
+      "fantasy": 1,
+      "originality": 0.8,
+      "divergent_thinking": 0.7,
+      "flexibility_creative": 0.7,
+      "feelings": 0.5,
+      "artistic_appreciation": 0.4,
+      "intuition": 0.4
+    },
+    "q16": {
+      "dominance": -1,
+      "assertiveness": -0.9,
+      "social_boldness": -0.8,
+      "gregariousness": -0.6,
+      "liveliness": -0.5,
+      "self_consciousness": 0.4,
+      "extraversion": 0.4
+    },
+    "q17": {
+      "empathy": 1,
+      "compassion": 0.9,
+      "tender_mindedness": 0.8,
+      "emotional_intelligence": 0.7,
+      "social_perception": 0.6,
+      "warmth": 0.5,
+      "feeling": 0.4
+    },
+    "q18": {
+      "organization": -1,
+      "competence": -0.8,
+      "order": -0.7,
+      "self_discipline": -0.6,
+      "attention_control": -0.4
+    },
+    "q19": {
+      "depression": -1,
+      "mood_stability": 0.9,
+      "positive_emotions": 0.8,
+      "emotional_resilience": 0.7,
+      "happiness": 0.6,
+      "vitality": 0.5,
+      "feeling": 0.4
+    },
+    "q20": {
+      "intellectual_curiosity": -1,
+      "ideas": 0.9,
+      "abstract_reasoning": -0.7,
+      "cognitive_flexibility": -0.5,
+      "learning_ability": -0.4,
+      "intuition": 0.4,
+      "sensing": 0.4
+    },
+    "q21": {
+      "assertiveness": 1,
+      "social_boldness": 0.9,
+      "gregariousness": 0.8,
+      "warmth": 0.6,
+      "social_confidence": 0.6,
+      "expressiveness": 0.5,
+      "liveliness": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.2
+    },
+    "q22": {
+      "empathy": -1,
+      "compassion": -0.9,
+      "altruism": -0.8,
+      "social_perception": -0.6,
+      "callousness": 0.5,
+      "support_giving": -0.4,
+      "extraversion": 0.4,
+      "feeling": 0.4
+    },
+    "q23": {
+      "self_discipline": 1,
+      "responsibility": 0.8,
+      "dutifulness": 0.7,
+      "achievement_motivation": 0.5,
+      "deliberation": 0.4
+    },
+    "q24": {
+      "emotional_reactivity": 1,
+      "vulnerability": 0.9,
+      "stress_tolerance": -0.8,
+      "composure": -0.7,
+      "emotional_resilience": -0.6,
+      "frustration_tolerance": -0.5,
+      "feeling": 0.4
+    },
+    "q25": {
+      "originality": 1,
+      "divergent_thinking": 0.8,
+      "ideas": 0.8,
+      "self_efficacy": 0.6,
+      "intellectual_curiosity": 0.5,
+      "flexibility_creative": 0.5,
+      "intuition": 0.3
+    },
+    "q26": {
+      "expressiveness": -1,
+      "gregariousness": -0.7,
+      "warmth": -0.6,
+      "liveliness": -0.5,
+      "self_consciousness": 0.4,
+      "extraversion": 0.4,
+      "introversion": 0.4
+    },
+    "q27": {
+      "tender_mindedness": 1,
+      "compassion": 0.9,
+      "empathy": 0.8,
+      "emotional_intelligence": 0.6,
+      "feelings": 0.5,
+      "altruism": 0.4,
+      "feeling": 0.4
+    },
+    "q28": {
+      "order": -1,
+      "organization": -0.9,
+      "working_memory": 0.6,
+      "self_discipline": -0.5,
+      "attention_control": -0.4,
+      "judging": 0.4
+    },
+    "q29": {
+      "emotional_reactivity": 1,
+      "anger": 0.8,
+      "composure": -0.8,
+      "frustration_tolerance": -0.7,
+      "emotional_resilience": -0.6,
+      "calmness": -0.6,
+      "impulsiveness": 0.4,
+      "feeling": 0.4
+    },
+    "q30": {
+      "fantasy": -1,
+      "flexibility_creative": -0.8,
+      "divergent_thinking": -0.7,
+      "originality": -0.6,
+      "artistic_appreciation": -0.4,
+      "intuition": 0.4,
+      "sensing": 0.4
+    },
+    "q31": {
+      "gregariousness": 1,
+      "warmth": 0.8,
+      "liveliness": 0.7,
+      "social_confidence": 0.6,
+      "curiosity": 0.5,
+      "affiliation_motivation": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.2
+    },
+    "q32": {
+      "empathy": -1,
+      "social_perception": -0.8,
+      "altruism": -0.7,
+      "compassion": -0.6,
+      "emotional_intelligence": -0.5,
+      "callousness": 0.4,
+      "extraversion": 0.4,
+      "feeling": 0.4
+    },
+    "q33": {
+      "order": 1,
+      "organization": 0.8,
+      "self_discipline": 0.6,
+      "deliberation": 0.5,
+      "perfectionism": 0.4,
+      "judging": 0.4
+    },
+    "q34": {
+      "mood_stability": -1,
+      "emotional_reactivity": 0.9,
+      "emotional_resilience": -0.7,
+      "composure": -0.6,
+      "impulsiveness": 0.5,
+      "depression": 0.4,
+      "feeling": 0.4
+    },
+    "q35": {
+      "processing_speed": 1,
+      "learning_ability": 0.8,
+      "cognitive_flexibility": 0.7,
+      "verbal_intelligence": 0.6,
+      "abstract_reasoning": 0.5,
+      "self_efficacy": 0.4
+    },
+    "q36": {
+      "social_boldness": -1,
+      "dominance": -0.8,
+      "modesty": 0.7,
+      "self_consciousness": 0.6,
+      "assertiveness": -0.5,
+      "extraversion": 0.4,
+      "introversion": 0.2
+    },
+    "q37": {
+      "altruism": 1,
+      "support_giving": 0.9,
+      "compassion": 0.7,
+      "cooperativeness": 0.6,
+      "warmth": 0.5,
+      "self_discipline": 0.4,
+      "feeling": 0.4
+    },
+    "q38": {
+      "dutifulness": -1,
+      "responsibility": -0.9,
+      "self_discipline": -0.8,
+      "achievement_motivation": -0.6,
+      "achievement_striving": -0.5
+    },
+    "q39": {
+      "mood_stability": -1,
+      "emotional_reactivity": 0.9,
+      "emotional_resilience": -0.8,
+      "impulsiveness": 0.6,
+      "composure": -0.6,
+      "depression": 0.4,
+      "feeling": 0.4
+    },
+    "q40": {
+      "verbal_intelligence": 1,
+      "verbal_communication": 0.7,
+      "intellectual_curiosity": 0.5,
+      "ideas": 0.5,
+      "self_efficacy": 0.4,
+      "intuition": 0.3
+    },
+    "q41": {
+      "social_boldness": 1,
+      "social_confidence": 0.9,
+      "dominance": 0.7,
+      "self_consciousness": -0.7,
+      "assertiveness": 0.6,
+      "positive_emotions": 0.4,
+      "extraversion": 0.4
+    },
+    "q42": {
+      "empathy": 1,
+      "emotional_intelligence": 0.9,
+      "social_perception": 0.8,
+      "compassion": 0.7,
+      "tender_mindedness": 0.6,
+      "feelings": 0.5,
+      "extraversion": 0.4,
+      "feeling": 0.4
+    },
+    "q43": {
+      "organization": 1,
+      "self_discipline": 0.8,
+      "deliberation": 0.7,
+      "punctuality": 0.7,
+      "responsibility": 0.5,
+      "order": 0.4,
+      "judging": 0.4
+    },
+    "q44": {
+      "anger": 1,
+      "frustration_tolerance": -0.9,
+      "emotional_reactivity": 0.8,
+      "composure": -0.7,
+      "impulsiveness": 0.5,
+      "politeness": -0.4,
+      "feeling": 0.4
+    },
+    "q45": {
+      "self_awareness": 1,
+      "cognitive_reappraisal": 0.7,
+      "intellectual_curiosity": 0.6,
+      "feelings": 0.6,
+      "critical_thinking": 0.5,
+      "calmness": 0.4,
+      "introversion": 0.3
+    },
+    "q46": {
+      "warmth": -1,
+      "self_consciousness": 0.9,
+      "social_confidence": -0.8,
+      "gregariousness": -0.6,
+      "expressiveness": -0.5,
+      "social_boldness": -0.4,
+      "extraversion": 0.4,
+      "feeling": 0.2,
+      "introversion": 0.4
+    },
+    "q47": {
+      "warmth": 1,
+      "charisma": 0.9,
+      "emotional_intelligence": 0.8,
+      "social_perception": 0.7,
+      "compassion": 0.6,
+      "social_confidence": 0.5,
+      "extraversion": 0.4,
+      "feeling": 0.4
+    },
+    "q48": {
+      "perfectionism": 1,
+      "diligence": 0.9,
+      "competence": 0.8,
+      "achievement_striving": 0.7,
+      "attention_control": 0.6,
+      "responsibility": 0.5
+    },
+    "q49": {
+      "depression": 1,
+      "mood_stability": -0.9,
+      "positive_emotions": -0.8,
+      "vitality": -0.7,
+      "happiness": -0.6,
+      "emotional_resilience": -0.5,
+      "feeling": 0.4
+    },
+    "q50": {
+      "originality": 1,
+      "divergent_thinking": 0.9,
+      "fluency": 0.8,
+      "ideas": 0.7,
+      "intellectual_curiosity": 0.6,
+      "flexibility_creative": 0.6,
+      "intuition": 0.3
+    }
+  },
+  "profiles": {
+    "profile_leader": {
+      "id": "profile_leader",
+      "icon": null,
+      "name": {
+        "ru": "👑 Прирождённый Лидер",
+        "en": "👑 Natural Leader"
+      },
+      "description": {
+        "ru": "Вы сочетаете энергичность, организованность и эмоциональную устойчивость — идеальный набор для руководства и влияния на других.",
+        "en": "You combine energy, organization, and emotional stability — the ideal set for leadership and influencing others."
+      },
+      "whyThisProfile": {
+        "ru": "Ваши высокие баллы по Экстраверсии, Добросовестности и Эмоциональной стабильности характеризуют вас как лидера.",
+        "en": "Your high scores in Extraversion, Conscientiousness, and Emotional Stability characterize you as a leader."
+      },
+      "strengths": {
+        "ru": [
+          "Способность вдохновлять и мотивировать других",
+          "Организованность и ответственность",
+          "Спокойствие под давлением",
+          "Уверенное принятие решений",
+          "Способность видеть и цели, и людей"
+        ],
+        "en": [
+          "Ability to inspire and motivate others",
+          "Organization and responsibility",
+          "Calmness under pressure",
+          "Confident decision-making",
+          "Ability to see both goals and people"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Риск взять на себя слишком много",
+          "Возможная нетерпимость к медлительности",
+          "Трудности с делегированием"
+        ],
+        "en": [
+          "Risk of taking on too much",
+          "Possible intolerance of slowness",
+          "Difficulty delegating"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Развивайте умение слушать и делегировать",
+          "Помните о потребностях команды",
+          "Находите время для отдыха и восстановления",
+          "Используйте лидерские качества для служения другим"
+        ],
+        "en": [
+          "Develop listening and delegation skills",
+          "Remember team needs",
+          "Find time for rest and recovery",
+          "Use leadership qualities to serve others"
+        ]
+      },
+      "tryToday": {
+        "ru": "Спросите кого-то из команды, чем вы можете им помочь, вместо того чтобы давать указания",
+        "en": "Ask someone on your team how you can help them instead of giving directions"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваш лидерский потенциал — это дар. Используйте его, чтобы поднимать других!",
+        "en": "Your leadership potential is a gift. Use it to lift others up!"
+      }
+    },
+    "profile_social_butterfly": {
+      "id": "profile_social_butterfly",
+      "icon": null,
+      "name": {
+        "ru": "🦋 Социальная Бабочка",
+        "en": "🦋 Social Butterfly"
+      },
+      "description": {
+        "ru": "Вы энергичны, общительны и доброжелательны. Люди тянутся к вам, и вы легко создаёте тёплые связи.",
+        "en": "You are energetic, sociable, and friendly. People are drawn to you, and you easily create warm connections."
+      },
+      "whyThisProfile": {
+        "ru": "Ваши высокие баллы по Экстраверсии и Доброжелательности делают вас душой компании.",
+        "en": "Your high scores in Extraversion and Agreeableness make you the life of the party."
+      },
+      "strengths": {
+        "ru": [
+          "Легко заводите друзей",
+          "Создаёте позитивную атмосферу",
+          "Умеете поддерживать и вдохновлять",
+          "Эмпатичны и внимательны к другим"
+        ],
+        "en": [
+          "Easily make friends",
+          "Create positive atmosphere",
+          "Know how to support and inspire",
+          "Empathetic and attentive to others"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Можете избегать конфликтов в ущерб себе",
+          "Риск истощения от социальной активности",
+          "Возможная поверхностность связей"
+        ],
+        "en": [
+          "May avoid conflicts at your own expense",
+          "Risk of exhaustion from social activity",
+          "Possible superficiality of connections"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Развивайте глубину отношений",
+          "Учитесь говорить \"нет\"",
+          "Находите время для уединения",
+          "Цените качество, не только количество связей"
+        ],
+        "en": [
+          "Develop depth in relationships",
+          "Learn to say \"no\"",
+          "Find time for solitude",
+          "Value quality, not just quantity of connections"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведите глубокий разговор с одним человеком вместо поверхностного общения со многими",
+        "en": "Have a deep conversation with one person instead of surface chat with many"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша способность объединять людей — это суперсила. Используйте её мудро!",
+        "en": "Your ability to connect people is a superpower. Use it wisely!"
+      }
+    },
+    "profile_creative_thinker": {
+      "id": "profile_creative_thinker",
+      "icon": null,
+      "name": {
+        "ru": "🎨 Творческий Мыслитель",
+        "en": "🎨 Creative Thinker"
+      },
+      "description": {
+        "ru": "Вы обладаете богатым внутренним миром и творческим мышлением. Предпочитаете глубину поверхностному общению.",
+        "en": "You have a rich inner world and creative thinking. You prefer depth over superficial interaction."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий Интеллект/Открытость в сочетании с умеренной интроверсией указывает на творческую натуру.",
+        "en": "Your high Intellect/Openness combined with moderate introversion indicates a creative nature."
+      },
+      "strengths": {
+        "ru": [
+          "Оригинальное мышление",
+          "Глубина восприятия",
+          "Способность к концентрации",
+          "Богатое воображение",
+          "Независимость мысли"
+        ],
+        "en": [
+          "Original thinking",
+          "Depth of perception",
+          "Ability to concentrate",
+          "Rich imagination",
+          "Independence of thought"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Может быть сложно донести идеи до других",
+          "Риск отрыва от реальности",
+          "Социальная изоляция"
+        ],
+        "en": [
+          "May be difficult to convey ideas to others",
+          "Risk of detachment from reality",
+          "Social isolation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Найдите способы делиться творчеством",
+          "Поддерживайте связь с реальностью",
+          "Цените свою уникальность",
+          "Ищите единомышленников"
+        ],
+        "en": [
+          "Find ways to share your creativity",
+          "Stay connected to reality",
+          "Value your uniqueness",
+          "Seek like-minded people"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поделитесь одной творческой идеей с кем-то, кому доверяете",
+        "en": "Share one creative idea with someone you trust"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваше творчество — это уникальный дар миру. Не прячьте его!",
+        "en": "Your creativity is a unique gift to the world. Don't hide it!"
+      }
+    },
+    "profile_innovator": {
+      "id": "profile_innovator",
+      "icon": null,
+      "name": {
+        "ru": "💡 Инноватор",
+        "en": "💡 Innovator"
+      },
+      "description": {
+        "ru": "Вы сочетаете творческое мышление с социальной энергией. Способны не только генерировать идеи, но и продвигать их.",
+        "en": "You combine creative thinking with social energy. Able not only to generate ideas but also to promote them."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий Интеллект в сочетании с Экстраверсией делает вас двигателем инноваций.",
+        "en": "Your high Intellect combined with Extraversion makes you an innovation driver."
+      },
+      "strengths": {
+        "ru": [
+          "Генерация новых идей",
+          "Способность увлечь других",
+          "Предпринимательский дух",
+          "Открытость экспериментам"
+        ],
+        "en": [
+          "Generation of new ideas",
+          "Ability to engage others",
+          "Entrepreneurial spirit",
+          "Openness to experiments"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Можете начинать больше, чем заканчиваете",
+          "Нетерпение к рутине",
+          "Риск разбрасываться"
+        ],
+        "en": [
+          "May start more than you finish",
+          "Impatience with routine",
+          "Risk of scattering"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Развивайте навык доведения проектов до конца",
+          "Находите партнёров для реализации идей",
+          "Учитесь фокусировке"
+        ],
+        "en": [
+          "Develop the skill of completing projects",
+          "Find partners to implement ideas",
+          "Learn to focus"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выберите одну идею и сделайте первый конкретный шаг к её реализации",
+        "en": "Choose one idea and take the first concrete step toward implementing it"
+      },
+      "inspiringConclusion": {
+        "ru": "Мир нуждается в ваших идеях. Сфокусируйтесь и измените его!",
+        "en": "The world needs your ideas. Focus and change it!"
+      }
+    },
+    "profile_reliable_helper": {
+      "id": "profile_reliable_helper",
+      "icon": null,
+      "name": {
+        "ru": "🤝 Надёжный Помощник",
+        "en": "🤝 Reliable Helper"
+      },
+      "description": {
+        "ru": "Вы ответственны, организованы и заботитесь о других. На вас можно положиться в любой ситуации.",
+        "en": "You are responsible, organized, and care for others. You can be relied upon in any situation."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша высокая Добросовестность и Доброжелательность делают вас незаменимым членом команды.",
+        "en": "Your high Conscientiousness and Agreeableness make you an invaluable team member."
+      },
+      "strengths": {
+        "ru": [
+          "Надёжность и ответственность",
+          "Забота о других",
+          "Организованность",
+          "Терпение и внимательность"
+        ],
+        "en": [
+          "Reliability and responsibility",
+          "Care for others",
+          "Organization",
+          "Patience and attentiveness"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Риск перегрузки от помощи другим",
+          "Можете забывать о себе",
+          "Трудности с отказом"
+        ],
+        "en": [
+          "Risk of overload from helping others",
+          "May forget about yourself",
+          "Difficulty refusing"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Устанавливайте границы",
+          "Заботьтесь о себе так же, как о других",
+          "Просите помощь, когда нужно"
+        ],
+        "en": [
+          "Set boundaries",
+          "Care for yourself as you do for others",
+          "Ask for help when needed"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделайте что-то приятное для себя, не ожидая, что это заслужили",
+        "en": "Do something nice for yourself without waiting to deserve it"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша надёжность — фундамент для других. Но помните заботиться и о себе!",
+        "en": "Your reliability is a foundation for others. But remember to care for yourself too!"
+      }
+    },
+    "profile_achiever": {
+      "id": "profile_achiever",
+      "icon": null,
+      "name": {
+        "ru": "🏆 Достигатор",
+        "en": "🏆 Achiever"
+      },
+      "description": {
+        "ru": "Вы целеустремлённы, организованы и эмоционально устойчивы. Это позволяет вам добиваться впечатляющих результатов.",
+        "en": "You are goal-oriented, organized, and emotionally stable. This allows you to achieve impressive results."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша высокая Добросовестность и Эмоциональная стабильность — ключ к достижениям.",
+        "en": "Your high Conscientiousness and Emotional Stability are the key to achievement."
+      },
+      "strengths": {
+        "ru": [
+          "Постановка и достижение целей",
+          "Устойчивость к стрессу",
+          "Самодисциплина",
+          "Настойчивость"
+        ],
+        "en": [
+          "Setting and achieving goals",
+          "Stress resilience",
+          "Self-discipline",
+          "Persistence"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Риск выгорания от чрезмерной работы",
+          "Перфекционизм",
+          "Возможное пренебрежение отношениями"
+        ],
+        "en": [
+          "Risk of burnout from overwork",
+          "Perfectionism",
+          "Possible neglect of relationships"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Балансируйте достижения и отношения",
+          "Отмечайте успехи",
+          "Принимайте несовершенство"
+        ],
+        "en": [
+          "Balance achievements and relationships",
+          "Celebrate successes",
+          "Accept imperfection"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отпразднуйте одно недавнее достижение вместо того, чтобы сразу переходить к следующей цели",
+        "en": "Celebrate one recent achievement instead of immediately moving to the next goal"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша способность достигать — это сила. Направьте её на то, что действительно важно!",
+        "en": "Your ability to achieve is a strength. Direct it toward what truly matters!"
+      }
+    },
+    "profile_sensitive_soul": {
+      "id": "profile_sensitive_soul",
+      "icon": null,
+      "name": {
+        "ru": "💜 Чувствительная Душа",
+        "en": "💜 Sensitive Soul"
+      },
+      "description": {
+        "ru": "Вы глубоко чувствуете и заботитесь о других. Ваша чувствительность — это дар эмпатии.",
+        "en": "You feel deeply and care for others. Your sensitivity is a gift of empathy."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша низкая Эмоциональная стабильность в сочетании с высокой Доброжелательностью указывает на глубокую чувствительность.",
+        "en": "Your low Emotional Stability combined with high Agreeableness indicates deep sensitivity."
+      },
+      "strengths": {
+        "ru": [
+          "Глубокая эмпатия",
+          "Способность понимать чувства других",
+          "Искренность",
+          "Забота о близких"
+        ],
+        "en": [
+          "Deep empathy",
+          "Ability to understand others' feelings",
+          "Sincerity",
+          "Care for loved ones"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Эмоциональная перегрузка",
+          "Тревожность",
+          "Трудности с границами"
+        ],
+        "en": [
+          "Emotional overload",
+          "Anxiety",
+          "Difficulty with boundaries"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Развивайте эмоциональную регуляцию",
+          "Практикуйте самосострадание",
+          "Устанавливайте здоровые границы",
+          "Обращайтесь за поддержкой при необходимости"
+        ],
+        "en": [
+          "Develop emotional regulation",
+          "Practice self-compassion",
+          "Set healthy boundaries",
+          "Seek support when needed"
+        ]
+      },
+      "tryToday": {
+        "ru": "Практикуйте 5 минут глубокого дыхания, когда почувствуете эмоциональную перегрузку",
+        "en": "Practice 5 minutes of deep breathing when you feel emotionally overwhelmed"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша чувствительность — это дар. Защищайте её и используйте для добра!",
+        "en": "Your sensitivity is a gift. Protect it and use it for good!"
+      }
+    },
+    "profile_introspective": {
+      "id": "profile_introspective",
+      "icon": null,
+      "name": {
+        "ru": "🔮 Интроспективный",
+        "en": "🔮 Introspective"
+      },
+      "description": {
+        "ru": "Вы склонны к глубокому самоанализу и предпочитаете уединение. Ваш богатый внутренний мир требует бережного отношения.",
+        "en": "You tend toward deep self-analysis and prefer solitude. Your rich inner world requires careful treatment."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша низкая Экстраверсия и Эмоциональная стабильность указывают на интроспективную натуру.",
+        "en": "Your low Extraversion and Emotional Stability indicate an introspective nature."
+      },
+      "strengths": {
+        "ru": [
+          "Глубокое самопознание",
+          "Способность к рефлексии",
+          "Чуткость к нюансам",
+          "Аутентичность"
+        ],
+        "en": [
+          "Deep self-knowledge",
+          "Capacity for reflection",
+          "Sensitivity to nuances",
+          "Authenticity"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Склонность к руминации",
+          "Социальная тревожность",
+          "Изоляция"
+        ],
+        "en": [
+          "Tendency to ruminate",
+          "Social anxiety",
+          "Isolation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Балансируйте рефлексию с действием",
+          "Поддерживайте связи, пусть и немногочисленные",
+          "Работайте с тревожностью",
+          "Цените свою глубину"
+        ],
+        "en": [
+          "Balance reflection with action",
+          "Maintain connections, even if few",
+          "Work on anxiety",
+          "Value your depth"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выйдите на короткую прогулку и сфокусируйтесь на внешнем мире вместо внутренних мыслей",
+        "en": "Take a short walk and focus on the external world instead of internal thoughts"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша глубина — редкий дар. Не теряйтесь в ней, но используйте её мудро!",
+        "en": "Your depth is a rare gift. Don't get lost in it, but use it wisely!"
+      }
+    },
+    "profile_quiet_achiever": {
+      "id": "profile_quiet_achiever",
+      "icon": null,
+      "name": {
+        "ru": "🎯 Тихий Достигатор",
+        "en": "🎯 Quiet Achiever"
+      },
+      "description": {
+        "ru": "Вы работаете продуктивно и методично, не нуждаясь во внешнем признании. Ваши достижения говорят сами за себя.",
+        "en": "You work productively and methodically without needing external recognition. Your achievements speak for themselves."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша низкая Экстраверсия и высокая Добросовестность создают профиль тихого достигателя.",
+        "en": "Your low Extraversion and high Conscientiousness create the quiet achiever profile."
+      },
+      "strengths": {
+        "ru": [
+          "Способность к глубокой концентрации",
+          "Методичность",
+          "Независимость от признания",
+          "Надёжность"
+        ],
+        "en": [
+          "Ability for deep concentration",
+          "Methodicalness",
+          "Independence from recognition",
+          "Reliability"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Достижения могут недооцениваться",
+          "Сложности с самопрезентацией",
+          "Возможная изоляция"
+        ],
+        "en": [
+          "Achievements may be undervalued",
+          "Difficulties with self-presentation",
+          "Possible isolation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Учитесь делиться достижениями",
+          "Находите союзников для продвижения идей",
+          "Цените свой вклад"
+        ],
+        "en": [
+          "Learn to share achievements",
+          "Find allies to promote ideas",
+          "Value your contribution"
+        ]
+      },
+      "tryToday": {
+        "ru": "Расскажите кому-то о проекте, над которым работаете — дайте увидеть вашу работу",
+        "en": "Tell someone about a project you're working on — let them see your work"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша работа ценна. Позвольте миру узнать о ваших достижениях!",
+        "en": "Your work is valuable. Let the world know about your achievements!"
+      }
+    },
+    "profile_deep_thinker": {
+      "id": "profile_deep_thinker",
+      "icon": null,
+      "name": {
+        "ru": "🧠 Глубокий Мыслитель",
+        "en": "🧠 Deep Thinker"
+      },
+      "description": {
+        "ru": "Вы обладаете богатым внутренним миром и любознательностью. Предпочитаете уединённое размышление социальной активности.",
+        "en": "You have a rich inner world and curiosity. You prefer solitary contemplation to social activity."
+      },
+      "whyThisProfile": {
+        "ru": "Ваша низкая Экстраверсия и высокий Интеллект создают профиль глубокого мыслителя.",
+        "en": "Your low Extraversion and high Intellect create the deep thinker profile."
+      },
+      "strengths": {
+        "ru": [
+          "Глубина мышления",
+          "Способность к анализу",
+          "Независимость мысли",
+          "Любознательность"
+        ],
+        "en": [
+          "Depth of thinking",
+          "Analytical ability",
+          "Independence of thought",
+          "Curiosity"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Сложности с практической реализацией",
+          "Социальная изоляция",
+          "Уход в абстракции"
+        ],
+        "en": [
+          "Difficulties with practical implementation",
+          "Social isolation",
+          "Retreat into abstractions"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Находите способы применять идеи",
+          "Поддерживайте связи с единомышленниками",
+          "Балансируйте мышление и действие"
+        ],
+        "en": [
+          "Find ways to apply ideas",
+          "Maintain connections with like-minded people",
+          "Balance thinking and action"
+        ]
+      },
+      "tryToday": {
+        "ru": "Превратите одну абстрактную идею в конкретное действие",
+        "en": "Turn one abstract idea into a concrete action"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша глубина мышления — это сокровище. Поделитесь им с миром!",
+        "en": "Your depth of thinking is a treasure. Share it with the world!"
+      }
+    },
+    "profile_extrovert": {
+      "id": "profile_extrovert",
+      "icon": null,
+      "name": {
+        "ru": "⚡ Экстраверт",
+        "en": "⚡ Extrovert"
+      },
+      "description": {
+        "ru": "Вы черпаете энергию из общения и социальной активности. Люди и события заряжают вас.",
+        "en": "You draw energy from communication and social activity. People and events energize you."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий балл по Экстраверсии — доминирующая черта вашей личности.",
+        "en": "Your high score in Extraversion is the dominant trait of your personality."
+      },
+      "strengths": {
+        "ru": [
+          "Энергичность и активность",
+          "Лёгкость в общении",
+          "Способность заряжать других",
+          "Адаптивность в социуме"
+        ],
+        "en": [
+          "Energy and activity",
+          "Ease of communication",
+          "Ability to energize others",
+          "Social adaptability"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Сложности с уединением",
+          "Зависимость от внешней стимуляции",
+          "Риск поверхностности"
+        ],
+        "en": [
+          "Difficulty with solitude",
+          "Dependence on external stimulation",
+          "Risk of superficiality"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Практикуйте уединение для баланса",
+          "Развивайте глубину отношений",
+          "Учитесь слушать, а не только говорить"
+        ],
+        "en": [
+          "Practice solitude for balance",
+          "Develop depth in relationships",
+          "Learn to listen, not just talk"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведите 30 минут в тишине без гаджетов и людей",
+        "en": "Spend 30 minutes in silence without gadgets or people"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша энергия заразительна. Направляйте её на создание глубоких связей!",
+        "en": "Your energy is contagious. Direct it toward creating deep connections!"
+      }
+    },
+    "profile_introvert": {
+      "id": "profile_introvert",
+      "icon": null,
+      "name": {
+        "ru": "🌙 Интроверт",
+        "en": "🌙 Introvert"
+      },
+      "description": {
+        "ru": "Вы восстанавливаете энергию в уединении и предпочитаете глубокие связи поверхностному общению.",
+        "en": "You restore energy in solitude and prefer deep connections over superficial interaction."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш низкий балл по Экстраверсии — доминирующая черта вашей личности.",
+        "en": "Your low score in Extraversion is the dominant trait of your personality."
+      },
+      "strengths": {
+        "ru": [
+          "Способность к глубокой концентрации",
+          "Ценность глубоких связей",
+          "Самодостаточность",
+          "Вдумчивость"
+        ],
+        "en": [
+          "Ability for deep concentration",
+          "Value of deep connections",
+          "Self-sufficiency",
+          "Thoughtfulness"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Социальное истощение",
+          "Сложности с нетворкингом",
+          "Возможная изоляция"
+        ],
+        "en": [
+          "Social exhaustion",
+          "Difficulty with networking",
+          "Possible isolation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Планируйте социальную энергию",
+          "Находите комфортные формы общения",
+          "Не изолируйтесь полностью",
+          "Цените свою интроверсию как силу"
+        ],
+        "en": [
+          "Plan social energy",
+          "Find comfortable forms of interaction",
+          "Don't isolate completely",
+          "Value your introversion as a strength"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запланируйте одну короткую социальную активность, которая вам комфортна",
+        "en": "Plan one short social activity that feels comfortable to you"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша интроверсия — это сила. Используйте её для создания глубины в жизни!",
+        "en": "Your introversion is a strength. Use it to create depth in life!"
+      }
+    },
+    "profile_peacemaker": {
+      "id": "profile_peacemaker",
+      "icon": null,
+      "name": {
+        "ru": "🕊️ Миротворец",
+        "en": "🕊️ Peacemaker"
+      },
+      "description": {
+        "ru": "Вы стремитесь к гармонии и заботитесь о благополучии окружающих. Конфликты вас огорчают, и вы стараетесь их предотвращать.",
+        "en": "You strive for harmony and care about the well-being of those around you. Conflicts upset you, and you try to prevent them."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий балл по Доброжелательности — доминирующая черта вашей личности.",
+        "en": "Your high score in Agreeableness is the dominant trait of your personality."
+      },
+      "strengths": {
+        "ru": [
+          "Эмпатия и забота",
+          "Способность к сотрудничеству",
+          "Создание гармоничной атмосферы",
+          "Доверие от окружающих"
+        ],
+        "en": [
+          "Empathy and care",
+          "Ability to cooperate",
+          "Creating harmonious atmosphere",
+          "Trust from others"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Избегание необходимых конфликтов",
+          "Сложности с отстаиванием интересов",
+          "Риск быть использованным"
+        ],
+        "en": [
+          "Avoiding necessary conflicts",
+          "Difficulty standing up for interests",
+          "Risk of being taken advantage of"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Учитесь здоровой конфронтации",
+          "Устанавливайте границы",
+          "Балансируйте заботу о себе и других"
+        ],
+        "en": [
+          "Learn healthy confrontation",
+          "Set boundaries",
+          "Balance care for yourself and others"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выскажите своё мнение в ситуации, где обычно промолчали бы ради мира",
+        "en": "Express your opinion in a situation where you would usually stay silent for peace"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша способность к гармонии — это дар. Но настоящий мир включает и вашу правду!",
+        "en": "Your ability for harmony is a gift. But true peace includes your truth too!"
+      }
+    },
+    "profile_steady": {
+      "id": "profile_steady",
+      "icon": null,
+      "name": {
+        "ru": "⚓ Устойчивый",
+        "en": "⚓ Steady"
+      },
+      "description": {
+        "ru": "Вы эмоционально стабильны и спокойны. Вас сложно вывести из равновесия, и вы являетесь опорой для других.",
+        "en": "You are emotionally stable and calm. It's hard to throw you off balance, and you are a support for others."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий балл по Эмоциональной стабильности — доминирующая черта вашей личности.",
+        "en": "Your high score in Emotional Stability is the dominant trait of your personality."
+      },
+      "strengths": {
+        "ru": [
+          "Спокойствие в стрессе",
+          "Надёжность для окружающих",
+          "Рациональное мышление",
+          "Устойчивость к давлению"
+        ],
+        "en": [
+          "Calmness under stress",
+          "Reliability for others",
+          "Rational thinking",
+          "Resistance to pressure"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Можете казаться отстранённым",
+          "Сложности с выражением эмоций",
+          "Недооценка эмоциональных потребностей"
+        ],
+        "en": [
+          "May seem detached",
+          "Difficulty expressing emotions",
+          "Undervaluing emotional needs"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Практикуйте выражение эмоций",
+          "Позволяйте себе уязвимость",
+          "Развивайте эмоциональный интеллект"
+        ],
+        "en": [
+          "Practice expressing emotions",
+          "Allow yourself vulnerability",
+          "Develop emotional intelligence"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поделитесь с кем-то близким тем, что вы чувствуете, а не только думаете",
+        "en": "Share with someone close what you feel, not just think"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша устойчивость — якорь для других. Не забывайте о своих эмоциях!",
+        "en": "Your stability is an anchor for others. Don't forget about your emotions!"
+      }
+    },
+    "profile_explorer": {
+      "id": "profile_explorer",
+      "icon": null,
+      "name": {
+        "ru": "🔭 Исследователь",
+        "en": "🔭 Explorer"
+      },
+      "description": {
+        "ru": "Вы любознательны, открыты новому и ищете разнообразие. Рутина вас тяготит, а новые идеи вдохновляют.",
+        "en": "You are curious, open to new things, and seek variety. Routine weighs you down, while new ideas inspire you."
+      },
+      "whyThisProfile": {
+        "ru": "Ваш высокий балл по Интеллекту/Открытости опыту — доминирующая черта вашей личности.",
+        "en": "Your high score in Intellect/Openness is the dominant trait of your personality."
+      },
+      "strengths": {
+        "ru": [
+          "Любознательность и творчество",
+          "Открытость новому опыту",
+          "Широта взглядов",
+          "Способность к инновациям"
+        ],
+        "en": [
+          "Curiosity and creativity",
+          "Openness to new experiences",
+          "Breadth of views",
+          "Capacity for innovation"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Непостоянство интересов",
+          "Сложности с рутиной",
+          "Риск разбрасываться"
+        ],
+        "en": [
+          "Inconsistency of interests",
+          "Difficulty with routine",
+          "Risk of scattering"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Развивайте глубину, а не только широту",
+          "Находите интерес в рутинных задачах",
+          "Доводите проекты до конца"
+        ],
+        "en": [
+          "Develop depth, not just breadth",
+          "Find interest in routine tasks",
+          "Complete projects"
+        ]
+      },
+      "tryToday": {
+        "ru": "Завершите один давно отложенный проект вместо начала нового",
+        "en": "Complete one long-postponed project instead of starting a new one"
+      },
+      "inspiringConclusion": {
+        "ru": "Ваша любознательность открывает двери. Выбирайте, в какие из них войти!",
+        "en": "Your curiosity opens doors. Choose which ones to enter!"
+      }
+    },
+    "profile_balanced": {
+      "id": "profile_balanced",
+      "icon": null,
+      "name": {
+        "ru": "⚖️ Сбалансированный",
+        "en": "⚖️ Balanced"
+      },
+      "description": {
+        "ru": "Ваш профиль личности сбалансирован без ярко выраженных доминирующих черт. Это даёт гибкость в разных ситуациях.",
+        "en": "Your personality profile is balanced without pronounced dominant traits. This gives flexibility in different situations."
+      },
+      "whyThisProfile": {
+        "ru": "Ваши баллы по всем пяти факторам находятся в умеренном диапазоне.",
+        "en": "Your scores across all five factors are in the moderate range."
+      },
+      "strengths": {
+        "ru": [
+          "Адаптивность",
+          "Отсутствие крайностей",
+          "Гибкость поведения",
+          "Уравновешенность"
+        ],
+        "en": [
+          "Adaptability",
+          "Absence of extremes",
+          "Behavioral flexibility",
+          "Balance"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Отсутствие выраженных сильных сторон",
+          "Возможная неопределённость идентичности"
+        ],
+        "en": [
+          "Lack of pronounced strengths",
+          "Possible identity uncertainty"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Изучите свои скрытые предпочтения",
+          "Экспериментируйте с разными стилями",
+          "Цените свою универсальность"
+        ],
+        "en": [
+          "Explore your hidden preferences",
+          "Experiment with different styles",
+          "Value your versatility"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выберите одну область личности, которую хотели бы усилить, и сделайте шаг в этом направлении",
+        "en": "Choose one area of personality you'd like to strengthen and take a step in that direction"
+      },
+      "inspiringConclusion": {
+        "ru": "Баланс — это уникальная сила. Используйте его, чтобы быть гибким в любой ситуации!",
+        "en": "Balance is a unique strength. Use it to be flexible in any situation!"
+      }
+    }
+  },
+  "profileSelection": {
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ],
+          [
+            "conscientiousness",
+            ">",
+            60
+          ],
+          [
+            "emotional_stability",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_leader"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ],
+          [
+            "agreeableness",
+            ">",
+            70
+          ]
+        ],
+        "profile": "profile_social_butterfly"
+      },
+      {
+        "when": [
+          [
+            "intellect",
+            ">",
+            70
+          ],
+          [
+            "extraversion",
+            "<",
+            50
+          ]
+        ],
+        "profile": "profile_creative_thinker"
+      },
+      {
+        "when": [
+          [
+            "intellect",
+            ">",
+            70
+          ],
+          [
+            "extraversion",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_innovator"
+      },
+      {
+        "when": [
+          [
+            "conscientiousness",
+            ">",
+            70
+          ],
+          [
+            "agreeableness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_reliable_helper"
+      },
+      {
+        "when": [
+          [
+            "conscientiousness",
+            ">",
+            70
+          ],
+          [
+            "emotional_stability",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_achiever"
+      },
+      {
+        "when": [
+          [
+            "emotional_stability",
+            "<",
+            30
+          ],
+          [
+            "agreeableness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_sensitive_soul"
+      },
+      {
+        "when": [
+          [
+            "emotional_stability",
+            "<",
+            30
+          ],
+          [
+            "extraversion",
+            "<",
+            40
+          ]
+        ],
+        "profile": "profile_introspective"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            30
+          ],
+          [
+            "conscientiousness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_quiet_achiever"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            30
+          ],
+          [
+            "intellect",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_deep_thinker"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ]
+        ],
+        "profile": "profile_extrovert"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            30
+          ]
+        ],
+        "profile": "profile_introvert"
+      },
+      {
+        "when": [
+          [
+            "@top1",
+            ">",
+            65
+          ]
+        ],
+        "profile": {
+          "byTop": {
+            "extraversion": "profile_extrovert",
+            "agreeableness": "profile_peacemaker",
+            "conscientiousness": "profile_achiever",
+            "emotional_stability": "profile_steady",
+            "intellect": "profile_explorer"
+          }
+        }
+      }
+    ],
+    "$note": "Последнее правило — ветка «по доминирующему фактору», которая в оригинале срабатывает только если лидер выше 65."
+  }
+}

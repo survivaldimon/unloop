@@ -1,0 +1,4921 @@
+{
+  "id": "sixteen_types",
+  "title": {
+    "ru": "16 типов личности",
+    "en": "16 Personality Types"
+  },
+  "description": {
+    "ru": "Развёрнутый личностный тест, основанный на концепции психологических типов К. Г. Юнга",
+    "en": "Comprehensive personality test based on C.G. Jung's concept of psychological types"
+  },
+  "categoryId": "personality",
+  "estimatedMinutes": 15,
+  "scoring": "bipolar",
+  "factorIds": [
+    "EI",
+    "SN",
+    "TF",
+    "JP"
+  ],
+  "factorNames": {
+    "extraversion": {
+      "ru": "Экстраверсия",
+      "en": "Extraversion"
+    },
+    "introversion": {
+      "ru": "Интроверсия",
+      "en": "Introversion"
+    },
+    "sensing": {
+      "ru": "Сенсорика",
+      "en": "Sensing"
+    },
+    "intuition": {
+      "ru": "Интуиция",
+      "en": "Intuition"
+    },
+    "thinking": {
+      "ru": "Логика",
+      "en": "Thinking"
+    },
+    "feeling": {
+      "ru": "Чувства",
+      "en": "Feeling"
+    },
+    "judging": {
+      "ru": "Суждение",
+      "en": "Judging"
+    },
+    "perceiving": {
+      "ru": "Восприятие",
+      "en": "Perceiving"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Мне комфортно быть в центре внимания",
+        "en": "I feel comfortable being the center of attention"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "После общения с людьми я чувствую прилив энергии",
+        "en": "After socializing with people, I feel energized"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я часто думаю вслух",
+        "en": "I often think out loud"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я предпочитаю проводить время в одиночестве",
+        "en": "I prefer spending time alone"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Мне нужно уединение, чтобы восстановиться",
+        "en": "I need solitude to recharge"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "В новых компаниях я чувствую скованность",
+        "en": "I feel constrained in new social settings"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я получаю удовольствие от общения с незнакомцами",
+        "en": "I enjoy talking to strangers"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я говорю, чтобы разобраться в мысли",
+        "en": "I speak to figure out my thoughts"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я тщательно обдумываю слова, прежде чем сказать",
+        "en": "I carefully think through my words before speaking"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Мне сложно начинать разговор первым",
+        "en": "I find it difficult to start conversations first"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я чувствую себя живым, когда вокруг движение и люди",
+        "en": "I feel alive when there's activity and people around"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Мне комфортнее слушать, чем говорить",
+        "en": "I'm more comfortable listening than speaking"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я люблю, когда день наполнен встречами",
+        "en": "I love when my day is filled with meetings"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я предпочитаю небольшие, тёплые компании",
+        "en": "I prefer small, intimate gatherings"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Я быстро завожу знакомства",
+        "en": "I make new acquaintances easily"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Мне легче писать, чем говорить",
+        "en": "I find it easier to write than to speak"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я часто ищу новых людей и впечатлений",
+        "en": "I often seek new people and experiences"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Я чувствую усталость после вечеринок",
+        "en": "I feel tired after parties"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Я активно делюсь идеями в группе",
+        "en": "I actively share ideas in groups"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Я люблю долгие разговоры один на один",
+        "en": "I love long one-on-one conversations"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я предпочитаю факты и конкретику",
+        "en": "I prefer facts and specifics"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Мне интереснее реальные примеры, чем теории",
+        "en": "I find real examples more interesting than theories"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я обращаю внимание на детали",
+        "en": "I pay attention to details"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я больше доверяю опыту, чем догадкам",
+        "en": "I trust experience more than hunches"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Я люблю пошаговые инструкции",
+        "en": "I like step-by-step instructions"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Мне сложно сосредоточиться на мелочах",
+        "en": "I find it hard to focus on small details"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я часто думаю о будущем и возможностях",
+        "en": "I often think about the future and possibilities"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я легко вижу скрытые связи между вещами",
+        "en": "I easily see hidden connections between things"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я люблю фантазировать о том, «что если»",
+        "en": "I love imagining \"what if\" scenarios"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Мне важны конкретные результаты, а не идеи",
+        "en": "Concrete results matter more to me than ideas"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я предпочитаю работать с фактами, а не с гипотезами",
+        "en": "I prefer working with facts rather than hypotheses"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Я замечаю символику и подтексты",
+        "en": "I notice symbolism and subtexts"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Я доверяю интуиции в принятии решений",
+        "en": "I trust my intuition when making decisions"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Я лучше запоминаю ощущения, чем слова",
+        "en": "I remember sensations better than words"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Я люблю анализировать прошлый опыт",
+        "en": "I like analyzing past experiences"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Я часто мыслю абстрактно",
+        "en": "I often think abstractly"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Я чувствую вдохновение от новых идей",
+        "en": "I feel inspired by new ideas"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Я не люблю неопределённость",
+        "en": "I dislike ambiguity"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "Я думаю образами и ассоциациями",
+        "en": "I think in images and associations"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "Я предпочитаю «теперь и здесь», а не «что будет потом»",
+        "en": "I prefer \"here and now\" rather than \"what comes next\""
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Я принимаю решения на основе логики",
+        "en": "I make decisions based on logic"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Мне важно, чтобы решение было справедливым, а не просто приятным",
+        "en": "It's important to me that a decision is fair, not just pleasant"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "text": {
+        "ru": "Я стараюсь быть объективным(ой)",
+        "en": "I try to be objective"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "text": {
+        "ru": "Я избегаю ссор, чтобы никого не обидеть",
+        "en": "I avoid arguments to not hurt anyone"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "text": {
+        "ru": "Мне важно, что чувствуют другие",
+        "en": "What others feel matters to me"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "text": {
+        "ru": "Я часто поступаю сердцем, а не умом",
+        "en": "I often act with my heart rather than my head"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "text": {
+        "ru": "Я анализирую аргументы перед принятием решения",
+        "en": "I analyze arguments before making a decision"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "text": {
+        "ru": "Мне трудно спорить с близкими",
+        "en": "I find it hard to argue with loved ones"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "text": {
+        "ru": "Я воспринимаю критику спокойно",
+        "en": "I take criticism calmly"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q50",
+      "text": {
+        "ru": "Я остро реагирую на эмоции других",
+        "en": "I react strongly to others' emotions"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q51",
+      "text": {
+        "ru": "Я люблю объективные факты",
+        "en": "I love objective facts"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q52",
+      "text": {
+        "ru": "Я часто ставлю чувства выше логики",
+        "en": "I often put feelings above logic"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q53",
+      "text": {
+        "ru": "Я говорю прямо, даже если это неприятно",
+        "en": "I speak directly, even if it's unpleasant"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q54",
+      "text": {
+        "ru": "Я предпочитаю поддерживать, а не критиковать",
+        "en": "I prefer to support rather than criticize"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q55",
+      "text": {
+        "ru": "Я считаю, что истина важнее комфорта",
+        "en": "I believe truth is more important than comfort"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q56",
+      "text": {
+        "ru": "Я принимаю решения, чтобы сохранить гармонию",
+        "en": "I make decisions to maintain harmony"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q57",
+      "text": {
+        "ru": "Я больше доверяю рациональности",
+        "en": "I trust rationality more"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q58",
+      "text": {
+        "ru": "Мне трудно оставаться хладнокровным(ой) при ссоре",
+        "en": "I find it hard to stay calm during arguments"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q59",
+      "text": {
+        "ru": "Я считаю эмоции полезным источником информации",
+        "en": "I consider emotions a useful source of information"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q60",
+      "text": {
+        "ru": "Я верю, что честность — лучше, чем дипломатия",
+        "en": "I believe honesty is better than diplomacy"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q61",
+      "text": {
+        "ru": "Я предпочитаю чёткий план действий",
+        "en": "I prefer a clear action plan"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q62",
+      "text": {
+        "ru": "Я чувствую тревогу, если всё неопределённо",
+        "en": "I feel anxious when everything is uncertain"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q63",
+      "text": {
+        "ru": "Я люблю завершать начатое",
+        "en": "I like to finish what I start"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q64",
+      "text": {
+        "ru": "Мне комфортно, когда есть расписание",
+        "en": "I feel comfortable when there's a schedule"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q65",
+      "text": {
+        "ru": "Я люблю импровизировать и менять планы",
+        "en": "I love improvising and changing plans"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q66",
+      "text": {
+        "ru": "Я часто откладываю решения до последнего",
+        "en": "I often postpone decisions until the last moment"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q67",
+      "text": {
+        "ru": "Я гибко реагирую на изменения",
+        "en": "I respond flexibly to changes"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q68",
+      "text": {
+        "ru": "Мне нравится, когда день складывается спонтанно",
+        "en": "I like when the day unfolds spontaneously"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q69",
+      "text": {
+        "ru": "Я предпочитаю заранее продумать детали",
+        "en": "I prefer to think through details in advance"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q70",
+      "text": {
+        "ru": "Я не люблю ограничивающие правила",
+        "en": "I don't like restrictive rules"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q71",
+      "text": {
+        "ru": "Я чувствую удовлетворение, когда всё под контролем",
+        "en": "I feel satisfied when everything is under control"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q72",
+      "text": {
+        "ru": "Мне скучно следовать плану",
+        "en": "I get bored following a plan"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q73",
+      "text": {
+        "ru": "Я предпочитаю порядок хаосу",
+        "en": "I prefer order over chaos"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q74",
+      "text": {
+        "ru": "Я часто берусь за несколько дел без структуры",
+        "en": "I often take on several tasks without structure"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q75",
+      "text": {
+        "ru": "Я ценю пунктуальность и порядок",
+        "en": "I value punctuality and order"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q76",
+      "text": {
+        "ru": "Я легко переключаюсь между задачами",
+        "en": "I easily switch between tasks"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q77",
+      "text": {
+        "ru": "Я люблю планировать отпуск заранее",
+        "en": "I like to plan vacations in advance"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q78",
+      "text": {
+        "ru": "Я чувствую себя живым в неопределённости",
+        "en": "I feel alive in uncertainty"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q79",
+      "text": {
+        "ru": "Я придерживаюсь правил",
+        "en": "I stick to rules"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q80",
+      "text": {
+        "ru": "Я предпочитаю действовать по ситуации",
+        "en": "I prefer to act according to the situation"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 2
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 3
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 4
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "extraversion": 1
+    },
+    "q2": {
+      "extraversion": 1
+    },
+    "q3": {
+      "extraversion": 1
+    },
+    "q4": {
+      "introversion": 1
+    },
+    "q5": {
+      "introversion": 1
+    },
+    "q6": {
+      "introversion": 1
+    },
+    "q7": {
+      "extraversion": 1
+    },
+    "q8": {
+      "extraversion": 1
+    },
+    "q9": {
+      "introversion": 1
+    },
+    "q10": {
+      "introversion": 1
+    },
+    "q11": {
+      "extraversion": 1
+    },
+    "q12": {
+      "introversion": 1
+    },
+    "q13": {
+      "extraversion": 1
+    },
+    "q14": {
+      "introversion": 1
+    },
+    "q15": {
+      "extraversion": 1
+    },
+    "q16": {
+      "introversion": 1
+    },
+    "q17": {
+      "extraversion": 1
+    },
+    "q18": {
+      "introversion": 1
+    },
+    "q19": {
+      "extraversion": 1
+    },
+    "q20": {
+      "introversion": 1
+    },
+    "q21": {
+      "sensing": 1
+    },
+    "q22": {
+      "intuition": 1
+    },
+    "q23": {
+      "sensing": 1
+    },
+    "q24": {
+      "intuition": 1
+    },
+    "q25": {
+      "sensing": 1
+    },
+    "q26": {
+      "intuition": 1
+    },
+    "q27": {
+      "sensing": 1
+    },
+    "q28": {
+      "intuition": 1
+    },
+    "q29": {
+      "sensing": 1
+    },
+    "q30": {
+      "intuition": 1
+    },
+    "q31": {
+      "sensing": 1
+    },
+    "q32": {
+      "intuition": 1
+    },
+    "q33": {
+      "sensing": 1
+    },
+    "q34": {
+      "intuition": 1
+    },
+    "q35": {
+      "sensing": 1
+    },
+    "q36": {
+      "intuition": 1
+    },
+    "q37": {
+      "sensing": 1
+    },
+    "q38": {
+      "sensing": 1
+    },
+    "q39": {
+      "sensing": 1
+    },
+    "q40": {
+      "intuition": 1
+    },
+    "q41": {
+      "thinking": 1
+    },
+    "q42": {
+      "feeling": 1
+    },
+    "q43": {
+      "thinking": 1
+    },
+    "q44": {
+      "feeling": 1
+    },
+    "q45": {
+      "thinking": 1
+    },
+    "q46": {
+      "feeling": 1
+    },
+    "q47": {
+      "thinking": 1
+    },
+    "q48": {
+      "feeling": 1
+    },
+    "q49": {
+      "thinking": 1
+    },
+    "q50": {
+      "feeling": 1
+    },
+    "q51": {
+      "thinking": 1
+    },
+    "q52": {
+      "feeling": 1
+    },
+    "q53": {
+      "thinking": 1
+    },
+    "q54": {
+      "feeling": 1
+    },
+    "q55": {
+      "thinking": 1
+    },
+    "q56": {
+      "feeling": 1
+    },
+    "q57": {
+      "thinking": 1
+    },
+    "q58": {
+      "feeling": 1
+    },
+    "q59": {
+      "thinking": 1
+    },
+    "q60": {
+      "feeling": 1
+    },
+    "q61": {
+      "judging": 1
+    },
+    "q62": {
+      "perceiving": 1
+    },
+    "q63": {
+      "judging": 1
+    },
+    "q64": {
+      "perceiving": 1
+    },
+    "q65": {
+      "judging": 1
+    },
+    "q66": {
+      "perceiving": 1
+    },
+    "q67": {
+      "judging": 1
+    },
+    "q68": {
+      "perceiving": 1
+    },
+    "q69": {
+      "judging": 1
+    },
+    "q70": {
+      "perceiving": 1
+    },
+    "q71": {
+      "judging": 1
+    },
+    "q72": {
+      "perceiving": 1
+    },
+    "q73": {
+      "judging": 1
+    },
+    "q74": {
+      "perceiving": 1
+    },
+    "q75": {
+      "judging": 1
+    },
+    "q76": {
+      "perceiving": 1
+    },
+    "q77": {
+      "judging": 1
+    },
+    "q78": {
+      "perceiving": 1
+    },
+    "q79": {
+      "judging": 1
+    },
+    "q80": {
+      "perceiving": 1
+    }
+  },
+  "profiles": {
+    "ISTJ": {
+      "id": "ISTJ",
+      "icon": null,
+      "name": {
+        "ru": "Администратор",
+        "en": "Administrator"
+      },
+      "description": {
+        "ru": "Ответственный, надёжный, ценит порядок и стабильность.",
+        "en": "Responsible, reliable, values order and stability."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Бухгалтерия, аудит, администрирование, военная служба, юриспруденция, медицина."
+        ],
+        "en": [
+          "Accounting, auditing, administration, military service, law, medicine."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ISFJ": {
+      "id": "ISFJ",
+      "icon": null,
+      "name": {
+        "ru": "Защитник",
+        "en": "Defender"
+      },
+      "description": {
+        "ru": "Заботливый, надёжный, стремится помогать другим.",
+        "en": "Caring, reliable, seeks to help others."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Медицина, преподавание, социальная работа, администрирование, HR."
+        ],
+        "en": [
+          "Medicine, teaching, social work, administration, HR."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "INFJ": {
+      "id": "INFJ",
+      "icon": null,
+      "name": {
+        "ru": "Советник",
+        "en": "Counselor"
+      },
+      "description": {
+        "ru": "Интуитивный, эмпатичный, ищет смысл и гармонию.",
+        "en": "Intuitive, empathetic, seeks meaning and harmony."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Психология, консультирование, писательство, образование, некоммерческий сектор."
+        ],
+        "en": [
+          "Psychology, counseling, writing, education, non-profit sector."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "INTJ": {
+      "id": "INTJ",
+      "icon": null,
+      "name": {
+        "ru": "Архитектор",
+        "en": "Architect"
+      },
+      "description": {
+        "ru": "Стратег, системный мыслитель, планирует наперёд.",
+        "en": "Strategist, systematic thinker, plans ahead."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Наука, IT, стратегический менеджмент, инженерия, архитектура."
+        ],
+        "en": [
+          "Science, IT, strategic management, engineering, architecture."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ISTP": {
+      "id": "ISTP",
+      "icon": null,
+      "name": {
+        "ru": "Мастер",
+        "en": "Craftsperson"
+      },
+      "description": {
+        "ru": "Практичный, наблюдательный, быстро решает задачи.",
+        "en": "Practical, observant, solves problems quickly."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Инженерия, механика, IT, спорт, экстремальные профессии, ремёсла."
+        ],
+        "en": [
+          "Engineering, mechanics, IT, sports, extreme professions, crafts."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ISFP": {
+      "id": "ISFP",
+      "icon": null,
+      "name": {
+        "ru": "Художник",
+        "en": "Artist"
+      },
+      "description": {
+        "ru": "Чуткий, эстетичный, живёт в моменте.",
+        "en": "Sensitive, aesthetic, lives in the moment."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Искусство, дизайн, музыка, работа с животными, медицина, психология."
+        ],
+        "en": [
+          "Arts, design, music, working with animals, medicine, psychology."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "INFP": {
+      "id": "INFP",
+      "icon": null,
+      "name": {
+        "ru": "Мечтатель",
+        "en": "Dreamer"
+      },
+      "description": {
+        "ru": "Идеалист, ориентирован на внутренние ценности.",
+        "en": "Idealist, oriented toward inner values."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Писательство, психология, искусство, образование, некоммерческий сектор."
+        ],
+        "en": [
+          "Writing, psychology, arts, education, non-profit sector."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "INTP": {
+      "id": "INTP",
+      "icon": null,
+      "name": {
+        "ru": "Аналитик",
+        "en": "Analyst"
+      },
+      "description": {
+        "ru": "Логичный, любознательный, любит концепции.",
+        "en": "Logical, curious, loves concepts."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Наука, философия, IT, математика, исследования, инженерия."
+        ],
+        "en": [
+          "Science, philosophy, IT, mathematics, research, engineering."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ESTP": {
+      "id": "ESTP",
+      "icon": null,
+      "name": {
+        "ru": "Предприниматель",
+        "en": "Entrepreneur"
+      },
+      "description": {
+        "ru": "Действует быстро, любит вызовы и активность.",
+        "en": "Acts quickly, loves challenges and activity."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Продажи, маркетинг, спорт, предпринимательство, экстренные службы."
+        ],
+        "en": [
+          "Sales, marketing, sports, entrepreneurship, emergency services."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ESFP": {
+      "id": "ESFP",
+      "icon": null,
+      "name": {
+        "ru": "Исполнитель",
+        "en": "Entertainer"
+      },
+      "description": {
+        "ru": "Весёлый, общительный, живёт эмоциями.",
+        "en": "Fun-loving, sociable, lives by emotions."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Развлечения, туризм, продажи, обслуживание, event-менеджмент."
+        ],
+        "en": [
+          "Entertainment, tourism, sales, service, event management."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ENFP": {
+      "id": "ENFP",
+      "icon": null,
+      "name": {
+        "ru": "Энтузиаст",
+        "en": "Enthusiast"
+      },
+      "description": {
+        "ru": "Творческий вдохновитель, ищет смысл и свободу.",
+        "en": "Creative inspirer, seeks meaning and freedom."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Маркетинг, PR, психология, писательство, образование, актёрство."
+        ],
+        "en": [
+          "Marketing, PR, psychology, writing, education, acting."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ENTP": {
+      "id": "ENTP",
+      "icon": null,
+      "name": {
+        "ru": "Изобретатель",
+        "en": "Inventor"
+      },
+      "description": {
+        "ru": "Креативный, аргументированный, любит споры и идеи.",
+        "en": "Creative, argumentative, loves debates and ideas."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Инновации, стартапы, консалтинг, маркетинг, юриспруденция, изобретательство."
+        ],
+        "en": [
+          "Innovation, startups, consulting, marketing, law, inventing."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ESTJ": {
+      "id": "ESTJ",
+      "icon": null,
+      "name": {
+        "ru": "Организатор",
+        "en": "Executive"
+      },
+      "description": {
+        "ru": "Практичный лидер, ориентирован на результат.",
+        "en": "Practical leader, results-oriented."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Менеджмент, администрирование, военная служба, финансы, юриспруденция."
+        ],
+        "en": [
+          "Management, administration, military service, finance, law."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ESFJ": {
+      "id": "ESFJ",
+      "icon": null,
+      "name": {
+        "ru": "Наставник",
+        "en": "Consul"
+      },
+      "description": {
+        "ru": "Тёплый, отзывчивый, создаёт комфорт и порядок.",
+        "en": "Warm, responsive, creates comfort and order."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Образование, медицина, HR, организация мероприятий, социальная работа."
+        ],
+        "en": [
+          "Education, medicine, HR, event organization, social work."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ENFJ": {
+      "id": "ENFJ",
+      "icon": null,
+      "name": {
+        "ru": "Гуманист",
+        "en": "Protagonist"
+      },
+      "description": {
+        "ru": "Эмпатичный лидер, вдохновляет и объединяет.",
+        "en": "Empathetic leader, inspires and unites."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Образование, HR, психология, политика, общественная деятельность, менеджмент."
+        ],
+        "en": [
+          "Education, HR, psychology, politics, public service, management."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    },
+    "ENTJ": {
+      "id": "ENTJ",
+      "icon": null,
+      "name": {
+        "ru": "Командир",
+        "en": "Commander"
+      },
+      "description": {
+        "ru": "Решительный стратег, ведёт за собой.",
+        "en": "Decisive strategist, leads others."
+      },
+      "whyThisProfile": null,
+      "strengths": {
+        "ru": [],
+        "en": []
+      },
+      "vulnerabilities": {
+        "ru": [],
+        "en": []
+      },
+      "recommendations": {
+        "ru": [
+          "Топ-менеджмент, предпринимательство, консалтинг, юриспруденция, политика."
+        ],
+        "en": [
+          "Top management, entrepreneurship, consulting, law, politics."
+        ]
+      },
+      "tryToday": null,
+      "inspiringConclusion": null
+    }
+  },
+  "profileSelection": {
+    "mode": "bipolar",
+    "dimensions": [
+      {
+        "poles": [
+          "extraversion",
+          "introversion"
+        ],
+        "letters": [
+          "E",
+          "I"
+        ]
+      },
+      {
+        "poles": [
+          "sensing",
+          "intuition"
+        ],
+        "letters": [
+          "S",
+          "N"
+        ]
+      },
+      {
+        "poles": [
+          "thinking",
+          "feeling"
+        ],
+        "letters": [
+          "T",
+          "F"
+        ]
+      },
+      {
+        "poles": [
+          "judging",
+          "perceiving"
+        ],
+        "letters": [
+          "J",
+          "P"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "text_conflict_communication",
+    "title": {
+      "ru": "Конфликты в переписке",
+      "en": "Texting Conflicts"
+    },
+    "description": {
+      "ru": "20 реальных ситуаций из переписок — и то, как ты на них отвечаешь",
+      "en": "20 real texting situations — and how you answer them"
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 20
+  },
+  {
+    "id": "attachment_styles_v1",
+    "title": {
+      "ru": "Тест стилей привязанности в отношениях",
+      "en": "Attachment Styles in Relationships Test"
+    },
+    "description": {
+      "ru": "Этот тест поможет вам понять ваш стиль привязанности — уникальный паттерн того, как вы формируете и поддерживаете близкие отношения. Стиль привязанности формируется в раннем детстве и влияет на то, как вы взаимодействуете с партнерами, друзьями и близкими людьми во взрослой жизни.",
+      "en": "This test will help you understand your attachment style — a unique pattern of how you form and maintain close relationships. Attachment style is formed in early childhood and affects how you interact with partners, friends and loved ones in adulthood."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 12,
+    "questionCount": 60
+  },
+  {
+    "id": "friendship_red_flags_v1",
+    "title": {
+      "ru": "Дружба и красные флажки",
+      "en": "Friendship and Red Flags"
+    },
+    "description": {
+      "ru": "Для подростков и молодых взрослых дружба часто важнее романтики. Друзья могут быть поддержкой, домом и опорой — а могут тянуть в драму, выматывать и незаметно бить по самооценке. Не всегда легко отличить «сложного, но близкого человека» от реально токсичных паттернов, особенно когда вы к ним привыкли с детства.\n\nЭтот тест исследует, какие типы друзей вы чаще выбираете, насколько вы замечаете тревожные звоночки в их поведении, терпите ли неуважение и умеете ли ставить здоровые границы в дружбе. Вопросы построены вокруг реальных повседневных ситуаций: кто пишет первым, кто извиняется, что вы чувствуете после общения и какие истории про друзей вы рассказываете чаще всего.\n\nРезультат покажет, насколько вы уязвимы к токсичным дружеским сценариям и в каких местах вы сами можете сделать дружбу безопаснее и теплее для себя — без морали и обвинений, а с фокусом на осознанность и заботу о себе.",
+      "en": "For teenagers and young adults, friendship is often more important than romance. Friends can be your support and safe place – or they can pull you into drama, drain your energy, and quietly damage your self-esteem. It's not always easy to distinguish a 'complex but close person' from genuinely toxic patterns, especially if you grew used to them early in life.\n\nThis test explores what kinds of friends you are drawn to, how well you notice red flags in their behavior, how much disrespect you tolerate, and how you set (or don't set) healthy boundaries in friendship. Items focus on everyday situations: who texts first, who apologizes, how you feel after hanging out, and what kinds of stories about friends you tell most often.\n\nYour results will show how vulnerable you are to toxic friendship dynamics and where you can make your friendships safer and kinder for yourself – without moralizing or blame, but with an emphasis on awareness and self-care."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 24
+  },
+  {
+    "id": "love_languages_v1",
+    "title": {
+      "ru": "Языки любви: Как вы даёте и получаете любовь",
+      "en": "Love Languages: How You Give and Receive Love"
+    },
+    "description": {
+      "ru": "Языки любви — это концепция, которая объясняет, что разные люди выражают и воспринимают любовь по-разному. То, что заставляет одного человека чувствовать себя любимым, может совершенно не работать для другого. Понимание своего языка любви и языка партнёра — ключ к крепким, счастливым отношениям.\n\nИсследования показывают, что пары, которые понимают языки любви друг друга, демонстрируют:\n• Более высокую удовлетворённость отношениями\n• Меньше конфликтов и недопонимания\n• Более глубокую эмоциональную близость\n• Большую стабильность отношений\n• Более эффективное разрешение проблем\n\nПять языков любви:\n\n**1. СЛОВА ПОДТВЕРЖДЕНИЯ (Words of Affirmation)** 💬\n• Вербальные комплименты, похвала, благодарность\n• Поддержка словами, ободрение\n• Для вас важны: комплименты, признание, словесная поддержка\n\n**2. ВРЕМЯ ВМЕСТЕ (Quality Time)** ⏰\n• Безраздельное внимание, совместная активность\n• Глубокие разговоры без отвлечений\n• Для вас важны: внимание, совместное время, активное слушание\n\n**3. ПОЛУЧЕНИЕ ПОДАРКОВ (Receiving Gifts)** 🎁\n• Материальные символы любви и заботы\n• Продуманные, значимые подарки\n• Для вас важны: подарки, сюрпризы, символы любви\n\n**4. АКТЫ СЛУЖЕНИЯ (Acts of Service)** 🤝\n• Действия, облегчающие жизнь партнёра\n• Помощь с делами, поддержка действиями\n• Для вас важны: помощь, забота через действия, поддержка делом\n\n**5. ФИЗИЧЕСКОЕ ПРИКОСНОВЕНИЕ (Physical Touch)** 🤗\n• Физическая близость, объятия, прикосновения\n• Невербальное выражение любви\n• Для вас важны: объятия, близость, физический контакт",
+      "en": "Love languages is a concept that explains that different people express and perceive love in different ways. What makes one person feel loved may not work at all for another. Understanding your love language and your partner's language is key to strong, happy relationships.\n\nResearch shows that couples who understand each other's love languages demonstrate:\n• Higher relationship satisfaction\n• Less conflict and misunderstanding\n• Deeper emotional intimacy\n• Greater relationship stability\n• More effective problem solving\n\nFive love languages:\n\n**1. WORDS OF AFFIRMATION** 💬\n• Verbal compliments, praise, gratitude\n• Support through words, encouragement\n• Important for you: compliments, recognition, verbal support\n\n**2. QUALITY TIME** ⏰\n• Undivided attention, shared activities\n• Deep conversations without distractions\n• Important for you: attention, quality time, active listening\n\n**3. RECEIVING GIFTS** 🎁\n• Material symbols of love and care\n• Thoughtful, meaningful gifts\n• Important for you: gifts, surprises, symbols of love\n\n**4. ACTS OF SERVICE** 🤝\n• Actions that make partner's life easier\n• Help with tasks, support through actions\n• Important for you: help, care through actions, support by deed\n\n**5. PHYSICAL TOUCH** 🤗\n• Physical intimacy, hugs, touches\n• Non-verbal expression of love\n• Important for you: hugs, closeness, physical contact"
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 8,
+    "questionCount": 30
+  },
+  {
+    "id": "toxic_patterns",
+    "title": {
+      "ru": "Тест токсичных паттернов",
+      "en": "Toxic Patterns Test"
+    },
+    "description": {
+      "ru": "Выявите скрытые токсичные паттерны в ваших отношениях и научитесь строить здоровое общение",
+      "en": "Identify hidden toxic patterns in your relationships and learn to build healthy communication"
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 8,
+    "questionCount": 48
+  },
+  {
+    "id": "ipip_big_five",
+    "title": {
+      "ru": "Тест Большой Пятёрки (IPIP)",
+      "en": "Big Five Personality Test (IPIP)"
+    },
+    "description": {
+      "ru": "Оцените себя по пяти основным факторам личности: Экстраверсия, Доброжелательность, Добросовестность, Эмоциональная стабильность и Интеллект. Ответьте честно, как вы обычно ведете себя.",
+      "en": "Assess yourself on five major personality factors: Extraversion, Agreeableness, Conscientiousness, Emotional Stability, and Intellect. Answer honestly, as you generally are."
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 10,
+    "questionCount": 50
+  },
+  {
+    "id": "sixteen_types",
+    "title": {
+      "ru": "16 типов личности",
+      "en": "16 Personality Types"
+    },
+    "description": {
+      "ru": "Развёрнутый личностный тест, основанный на концепции психологических типов К. Г. Юнга",
+      "en": "Comprehensive personality test based on C.G. Jung's concept of psychological types"
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 15,
+    "questionCount": 80
+  }
+]
