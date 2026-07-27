@@ -62,8 +62,8 @@
       "en": "Toxic Patterns Test"
     },
     "description": {
-      "ru": "Выявите скрытые токсичные паттерны в ваших отношениях и научитесь строить здоровое общение",
-      "en": "Identify hidden toxic patterns in your relationships and learn to build healthy communication"
+      "ru": "48 вопросов о том, что в отношениях делаешь ты. Не партнёр. Самый неудобный тест в наборе.",
+      "en": "48 questions about what you do in relationships. Not your partner. The most uncomfortable test here."
     },
     "categoryId": "emotional",
     "estimatedMinutes": 8,
@@ -86,12 +86,12 @@
   {
     "id": "sixteen_types",
     "title": {
-      "ru": "16 типов личности",
-      "en": "16 Personality Types"
+      "ru": "Как ты устроен",
+      "en": "How You're Wired"
     },
     "description": {
-      "ru": "Развёрнутый личностный тест, основанный на концепции психологических типов К. Г. Юнга",
-      "en": "Comprehensive personality test based on C.G. Jung's concept of psychological types"
+      "ru": "80 вопросов, четыре развилки и код из четырёх букв, который объясняет, почему ты делаешь ровно то, что делаешь. По типологии Юнга.",
+      "en": "80 questions, four forks, and a four-letter code that explains why you keep doing exactly what you do. Built on Jung's typology."
     },
     "categoryId": "personality",
     "estimatedMinutes": 15,

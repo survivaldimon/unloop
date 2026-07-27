@@ -52,6 +52,12 @@ export default function TestResult({
         </Section>
       )}
 
+      {profile?.supportNote?.[lang] && (
+        <p className="mt-6 rounded-2xl border border-paper/15 bg-paper/[0.04] p-4 text-[14px] leading-relaxed whitespace-pre-line text-mist">
+          {profile.supportNote[lang]}
+        </p>
+      )}
+
       <Bullets title={ui.strengths} list={profile?.strengths} lang={lang} />
       <Bullets title={ui.vulnerabilities} list={profile?.vulnerabilities} lang={lang} />
       <Bullets title={ui.recommendations} list={profile?.recommendations} lang={lang} />
@@ -83,7 +89,7 @@ export default function TestResult({
       )}
 
       {profile?.inspiringConclusion?.[lang] && (
-        <p className="font-display mt-8 text-[16px] leading-relaxed text-paper/85 italic">
+        <p className="font-display mt-8 text-[16px] leading-relaxed whitespace-pre-line text-paper/85 italic">
           {profile.inspiringConclusion[lang]}
         </p>
       )}

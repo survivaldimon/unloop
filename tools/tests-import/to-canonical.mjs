@@ -13,10 +13,12 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { applyOverrides, orphanOverrides } from "./apply-overrides.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 const OUT = path.join(import.meta.dirname, "out");
 const DEST = path.join(ROOT, "src/content/tests");
+const OVERRIDES = path.join(import.meta.dirname, "overrides");
 
 const RULES = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, "profile-rules.json"), "utf8"));
 const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
@@ -91,7 +93,9 @@ function parseTypeDescription(markdown) {
   const nameMatch = markdown.match(/^\*\*(.+?)\*\*\s*[—-]\s*(.*)$/m);
   const sections = {};
   let current = null;
-  for (const line of markdown.split("\n")) {
+  // The source is CRLF. `.` does not match `\r` — it is a line terminator in JS —
+  // so a `$`-anchored line pattern silently matches nothing here. Strip first.
+  for (const line of markdown.split("\n").map((l) => l.replace(/\r$/, ""))) {
     const heading = line.match(/^\*\*(.+?):\*\*/);
     if (heading) {
       current = heading[1].toLowerCase();
@@ -276,8 +280,11 @@ function fromScenario(testId) {
 
 // ─────────────────────────────────────────────────────────── build
 
-fs.mkdirSync(DEST, { recursive: true });
 const report = [];
+const builtTests = [];
+// Collected across every test and reported together: a broken override should
+// stop the build before it writes, not leave half the content rewritten.
+const overrideErrors = [];
 
 for (const testId of LAUNCH_SET) {
   if (!RULES[testId]) {
@@ -287,6 +294,10 @@ for (const testId of LAUNCH_SET) {
   const built = fs.existsSync(path.join(OUT, "tests", `${testId}.json`))
     ? fromStandard(testId)
     : fromScenario(testId);
+
+  // Voice work lands here, on top of the import — see apply-overrides.mjs.
+  const { applied, errors } = applyOverrides(built);
+  overrideErrors.push(...errors);
 
   const problems = [];
   if (!built.questions.length) problems.push("нет вопросов");
@@ -317,31 +328,42 @@ for (const testId of LAUNCH_SET) {
     if (unreachable.length) problems.push(`недостижимые профили: ${unreachable.join(", ")}`);
   }
 
-  fs.writeFileSync(path.join(DEST, `${testId}.json`), JSON.stringify(built, null, 2), "utf8");
+  builtTests.push(built);
   report.push({
     testId,
     questions: built.questions.length,
     profiles: Object.keys(built.profiles).length,
     scoring: built.scoring,
+    overridden: applied,
     problems,
   });
 }
 
+for (const id of orphanOverrides(builtTests.map((t) => t.id))) {
+  overrideErrors.push(`overrides/${id}.json: нет такого теста в запускном наборе`);
+}
+
+if (overrideErrors.length) {
+  console.error(`Оверрайды не применились — ${overrideErrors.length} ошибк(и). Ничего не записано:`);
+  for (const e of overrideErrors) console.error(`  ✗ ${e}`);
+  process.exit(1);
+}
+
+fs.mkdirSync(DEST, { recursive: true });
+for (const test of builtTests) {
+  fs.writeFileSync(path.join(DEST, `${test.id}.json`), JSON.stringify(test, null, 2), "utf8");
+}
+
 // Catalogue for the list screen: a few hundred bytes, so it can be imported
 // eagerly while the tests themselves stay behind dynamic imports.
-const index = report
-  .filter((r) => !r.error)
-  .map((r) => {
-    const test = load(path.join(DEST, `${r.testId}.json`));
-    return {
-      id: test.id,
-      title: test.title,
-      description: test.description,
-      categoryId: test.categoryId,
-      estimatedMinutes: test.estimatedMinutes,
-      questionCount: test.questions.length,
-    };
-  });
+const index = builtTests.map((test) => ({
+  id: test.id,
+  title: test.title,
+  description: test.description,
+  categoryId: test.categoryId,
+  estimatedMinutes: test.estimatedMinutes,
+  questionCount: test.questions.length,
+}));
 fs.writeFileSync(path.join(DEST, "index.json"), JSON.stringify(index, null, 2), "utf8");
 
 console.log(`→ ${path.relative(process.cwd(), DEST)}`);
@@ -351,5 +373,6 @@ for (const r of report) {
     continue;
   }
   const tail = r.problems.length ? `  ⚠ ${r.problems.join("; ")}` : "";
-  console.log(`  ${r.testId.padEnd(30)} ${String(r.questions).padStart(3)} q · ${String(r.profiles).padStart(2)} проф · ${r.scoring}${tail}`);
+  const voice = r.overridden ? ` · ${r.overridden} строк своих` : "";
+  console.log(`  ${r.testId.padEnd(30)} ${String(r.questions).padStart(3)} q · ${String(r.profiles).padStart(2)} проф · ${r.scoring}${voice}${tail}`);
 }

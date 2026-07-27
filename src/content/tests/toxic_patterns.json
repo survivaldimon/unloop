@@ -5,8 +5,8 @@
     "en": "Toxic Patterns Test"
   },
   "description": {
-    "ru": "Выявите скрытые токсичные паттерны в ваших отношениях и научитесь строить здоровое общение",
-    "en": "Identify hidden toxic patterns in your relationships and learn to build healthy communication"
+    "ru": "48 вопросов о том, что в отношениях делаешь ты. Не партнёр. Самый неудобный тест в наборе.",
+    "en": "48 questions about what you do in relationships. Not your partner. The most uncomfortable test here."
   },
   "categoryId": "emotional",
   "estimatedMinutes": 8,
@@ -21,28 +21,28 @@
   ],
   "factorNames": {
     "passive_aggression": {
-      "ru": "😒 Пассивная агрессия",
-      "en": "😒 Passive Aggression"
+      "ru": "Пассивная агрессия",
+      "en": "Passive aggression"
     },
     "silent_treatment": {
-      "ru": "🤐 Молчаливое наказание",
-      "en": "🤐 Silent Treatment"
+      "ru": "Молчание в наказание",
+      "en": "Silent treatment"
     },
     "dramatization": {
-      "ru": "🎭 Драматизация",
-      "en": "🎭 Dramatization"
+      "ru": "Драматизация",
+      "en": "Dramatization"
     },
     "devaluation": {
-      "ru": "🔻 Обесценивание",
-      "en": "🔻 Devaluation"
+      "ru": "Обесценивание",
+      "en": "Devaluation"
     },
     "victim_mentality": {
-      "ru": "😢 Позиция жертвы",
-      "en": "😢 Victim Mentality"
+      "ru": "Позиция жертвы",
+      "en": "Victim position"
     },
     "manipulation": {
-      "ru": "🎪 Манипуляции и газлайтинг",
-      "en": "🎪 Manipulation & Gaslighting"
+      "ru": "Манипуляция",
+      "en": "Manipulation"
     }
   },
   "questions": [
@@ -2767,396 +2767,324 @@
       "id": "healthy_relationships",
       "icon": null,
       "name": {
-        "ru": "💚 Здоровые отношения",
-        "en": "💚 Healthy Relationships"
+        "ru": "Прямая речь",
+        "en": "Straight Talk"
       },
       "description": {
-        "ru": "Ваши паттерны общения в основном здоровые. Вы умеете выражать недовольство прямо, не манипулируете и берёте ответственность за свои действия. Это признак эмоциональной зрелости и уважения к партнёру.",
-        "en": "Your communication patterns are mostly healthy. You can express dissatisfaction directly, don't manipulate, and take responsibility for your actions. This is sign of emotional maturity and respect for partner."
+        "ru": "Ты злишься вслух и по адресу. Звучит как мелочь — на самом деле так умеет меньшинство.",
+        "en": "You get angry out loud and at the right address. Sounds minor. It's actually a minority skill."
       },
       "whyThisProfile": {
-        "ru": "Ваш уровень токсичности составляет 0-25%, что говорит о здоровых коммуникативных навыках. Вы редко проявляете токсичные паттерны, и когда это случается, это скорее исключение, чем правило. Вы способны к конструктивным конфликтам и прямому общению.",
-        "en": "Your toxicity level is 0-25%, indicating healthy communication skills. You rarely display toxic patterns, and when it happens, it's exception rather than rule. You're capable of constructive conflicts and direct communication."
+        "ru": "По всем шести паттернам ты держишься ниже четверти шкалы. Это не значит, что ты никогда не хлопал дверью, — значит, что это исключение, а не способ вести разговор. Недовольство у тебя доходит до человека словами и примерно в тот же день.",
+        "en": "You came in under a quarter of the scale on all six patterns. It doesn't mean you've never slammed a door — it means that's the exception, not how you run a conversation. Your complaints reach the person in words, and roughly the same day."
       },
       "strengths": {
         "ru": [
-          "✅ Прямая коммуникация: Вы говорите о проблемах открыто",
-          "✅ Ответственность: Вы не перекладываете вину на других",
-          "✅ Эмоциональная честность: Вы не скрываете злость за сарказмом",
-          "✅ Уважение границ: Вы не используете молчание как оружие",
-          "✅ Эмпатия: Вы не обесцениваете чувства партнёра"
+          "Ты говоришь, что не так, пока это ещё мелочь. Поэтому у вас нет копилки на десять лет.",
+          "Ты можешь злиться и не наказывать. Это два разных действия, и ты их не путаешь.",
+          "Ты признаёшь свою часть, не превращая это в спектакль о том, какой ты плохой.",
+          "Рядом с тобой человеку не надо угадывать. Это редкий вид отдыха."
         ],
         "en": [
-          "✅ Direct communication: You talk about problems openly",
-          "✅ Responsibility: You don't shift blame to others",
-          "✅ Emotional honesty: You don't hide anger behind sarcasm",
-          "✅ Boundary respect: You don't use silence as weapon",
-          "✅ Empathy: You don't devalue partner's feelings"
+          "You say what's wrong while it's still small. That's why there's no ten-year archive.",
+          "You can be angry without punishing. Those are two different acts, and you don't confuse them.",
+          "You admit your part without turning it into a performance about how bad you are.",
+          "Nobody has to guess around you. That's a rare kind of rest."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "⚠️ Иногда можете срываться: Никто не идеален, стресс может спровоцировать токсичное поведение",
-          "⚠️ Риск самодовольства: Важно не расслабляться и продолжать работать над собой",
-          "⚠️ Влияние окружения: Токсичные партнёры могут провоцировать токсичные реакции"
+          "Прямота без дозировки бьёт. Правда, сказанная не вовремя, — это всё ещё удар.",
+          "Тебе легко решить, что если ты так умеешь, то и остальные обязаны. Не обязаны — их этому не учили.",
+          "Ты можешь недооценивать, сколько сил уходит у человека, которому это не досталось даром."
         ],
         "en": [
-          "⚠️ Sometimes can snap: Nobody is perfect, stress can trigger toxic behavior",
-          "⚠️ Complacency risk: Important to keep working on yourself",
-          "⚠️ Environmental influence: Toxic partners can provoke toxic reactions"
+          "Directness without dosage still hits. A truth said at the wrong moment is still a blow.",
+          "It's easy to decide that if you can do it, everyone owes you the same. They don't — nobody taught them.",
+          "You can underestimate how much effort this costs someone it didn't come free to."
         ]
       },
       "recommendations": {
         "ru": [
-          "🌱 Продолжайте в том же духе: Ваши навыки — результат работы над собой",
-          "📚 Читайте о здоровых отношениях: \"Язык любви\" (Гэри Чепмен), \"Эмоциональный интеллект\" (Гоулман)",
-          "🛡️ Защищайте свои границы: Не позволяйте токсичным людям манипулировать вами",
-          "🗣️ Учитесь у партнёра: Если партнёр токсичен, не копируйте его поведение",
-          "💬 Обсуждайте конфликты: Используйте Я-сообщения и активное слушание"
+          "Проверь, где именно ты всё-таки молчишь. Ноль по тесту почти никогда не значит ноль в жизни — значит, паттерн узкий и сидит в одной теме.",
+          "Спроси у близкого, что тебе тяжелее всего слышать. Твоя слепая зона там, где ты уверен, что её нет.",
+          "Не требуй своей скорости от того, кто рос в другой семье. Дай время, а не оценку."
         ],
         "en": [
-          "🌱 Keep it up: Your skills are result of self-work",
-          "📚 Read about healthy relationships: \"5 Love Languages\" (Chapman), \"Emotional Intelligence\" (Goleman)",
-          "🛡️ Protect your boundaries: Don't let toxic people manipulate you",
-          "🗣️ Learn from partner: If partner is toxic, don't copy their behavior",
-          "💬 Discuss conflicts: Use I-statements and active listening"
+          "Check where you do still go quiet. A zero on the test almost never means zero in life — it means the pattern is narrow and lives in one topic.",
+          "Ask someone close what you're hardest to hear. Your blind spot is exactly where you're sure there isn't one.",
+          "Don't demand your speed from someone raised in a different house. Give time, not a grade."
         ]
       },
       "tryToday": {
-        "ru": "💡 **Попробуйте сегодня:** Когда возникнет конфликт, используйте формулу: \"Меня расстраивает [конкретное действие], потому что [ваше чувство]. Мне нужно [конкретная просьба]\". Это модель здоровой коммуникации.",
-        "en": "💡 **Try today:** When conflict arises, use formula: \"I'm upset by [specific action] because [your feeling]. I need [specific request]\". This is healthy communication model."
+        "ru": "Вспомни, о чём ты в последний раз промолчал, решив, что не стоит поднимать. Подними. Одной фразой, без разбега.",
+        "en": "Think of the last thing you let go because it wasn't worth raising. Raise it. One sentence, no run-up."
       },
       "inspiringConclusion": {
-        "ru": "🌟 **Вы — пример здоровых отношений.** Ваша способность общаться прямо и брать ответственность — это редкий навык. Берегите его, развивайте и помните: вы заслуживаете партнёра, который будет так же здоров эмоционально, как и вы. Не соглашайтесь на меньшее! 💚",
-        "en": "🌟 **You're example of healthy relationships.** Your ability to communicate directly and take responsibility is rare skill. Cherish it, develop it, and remember: you deserve partner who is emotionally healthy as you are. Don't settle for less! 💚"
+        "ru": "Ты умеешь то, ради чего другие ходят к терапевту годами. Единственная ловушка отсюда — начать мерить этой линейкой всех вокруг.",
+        "en": "You can do the thing other people spend years in therapy learning. The only trap from here is measuring everyone else with that ruler."
       }
     },
     "mild_toxicity": {
       "id": "mild_toxicity",
       "icon": null,
       "name": {
-        "ru": "💛 Лёгкая токсичность",
-        "en": "💛 Mild Toxicity"
+        "ru": "Мелкие уколы",
+        "en": "Small Jabs"
       },
       "description": {
-        "ru": "Иногда вы проявляете токсичные паттерны, но это не доминирующий стиль общения. У вас есть осознанность для изменений, и вы находитесь на пути к более здоровым отношениям.",
-        "en": "Sometimes you display toxic patterns, but it's not dominant communication style. You have awareness for change and are on path to healthier relationships."
+        "ru": "В спокойный день ты говоришь прямо. Под давлением включается что-то другое — и ты обычно замечаешь это уже потом.",
+        "en": "On a calm day you say it straight. Under pressure something else takes over — and you usually notice afterwards."
       },
       "whyThisProfile": {
-        "ru": "Ваш уровень токсичности 26-45%. Это означает, что у вас есть здоровая база, но под стрессом или в конфликтах вы иногда прибегаете к токсичным способам общения. Хорошая новость: вы осознаёте это, а осознание — первый шаг к изменениям.",
-        "en": "Your toxicity level is 26-45%. This means you have healthy base, but under stress or in conflicts you sometimes resort to toxic communication. Good news: you're aware of this, and awareness is first step to change."
+        "ru": "От четверти до примерно половины шкалы. База здоровая: ты умеешь называть вещи своими именами, когда есть силы. Но в стрессе всплывает то, чему тебя когда-то научили — короткая колкость, «делай что хочешь», пауза на полдня. Не образ жизни. Но и не случайность.",
+        "en": "Between a quarter and about half the scale. The base is healthy: you can name things plainly when you have the capacity. But under stress the old training surfaces — a short jab, a “do whatever you want”, half a day of silence. Not a way of life. Not an accident either."
       },
       "strengths": {
         "ru": [
-          "✅ Базовые здоровые навыки: В спокойном состоянии вы общаетесь конструктивно",
-          "✅ Осознанность: Вы замечаете свои токсичные паттерны",
-          "✅ Готовность меняться: Прохождение этого теста — доказательство",
-          "✅ Эмпатия: Вы понимаете, когда причиняете боль"
+          "В спокойном состоянии ты общаешься прямо — значит, навык есть, вопрос только в доступе к нему под нагрузкой.",
+          "Ты узнаёшь свои приёмы, когда их называют. Половина людей на этом месте спорит.",
+          "Ты умеешь извиниться конкретно, а не абстрактным «ну извини»."
         ],
         "en": [
-          "✅ Basic healthy skills: When calm you communicate constructively",
-          "✅ Awareness: You notice your toxic patterns",
-          "✅ Willingness to change: Taking this test is proof",
-          "✅ Empathy: You understand when you cause pain"
+          "When you're calm you communicate directly — so the skill exists; the question is only access to it under load.",
+          "You recognize your own moves when they're named. Half of people argue at this point.",
+          "You can apologize for a specific thing rather than issuing a general-purpose “sorry”."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "⚠️ Стресс-триггеры: Под давлением возвращаетесь к токсичным паттернам",
-          "⚠️ Выученное поведение: Возможно, копируете токсичность из детства или прошлых отношений",
-          "⚠️ Недостаток альтернатив: Не всегда знаете, как по-другому выразить недовольство",
-          "⚠️ Риск эскалации: Без работы над собой токсичность может усилиться"
+          "Твои срывы предсказуемы по расписанию: усталость, голод, чувство, что тебя не ценят. Каждый раз одно и то же окно.",
+          "«Всё нормально» ты произносишь достаточно часто, чтобы человек рядом перестал верить твоим словам вообще.",
+          "Ты извиняешься за форму и не возвращаешься к содержанию, так что исходная претензия так и висит.",
+          "Без внимания к этому уколы дешевеют и учащаются: это то, что легко становится привычкой."
         ],
         "en": [
-          "⚠️ Stress triggers: Under pressure return to toxic patterns",
-          "⚠️ Learned behavior: May be copying toxicity from childhood or past relationships",
-          "⚠️ Lack of alternatives: Don't always know other ways to express dissatisfaction",
-          "⚠️ Escalation risk: Without self-work toxicity may increase"
+          "Your slips run on a schedule: tired, hungry, feeling unappreciated. Same window every time.",
+          "You say “I'm fine” often enough that the person next to you has stopped believing your words in general.",
+          "You apologize for the delivery and never come back to the content, so the original complaint just hangs there.",
+          "Left alone, jabs get cheaper and more frequent. This is the kind of thing that turns into a habit."
         ]
       },
       "recommendations": {
         "ru": [
-          "🔍 Анализируйте триггеры: Ведите дневник — когда проявляется токсичность?",
-          "📖 Читайте: \"Эмоциональный интеллект\" (Гоулман), \"Ненасильственное общение\" (Розенберг)",
-          "🗣️ Учитесь Я-сообщениям: \"Я чувствую X, когда ты делаешь Y\"",
-          "⏸️ Делайте паузы: При конфликте возьмите тайм-аут, вместо токсичной реакции",
-          "💬 Обсуждайте с партнёром: \"Когда я так делаю, останови меня и попроси объяснить прямо\"",
-          "👥 Рассмотрите терапию: Несколько сессий помогут быстрее измениться"
+          "Найди своё окно. Запиши три последних раза, когда сорвался, — совпадёт время суток или состояние, и дальше это уже управляемо.",
+          "Замени «всё нормально» на «я злюсь, но сейчас не готов объяснять». Это правда, и это не наказание.",
+          "Возвращайся к теме. Извинился за тон — через день скажи, из-за чего вообще было."
         ],
         "en": [
-          "🔍 Analyze triggers: Keep journal — when does toxicity appear?",
-          "📖 Read: \"Emotional Intelligence\" (Goleman), \"Nonviolent Communication\" (Rosenberg)",
-          "🗣️ Learn I-statements: \"I feel X when you do Y\"",
-          "⏸️ Take pauses: During conflict take timeout instead of toxic reaction",
-          "💬 Discuss with partner: \"When I do this, stop me and ask me to explain directly\"",
-          "👥 Consider therapy: Few sessions will help change faster"
+          "Find your window. Write down the last three times you snapped — the time of day or the state will repeat, and from there it's manageable.",
+          "Swap “I'm fine” for “I'm angry, but I'm not ready to explain yet”. That's true, and it isn't a punishment.",
+          "Come back to the topic. You apologized for the tone — a day later, say what it was actually about."
         ]
       },
       "tryToday": {
-        "ru": "💡 **Попробуйте сегодня:** В момент конфликта, когда чувствуете желание ответить токсично (сарказм, молчание, драма), сделайте 3 глубоких вдоха и скажите: \"Мне нужна минута, чтобы ответить конструктивно\". Это прерывает автоматическую токсичную реакцию.",
-        "en": "💡 **Try today:** In moment of conflict, when feeling urge to respond toxically (sarcasm, silence, drama), take 3 deep breaths and say: \"I need minute to respond constructively\". This interrupts automatic toxic reaction."
+        "ru": "В следующий раз, когда захочется ответить колко, скажи вслух: «Мне нужна минута». И правда возьми минуту. Одного раза достаточно, чтобы почувствовать, что пауза управляема.",
+        "en": "Next time you want to answer with a jab, say out loud: “I need a minute.” Then actually take it. One time is enough to feel that the pause is yours to control."
       },
       "inspiringConclusion": {
-        "ru": "🌟 **У вас есть все шансы изменить паттерны.** Вы не глубоко в токсичности, и у вас есть осознанность. Это значит, что с небольшими усилиями вы можете стать ещё более здоровым в общении. Работайте над конкретными паттернами, которые показали высокие баллы, и вы увидите изменения через 2-3 месяца практики. Вы способны на это! 💛",
-        "en": "🌟 **You have every chance to change patterns.** You're not deep in toxicity, and you have awareness. This means with small efforts you can become even healthier in communication. Work on specific patterns that showed high scores, and you'll see changes in 2-3 months of practice. You're capable of this! 💛"
+        "ru": "Ты в той точке, где всё чинится дёшево. Через пару лет без внимания это будет стоить куда дороже — сейчас достаточно замечать.",
+        "en": "You're at the point where this is cheap to fix. A couple of years unattended and the price goes way up — right now, noticing is enough."
       }
     },
     "moderate_toxicity": {
       "id": "moderate_toxicity",
       "icon": null,
       "name": {
-        "ru": "🧡 Умеренная токсичность",
-        "en": "🧡 Moderate Toxicity"
+        "ru": "Арсенал",
+        "en": "The Arsenal"
       },
       "description": {
-        "ru": "Токсичные паттерны — частая часть вашего общения. Это вредит отношениям и создаёт эмоциональную дистанцию с партнёром. Хорошо, что вы это осознаёте — это первый шаг. Теперь время активно меняться.",
-        "en": "Toxic patterns are frequent part of your communication. This harms relationships and creates emotional distance with partner. Good you're aware — this is first step. Now time to actively change."
+        "ru": "У тебя есть набор приёмов, и ты им пользуешься. Не от злости — просто он работает быстрее, чем прямой разговор.",
+        "en": "You have a set of moves and you use them. Not out of malice — they just work faster than a direct conversation."
       },
       "whyThisProfile": {
-        "ru": "Ваш уровень токсичности 46-65%. Это означает, что токсичные способы общения стали вашей привычкой, особенно в конфликтах. Вы не всегда осознаёте, как ваши слова и действия ранят других. Но тот факт, что вы прошли этот тест, показывает: часть вас хочет измениться.",
-        "en": "Your toxicity level is 46-65%. This means toxic communication has become your habit, especially in conflicts. You don't always realize how your words and actions hurt others. But fact you took this test shows: part of you wants to change."
+        "ru": "Примерно от половины до двух третей шкалы. Токсичные ходы перестали быть срывами и стали инструментом: молчание, чтобы дошло; драма, чтобы услышали; обесценивание, чтобы не было так больно. Каждый из них когда-то тебя спас. Сейчас они работают против тебя — и человек рядом уже научился тебя обходить.",
+        "en": "Roughly half to two-thirds of the scale. The toxic moves have stopped being slips and become tools: silence so it lands, drama so it's heard, devaluation so it hurts less. Each of them saved you once. Now they work against you — and the person next to you has learned to route around you."
       },
       "strengths": {
         "ru": [
-          "✅ Вы ищете ответы: Прохождение теста — акт смелости",
-          "✅ У вас есть потенциал: Токсичность — не ваша суть, а выученное поведение",
-          "✅ Вы способны на эмпатию: Иначе бы не искали способ измениться"
+          "Ты дошёл до конца теста про собственную токсичность. Большинство закрывает такое на десятом вопросе.",
+          "Эти приёмы — выученное, а не характер. Выученное разучивается.",
+          "Ты чувствуешь, когда сделал больно. Именно поэтому ты здесь."
         ],
         "en": [
-          "✅ You're seeking answers: Taking test is act of courage",
-          "✅ You have potential: Toxicity is not your essence, but learned behavior",
-          "✅ You're capable of empathy: Otherwise wouldn't seek way to change"
+          "You finished a test about your own toxicity. Most people close this at question ten.",
+          "These moves are learned, not character. Learned things can be unlearned.",
+          "You feel it when you've hurt someone. That's exactly why you're here."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "⚠️ Автоматические токсичные реакции: Вы не замечаете, как переходите на манипуляции/драму/обесценивание",
-          "⚠️ Глубокие корни: Паттерны идут из детства или прошлых травм",
-          "⚠️ Партнёры страдают: Ваше поведение причиняет боль близким",
-          "⚠️ Риск потери отношений: Если не измениться, партнёры будут уходить",
-          "⚠️ Отрицание: Возможно, вы склонны оправдывать своё поведение"
+          "Ты не замечаешь момент переключения. Разговор был нормальный, а через минуту ты уже в другом жанре.",
+          "Рядом с тобой начали выбирать формулировки. Это не уважение, это осторожность — и это стоит вам обоим честности.",
+          "«Я не хотел» стало универсальным ключом, и он открывает всё реже.",
+          "Ты объясняешь свои ходы прошлым и на этом останавливаешься. Объяснение есть, а изменения нет."
         ],
         "en": [
-          "⚠️ Automatic toxic reactions: You don't notice how you switch to manipulation/drama/devaluation",
-          "⚠️ Deep roots: Patterns come from childhood or past traumas",
-          "⚠️ Partners suffer: Your behavior causes pain to loved ones",
-          "⚠️ Relationship loss risk: If don't change, partners will leave",
-          "⚠️ Denial: You may tend to justify your behavior"
+          "You don't catch the moment you switch. The conversation was normal, and a minute later you're in a different genre.",
+          "People have started choosing their words around you. That isn't respect, it's caution — and it costs you both the honesty.",
+          "“I didn't mean to” has become a universal key, and it opens fewer and fewer doors.",
+          "You explain your moves with your past and stop there. The explanation exists; the change doesn't."
         ]
       },
       "recommendations": {
         "ru": [
-          "🚨 ПРИОРИТЕТ: Начните работу с психологом. Самостоятельно изменить глубокие паттерны очень сложно",
-          "📊 Посмотрите на конкретные шкалы: Начните с тех, где балл выше 60%",
-          "📚 Обязательно читайте:",
-          "   • \"Эмоциональное насилие\" (Беверли Энжел)",
-          "   • \"Газлайтинг\" (Робин Стерн)",
-          "   • \"Токсичные люди\" (Лилиан Гласс)",
-          "🛑 Практикуйте стоп-технику: Перед ответом в конфликте — пауза 10 секунд",
-          "🗣️ Замените токсичные фразы:",
-          "   • \"Всё нормально\" (пассивная агрессия) → \"Я зол, потому что...\"",
-          "   • Молчание → \"Мне нужно время, поговорим через час\"",
-          "   • \"Ты всё разрушил!\" (драма) → \"Меня это расстраивает\"",
-          "💬 Честно поговорите с партнёром: \"Я осознаю свою токсичность и работаю над этим. Помоги мне — останавливай, когда я так делаю\"",
-          "⏱️ Дайте себе время: Изменение глубоких паттернов требует 6-12 месяцев"
+          "Посмотри на цифры ниже и возьми одну шкалу — самую высокую. Одну, не шесть. Шесть не берутся.",
+          "Договорись о стоп-слове с тем, с кем живёшь. Пусть он говорит его вслух, когда ты переключился, а твоя работа — не спорить с этим в моменте.",
+          "Скажи прямо то, ради чего обычно включается приём. Молчание обычно значит «мне больно», драма — «я боюсь, что тебе всё равно». Скажи именно это.",
+          "Такие вещи разбираются быстрее с терапевтом, чем в одиночку. Не потому что с тобой что-то не так, а потому что тут нужен взгляд со стороны."
         ],
         "en": [
-          "🚨 PRIORITY: Start working with therapist. Changing deep patterns alone is very difficult",
-          "📊 Look at specific scales: Start with those scoring above 60%",
-          "📚 Must read:",
-          "   • \"The Emotionally Abusive Relationship\" (Beverly Engel)",
-          "   • \"The Gaslight Effect\" (Robin Stern)",
-          "   • \"Toxic People\" (Lillian Glass)",
-          "🛑 Practice stop technique: Before responding in conflict — pause 10 seconds",
-          "🗣️ Replace toxic phrases:",
-          "   • \"Everything's fine\" (passive aggression) → \"I'm angry because...\"",
-          "   • Silence → \"I need time, let's talk in hour\"",
-          "   • \"You ruined everything!\" (drama) → \"This upsets me\"",
-          "💬 Talk honestly with partner: \"I realize my toxicity and working on it. Help me — stop me when I do this\"",
-          "⏱️ Give yourself time: Changing deep patterns requires 6-12 months"
+          "Look at the numbers below and take one scale — the highest one. One, not six. Six doesn't work.",
+          "Agree on a stop-word with whoever you live with. They say it out loud when you've switched, and your job is not to argue with it in the moment.",
+          "Say the thing the move is standing in for. Silence usually means “I'm hurt”; drama usually means “I'm scared you don't care”. Say that instead.",
+          "This comes apart faster with a therapist than alone. Not because something's wrong with you — because it needs an outside pair of eyes."
         ]
       },
       "tryToday": {
-        "ru": "💡 **Попробуйте сегодня:** Возьмите тетрадь и напишите: \"Мои 3 главных токсичных паттерна: [из теста]\". Под каждым напишите альтернативу: \"Вместо этого я буду делать...\". Держите тетрадь рядом, перечитывайте ежедневно.",
-        "en": "💡 **Try today:** Take notebook and write: \"My 3 main toxic patterns: [from test]\". Under each write alternative: \"Instead I will...\". Keep notebook nearby, reread daily."
+        "ru": "Возьми последний конфликт и напиши одну фразу: что ты на самом деле хотел, чтобы человек понял. Скажи её ему сегодня — без предисловия про то, что он сделал первым.",
+        "en": "Take your last conflict and write one sentence: what you actually wanted the other person to understand. Say it to them today — with no preamble about what they did first."
       },
       "inspiringConclusion": {
-        "ru": "🌟 **Изменение возможно, но требует серьёзной работы.** Вы на развилке: продолжить токсичный путь и терять отношения, или взять ответственность и измениться. Это не быстро и не легко, но оно того стоит. Здоровые отношения — это когда партнёры не ранят друг друга намеренно. Вы можете это создать, но только через работу над собой. Начните сегодня. 🧡",
-        "en": "🌟 **Change is possible but requires serious work.** You're at crossroads: continue toxic path and lose relationships, or take responsibility and change. It's not fast or easy, but worth it. Healthy relationships are when partners don't hurt each other intentionally. You can create this, but only through self-work. Start today. 🧡"
+        "ru": "Эти приёмы — не ты. Это то, что сработало один раз в двенадцать лет и осталось. Их можно вернуть на полку, но не все сразу и не за неделю.",
+        "en": "These moves aren't you. They're what worked once when you were twelve and then stayed. They can go back on the shelf — just not all at once and not in a week."
       }
     },
     "high_toxicity": {
       "id": "high_toxicity",
       "icon": null,
       "name": {
-        "ru": "🔴 Высокая токсичность",
-        "en": "🔴 High Toxicity"
+        "ru": "Система",
+        "en": "The System"
       },
       "description": {
-        "ru": "Токсичность — ваш основной стиль общения. Это серьёзно вредит отношениям и может быть формой эмоционального насилия. Необходима профессиональная помощь. Вы причиняете боль людям, которых, возможно, любите.",
-        "en": "Toxicity is your main communication style. This seriously harms relationships and may be form of emotional abuse. Professional help necessary. You cause pain to people you possibly love."
+        "ru": "Это уже не реакция на сложный день. Так у тебя устроен конфликт по умолчанию — и человек рядом живёт внутри этого каждый день.",
+        "en": "This isn't a reaction to a hard day anymore. It's your default setting for conflict — and the person next to you lives inside it daily."
       },
       "whyThisProfile": {
-        "ru": "Ваш уровень токсичности 66-80%. Это высокий показатель. Манипуляции, обесценивание, драма, молчаливое наказание — это ваши основные инструменты в отношениях. Возможно, вы не всегда осознаёте масштаб вреда, который причиняете. Но ваши партнёры чувствуют это каждый день.",
-        "en": "Your toxicity level is 66-80%. This is high indicator. Manipulation, devaluation, drama, silent treatment — these are your main relationship tools. You may not always realize extent of harm you cause. But your partners feel it every day."
+        "ru": "Две трети шкалы и выше. По ответам выходит, что молчание, обесценивание, драма и манипуляция — не редкие срывы, а рабочий способ вести разговор. Ты, скорее всего, видишь свои причины в каждом отдельном случае и не видишь картину целиком. Человек рядом видит именно картину, и она у него складывается быстрее, чем у тебя.",
+        "en": "Two-thirds of the scale and up. By your answers, silence, devaluation, drama and manipulation aren't rare slips — they're the working method for having a conversation. You most likely see your reasons in each separate case and not the pattern. The person next to you sees the pattern, and it added up for them faster than it did for you."
       },
       "strengths": {
         "ru": [
-          "✅ Вы прошли тест: Это значит, что часть вас понимает — что-то не так",
-          "✅ Вы читаете это: Полное отрицание было бы \"это всё ерунда, со мной всё в порядке\"",
-          "✅ У вас есть потенциал: Даже самые токсичные паттерны можно изменить"
+          "Ты ответил честно на 48 неудобных вопросов о себе. Отрицание выглядит иначе — оно вообще не открывает такой тест.",
+          "Ты читаешь это, а не закрыл на середине. Это уже не ноль.",
+          "Самые устойчивые паттерны меняются. Медленнее прочих, но меняются."
         ],
         "en": [
-          "✅ You took test: This means part of you understands — something is wrong",
-          "✅ You're reading this: Complete denial would be \"this is all nonsense, I'm fine\"",
-          "✅ You have potential: Even most toxic patterns can be changed"
+          "You answered 48 uncomfortable questions about yourself honestly. Denial looks different — it doesn't open a test like this at all.",
+          "You're reading this instead of closing it halfway. That isn't nothing.",
+          "Even the most entrenched patterns shift. Slower than the rest, but they shift."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "🚨 Эмоциональное насилие: Ваше поведение причиняет психологический вред партнёрам",
-          "🚨 Потеря отношений: Люди уходят или остаются из страха, а не из любви",
-          "🚨 Газлайтинг: Вы искажаете реальность, заставляя партнёра сомневаться в себе",
-          "🚨 Цикл повторения: Без изменений каждые новые отношения будут такими же",
-          "🚨 Ваши собственные травмы: Токсичность часто идёт из детских ран"
+          "Ты перестал различать, где заканчивается твоя боль и начинается чужая. Обе настоящие, но платит по счёту обычно один.",
+          "Человек рядом, скорее всего, уже не спорит. Не потому что согласен — потому что дешевле.",
+          "Каждый твой отдельный ход объясним. Именно поэтому ты не видишь суммы, а сумма и есть проблема.",
+          "Без вмешательства это переезжает в следующие отношения целиком. Меняется партнёр, не паттерн."
         ],
         "en": [
-          "🚨 Emotional abuse: Your behavior causes psychological harm to partners",
-          "🚨 Relationship loss: People leave or stay from fear, not love",
-          "🚨 Gaslighting: You distort reality, making partner doubt themselves",
-          "🚨 Repetition cycle: Without changes every new relationship will be same",
-          "🚨 Your own traumas: Toxicity often comes from childhood wounds"
+          "You've stopped telling where your pain ends and someone else's begins. Both are real, but usually only one person pays.",
+          "The person next to you has probably stopped arguing. Not because they agree — because it's cheaper.",
+          "Every single move of yours is explainable. That's exactly why you don't see the sum, and the sum is the problem.",
+          "Untouched, this moves into the next relationship intact. The partner changes; the pattern doesn't."
         ]
       },
       "recommendations": {
         "ru": [
-          "🚨 КРИТИЧНО: Обратитесь к психологу НЕМЕДЛЕННО. Выбирайте специалиста по эмоциональному насилию",
-          "🛑 Признайте: Ваше поведение — это насилие. Даже если вы не бьёте — вы ломаете психику",
-          "⏸️ Возьмите тайм-аут от отношений: Вам нужно поработать над собой, прежде чем быть в паре",
-          "📚 ОБЯЗАТЕЛЬНО читайте (в указанном порядке):",
-          "   1. \"Эмоциональное насилие\" (Беверли Энжел) — чтобы понять, что вы делаете",
-          "   2. \"Газлайтинг\" (Робин Стерн) — если манипуляции/газлайтинг высокие",
-          "   3. \"Почему я это делаю?\" (Джо Бурго) — чтобы найти корни",
-          "💬 Честно поговорите с партнёром (если он не ушёл):",
-          "   \"Я осознал, что моё поведение токсично и причиняет тебе боль. Я начинаю терапию. Тебе не обязательно оставаться со мной, пока я меняюсь\"",
-          "🔄 Работайте над конкретными паттернами:",
-          "   • Если высокий газлайтинг — учитесь признавать факты",
-          "   • Если высокое молчание — учитесь возвращаться к диалогу",
-          "   • Если высокая драма — учитесь эмоциональной регуляции",
-          "⚠️ Если партнёр уходит — это последствия. Не манипулируйте, не угрожайте, отпустите",
-          "⏱️ Дайте себе 1-2 года: Глубокие изменения требуют времени"
+          "Найди психолога, который работает с паттернами в отношениях. Это первый ход, а не последний, и он не откладывается на «когда станет полегче».",
+          "Возьми одну шкалу с самым высоким баллом и месяц следи только за ней. Всё сразу не берётся ни у кого.",
+          "Скажи близкому человеку прямо: «Я вижу, что делаю, и разбираюсь с этим». Без обещаний на будущее — они здесь ничего не стоят.",
+          "Если человек решит уйти, это последствие, а не предательство. Уговаривать, давить и торговаться — это те же приёмы, только в новой ситуации."
         ],
         "en": [
-          "🚨 CRITICAL: See psychologist IMMEDIATELY. Choose specialist in emotional abuse",
-          "🛑 Acknowledge: Your behavior is abuse. Even if you don't hit — you break psyche",
-          "⏸️ Take timeout from relationships: You need to work on yourself before being in couple",
-          "📚 MUST read (in this order):",
-          "   1. \"The Emotionally Abusive Relationship\" (Beverly Engel) — to understand what you do",
-          "   2. \"The Gaslight Effect\" (Robin Stern) — if manipulation/gaslighting high",
-          "   3. \"Why Do I Do That?\" (Joseph Burgo) — to find roots",
-          "💬 Talk honestly with partner (if they haven't left):",
-          "   \"I realized my behavior is toxic and causes you pain. I'm starting therapy. You don't have to stay with me while I change\"",
-          "🔄 Work on specific patterns:",
-          "   • If high gaslighting — learn to acknowledge facts",
-          "   • If high silence — learn to return to dialogue",
-          "   • If high drama — learn emotional regulation",
-          "⚠️ If partner leaves — these are consequences. Don't manipulate, don't threaten, let go",
-          "⏱️ Give yourself 1-2 years: Deep changes require time"
+          "Find a therapist who works with relational patterns. That's the first move, not the last, and it doesn't wait for things to get easier.",
+          "Take the single highest-scoring scale and watch only that one for a month. Nobody takes all of it at once.",
+          "Tell the person close to you plainly: “I can see what I'm doing and I'm working on it.” No promises about the future — they're worth nothing here.",
+          "If they decide to leave, that's a consequence, not a betrayal. Persuading, pressuring and bargaining are the same moves in a new situation."
         ]
       },
       "tryToday": {
-        "ru": "💡 **Попробуйте сегодня:** Не взаимодействуйте токсично хотя бы 24 часа. Когда чувствуете импульс (манипуляция, молчание, драма) — выйдите из комнаты, напишите на бумаге, что хотели сказать/сделать. Через час посмотрите — вы увидите токсичность.",
-        "en": "💡 **Try today:** Don't interact toxically for at least 24 hours. When feeling impulse (manipulation, silence, drama) — leave room, write on paper what you wanted to say/do. Look in hour — you'll see toxicity."
+        "ru": "Сегодня, когда почувствуешь знакомый импульс, выйди из комнаты и запиши на бумаге, что собирался сказать. Через час перечитай. Не для вины — чтобы один раз увидеть свой ход со стороны.",
+        "en": "Today, when you feel the familiar impulse, leave the room and write down what you were about to say. Read it an hour later. Not for guilt — so that once, you see your own move from outside."
       },
       "inspiringConclusion": {
-        "ru": "🌟 **Это не приговор, но это серьёзно.** Вы стоите на грани: либо измениться, либо продолжать разрушать отношения и людей. Токсичность не делает вас \"плохим человеком\", но ваши ДЕЙСТВИЯ причиняют вред. Изменение требует мужества признать: \"Я был токсичен\", и годовой работы с психологом. Но это возможно. Люди меняются. Вопрос: готовы ли вы? Если да — начните сегодня. Если нет — будьте честны с партнёром и отпустите его. 🔴",
-        "en": "🌟 **This is not verdict, but it's serious.** You're on edge: either change or continue destroying relationships and people. Toxicity doesn't make you \"bad person\", but your ACTIONS cause harm. Change requires courage to admit: \"I was toxic\", and year of work with therapist. But it's possible. People change. Question: are you ready? If yes — start today. If no — be honest with partner and let them go. 🔴"
+        "ru": "То, что ты дочитал до сюда, ничего пока не меняет — меняет первый разговор с человеком, который умеет с этим работать. Он не про то, какой ты плохой. Он про то, откуда это взялось и что с этим делать.",
+        "en": "Reading this far doesn't change anything yet. The first conversation with someone trained for this does. It isn't about how bad you are — it's about where this came from and what to do with it."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест по 48 самоотчётным ответам, а не диагноз и не заключение о тебе как о человеке. Он показывает только то, как ты сам описал своё поведение.\n\nЧто с этим уровнем делают: разбирают с психологом — очно или онлайн. Такие паттерны редко разбираются в одиночку, и это не слабость, а вопрос обзора. Если тебе сейчас страшно за себя или за близкого человека, обратись в местную службу психологической помощи, не откладывая.",
+        "en": "This is an educational test built on 48 self-reported answers — not a diagnosis, and not a verdict on you as a person. It reflects only how you described your own behaviour.\n\nWhat people do at this level: work through it with a therapist, in person or online. Patterns like these rarely come apart alone, and that isn't weakness — it's a question of vantage point. If you're frightened right now, for yourself or for someone close to you, contact your local mental-health support service without waiting."
       }
     },
     "severe_toxicity": {
       "id": "severe_toxicity",
       "icon": null,
       "name": {
-        "ru": "🚨 Крайне токсичные отношения",
-        "en": "🚨 Severely Toxic Relationships"
+        "ru": "На полную",
+        "en": "Full Volume"
       },
       "description": {
-        "ru": "Ваш стиль общения крайне токсичен и представляет собой эмоциональное насилие. Это разрушает психику партнёров и создаёт глубокие психологические травмы. Требуется интенсивная терапия.",
-        "en": "Your communication style is extremely toxic and constitutes emotional abuse. This destroys partners' psyche and creates deep psychological traumas. Intensive therapy required."
+        "ru": "По твоим ответам ты используешь всё сразу и постоянно. Что бы за этим ни стояло, людям рядом с тобой сейчас тяжело — и это не преувеличение теста.",
+        "en": "By your answers, you use all of it, all the time. Whatever sits behind that, the people around you are having a hard time right now — and that isn't the test exaggerating."
       },
       "whyThisProfile": {
-        "ru": "Ваш уровень токсичности 81-100%. Это критический показатель. Манипуляции, газлайтинг, обесценивание, драматизация, молчаливое наказание, позиция жертвы — всё это ваши ежедневные инструменты. Вы систематически причиняете психологический вред людям рядом с вами.",
-        "en": "Your toxicity level is 81-100%. This is critical indicator. Manipulation, gaslighting, devaluation, dramatization, silent treatment, victim mentality — all these are your daily tools. You systematically cause psychological harm to people around you."
+        "ru": "Это верхняя полоса шкалы, и попасть в неё непросто: нужно отвечать почти на максимуме по всем шести паттернам сразу. Из этого следует одно из двух, и оба стоят внимания. Либо в отношениях сейчас действительно происходит что-то тяжёлое и постоянное. Либо ты описал себя в самых жёстких словах, какие нашёл, — и тогда разбираться стоит ещё и с тем, откуда столько обвинения в свой адрес.",
+        "en": "This is the top band, and it's hard to land in: it takes answering at nearly the maximum on all six patterns at once. That means one of two things, and both deserve attention. Either something genuinely heavy and constant is happening in your relationships right now. Or you described yourself in the harshest words you could find — in which case the amount of blame you're aiming at yourself is also worth looking at."
       },
       "strengths": {
         "ru": [
-          "⚠️ Вы прошли тест: Возможно, последний шанс что-то изменить",
-          "⚠️ Вы дочитали до этого: Значит, минимальная часть осознанности есть"
+          "Ты ответил на 48 вопросов про себя, не смягчая. Это неприятная честность, и она настоящая.",
+          "Ты дочитал до этого места, хотя тест не сказал тебе ничего приятного.",
+          "Ты пришёл сюда сам. Никто не заставлял тебя проходить тест про собственную токсичность."
         ],
         "en": [
-          "⚠️ You took test: Possibly last chance to change something",
-          "⚠️ You read this far: Means minimal part of awareness exists"
+          "You answered 48 questions about yourself without softening them. That's unpleasant honesty, and it's real.",
+          "You've read this far, and the test hasn't told you a single pleasant thing.",
+          "You came here yourself. Nobody made you take a test about your own toxicity."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "🚨 НАСИЛИЕ: Ваше поведение — это эмоциональное насилие в чистом виде",
-          "🚨 Вы разрушаете психику: Партнёры получают ПТСР, депрессию, тревожность",
-          "🚨 Изоляция: Скорее всего, вы потеряли или теряете близких людей",
-          "🚨 Газлайтинг на максимуме: Вы заставляете людей сомневаться в реальности",
-          "🚨 Риск полного одиночества: Люди уходят или остаются сломленными",
-          "🚨 Ваши собственные глубокие травмы: Такая токсичность идёт из серьёзных детских ран"
+          "На этом уровне разговор перестаёт работать как разговор: что бы ты ни сказал, человек рядом слышит следующий ход.",
+          "Твои собственные причины настоящие — и при этом не отменяют цену, которую платят другие. Обе половины правда.",
+          "Скорее всего, ты уже потерял кого-то и объяснил это их характером. Стоит пересчитать.",
+          "Одной силой воли это не меняется. Не потому что ты слабый, а потому что такие паттерны не держатся на решениях."
         ],
         "en": [
-          "🚨 ABUSE: Your behavior is pure emotional abuse",
-          "🚨 You destroy psyche: Partners get PTSD, depression, anxiety",
-          "🚨 Isolation: Likely you lost or losing close people",
-          "🚨 Gaslighting at maximum: You make people doubt reality",
-          "🚨 Total loneliness risk: People leave or stay broken",
-          "🚨 Your own deep traumas: Such toxicity comes from serious childhood wounds"
+          "At this level a conversation stops working as a conversation: whatever you say, the other person hears the next move coming.",
+          "Your own reasons are real — and they still don't cancel the price other people pay. Both halves are true.",
+          "You've probably already lost someone and explained it by their character. Worth recounting.",
+          "Willpower alone won't shift this. Not because you're weak — because patterns like these don't rest on decisions."
         ]
       },
       "recommendations": {
         "ru": [
-          "🚨🚨🚨 ЭКСТРЕННО: Обратитесь к психологу, специализирующемуся на абьюзивном поведении, СЕГОДНЯ",
-          "🛑 ПРИЗНАЙТЕ: Вы — абьюзер. Это не оскорбление, это диагноз вашего поведения",
-          "💔 Отпустите текущего партнёра: Если он с вами — он либо сломлен, либо боится уйти. Отпустите его ради его здоровья",
-          "⏸️ НЕ ВСТУПАЙТЕ В НОВЫЕ ОТНОШЕНИЯ минимум год: Вам нужна интенсивная работа над собой",
-          "📚 Читайте (обязательно, не опционально):",
-          "   1. \"Эмоциональное насилие\" (Беверли Энжел)",
-          "   2. \"Газлайтинг\" (Робин Стерн)",
-          "   3. \"Токсичные родители\" (Сьюзен Форвард) — о корнях",
-          "   4. \"Стыд и вина\" (Брене Браун) — о ваших травмах",
-          "🔍 Исследуйте своё детство: Такая токсичность не появляется на пустом месте",
-          "💊 Рассмотрите медикаменты: Если есть депрессия/тревожность, лечите их параллельно",
-          "🚫 НЕ ОПРАВДЫВАЙТЕ СЕБЯ: \"У меня было тяжёлое детство\" — это объяснение, но не оправдание насилия",
-          "⚠️ Будьте готовы к боли: Осознание масштаба вреда, который вы причинили, будет болезненным",
-          "⏱️ Минимум 2 года терапии: Это не быстрый процесс"
+          "Начни со специалиста, а не с себя. На этом уровне «я возьму себя в руки» не работает ни у кого, и дело не в характере.",
+          "Не давай обещаний на будущее тому, кто рядом. Здесь они уже не считаются валютой — считается только то, что ты делаешь на этой неделе.",
+          "Не решай за другого человека, оставаться ему или уходить. Его решение — его; твоё дело — не мешать ему принимать его свободно.",
+          "Один паттерн за раз. Возьми самый высокий по цифрам ниже и следи только за ним — остальные подождут."
         ],
         "en": [
-          "🚨🚨🚨 URGENT: See psychologist specializing in abusive behavior TODAY",
-          "🛑 ACKNOWLEDGE: You're abuser. This is not insult, this is diagnosis of your behavior",
-          "💔 Let current partner go: If they're with you — they're either broken or afraid to leave. Let them go for their health",
-          "⏸️ DON'T ENTER NEW RELATIONSHIPS for at least year: You need intensive self-work",
-          "📚 Read (mandatory, not optional):",
-          "   1. \"The Emotionally Abusive Relationship\" (Beverly Engel)",
-          "   2. \"The Gaslight Effect\" (Robin Stern)",
-          "   3. \"Toxic Parents\" (Susan Forward) — about roots",
-          "   4. \"Shame and Guilt\" (Brené Brown) — about your traumas",
-          "🔍 Explore your childhood: Such toxicity doesn't appear from nowhere",
-          "💊 Consider medication: If depression/anxiety present, treat parallel",
-          "🚫 DON'T JUSTIFY YOURSELF: \"I had difficult childhood\" — this is explanation, not excuse for abuse",
-          "⚠️ Be ready for pain: Realizing extent of harm you caused will be painful",
-          "⏱️ Minimum 2 years therapy: This is not quick process"
+          "Start with a professional, not with yourself. At this level “I'll get a grip” doesn't work for anyone, and that isn't about character.",
+          "Don't make promises about the future to the person near you. They aren't currency anymore — only what you do this week counts.",
+          "Don't decide for the other person whether they stay or go. Their decision is theirs; your job is not to interfere with them making it freely.",
+          "One pattern at a time. Take the highest number below and watch only that — the rest can wait."
         ]
       },
       "tryToday": {
-        "ru": "💡 **Попробуйте сегодня:** НЕ взаимодействуйте с партнёром токсично. Если чувствуете импульс — уйдите физически. Напишите ему: \"Я осознал, что причиняю тебе боль. Я начинаю терапию. Тебе не нужно оставаться со мной. Я не буду манипулировать твоим решением\".",
-        "en": "💡 **Try today:** DON'T interact with partner toxically. If feeling impulse — leave physically. Write them: \"I realized I'm causing you pain. I'm starting therapy. You don't need to stay with me. I won't manipulate your decision\"."
+        "ru": "Сегодня, в первый же момент, когда захочется ответить, — не отвечай. Выйди, дождись, пока схлынет, и вернись позже. Один раз. Не как обещание, а как проверка: импульс проходит, если его не кормить.",
+        "en": "Today, the first time you want to respond — don't. Step out, wait for it to pass, come back later. Once. Not as a promise, as a test: the impulse does pass if you don't feed it."
       },
       "inspiringConclusion": {
-        "ru": "⚠️ **ЭТО СЕРЬЁЗНО.** Вы находитесь на уровне эмоционального насилия. Ваше поведение разрушает людей. Если вы не измените свои паттерны, вы будете одиноки или окружены сломленными людьми. Но — и это важно — ИЗМЕНЕНИЕ ВОЗМОЖНО. Даже на этом уровне. Но только через:\n\n1. Полное признание: \"Я был абьюзером\"\n2. Интенсивную терапию (1-2 года минимум)\n3. Работу с собственными травмами\n4. Тайм-аут от отношений\n5. Ежедневную практику новых навыков\n\nЭто НЕ БЫСТРО. Это БОЛЬНО. Но это ВОЗМОЖНО.\n\nВопрос один: готовы ли вы взять ответственность?\n\nЕсли да — начните СЕГОДНЯ. Не завтра. Сегодня.\nЕсли нет — будьте честны хотя бы в этом.\n\n🚨 Помните: каждый день без изменений — это ещё один день, когда вы причиняете боль.",
-        "en": "⚠️ **THIS IS SERIOUS.** You're at level of emotional abuse. Your behavior destroys people. If you don't change your patterns, you'll be alone or surrounded by broken people. But — and this is important — CHANGE IS POSSIBLE. Even at this level. But only through:\n\n1. Complete acknowledgment: \"I was abuser\"\n2. Intensive therapy (1-2 years minimum)\n3. Work on own traumas\n4. Timeout from relationships\n5. Daily practice of new skills\n\nThis is NOT FAST. This is PAINFUL. But it's POSSIBLE.\n\nOne question: are you ready to take responsibility?\n\nIf yes — start TODAY. Not tomorrow. Today.\nIf no — be honest at least in this.\n\n🚨 Remember: every day without change is another day you cause pain."
+        "ru": "Ты не то, что показал этот тест. Ты то, что сделаешь на этой неделе. Начни с одного разговора с тем, кто умеет с этим работать, — и дальше считай не намерения, а недели.",
+        "en": "You aren't what this test showed. You're what you do this week. Start with one conversation with someone trained for this, and after that count weeks, not intentions."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест по 48 самоотчётным ответам. Он не ставит диагноз, не описывает тебя как человека и не предсказывает, что будет с теми, кто рядом. Он показывает ровно одно: как ты сам описал своё поведение сегодня.\n\nЧто здесь работает: разговор со специалистом, который занимается отношениями и агрессией. Один разговор — уже шаг, и начинать с него дешевле, чем с обещаний себе.\n\nЕсли ты боишься того, что можешь сделать, или тебе самому сейчас небезопасно — обратись в местную службу психологической помощи или к врачу сегодня, не дожидаясь удобного момента. Если небезопасно кому-то рядом с тобой, это тот случай, когда помощь нужна вам обоим и по отдельности.",
+        "en": "This is an educational test built on 48 self-reported answers. It doesn't diagnose you, doesn't describe who you are, and doesn't predict what will happen to the people around you. It shows exactly one thing: how you described your own behaviour today.\n\nWhat works here is a conversation with a professional who works with relationships and aggression. One conversation is already a step, and it's a cheaper place to start than promises to yourself.\n\nIf you're afraid of what you might do, or you don't feel safe yourself right now, contact your local mental-health service or a doctor today rather than waiting for a good moment. If someone near you isn't safe, that's the case where you both need help, and separately."
       }
     }
   },

@@ -54,6 +54,15 @@ out/
   SCALE_MAP.md               the normalisation report
 ```
 
+## Overrides (Э8)
+
+`src/content/tests/*.json` is generated, so copy edited there is lost on the next
+build. Rewritten text goes in `overrides/<test_id>.json` and is merged in by
+`apply-overrides.mjs` during `npm run tests:build`. The file is sparse — only the
+strings that differ from the import — and the build fails rather than writing if
+an override names a profile, question or answer that does not exist, or tries to
+reach a scoring field. See `docs/tests-integration.md` (Э8) for the full contract.
+
 `scale-map.json` is hand-authored and reviewed — see `docs/tests-integration.md` (Э2) for the rules
 it follows, in particular that weight signs are meaningful and that colliding synonyms take the
 stronger contribution rather than the sum.

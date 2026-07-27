@@ -85,6 +85,12 @@ export interface TestProfileContent {
   recommendations?: LocalizedList | null;
   tryToday?: Localized | null;
   inspiringConclusion?: Localized | null;
+  /**
+   * Shown above the detail sections on results that land somewhere heavy. The
+   * test is educational, not diagnostic, and the top bands of `toxic_patterns`
+   * are reachable — this is where that gets said plainly, with a way out.
+   */
+  supportNote?: Localized | null;
 }
 
 export interface PsychTest {
