@@ -29,6 +29,7 @@ export default function PhotoTeaser({
   onUnlock,
   balance = null,
   onUnlockWithCredits,
+  onPromoRedeemed,
 }: {
   teaser: PhotoTeaserData;
   useCase: PhotoUseCase;
@@ -43,6 +44,8 @@ export default function PhotoTeaser({
   balance?: number | null;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
+  /** A promo code landed on the paywall — refresh the balance above it. */
+  onPromoRedeemed?: (balance: number | null) => void;
 }) {
   const PHOTO_COPY = getPhotoCopy(useLang());
   const ui = PHOTO_COPY.teaser;
@@ -161,6 +164,7 @@ export default function PhotoTeaser({
             payState={payState}
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
+            onPromoRedeemed={onPromoRedeemed}
           />
         ) : (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

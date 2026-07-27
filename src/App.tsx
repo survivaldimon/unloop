@@ -12,11 +12,13 @@ import { score, type Answers } from "./lib/scoring";
 import {
   CREDIT_COSTS,
   CREDIT_PACKS,
+  capturePromoFromUrl,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
   fetchSessionState,
   linkSession,
+  redeemPendingPromo,
   stateUnlocks,
   type PackId,
 } from "./lib/credits";
@@ -98,9 +100,16 @@ export default function App() {
   }, []);
 
   // Credit mode: a returning visitor may already be signed in — show the chip.
+  // A ?promo= code parked earlier cashes in here, the moment an account exists.
   useEffect(() => {
     if (!creditsEnabled) return;
-    void fetchMyBalance().then(setMyBalance);
+    capturePromoFromUrl();
+    void redeemPendingPromo().then((promo) => {
+      if (promo?.kind === "ok") {
+        track("promo_redeem", { credits: promo.credits, source: "link" });
+      }
+      void fetchMyBalance().then(setMyBalance);
+    });
   }, []);
 
   const refreshBalance = () => {
@@ -184,9 +193,17 @@ export default function App() {
     // Silent account: the balance needs an owner before the paywall shows up.
     if (creditsEnabled) {
       void ensureAccount(value).then((status) => {
-        if (status === "ready") {
-          void linkSession("quiz", getSessionId()).then(refreshBalance);
-        }
+        if (status !== "ready") return;
+        void linkSession("quiz", getSessionId())
+          // The account only exists now, so this is where a ?promo= code from
+          // the landing link finally has somewhere to land.
+          .then(() => redeemPendingPromo())
+          .then((promo) => {
+            if (promo?.kind === "ok") {
+              track("promo_redeem", { credits: promo.credits, source: "link" });
+            }
+            refreshBalance();
+          });
       });
     }
     if (result) {
@@ -442,6 +459,10 @@ export default function App() {
             payState={payState}
             balance={myBalance}
             onUnlockWithCredits={unlockWithBalance}
+            onPromoRedeemed={(balance) => {
+              if (balance !== null) setMyBalance(balance);
+              else refreshBalance();
+            }}
           />
         )}
         {step === "report" && result && unlocked && (
@@ -472,6 +493,10 @@ export default function App() {
             cost={topUpCost}
             busy={topUpBusy}
             onBuy={buyTopUp}
+            onPromoRedeemed={(balance) => {
+              if (balance !== null) setMyBalance(balance);
+              else refreshBalance();
+            }}
             onClose={() => {
               setTopUpCost(null);
               setTopUpBusy(false);

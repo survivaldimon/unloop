@@ -7,11 +7,13 @@ import { identifyEmail, refreshSessionContext, setAnalyticsContext, track } from
 import {
   CREDIT_COSTS,
   CREDIT_PACKS,
+  capturePromoFromUrl,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
   fetchSessionState,
   linkSession,
+  redeemPendingPromo,
   stateUnlocks,
   type PackId,
 } from "../lib/credits";
@@ -114,9 +116,16 @@ export default function PhotoApp() {
   }, []);
 
   // Credit mode: a returning visitor may already be signed in — show the chip.
+  // A ?promo= code parked earlier cashes in here, the moment an account exists.
   useEffect(() => {
     if (!creditsEnabled) return;
-    void fetchMyBalance().then(setMyBalance);
+    capturePromoFromUrl();
+    void redeemPendingPromo().then((promo) => {
+      if (promo?.kind === "ok") {
+        track("promo_redeem", { funnel: "photo", credits: promo.credits, source: "link" });
+      }
+      void fetchMyBalance().then(setMyBalance);
+    });
   }, []);
 
   const refreshBalance = () => {
@@ -210,9 +219,17 @@ export default function PhotoApp() {
     // Silent account: the balance needs an owner before the paywall shows up.
     if (creditsEnabled) {
       void ensureAccount(value).then((status) => {
-        if (status === "ready") {
-          void linkSession("photoread", getPhotoSessionId()).then(refreshBalance);
-        }
+        if (status !== "ready") return;
+        void linkSession("photoread", getPhotoSessionId())
+          // The account only exists now, so this is where a ?promo= code from
+          // the landing link finally has somewhere to land.
+          .then(() => redeemPendingPromo())
+          .then((promo) => {
+            if (promo?.kind === "ok") {
+              track("promo_redeem", { funnel: "photo", credits: promo.credits, source: "link" });
+            }
+            refreshBalance();
+          });
       });
     }
     // The send function only mails addresses already stored on the session, so save first.
@@ -500,6 +517,10 @@ export default function PhotoApp() {
             onUnlock={startUnlock}
             balance={myBalance}
             onUnlockWithCredits={unlockWithBalance}
+            onPromoRedeemed={(balance) => {
+              if (balance !== null) setMyBalance(balance);
+              else refreshBalance();
+            }}
           />
         )}
         {step === "report" && unlocked && (
@@ -534,6 +555,10 @@ export default function PhotoApp() {
             cost={topUpCost}
             busy={topUpBusy}
             onBuy={buyTopUp}
+            onPromoRedeemed={(balance) => {
+              if (balance !== null) setMyBalance(balance);
+              else refreshBalance();
+            }}
             onClose={() => {
               setTopUpCost(null);
               setTopUpBusy(false);

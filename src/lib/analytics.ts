@@ -136,7 +136,9 @@ export type AnalyticsEvent =
   | "pack_select"
   | "credits_purchase"
   | "topup_view"
-  | "chat_question";
+  | "chat_question"
+  // Promo redemption is revenue-free by construction — PostHog only, never Meta.
+  | "promo_redeem";
 
 export function track(
   event: AnalyticsEvent,

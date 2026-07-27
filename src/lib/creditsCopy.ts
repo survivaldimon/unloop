@@ -48,6 +48,20 @@ export interface CreditsCopy {
     error: string;
     empty: string;
   };
+  promo: {
+    link: string;
+    placeholder: string;
+    apply: string;
+    applying: string;
+    /** Amounts here are author-chosen, so RU says "кр" and dodges plurals. */
+    ok: (credits: number) => string;
+    notFound: string;
+    expired: string;
+    exhausted: string;
+    already: string;
+    signIn: string;
+    failed: string;
+  };
 }
 
 export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
@@ -92,12 +106,26 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       error: "The answer didn't come through. Ask again — a retry is free.",
       empty: "Nothing yet — your first question starts the thread.",
     },
+    promo: {
+      link: "Have a promo code?",
+      placeholder: "PROMO CODE",
+      apply: "Apply",
+      applying: "Checking…",
+      ok: (credits) => `+${credits} cr on your balance`,
+      notFound: "No such code.",
+      expired: "This code has expired.",
+      exhausted: "This code has been used up.",
+      already: "You've already used this code.",
+      signIn: "Enter your email first — the credits need an account to land on.",
+      failed: "Couldn't check the code. Try again.",
+    },
   },
-  // RU has no plural helper on purpose: every credit amount the UI can show —
-  // pack sizes, grants, bonuses, prices, and therefore every balance — is a
+  // RU has no plural helper on purpose: every credit amount spelled out in full
+  // — pack sizes, grants, bonuses, prices, and therefore every balance — is a
   // multiple of 5, and those always take the genitive plural ("кредитов").
-  // Price an action at, say, 92 credits and this stops being true; add a
-  // plural function then rather than hoping nobody notices "92 кредитов".
+  // Price an action at, say, 92 credits and this stops being true; add a plural
+  // function then rather than hoping nobody notices "92 кредитов". Promo payouts
+  // are the one author-chosen amount, which is why that line says "кр".
   ru: {
     paywall: {
       starterTitle: "Оба разбора + вопросы",
@@ -138,6 +166,19 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       thinking: "Читаю вопрос…",
       error: "Ответ не дошёл. Спроси ещё раз — повтор бесплатный.",
       empty: "Пока пусто — первый вопрос начнёт разговор.",
+    },
+    promo: {
+      link: "Есть промокод?",
+      placeholder: "ПРОМОКОД",
+      apply: "Применить",
+      applying: "Проверяем…",
+      ok: (credits) => `+${credits} кр на баланс`,
+      notFound: "Такого кода нет.",
+      expired: "Срок кода истёк.",
+      exhausted: "Код уже разобрали.",
+      already: "Ты уже использовал этот код.",
+      signIn: "Сначала оставь email — кредитам нужен аккаунт, куда лечь.",
+      failed: "Не получилось проверить код. Попробуй ещё раз.",
     },
   },
 };

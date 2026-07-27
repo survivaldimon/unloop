@@ -7,6 +7,7 @@ import {
   type PackId,
 } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
+import PromoField from "./PromoField";
 import { OFFER_WINDOW_MS, formatUsd } from "../lib/offer";
 import { paymentsProviderName } from "../lib/payments";
 import { track } from "../lib/analytics";
@@ -67,6 +68,7 @@ export default function CreditPaywall({
   payState,
   onSelect,
   onUnlockWithCredits,
+  onPromoRedeemed,
 }: {
   balance: number | null;
   /** Credits this funnel's read costs (shows the pay-from-balance card when covered). */
@@ -74,6 +76,8 @@ export default function CreditPaywall({
   payState: "idle" | "confirming" | "error";
   onSelect: (packId: PackId) => void;
   onUnlockWithCredits?: () => void;
+  /** A promo code landed — the new balance may already cover the read. */
+  onPromoRedeemed?: (balance: number | null) => void;
 }) {
   const lang = useLang();
   const ui = CREDITS_COPY[lang].paywall;
@@ -192,6 +196,7 @@ export default function CreditPaywall({
           {ui.payNote(paymentsProviderName)}
         </p>
       )}
+      {onPromoRedeemed && <PromoField onRedeemed={onPromoRedeemed} />}
     </div>
   );
 }

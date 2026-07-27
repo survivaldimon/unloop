@@ -219,6 +219,109 @@ export async function askQuestion(args: {
   }
 }
 
+export type PromoResult =
+  | { kind: "ok"; credits: number; balance: number | null }
+  | { kind: "not_found" }
+  | { kind: "expired" }
+  | { kind: "exhausted" }
+  | { kind: "already" }
+  | { kind: "throttled" }
+  | { kind: "sign_in" }
+  | { kind: "failed" };
+
+/** Everything except a transport failure is a final answer worth showing. */
+function isFinalPromoResult(result: PromoResult): boolean {
+  return result.kind !== "failed" && result.kind !== "sign_in";
+}
+
+/**
+ * Redeem a promo code for credits. The credits land on the SIGNED-IN account —
+ * functions.invoke attaches its JWT — so a code is worthless without one.
+ */
+export async function redeemPromo(code: string): Promise<PromoResult> {
+  if (!creditsEnabled || !supabase) return { kind: "failed" };
+  try {
+    const { data: current } = await supabase.auth.getSession();
+    if (!current.session) return { kind: "sign_in" };
+    const res = await supabase.functions.invoke("credits-promo", { body: { code } });
+    const data = res.data as
+      | { ok?: boolean; credits?: number; balance?: number; error?: string }
+      | null;
+    if (data?.ok === true) {
+      return {
+        kind: "ok",
+        credits: typeof data.credits === "number" ? data.credits : 0,
+        balance: typeof data.balance === "number" ? data.balance : null,
+      };
+    }
+    switch (data?.error) {
+      case "expired":
+        return { kind: "expired" };
+      case "exhausted":
+        return { kind: "exhausted" };
+      case "already_redeemed":
+        return { kind: "already" };
+      case "throttled":
+        return { kind: "throttled" };
+      case "sign_in_required":
+        return { kind: "sign_in" };
+      case "not_found":
+        return { kind: "not_found" };
+      default:
+        return { kind: "failed" };
+    }
+  } catch {
+    return { kind: "failed" };
+  }
+}
+
+const PROMO_PENDING_KEY = "looplore_promo_pending_v1";
+
+/**
+ * A code can arrive in the link (?promo=…) long before there is an account to
+ * pay it into — the account appears at the email step. Park it and redeem on
+ * the first visit where a session exists; the URL is cleaned either way so a
+ * shared screenshot doesn't carry it around.
+ */
+export function capturePromoFromUrl(): void {
+  if (!creditsEnabled) return;
+  try {
+    const url = new URL(window.location.href);
+    const code = url.searchParams.get("promo");
+    if (!code) return;
+    localStorage.setItem(PROMO_PENDING_KEY, code.trim().slice(0, 64));
+    url.searchParams.delete("promo");
+    window.history.replaceState({}, "", url.toString());
+  } catch {
+    // no storage / exotic URL — the code is simply lost, never fatal
+  }
+}
+
+/**
+ * Redeem a parked code if there is one and an account to receive it. Returns
+ * null when there was nothing to do, so callers can stay quiet.
+ */
+export async function redeemPendingPromo(): Promise<PromoResult | null> {
+  if (!creditsEnabled) return null;
+  let code: string | null = null;
+  try {
+    code = localStorage.getItem(PROMO_PENDING_KEY);
+  } catch {
+    return null;
+  }
+  if (!code) return null;
+  const result = await redeemPromo(code);
+  // Keep it parked while the account is still missing or the network flaked.
+  if (isFinalPromoResult(result)) {
+    try {
+      localStorage.removeItem(PROMO_PENDING_KEY);
+    } catch {
+      // ignore
+    }
+  }
+  return result;
+}
+
 export interface ChatEntry {
   q: string;
   a: string;

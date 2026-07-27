@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CREDIT_PACKS, type PackId } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
+import PromoField from "./PromoField";
 import { formatUsd } from "../lib/offer";
 import { track } from "../lib/analytics";
 import { useLang } from "../i18n";
@@ -16,6 +17,7 @@ export default function TopUpModal({
   busy,
   onBuy,
   onClose,
+  onPromoRedeemed,
 }: {
   balance: number;
   /** Credits needed for the action that hit the wall (5 for a question, 95 for a read). */
@@ -23,6 +25,8 @@ export default function TopUpModal({
   busy: boolean;
   onBuy: (packId: PackId) => void;
   onClose: () => void;
+  /** A promo code landed instead of a purchase — refresh and let them retry. */
+  onPromoRedeemed?: (balance: number | null) => void;
 }) {
   const lang = useLang();
   const ui = CREDITS_COPY[lang].topup;
@@ -78,6 +82,8 @@ export default function TopUpModal({
             );
           })}
         </div>
+
+        {onPromoRedeemed && <PromoField onRedeemed={onPromoRedeemed} />}
 
         <div className="mt-3 flex items-center justify-between text-[13px]">
           {!expanded ? (

@@ -28,6 +28,7 @@ export default function Teaser({
   payState = "idle",
   balance = null,
   onUnlockWithCredits,
+  onPromoRedeemed,
 }: {
   result: ScoreResult;
   /** Credit mode passes the chosen pack; the legacy paywall passes nothing. */
@@ -37,6 +38,8 @@ export default function Teaser({
   balance?: number | null;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
+  /** A promo code landed on the paywall — refresh the balance above it. */
+  onPromoRedeemed?: (balance: number | null) => void;
 }) {
   const lang = useLang();
   const ui = t(lang).teaser;
@@ -193,6 +196,7 @@ export default function Teaser({
             payState={payState}
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
+            onPromoRedeemed={onPromoRedeemed}
           />
         ) : paymentsEnabled ? (
           <div className="rounded-xl border border-brass/50 p-4 text-center">
