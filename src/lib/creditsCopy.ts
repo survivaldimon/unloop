@@ -93,22 +93,27 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       empty: "Nothing yet — your first question starts the thread.",
     },
   },
+  // RU has no plural helper on purpose: every credit amount the UI can show —
+  // pack sizes, grants, bonuses, prices, and therefore every balance — is a
+  // multiple of 5, and those always take the genitive plural ("кредитов").
+  // Price an action at, say, 92 credits and this stops being true; add a
+  // plural function then rather than hoping nobody notices "92 кредитов".
   ru: {
     paywall: {
       starterTitle: "Оба разбора + вопросы",
-      starterSub: "квиз-разбор, фото-разбор и вопросы, которые можно не считать",
-      starterBadge: "выгоднее в 3.5 раза за $",
+      starterSub: "квиз-разбор, фото-разбор и вопросы без счёта",
+      starterBadge: "в 3,5 раза выгоднее за кредит",
       miniTitle: "Этот разбор + 1 вопрос",
       miniSub: "ровно на сегодня",
       bigTitle: "Максимум",
       bigSub: "надолго",
       credits: (n) => `${n} кредитов`,
       bonus: (n) => `+${n} бонусом`,
-      bonusLine: "закажи в окно — бонус останется",
+      bonusLine: "успей до конца отсчёта — бонус останется",
       balanceLine: (n) => `у тебя уже ${n} кредитов`,
       priceList: "полный разбор — 95 кр · вопрос — 5 кр",
       cta: (usd) => `Открыть за ${usd}`,
-      enoughTitle: "На балансе хватает на этот разбор",
+      enoughTitle: "Баланса хватает на этот разбор",
       ctaCredits: (cost) => `Открыть за ${cost} кредитов`,
       confirming: "Оплата прошла — открываем…",
       payError: "Оплата не прошла. Попробуй ещё раз.",
@@ -122,7 +127,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       body: (balance, cost) => `Это стоит ${cost} кр — у тебя ${balance}.`,
       bodyGeneric: "Пополни баланс — кредиты не сгорают.",
       recommended: "рекомендуем",
-      more: "Больше опций",
+      more: "Другие паки",
       close: "Не сейчас",
     },
     chat: {
