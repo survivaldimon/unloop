@@ -101,7 +101,7 @@ Deno.serve(async (req: Request) => {
     let bonus = packBonus(pack);
     if (userId) {
       const { data: account } = await admin
-        .from("credit_accounts")
+        .from("looplore_credit_accounts")
         .select("offer_started_at")
         .eq("user_id", userId)
         .maybeSingle();

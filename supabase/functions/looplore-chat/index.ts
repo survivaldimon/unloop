@@ -128,7 +128,7 @@ Deno.serve(async (req: Request) => {
     // A retry of an already-answered question returns the stored answer free.
     if (spend.data?.duplicate === true) {
       const { data: prior } = await admin
-        .from("chat_messages")
+        .from("looplore_chat_messages")
         .select("answer")
         .eq("session_id", sessionId)
         .eq("question", question)
@@ -141,7 +141,7 @@ Deno.serve(async (req: Request) => {
     }
 
     const { data: historyRows } = await admin
-      .from("chat_messages")
+      .from("looplore_chat_messages")
       .select("question, answer")
       .eq("session_id", sessionId)
       .order("id", { ascending: false })
@@ -187,7 +187,7 @@ Deno.serve(async (req: Request) => {
     const answer = textBlock ? (textBlock as { text: string }).text.trim() : "";
     if (!answer) return json({ error: "empty_response" }, 500);
 
-    const { error: saveError } = await admin.from("chat_messages").insert({
+    const { error: saveError } = await admin.from("looplore_chat_messages").insert({
       session_id: sessionId,
       funnel,
       user_id: row.user_id,

@@ -227,7 +227,7 @@ export interface ChatEntry {
 export async function fetchChatHistory(sessionId: string): Promise<ChatEntry[]> {
   if (!creditsEnabled || !supabase) return [];
   try {
-    const { data, error } = await supabase.rpc("chat_history", {
+    const { data, error } = await supabase.rpc("looplore_chat_history", {
       p_session_id: sessionId,
     });
     if (error || !Array.isArray(data)) return [];

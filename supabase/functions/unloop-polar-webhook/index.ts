@@ -267,7 +267,13 @@ async function resolveCreditsUser(
   if (!email) return null;
   const { data: byEmail } = await admin.rpc("credits_user_id_by_email", { p_email: email });
   if (typeof byEmail === "string" && byEmail) return byEmail;
-  const created = await admin.auth.admin.createUser({ email, email_confirm: true });
+  // app_metadata.app="looplore": the CRM's handle_new_user trigger skips
+  // flagged users, so pack buyers never become trial profiles over there.
+  const created = await admin.auth.admin.createUser({
+    email,
+    email_confirm: true,
+    app_metadata: { app: "looplore" },
+  });
   if (created.data?.user?.id) return created.data.user.id;
   // Lost a race against a concurrent signup on the same email — look it up again.
   const { data: retry } = await admin.rpc("credits_user_id_by_email", { p_email: email });

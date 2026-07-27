@@ -62,9 +62,12 @@ Deno.serve(async (req: Request) => {
     const enabled = ((await getSecret(admin, "CREDITS_ENABLED")) ?? "").toLowerCase() === "true";
     if (!enabled) return json({ status: "disabled" });
 
+    // app_metadata.app="looplore" keeps this shared-project auth pool sane:
+    // the CRM's handle_new_user trigger skips flagged users (no trial profile).
     const created = await admin.auth.admin.createUser({
       email,
       email_confirm: true,
+      app_metadata: { app: "looplore" },
     });
 
     if (created.error) {
