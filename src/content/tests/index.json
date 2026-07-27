@@ -72,12 +72,12 @@
   {
     "id": "ipip_big_five",
     "title": {
-      "ru": "Тест Большой Пятёрки (IPIP)",
-      "en": "Big Five Personality Test (IPIP)"
+      "ru": "Большая пятёрка",
+      "en": "The Big Five"
     },
     "description": {
-      "ru": "Оцените себя по пяти основным факторам личности: Экстраверсия, Доброжелательность, Добросовестность, Эмоциональная стабильность и Интеллект. Ответьте честно, как вы обычно ведете себя.",
-      "en": "Assess yourself on five major personality factors: Extraversion, Agreeableness, Conscientiousness, Emotional Stability, and Intellect. Answer honestly, as you generally are."
+      "ru": "50 утверждений о том, как ты обычно себя ведёшь. Пять черт, которыми психология описывает личность последние сорок лет. Набор пунктов — IPIP, общественное достояние.",
+      "en": "50 statements about how you usually behave. The five traits psychology has used to describe personality for the past forty years. The item pool is IPIP, public domain."
     },
     "categoryId": "personality",
     "estimatedMinutes": 10,

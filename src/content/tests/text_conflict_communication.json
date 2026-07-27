@@ -31,8 +31,8 @@
       "en": "Passive revenge"
     },
     "assertiveness": {
-      "ru": "Ассертивность",
-      "en": "Assertiveness"
+      "ru": "Прямота",
+      "en": "Directness"
     }
   },
   "factorOrder": [
@@ -1157,302 +1157,316 @@
       "id": "the_ghoster",
       "icon": null,
       "name": {
-        "ru": "Призрак 👻",
-        "en": "The Ghoster 👻"
+        "ru": "Призрак",
+        "en": "The Ghost"
       },
       "description": {
-        "ru": "Твой основной стиль — избегание. Ты оставляешь на прочитанном, удаляешь тексты, не отвечаешь на неудобные вопросы. Ты боишься конфликтов настолько, что предпочитаешь исчезнуть, чем разговаривать о проблемах.",
-        "en": "Your main style is avoidance. You leave on read, delete texts, don't reply to uncomfortable questions. You fear conflicts so much you'd rather disappear than talk about problems."
+        "ru": "Ты не отвечаешь. Не потому что нечего сказать, а потому что сказать страшнее, чем пропасть.",
+        "en": "You don't answer. Not because there's nothing to say — because saying it is scarier than disappearing."
       },
       "whyThisProfile": {
-        "ru": "Обычно избегание идёт из страха конфликтов, низкой самооценки или опыта, где твоё мнение игнорировали. Тебе кажется, что молчание безопаснее, чем говорить.",
-        "en": "Usually avoidance comes from fear of conflicts, low self-esteem, or experience where your opinion was ignored. You think silence is safer than speaking."
+        "ru": "В большинстве сценариев ты выбрал уход: оставить на прочитанном, ответить завтра, не отвечать вообще. Обычно за этим стоит опыт, где разговор ничего не решал, а только делал хуже. Молчание тогда правда было дешевле. Сейчас оно просто переносит счёт на потом.",
+        "en": "In most of the scenarios you chose the exit: leave it on read, answer tomorrow, don't answer at all. Usually that comes from somewhere the conversation never fixed anything and only made it worse. Silence really was cheaper then. Now it just moves the bill to later."
       },
       "strengths": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Ты не пишешь в запале того, что нельзя забрать назад.",
+          "Ты правда думаешь, прежде чем ответить, — просто пауза у тебя длиной в неделю.",
+          "Ты не втягиваешь людей в спор ради спора.",
+          "Ты замечаешь неудобное раньше других — иначе тебе не от чего было бы уходить."
+        ],
+        "en": [
+          "You don't fire off things you can't take back.",
+          "You really do think before replying — the pause is just a week long.",
+          "You don't drag people into an argument for its own sake.",
+          "You notice the uncomfortable thing before others do — otherwise there'd be nothing to walk away from."
+        ]
       },
       "vulnerabilities": {
         "ru": [
-          "Проблемы не решаются, а накапливаются",
-          "Люди не знают что ты чувствуешь",
-          "Отношения становятся поверхностными",
-          "Тебя могут считать равнодушным",
-          "Накапливается обида и злость"
+          "Проблема не исчезает от того, что ты вышел из чата. Она ждёт и растёт.",
+          "Человек напротив достраивает твоё молчание сам, и достраивает обычно худшее.",
+          "Тебя считают равнодушным именно тогда, когда тебе не всё равно сильнее всего.",
+          "Обида копится молча, а вылезает потом сразу за полгода."
         ],
         "en": [
-          "Problems don't get solved, they accumulate",
-          "People don't know what you feel",
-          "Relationships become superficial",
-          "You may be seen as indifferent",
-          "Resentment and anger accumulate"
+          "The problem doesn't vanish because you left the chat. It waits, and it grows.",
+          "The person on the other side fills in your silence themselves, and they usually fill in the worst version.",
+          "You get read as indifferent at exactly the moments you care most.",
+          "Resentment accumulates quietly and then comes out six months at a time."
         ]
       },
       "recommendations": {
         "ru": [
-          "Начни с малого: отвечай на простые сообщения сразу",
-          "Практикуй фразу: 'Мне нужно время подумать'",
-          "Помни: конфликт ≠ конец отношений",
-          "Пробуй голосовые — они менее стрессовые чем текст",
-          "Работай над страхом конфликтов с психологом"
+          "Замени исчезновение на одну фразу: «мне нужно время, отвечу завтра». Это не разговор, это отсрочка вслух — и она полностью меняет, как её читают.",
+          "Начни с лёгких сообщений. Отвечай на них сразу, пока это не требует смелости, — навык нарабатывается на дешёвом.",
+          "Голосовое проще текста: там не надо выбирать формулировку. Если текст встал, скажи голосом."
         ],
         "en": [
-          "Start small: reply to simple messages immediately",
-          "Practice phrase: 'I need time to think'",
-          "Remember: conflict ≠ end of relationship",
-          "Try voice messages — they're less stressful than text",
-          "Work on conflict fear with therapist"
+          "Swap the disappearing act for one sentence: “I need some time, I'll answer tomorrow.” That isn't a conversation, it's a delay said out loud — and it completely changes how it reads.",
+          "Start with the easy messages. Answer those immediately, while it costs no courage — the skill is built on the cheap ones.",
+          "A voice note is easier than text: you don't have to pick the wording. When the text won't come, say it out loud."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня ответь на одно сообщение, на которое давно откладываешь ответ. Просто напиши «Привет, извини за долгое молчание».",
-        "en": "Today reply to one message you've been putting off. Just write \"Hi, sorry for long silence\"."
+        "ru": "Ответь сегодня на одно сообщение, которое давно откладываешь. Достаточно одной строки — извиняться за паузу необязательно.",
+        "en": "Answer one message you've been putting off. One line is enough, and you don't have to apologize for the gap."
       },
       "inspiringConclusion": {
-        "ru": "Твой голос важен. Мир не рухнет, если ты скажешь что чувствуешь. Начни с малого — и ты увидишь, как отношения станут честнее.",
-        "en": "Your voice matters. The world won't collapse if you say what you feel. Start small — and you'll see relationships become more honest."
+        "ru": "Молчание когда-то тебя защищало, и это было разумно. Сейчас оно защищает всё меньше и стоит всё дороже — а одна фраза вместо исчезновения оказывается легче, чем кажется отсюда.",
+        "en": "Silence protected you once, and that made sense. It protects less and less now and costs more and more — and one sentence instead of vanishing turns out easier than it looks from here."
       }
     },
     "the_exploder": {
       "id": "the_exploder",
       "icon": null,
       "name": {
-        "ru": "Бомба 💥",
-        "en": "The Bomb 💥"
+        "ru": "Бомба",
+        "en": "The Bomb"
       },
       "description": {
-        "ru": "Ты взрываешься в переписке. КАПС, восклицательные знаки, обвинения, оскорбления — твои инструменты. Ты быстро переходишь в атаку, когда что-то не так.",
-        "en": "You explode in chats. CAPS, exclamation marks, accusations, insults — your tools. You quickly go on attack when something's wrong."
+        "ru": "Ты отвечаешь сразу и на полную. Через час тебе уже не так, но написанное не отзывается.",
+        "en": "You answer immediately and at full force. An hour later you don't feel that way anymore, but sent is sent."
       },
       "whyThisProfile": {
-        "ru": "Агрессия часто маскирует боль, страх или беспомощность. Ты не научился выражать эмоции по-другому, и атака кажется способом защитить себя.",
-        "en": "Aggression often masks pain, fear, or helplessness. You didn't learn to express emotions differently, and attack seems like way to protect yourself."
+        "ru": "В большинстве сценариев ты выбрал удар: капс, обвинение, всё сразу. Под этим почти всегда лежит не злость, а беспомощность — атака оказалась единственным способом не чувствовать себя проигравшим. Работает она ровно одну минуту.",
+        "en": "In most of the scenarios you chose the hit: caps, accusation, everything at once. Underneath that is almost never anger but helplessness — attacking turned out to be the only way not to feel like the loser. It works for about a minute."
       },
       "strengths": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Тебя не надо расшифровывать: ты говоришь, что не так, и говоришь сразу.",
+          "Ты не копишь. Через день ты правда уже не держишь зла.",
+          "Ты идёшь в неудобный разговор, а не обходишь его.",
+          "Ты не притворяешься, что тебе нормально, когда ненормально."
+        ],
+        "en": [
+          "Nobody has to decode you: you say what's wrong, and you say it at once.",
+          "You don't accumulate. A day later you genuinely aren't holding it.",
+          "You go into the uncomfortable conversation instead of around it.",
+          "You don't pretend you're fine when you're not."
+        ]
       },
       "vulnerabilities": {
         "ru": [
-          "Люди боятся с тобой общаться",
-          "Отношения разрушаются",
-          "Твои слова могут ранить глубоко",
-          "Ты не можешь вернуть написанное",
-          "Тебя считают токсичным"
+          "Написанное остаётся. Твоё «через час отпустило» человек перечитывает ещё год.",
+          "С тобой начинают выбирать формулировки. Это не уважение, это осторожность — и честности в переписке становится меньше.",
+          "Ты выигрываешь обмен и теряешь человека, а замечаешь это сильно позже.",
+          "Тебя считают токсичным люди, которым ты просто не сумел объяснить, что тебе больно."
         ],
         "en": [
-          "People are afraid to communicate with you",
-          "Relationships get destroyed",
-          "Your words can hurt deeply",
-          "You can't take back what's written",
-          "You're seen as toxic"
+          "What's written stays. Your “it passed in an hour” is something they reread for another year.",
+          "People start choosing their words around you. That isn't respect, it's caution — and there's less honesty in the thread because of it.",
+          "You win the exchange and lose the person, and you notice much later.",
+          "You get called toxic by people you simply failed to tell that you were hurt."
         ]
       },
       "recommendations": {
         "ru": [
-          "КРИТИЧНО: пауза перед отправкой. Считай до 10",
-          "Правило: злой текст = сохранить в черновиках на час",
-          "Переводи КАПС в спокойный тон",
-          "Практикуй 'я-сообщения': 'Я чувствую...' вместо 'Ты...'",
-          "Работай с психологом над управлением гневом",
-          "Используй функцию 'отложенная отправка'"
+          "Пиши в черновик, не в чат. Через час перечитай — отправлять захочется примерно четверть.",
+          "Меняй «ты всегда» на «мне обидно». Это не смягчение, это точность: второе — правда, первое — оружие.",
+          "Заметь свои условия: усталость, голод, ощущение, что тебя не считают за человека. Взрыв приходит по расписанию, и расписание можно знать."
         ],
         "en": [
-          "CRITICAL: pause before sending. Count to 10",
-          "Rule: angry text = save in drafts for hour",
-          "Convert CAPS to calm tone",
-          "Practice 'I-statements': 'I feel...' instead of 'You...'",
-          "Work with therapist on anger management",
-          "Use 'delayed send' feature"
+          "Write it in a draft, not in the chat. Reread in an hour — you'll want to send about a quarter of it.",
+          "Swap “you always” for “that hurt.” That's not softening, it's accuracy: the second one is true, the first is a weapon.",
+          "Learn your conditions: tired, hungry, feeling like you're not being treated as a person. The blow-up runs on a schedule, and the schedule is knowable."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня, если почувствуешь гнев в переписке — сохрани сообщение в черновиках. Вернись к нему через час. Перепиши спокойно.",
-        "en": "Today, if you feel anger in chat — save message in drafts. Return to it in hour. Rewrite calmly."
+        "ru": "Если сегодня захочется ответить резко — напиши всё в заметки, а не в чат. Вернись через час и отправь то, что останется.",
+        "en": "If you want to fire back today, put it in your notes instead of the chat. Come back in an hour and send whatever's left."
       },
       "inspiringConclusion": {
-        "ru": "За твоей злостью — боль. За болью — желание быть услышанным. Научись говорить о боли без взрывов — и тебя услышат.",
-        "en": "Behind your anger — pain. Behind pain — desire to be heard. Learn to speak about pain without explosions — and you'll be heard."
+        "ru": "За твоей злостью почти всегда стоит «меня не услышали». Это можно сказать прямо — и, в отличие от взрыва, после этого действительно слышат.",
+        "en": "Behind your anger there's almost always “I wasn't heard.” You can say that outright — and unlike the explosion, it actually gets you heard."
       }
     },
     "the_passive_avenger": {
       "id": "the_passive_avenger",
       "icon": null,
       "name": {
-        "ru": "Тихий мститель 😒",
-        "en": "Silent Avenger 😒"
+        "ru": "Тихая месть",
+        "en": "The Slow Burn"
       },
       "description": {
-        "ru": "Ты не взрываешься напрямую, но мстишь тонко: сарказм, игнор как наказание, 'лайки' без ответа, намёки. Ты даёшь понять что недоволен, но не говоришь прямо.",
-        "en": "You don't explode directly but revenge subtly: sarcasm, ignoring as punishment, 'likes' without replies, hints. You make it clear you're displeased but don't say directly."
+        "ru": "Ты не ссоришься. Ты отвечаешь через сутки, ставишь смайлик вместо ответа и делаешь так, чтобы человек сам догадался.",
+        "en": "You don't fight. You answer a day later, react with an emoji instead of replying, and arrange it so they work it out themselves."
       },
       "whyThisProfile": {
-        "ru": "Пассивная агрессия — это когда ты злишься, но боишься конфликта. Это способ наказать, оставаясь 'хорошим'.",
-        "en": "Passive aggression is when you're angry but fear conflict. It's way to punish while staying 'nice'."
+        "ru": "В большинстве сценариев ты выбрал непрямое: сарказм, паузу как наказание, намёк. Это то, что получается, когда злость есть, а открытый конфликт кажется опасным. Способ наказать, оставшись хорошим, — и цена в том, что до человека доходит только вторая часть.",
+        "en": "In most of the scenarios you chose the indirect move: sarcasm, a pause as punishment, a hint. That's what happens when the anger is there but open conflict feels dangerous. A way to punish while staying the good one — and the price is that only the second part arrives."
       },
       "strengths": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Ты не срываешься и не пишешь непоправимого.",
+          "Ты хорошо чувствуешь, где у человека тонко. Тот же навык работает и в мирную сторону.",
+          "Ты держишь себя в руках даже когда задели по-настоящему.",
+          "Ты не выносишь ссоры на людей."
+        ],
+        "en": [
+          "You don't snap and you don't write the irreversible thing.",
+          "You have a good sense of where someone is thin. The same skill works in the kind direction too.",
+          "You keep hold of yourself even when it landed properly.",
+          "You don't take the fight public."
+        ]
       },
       "vulnerabilities": {
         "ru": [
-          "Люди не понимают что ты хочешь",
-          "Это форма манипуляции",
-          "Создаёт токсичную атмосферу",
-          "Проблемы не решаются",
-          "Ты кажешься фальшивым"
+          "Человек чувствует наказание и не знает, за что. Значит, исправить он не может даже при желании.",
+          "Ты остаёшься хорошим формально и разрушаешь связь фактически — это худший из обменов.",
+          "Проблема не решается ни разу, потому что ни разу не названа.",
+          "Тебя начинают читать как неискреннего, и это прилипает надолго."
         ],
         "en": [
-          "People don't understand what you want",
-          "It's form of manipulation",
-          "Creates toxic atmosphere",
-          "Problems don't get solved",
-          "You seem fake"
+          "They feel the punishment and don't know what for. So they can't fix it even if they want to.",
+          "You stay technically the good one while actually dismantling the connection — the worst trade available.",
+          "The problem never gets solved, because it never gets named.",
+          "People start reading you as insincere, and that sticks."
         ]
       },
       "recommendations": {
         "ru": [
-          "Замени сарказм на прямоту: 'Меня это задевает'",
-          "Не используй молчание как оружие",
-          "Если злишься — скажи об этом словами",
-          "Практикуй честную коммуникацию",
-          "Читай про ассертивность"
+          "Скажи то, ради чего включается приём. Пауза обычно значит «мне обидно», сарказм — «я злюсь». Скажи именно это, теми же словами.",
+          "Не используй молчание как инструмент. Пауза, о которой предупредили, — нормально; пауза как наказание — нет, и разница читается сразу.",
+          "Проверяй себя одним вопросом перед отправкой: я хочу, чтобы он понял, или чтобы ему стало неприятно? Ответ честный и обычно неудобный."
         ],
         "en": [
-          "Replace sarcasm with directness: 'This hurts me'",
-          "Don't use silence as weapon",
-          "If angry — say it with words",
-          "Practice honest communication",
-          "Read about assertiveness"
+          "Say the thing the move is standing in for. A pause usually means “that hurt”; sarcasm means “I'm angry.” Say that, in those words.",
+          "Don't use silence as a tool. A pause you flagged is fine; a pause as punishment isn't, and the difference reads instantly.",
+          "Check yourself with one question before sending: do I want them to understand, or do I want them to feel bad? The honest answer is usually the uncomfortable one."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня, если захочешь ответить сарказмом или игнором — остановись. Напиши прямо: «Мне обидно/больно/неприятно».",
-        "en": "Today, if you want to reply with sarcasm or ignore — stop. Write directly: \"I'm hurt/offended/uncomfortable\"."
+        "ru": "Если сегодня потянет ответить сарказмом или паузой — напиши прямо: «мне это неприятно». Четыре слова вместо трёх дней.",
+        "en": "If you feel the pull toward sarcasm or a pause today, say it straight: “that didn't sit well with me.” One sentence instead of three days."
       },
       "inspiringConclusion": {
-        "ru": "Честность — это не слабость. Говорить прямо — это смелость. Твоё настоящее мнение достойно быть услышанным.",
-        "en": "Honesty is not weakness. Speaking directly is courage. Your real opinion deserves to be heard."
+        "ru": "Прямота выглядит рискованнее непрямого хода, но обходится дешевле — и, в отличие от намёка, до человека доходит с первого раза.",
+        "en": "Saying it straight looks riskier than the indirect move and costs less — and unlike a hint, it arrives the first time."
       }
     },
     "the_assertive": {
       "id": "the_assertive",
       "icon": null,
       "name": {
-        "ru": "Ассертивный собеседник 🎯",
-        "en": "Assertive Communicator 🎯"
+        "ru": "По делу",
+        "en": "To the Point"
       },
       "description": {
-        "ru": "Ты умеешь общаться здорово! Ты прямо выражаешь чувства и границы, используешь 'я-сообщения', сохраняешь спокойный тон и конструктивность даже в конфликтах.",
-        "en": "You communicate well! You directly express feelings and boundaries, use 'I-statements', maintain calm tone and constructiveness even in conflicts."
+        "ru": "Ты говоришь, что не так, и остаёшься в разговоре. Звучит как норма — на самом деле так отвечает меньшинство.",
+        "en": "You say what's wrong and you stay in the conversation. Sounds like the baseline. It's actually what a minority does."
       },
       "whyThisProfile": {
-        "ru": "Ты научился балансировать между защитой своих границ и уважением к другим. Это редкий навык!",
-        "en": "You learned to balance between protecting your boundaries and respecting others. This is rare skill!"
+        "ru": "В большинстве сценариев ты выбрал прямой ответ без удара: назвал, что задело, не обвиняя и не исчезая. Это и есть та точка равновесия, ради которой остальные три стиля существуют как обходные пути.",
+        "en": "In most of the scenarios you chose the direct answer without the hit: you named what stung, without accusing and without vanishing. That's the balance point the other three styles exist as detours around."
       },
       "strengths": {
         "ru": [
-          "Люди понимают тебя",
-          "Конфликты решаются конструктивно",
-          "Отношения строятся на честности",
-          "Ты защищаешь границы без агрессии",
-          "Тебя уважают"
+          "Ты говоришь о своём, не переводя это в счёт к человеку.",
+          "Ты остаёшься в разговоре, когда становится неудобно.",
+          "Тебя не надо расшифровывать — рядом с тобой не приходится гадать.",
+          "Конфликт у тебя заканчивается решением, а не победой."
         ],
         "en": [
-          "People understand you",
-          "Conflicts are resolved constructively",
-          "Relationships built on honesty",
-          "You defend boundaries without aggression",
-          "You're respected"
+          "You talk about your own side without turning it into an invoice.",
+          "You stay in the conversation when it gets uncomfortable.",
+          "Nobody has to decode you — people don't have to guess around you.",
+          "Your conflicts end in a resolution rather than a win."
         ]
       },
       "vulnerabilities": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Прямота без дозировки бьёт. Верная формулировка не вовремя — это всё ещё удар.",
+          "Ты можешь требовать своей скорости от того, кому это никогда не давалось. Их этому не учили.",
+          "Ровный тон иногда читается как холодность: человеку слышно, что ты прав, и не слышно, что тебе не всё равно.",
+          "Тебе легко решить, что вопрос закрыт, потому что закрыт он у тебя."
+        ],
+        "en": [
+          "Directness without dosage still hits. The right sentence at the wrong moment is still a blow.",
+          "You can demand your speed from someone it never came easily to. Nobody taught them.",
+          "A level tone sometimes reads as cold: they hear that you're right and don't hear that you care.",
+          "It's easy for you to decide the matter is closed, because it's closed on your side."
+        ]
       },
       "recommendations": {
         "ru": [
-          "Продолжай быть примером",
-          "Помогай другим учиться ассертивности",
-          "Следи за балансом между твёрдостью и эмпатией",
-          "Не забывай про заботу о себе"
+          "Проверяй момент, а не только формулировку. Правильные слова в час ночи после тяжёлого дня — не те же слова.",
+          "Добавляй, что человек тебе важен. Тебе кажется, что это очевидно из того, что ты вообще разговариваешь. Это не очевидно.",
+          "Спрашивай, закрыт ли вопрос, вместо того чтобы считать его закрытым."
         ],
         "en": [
-          "Continue being example",
-          "Help others learn assertiveness",
-          "Monitor balance between firmness and empathy",
-          "Don't forget self-care"
+          "Check the moment, not just the wording. The right words at one in the morning after a hard day are not the same words.",
+          "Add that the person matters to you. You assume it's implied by the fact you're talking at all. It isn't.",
+          "Ask whether the matter is closed instead of assuming it is."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня поделись своим навыком: помоги другу выразить чувства конструктивно вместо агрессии или молчания.",
-        "en": "Today share your skill: help friend express feelings constructively instead of aggression or silence."
+        "ru": "В следующем непростом разговоре добавь одну фразу к тому, что и так собирался сказать: почему тебе важен этот человек.",
+        "en": "In your next difficult conversation, add one sentence to what you were going to say anyway: why this person matters to you."
       },
       "inspiringConclusion": {
-        "ru": "Ты — пример здоровой коммуникации. Твой навык говорить честно и мирно делает мир лучше. Продолжай!",
-        "en": "You are example of healthy communication. Your skill to speak honestly and peacefully makes world better. Keep going!"
+        "ru": "Ты умеешь то, ради чего другие ходят к терапевту годами. Единственная ловушка отсюда — начать мерить этой линейкой всех вокруг.",
+        "en": "You can do the thing other people spend years in therapy learning. The only trap from here is measuring everyone else with that ruler."
       }
     },
     "the_mixed": {
       "id": "the_mixed",
       "icon": null,
       "name": {
-        "ru": "Смешанный стиль 🌈",
-        "en": "Mixed Style 🌈"
+        "ru": "Зависит от человека",
+        "en": "Depends Who"
       },
       "description": {
-        "ru": "У тебя нет одного доминирующего стиля — ты используешь разные подходы в зависимости от ситуации. Это может быть как гибкостью, так и непоследовательностью.",
-        "en": "You don't have one dominant style — you use different approaches depending on situation. This can be both flexibility and inconsistency."
+        "ru": "С одними ты говоришь прямо, с другими пропадаешь, с третьими язвишь. Стиль у тебя выбирает не характер, а собеседник.",
+        "en": "With some people you say it straight, with others you disappear, with others you get sharp. Your style isn't picked by your character — it's picked by who's on the other end."
       },
       "whyThisProfile": {
-        "ru": "Твои реакции зависят от контекста: с кем, когда, в какой ситуации. Возможно, ты всё ещё ищешь свой стиль или адаптируешься под разных людей.",
-        "en": "Your reactions depend on context: with whom, when, in what situation. Perhaps you're still finding your style or adapting to different people."
+        "ru": "Ни один из четырёх стилей не набрал большинства: ты берёшь то один, то другой. Само по себе это не плохо — гибкость полезна. Вопрос в том, что ею управляет: если ты выбираешь стиль осознанно, это навык; если стиль выбирает за тебя страх перед конкретным человеком, это уже другое.",
+        "en": "None of the four styles took a majority: you use one, then another. That isn't bad in itself — flexibility is useful. The question is what's driving it. If you pick the style deliberately, that's a skill. If the style gets picked for you by how much a particular person scares you, that's something else."
       },
       "strengths": {
         "ru": [
-          "Ты гибкий в общении",
-          "Можешь адаптироваться под разных людей",
-          "У тебя есть навыки разных стилей"
+          "У тебя в наборе есть все четыре хода, включая прямой. Значит, прямой доступен — вопрос только где.",
+          "Ты подстраиваешься под собеседника, а не тащишь один режим во все разговоры.",
+          "Ты понимаешь людей всех четырёх стилей, потому что бывал каждым."
         ],
         "en": [
-          "You're flexible in communication",
-          "Can adapt to different people",
-          "You have skills of different styles"
+          "All four moves are in your kit, the direct one included. So directness is available — the only question is where.",
+          "You adapt to who you're talking to instead of dragging one mode into every conversation.",
+          "You understand people of all four styles, because you've been each of them."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Непоследовательность может сбивать других с толку",
-          "Сложно предсказать твою реакцию",
-          "Возможна внутренняя противоречивость"
+          "С тобой непонятно, чего ждать, и люди перестают понимать, всерьёз ты или нет.",
+          "Стиль у тебя обычно выбирает не ситуация, а расстановка сил: с кем можно прямо, с кем страшно.",
+          "Ты не замечаешь, что с самыми важными людьми говоришь как раз хуже всего — там больше всего страха потерять."
         ],
         "en": [
-          "Inconsistency can confuse others",
-          "Hard to predict your reaction",
-          "Possible internal contradictions"
+          "People can't predict you, and they stop knowing when you mean it.",
+          "Your style usually isn't picked by the situation but by the power balance: who you can be direct with and who scares you.",
+          "You don't notice that you communicate worst with the people who matter most — that's where the fear of losing them is."
         ]
       },
       "recommendations": {
         "ru": [
-          "Посмотри на конкретные шкалы в результатах",
-          "Определи, какой стиль тебе ближе",
-          "Работай над развитием ассертивности",
-          "Стремись к последовательности в важных отношениях"
+          "Посмотри цифры ниже и найди, куда уходишь под давлением. Это твой запасной стиль, и он включается сам.",
+          "Разложи людей по стилям: с кем ты прямой, с кем исчезаешь, с кем язвишь. Совпадение обычно не с людьми, а с тем, насколько ты боишься их потерять.",
+          "Возьми одного важного человека и говори с ним одним способом — прямым. Один человек, не все сразу."
         ],
         "en": [
-          "Look at specific scales in results",
-          "Determine which style is closer to you",
-          "Work on developing assertiveness",
-          "Strive for consistency in important relationships"
+          "Look at the numbers below and find where you go under pressure. That's your fallback style, and it engages on its own.",
+          "Sort people by style: who you're direct with, who you vanish on, who you get sharp with. The pattern usually isn't about them — it's about how afraid you are of losing them.",
+          "Take one person who matters and use one style with them — the direct one. One person, not all of them at once."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня отследи свои реакции в переписках. С кем ты агрессивен? С кем избегаешь? С кем ассертивен? Найди паттерн.",
-        "en": "Today track your reactions in chats. With whom are you aggressive? With whom avoid? With whom assertive? Find pattern."
+        "ru": "Вспомни, с кем ты в последний раз промолчал или сострил вместо прямого ответа. Напиши этому человеку то, что тогда не сказал.",
+        "en": "Think of the last person you went quiet on, or got clever with instead of answering straight. Send them the thing you didn't say."
       },
       "inspiringConclusion": {
-        "ru": "Разнообразие — это потенциал. Теперь твоя задача — выбрать, каким собеседником ты хочешь быть, и двигаться в этом направлении.",
-        "en": "Diversity is potential. Now your task — choose what kind of communicator you want to be, and move in that direction."
+        "ru": "Прямой ход у тебя есть — ты им уже пользуешься, просто не со всеми. Осталось выбрать, кем ты хочешь быть с теми, кто важнее всего.",
+        "en": "The direct move is already yours — you just don't use it with everyone. What's left is choosing who you want to be with the people who matter most."
       }
     }
   },
