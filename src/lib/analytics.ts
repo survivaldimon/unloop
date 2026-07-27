@@ -1,6 +1,7 @@
 import posthog from "posthog-js";
 import { getSessionId } from "./supabase";
 import { captureAttribution } from "./attribution";
+import { creditsEnabled } from "./credits";
 import {
   initMetaPixel,
   metaIdentify,
@@ -88,6 +89,12 @@ function forwardToMeta(
       });
       break;
     case "purchase":
+      // Credit mode: the browser must never send Purchase. Pack revenue reaches
+      // Meta from the Polar webhook's Conversions API event, keyed
+      // purchase_<order_id> and carrying the real order amount — a browser event
+      // here would dedup against nothing and report the stale single-product
+      // price, double-counting every buyer at the wrong value.
+      if (creditsEnabled) break;
       // props.sid overrides the dedup id for non-quiz funnels (photo sessions
       // have their own id namespace); the quiz keeps the legacy default.
       metaTrack(

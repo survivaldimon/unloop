@@ -222,10 +222,14 @@ export default function App() {
 
   /** Confirmed payment — the revenue event, then unlock. */
   const unlockPaid = (packId?: PackId) => {
-    if (creditsEnabled && packId) {
+    if (creditsEnabled) {
       // PostHog-only on purpose: the Meta Purchase for packs comes from the
-      // webhook's Conversions API event (dedup id = order id).
-      track("credits_purchase", { pack: packId, value: CREDIT_PACKS[packId].usd });
+      // webhook's Conversions API event (dedup id = order id). And without a
+      // pack there is no purchase at all — that call comes from the safety net
+      // reopening a session that was already paid for, often on a later visit.
+      if (packId) {
+        track("credits_purchase", { pack: packId, value: CREDIT_PACKS[packId].usd });
+      }
     } else {
       track("purchase");
     }

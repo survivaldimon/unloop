@@ -288,6 +288,86 @@ async function resolveCreditsUser(
   return typeof retry === "string" && retry ? retry : null;
 }
 
+/**
+ * A refunded pack must not leave its credits behind (docs/credits-economy.md §9).
+ *
+ * The refund payload carries none of our checkout metadata, so the grant itself
+ * is the source of truth: the ledger rows tagged with this order id say who was
+ * credited and how much (pack + timer bonus). We reverse to a TARGET — the share
+ * of the grant matching the order's cumulative refunded amount, minus whatever
+ * was reversed already — so partial refunds stack correctly and a redelivered
+ * webhook is a no-op. Only `order.refunded` is handled: it is the one event that
+ * carries the running refunded total, and taking `refund.created` as well would
+ * claw the same credits back twice.
+ *
+ * Spent credits can push the balance negative. That is the documented behaviour:
+ * spending stays blocked until the account is topped up again.
+ */
+interface LedgerRow {
+  user_id: string;
+  delta: number;
+  kind: string;
+  meta: Record<string, unknown> | null;
+}
+
+async function handleRefund(
+  admin: ReturnType<typeof createClient>,
+  order: Record<string, unknown>,
+): Promise<Record<string, unknown>> {
+  const orderId = typeof order.id === "string" ? order.id : null;
+  if (!orderId) return { ok: false, reason: "missing_order_id" };
+
+  const { data: rows, error } = await admin
+    .from("looplore_credit_ledger")
+    .select("user_id, delta, kind, meta")
+    .eq("ref", orderId)
+    .in("kind", ["purchase", "bonus_timer", "refund"])
+    .returns<LedgerRow[]>();
+  // Read failure must retry (500) rather than silently leave credits standing.
+  if (error) {
+    console.error("refund ledger read failed", orderId, error);
+    throw error;
+  }
+
+  const grants = (rows ?? []).filter((r) => r.kind !== "refund");
+  if (grants.length === 0) {
+    // Legacy single-report order (paid_at flow) — money back, nothing to claw.
+    return { ok: true, reason: "no_credits_granted" };
+  }
+  const userId = grants[0].user_id;
+  const granted = grants.reduce((sum, r) => sum + r.delta, 0);
+  const alreadyReversed = (rows ?? [])
+    .filter((r) => r.kind === "refund")
+    .reduce((sum, r) => sum - r.delta, 0);
+
+  // How much of the order came back, as a share of what was charged. The order
+  // total falls back to the amount we stored on the grant.
+  const num = (v: unknown): number | null =>
+    typeof v === "number" && Number.isFinite(v) ? v : null;
+  const total = num(order.total_amount) ?? num(grants[0].meta?.amount);
+  const refunded = num(order.refunded_amount);
+  const ratio =
+    total && total > 0 && refunded !== null ? Math.min(1, Math.max(0, refunded / total)) : 1;
+
+  const target = Math.round(granted * ratio);
+  const reverse = target - alreadyReversed;
+  if (reverse <= 0) return { ok: true, reason: "already_reversed", target };
+
+  const adjusted = await admin.rpc("credits_adjust", {
+    p_user_id: userId,
+    p_delta: -reverse,
+    p_kind: "refund",
+    p_key: `refund:${orderId}:${target}`,
+    p_ref: orderId,
+    p_meta: { order_id: orderId, granted, refunded, total },
+  });
+  if (adjusted.error || adjusted.data?.ok !== true) {
+    console.error("refund adjust failed", orderId, adjusted.error ?? adjusted.data);
+    throw new Error("refund_adjust_failed");
+  }
+  return { ok: true, reversed: reverse, balance: adjusted.data?.balance ?? null };
+}
+
 Deno.serve(async (req: Request) => {
   const json = (body: unknown, status = 200) =>
     new Response(JSON.stringify(body), {
@@ -318,6 +398,12 @@ Deno.serve(async (req: Request) => {
     }
 
     const event = JSON.parse(rawBody);
+
+    // Refund of a credit pack → take the credits back before anything else.
+    if (event?.type === "order.refunded") {
+      return json(await handleRefund(admin, event.data ?? {}));
+    }
+
     if (event?.type !== "order.paid") {
       return json({ ignored: event?.type ?? "unknown" });
     }
