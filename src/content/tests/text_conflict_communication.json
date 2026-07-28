@@ -1,0 +1,1519 @@
+{
+  "id": "text_conflict_communication",
+  "title": {
+    "ru": "Конфликты в переписке",
+    "en": "Texting Conflicts"
+  },
+  "description": {
+    "ru": "20 реальных ситуаций из переписок — и то, как ты на них отвечаешь",
+    "en": "20 real texting situations — and how you answer them"
+  },
+  "categoryId": "relationships",
+  "estimatedMinutes": 7,
+  "scoring": "answer_factor",
+  "factorIds": [
+    "avoidance",
+    "aggression",
+    "passive_revenge",
+    "assertiveness"
+  ],
+  "factorNames": {
+    "avoidance": {
+      "ru": "Избегание",
+      "en": "Avoidance"
+    },
+    "aggression": {
+      "ru": "Агрессия",
+      "en": "Aggression"
+    },
+    "passive_revenge": {
+      "ru": "Пассивная месть",
+      "en": "Passive revenge"
+    },
+    "assertiveness": {
+      "ru": "Прямота",
+      "en": "Directness"
+    }
+  },
+  "factorOrder": [
+    "avoidance",
+    "aggression",
+    "passive_revenge",
+    "assertiveness"
+  ],
+  "questions": [
+    {
+      "id": "1",
+      "text": {
+        "ru": "Как ты ответишь?",
+        "en": "How do you respond?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Твой друг пишет за час до встречи:\n\n«Слушай, не могу сегодня, извини 🙈 Что-то внезапно навалилось»",
+          "en": "Your friend texts an hour before meeting:\n\n'Hey, can't make it today, sorry 🙈 Something suddenly came up'"
+        },
+        "context": {
+          "ru": "Это уже третий раз за месяц, когда он отменяет встречу в последний момент",
+          "en": "This is the third time this month they cancel last minute"
+        }
+      },
+      "answers": [
+        {
+          "id": "1a",
+          "text": {
+            "ru": "«Окей 👌» (но злюсь внутри и ничего не говорю)",
+            "en": "'Okay 👌' (but angry inside and say nothing)"
+          },
+          "score": 0
+        },
+        {
+          "id": "1b",
+          "text": {
+            "ru": "«Да ты чё вообще??? Это уже третий раз! Ты совсем охренел что ли?!»",
+            "en": "'Are you kidding me??? This is the third time! What's wrong with you?!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "1c",
+          "text": {
+            "ru": "Оставлю на прочитанном и не отвечу",
+            "en": "Leave on read and don't reply"
+          },
+          "score": 2
+        },
+        {
+          "id": "1d",
+          "text": {
+            "ru": "«Понимаю, что бывают обстоятельства. Но меня расстраивает, что это уже третий раз. Я планирую свой день и чувствую, что моё время не ценят. Давай договоримся заранее предупреждать, если не уверен?»",
+            "en": "'I understand circumstances happen. But I'm upset this is third time. I plan my day and feel my time isn't valued. Let's agree to warn in advance if uncertain?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "text": {
+        "ru": "Твой ответ?",
+        "en": "Your response?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "В групповом чате с друзьями кто-то шутит:\n\n«Лол, [твоё имя] опять опоздал, как всегда 😂 У него вечно проблемы со временем»",
+          "en": "In group chat with friends someone jokes:\n\n'Lol, [your name] late again, as always 😂 They always have time issues'"
+        },
+        "context": {
+          "ru": "Тебя это задевает, потому что ты правда стараешься не опаздывать",
+          "en": "This hurts because you really try not to be late"
+        }
+      },
+      "answers": [
+        {
+          "id": "2a",
+          "text": {
+            "ru": "Ничего не пишу, но выхожу из чата (или мьючу его)",
+            "en": "Say nothing but leave chat (or mute it)"
+          },
+          "score": 0
+        },
+        {
+          "id": "2b",
+          "text": {
+            "ru": "«А ты вечно тупишь и говоришь хуйню, но я молчу 🙂»",
+            "en": "'And you're always stupid and say bs, but I stay quiet 🙂'"
+          },
+          "score": 1
+        },
+        {
+          "id": "2c",
+          "text": {
+            "ru": "«Ахаха, ну да 😅» (делаю вид, что не задевает, но обижен)",
+            "en": "'Haha, yeah 😅' (pretend not hurt but offended)"
+          },
+          "score": 2
+        },
+        {
+          "id": "2d",
+          "text": {
+            "ru": "«Знаю, что ты пошутил, но мне правда неприятно. Я стараюсь быть вовремя, и такие комментарии обесценивают мои усилия. Давай без личных шуток?»",
+            "en": "'I know you joked, but I'm really uncomfortable. I try to be on time, and such comments devalue my efforts. How about no personal jokes?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "text": {
+        "ru": "Что делаешь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Твой партнёр не отвечает на важное сообщение уже 3 часа, хотя был онлайн",
+          "en": "Your partner hasn't replied to important message for 3 hours, though was online"
+        },
+        "context": {
+          "ru": "Ты видишь, что он/она читает сообщения, постит сторис, но твоё сообщение игнорирует",
+          "en": "You see they read messages, post stories, but ignore yours"
+        }
+      },
+      "answers": [
+        {
+          "id": "3a",
+          "text": {
+            "ru": "Ничего. Буду ждать, когда ответит (но буду накручивать себя)",
+            "en": "Nothing. Will wait for reply (but will overthink)"
+          },
+          "score": 0
+        },
+        {
+          "id": "3b",
+          "text": {
+            "ru": "«Серьёзно?? Ты постишь сторис, но мне не можешь ответить??? Это вообще неуважение!»",
+            "en": "'Seriously?? You post stories but can't reply to me??? This is disrespectful!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "3c",
+          "text": {
+            "ru": "Тоже начну игнорировать его/её сообщения специально",
+            "en": "Will also start ignoring their messages on purpose"
+          },
+          "score": 2
+        },
+        {
+          "id": "3d",
+          "text": {
+            "ru": "«Эй, я вижу что ты онлайн. Мой вопрос важный для меня, и молчание тревожит. Всё ок? Если не можешь сейчас говорить — дай знать, когда сможем обсудить»",
+            "en": "'Hey, I see you're online. My question is important to me, and silence worries me. Everything ok? If can't talk now — let me know when we can discuss'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "text": {
+        "ru": "Твоя реакция?",
+        "en": "Your reaction?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Ты в ссоре с партнёром. Он/она пишет:\n\n«Ты всегда так реагируешь! Это просто невозможно!»",
+          "en": "You're arguing with partner. They text:\n\n'You always react like this! It's just impossible!'"
+        },
+        "context": {
+          "ru": "Это обобщение задевает тебя",
+          "en": "This generalization hurts you"
+        }
+      },
+      "answers": [
+        {
+          "id": "4a",
+          "text": {
+            "ru": "Печатаю длинный гневный текст... и удаляю. Пишу короткое «Ладно», но на самом деле не ладно",
+            "en": "Type long angry text... and delete it. Write short 'Fine' but actually not fine"
+          },
+          "score": 0
+        },
+        {
+          "id": "4b",
+          "text": {
+            "ru": "«А ТЫ ВСЕГДА ВСЁ ПРЕУВЕЛИЧИВАЕШЬ! Я НЕ 'ВСЕГДА', ТЫ ПРОСТО НЕ ХОЧЕШЬ СЛЫШАТЬ!»",
+            "en": "'AND YOU ALWAYS EXAGGERATE EVERYTHING! I DON'T 'ALWAYS', YOU JUST DON'T WANT TO HEAR!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "4c",
+          "text": {
+            "ru": "«Ну да, я такой ужасный. Всё, я всё понял 🙂» (и перестаю отвечать)",
+            "en": "'Yeah, I'm so terrible. Got it, understood everything 🙂' (and stop replying)"
+          },
+          "score": 2
+        },
+        {
+          "id": "4d",
+          "text": {
+            "ru": "«Мне больно слышать 'всегда'. Я не идеален, но обобщения обесценивают мои попытки. Давай говорить о конкретной ситуации? Что именно тебя расстроило сейчас?»",
+            "en": "'It hurts to hear 'always'. I'm not perfect, but generalizations devalue my efforts. Let's talk about specific situation? What exactly upset you now?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "text": {
+        "ru": "Как поступишь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Друг постоянно пишет тебе поздно ночью с драмами и проблемами, когда ты уже спишь",
+          "en": "Friend constantly texts you late at night with dramas and problems when you're sleeping"
+        },
+        "context": {
+          "ru": "Ты просыпаешься от уведомлений и это начинает раздражать",
+          "en": "You wake up from notifications and it's starting to annoy"
+        }
+      },
+      "answers": [
+        {
+          "id": "5a",
+          "text": {
+            "ru": "Ничего не скажу, но буду злиться и отключу уведомления",
+            "en": "Won't say anything but will be angry and turn off notifications"
+          },
+          "score": 0
+        },
+        {
+          "id": "5b",
+          "text": {
+            "ru": "«Блин, хватит уже писать ночью! Мне завтра рано вставать! У тебя что, нет других друзей?!»",
+            "en": "'Damn, stop texting at night! I have to wake up early! Don't you have other friends?!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "5c",
+          "text": {
+            "ru": "Прочитаю утром и буду игнорировать специально несколько часов",
+            "en": "Will read in morning and ignore on purpose for several hours"
+          },
+          "score": 2
+        },
+        {
+          "id": "5d",
+          "text": {
+            "ru": "«Привет! Я понимаю, что тебе бывает тяжело, и я хочу поддержать. Но ночные сообщения нарушают мой сон, и мне нужна граница. Можем договориться писать после 8 утра, если не срочно? В реально критических случаях — звони»",
+            "en": "'Hi! I understand it's hard for you sometimes, and I want to support. But night messages disrupt my sleep, and I need boundary. Can we agree to text after 8am if not urgent? In really critical cases — call'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "text": {
+        "ru": "Твоё действие?",
+        "en": "Your action?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Коллега пишет в рабочий чат в 22:00:\n\n«Можешь глянуть этот документ до завтра?»",
+          "en": "Colleague texts in work chat at 10pm:\n\n'Can you check this document by tomorrow?'"
+        },
+        "context": {
+          "ru": "Ты уже закончил работу и отдыхаешь",
+          "en": "You already finished work and are relaxing"
+        }
+      },
+      "answers": [
+        {
+          "id": "6a",
+          "text": {
+            "ru": "Прочитаю и не отвечу до утра (надеясь, что он забудет)",
+            "en": "Read and don't reply until morning (hoping they forget)"
+          },
+          "score": 0
+        },
+        {
+          "id": "6b",
+          "text": {
+            "ru": "«Может тебе нормальный тайм-менеджмент выучить, а не в 22:00 всех доставать?»",
+            "en": "'Maybe you should learn normal time management instead of bothering everyone at 10pm?'"
+          },
+          "score": 1
+        },
+        {
+          "id": "6c",
+          "text": {
+            "ru": "Поставлю лайк на сообщение, но не отвечу и не сделаю",
+            "en": "React with like to message but don't reply and don't do it"
+          },
+          "score": 2
+        },
+        {
+          "id": "6d",
+          "text": {
+            "ru": "«Я уже закончил рабочий день. Смогу посмотреть завтра к обеду. Если это реально срочно — давай обсудим приоритеты с утра»",
+            "en": "'I already finished work day. Can check it tomorrow by noon. If really urgent — let's discuss priorities in morning'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "text": {
+        "ru": "Как ответишь?",
+        "en": "How do you reply?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Друг пишет:\n\n«Погнали завтра в кино на новый фильм!»",
+          "en": "Friend texts:\n\n'Let's go to cinema tomorrow for new movie!'"
+        },
+        "context": {
+          "ru": "Ты не хочешь, но он очень настаивает",
+          "en": "You don't want to but they're really insisting"
+        }
+      },
+      "answers": [
+        {
+          "id": "7a",
+          "text": {
+            "ru": "«Ну ладно, давай» (хотя не хочу совсем)",
+            "en": "'Well okay, let's go' (though don't want at all)"
+          },
+          "score": 0
+        },
+        {
+          "id": "7b",
+          "text": {
+            "ru": "«Не, не хочу смотреть эту фигню»",
+            "en": "'Nah, don't want to watch this crap'"
+          },
+          "score": 1
+        },
+        {
+          "id": "7c",
+          "text": {
+            "ru": "«Посмотрю, как будет настроение завтра 🤷‍♂️» (уже знаю что не пойду)",
+            "en": "'Will see how I feel tomorrow 🤷‍♂️' (already know won't go)"
+          },
+          "score": 2
+        },
+        {
+          "id": "7d",
+          "text": {
+            "ru": "«Спасибо за приглашение! Но завтра мне нужен вечер для себя. Может в другой раз на что-то другое?»",
+            "en": "'Thanks for invitation! But tomorrow I need evening for myself. Maybe another time for something else?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "text": {
+        "ru": "Твоя реакция?",
+        "en": "Your reaction?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Партнёр в ссоре пишет:\n\n«Ты меня просто не любишь, это очевидно»",
+          "en": "Partner in argument texts:\n\n'You just don't love me, it's obvious'"
+        },
+        "context": {
+          "ru": "Это манипуляция, которая тебя триггерит",
+          "en": "This is manipulation that triggers you"
+        }
+      },
+      "answers": [
+        {
+          "id": "8a",
+          "text": {
+            "ru": "«Нет, люблю...» (хотя чувствую что это манипуляция, но боюсь конфликта)",
+            "en": "'No, I love you...' (though feel it's manipulation but afraid of conflict)"
+          },
+          "score": 0
+        },
+        {
+          "id": "8b",
+          "text": {
+            "ru": "«Блин, опять эта манипулятивная фигня! Если не веришь — уходи!»",
+            "en": "'Damn, this manipulative bs again! If don't believe — leave!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "8c",
+          "text": {
+            "ru": "«Окей, если ты так думаешь 🙂» (и перестаю отвечать)",
+            "en": "'Okay, if you think so 🙂' (and stop replying)"
+          },
+          "score": 2
+        },
+        {
+          "id": "8d",
+          "text": {
+            "ru": "«Когда ты говоришь так, мне больно. Я люблю тебя, но такие фразы чувствуются как манипуляция. Давай говорить о конкретных действиях, которые тебя расстроили, а не о моих чувствах?»",
+            "en": "'When you say that, it hurts me. I love you, but such phrases feel like manipulation. Let's talk about specific actions that upset you, not about my feelings?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "text": {
+        "ru": "Что делаешь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Мама пишет в 10-й раз за день:\n\n«Почему не отвечаешь? Ты где? С тобой всё в порядке?»",
+          "en": "Mom texts for 10th time today:\n\n'Why aren't you replying? Where are you? Are you okay?'"
+        },
+        "context": {
+          "ru": "Ты просто был занят, но её тревожность начинает душить",
+          "en": "You were just busy but her anxiety is starting to suffocate"
+        }
+      },
+      "answers": [
+        {
+          "id": "9a",
+          "text": {
+            "ru": "«Всё нормально» (и продолжаю игнорировать остальные сообщения)",
+            "en": "'Everything's fine' (and continue ignoring other messages)"
+          },
+          "score": 0
+        },
+        {
+          "id": "9b",
+          "text": {
+            "ru": "«МАМ, ХВАТИТ УЖЕ! Я ВЗРОСЛЫЙ ЧЕЛОВЕК! ОТСТАНЬ!»",
+            "en": "'MOM, ENOUGH ALREADY! I'M AN ADULT! LEAVE ME ALONE!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "9c",
+          "text": {
+            "ru": "Читаю но не отвечаю специально, пусть поволнуется",
+            "en": "Read but don't reply on purpose, let her worry"
+          },
+          "score": 2
+        },
+        {
+          "id": "9d",
+          "text": {
+            "ru": "«Мам, я понимаю твоё беспокойство, и я люблю тебя. Но мне нужна граница. Я взрослый и часто бываю занят. Давай я буду писать раз в день, что всё ок? В экстренной ситуации звони»",
+            "en": "'Mom, I understand your worry, and I love you. But I need boundary. I'm adult and often busy. How about I text once a day that I'm ok? In emergency — call'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "text": {
+        "ru": "Твои действия?",
+        "en": "Your actions?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "В групповом чате планируют встречу в неудобное для тебя время, но все уже согласились",
+          "en": "In group chat planning meeting at inconvenient time for you, but everyone already agreed"
+        },
+        "context": {
+          "ru": "Тебе неудобно, но ты не хочешь быть «тем самым»",
+          "en": "It's inconvenient but you don't want to be 'that person'"
+        }
+      },
+      "answers": [
+        {
+          "id": "10a",
+          "text": {
+            "ru": "«Окей, буду» (но потом просто не приду)",
+            "en": "'Okay, I'll be there' (but then just won't show up)"
+          },
+          "score": 0
+        },
+        {
+          "id": "10b",
+          "text": {
+            "ru": "«А почему никто не спросил удобно ли мне?! Вы всегда так!»",
+            "en": "'And why didn't anyone ask if it's convenient for me?! You always do this!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "10c",
+          "text": {
+            "ru": "Ничего не пишу, просто читаю (пусть думают что приду)",
+            "en": "Don't write anything, just read (let them think I'll come)"
+          },
+          "score": 2
+        },
+        {
+          "id": "10d",
+          "text": {
+            "ru": "«Ребят, мне неудобно в это время. Могу во вторник или четверг вечером. Если только это время — жаль, но не смогу. Встретимся в следующий раз!»",
+            "en": "'Guys, this time doesn't work for me. I can do Tuesday or Thursday evening. If only this time — sorry, can't make it. See you next time!'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "text": {
+        "ru": "Как поступишь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Знакомый просит одолжить денег в личке:\n\n«Друг, можешь закинуть 5к до зарплаты? Выручи 🙏»",
+          "en": "Acquaintance asks to borrow money in DM:\n\n'Dude, can you lend 5k until payday? Help me out 🙏'"
+        },
+        "context": {
+          "ru": "Ты не близки настолько, и прошлый раз он не вернул",
+          "en": "You're not that close, and last time they didn't return"
+        }
+      },
+      "answers": [
+        {
+          "id": "11a",
+          "text": {
+            "ru": "Читаю и не отвечаю вообще",
+            "en": "Read and don't reply at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "11b",
+          "text": {
+            "ru": "«Ты серьёзно? В прошлый раз не вернул, а теперь опять попрошайничаешь?»",
+            "en": "'Seriously? Didn't return last time, and now begging again?'"
+          },
+          "score": 1
+        },
+        {
+          "id": "11c",
+          "text": {
+            "ru": "«Эх, сам в жопе сейчас, извини 😬» (хотя это неправда)",
+            "en": "'Eh, broke myself right now, sorry 😬' (though not true)"
+          },
+          "score": 2
+        },
+        {
+          "id": "11d",
+          "text": {
+            "ru": "«Не могу одолжить. В прошлый раз деньги не вернулись, и я больше не даю в долг. Но могу посоветовать [ресурс для микрозаймов/помощи]»",
+            "en": "'Can't lend. Last time money wasn't returned, and I don't lend anymore. But can recommend [resource for microloans/help]'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "text": {
+        "ru": "Твои действия?",
+        "en": "Your actions?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Партнёр постоянно пишет «где ты?», «с кем?», «почему не отвечаешь?» каждые 15 минут",
+          "en": "Partner constantly texts 'where are you?', 'with whom?', 'why not replying?' every 15 minutes"
+        },
+        "context": {
+          "ru": "Это начинает душить и чувствуется как контроль",
+          "en": "This is starting to suffocate and feels like control"
+        }
+      },
+      "answers": [
+        {
+          "id": "12a",
+          "text": {
+            "ru": "Отвечаю каждый раз (хотя раздражён)",
+            "en": "Reply every time (though annoyed)"
+          },
+          "score": 0
+        },
+        {
+          "id": "12b",
+          "text": {
+            "ru": "«Ты чё, офигел контролировать меня?! Я не твоя собственность!»",
+            "en": "'Have you lost it controlling me?! I'm not your property!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "12c",
+          "text": {
+            "ru": "Специально перестаю отвечать вообще на несколько часов",
+            "en": "Purposely stop replying completely for several hours"
+          },
+          "score": 2
+        },
+        {
+          "id": "12d",
+          "text": {
+            "ru": "«Мне нужно поговорить о нашей переписке. Постоянные вопросы 'где ты' давят на меня. Я понимаю что ты беспокоишься, но мне нужно пространство. Давай договоримся о комфортной частоте связи для нас обоих?»",
+            "en": "'I need to talk about our texting. Constant 'where are you' questions pressure me. I understand you worry, but I need space. Let's agree on comfortable contact frequency for both of us?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "text": {
+        "ru": "Как отреагируешь?",
+        "en": "How do you react?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Друг пишет:\n\n«Слышал новость про твоего бывшего? 😏 Он уже с новой, лол»",
+          "en": "Friend texts:\n\n'Heard news about your ex? 😏 He's already with someone new, lol'"
+        },
+        "context": {
+          "ru": "Тебе больно, и ты не понимаешь зачем он это написал",
+          "en": "It hurts, and you don't understand why they wrote this"
+        }
+      },
+      "answers": [
+        {
+          "id": "13a",
+          "text": {
+            "ru": "«Ахаха, пофиг 😅» (но мне больно)",
+            "en": "'Haha, don't care 😅' (but it hurts)"
+          },
+          "score": 0
+        },
+        {
+          "id": "13b",
+          "text": {
+            "ru": "«А тебе какая разница? Занимайся своей жизнью!»",
+            "en": "'Why do you care? Mind your own business!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "13c",
+          "text": {
+            "ru": "«Ну ок 🙂» (и мысленно вычёркиваю друга из близких)",
+            "en": "'Well ok 🙂' (and mentally cross friend out of close ones)"
+          },
+          "score": 2
+        },
+        {
+          "id": "13d",
+          "text": {
+            "ru": "«Знаю, что ты хотел поделиться новостью, но мне сейчас больно это слышать. Давай не будем обсуждать моего бывшего? Ценю твою заботу, но это не помогает»",
+            "en": "'I know you wanted to share news, but it's painful for me to hear now. Let's not discuss my ex? I appreciate your care, but it doesn't help'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "text": {
+        "ru": "Твой ответ?",
+        "en": "Your response?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "В рабочем чате коллега публично критикует твою идею:\n\n«Это не сработает по 100 причинам. Думаю, это очевидно всем»",
+          "en": "In work chat colleague publicly criticizes your idea:\n\n'This won't work for 100 reasons. I think it's obvious to everyone'"
+        },
+        "context": {
+          "ru": "Тебя задевает публичность критики",
+          "en": "You're hurt by public criticism"
+        }
+      },
+      "answers": [
+        {
+          "id": "14a",
+          "text": {
+            "ru": "Ничего не отвечаю (но чувствую себя униженным)",
+            "en": "Don't reply anything (but feel humiliated)"
+          },
+          "score": 0
+        },
+        {
+          "id": "14b",
+          "text": {
+            "ru": "«А твои идеи всегда идеальны? Может сначала сам что-то предложишь?»",
+            "en": "'And your ideas are always perfect? Maybe suggest something yourself first?'"
+          },
+          "score": 1
+        },
+        {
+          "id": "14c",
+          "text": {
+            "ru": "«Ну ок, раз 'очевидно всем' 🙂» (и запоминаю это)",
+            "en": "'Well ok, if 'obvious to everyone' 🙂' (and remember this)"
+          },
+          "score": 2
+        },
+        {
+          "id": "14d",
+          "text": {
+            "ru": "«Ценю обратную связь. Можем обсудить конкретные проблемы лично или в отдельном треде? Хочу понять твои аргументы и доработать предложение»",
+            "en": "'I appreciate feedback. Can we discuss specific issues privately or in separate thread? I want to understand your arguments and improve proposal'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "text": {
+        "ru": "Что делаешь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Друг 'забыл' про твой день рождения, хотя ты помнишь про его",
+          "en": "Friend 'forgot' your birthday though you remember theirs"
+        },
+        "context": {
+          "ru": "Тебе обидно и хочется как-то на это отреагировать",
+          "en": "You're hurt and want to somehow react"
+        }
+      },
+      "answers": [
+        {
+          "id": "15a",
+          "text": {
+            "ru": "Ничего не говорю (но запомню это)",
+            "en": "Say nothing (but will remember this)"
+          },
+          "score": 0
+        },
+        {
+          "id": "15b",
+          "text": {
+            "ru": "«Прикольно, да? Я твой помню, а ты мой нет»",
+            "en": "'Cool, right? I remember yours but you don't mine'"
+          },
+          "score": 1
+        },
+        {
+          "id": "15c",
+          "text": {
+            "ru": "Забуду про его следующий день рождения специально",
+            "en": "Will forget their next birthday on purpose"
+          },
+          "score": 2
+        },
+        {
+          "id": "15d",
+          "text": {
+            "ru": "«Эй, сегодня мой день рождения 😊 Я понимаю, что все забывчивы иногда. Но мне было бы приятно, если бы ты помнил — это важно для меня»",
+            "en": "'Hey, it's my birthday today 😊 I understand everyone is forgetful sometimes. But I'd appreciate if you remembered — it's important to me'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "text": {
+        "ru": "Твоя реакция?",
+        "en": "Your reaction?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Партнёр пишет после ссоры:\n\n«Я просто не буду больше с тобой об этом говорить»",
+          "en": "Partner texts after argument:\n\n'I just won't talk to you about this anymore'"
+        },
+        "context": {
+          "ru": "Это чувствуется как уход от решения проблемы",
+          "en": "This feels like avoiding problem resolution"
+        }
+      },
+      "answers": [
+        {
+          "id": "16a",
+          "text": {
+            "ru": "«Ладно» (и больше не поднимаю тему, хотя проблема не решена)",
+            "en": "'Fine' (and don't bring up topic again, though problem unsolved)"
+          },
+          "score": 0
+        },
+        {
+          "id": "16b",
+          "text": {
+            "ru": "«Как удобно! Так ты всегда делаешь! Бежишь от проблем!»",
+            "en": "'How convenient! You always do this! Run from problems!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "16c",
+          "text": {
+            "ru": "«Окей, не говорим 🙂» (и тоже закрываюсь)",
+            "en": "'Okay, won't talk 🙂' (and close off too)"
+          },
+          "score": 2
+        },
+        {
+          "id": "16d",
+          "text": {
+            "ru": "«Мне важно решить этот вопрос, потому что он влияет на наши отношения. Понимаю, что сейчас тяжело, но избегание не решит проблему. Может возьмём паузу и вернёмся к разговору завтра?»",
+            "en": "'It's important to me to resolve this because it affects our relationship. I understand it's hard now, but avoidance won't solve problem. Maybe take break and return to conversation tomorrow?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "text": {
+        "ru": "Как поступишь?",
+        "en": "What do you do?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "В групповом чате твою шутку никто не понял и начали осуждать",
+          "en": "In group chat nobody understood your joke and started judging"
+        },
+        "context": {
+          "ru": "Ты чувствуешь себя неловко и не знаешь как выйти из ситуации",
+          "en": "You feel awkward and don't know how to handle situation"
+        }
+      },
+      "answers": [
+        {
+          "id": "17a",
+          "text": {
+            "ru": "Удалю сообщение и больше ничего не напишу",
+            "en": "Delete message and won't write anything else"
+          },
+          "score": 0
+        },
+        {
+          "id": "17b",
+          "text": {
+            "ru": "«Вы просто тупые и не понимаете юмор»",
+            "en": "'You're just dumb and don't understand humor'"
+          },
+          "score": 1
+        },
+        {
+          "id": "17c",
+          "text": {
+            "ru": "«Ладно, забейте 🙄» (и обижусь)",
+            "en": "'Fine, forget it 🙄' (and get offended)"
+          },
+          "score": 2
+        },
+        {
+          "id": "17d",
+          "text": {
+            "ru": "«Ой, извините, это была неудачная шутка 😅 Я имел в виду [объяснение]. Понимаю что прозвучало не так»",
+            "en": "'Oh, sorry, that was bad joke 😅 I meant [explanation]. Understand it sounded wrong'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "text": {
+        "ru": "Как напишешь?",
+        "en": "How do you text?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Сосед по комнате/квартире постоянно оставляет грязную посуду",
+          "en": "Roommate constantly leaves dirty dishes"
+        },
+        "context": {
+          "ru": "Ты уже устал это терпеть",
+          "en": "You're already tired of tolerating this"
+        }
+      },
+      "answers": [
+        {
+          "id": "18a",
+          "text": {
+            "ru": "Ничего не пишу, просто мою за ним (и злюсь)",
+            "en": "Don't write anything, just wash after them (and angry)"
+          },
+          "score": 0
+        },
+        {
+          "id": "18b",
+          "text": {
+            "ru": "«Блин, ты вообще свинья! Сколько можно уже?!»",
+            "en": "'Damn, you're such a pig! How long can this go on?!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "18c",
+          "text": {
+            "ru": "Оставлю всю грязную посуду в его комнате",
+            "en": "Will leave all dirty dishes in their room"
+          },
+          "score": 2
+        },
+        {
+          "id": "18d",
+          "text": {
+            "ru": "«Привет! Мне нужно поговорить о посуде. Я устал мыть за двоих. Давай договоримся: каждый моет сразу после еды? Или сделаем график?»",
+            "en": "'Hi! I need to talk about dishes. I'm tired of washing for two. Let's agree: everyone washes right after eating? Or make schedule?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "text": {
+        "ru": "Как напишешь?",
+        "en": "How do you text?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Друг 'случайно' рассказал твой секрет другим",
+          "en": "Friend 'accidentally' told your secret to others"
+        },
+        "context": {
+          "ru": "Ты чувствуешь предательство",
+          "en": "You feel betrayed"
+        }
+      },
+      "answers": [
+        {
+          "id": "19a",
+          "text": {
+            "ru": "Ничего не скажу, но дистанцируюсь (больше не буду доверять)",
+            "en": "Won't say anything but distance myself (won't trust anymore)"
+          },
+          "score": 0
+        },
+        {
+          "id": "19b",
+          "text": {
+            "ru": "«Ты предатель! После этого мы не друзья!»",
+            "en": "'You're a traitor! We're not friends after this!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "19c",
+          "text": {
+            "ru": "«Ахаха, всё норм 😅» (но внутри бешусь и расскажу его секрет)",
+            "en": "'Haha, all good 😅' (but furious inside and will tell their secret)"
+          },
+          "score": 2
+        },
+        {
+          "id": "19d",
+          "text": {
+            "ru": "«Мне больно, что мой секрет рассказали. Я доверял тебе. Понимаю что могла быть случайность, но для меня это важно. Можем поговорить об этом?»",
+            "en": "'I'm hurt that my secret was told. I trusted you. I understand it might be accident, but it's important to me. Can we talk about this?'"
+          },
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "text": {
+        "ru": "Твоя реакция?",
+        "en": "Your reaction?"
+      },
+      "factorId": null,
+      "isReversed": false,
+      "scenario": {
+        "situation": {
+          "ru": "Партнёр пишет в 3 часа ночи после вечеринки:\n\n«ты лутший я так тя лублю»",
+          "en": "Partner texts at 3am after party:\n\n'ur the best i luv u so much'"
+        },
+        "context": {
+          "ru": "Ты проснулся от уведомления и злишься, что он/она напился и беспокоит",
+          "en": "You woke up from notification and angry they got drunk and disturb"
+        }
+      },
+      "answers": [
+        {
+          "id": "20a",
+          "text": {
+            "ru": "Не отвечу (буду злиться молча до утра)",
+            "en": "Won't reply (will be silently angry until morning)"
+          },
+          "score": 0
+        },
+        {
+          "id": "20b",
+          "text": {
+            "ru": "«Заебал! Я сплю! Иди спать тоже!»",
+            "en": "'Fed up! I'm sleeping! Go sleep too!'"
+          },
+          "score": 1
+        },
+        {
+          "id": "20c",
+          "text": {
+            "ru": "«👍» (и проигнорирую его с утра специально)",
+            "en": "'👍' (and will ignore them in morning on purpose)"
+          },
+          "score": 2
+        },
+        {
+          "id": "20d",
+          "text": {
+            "ru": "«Люблю тебя тоже 😊 Но сейчас 3 ночи и я сплю. Поговорим утром, окей? Спокойной ночи»",
+            "en": "'Love you too 😊 But it's 3am and I'm sleeping. Let's talk in morning, okay? Good night'"
+          },
+          "score": 3
+        }
+      ]
+    }
+  ],
+  "weights": {},
+  "factorWeights": {
+    "avoidance": {
+      "anxiety": 0.8,
+      "self_consciousness": 0.7,
+      "avoidant_coping": 0.9,
+      "assertiveness": -0.9,
+      "emotional_openness": -0.7,
+      "trust": -0.6,
+      "self_esteem": -0.5,
+      "harm_avoidance": 0.9,
+      "social_boldness": -0.7,
+      "expressiveness": -0.6
+    },
+    "aggression": {
+      "anger": 0.9,
+      "impulsiveness": 0.7,
+      "composure": -0.8,
+      "frustration_tolerance": -0.7,
+      "empathy": -0.6,
+      "conflict_resolution": -0.7,
+      "thinking": 0.6
+    },
+    "passive_revenge": {
+      "straightforwardness": -0.9,
+      "forgiveness": -0.8,
+      "manipulation": 0.7,
+      "assertiveness": -0.8,
+      "emotional_openness": -0.8,
+      "conflict_resolution": -0.6,
+      "anger": 0.6,
+      "trust": -0.5
+    },
+    "assertiveness": {
+      "assertiveness": 0.9,
+      "emotional_openness": 0.8,
+      "expressiveness": 0.8,
+      "conflict_resolution": 0.9,
+      "self_esteem": 0.7,
+      "composure": 0.7,
+      "empathy": 0.6,
+      "social_boldness": 0.7,
+      "boundary_setting": 0.9,
+      "feeling": 0.6,
+      "anxiety": -0.5,
+      "avoidant_coping": -0.9,
+      "straightforwardness": 0.8
+    }
+  },
+  "profiles": {
+    "the_ghoster": {
+      "id": "the_ghoster",
+      "icon": null,
+      "name": {
+        "ru": "Призрак",
+        "en": "The Ghost"
+      },
+      "description": {
+        "ru": "Ты не отвечаешь. Не потому что нечего сказать, а потому что сказать страшнее, чем пропасть.",
+        "en": "You don't answer. Not because there's nothing to say — because saying it is scarier than disappearing."
+      },
+      "whyThisProfile": {
+        "ru": "В большинстве сценариев ты выбрал уход: оставить на прочитанном, ответить завтра, не отвечать вообще. Обычно за этим стоит опыт, где разговор ничего не решал, а только делал хуже. Молчание тогда правда было дешевле. Сейчас оно просто переносит счёт на потом.",
+        "en": "In most of the scenarios you chose the exit: leave it on read, answer tomorrow, don't answer at all. Usually that comes from somewhere the conversation never fixed anything and only made it worse. Silence really was cheaper then. Now it just moves the bill to later."
+      },
+      "strengths": {
+        "ru": [
+          "Ты не пишешь в запале того, что нельзя забрать назад.",
+          "Ты правда думаешь, прежде чем ответить, — просто пауза у тебя длиной в неделю.",
+          "Ты не втягиваешь людей в спор ради спора.",
+          "Ты замечаешь неудобное раньше других — иначе тебе не от чего было бы уходить."
+        ],
+        "en": [
+          "You don't fire off things you can't take back.",
+          "You really do think before replying — the pause is just a week long.",
+          "You don't drag people into an argument for its own sake.",
+          "You notice the uncomfortable thing before others do — otherwise there'd be nothing to walk away from."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Проблема не исчезает от того, что ты вышел из чата. Она ждёт и растёт.",
+          "Человек напротив достраивает твоё молчание сам, и достраивает обычно худшее.",
+          "Тебя считают равнодушным именно тогда, когда тебе не всё равно сильнее всего.",
+          "Обида копится молча, а вылезает потом сразу за полгода."
+        ],
+        "en": [
+          "The problem doesn't vanish because you left the chat. It waits, and it grows.",
+          "The person on the other side fills in your silence themselves, and they usually fill in the worst version.",
+          "You get read as indifferent at exactly the moments you care most.",
+          "Resentment accumulates quietly and then comes out six months at a time."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Замени исчезновение на одну фразу: «мне нужно время, отвечу завтра». Это не разговор, это отсрочка вслух — и она полностью меняет, как её читают.",
+          "Начни с лёгких сообщений. Отвечай на них сразу, пока это не требует смелости, — навык нарабатывается на дешёвом.",
+          "Голосовое проще текста: там не надо выбирать формулировку. Если текст встал, скажи голосом."
+        ],
+        "en": [
+          "Swap the disappearing act for one sentence: “I need some time, I'll answer tomorrow.” That isn't a conversation, it's a delay said out loud — and it completely changes how it reads.",
+          "Start with the easy messages. Answer those immediately, while it costs no courage — the skill is built on the cheap ones.",
+          "A voice note is easier than text: you don't have to pick the wording. When the text won't come, say it out loud."
+        ]
+      },
+      "tryToday": {
+        "ru": "Ответь сегодня на одно сообщение, которое давно откладываешь. Достаточно одной строки — извиняться за паузу необязательно.",
+        "en": "Answer one message you've been putting off. One line is enough, and you don't have to apologize for the gap."
+      },
+      "inspiringConclusion": {
+        "ru": "Молчание когда-то тебя защищало, и это было разумно. Сейчас оно защищает всё меньше и стоит всё дороже — а одна фраза вместо исчезновения оказывается легче, чем кажется отсюда.",
+        "en": "Silence protected you once, and that made sense. It protects less and less now and costs more and more — and one sentence instead of vanishing turns out easier than it looks from here."
+      }
+    },
+    "the_exploder": {
+      "id": "the_exploder",
+      "icon": null,
+      "name": {
+        "ru": "Бомба",
+        "en": "The Bomb"
+      },
+      "description": {
+        "ru": "Ты отвечаешь сразу и на полную. Через час тебе уже не так, но написанное не отзывается.",
+        "en": "You answer immediately and at full force. An hour later you don't feel that way anymore, but sent is sent."
+      },
+      "whyThisProfile": {
+        "ru": "В большинстве сценариев ты выбрал удар: капс, обвинение, всё сразу. Под этим почти всегда лежит не злость, а беспомощность — атака оказалась единственным способом не чувствовать себя проигравшим. Работает она ровно одну минуту.",
+        "en": "In most of the scenarios you chose the hit: caps, accusation, everything at once. Underneath that is almost never anger but helplessness — attacking turned out to be the only way not to feel like the loser. It works for about a minute."
+      },
+      "strengths": {
+        "ru": [
+          "Тебя не надо расшифровывать: ты говоришь, что не так, и говоришь сразу.",
+          "Ты не копишь. Через день ты правда уже не держишь зла.",
+          "Ты идёшь в неудобный разговор, а не обходишь его.",
+          "Ты не притворяешься, что тебе нормально, когда ненормально."
+        ],
+        "en": [
+          "Nobody has to decode you: you say what's wrong, and you say it at once.",
+          "You don't accumulate. A day later you genuinely aren't holding it.",
+          "You go into the uncomfortable conversation instead of around it.",
+          "You don't pretend you're fine when you're not."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Написанное остаётся. Твоё «через час отпустило» человек перечитывает ещё год.",
+          "С тобой начинают выбирать формулировки. Это не уважение, это осторожность — и честности в переписке становится меньше.",
+          "Ты выигрываешь обмен и теряешь человека, а замечаешь это сильно позже.",
+          "Тебя считают токсичным люди, которым ты просто не сумел объяснить, что тебе больно."
+        ],
+        "en": [
+          "What's written stays. Your “it passed in an hour” is something they reread for another year.",
+          "People start choosing their words around you. That isn't respect, it's caution — and there's less honesty in the thread because of it.",
+          "You win the exchange and lose the person, and you notice much later.",
+          "You get called toxic by people you simply failed to tell that you were hurt."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Пиши в черновик, не в чат. Через час перечитай — отправлять захочется примерно четверть.",
+          "Меняй «ты всегда» на «мне обидно». Это не смягчение, это точность: второе — правда, первое — оружие.",
+          "Заметь свои условия: усталость, голод, ощущение, что тебя не считают за человека. Взрыв приходит по расписанию, и расписание можно знать."
+        ],
+        "en": [
+          "Write it in a draft, not in the chat. Reread in an hour — you'll want to send about a quarter of it.",
+          "Swap “you always” for “that hurt.” That's not softening, it's accuracy: the second one is true, the first is a weapon.",
+          "Learn your conditions: tired, hungry, feeling like you're not being treated as a person. The blow-up runs on a schedule, and the schedule is knowable."
+        ]
+      },
+      "tryToday": {
+        "ru": "Если сегодня захочется ответить резко — напиши всё в заметки, а не в чат. Вернись через час и отправь то, что останется.",
+        "en": "If you want to fire back today, put it in your notes instead of the chat. Come back in an hour and send whatever's left."
+      },
+      "inspiringConclusion": {
+        "ru": "За твоей злостью почти всегда стоит «меня не услышали». Это можно сказать прямо — и, в отличие от взрыва, после этого действительно слышат.",
+        "en": "Behind your anger there's almost always “I wasn't heard.” You can say that outright — and unlike the explosion, it actually gets you heard."
+      }
+    },
+    "the_passive_avenger": {
+      "id": "the_passive_avenger",
+      "icon": null,
+      "name": {
+        "ru": "Тихая месть",
+        "en": "The Slow Burn"
+      },
+      "description": {
+        "ru": "Ты не ссоришься. Ты отвечаешь через сутки, ставишь смайлик вместо ответа и делаешь так, чтобы человек сам догадался.",
+        "en": "You don't fight. You answer a day later, react with an emoji instead of replying, and arrange it so they work it out themselves."
+      },
+      "whyThisProfile": {
+        "ru": "В большинстве сценариев ты выбрал непрямое: сарказм, паузу как наказание, намёк. Это то, что получается, когда злость есть, а открытый конфликт кажется опасным. Способ наказать, оставшись хорошим, — и цена в том, что до человека доходит только вторая часть.",
+        "en": "In most of the scenarios you chose the indirect move: sarcasm, a pause as punishment, a hint. That's what happens when the anger is there but open conflict feels dangerous. A way to punish while staying the good one — and the price is that only the second part arrives."
+      },
+      "strengths": {
+        "ru": [
+          "Ты не срываешься и не пишешь непоправимого.",
+          "Ты хорошо чувствуешь, где у человека тонко. Тот же навык работает и в мирную сторону.",
+          "Ты держишь себя в руках даже когда задели по-настоящему.",
+          "Ты не выносишь ссоры на людей."
+        ],
+        "en": [
+          "You don't snap and you don't write the irreversible thing.",
+          "You have a good sense of where someone is thin. The same skill works in the kind direction too.",
+          "You keep hold of yourself even when it landed properly.",
+          "You don't take the fight public."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Человек чувствует наказание и не знает, за что. Значит, исправить он не может даже при желании.",
+          "Ты остаёшься хорошим формально и разрушаешь связь фактически — это худший из обменов.",
+          "Проблема не решается ни разу, потому что ни разу не названа.",
+          "Тебя начинают читать как неискреннего, и это прилипает надолго."
+        ],
+        "en": [
+          "They feel the punishment and don't know what for. So they can't fix it even if they want to.",
+          "You stay technically the good one while actually dismantling the connection — the worst trade available.",
+          "The problem never gets solved, because it never gets named.",
+          "People start reading you as insincere, and that sticks."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Скажи то, ради чего включается приём. Пауза обычно значит «мне обидно», сарказм — «я злюсь». Скажи именно это, теми же словами.",
+          "Не используй молчание как инструмент. Пауза, о которой предупредили, — нормально; пауза как наказание — нет, и разница читается сразу.",
+          "Проверяй себя одним вопросом перед отправкой: я хочу, чтобы он понял, или чтобы ему стало неприятно? Ответ честный и обычно неудобный."
+        ],
+        "en": [
+          "Say the thing the move is standing in for. A pause usually means “that hurt”; sarcasm means “I'm angry.” Say that, in those words.",
+          "Don't use silence as a tool. A pause you flagged is fine; a pause as punishment isn't, and the difference reads instantly.",
+          "Check yourself with one question before sending: do I want them to understand, or do I want them to feel bad? The honest answer is usually the uncomfortable one."
+        ]
+      },
+      "tryToday": {
+        "ru": "Если сегодня потянет ответить сарказмом или паузой — напиши прямо: «мне это неприятно». Четыре слова вместо трёх дней.",
+        "en": "If you feel the pull toward sarcasm or a pause today, say it straight: “that didn't sit well with me.” One sentence instead of three days."
+      },
+      "inspiringConclusion": {
+        "ru": "Прямота выглядит рискованнее непрямого хода, но обходится дешевле — и, в отличие от намёка, до человека доходит с первого раза.",
+        "en": "Saying it straight looks riskier than the indirect move and costs less — and unlike a hint, it arrives the first time."
+      }
+    },
+    "the_assertive": {
+      "id": "the_assertive",
+      "icon": null,
+      "name": {
+        "ru": "По делу",
+        "en": "To the Point"
+      },
+      "description": {
+        "ru": "Ты говоришь, что не так, и остаёшься в разговоре. Звучит как норма — на самом деле так отвечает меньшинство.",
+        "en": "You say what's wrong and you stay in the conversation. Sounds like the baseline. It's actually what a minority does."
+      },
+      "whyThisProfile": {
+        "ru": "В большинстве сценариев ты выбрал прямой ответ без удара: назвал, что задело, не обвиняя и не исчезая. Это и есть та точка равновесия, ради которой остальные три стиля существуют как обходные пути.",
+        "en": "In most of the scenarios you chose the direct answer without the hit: you named what stung, without accusing and without vanishing. That's the balance point the other three styles exist as detours around."
+      },
+      "strengths": {
+        "ru": [
+          "Ты говоришь о своём, не переводя это в счёт к человеку.",
+          "Ты остаёшься в разговоре, когда становится неудобно.",
+          "Тебя не надо расшифровывать — рядом с тобой не приходится гадать.",
+          "Конфликт у тебя заканчивается решением, а не победой."
+        ],
+        "en": [
+          "You talk about your own side without turning it into an invoice.",
+          "You stay in the conversation when it gets uncomfortable.",
+          "Nobody has to decode you — people don't have to guess around you.",
+          "Your conflicts end in a resolution rather than a win."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Прямота без дозировки бьёт. Верная формулировка не вовремя — это всё ещё удар.",
+          "Ты можешь требовать своей скорости от того, кому это никогда не давалось. Их этому не учили.",
+          "Ровный тон иногда читается как холодность: человеку слышно, что ты прав, и не слышно, что тебе не всё равно.",
+          "Тебе легко решить, что вопрос закрыт, потому что закрыт он у тебя."
+        ],
+        "en": [
+          "Directness without dosage still hits. The right sentence at the wrong moment is still a blow.",
+          "You can demand your speed from someone it never came easily to. Nobody taught them.",
+          "A level tone sometimes reads as cold: they hear that you're right and don't hear that you care.",
+          "It's easy for you to decide the matter is closed, because it's closed on your side."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй момент, а не только формулировку. Правильные слова в час ночи после тяжёлого дня — не те же слова.",
+          "Добавляй, что человек тебе важен. Тебе кажется, что это очевидно из того, что ты вообще разговариваешь. Это не очевидно.",
+          "Спрашивай, закрыт ли вопрос, вместо того чтобы считать его закрытым."
+        ],
+        "en": [
+          "Check the moment, not just the wording. The right words at one in the morning after a hard day are not the same words.",
+          "Add that the person matters to you. You assume it's implied by the fact you're talking at all. It isn't.",
+          "Ask whether the matter is closed instead of assuming it is."
+        ]
+      },
+      "tryToday": {
+        "ru": "В следующем непростом разговоре добавь одну фразу к тому, что и так собирался сказать: почему тебе важен этот человек.",
+        "en": "In your next difficult conversation, add one sentence to what you were going to say anyway: why this person matters to you."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты отвечаешь так, как остальные три стиля только пытаются. Осталось помнить, что для них это не выбор из четырёх вариантов, а единственный доступный.",
+        "en": "You answer the way the other three styles are only attempting to. Just remember that for them it isn't a choice between four options — it's the only one available."
+      }
+    },
+    "the_mixed": {
+      "id": "the_mixed",
+      "icon": null,
+      "name": {
+        "ru": "Зависит от человека",
+        "en": "Depends Who"
+      },
+      "description": {
+        "ru": "С одними ты говоришь прямо, с другими пропадаешь, с третьими язвишь. Стиль у тебя выбирает не характер, а собеседник.",
+        "en": "With some people you say it straight, with others you disappear, with others you get sharp. Your style isn't picked by your character — it's picked by who's on the other end."
+      },
+      "whyThisProfile": {
+        "ru": "Ни один из четырёх стилей не набрал большинства: ты берёшь то один, то другой. Само по себе это не плохо — гибкость полезна. Вопрос в том, что ею управляет: если ты выбираешь стиль осознанно, это навык; если стиль выбирает за тебя страх перед конкретным человеком, это уже другое.",
+        "en": "None of the four styles took a majority: you use one, then another. That isn't bad in itself — flexibility is useful. The question is what's driving it. If you pick the style deliberately, that's a skill. If the style gets picked for you by how much a particular person scares you, that's something else."
+      },
+      "strengths": {
+        "ru": [
+          "У тебя в наборе есть все четыре хода, включая прямой. Значит, прямой доступен — вопрос только где.",
+          "Ты подстраиваешься под собеседника, а не тащишь один режим во все разговоры.",
+          "Ты понимаешь людей всех четырёх стилей, потому что бывал каждым."
+        ],
+        "en": [
+          "All four moves are in your kit, the direct one included. So directness is available — the only question is where.",
+          "You adapt to who you're talking to instead of dragging one mode into every conversation.",
+          "You understand people of all four styles, because you've been each of them."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "С тобой непонятно, чего ждать, и люди перестают понимать, всерьёз ты или нет.",
+          "Стиль у тебя обычно выбирает не ситуация, а расстановка сил: с кем можно прямо, с кем страшно.",
+          "Ты не замечаешь, что с самыми важными людьми говоришь как раз хуже всего — там больше всего страха потерять."
+        ],
+        "en": [
+          "People can't predict you, and they stop knowing when you mean it.",
+          "Your style usually isn't picked by the situation but by the power balance: who you can be direct with and who scares you.",
+          "You don't notice that you communicate worst with the people who matter most — that's where the fear of losing them is."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Посмотри цифры ниже и найди, куда уходишь под давлением. Это твой запасной стиль, и он включается сам.",
+          "Разложи людей по стилям: с кем ты прямой, с кем исчезаешь, с кем язвишь. Совпадение обычно не с людьми, а с тем, насколько ты боишься их потерять.",
+          "Возьми одного важного человека и говори с ним одним способом — прямым. Один человек, не все сразу."
+        ],
+        "en": [
+          "Look at the numbers below and find where you go under pressure. That's your fallback style, and it engages on its own.",
+          "Sort people by style: who you're direct with, who you vanish on, who you get sharp with. The pattern usually isn't about them — it's about how afraid you are of losing them.",
+          "Take one person who matters and use one style with them — the direct one. One person, not all of them at once."
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни, с кем ты в последний раз промолчал или сострил вместо прямого ответа. Напиши этому человеку то, что тогда не сказал.",
+        "en": "Think of the last person you went quiet on, or got clever with instead of answering straight. Send them the thing you didn't say."
+      },
+      "inspiringConclusion": {
+        "ru": "Прямой ход у тебя есть — ты им уже пользуешься, просто не со всеми. Осталось выбрать, кем ты хочешь быть с теми, кто важнее всего.",
+        "en": "The direct move is already yours — you just don't use it with everyone. What's left is choosing who you want to be with the people who matter most."
+      }
+    }
+  },
+  "profileSelection": {
+    "mode": "rules",
+    "fallback": "the_mixed",
+    "rules": [
+      {
+        "when": [
+          [
+            "assertiveness",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "the_assertive"
+      },
+      {
+        "when": [
+          [
+            "avoidance",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "the_ghoster"
+      },
+      {
+        "when": [
+          [
+            "aggression",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "the_exploder"
+      },
+      {
+        "when": [
+          [
+            "passive_revenge",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "the_passive_avenger"
+      }
+    ]
+  }
+}

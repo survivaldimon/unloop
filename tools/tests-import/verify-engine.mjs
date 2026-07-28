@@ -1,0 +1,122 @@
+#!/usr/bin/env node
+/**
+ * Э4 exit criterion: the TypeScript engine must reproduce the golden fixtures
+ * of Э3 on the canonical test files.
+ *
+ *   node tools/tests-import/verify-engine.mjs
+ *
+ * The project has no test runner and this check is not worth adding one for, so
+ * the engine is compiled with the TypeScript already in devDependencies and the
+ * result is imported directly. Output lands under out/, which is git-ignored.
+ */
+
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+
+const ROOT = path.resolve(import.meta.dirname, "../..");
+const OUT = path.join(import.meta.dirname, "out");
+const BUILD = path.join(OUT, "engine-build");
+const FIXTURES = path.join(OUT, "fixtures");
+const CONTENT = path.join(ROOT, "src/content/tests");
+
+/**
+ * A git worktree has no node_modules of its own, so walk up until the compiler
+ * turns up in some ancestor's install.
+ */
+function findTsc(from) {
+  let dir = from;
+  for (let i = 0; i < 6; i++) {
+    const candidate = path.join(dir, "node_modules/typescript/bin/tsc");
+    if (fs.existsSync(candidate)) return candidate;
+    const parent = path.dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return null;
+}
+
+const TSC = findTsc(ROOT);
+if (!TSC) {
+  console.error("не нашёл typescript — запусти npm install в основном репозитории");
+  process.exit(1);
+}
+
+fs.rmSync(BUILD, { recursive: true, force: true });
+try {
+  // Run the compiler through node rather than the npx shim: the .cmd wrapper
+  // cannot be spawned directly on Windows.
+  execFileSync(
+    process.execPath,
+    [
+      TSC,
+      "src/tests/engine.ts",
+      "--outDir",
+      path.relative(ROOT, BUILD),
+      "--module",
+      "es2022",
+      "--target",
+      "es2022",
+      "--moduleResolution",
+      "bundler",
+    ],
+    { cwd: ROOT, stdio: "pipe" },
+  );
+} catch (error) {
+  console.error("не скомпилировалось:\n" + (error.stdout?.toString() ?? error.message));
+  process.exit(1);
+}
+
+const { scoreTest } = await import(pathToFileURL(path.join(BUILD, "engine.js")).href);
+const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
+
+/** Fixtures carry one decimal; anything beyond that is float noise. */
+const EPSILON = 0.05;
+
+let checked = 0;
+let failed = 0;
+const notes = [];
+
+for (const file of fs.readdirSync(FIXTURES)) {
+  const fixture = load(path.join(FIXTURES, file));
+  const testFile = path.join(CONTENT, `${fixture.testId}.json`);
+  if (!fs.existsSync(testFile)) {
+    notes.push(`${fixture.testId}: нет канонического файла — пропущен`);
+    continue;
+  }
+  const test = load(testFile);
+
+  for (const [caseName, expected] of Object.entries(fixture.cases)) {
+    const actual = scoreTest(test, expected.answers);
+    const problems = [];
+
+    for (const [factor, value] of Object.entries(expected.factorPercentages)) {
+      const got = actual.factorPercentages[factor];
+      if (got === undefined || Math.abs(got - value) > EPSILON) {
+        problems.push(`фактор ${factor}: ожидалось ${value}, получено ${got}`);
+      }
+    }
+    for (const [scale, value] of Object.entries(expected.scaleScores)) {
+      const got = actual.scaleScores[scale];
+      if (got === undefined || Math.abs(got - value) > EPSILON) {
+        problems.push(`шкала ${scale}: ожидалось ${value}, получено ${got}`);
+      }
+    }
+
+    checked++;
+    if (problems.length) {
+      failed++;
+      console.log(`✗ ${fixture.testId} / ${caseName}`);
+      for (const p of problems.slice(0, 5)) console.log(`    ${p}`);
+      if (problems.length > 5) console.log(`    …ещё ${problems.length - 5}`);
+    } else {
+      const profile = actual.typeCode ?? actual.profileId;
+      console.log(`✓ ${fixture.testId.padEnd(26)} ${caseName.padEnd(8)} → ${profile}`);
+    }
+  }
+}
+
+for (const note of notes) console.log(`· ${note}`);
+console.log(`\nпроверено ${checked}, расхождений ${failed}`);
+process.exit(failed ? 1 : 0);

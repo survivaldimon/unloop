@@ -1,0 +1,2686 @@
+{
+  "id": "love_languages_v1",
+  "title": {
+    "ru": "Как ты считываешь любовь",
+    "en": "How You Read Love"
+  },
+  "description": {
+    "ru": "30 вопросов о том, по каким признакам ты понимаешь, что тебя любят. И почему то, что делает партнёр, иногда проходит мимо.",
+    "en": "30 questions about what actually makes you feel loved — and why the things your partner does sometimes miss you entirely."
+  },
+  "categoryId": "relationships",
+  "estimatedMinutes": 8,
+  "scoring": "likert",
+  "factorIds": [
+    "words_of_affirmation",
+    "quality_time",
+    "receiving_gifts",
+    "acts_of_service",
+    "physical_touch"
+  ],
+  "factorNames": {
+    "words_of_affirmation": {
+      "ru": "Слова",
+      "en": "Words"
+    },
+    "quality_time": {
+      "ru": "Время",
+      "en": "Time"
+    },
+    "receiving_gifts": {
+      "ru": "Знаки внимания",
+      "en": "Tokens"
+    },
+    "acts_of_service": {
+      "ru": "Дела",
+      "en": "Deeds"
+    },
+    "physical_touch": {
+      "ru": "Прикосновения",
+      "en": "Touch"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Когда партнёр говорит мне комплименты или хвалит меня",
+        "en": "When my partner gives me compliments or praises me"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Когда партнёр откладывает всё в сторону, чтобы провести время со мной",
+        "en": "When my partner puts everything aside to spend time with me"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Когда партнёр дарит мне подарки или сюрпризы",
+        "en": "When my partner gives me gifts or surprises"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Когда партнёр помогает мне с делами или задачами",
+        "en": "When my partner helps me with chores or tasks"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Когда партнёр обнимает меня или прикасается ко мне",
+        "en": "When my partner hugs me or touches me"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Слышать \"Я люблю тебя\" от партнёра",
+        "en": "Hearing \"I love you\" from my partner"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Когда партнёр активно слушает меня без отвлечений",
+        "en": "When my partner actively listens to me without distractions"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Когда партнёр запоминает важные для меня даты и дарит подарки",
+        "en": "When my partner remembers important dates and gives gifts"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Когда партнёр делает что-то, чтобы облегчить мою жизнь",
+        "en": "When my partner does something to make my life easier"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Когда партнёр держит меня за руку на публике",
+        "en": "When my partner holds my hand in public"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Получать записки или сообщения с тёплыми словами от партнёра",
+        "en": "Receiving notes or messages with warm words from my partner"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Когда мы с партнёром занимаемся чем-то вместе, что нравится нам обоим",
+        "en": "When my partner and I do something together that we both enjoy"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Когда партнёр приносит мне что-то, что показывает, что он думал обо мне",
+        "en": "When my partner brings me something that shows they were thinking of me"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Когда партнёр берёт на себя задачи, которые я не люблю",
+        "en": "When my partner takes on tasks that I don't like"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Когда партнёр обнимает меня после тяжёлого дня",
+        "en": "When my partner hugs me after a hard day"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Когда партнёр говорит мне, что гордится мной",
+        "en": "When my partner tells me they are proud of me"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Когда партнёр планирует особенное свидание или время для нас двоих",
+        "en": "When my partner plans a special date or time for just us"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Когда партнёр дарит мне подарок без повода",
+        "en": "When my partner gives me a gift for no reason"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Когда партнёр готовит для меня еду",
+        "en": "When my partner cooks for me"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Когда партнёр делает мне массаж",
+        "en": "When my partner gives me a massage"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Когда партнёр публично выражает благодарность или признательность мне",
+        "en": "When my partner publicly expresses gratitude or appreciation to me"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Когда партнёр откладывает телефон и даёт мне безраздельное внимание",
+        "en": "When my partner puts away their phone and gives me undivided attention"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Видеть, что партнёр хранит подарки, которые я ему дарил(а)",
+        "en": "Seeing that my partner keeps the gifts I gave them"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Когда партнёр делает что-то практичное, чтобы помочь мне",
+        "en": "When my partner does something practical to help me"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Когда партнёр сидит рядом со мной на диване и касается меня",
+        "en": "When my partner sits next to me on the couch and touches me"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Когда партнёр поддерживает меня словами в трудных ситуациях",
+        "en": "When my partner supports me with words in difficult situations"
+      },
+      "factorId": "words_of_affirmation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Когда мы с партнёром ведём глубокие, значимые разговоры",
+        "en": "When my partner and I have deep, meaningful conversations"
+      },
+      "factorId": "quality_time",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Когда партнёр покупает мне что-то, что я давно хотел(а)",
+        "en": "When my partner buys me something I've wanted for a long time"
+      },
+      "factorId": "receiving_gifts",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Когда партнёр замечает, что нужно сделать, и делает это без напоминания",
+        "en": "When my partner notices what needs to be done and does it without being reminded"
+      },
+      "factorId": "acts_of_service",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Когда партнёр целует меня спонтанно",
+        "en": "When my partner kisses me spontaneously"
+      },
+      "factorId": "physical_touch",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не важно",
+            "en": "Not important at all"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Мало важно",
+            "en": "Slightly important"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Умеренно важно",
+            "en": "Moderately important"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Очень важно",
+            "en": "Very important"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Критически важно",
+            "en": "Extremely important"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "verbal_communication": 1,
+      "affection_expression": 0.9,
+      "positive_emotions": 0.7,
+      "warmth": 0.6,
+      "emotional_openness": 0.5,
+      "extraversion": 0.3,
+      "feeling": 0.3
+    },
+    "q6": {
+      "verbal_communication": 1,
+      "affection_expression": 1,
+      "emotional_intimacy": 0.8,
+      "relationship_security": 0.7,
+      "trust_in_relationships": 0.6,
+      "feeling": 0.4
+    },
+    "q11": {
+      "verbal_communication": 0.9,
+      "affection_expression": 0.9,
+      "relationship_security": 0.6,
+      "emotional_openness": 0.6,
+      "positive_emotions": 0.5,
+      "feeling": 0.3
+    },
+    "q16": {
+      "verbal_communication": 1,
+      "self_esteem": 0.8,
+      "achievement_motivation": 0.7,
+      "affection_expression": 0.7,
+      "support_giving": 0.6,
+      "feeling": 0.3
+    },
+    "q21": {
+      "verbal_communication": 1,
+      "social_confidence": 0.7,
+      "self_esteem": 0.7,
+      "affection_expression": 0.6,
+      "relationship_security": 0.5,
+      "extraversion": 0.4,
+      "feeling": 0.3
+    },
+    "q26": {
+      "verbal_communication": 1,
+      "support_giving": 0.9,
+      "emotional_intelligence": 0.7,
+      "empathy": 0.7,
+      "trust_in_relationships": 0.6,
+      "feeling": 0.4
+    },
+    "q2": {
+      "relationship_security": 1,
+      "intimacy_comfort": 0.9,
+      "relatedness_need": 0.8,
+      "emotional_intimacy": 0.7,
+      "affection_expression": 0.6,
+      "feeling": 0.3
+    },
+    "q7": {
+      "active_listening": 1,
+      "communication_quality": 0.9,
+      "emotional_intelligence": 0.7,
+      "intimacy_comfort": 0.7,
+      "trust_in_relationships": 0.6,
+      "feeling": 0.3
+    },
+    "q12": {
+      "shared_goals": 0.9,
+      "intimacy_comfort": 0.8,
+      "playfulness": 0.7,
+      "relationship_security": 0.6,
+      "positive_emotions": 0.6,
+      "extraversion": 0.3
+    },
+    "q17": {
+      "relationship_security": 1,
+      "commitment": 0.9,
+      "passion_vitality": 0.8,
+      "intimacy_comfort": 0.7,
+      "affection_expression": 0.6,
+      "feeling": 0.3,
+      "judging": 0.2
+    },
+    "q22": {
+      "attention_control": 0.9,
+      "relationship_security": 0.9,
+      "intimacy_comfort": 0.7,
+      "communication_quality": 0.6,
+      "trust_in_relationships": 0.6,
+      "feeling": 0.3
+    },
+    "q27": {
+      "communication_quality": 1,
+      "emotional_intimacy": 0.9,
+      "vulnerability_sharing": 0.8,
+      "intellectual_curiosity": 0.6,
+      "emotional_intelligence": 0.6,
+      "feeling": 0.4,
+      "intuition": 0.3
+    },
+    "q3": {
+      "affection_expression": 0.9,
+      "relationship_security": 0.7,
+      "positive_emotions": 0.6,
+      "empathy": 0.6,
+      "spontaneity": 0.5
+    },
+    "q8": {
+      "empathy": 0.9,
+      "affection_expression": 0.8,
+      "diligence": 0.7,
+      "relationship_security": 0.6,
+      "commitment": 0.5
+    },
+    "q13": {
+      "empathy": 1,
+      "affection_expression": 0.8,
+      "emotional_intelligence": 0.6,
+      "relationship_security": 0.6,
+      "compassion": 0.5
+    },
+    "q18": {
+      "spontaneity": 0.9,
+      "affection_expression": 0.9,
+      "playfulness": 0.6,
+      "relationship_security": 0.6,
+      "positive_emotions": 0.5
+    },
+    "q23": {
+      "relationship_security": 0.9,
+      "commitment": 0.8,
+      "emotional_intimacy": 0.7,
+      "loyalty": 0.6,
+      "affection_expression": 0.5
+    },
+    "q28": {
+      "empathy": 1,
+      "affection_expression": 0.8,
+      "emotional_intelligence": 0.7,
+      "active_listening": 0.6,
+      "relationship_security": 0.6
+    },
+    "q4": {
+      "support_giving": 1,
+      "cooperativeness": 0.8,
+      "altruism": 0.8,
+      "compassion": 0.6,
+      "relationship_security": 0.5,
+      "feeling": 0.2
+    },
+    "q9": {
+      "support_giving": 1,
+      "empathy": 0.8,
+      "emotional_intelligence": 0.7,
+      "altruism": 0.7,
+      "compassion": 0.6,
+      "feeling": 0.3
+    },
+    "q14": {
+      "support_giving": 1,
+      "altruism": 0.9,
+      "empathy": 0.7,
+      "relationship_security": 0.6,
+      "emotional_intelligence": 0.6
+    },
+    "q19": {
+      "support_giving": 0.9,
+      "tender_mindedness": 0.9,
+      "affection_expression": 0.6,
+      "empathy": 0.6,
+      "warmth": 0.5
+    },
+    "q24": {
+      "support_giving": 1,
+      "problem_solving": 0.7,
+      "reliability_partnership": 0.7,
+      "cooperativeness": 0.6,
+      "dependability": 0.6
+    },
+    "q29": {
+      "empathy": 1,
+      "support_giving": 0.9,
+      "emotional_intelligence": 0.7,
+      "responsibility": 0.7,
+      "dependability": 0.6
+    },
+    "q5": {
+      "physical_intimacy": 1,
+      "affection_expression": 0.9,
+      "intimacy_comfort": 0.7,
+      "warmth": 0.6,
+      "relationship_security": 0.5,
+      "feeling": 0.3
+    },
+    "q10": {
+      "physical_intimacy": 1,
+      "affection_expression": 0.8,
+      "relationship_security": 0.7,
+      "social_confidence": 0.6,
+      "commitment": 0.5,
+      "extraversion": 0.3
+    },
+    "q15": {
+      "physical_intimacy": 1,
+      "support_giving": 0.9,
+      "empathy": 0.7,
+      "emotional_intelligence": 0.6,
+      "affection_expression": 0.6,
+      "feeling": 0.3
+    },
+    "q20": {
+      "physical_intimacy": 1,
+      "support_giving": 0.8,
+      "tender_mindedness": 0.7,
+      "affection_expression": 0.7,
+      "empathy": 0.5
+    },
+    "q25": {
+      "physical_intimacy": 1,
+      "intimacy_comfort": 0.8,
+      "affection_expression": 0.6,
+      "relationship_security": 0.6,
+      "warmth": 0.5
+    },
+    "q30": {
+      "physical_intimacy": 1,
+      "spontaneity": 0.9,
+      "affection_expression": 0.9,
+      "passion_vitality": 0.7,
+      "playfulness": 0.6,
+      "feeling": 0.3
+    }
+  },
+  "profiles": {
+    "profile_words": {
+      "id": "profile_words",
+      "icon": null,
+      "name": {
+        "ru": "Скажи это вслух",
+        "en": "Say It Out Loud"
+      },
+      "description": {
+        "ru": "Тебе можно сделать что угодно — но если не сказать, ты не засчитаешь. Слова у тебя единственная валюта, которая точно проходит.",
+        "en": "Someone can do anything for you, but if they don't say it, it doesn't register. Words are the one currency that reliably reaches you."
+      },
+      "whyThisProfile": {
+        "ru": "По ответам слова у тебя заметно выше остальных четырёх каналов. Ты помнишь фразы дословно — и хорошие, и плохие, — потому что именно через них ты считываешь, как к тебе относятся.",
+        "en": "Words came out well above the other four channels. You remember sentences word for word — the good ones and the bad ones — because that's the channel you read closeness through."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь сказать человеку то, что он будет помнить годами.",
+          "Ты замечаешь смену тона раньше, чем смену поведения.",
+          "Ты не отделываешься „и так понятно“ — ты проговариваешь.",
+          "Ты помнишь, кто и что сказал тебе в трудный момент. И возвращаешь это."
+        ],
+        "en": [
+          "You can say the thing someone will still remember years later.",
+          "You catch a change of tone before a change of behaviour.",
+          "You don't settle for “they know” — you say it.",
+          "You remember who said what to you in a hard moment, and you give it back."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Критика заходит глубже, чем задумывал говорящий. Ты слышишь приговор там, где была правка.",
+          "Молчаливая забота проходит мимо. Человек старается, ты не засчитываешь, и оба не понимают почему.",
+          "Ты ждёшь слов, а не просишь их — и потом обижаешься на тишину, о которой не предупреждал."
+        ],
+        "en": [
+          "Criticism lands deeper than the speaker intended. You hear a verdict where they meant an edit.",
+          "Quiet care goes right past you. They're trying, you're not counting it, and neither of you understands why.",
+          "You wait for the words instead of asking for them, then resent a silence you never flagged."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Скажи прямо: «мне нужно слышать это словами». Это не слабость, это инструкция к тебе — без неё человек угадывает.",
+          "Заведи привычку пересчитывать дела. Помытая посуда и закрытый вопрос — тоже фраза, просто на другом языке.",
+          "Прежде чем принять критику как приговор, спроси, что именно имелось в виду. Обычно меньше, чем ты услышал."
+        ],
+        "en": [
+          "Say it plainly: “I need to hear it in words.” That isn't weakness, it's your manual — without it people are guessing.",
+          "Start counting the deeds. The dishes done and the thing handled are sentences too, just in another language.",
+          "Before you take criticism as a verdict, ask what exactly was meant. It's usually smaller than what you heard."
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи одному человеку одну конкретную вещь, за которую ты ему благодарен. Не общее «ты классный», а что именно он сделал.",
+        "en": "Tell one person one specific thing you're grateful for. Not “you're great” — what exactly they did."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты слышишь любовь в словах, и это не каприз, а настройка. Просто скажи о ней вслух: со стороны её почти невозможно угадать.",
+        "en": "You hear love in words, and that isn't a whim — it's how you're tuned. Just say so out loud: from outside it's almost impossible to guess."
+      }
+    },
+    "profile_time": {
+      "id": "profile_time",
+      "icon": null,
+      "name": {
+        "ru": "Всё внимание",
+        "en": "Full Attention"
+      },
+      "description": {
+        "ru": "Тебе не нужно много времени. Тебе нужно, чтобы в эти полчаса человек был здесь целиком, а не наполовину.",
+        "en": "You don't need a lot of time. You need the person to be entirely here for half an hour, rather than half-here for an evening."
+      },
+      "whyThisProfile": {
+        "ru": "Время вышло у тебя выше прочих каналов. Причём считается не длительность, а неразделённость: вечер рядом с человеком, который листает телефон, ты засчитываешь как ноль — и это не придирка, это то, как устроен твой счётчик.",
+        "en": "Time came out above the other channels — and what counts isn't duration, it's undividedness. An evening beside someone scrolling their phone registers as zero for you. That isn't fussiness, it's how your meter works."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь быть в разговоре целиком. Рядом с тобой человека действительно слушают.",
+          "Ты выбираешь глубину, а не частоту: одна честная встреча в месяц лучше, чем переписка каждый день.",
+          "Ты замечаешь, когда человек ушёл из разговора, хотя физически остался.",
+          "Ты вкладываешь в отношения самое невосполнимое, что у тебя есть."
+        ],
+        "en": [
+          "You can be entirely inside a conversation. People next to you actually get listened to.",
+          "You pick depth over frequency: one honest evening a month beats texting every day.",
+          "You notice when someone has left the conversation while still sitting in it.",
+          "You spend the one thing you can't get back on the people you care about."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Отменённый план ты читаешь не как занятость, а как рейтинг. Обычно это не он.",
+          "С загруженными людьми тебе тяжело: их занятость ты принимаешь на свой счёт.",
+          "Ты требуешь присутствия, но редко называешь это словом — и человек не понимает, за что его наказывают тишиной.",
+          "Тебе трудно принять, что рядом молча — это тоже вместе."
+        ],
+        "en": [
+          "A cancelled plan reads to you as a ranking rather than a schedule. Usually it's the schedule.",
+          "Busy people are hard for you: you take their workload personally.",
+          "You demand presence but rarely name it, so the other person doesn't know what the silence is punishing.",
+          "It's hard for you to accept that sitting quietly nearby also counts as together."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проси конкретно: «сорок минут без телефона» вместо «ты вообще со мной не бываешь». Первое выполнимо, второе только ранит.",
+          "Договаривайся о времени заранее. Тишина по расписанию перестаёт быть отвержением.",
+          "Когда план сорвался, задай один вопрос вместо построения теории. У занятости обычно есть скучная причина."
+        ],
+        "en": [
+          "Ask specifically: “forty minutes with no phone” instead of “you're never really here”. The first is doable; the second just wounds.",
+          "Agree on the time in advance. Silence on a schedule stops reading as rejection.",
+          "When a plan falls through, ask one question instead of building a theory. Busy usually has a boring explanation."
+        ]
+      },
+      "tryToday": {
+        "ru": "Убери телефон и проведи двадцать минут с одним человеком, ничего при этом не делая. Просто разговор. Заметь, сколько это на самом деле.",
+        "en": "Put the phone away and spend twenty minutes with one person doing nothing else. Just talking. Notice how much that actually is."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты меришь любовь не часами, а неразделённостью. Это дорогая валюта — просто назови её, чтобы человек знал, чем с тобой расплачиваться.",
+        "en": "You measure love in undividedness, not hours. It's an expensive currency — just name it, so people know what you take."
+      }
+    },
+    "profile_gifts": {
+      "id": "profile_gifts",
+      "icon": null,
+      "name": {
+        "ru": "Знак внимания",
+        "en": "The Token"
+      },
+      "description": {
+        "ru": "Дело не в вещи. Дело в том, что человек где-то шёл, увидел и подумал о тебе — и у тебя есть этому доказательство.",
+        "en": "It isn't about the object. It's that someone was somewhere, saw it, and thought of you — and now you have the proof."
+      },
+      "whyThisProfile": {
+        "ru": "Знаки внимания у тебя вышли выше остальных каналов. Это про доказуемость, а не про деньги: тебе важно, что о тебе подумали в момент, когда тебя рядом не было. Вещь — просто носитель этого факта.",
+        "en": "Tokens came out above your other channels. It's about evidence, not money: what matters is that someone thought of you at a moment when you weren't there. The object is just what carries the fact."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь выбирать так, что человек понимает: его знают.",
+          "Ты помнишь даты и не считаешь это обязанностью.",
+          "Ты видишь заботу в мелочи, которую другие бы не заметили.",
+          "Ты хранишь вещи с историей, и у твоих отношений есть материальная память."
+        ],
+        "en": [
+          "You choose things in a way that tells someone they're known.",
+          "You remember dates, and you don't experience it as an obligation.",
+          "You see care in a small thing other people would miss entirely.",
+          "You keep objects with a history, so your relationships have a physical memory."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Забытая дата ощущается доказательством, что о тебе не думают. Обычно это доказательство только плохой памяти.",
+          "Подарок «для галочки» ранит сильнее, чем его отсутствие: ты считываешь не вещь, а вложенное усилие.",
+          "Тебе неловко объяснять этот канал — звучит как меркантильность, хотя дело вообще не в цене."
+        ],
+        "en": [
+          "A forgotten date feels like proof that nobody thinks about you. Usually it's only proof of a bad memory.",
+          "A box-ticking gift hurts more than none at all: you're reading the effort, not the object.",
+          "You're embarrassed to explain this channel — it sounds mercenary, though price has nothing to do with it."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Объясни разницу вслух: тебе нужен не дорогой подарок, а доказательство, что о тебе подумали. Это совсем другая просьба, и её легко выполнить.",
+          "Заведи общий список — и свой, и партнёра. Угадывание проваливают почти все, и это не про чувства.",
+          "Считай не только вещи. Скриншот, ссылка «это про тебя», принесённый кофе — это тот же жест в дешёвой упаковке."
+        ],
+        "en": [
+          "Say the difference out loud: you don't need an expensive gift, you need evidence that someone thought of you. That's a completely different request, and an easy one to meet.",
+          "Keep a shared list — yours and theirs. Almost everyone fails at guessing, and it isn't about how much they care.",
+          "Count more than objects. A screenshot, a link that says “this is you”, a coffee carried in — same gesture, cheaper packaging."
+        ]
+      },
+      "tryToday": {
+        "ru": "Отправь человеку что-то маленькое, что напомнило тебе о нём. Хоть ссылку. Важно, чтобы он узнал, что ты о нём подумал, когда его не было рядом.",
+        "en": "Send someone a small thing that reminded you of them. A link will do. What matters is that they learn you thought of them when they weren't there."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты собираешь доказательства, что о тебе помнят, — и это нормальная человеческая потребность, а не жадность. Скажи об этом прямо, и её станет легко закрывать.",
+        "en": "You collect evidence that you're remembered. That's an ordinary human need, not greed. Say it plainly and it becomes easy to meet."
+      }
+    },
+    "profile_service": {
+      "id": "profile_service",
+      "icon": null,
+      "name": {
+        "ru": "Не говори — сделай",
+        "en": "Do, Don't Say"
+      },
+      "description": {
+        "ru": "Красивых слов ты наслушался. Тебя убеждает только то, что человек взял и снял с тебя одну задачу.",
+        "en": "You've heard plenty of beautiful words. The only thing that convinces you is someone taking one task off your hands."
+      },
+      "whyThisProfile": {
+        "ru": "Дела вышли у тебя выше остальных каналов. Ты меришь отношение не намерением, а исполнением: обещанное и невыполненное для тебя хуже, чем не обещанное вовсе.",
+        "en": "Deeds came out above your other channels. You measure regard by execution rather than intention: promised-and-not-done is worse to you than never promised at all."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь, что человеку тяжело, и делаешь, а не сочувствуешь вслух.",
+          "На тебя можно положиться, и это не фигура речи.",
+          "Ты видишь заботу в бытовом, которое большинство считает скучным и не засчитывает вообще.",
+          "Ты благодаришь за конкретное, а не абстрактно."
+        ],
+        "en": [
+          "You notice someone is struggling and act, rather than sympathizing out loud.",
+          "You can be relied on, and that isn't a figure of speech.",
+          "You see care in the domestic things most people find boring and never count at all.",
+          "You thank people for the specific thing, not in general."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Невыполненное обещание ты записываешь не в забывчивость, а в отношение. Иногда справедливо, чаще нет.",
+          "Ты тянешь на себе и молчишь, а потом предъявляешь счёт за год сразу.",
+          "Просить помощь тебе труднее, чем сделать самому. Поэтому вокруг привыкают, что тебе не надо.",
+          "Слова ты обесцениваешь целиком — и не слышишь тех, для кого это единственный доступный канал."
+        ],
+        "en": [
+          "A broken promise goes into the “how they feel about me” column rather than the “they forgot” one. Sometimes fairly, more often not.",
+          "You carry it silently and then present a year's invoice all at once.",
+          "Asking for help is harder for you than doing it yourself, so everyone learns you don't need any.",
+          "You write off words entirely — and stop hearing the people for whom that's the only channel available."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проси конкретное и одно: «забери заказ в четверг» вместо «ты мне никогда не помогаешь». Расплывчатую просьбу выполнить невозможно.",
+          "Говори сразу, а не собирай. Счёт за год не оплачивает никто — он только доказывает, что ты молчал.",
+          "Позволь человеку сделать плохо и не переделывай. Иначе ты сам закрываешь тот канал, которого просишь."
+        ],
+        "en": [
+          "Ask for one specific thing: “pick up the order Thursday” instead of “you never help me”. A vague request is impossible to fulfil.",
+          "Say it at the time instead of collecting. Nobody pays a year's invoice — it only proves you stayed quiet.",
+          "Let someone do it badly and don't redo it. Otherwise you're closing the very channel you're asking for."
+        ]
+      },
+      "tryToday": {
+        "ru": "Попроси одного человека об одной конкретной вещи, которая снимет с тебя задачу. Без объяснений, почему ты заслужил, и без «если тебе не сложно».",
+        "en": "Ask one person for one specific thing that takes a task off you. No case for why you deserve it, no “if it's not too much trouble”."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты веришь делам, и это трезвая позиция. Просто не забывай, что твои дела тоже надо иногда переводить на словесный: не все умеют читать твой язык.",
+        "en": "You believe actions, and that's a sober position. Just remember your own actions need translating into words sometimes — not everyone can read your language."
+      }
+    },
+    "profile_touch": {
+      "id": "profile_touch",
+      "icon": null,
+      "name": {
+        "ru": "Ближе",
+        "en": "Closer"
+      },
+      "description": {
+        "ru": "Разговор может быть правильным по всем словам, но пока человек не окажется рядом физически, для тебя ничего не решено.",
+        "en": "A conversation can be right in every word, but until the person is physically close nothing feels settled to you."
+      },
+      "whyThisProfile": {
+        "ru": "Прикосновения вышли у тебя выше остальных каналов. Это не про секс: тебе нужен контакт как подтверждение, что вы на одной стороне. Ссора для тебя заканчивается не словом «прости», а тем, что вас снова можно обнять.",
+        "en": "Touch came out above your other channels. It isn't about sex: you need contact as confirmation you're on the same side. A fight ends for you not at “sorry” but at the moment you can be held again."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь успокоить человека без единого слова.",
+          "Ты быстро чувствуешь чужое состояние — раньше, чем оно проговорено.",
+          "Рядом с тобой физически спокойно, и люди это помнят.",
+          "Ты не изображаешь близость: если ты рядом, ты правда рядом."
+        ],
+        "en": [
+          "You can calm someone down without a single word.",
+          "You pick up on how someone is doing before they've said it.",
+          "People feel physically at ease around you, and they remember that.",
+          "You don't perform closeness: if you're near, you're actually near."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Отстранение читается как разлюбил, хотя обычно означает «устал».",
+          "После ссоры тебе нужен контакт, а партнёру — расстояние, и вы оба делаете друг другу больнее, желая примирения.",
+          "Тебе трудно объяснить эту потребность, не сведя её к сексу — а сведённая, она звучит совсем иначе.",
+          "На расстоянии ты быстро теряешь ощущение связи, даже когда всё в порядке."
+        ],
+        "en": [
+          "Someone pulling back reads as falling out of love, when it usually means tired.",
+          "After a fight you need contact and they need distance, so you both hurt each other while trying to make up.",
+          "It's hard to explain this need without it collapsing into sex — and collapsed, it sounds like something else entirely.",
+          "At a distance you lose the sense of connection fast, even when nothing is wrong."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Назови потребность отдельно от секса, вслух и заранее — не в момент, когда тебя только что отстранили.",
+          "Договоритесь о примирении: тебе контакт, ему полчаса тишины. Порядок обсуждается, важно, что оба пункта есть.",
+          "На расстоянии заведи что-то регулярное и телесное по смыслу — голос, а не текст. Это ближе к твоему каналу."
+        ],
+        "en": [
+          "Name the need separately from sex, out loud and in advance — not in the moment you've just been pulled away from.",
+          "Agree on how you make up: contact for you, half an hour of quiet for them. The order is negotiable; having both is not.",
+          "At a distance, keep something regular that's closer to your channel — voice rather than text."
+        ]
+      },
+      "tryToday": {
+        "ru": "Обними одного близкого человека дольше, чем принято, — просто так, без повода и без просьбы. И скажи, что тебе это было нужно.",
+        "en": "Hold onto someone close for longer than the polite length — for no reason and without being asked. Then tell them you needed it."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты считываешь близость телом, и это самый честный из пяти каналов: его невозможно изобразить. Просто проговори его — иначе он выглядит как требование.",
+        "en": "You read closeness through your body, and it's the most honest of the five channels — the one nobody can fake. Just say it out loud, or it looks like a demand."
+      }
+    },
+    "profile_words_time": {
+      "id": "profile_words_time",
+      "icon": null,
+      "name": {
+        "ru": "Долгий разговор",
+        "en": "The Long Talk"
+      },
+      "description": {
+        "ru": "Тебе нужен не вечер вместе и не красивая фраза, а одно конкретное: долгий разговор, в котором никто никуда не спешит.",
+        "en": "You don't need an evening together or a nice line. You need one specific thing: a long conversation where nobody is in a hurry."
+      },
+      "whyThisProfile": {
+        "ru": "Слова и время вышли вровень и выше остальных. По отдельности они тебя не закрывают: фраза на бегу и молчание рядом одинаково оставляют тебя голодным.",
+        "en": "Words and time came out level, and above the rest. Separately they don't do it: a line said in passing and silence side by side leave you equally hungry."
+      },
+      "strengths": {
+        "ru": [
+          "Ты вытаскиваешь людей на разговоры, которых у них не было ни с кем.",
+          "Ты слушаешь, не готовя ответ. Это редко.",
+          "У тебя не бывает светской беседы — ты уходишь вглубь с первого раза."
+        ],
+        "en": [
+          "You pull people into conversations they haven't had with anyone.",
+          "You listen without preparing your reply. That's rare.",
+          "You don't do small talk — you go deep on the first attempt."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Общение «по делу» ты не засчитываешь совсем, и человеку кажется, что его вклад невидим.",
+          "Ты ждёшь такого разговора, но не назначаешь его — а сам он случается всё реже."
+        ],
+        "en": [
+          "Practical, get-things-done talk doesn't count for you at all, and the other person feels their input is invisible.",
+          "You wait for the conversation instead of scheduling it, and on its own it happens less and less."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Назначай его прямо: «в четверг вечером хочу нормально поговорить». Ожидание вслух работает, ожидание молча — нет.",
+          "Не все умеют вглубь с ходу. Дай человеку разогнаться, вместо того чтобы записывать его в поверхностные."
+        ],
+        "en": [
+          "Schedule it plainly: “Thursday evening I want a proper conversation.” An expectation said out loud works; a silent one doesn't.",
+          "Not everyone can go deep on cue. Give them a run-up instead of filing them under shallow."
+        ]
+      },
+      "tryToday": {
+        "ru": "Позови одного человека на разговор и назови время. Не «надо бы как-нибудь», а конкретный вечер.",
+        "en": "Invite one person to talk and name the time. Not “we should sometime” — an actual evening."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя близость собирается из слов и часов одновременно. Это дорого по времени и потому редко — тем больше смысла просить об этом прямо.",
+        "en": "Your closeness is assembled from words and hours at once. It's expensive in time and therefore rare — all the more reason to ask for it directly."
+      }
+    },
+    "profile_words_service": {
+      "id": "profile_words_service",
+      "icon": null,
+      "name": {
+        "ru": "Скажи и сделай",
+        "en": "Say It and Do It"
+      },
+      "description": {
+        "ru": "«Люблю» без дела для тебя пустое, дело без «люблю» — холодное. Тебе нужны обе половины, и это не капризность.",
+        "en": "“I love you” without the deed is empty to you; the deed without the words is cold. You need both halves, and that isn't fussiness."
+      },
+      "whyThisProfile": {
+        "ru": "Слова и дела вышли вровень и выше прочих. Ты проверяешь одно другим: сказанное подтверждается сделанным, сделанное объясняется сказанным. Одна половина без второй у тебя вызывает подозрение.",
+        "en": "Words and deeds came out level and above the rest. You check each against the other: what's said gets confirmed by what's done, what's done gets explained by what's said. Either half alone makes you suspicious."
+      },
+      "strengths": {
+        "ru": [
+          "Ты сам даёшь обе половины и потому редко бываешь непонятым.",
+          "Тебя трудно купить одними словами — и это защищает тебя от красивых пустых людей.",
+          "Ты умеешь объяснить, зачем сделал. У большинства это теряется."
+        ],
+        "en": [
+          "You give both halves yourself, so you're rarely misread.",
+          "You can't be bought with words alone, which protects you from the charming and empty.",
+          "You can explain why you did a thing. Most people lose that part."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты требуешь оба канала сразу, а человеку обычно доступен один. Второй он не жалеет — он просто им не владеет.",
+          "Половину усилий ты не засчитываешь, и старание проходит мимо тебя незамеченным."
+        ],
+        "en": [
+          "You want both channels at once, and most people only have one available. They're not withholding the second — they just don't speak it.",
+          "You discount half the effort, so real trying goes past you unnoticed."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проси недостающую половину отдельно и конкретно, вместо того чтобы обесценивать имеющуюся.",
+          "Скажи вслух, что тебе нужны обе. Со стороны это выглядит как придирка, пока не объяснено."
+        ],
+        "en": [
+          "Ask for the missing half separately and specifically, instead of discounting the one you have.",
+          "Say out loud that you need both. Unexplained, it just looks like you're never satisfied."
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай для человека одну вещь и скажи, зачем ты это сделал. Собери обе половины сам — так понятнее, чего ты просишь.",
+        "en": "Do one thing for someone and tell them why you did it. Put both halves together yourself — it makes what you're asking for clearer."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты требуешь, чтобы слова и дела сходились. Это высокая планка — просто держи её и для себя тоже.",
+        "en": "You want the words and the deeds to match. It's a high bar — just hold yourself to it too."
+      }
+    },
+    "profile_words_touch": {
+      "id": "profile_words_touch",
+      "icon": null,
+      "name": {
+        "ru": "Тепло и вслух",
+        "en": "Warm and Spoken"
+      },
+      "description": {
+        "ru": "Обнять и сказать одновременно. По отдельности каждое из этого у тебя проходит только наполовину.",
+        "en": "Held and told at the same time. On its own, each of those only half-reaches you."
+      },
+      "whyThisProfile": {
+        "ru": "Слова и прикосновения вышли вровень и выше остальных. Ты считываешь близость сразу двумя каналами, и потому холодность бьёт тебя дважды: молчание и дистанция приходят обычно вместе.",
+        "en": "Words and touch came out level and above the rest. You read closeness on two channels at once, which is why coldness hits you twice — silence and distance usually arrive together."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь утешать целиком: и рядом, и словами.",
+          "Ты выражаешь тепло без стеснения, и рядом с тобой людям легче делать то же.",
+          "Твоя нежность не выглядит спектаклем — она видна и на ощупь, и на слух."
+        ],
+        "en": [
+          "You can comfort someone completely: present and speaking at once.",
+          "You show warmth without embarrassment, and that makes it easier for people around you to do the same.",
+          "Your tenderness doesn't read as performance — it shows up in both registers."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ссора выбивает у тебя оба канала разом, и тебе кажется, что всё кончено, когда всего лишь тяжёлый вечер.",
+          "Сдержанных людей ты записываешь в холодные, хотя у них просто другой язык."
+        ],
+        "en": [
+          "A fight knocks out both your channels at once, so it feels like the end when it's just a bad evening.",
+          "You file reserved people under cold, when they simply speak a different language."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "После ссоры проси один канал, а не оба сразу. Обнять обычно проще, чем объясниться, — начни с доступного.",
+          "Не путай сдержанность с холодностью. Спроси прямо, вместо того чтобы делать вывод по тишине."
+        ],
+        "en": [
+          "After a fight, ask for one channel rather than both. A hug is usually easier than an explanation — start with whatever's available.",
+          "Don't confuse reserve with coldness. Ask directly instead of concluding from the silence."
+        ]
+      },
+      "tryToday": {
+        "ru": "Обними близкого человека и скажи при этом одну конкретную вещь, за которую ты его ценишь. Оба канала за один раз.",
+        "en": "Hold someone close and say one specific thing you value about them while you do. Both channels in one go."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты чувствуешь и словами, и кожей — поэтому и мёрзнешь быстрее прочих. Проси тепло вслух: у тебя это получается лучше, чем у большинства.",
+        "en": "You feel it in words and in skin, which is also why you get cold faster than most. Ask for the warmth out loud — you're better at that than most people."
+      }
+    },
+    "profile_time_service": {
+      "id": "profile_time_service",
+      "icon": null,
+      "name": {
+        "ru": "Плечом к плечу",
+        "en": "Side by Side"
+      },
+      "description": {
+        "ru": "Тебе не нужно сидеть напротив и разговаривать о чувствах. Тебе нужно делать что-то вместе — там и происходит вся близость.",
+        "en": "You don't need to sit across from someone talking about feelings. You need to be doing something together — that's where the closeness actually happens."
+      },
+      "whyThisProfile": {
+        "ru": "Время и дела вышли вровень и выше прочих. Отсюда и рецепт: совместная задача закрывает тебе оба канала сразу, а разговор ни о чём не закрывает ни одного.",
+        "en": "Time and deeds came out level and above the rest. Hence the recipe: a shared task covers both your channels at once, while a conversation about nothing covers neither."
+      },
+      "strengths": {
+        "ru": [
+          "Ты превращаешь быт в то, что вас связывает, а не изнашивает.",
+          "Ты видишь в человеке напарника, а не зрителя.",
+          "У тебя есть традиции, а не только планы."
+        ],
+        "en": [
+          "You turn chores into something that binds you rather than wears you down.",
+          "You see a partner as a teammate rather than an audience.",
+          "You have traditions, not just plans."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Когда человек всё делает один, ты чувствуешь себя лишним, даже если он хотел тебя разгрузить.",
+          "«Рядом, но каждый в своём» ты не засчитываешь, хотя для многих это и есть близость."
+        ],
+        "en": [
+          "When someone does it all alone you feel surplus, even when they were trying to spare you.",
+          "Near each other but doing separate things doesn't count for you, though for a lot of people that is closeness."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Скажи прямо, что хочешь делать вместе, а не чтобы за тебя сделали. Это неочевидно и звучит непривычно.",
+          "Найди одно регулярное совместное дело. У тебя это работает лучше любых свиданий."
+        ],
+        "en": [
+          "Say plainly that you want to do it together, not to have it done for you. It isn't obvious and it sounds unusual.",
+          "Find one recurring thing you do together. It works better for you than any date night."
+        ]
+      },
+      "tryToday": {
+        "ru": "Позови человека сделать вместе то, что обычно делаешь один. Даже если вдвоём выйдет дольше.",
+        "en": "Ask someone to do a thing with you that you normally do alone. Even if two people make it take longer."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя близость собирается не в разговорах, а в общих делах. Это надёжнее многого — просто объясни, иначе тебя будут звать поговорить.",
+        "en": "Your closeness gets built in shared work rather than conversation. That's sturdier than most things — just explain it, or people will keep inviting you to talk."
+      }
+    },
+    "profile_time_touch": {
+      "id": "profile_time_touch",
+      "icon": null,
+      "name": {
+        "ru": "Рядом и молча",
+        "en": "Close and Quiet"
+      },
+      "description": {
+        "ru": "Молчать вдвоём в обнимку для тебя содержательнее любого разговора. Слова тут скорее мешают.",
+        "en": "Being quiet together, in contact, says more to you than any conversation. Words mostly get in the way."
+      },
+      "whyThisProfile": {
+        "ru": "Время и прикосновения вышли вровень и выше остальных. Тебе нужно присутствие, подтверждённое телом: человек рядом, но на другом конце дивана — это у тебя всё ещё не вместе.",
+        "en": "Time and touch came out level and above the rest. You need presence confirmed physically: someone in the room but at the other end of the sofa still doesn't register as together."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь быть рядом, не требуя разговора. Для многих это единственное место, где можно выдохнуть.",
+          "Ты создаёшь уют без усилий — просто тем, что находишься рядом.",
+          "Ты не путаешь тишину с отчуждением."
+        ],
+        "en": [
+          "You can be with someone without demanding conversation. For a lot of people that's the only place they can exhale.",
+          "You make a room comfortable without effort, just by being in it.",
+          "You don't confuse quiet with distance."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "На расстоянии тебе почти нечем питаться: переписка твой канал не закрывает.",
+          "Ты редко проговариваешь, чего хочешь, потому что для тебя это очевидно. Для человека — нет."
+        ],
+        "en": [
+          "At a distance you have almost nothing to run on — texting doesn't cover your channel.",
+          "You rarely say what you want because it's obvious to you. It isn't to them."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проси конкретную форму: «посидим рядом» — это нормальная просьба, её просто редко произносят вслух.",
+          "На расстоянии переходи на голос. Он ближе к твоему каналу, чем текст."
+        ],
+        "en": [
+          "Ask for the specific shape: “let's just sit together” is a perfectly normal request, it's simply rarely said out loud.",
+          "At a distance, switch to voice. It's closer to your channel than text."
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведи полчаса рядом с близким человеком, ничего не обсуждая. Просто сядь ближе, чем обычно.",
+        "en": "Spend half an hour next to someone close without discussing anything. Just sit nearer than usual."
+      },
+      "inspiringConclusion": {
+        "ru": "Тебе не нужны слова, чтобы быть в контакте, — но одно слово нужно, чтобы о нём попросить.",
+        "en": "You don't need words to be in contact. You do need one word to ask for it."
+      }
+    },
+    "profile_service_touch": {
+      "id": "profile_service_touch",
+      "icon": null,
+      "name": {
+        "ru": "Молча и руками",
+        "en": "Hands, Not Words"
+      },
+      "description": {
+        "ru": "Ты не объясняешь, что чувствуешь. Ты делаешь и оказываешься рядом — и считаешь, что этого достаточно.",
+        "en": "You don't explain what you feel. You do the thing and you're there — and you reckon that should be enough."
+      },
+      "whyThisProfile": {
+        "ru": "Дела и прикосновения вышли вровень и выше прочих. Оба твоих канала бессловесные, и это главное следствие: тебя легко недооценить, если человек читает только слова.",
+        "en": "Deeds and touch came out level and above the rest. Both your channels are wordless, and that's the main consequence: you're easy to underestimate by anyone who only reads words."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь, что человек вымотан, и просто снимаешь с него часть.",
+          "Твоя забота не требует благодарности и потому не давит.",
+          "Ты умеешь успокоить без разговора — иногда это единственное, что работает."
+        ],
+        "en": [
+          "You notice someone is worn out and simply take part of it off them.",
+          "Your care doesn't demand thanks, so it never feels like pressure.",
+          "You can settle someone without talking — sometimes that's the only thing that works."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты вкладываешься молча и обижаешься, что не оценили. Оценить было почти невозможно — ты не сказал.",
+          "Со словесным человеком вы можете годами стараться мимо друг друга."
+        ],
+        "en": [
+          "You put the work in silently and resent that it wasn't noticed. It was nearly impossible to notice — you never said.",
+          "With a words-person, the two of you can spend years trying hard and missing each other entirely."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в неделю переводи одно своё действие в слова: «я это сделал, потому что…». Один раз, не больше.",
+          "Спроси, каким каналом человек считывает. Если словесным, твои усилия до него просто не доходят."
+        ],
+        "en": [
+          "Once a week, translate one of your actions into words: “I did this because…”. Once, no more than that.",
+          "Ask which channel the other person reads on. If it's words, your effort simply isn't arriving."
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай для человека то, что обычно делаешь молча, — и в этот раз скажи одну фразу о том, зачем.",
+        "en": "Do the thing you'd normally do silently — and this time say one sentence about why."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты говоришь руками, и это честнее слов. Просто оставь себе один перевод в неделю — иначе половина сказанного тобой не доходит.",
+        "en": "You speak with your hands, and it's more honest than words. Just keep one translation a week — otherwise half of what you say never arrives."
+      }
+    },
+    "profile_time_gifts": {
+      "id": "profile_time_gifts",
+      "icon": null,
+      "name": {
+        "ru": "Особый день",
+        "en": "The Occasion"
+      },
+      "description": {
+        "ru": "Тебе важен не подарок и не вечер по отдельности, а то, что кто-то заранее собрал их вместе и сделал день не как все.",
+        "en": "It isn't the gift or the evening on their own. It's that someone put them together in advance and made a day unlike the others."
+      },
+      "whyThisProfile": {
+        "ru": "Время и знаки внимания вышли вровень и выше остальных. Оба твоих канала требуют подготовки заранее — поэтому спонтанность у тебя работает хуже, чем у прочих, а забытая дата бьёт сильнее.",
+        "en": "Time and tokens came out level and above the rest. Both of your channels require planning ahead — which is why spontaneity works worse for you than for most, and a forgotten date hits harder."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь делать из обычного вечера то, что вспоминают годами.",
+          "Ты продумываешь заранее, и люди рядом чувствуют себя выбранными.",
+          "Ты помнишь общие даты, а не только свои."
+        ],
+        "en": [
+          "You can turn an ordinary evening into one people bring up years later.",
+          "You plan ahead, and the people around you end up feeling chosen.",
+          "You remember the shared dates, not only your own."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Забытая дата ощущается доказательством безразличия. Обычно это доказательство только календаря.",
+          "Ты вкладываешься в подготовку и ждёшь равного вклада — а не все умеют планировать вперёд."
+        ],
+        "en": [
+          "A forgotten date feels like proof of indifference. Usually it's only proof of a calendar.",
+          "You put real work into the preparation and expect the same back — but not everyone can plan ahead."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Заведите общий календарь. Это скучное решение, и оно закрывает большую часть твоей боли.",
+          "Скажи, что тебе важна подготовка, а не размах. Это разные просьбы, и вторую обычно слышат вместо первой."
+        ],
+        "en": [
+          "Keep a shared calendar. It's a boring solution and it removes most of what hurts you.",
+          "Say that what matters is the preparation, not the scale. Those are different requests, and people usually hear the second one."
+        ]
+      },
+      "tryToday": {
+        "ru": "Назначь одному человеку день и придумай для него одну маленькую деталь заранее. Пусть он узнает, что ты готовился.",
+        "en": "Set a day with one person and plan one small detail for it in advance. Let them find out you prepared."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты умеешь превращать даты в события. Просто помни: у большинства это не встроено, и календарь тут помогает лучше обиды.",
+        "en": "You know how to turn dates into occasions. Just remember most people don't have that built in, and a calendar helps more than resentment."
+      }
+    },
+    "profile_words_gifts": {
+      "id": "profile_words_gifts",
+      "icon": null,
+      "name": {
+        "ru": "Записка при подарке",
+        "en": "The Note With It"
+      },
+      "description": {
+        "ru": "Вещь без слов кажется тебе откупом, слова без вещи — лёгкими. Вместе они наконец складываются в доказательство.",
+        "en": "The object without words feels like buying you off; the words without the object feel cheap. Together they finally add up to proof."
+      },
+      "whyThisProfile": {
+        "ru": "Слова и знаки внимания вышли вровень и выше прочих. Оба канала оставляют след: фраза, которую можно вспомнить, и вещь, которую можно взять в руки. Тебе важно, чтобы у чувства было вещественное доказательство.",
+        "en": "Words and tokens came out level and above the rest. Both channels leave a trace: a line you can recall and an object you can hold. What matters to you is that the feeling has evidence."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь выбрать вещь и объяснить её так, что она становится историей.",
+          "Ты хранишь записки и помнишь формулировки. У твоих отношений есть архив.",
+          "Ты замечаешь вложенную мысль, а не ценник."
+        ],
+        "en": [
+          "You can pick an object and frame it so that it turns into a story.",
+          "You keep the notes and remember the wording. Your relationships have an archive.",
+          "You notice the thought that went in, not the price tag."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Подарок без слов ты можешь прочитать как отписку, хотя человек просто не умеет говорить.",
+          "Тебе неловко объяснять этот канал: звучит требовательно, пока не сказано, что дело не в стоимости."
+        ],
+        "en": [
+          "A gift with no words can read to you as a brush-off, when the person simply can't do words.",
+          "You're awkward explaining this channel: it sounds demanding until you've said that price isn't the point."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проси словами то, что хочешь получить словами. «Напиши пару строк» — выполнимая просьба, «будь романтичнее» — нет.",
+          "Показывай сам: приложи записку к тому, что даришь. Твой канал легче объяснить примером."
+        ],
+        "en": [
+          "Ask in words for the thing you want in words. “Write me a couple of lines” is a doable request; “be more romantic” isn't.",
+          "Demonstrate it: put a note with what you give. Your channel is easier to explain by example."
+        ]
+      },
+      "tryToday": {
+        "ru": "Отдай человеку что-то маленькое и приложи одну написанную фразу. Именно написанную, а не сказанную на бегу.",
+        "en": "Give someone something small and put one written line with it. Written, not said in passing."
+      },
+      "inspiringConclusion": {
+        "ru": "Тебе нужно, чтобы у чувства остался след. Это не требовательность — это память, устроенная вещественно.",
+        "en": "You need the feeling to leave a trace. That isn't neediness — it's a memory that works in objects."
+      }
+    },
+    "profile_balanced": {
+      "id": "profile_balanced",
+      "icon": null,
+      "name": {
+        "ru": "Любой язык",
+        "en": "Any Language"
+      },
+      "description": {
+        "ru": "Все пять каналов работают у тебя примерно одинаково. Тебя легко порадовать — и почти невозможно угадать.",
+        "en": "All five channels work about equally for you. You're easy to please and almost impossible to guess."
+      },
+      "whyThisProfile": {
+        "ru": "Разброс между твоими каналами меньше пятнадцати процентов — ни один не главный. Плюс очевиден: до тебя доходит почти любое усилие. Минус тоньше: у тебя нет короткого ответа на вопрос «что тебе нужно», и человеку рядом не за что зацепиться.",
+        "en": "The spread between your channels is under fifteen percent — none of them leads. The upside is obvious: almost any effort reaches you. The downside is subtler: you have no short answer to “what do you need”, and the person beside you has nothing to hold on to."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь заботу в любой форме, в какой её умеют давать.",
+          "Ты подстраиваешься под язык человека, а не требуешь своего.",
+          "Тебя трудно ранить одним промахом: у тебя есть четыре запасных канала.",
+          "Ты понимаешь людей с разными каналами, потому что все они у тебя рабочие."
+        ],
+        "en": [
+          "You notice care in whatever form someone is able to give it.",
+          "You adapt to the other person's language instead of demanding your own.",
+          "One miss doesn't wound you: you have four channels in reserve.",
+          "You understand people with different channels, because all of yours work."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "На вопрос «чего ты хочешь» у тебя нет ответа, и это выматывает человека сильнее, чем требовательность.",
+          "Ты подстраиваешься так легко, что перестаёшь замечать, чего не хватает тебе.",
+          "Ровное «нормально» по всем каналам может означать не гибкость, а то, что ты давно ничего не просил."
+        ],
+        "en": [
+          "You have no answer to “what do you want”, and that wears the other person down more than being demanding would.",
+          "You adapt so easily that you stop noticing what's missing for you.",
+          "A flat “fine” across all five can mean flexibility — or that you stopped asking for anything a long time ago."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выбери один канал на месяц и проси только по нему. Не потому что остальные не нужны, а чтобы у человека появилась понятная цель.",
+          "Проверь, ровность это или молчание. Вспомни, когда ты последний раз чего-то просил вслух.",
+          "Спроси у близкого, какой канал главный у него. Твоя гибкость — ресурс, но он бесполезен, пока ты не знаешь, куда его направить."
+        ],
+        "en": [
+          "Pick one channel for a month and ask only through it. Not because the others don't matter — so the other person has a target they can actually hit.",
+          "Check whether this is evenness or silence. Remember the last time you asked out loud for anything.",
+          "Ask someone close which channel leads for them. Your flexibility is a resource, and it's useless until you know where to point it."
+        ]
+      },
+      "tryToday": {
+        "ru": "Ответь себе письменно на один вопрос: по какому признаку ты в последний раз почувствовал, что тебя любят? Ответ и есть твой канал на сегодня.",
+        "en": "Answer one question in writing: what was the last thing that actually made you feel loved? That answer is your channel for today."
+      },
+      "inspiringConclusion": {
+        "ru": "До тебя доходит почти всё — редкая настройка. Но угадывать тебя человеку всё равно нечем: назови один канал, и станет проще вам обоим.",
+        "en": "Almost everything reaches you, which is a rare setting. But nobody can guess you from outside: name one channel, and it gets easier for both of you."
+      }
+    }
+  },
+  "profileSelection": {
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      {
+        "when": [
+          [
+            "@range",
+            "<",
+            15
+          ]
+        ],
+        "profile": "profile_balanced"
+      },
+      {
+        "when": [
+          [
+            "@diff12",
+            "<",
+            10
+          ]
+        ],
+        "profile": {
+          "combo": {
+            "quality_time+words_of_affirmation": "profile_words_time",
+            "acts_of_service+words_of_affirmation": "profile_words_service",
+            "physical_touch+words_of_affirmation": "profile_words_touch",
+            "acts_of_service+quality_time": "profile_time_service",
+            "physical_touch+quality_time": "profile_time_touch",
+            "acts_of_service+physical_touch": "profile_service_touch",
+            "quality_time+receiving_gifts": "profile_time_gifts",
+            "receiving_gifts+words_of_affirmation": "profile_words_gifts"
+          }
+        }
+      },
+      {
+        "when": [],
+        "profile": {
+          "byTop": {
+            "words_of_affirmation": "profile_words",
+            "quality_time": "profile_time",
+            "receiving_gifts": "profile_gifts",
+            "acts_of_service": "profile_service",
+            "physical_touch": "profile_touch"
+          }
+        }
+      }
+    ]
+  }
+}

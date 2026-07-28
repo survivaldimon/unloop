@@ -141,7 +141,13 @@ export type AnalyticsEvent =
   | "promo_redeem"
   // The post-read offer to turn a silent account into one with a password.
   | "save_access_view"
-  | "save_access_click";
+  | "save_access_click"
+  // Psychological tests (/tests, docs/tests-integration.md). PostHog-only for
+  // now: the tests are top-of-funnel, the Meta events still fire on the paid
+  // steps they lead into.
+  | "tests_catalogue_view"
+  | "test_start"
+  | "test_complete";
 
 export function track(
   event: AnalyticsEvent,
