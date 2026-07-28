@@ -34,6 +34,7 @@ interface TestsCopyShape {
     retake: string;
     toCatalogue: string;
     saving: string;
+    disclaimer: string;
   };
 }
 
@@ -66,6 +67,7 @@ const EN: TestsCopyShape = {
     retake: "Take it again",
     toCatalogue: "All tests",
     saving: "Saving…",
+    disclaimer: "This is an educational test — a mirror, not a diagnosis.",
   },
 };
 
@@ -98,6 +100,7 @@ const RU: TestsCopyShape = {
     retake: "Пройти заново",
     toCatalogue: "Все тесты",
     saving: "Сохраняем…",
+    disclaimer: "Это образовательный тест — зеркало, а не диагноз.",
   },
 };
 
