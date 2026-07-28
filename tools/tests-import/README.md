@@ -1,9 +1,11 @@
 # tests-import
 
 One-way extractor for the `tests_app` Flutter project (the psychological-test
-library built with the partner) into portable JSON, plus an audit of what came
-out. Nothing here is wired into the Looplore app — this is a staging step so we
-can judge the content before deciding what to port.
+library built with the partner) into portable JSON, plus the build and
+verification tooling around it. This is the pipeline behind the `/tests`
+surface: it produces the canonical content in `src/content/tests/` (via
+`npm run tests:build`) and the golden fixtures in `fixtures/` that
+`npm run tests:verify` checks the scoring engine against.
 
 ## Run
 
@@ -25,8 +27,32 @@ node tools/tests-import/digest.mjs attachment_styles_v1
 ```
 
 `--out` overrides the output directory (default `tools/tests-import/out`, which
-is git-ignored — the source content is jointly owned and should not be committed
-until ownership is settled).
+is git-ignored — the raw extraction is bulky and fully regenerable, so only the
+distilled artifacts are committed: `src/content/tests/` and `fixtures/`).
+
+## Golden fixtures
+
+`fixtures/<test_id>.json` is committed: deterministic answer patterns and the
+factor percentages / scale scores the reference implementation produced for
+them — ids and numbers only, no test content. `npm run tests:verify` compares
+the TypeScript engine (`src/tests/engine.ts`) against them using only the
+committed content in `src/content/tests/`, so it runs from a bare checkout (and
+in CI) without the `tests_app` clone.
+
+Regenerate the fixtures only when the reference scoring itself changes — a new
+test enters the launch set, weights or the scale map change, or a scoring rule
+is fixed:
+
+```bash
+git clone https://github.com/nekitaasiankungfu/tests_app.git /tmp/tests_app
+node tools/tests-import/extract.mjs --src /tmp/tests_app
+node tools/tests-import/apply-scale-map.mjs
+node tools/tests-import/reference-scoring.mjs   # rewrites fixtures/
+npm run tests:verify
+```
+
+Engine-only changes never touch `fixtures/`: the point of the golden copy is
+that the engine has to reproduce it, not the other way round.
 
 ## Why a parser
 
