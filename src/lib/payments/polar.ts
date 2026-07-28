@@ -60,4 +60,8 @@ export const polarProvider: PaymentProvider = {
   // All Polar config lives server-side; the client only needs Supabase.
   configured: !!supabase,
   openCheckout,
+  // Warms the lazy embed chunk while the buyer is still reading the paywall.
+  preload: () => {
+    void import("@polar-sh/checkout/embed").catch(() => {});
+  },
 };

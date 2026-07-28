@@ -95,4 +95,8 @@ export const paddleProvider: PaymentProvider = {
   name: "Paddle",
   configured: !!token && !!priceId,
   openCheckout,
+  // Warms paddle.js while the buyer is still reading the paywall.
+  preload: () => {
+    if (token && priceId) void loadScript().catch(() => {});
+  },
 };

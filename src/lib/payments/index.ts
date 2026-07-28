@@ -32,3 +32,8 @@ export async function openCheckout(opts: CheckoutOptions): Promise<void> {
   if (!paymentsEnabled) throw new Error("payments disabled");
   return provider.openCheckout(opts);
 }
+
+/** Warm the provider's client code ahead of the first unlock click (no-op when payments are off). */
+export function preloadCheckout(): void {
+  if (paymentsEnabled) provider.preload?.();
+}

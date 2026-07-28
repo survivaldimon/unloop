@@ -1,8 +1,30 @@
-import { useLang } from "../../i18n";
-import { getPhotoCopy } from "../copy";
+import { useLang, type Lang } from "../../i18n";
 import type { PhotoScales } from "../api";
 
-/** Six-axis perception radar in the «прибор» style: dotted hex rings, brass polygon. */
+/**
+ * Six-axis perception radar in the «прибор» style: dotted hex rings, brass
+ * polygon. Legacy-only since v3 (28.07.2026) — rendered by PhotoReportLegacy
+ * for pre-v3 cached reports, so its labels live here, not in copy.ts.
+ */
+
+const LABELS: Record<Lang, Record<keyof PhotoScales, string>> = {
+  en: {
+    confidence: "Confidence",
+    approachability: "Approachability",
+    intentionality: "Intentionality",
+    warmth: "Warmth",
+    status_signal: "Status",
+    authenticity: "Authenticity",
+  },
+  ru: {
+    confidence: "Уверенность",
+    approachability: "Открытость",
+    intentionality: "Осознанность",
+    warmth: "Теплота",
+    status_signal: "Статус",
+    authenticity: "Подлинность",
+  },
+};
 
 const AXES: { key: keyof PhotoScales; angle: number }[] = [
   { key: "confidence", angle: -90 },
@@ -27,7 +49,7 @@ function ring(frac: number): string {
 }
 
 export default function RadarSix({ scales }: { scales: PhotoScales }) {
-  const labels = getPhotoCopy(useLang()).report.scales;
+  const labels = LABELS[useLang()];
   const values = AXES.map(({ key }) => Math.max(0, Math.min(100, Math.round(scales[key] ?? 0))));
   const polygon = AXES.map(({ angle }, i) => pt(angle, (R * values[i]) / 100).join(",")).join(" ");
 

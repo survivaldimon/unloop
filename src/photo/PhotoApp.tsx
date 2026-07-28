@@ -32,8 +32,8 @@ import {
   resetPhotoSessionId,
   savePhotoSession,
   sendPhotoResultEmail,
+  type AnyPhotoReport,
   type PhotoContext,
-  type PhotoReportData,
   type PhotoTeaserData,
   type RejectReason,
 } from "./api";
@@ -47,7 +47,8 @@ import type { PreparedPhoto } from "./resize";
 
 type Step = "landing" | "context" | "scanning" | "email" | "teaser" | "report";
 
-export type PayState = "idle" | "confirming" | "error";
+/** "opening" covers the click→overlay gap (checkout-session round-trip + lazy chunk). */
+export type PayState = "idle" | "opening" | "confirming" | "error";
 
 interface Saved {
   step: Step;
@@ -87,7 +88,7 @@ export default function PhotoApp() {
   const [unlocked, setUnlocked] = useState(saved?.unlocked ?? false);
   const [teaser, setTeaser] = useState<PhotoTeaserData | null>(saved?.teaser ?? null);
   const [photoCount, setPhotoCount] = useState(saved?.photoCount ?? 1);
-  const [report, setReport] = useState<PhotoReportData | null>(null);
+  const [report, setReport] = useState<AnyPhotoReport | null>(null);
   const [reportLoading, setReportLoading] = useState(false);
   const [reportError, setReportError] = useState(false);
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
@@ -362,6 +363,9 @@ export default function PhotoApp() {
   }, [step, unlocked]);
 
   const startUnlock = (packId?: PackId) => {
+    // A second click while the checkout session is being created would open a
+    // second overlay — ignore clicks until the first attempt settles.
+    if (payState === "opening" || payState === "confirming") return;
     // Fires on the click itself: with payments on, the gap to photo_report_view
     // is checkout abandonment; the webhook-driven unlock() must not re-fire it.
     const creditPack = creditsEnabled && paymentsEnabled && packId ? packId : undefined;
@@ -375,6 +379,9 @@ export default function PhotoApp() {
       unlock();
       return;
     }
+    // Busy from the click until the overlay is actually on screen — the
+    // checkout-session round-trip takes seconds and used to look like a hang.
+    setPayState("opening");
     openCheckout({
       endpoint: creditPack ? "credits-polar-checkout" : "photoread-polar-checkout",
       ...(creditPack ? { packId: creditPack, funnel: "photoread" as const } : {}),
@@ -390,17 +397,23 @@ export default function PhotoApp() {
         });
       },
       onError: () => setPayState("error"),
-    }).catch(() => setPayState("error"));
+    })
+      .then(() => setPayState((s) => (s === "opening" ? "idle" : s)))
+      .catch(() => setPayState("error"));
   };
 
   /** Cross-sell path: the visitor's balance already covers this read. */
   const unlockWithBalance = () => {
+    if (payState === "opening" || payState === "confirming") return;
     track("unlock_click", { funnel: "photo", mode: "balance" });
+    // linkSession is a network round-trip too — same busy treatment.
+    setPayState("opening");
     void linkSession("photoread", getPhotoSessionId()).then(unlock);
   };
 
   /** Mid-flow top-up: buy a pack, wait for the webhook grant, resume. */
   const buyTopUp = (packId: PackId) => {
+    if (topUpBusy) return;
     setTopUpBusy(true);
     track("unlock_click", {
       funnel: "photo",
@@ -560,6 +573,7 @@ export default function PhotoApp() {
             error={reportError}
             onRetry={loadReport}
             useCase={context?.use_case ?? "curious"}
+            subject={context?.subject ?? "me"}
             previews={previews}
             sessionId={getPhotoSessionId()}
             onRestart={restart}
