@@ -1,0 +1,124 @@
+{
+  "$comment": "Э4 — правила выбора профиля, перенесённые вручную из determineProfile() каждого теста. В tests_app это Dart-код, экстрактором его не достать (docs/tests-scoring-semantics.md). Условие: [левое, оператор, правое], где операнд — число, id фактора или производное значение @avg / @range / @diff12. Правила проверяются по порядку, пустой when срабатывает всегда.",
+
+  "attachment_styles_v1": {
+    "mode": "rules",
+    "fallback": "mixed",
+    "rules": [
+      { "when": [["secure", ">", 70], ["anxious", "<", 30], ["avoidant", "<", 30], ["fearful", "<", 30]], "profile": "secure" },
+      { "when": [["anxious", ">", 60], ["anxious", ">", "avoidant"], ["anxious", ">", "fearful"]], "profile": "anxious" },
+      { "when": [["avoidant", ">", 60], ["avoidant", ">", "anxious"], ["avoidant", ">", "fearful"]], "profile": "avoidant" },
+      { "when": [["fearful", ">", 60]], "profile": "fearful" },
+      { "when": [["anxious", ">", 50], ["avoidant", ">", 50]], "profile": "fearful" }
+    ]
+  },
+
+  "friendship_red_flags_v1": {
+    "mode": "rules",
+    "fallback": "profile_low_risk",
+    "rules": [
+      { "when": [["@avg", ">=", 75]], "profile": "profile_high_risk" },
+      { "when": [["@avg", ">=", 50]], "profile": "profile_elevated_risk" },
+      { "when": [["@avg", ">=", 25]], "profile": "profile_moderate_risk" }
+    ]
+  },
+
+  "toxic_patterns": {
+    "mode": "rules",
+    "fallback": "healthy_relationships",
+    "rules": [
+      { "when": [["@avg", ">", 80]], "profile": "severe_toxicity" },
+      { "when": [["@avg", ">", 65]], "profile": "high_toxicity" },
+      { "when": [["@avg", ">", 45]], "profile": "moderate_toxicity" },
+      { "when": [["@avg", ">", 25]], "profile": "mild_toxicity" }
+    ]
+  },
+
+  "text_conflict_communication": {
+    "mode": "rules",
+    "fallback": "the_mixed",
+    "rules": [
+      { "when": [["assertiveness", ">=", 60]], "profile": "the_assertive" },
+      { "when": [["avoidance", ">=", 60]], "profile": "the_ghoster" },
+      { "when": [["aggression", ">=", 60]], "profile": "the_exploder" },
+      { "when": [["passive_revenge", ">=", 60]], "profile": "the_passive_avenger" }
+    ]
+  },
+
+  "love_languages_v1": {
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      { "when": [["@range", "<", 15]], "profile": "profile_balanced" },
+      {
+        "when": [["@diff12", "<", 10]],
+        "profile": {
+          "combo": {
+            "quality_time+words_of_affirmation": "profile_words_time",
+            "acts_of_service+words_of_affirmation": "profile_words_service",
+            "physical_touch+words_of_affirmation": "profile_words_touch",
+            "acts_of_service+quality_time": "profile_time_service",
+            "physical_touch+quality_time": "profile_time_touch",
+            "acts_of_service+physical_touch": "profile_service_touch",
+            "quality_time+receiving_gifts": "profile_time_gifts",
+            "receiving_gifts+words_of_affirmation": "profile_words_gifts"
+          }
+        }
+      },
+      {
+        "when": [],
+        "profile": {
+          "byTop": {
+            "words_of_affirmation": "profile_words",
+            "quality_time": "profile_time",
+            "receiving_gifts": "profile_gifts",
+            "acts_of_service": "profile_service",
+            "physical_touch": "profile_touch"
+          }
+        }
+      }
+    ]
+  },
+
+  "ipip_big_five": {
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      { "when": [["extraversion", ">", 70], ["conscientiousness", ">", 60], ["emotional_stability", ">", 60]], "profile": "profile_leader" },
+      { "when": [["extraversion", ">", 70], ["agreeableness", ">", 70]], "profile": "profile_social_butterfly" },
+      { "when": [["intellect", ">", 70], ["extraversion", "<", 50]], "profile": "profile_creative_thinker" },
+      { "when": [["intellect", ">", 70], ["extraversion", ">", 60]], "profile": "profile_innovator" },
+      { "when": [["conscientiousness", ">", 70], ["agreeableness", ">", 60]], "profile": "profile_reliable_helper" },
+      { "when": [["conscientiousness", ">", 70], ["emotional_stability", ">", 60]], "profile": "profile_achiever" },
+      { "when": [["emotional_stability", "<", 30], ["agreeableness", ">", 60]], "profile": "profile_sensitive_soul" },
+      { "when": [["emotional_stability", "<", 30], ["extraversion", "<", 40]], "profile": "profile_introspective" },
+      { "when": [["extraversion", "<", 30], ["conscientiousness", ">", 60]], "profile": "profile_quiet_achiever" },
+      { "when": [["extraversion", "<", 30], ["intellect", ">", 60]], "profile": "profile_deep_thinker" },
+      { "when": [["extraversion", ">", 70]], "profile": "profile_extrovert" },
+      { "when": [["extraversion", "<", 30]], "profile": "profile_introvert" },
+      {
+        "when": [["@top1", ">", 65]],
+        "profile": {
+          "byTop": {
+            "extraversion": "profile_extrovert",
+            "agreeableness": "profile_peacemaker",
+            "conscientiousness": "profile_achiever",
+            "emotional_stability": "profile_steady",
+            "intellect": "profile_explorer"
+          }
+        }
+      }
+    ],
+    "$note": "Последнее правило — ветка «по доминирующему фактору», которая в оригинале срабатывает только если лидер выше 65."
+  },
+
+  "sixteen_types": {
+    "mode": "bipolar",
+    "dimensions": [
+      { "poles": ["extraversion", "introversion"], "letters": ["E", "I"] },
+      { "poles": ["sensing", "intuition"], "letters": ["S", "N"] },
+      { "poles": ["thinking", "feeling"], "letters": ["T", "F"] },
+      { "poles": ["judging", "perceiving"], "letters": ["J", "P"] }
+    ]
+  }
+}

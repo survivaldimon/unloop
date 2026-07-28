@@ -1,0 +1,258 @@
+{
+  "$comment": "Э8. Только голос: механика и пороги не трогались. Названия профилей были описательными ярлыками («Низкий риск токсичных дружеских сценариев») — заменены на короткие и запоминающиеся, уровни при этом остались уровнями. Полная типологизация вместо уровней (каталог держит её как открытый вопрос для шеринга) потребует других правил выбора и сюда не входит. У верхнего уровня добавлен supportNote: аудитория теста подростковая, а результат тяжёлый.",
+
+  "title": { "ru": "Красные флажки в дружбе", "en": "Red Flags in Friendship" },
+  "description": {
+    "ru": "24 вопроса о том, что ты готов терпеть от друзей. И почему «сложный человек» и «токсичный» — не одно и то же.",
+    "en": "24 questions about what you'll put up with from friends — and why “difficult” and “toxic” aren't the same word."
+  },
+
+  "factorNames": {
+    "friendship_boundaries_difficulty": { "ru": "Трудно с границами", "en": "Boundaries" },
+    "blindness_to_red_flags": { "ru": "Слепые зоны", "en": "Blind spots" },
+    "tolerance_of_disrespect": { "ru": "Терпимость к неуважению", "en": "Tolerance for disrespect" },
+    "drama_attraction": { "ru": "Тяга к драме", "en": "Pull toward drama" }
+  },
+
+  "profiles": {
+    "profile_low_risk": {
+      "icon": null,
+      "name": { "ru": "Свой фильтр", "en": "Your Own Filter" },
+      "description": {
+        "ru": "Ты замечаешь, когда дружба начинает стоить дороже, чем даёт. И уходишь раньше, чем это станет привычкой.",
+        "en": "You notice when a friendship starts costing more than it gives — and you leave before it becomes a habit."
+      },
+      "whyThisProfile": {
+        "ru": "Индекс риска у тебя ниже четверти. Это значит не то, что тебе везло на людей, а то, что у тебя есть рабочий фильтр: ты отличаешь тяжёлый период от системы и не путаешь верность с терпением.",
+        "en": "Your risk index came in under a quarter. That doesn't mean you got lucky with people — it means your filter works: you can tell a rough patch from a system, and you don't confuse loyalty with endurance."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь неуважение сразу, а не через полгода в кабинете психолога.",
+          "Ты умеешь отходить постепенно, без сцен и объявлений.",
+          "Тебе спокойно с надёжными людьми: не тянет туда, где интереснее и хуже.",
+          "Ты отличаешь ссору от паттерна. Это редкий навык в любом возрасте."
+        ],
+        "en": [
+          "You spot disrespect at the time, not six months later in a therapist's office.",
+          "You know how to drift away gradually, without scenes or announcements.",
+          "You're comfortable with steady people — you don't get pulled toward the ones who are more interesting and worse.",
+          "You can tell a fight from a pattern. That's a rare skill at any age."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Фильтр может стать слишком мелким: ты вычёркиваешь людей за один плохой месяц.",
+          "Ты уходишь красиво и молча, и человек не получает шанса что-то исправить.",
+          "Ты можешь путать спокойствие с близостью и держать всех на комфортном расстоянии."
+        ],
+        "en": [
+          "The filter can get too fine: you write people off over one bad month.",
+          "You leave cleanly and silently, and the other person never gets a chance to fix anything.",
+          "You can mistake calm for closeness and keep everyone at a comfortable distance."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Прежде чем вычеркнуть, скажи один раз, что не так. Половина дружб, которые ты закончил, пережила бы одну фразу.",
+          "Проверь, сколько людей знают тебя не только с ровной стороны. Фильтр защищает — и он же не пускает.",
+          "Не примеряй свой фильтр на тех, у кого его нет. Их этому не учили, и стыдом тут никого не сдвинуть."
+        ],
+        "en": [
+          "Before you cross someone out, say once what's wrong. Half the friendships you've ended would have survived a sentence.",
+          "Check how many people know you from more than your steady side. A filter protects, and it also keeps people out.",
+          "Don't apply your filter to people who don't have one. Nobody taught them, and shame doesn't move anyone."
+        ]
+      },
+      "tryToday": {
+        "ru": "Возьми одну дружбу, в которой тебе хорошо, и назови вслух, что именно её такой делает. Не «он классный», а что он делает.",
+        "en": "Take one friendship that works and say out loud what exactly makes it work. Not “they're great” — what they do."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты умеешь выбирать, и это не везение. Просто следи, чтобы фильтр остался фильтром и не стал стеной.",
+        "en": "You can choose well, and it isn't luck. Just watch that the filter stays a filter and doesn't quietly become a wall."
+      }
+    },
+
+    "profile_moderate_risk": {
+      "icon": null,
+      "name": { "ru": "Знаешь, но остаёшься", "en": "You Know, You Stay" },
+      "description": {
+        "ru": "Ты видишь, где тебя не уважают. Просто пока не всегда делаешь из этого выводы.",
+        "en": "You can see where you're not respected. You just don't always act on it yet."
+      },
+      "whyThisProfile": {
+        "ru": "Индекс риска от четверти до половины. Различать ты умеешь: в части дружб замечаешь неладное и отходишь. В другой части остаёшься там, где тебя задевают, и объясняешь это тем, что человек хороший, просто сложный.",
+        "en": "Risk index between a quarter and a half. The judgment is there: in some friendships you notice what's off and step back. In others you stay where you're getting nicked, and explain it by saying they're a good person who's just complicated."
+      },
+      "strengths": {
+        "ru": [
+          "Ты уже отличаешь здоровую дружбу от изматывающей. Это половина работы.",
+          "Ты умеешь защищать себя — просто не везде и не всегда.",
+          "Ты готов пересматривать свои отношения, а не защищать их до последнего."
+        ],
+        "en": [
+          "You can already tell a healthy friendship from a draining one. That's half the work.",
+          "You know how to defend yourself — just not everywhere and not every time.",
+          "You're willing to reconsider a friendship instead of defending it to the last."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты объясняешь чужое поведение его прошлым и на этом останавливаешься. Объяснение есть, границы нет.",
+          "В части дружб ты соглашаешься на меньшее, чтобы не остаться одному. Это старая логика, и её обычно ни разу не проверяли.",
+          "Ты замечаешь сигнал, но откладываешь разговор — и к моменту разговора накопилось на год."
+        ],
+        "en": [
+          "You explain someone's behaviour by their past and stop there. The explanation exists; the boundary doesn't.",
+          "In some friendships you settle for less so you won't end up alone. That's old logic, and it usually hasn't been tested once.",
+          "You catch the signal but postpone the conversation, and by the time you have it there's a year of material."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Возьми одну дружбу — самую неудобную — и тренируйся на ней. Одну, не все сразу.",
+          "Замечай, как ты себя чувствуешь через час после встречи. Тело считает точнее, чем твои объяснения за человека.",
+          "Говори мелкое сразу. Это цена того, чтобы не пришлось говорить крупное потом."
+        ],
+        "en": [
+          "Take one friendship — the most uncomfortable one — and practise there. One, not all of them at once.",
+          "Notice how you feel an hour after seeing someone. Your body keeps a more accurate count than the excuses you make for them.",
+          "Say the small thing at the time. That's the price of not having to say the big one later."
+        ]
+      },
+      "tryToday": {
+        "ru": "Найди одну ситуацию, где ты обычно говоришь «да», хотя хочешь сказать «нет». Скажи «нет». Без объяснения, почему.",
+        "en": "Find one situation where you usually say yes while wanting to say no. Say no. Without explaining why."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты уже видишь. Осталось начать этому верить — и это меняется быстрее, чем кажется.",
+        "en": "You can already see it. What's left is starting to believe it — and that shifts faster than you'd think."
+      }
+    },
+
+    "profile_elevated_risk": {
+      "icon": null,
+      "name": { "ru": "Второй шанс", "en": "The Benefit of the Doubt" },
+      "description": {
+        "ru": "Ты умеешь объяснить любое поведение. В этом и проблема: объяснение находится раньше, чем граница.",
+        "en": "You can explain any behaviour. That's the problem: the explanation always arrives before the boundary."
+      },
+      "whyThisProfile": {
+        "ru": "Индекс риска от половины до трёх четвертей. По ответам тебя тянет к людям с бурным характером, ты долго оправдываешь их поведение и редко говоришь «стоп», даже когда тебе уже плохо. Драма при этом ощущается близостью: рядом с ней спокойное кажется прохладным.",
+        "en": "Risk index between a half and three-quarters. By your answers you're drawn to people with big temperaments, you justify their behaviour for a long time, and you rarely say stop even once it's costing you. Drama reads as closeness, because next to it the calm version feels lukewarm."
+      },
+      "strengths": {
+        "ru": [
+          "Ты умеешь привязываться по-настоящему. Это не слабость, а то, чего у многих просто нет.",
+          "Ты видишь в человеке больше, чем он показывает. Иногда это правда его меняет.",
+          "Ты даёшь второй шанс — и в здоровых отношениях это самое ценное, что у тебя есть."
+        ],
+        "en": [
+          "You can attach for real. That isn't weakness — it's something a lot of people simply don't have.",
+          "You see more in a person than they show. Sometimes that genuinely changes them.",
+          "You give second chances, and in a healthy relationship that's the most valuable thing you own."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты путаешь интенсивность с близостью. Шторм ощущается как чувство, спокойное — как безразличие.",
+          "Ты оправдываешь заранее, ещё до того, как человек объяснился. У него не остаётся повода меняться.",
+          "Ты терпишь долго, а уходишь резко — и потом остаёшься с ощущением, что в разрыве виноват ты.",
+          "Второй шанс у тебя не заканчивается на втором."
+        ],
+        "en": [
+          "You confuse intensity with closeness. A storm feels like feeling; the calm version feels like indifference.",
+          "You justify in advance, before the person has explained anything. It leaves them no reason to change.",
+          "You endure for a long time and then leave abruptly, and afterwards you carry the sense that the break was your fault.",
+          "Your second chance doesn't stop at the second."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Составь список из трёх вещей, которые ты больше не терпишь. Конкретных, а не «неуважение»: «смеётся надо мной при других» — вот такой уровень.",
+          "Считай шансы вслух. Второй — это второй, а не бесконечный. Скажи человеку, какой сейчас.",
+          "Присмотрись к спокойным людям. Ты записал их в скучные, не проведя с ними достаточно времени, чтобы это выяснить."
+        ],
+        "en": [
+          "Write down three things you no longer put up with. Concrete ones, not “disrespect” — “makes jokes about me in front of others” is the right level.",
+          "Count the chances out loud. The second one is the second, not endless. Tell the person which one this is.",
+          "Give the calm people a real look. You filed them under boring without spending enough time to find out."
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши три конкретных красных флажка, которые ты больше не готов терпеть. Оставь на видном месте: список работает, только пока его видно.",
+        "en": "Write down three concrete red flags you're no longer willing to accept. Keep the list where you can see it — it only works while it's visible."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя способность привязываться — не то, что нужно чинить. Чинить нужно то, на кого она направлена.",
+        "en": "Your ability to attach isn't the thing that needs fixing. What needs fixing is where you point it."
+      }
+    },
+
+    "profile_high_risk": {
+      "icon": null,
+      "name": { "ru": "Ценой себя", "en": "At Your Own Expense" },
+      "description": {
+        "ru": "Дружба у тебя чаще стоит дорого, чем даёт. И где-то по дороге ты решил, что так и должно быть.",
+        "en": "Friendship costs you more than it gives, more often than not. And somewhere along the way you decided that's how it works."
+      },
+      "whyThisProfile": {
+        "ru": "Индекс риска три четверти и выше — верхняя полоса. По ответам ты регулярно оказываешься рядом с людьми, с которыми тебе небезопасно, терпишь неуважение и отодвигаешь себя, лишь бы связь сохранилась. Важное уточнение: это описание не тебя, а ситуации, в которую ты раз за разом попадаешь. Разница принципиальная.",
+        "en": "Risk index at three-quarters and above — the top band. By your answers you regularly end up beside people you aren't safe with, you tolerate disrespect, and you move yourself aside to keep the connection. One important distinction: this describes the situation you keep landing in, not you. That difference matters."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест по 24 самоотчётным ответам. Он не диагноз и не приговор — он показывает то, что ты сам описал про свои дружбы.\n\nОдна вещь работает здесь лучше остальных: перестать разбираться в одиночку. Взрослый, которому ты доверяешь, психолог в школе или вузе, онлайн-консультация — годится любой вариант, до которого реально дотянуться.\n\nЕсли кто-то рядом угрожает тебе, применяет силу или заставляет делать то, чего ты не хочешь, — это уже не про дружбу и не про границы. Обратись к взрослому, которому доверяешь, или в местную службу поддержки сегодня.",
+        "en": "This is an educational test built on 24 self-reported answers. It isn't a diagnosis or a verdict — it reflects what you described about your own friendships.\n\nOne thing works better here than anything else: stop working it out alone. An adult you trust, a counsellor at school or university, an online consultation — whatever you can actually reach.\n\nIf someone around you threatens you, uses force, or pressures you into things you don't want, that isn't about friendship or boundaries anymore. Talk to an adult you trust or contact a local support service today."
+      },
+      "strengths": {
+        "ru": [
+          "Ты прошёл тест про собственные дружбы и ответил честно. Это неудобная честность.",
+          "Ты умеешь привязываться глубоко. Это ценность, а не дефект, — просто сейчас она направлена не туда.",
+          "Ты вынослив. Эта выносливость когда-то была нужна; сейчас она работает против тебя."
+        ],
+        "en": [
+          "You took a test about your own friendships and answered honestly. That's uncomfortable honesty.",
+          "You can attach deeply. That's an asset, not a defect — it's just pointed in the wrong direction right now.",
+          "You have real endurance. It was needed once; right now it works against you."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты научился считать нормой то, что нормой не является. Поэтому предупреждающие сигналы до тебя не доходят: они выглядят как обычный вторник.",
+          "Ты платишь собой за то, чтобы человек остался. Эта цена не работает: удерживает ненадолго, а тратится всерьёз.",
+          "Ты остаёшься с этим один и объясняешь себе, что виноват сам.",
+          "Одной решимостью это не меняется. Дело не в силе воли, а в том, что тебе когда-то показали как норму."
+        ],
+        "en": [
+          "You've learned to count as normal what isn't. That's why the warning signs don't reach you — they look like an ordinary Tuesday.",
+          "You pay with yourself to make someone stay. That price doesn't work: it holds them briefly and costs you seriously.",
+          "You stay alone with this and explain to yourself that it's your own fault.",
+          "Resolve alone won't shift it. This isn't about willpower — it's about what you were once shown as normal."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Найди одного человека, с которым можно говорить об этом честно. Один разговор снаружи стоит больше, чем месяц разбора внутри головы.",
+          "Начни с мелких границ: не отвечать сразу, не оправдываться за отказ, не объяснять, почему тебе что-то не подходит. Крупные пока не бери.",
+          "Задавай себе один вопрос после каждой встречи: мне сейчас лучше или хуже, чем было? Ответы копятся, и через месяц они говорят внятно.",
+          "Будь готов, что часть людей отвалится, когда ты начнёшь. Это не потеря дружбы — это выяснение, какая из них была дружбой."
+        ],
+        "en": [
+          "Find one person you can talk to about this honestly. One conversation outside your head is worth more than a month inside it.",
+          "Start with small boundaries: don't reply instantly, don't justify a no, don't explain why something doesn't suit you. Leave the big ones for later.",
+          "Ask one question after every time you see someone: am I better or worse than I was? The answers accumulate, and after a month they say something clear.",
+          "Expect some people to fall away once you start. That isn't losing friendships — it's finding out which of them were friendships."
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня не отвечай сразу на одно сообщение. Просто подожди час. Это самая маленькая граница, какая бывает, — и с неё всё начинается.",
+        "en": "Today, don't reply instantly to one message. Just wait an hour. It's the smallest boundary there is, and it's where this starts."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты не сломанный, и терпеть ты научился не от глупости — когда-то это было разумно. Сейчас это уже не нужно, и главный шаг только один: перестать разбираться с этим в одиночку.",
+        "en": "You're not broken, and you didn't learn to endure out of stupidity — at some point it was the sensible thing. It isn't needed anymore, and there's only one main step: stop working it out alone."
+      }
+    }
+  }
+}
