@@ -1,0 +1,3989 @@
+{
+  "id": "attachment_styles_v1",
+  "title": {
+    "ru": "Стили привязанности",
+    "en": "Attachment Styles"
+  },
+  "description": {
+    "ru": "60 вопросов о том, что с тобой происходит, когда человек подходит близко — или отходит. Рамка, которой объясняют половину всего, что случается в отношениях.",
+    "en": "60 questions about what happens to you when someone comes close — or steps back. The frame that explains half of what happens in relationships."
+  },
+  "categoryId": "relationships",
+  "estimatedMinutes": 12,
+  "scoring": "likert",
+  "factorIds": [
+    "secure",
+    "anxious",
+    "avoidant",
+    "fearful"
+  ],
+  "factorNames": {
+    "secure": {
+      "ru": "Надёжный",
+      "en": "Secure"
+    },
+    "anxious": {
+      "ru": "Тревожный",
+      "en": "Anxious"
+    },
+    "avoidant": {
+      "ru": "Избегающий",
+      "en": "Avoidant"
+    },
+    "fearful": {
+      "ru": "Тревожно-избегающий",
+      "en": "Anxious-avoidant"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Мне легко открываться близким людям и делиться своими чувствами",
+        "en": "It is easy for me to open up to loved ones and share my feelings"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Я чувствую себя комфортно, когда люди зависят от меня",
+        "en": "I feel comfortable when people depend on me"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я спокойно отношусь к тому, что партнер проводит время отдельно от меня",
+        "en": "I am calm about my partner spending time apart from me"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я могу легко попросить о помощи, когда мне это нужно",
+        "en": "I can easily ask for help when I need it"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я не боюсь быть уязвимым в отношениях",
+        "en": "I am not afraid to be vulnerable in relationships"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я уверен, что люди, которые мне дороги, не оставят меня",
+        "en": "I am confident that people who are dear to me will not leave me"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Я могу быть близким с людьми, сохраняя при этом свою индивидуальность",
+        "en": "I can be close to people while maintaining my individuality"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я верю, что отношения могут быть источником радости, а не стресса",
+        "en": "I believe relationships can be a source of joy, not stress"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Мне комфортно как в одиночестве, так и в компании близких людей",
+        "en": "I am comfortable both alone and in the company of loved ones"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Я могу открыто говорить о своих потребностях в отношениях",
+        "en": "I can openly talk about my needs in relationships"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Я доверяю своему партнеру, даже если временами возникают сложности",
+        "en": "I trust my partner even when difficulties arise at times"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "text": {
+        "ru": "Я могу эффективно решать конфликты в отношениях",
+        "en": "I can effectively resolve conflicts in relationships"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "text": {
+        "ru": "Я чувствую себя уверенно в отношениях",
+        "en": "I feel confident in relationships"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q53",
+      "text": {
+        "ru": "Я принимаю партнера таким, какой он есть, со всеми недостатками",
+        "en": "I accept my partner as they are, with all their flaws"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q57",
+      "text": {
+        "ru": "Я чувствую баланс между близостью и личным пространством",
+        "en": "I feel a balance between closeness and personal space"
+      },
+      "factorId": "secure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Я часто переживаю, что мой партнер не любит меня так сильно, как я его/её",
+        "en": "I often worry that my partner does not love me as much as I love them"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Когда партнер не отвечает на сообщения сразу, я начинаю беспокоиться",
+        "en": "When my partner does not reply to messages immediately, I start worrying"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Мне нужно постоянное подтверждение того, что я важен для своего партнера",
+        "en": "I need constant confirmation that I am important to my partner"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я переживаю, что меня бросят или оставят одного",
+        "en": "I worry that I will be abandoned or left alone"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Я часто чувствую, что люблю сильнее, чем меня любят",
+        "en": "I often feel that I love more than I am loved"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Малейший признак отдаления партнера вызывает у меня тревогу",
+        "en": "The slightest sign of my partner distancing causes me anxiety"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Я стремлюсь слиться с партнером полностью, что иногда пугает его/её",
+        "en": "I strive to merge completely with my partner, which sometimes scares them"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Я анализирую каждое слово партнера в поисках скрытого смысла",
+        "en": "I analyze every word of my partner looking for hidden meaning"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Я часто провоцирую ссоры, чтобы проверить, действительно ли партнер меня любит",
+        "en": "I often provoke arguments to test whether my partner really loves me"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Когда партнер занят, я чувствую себя брошенным и ненужным",
+        "en": "When my partner is busy, I feel abandoned and unwanted"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Мне сложно справляться с периодами, когда партнер эмоционально недоступен",
+        "en": "I find it difficult to cope with periods when my partner is emotionally unavailable"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "text": {
+        "ru": "Я часто думаю о том, не собирается ли партнер меня покинуть",
+        "en": "I often think about whether my partner is going to leave me"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q50",
+      "text": {
+        "ru": "Когда я не получаю достаточно внимания, я делаю что-то, чтобы привлечь его",
+        "en": "When I do not get enough attention, I do something to attract it"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q54",
+      "text": {
+        "ru": "Меня пугает возможность остаться одному на всю жизнь",
+        "en": "I am scared of the possibility of being alone for life"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q58",
+      "text": {
+        "ru": "Я испытываю сильную ревность, даже когда для этого нет причин",
+        "en": "I experience strong jealousy even when there is no reason for it"
+      },
+      "factorId": "anxious",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я предпочитаю не слишком сближаться с людьми эмоционально",
+        "en": "I prefer not to get too emotionally close to people"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Мне сложно полностью доверять другим людям",
+        "en": "It is difficult for me to fully trust other people"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я чувствую себя некомфортно, когда отношения становятся слишком близкими",
+        "en": "I feel uncomfortable when relationships become too close"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Я предпочитаю не зависеть от других людей",
+        "en": "I prefer not to depend on other people"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Мне важно сохранять свою независимость в отношениях",
+        "en": "It is important for me to maintain my independence in relationships"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я предпочитаю держать свои проблемы при себе",
+        "en": "I prefer to keep my problems to myself"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Выражение эмоций дается мне с трудом",
+        "en": "Expressing emotions is difficult for me"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я редко обсуждаю свои глубокие переживания даже с близкими",
+        "en": "I rarely discuss my deep feelings even with loved ones"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Романтические отношения кажутся мне не столь важными, как другие сферы жизни",
+        "en": "Romantic relationships seem to me less important than other areas of life"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "Я чувствую себя более комфортно, когда держу людей на расстоянии",
+        "en": "I feel more comfortable when I keep people at a distance"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "text": {
+        "ru": "Мне неприятно, когда кто-то пытается сблизиться со мной эмоционально",
+        "en": "It is unpleasant for me when someone tries to get emotionally close to me"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "text": {
+        "ru": "Я считаю, что полагаться на других — это проявление слабости",
+        "en": "I believe that relying on others is a sign of weakness"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q51",
+      "text": {
+        "ru": "Я ценю свободу больше, чем эмоциональную близость",
+        "en": "I value freedom more than emotional closeness"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q55",
+      "text": {
+        "ru": "Я чувствую себя подавленным, когда партнер становится слишком требовательным эмоционально",
+        "en": "I feel overwhelmed when my partner becomes too emotionally demanding"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q59",
+      "text": {
+        "ru": "Мне проще справляться с проблемами в одиночку, чем просить о поддержке",
+        "en": "It is easier for me to deal with problems alone than to ask for support"
+      },
+      "factorId": "avoidant",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я хочу быть близким с людьми, но боюсь, что меня снова ранят",
+        "en": "I want to be close to people but I am afraid of being hurt again"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я стремлюсь к близости, но когда получаю её, чувствую дискомфорт",
+        "en": "I strive for closeness but when I get it, I feel uncomfortable"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Я одновременно жажду близости и боюсь её",
+        "en": "I simultaneously crave closeness and fear it"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Мне трудно доверять людям, но я чувствую себя одиноким без близости",
+        "en": "It is hard for me to trust people but I feel lonely without closeness"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Когда кто-то становится ближе, я инстинктивно отстраняюсь, хотя и хочу близости",
+        "en": "When someone gets closer, I instinctively distance myself, although I want closeness"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я не уверен, что заслуживаю любви, но жажду её больше всего",
+        "en": "I am not sure I deserve love but I crave it most of all"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я боюсь, что никогда не найду человека, который полюбит меня по-настоящему",
+        "en": "I am afraid that I will never find someone who will truly love me"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Я чувствую внутренний конфликт между желанием быть любимым и страхом предательства",
+        "en": "I feel an inner conflict between the desire to be loved and the fear of betrayal"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Меня пугает мысль о том, что кто-то узнает меня по-настоящему",
+        "en": "The thought of someone really knowing me scares me"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "У меня есть противоречивые чувства: я хочу близости, но не доверяю людям",
+        "en": "I have conflicting feelings: I want closeness but I do not trust people"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "text": {
+        "ru": "Прошлый негативный опыт в отношениях делает меня очень осторожным",
+        "en": "Past negative relationship experiences make me very cautious"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "text": {
+        "ru": "Я хочу доверять людям, но боюсь быть преданным",
+        "en": "I want to trust people but I am afraid of being betrayed"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q52",
+      "text": {
+        "ru": "Я избегаю близости, потому что боюсь повторения прошлых ошибок",
+        "en": "I avoid closeness because I fear repeating past mistakes"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q56",
+      "text": {
+        "ru": "Я колеблюсь между желанием быть близким и желанием убежать от отношений",
+        "en": "I fluctuate between wanting to be close and wanting to run away from relationships"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q60",
+      "text": {
+        "ru": "Я считаю себя недостойным любви, но отчаянно в ней нуждаюсь",
+        "en": "I consider myself unworthy of love but desperately need it"
+      },
+      "factorId": "fearful",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "emotional_openness": 1,
+      "vulnerability_sharing": 0.9,
+      "trust_in_relationships": 0.8,
+      "secure_attachment": 0.9,
+      "communication_quality": 0.7,
+      "intimacy_comfort": 0.8,
+      "emotional_resilience": 0.6,
+      "self_efficacy": 0.5,
+      "extraversion": 0.7,
+      "feeling": 0.8
+    },
+    "q5": {
+      "secure_attachment": 0.9,
+      "support_giving": 1,
+      "reliability_partnership": 0.8,
+      "dependability": 0.8,
+      "altruism": 0.6,
+      "compassion": 0.6,
+      "trust_in_relationships": 0.7,
+      "emotional_resilience": 0.5
+    },
+    "q9": {
+      "secure_attachment": 1,
+      "trust_in_relationships": 0.9,
+      "autonomy_wellbeing": 0.7,
+      "emotional_resilience": 0.7,
+      "self_efficacy": 0.6,
+      "autonomy_need": 0.6,
+      "calmness": 0.6,
+      "composure": 0.5,
+      "introversion": 0.5
+    },
+    "q13": {
+      "social_support_seeking": 1,
+      "secure_attachment": 0.9,
+      "vulnerability_sharing": 0.8,
+      "assertiveness": 0.7,
+      "trust_in_relationships": 0.8,
+      "emotional_openness": 0.7,
+      "self_efficacy": 0.6,
+      "extraversion": 0.6
+    },
+    "q17": {
+      "vulnerability_sharing": 1,
+      "secure_attachment": 0.9,
+      "emotional_openness": 0.9,
+      "trust_in_relationships": 0.8,
+      "intimacy_comfort": 0.8,
+      "authenticity": 0.7,
+      "emotional_resilience": 0.7,
+      "self_acceptance": 0.6,
+      "feeling": 0.9
+    },
+    "q21": {
+      "secure_attachment": 1,
+      "trust_in_relationships": 1,
+      "relationship_security": 0.9,
+      "self_esteem": 0.7,
+      "emotional_resilience": 0.7,
+      "self_efficacy": 0.6,
+      "positive_emotions": 0.5,
+      "judging": 0.6
+    },
+    "q25": {
+      "secure_attachment": 1,
+      "autonomy_wellbeing": 0.9,
+      "identity_clarity": 0.8,
+      "intimacy_comfort": 0.8,
+      "boundary_setting": 0.7,
+      "authenticity": 0.7,
+      "self_awareness": 0.6,
+      "maturity": 0.6
+    },
+    "q29": {
+      "secure_attachment": 0.9,
+      "positive_relations": 0.9,
+      "happiness": 0.7,
+      "relationship_security": 0.8,
+      "emotional_resilience": 0.7,
+      "life_satisfaction": 0.6,
+      "positive_emotions": 0.6,
+      "trust_in_relationships": 0.7
+    },
+    "q33": {
+      "secure_attachment": 1,
+      "autonomy_wellbeing": 0.8,
+      "self_efficacy": 0.7,
+      "emotional_resilience": 0.7,
+      "self_acceptance": 0.6,
+      "intimacy_comfort": 0.7,
+      "autonomy_need": 0.6,
+      "maturity": 0.6
+    },
+    "q37": {
+      "communication_quality": 1,
+      "assertiveness": 0.9,
+      "emotional_openness": 0.9,
+      "secure_attachment": 0.8,
+      "self_efficacy": 0.7,
+      "authenticity": 0.7,
+      "boundary_setting": 0.6,
+      "self_awareness": 0.6,
+      "extraversion": 0.7
+    },
+    "q41": {
+      "trust_in_relationships": 1,
+      "secure_attachment": 0.9,
+      "emotional_resilience": 0.8,
+      "relationship_security": 0.8,
+      "forgiveness": 0.7,
+      "maturity": 0.6,
+      "acceptance": 0.6
+    },
+    "q45": {
+      "conflict_resolution": 1,
+      "communication_quality": 0.9,
+      "emotional_intelligence": 0.8,
+      "secure_attachment": 0.8,
+      "problem_solving": 0.7,
+      "social_perception": 0.6,
+      "maturity": 0.6,
+      "judging": 0.7
+    },
+    "q49": {
+      "secure_attachment": 1,
+      "self_efficacy": 0.9,
+      "relationship_security": 0.9,
+      "self_esteem": 0.7,
+      "emotional_resilience": 0.7,
+      "trust_in_relationships": 0.7
+    },
+    "q53": {
+      "acceptance": 1,
+      "secure_attachment": 0.9,
+      "compassion": 0.8,
+      "forgiveness": 0.8,
+      "maturity": 0.7,
+      "empathy": 0.7,
+      "emotional_resilience": 0.6
+    },
+    "q57": {
+      "secure_attachment": 1,
+      "boundary_setting": 0.9,
+      "autonomy_wellbeing": 0.8,
+      "intimacy_comfort": 0.8,
+      "maturity": 0.7,
+      "self_awareness": 0.6,
+      "identity_clarity": 0.6
+    },
+    "q2": {
+      "anxious_attachment": 1,
+      "fear_of_abandonment": 0.9,
+      "self_consciousness": 0.9,
+      "worry_tendency": 0.8,
+      "anxiety": 0.7,
+      "vulnerability": 0.7,
+      "rumination": 0.6,
+      "self_esteem": 0.6
+    },
+    "q6": {
+      "anxious_attachment": 1,
+      "anxiety": 0.9,
+      "worry_tendency": 0.9,
+      "fear_of_abandonment": 0.8,
+      "self_consciousness": 0.7,
+      "emotional_reactivity": 0.7,
+      "panic_tendency": 0.6
+    },
+    "q10": {
+      "anxious_attachment": 1,
+      "self_consciousness": 0.9,
+      "self_esteem": 0.8,
+      "fear_of_abandonment": 0.7,
+      "anxiety": 0.7,
+      "vulnerability": 0.6
+    },
+    "q14": {
+      "fear_of_abandonment": 1,
+      "anxious_attachment": 1,
+      "anxiety": 0.9,
+      "self_consciousness": 0.9,
+      "worry_tendency": 0.8,
+      "vulnerability": 0.7,
+      "catastrophizing": 0.6
+    },
+    "q18": {
+      "anxious_attachment": 0.9,
+      "self_consciousness": 0.8,
+      "self_esteem": 0.8,
+      "fear_of_abandonment": 0.7,
+      "rumination": 0.6,
+      "vulnerability": 0.6
+    },
+    "q22": {
+      "anxious_attachment": 1,
+      "anxiety": 0.9,
+      "fear_of_abandonment": 0.9,
+      "emotional_reactivity": 0.8,
+      "self_consciousness": 0.8,
+      "worry_tendency": 0.7,
+      "vulnerability": 0.6
+    },
+    "q26": {
+      "anxious_attachment": 1,
+      "fear_of_abandonment": 0.7,
+      "self_consciousness": 0.7,
+      "impulsiveness": 0.6,
+      "emotional_reactivity": 0.6
+    },
+    "q30": {
+      "anxious_attachment": 0.9,
+      "worry_tendency": 0.8,
+      "rumination": 0.8,
+      "anxiety": 0.8,
+      "self_consciousness": 0.7,
+      "catastrophizing": 0.6
+    },
+    "q34": {
+      "anxious_attachment": 1,
+      "self_consciousness": 0.9,
+      "fear_of_abandonment": 0.8,
+      "impulsiveness": 0.6,
+      "conflict_management": 0.5
+    },
+    "q38": {
+      "anxious_attachment": 1,
+      "fear_of_abandonment": 1,
+      "self_consciousness": 0.8,
+      "emotional_reactivity": 0.7,
+      "vulnerability": 0.7
+    },
+    "q42": {
+      "anxious_attachment": 0.9,
+      "fear_of_abandonment": 0.8,
+      "self_consciousness": 0.7,
+      "vulnerability": 0.7,
+      "emotion_focused_coping": 0.6
+    },
+    "q46": {
+      "anxious_attachment": 0.9,
+      "fear_of_abandonment": 1,
+      "rumination": 0.9,
+      "worry_tendency": 0.9,
+      "anxiety": 0.8,
+      "catastrophizing": 0.7,
+      "self_consciousness": 0.8
+    },
+    "q50": {
+      "anxious_attachment": 0.9,
+      "self_consciousness": 0.7,
+      "impulsiveness": 0.6,
+      "emotional_reactivity": 0.6
+    },
+    "q54": {
+      "anxious_attachment": 0.9,
+      "fear_of_abandonment": 1,
+      "anxiety": 0.8,
+      "self_consciousness": 0.8,
+      "catastrophizing": 0.6
+    },
+    "q58": {
+      "jealousy": 1,
+      "anxious_attachment": 0.9,
+      "self_consciousness": 0.9,
+      "fear_of_abandonment": 0.8,
+      "emotional_reactivity": 0.7,
+      "trust": 0.6
+    },
+    "q3": {
+      "avoidant_attachment": 1,
+      "intimacy_comfort": 0.8,
+      "autonomy_need": 0.7,
+      "emotional_openness": 0.6,
+      "introversion": 0.7
+    },
+    "q7": {
+      "avoidant_attachment": 0.9,
+      "trust_in_relationships": 0.8,
+      "trust": 0.8,
+      "vulnerability_sharing": 0.6
+    },
+    "q11": {
+      "avoidant_attachment": 1,
+      "intimacy_comfort": 0.9,
+      "anxiety": 0.6,
+      "autonomy_need": 0.7
+    },
+    "q15": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 1,
+      "autonomy_wellbeing": 0.8,
+      "social_support_seeking": 0.6
+    },
+    "q19": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 1,
+      "autonomy_wellbeing": 0.9,
+      "self_direction": 0.7
+    },
+    "q23": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 0.7,
+      "social_support_seeking": 0.6,
+      "vulnerability_sharing": 0.7
+    },
+    "q27": {
+      "avoidant_attachment": 0.9,
+      "emotional_openness": 0.8,
+      "vulnerability_sharing": 0.7,
+      "expressiveness": 0.7,
+      "thinking": 0.8
+    },
+    "q31": {
+      "avoidant_attachment": 1,
+      "emotional_openness": 0.9,
+      "vulnerability_sharing": 0.9,
+      "intimacy_comfort": 0.7
+    },
+    "q35": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 0.7,
+      "intimacy_comfort": 0.6
+    },
+    "q39": {
+      "avoidant_attachment": 1,
+      "intimacy_comfort": 0.8,
+      "emotional_openness": 0.7,
+      "boundary_setting": 0.6,
+      "introversion": 0.8
+    },
+    "q43": {
+      "avoidant_attachment": 1,
+      "intimacy_comfort": 0.9,
+      "anxiety": 0.6,
+      "vulnerability_sharing": 0.7
+    },
+    "q47": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 0.9,
+      "social_support_seeking": 0.6,
+      "vulnerability_sharing": 0.7,
+      "thinking": 0.7
+    },
+    "q51": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 1,
+      "autonomy_wellbeing": 0.9,
+      "self_direction": 0.7,
+      "intimacy_comfort": 0.6
+    },
+    "q55": {
+      "avoidant_attachment": 0.9,
+      "intimacy_comfort": 0.7,
+      "stress_tolerance": 0.6,
+      "emotional_reactivity": 0.6
+    },
+    "q59": {
+      "avoidant_attachment": 0.9,
+      "autonomy_need": 0.9,
+      "social_support_seeking": 0.6,
+      "problem_focused_coping": 0.6
+    },
+    "q4": {
+      "anxious_attachment": 0.7,
+      "avoidant_attachment": 0.7,
+      "fear_of_abandonment": 0.8,
+      "vulnerability": 0.8,
+      "trust_in_relationships": 0.6
+    },
+    "q8": {
+      "anxious_attachment": 0.7,
+      "avoidant_attachment": 0.7,
+      "intimacy_comfort": 0.8,
+      "anxiety": 0.7,
+      "self_awareness": 0.6
+    },
+    "q12": {
+      "anxious_attachment": 0.8,
+      "avoidant_attachment": 0.8,
+      "fear_of_abandonment": 0.9,
+      "intimacy_comfort": 0.7,
+      "anxiety": 0.7
+    },
+    "q16": {
+      "trust_in_relationships": 0.9,
+      "anxious_attachment": 0.7,
+      "avoidant_attachment": 0.6,
+      "fear_of_abandonment": 0.6,
+      "social_support_seeking": 0.5
+    },
+    "q20": {
+      "avoidant_attachment": 0.8,
+      "anxious_attachment": 0.6,
+      "intimacy_comfort": 0.8,
+      "anxiety": 0.7,
+      "impulsiveness": 0.5
+    },
+    "q24": {
+      "self_esteem": 1,
+      "self_consciousness": 0.9,
+      "anxious_attachment": 0.8,
+      "vulnerability": 0.7,
+      "self_acceptance": 0.6
+    },
+    "q28": {
+      "fear_of_abandonment": 0.9,
+      "anxious_attachment": 0.8,
+      "self_consciousness": 0.9,
+      "self_esteem": 0.8,
+      "catastrophizing": 0.7,
+      "anxiety": 0.8
+    },
+    "q32": {
+      "anxious_attachment": 0.8,
+      "avoidant_attachment": 0.7,
+      "trust_in_relationships": 0.9,
+      "vulnerability": 0.7,
+      "anxiety": 0.9
+    },
+    "q36": {
+      "vulnerability_sharing": 0.9,
+      "intimacy_comfort": 0.9,
+      "self_consciousness": 0.8,
+      "avoidant_attachment": 0.7,
+      "anxiety": 0.6
+    },
+    "q40": {
+      "anxious_attachment": 0.8,
+      "avoidant_attachment": 0.7,
+      "trust_in_relationships": 1,
+      "intimacy_comfort": 0.7,
+      "self_awareness": 0.6
+    },
+    "q44": {
+      "avoidant_attachment": 0.8,
+      "trust_in_relationships": 0.9,
+      "vulnerability": 0.8,
+      "anxiety": 0.6,
+      "harm_avoidance": 0.7
+    },
+    "q48": {
+      "trust_in_relationships": 1,
+      "anxious_attachment": 0.7,
+      "avoidant_attachment": 0.6,
+      "vulnerability": 0.7,
+      "fear_of_abandonment": 0.6
+    },
+    "q52": {
+      "avoidant_attachment": 0.9,
+      "intimacy_comfort": 0.8,
+      "vulnerability": 0.7,
+      "harm_avoidance": 0.7,
+      "anxiety": 0.6
+    },
+    "q56": {
+      "anxious_attachment": 0.8,
+      "avoidant_attachment": 0.8,
+      "fear_of_abandonment": 0.7,
+      "intimacy_comfort": 0.7,
+      "mood_stability": 0.6
+    },
+    "q60": {
+      "self_esteem": 1,
+      "self_consciousness": 1,
+      "anxious_attachment": 0.9,
+      "vulnerability": 0.8,
+      "self_acceptance": 0.7
+    }
+  },
+  "profiles": {
+    "secure": {
+      "id": "secure",
+      "icon": null,
+      "name": {
+        "ru": "Спокойно вблизи",
+        "en": "Close Without Alarm"
+      },
+      "description": {
+        "ru": "Близость тебя не пугает, расстояние не рушит. Ты умеешь и то, и другое — и это встречается реже, чем кажется.",
+        "en": "Closeness doesn't frighten you and distance doesn't break you. You can do both — which is rarer than it sounds."
+      },
+      "whyThisProfile": {
+        "ru": "Надёжная шкала выше 70%, а тревожная, избегающая и тревожно-избегающая — ниже 30% каждая. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
+        "en": "Your secure scale is above 70% and the anxious, avoidant and anxious-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
+      },
+      "strengths": {
+        "ru": [
+          "Ты говоришь, чего хочешь, не превращая это в проверку.",
+          "Чужая потребность в пространстве не читается тобой как начало конца.",
+          "Ты можешь быть уязвимым и не ждать за это счёта.",
+          "Ссора у тебя заканчивается решением, а не победой и не исчезновением."
+        ],
+        "en": [
+          "You say what you want without turning it into a test.",
+          "Someone needing space doesn't read to you as the beginning of the end.",
+          "You can be vulnerable without expecting an invoice for it.",
+          "A fight ends for you in a resolution rather than a win or a disappearance."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Тебе трудно понять, почему для другого это так сложно. Ему это не досталось даром.",
+          "Чужую тревогу легко принять за манипуляцию, а чужую дистанцию — за равнодушие. Иногда так и есть, но не по умолчанию.",
+          "Ровность легко перепутать с тем, что тебе просто не настолько важно."
+        ],
+        "en": [
+          "It's hard for you to see why this is so difficult for someone else. It didn't come free to them.",
+          "Someone's anxiety is easy to read as manipulation and their distance as indifference. Sometimes it is; not by default.",
+          "Steadiness is easy to mistake for not caring all that much."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Помни, что другому типу это стоит усилия, которого ты не тратишь. Терпение здесь полезнее совета.",
+          "Говори тёплое вслух. Тебе кажется, что и так понятно; человеку с другим типом — непонятно.",
+          "Проверь, где ты всё-таки замираешь. Надёжный тип не значит ноль: значит, паттерн узкий и сидит в одной теме."
+        ],
+        "en": [
+          "Remember that another type spends effort here that you don't spend at all. Patience helps more than advice does.",
+          "Say the warm thing out loud. It seems obvious to you; to someone with a different style it isn't.",
+          "Check where you do still freeze. Secure doesn't mean zero — it means the pattern is narrow and lives in one topic."
+        ]
+      },
+      "tryToday": {
+        "ru": "Спроси у близкого, что ему рядом с тобой даётся тяжелее всего. И не объясняй, почему он не прав.",
+        "en": "Ask someone close what they find hardest about being with you. And don't explain why they're wrong."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты умеешь быть рядом, не теряя себя. Самое полезное, что можно с этим сделать, — перестать объяснять другим, что это просто.",
+        "en": "You can be close without losing yourself. The most useful thing you can do with that is stop telling other people it's simple."
+      }
+    },
+    "anxious": {
+      "id": "anxious",
+      "icon": null,
+      "name": {
+        "ru": "Ближе, ещё ближе",
+        "en": "Closer, Closer"
+      },
+      "description": {
+        "ru": "Когда человек отходит, ты идёшь за ним. Не от навязчивости — от того, что дистанция ощущается как обрыв связи.",
+        "en": "When someone steps back, you go after them. Not out of neediness — because the distance registers as the line going dead."
+      },
+      "whyThisProfile": {
+        "ru": "Тревожная шкала выше 60% и выше остальных. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
+        "en": "Your anxious scale is above 60% and above the others. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь смену настроения раньше, чем о ней скажут.",
+          "Ты вкладываешься по-настоящему и не считаешь это подвигом.",
+          "Ты готов разговаривать о том, что происходит между вами. Многие не готовы вообще.",
+          "Ты знаешь свои чувства по именам — это половина работы, которую другим ещё предстоит сделать."
+        ],
+        "en": [
+          "You notice a change of mood before anyone mentions it.",
+          "You invest for real and don't treat it as heroic.",
+          "You're willing to talk about what's happening between you. Plenty of people aren't willing at all.",
+          "You know your feelings by name — that's half the work other people still have ahead of them."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Твой радар настроен на бурю и срабатывает в ясный день. Ложных тревог у тебя больше, чем настоящих.",
+          "Подтверждений ты просишь так часто, что они перестают работать: полученного хватает на день.",
+          "Границы ты ставишь последними, потому что они ощущаются как риск потерять.",
+          "Ты перечитываешь переписку и находишь там то, чего не писали."
+        ],
+        "en": [
+          "Your radar is calibrated for storms and fires on clear days. You get more false alarms than real ones.",
+          "You ask for reassurance so often that it stops working: what you get lasts about a day.",
+          "You set boundaries last, because they feel like a risk of losing them.",
+          "You reread the thread and find things in it that were never written."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Прежде чем действовать на тревоге, назови её одной фразой вслух: «я сейчас накручиваю». Названная тревога перестаёт быть фактом.",
+          "Проси конкретное вместо подтверждений. «Напиши, когда доедешь» выполнимо; «скажи, что любишь» — нет, если это нужно каждый день.",
+          "Строй жизнь, которая не держится на одном человеке. Это не про запасной аэродром, а про то, чтобы у тревоги было меньше рычага."
+        ],
+        "en": [
+          "Before you act on the anxiety, name it out loud in one sentence: “I'm spiralling right now.” Named, it stops being a fact.",
+          "Ask for something specific instead of reassurance. “Text me when you get there” is doable; “tell me you love me” isn't, if it's needed daily.",
+          "Build a life that doesn't rest on one person. Not as a backup plan — so the anxiety has less leverage."
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня, когда захочется написать третье сообщение подряд, — не пиши. Просто заметь, сколько это желание продержалось. Обычно меньше часа.",
+        "en": "Today, when you want to send a third message in a row, don't. Just notice how long the urge lasts. Usually under an hour."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя чувствительность настоящая, и она не дефект. Дефект только в калибровке — а её меняют, и меняется она быстрее, чем кажется отсюда.",
+        "en": "Your sensitivity is real and it isn't a fault. The only fault is the calibration — and calibration gets changed, faster than it looks from here."
+      }
+    },
+    "avoidant": {
+      "id": "avoidant",
+      "icon": null,
+      "name": {
+        "ru": "На расстоянии руки",
+        "en": "Arm's Length"
+      },
+      "description": {
+        "ru": "Тебе хорошо, пока человек не подошёл слишком близко. Тогда становится тесно — и ты отходишь, не объясняя.",
+        "en": "You're fine until someone gets too close. Then it gets crowded, and you step back without explaining."
+      },
+      "whyThisProfile": {
+        "ru": "Избегающая шкала выше 60% и выше остальных. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
+        "en": "Your avoidant scale is above 60% and above the others. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
+      },
+      "strengths": {
+        "ru": [
+          "Ты справляешься сам и не превращаешь это в требование к другим.",
+          "Ты уважаешь чужое пространство, потому что знаешь ему цену.",
+          "Ты не раздуваешь: проблема у тебя размером с себя.",
+          "В конфликте ты не теряешь голову и не говоришь непоправимого."
+        ],
+        "en": [
+          "You manage on your own and don't turn that into a demand on anyone else.",
+          "You respect other people's space, because you know what it's worth.",
+          "You don't inflate things: a problem is the size it is.",
+          "In a fight you keep your head and don't say the irreversible thing."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты отходишь молча, и человек достраивает причину сам. Достраивает обычно худшую.",
+          "Свои чувства ты замечаешь задним числом, когда решать уже нечего.",
+          "Попросить помощь для тебя равно признать поломку. Поэтому вокруг привыкают, что тебе ничего не надо.",
+          "Ты путаешь автономию с дистанцией. Первая — свобода, вторая — стена, и снаружи они выглядят одинаково."
+        ],
+        "en": [
+          "You step back silently, and the other person fills in the reason themselves. Usually the worst one.",
+          "You notice your own feelings in hindsight, when there's nothing left to decide.",
+          "Asking for help equals admitting a defect, so everyone around you learns you don't need any.",
+          "You confuse autonomy with distance. The first is freedom, the second is a wall, and from outside they look the same."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Предупреждай, что уходишь: «мне нужно побыть одному, вернусь вечером». Это не близость, это расписание — и оно снимает половину проблемы.",
+          "Называй чувство в момент, а не через неделю. Даже криво. Точность придёт потом.",
+          "Один раз попроси о том, что можешь сделать сам. Проверить надо не человека, а собственную реакцию на просьбу."
+        ],
+        "en": [
+          "Say when you're going: “I need to be alone, I'll be back this evening.” That isn't closeness, it's a schedule — and it removes half the problem.",
+          "Name the feeling in the moment rather than a week later. Even clumsily. Precision comes afterwards.",
+          "Ask once for something you could do yourself. What you're testing isn't the person — it's your own reaction to asking."
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи сегодня одному человеку одну вещь о себе, которую обычно не говоришь. Не самую большую — любую.",
+        "en": "Tell one person one thing about yourself you don't usually say. Not the biggest one — any of them."
+      },
+      "inspiringConclusion": {
+        "ru": "Самостоятельность у тебя настоящая, и отказываться от неё незачем. Нужно только, чтобы рядом с ней помещался кто-то ещё.",
+        "en": "Your self-reliance is real and there's no reason to give it up. It just needs room beside it for somebody else."
+      }
+    },
+    "fearful": {
+      "id": "fearful",
+      "icon": null,
+      "name": {
+        "ru": "И хочется, и страшно",
+        "en": "Wanting and Afraid"
+      },
+      "description": {
+        "ru": "Ты тянешься к человеку и от него же отшатываешься. Обе реакции твои, обе настоящие, и приходят они почти одновременно.",
+        "en": "You reach for someone and recoil from the same person. Both reactions are yours, both are real, and they arrive almost together."
+      },
+      "whyThisProfile": {
+        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип, самый редкий из четырёх. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
+        "en": "Your anxious-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the anxious-avoidant type, the rarest of the four. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь в отношениях то, что другие замечают через годы.",
+          "Ты умеешь всерьёз разбираться в себе, а не изображать это.",
+          "Ты честен с собой там, где честность неудобна, — иначе не дошёл бы до конца этого теста.",
+          "Ты понимаешь и тех, кто догоняет, и тех, кто отступает. Ты бывал обоими."
+        ],
+        "en": [
+          "You see things in a relationship that other people notice years later.",
+          "You can genuinely examine yourself rather than perform it.",
+          "You're honest with yourself where honesty is inconvenient — otherwise you wouldn't have finished this test.",
+          "You understand both the ones who chase and the ones who retreat. You've been both."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты рушишь ровно тогда, когда стало хорошо. Хорошо для тебя и есть сигнал опасности.",
+          "Снаружи твоё поведение непредсказуемо, и человек рядом перестаёт понимать, на что реагировать.",
+          "Ты не доверяешь ни себе, ни другому, и круг замыкается: проверить не на чем.",
+          "Сильные состояния приходят быстро, а уходят долго."
+        ],
+        "en": [
+          "You break it exactly when it starts going well. Going well is itself the danger signal for you.",
+          "From outside your behaviour is unpredictable, and the person beside you stops knowing what to respond to.",
+          "You trust neither yourself nor them, and the loop closes: there's nothing left to test against.",
+          "The intense states arrive fast and leave slowly."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни с одного специалиста, а не с одного решения. Из четырёх типов этот единственный, где это не совет, а первый шаг.",
+          "Отличай прошлое от настоящего вслух: «это происходит сейчас или я узнаю то, что было?» Вопрос простой и работает не сразу.",
+          "Предупреждай о своих качелях заранее, а не объясняй задним числом. Названное перестаёт быть непредсказуемым.",
+          "Иди в близость по своей скорости. Быстрое сближение запускает у тебя откат надёжнее всего остального."
+        ],
+        "en": [
+          "Start with one professional rather than one decision. Of the four types, this is the only one where that's a first step and not advice.",
+          "Tell past from present out loud: “is this happening now, or am I recognizing something that already happened?” Simple question, and it doesn't work immediately.",
+          "Flag the swings in advance instead of explaining them afterwards. Named, they stop being unpredictable.",
+          "Go into closeness at your own speed. Fast closeness triggers your retreat more reliably than anything else."
+        ]
+      },
+      "tryToday": {
+        "ru": "Заметь сегодня один момент, когда стало хорошо и сразу потянуло отойти. Не делай ничего — просто отметь, что это случилось.",
+        "en": "Notice one moment today when things felt good and you immediately wanted to pull away. Do nothing about it — just note that it happened."
+      },
+      "inspiringConclusion": {
+        "ru": "В тебе живут две стратегии, и обе когда-то были нужны. Выбирать между ними не надо — их разбирают, и это единственная задача из четырёх, которую не стоит решать в одиночку.",
+        "en": "Two strategies live in you, and both were needed once. You don't have to choose between them — they get taken apart, and this is the one task of the four not worth doing alone."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест по 60 самоотчётным ответам, а не диагноз. Он описывает паттерн, а не тебя.\n\nИз четырёх типов этот чаще прочих связан с тяжёлым ранним опытом, и разбирается он не в одиночку — это единственное практическое отличие от остальных трёх. Психолог, работающий с привязанностью, здесь не крайняя мера, а обычный инструмент.\n\nЕсли тебе сейчас небезопасно рядом с кем-то или тяжело настолько, что это мешает жить, — обратись в местную службу психологической помощи, не откладывая.",
+        "en": "This is an educational test built on 60 self-reported answers, not a diagnosis. It describes a pattern, not you.\n\nOf the four types, this one is most often connected to hard early experience, and it doesn't come apart alone — that's the one practical difference from the other three. A therapist who works with attachment is an ordinary tool here, not a last resort.\n\nIf you don't feel safe around someone right now, or things are heavy enough to get in the way of living, contact your local mental-health service without waiting."
+      }
+    },
+    "mixed": {
+      "id": "mixed",
+      "icon": null,
+      "name": {
+        "ru": "Всё сразу",
+        "en": "All of It at Once"
+      },
+      "description": {
+        "ru": "Ни один тип не выходит вперёд. С разными людьми ты разный — и это скорее про людей, чем про тебя.",
+        "en": "No single type comes out ahead. You're different with different people — and that says more about them than about you."
+      },
+      "whyThisProfile": {
+        "ru": "Ни одна из четырёх шкал не набрала перевеса. Так бывает по двум причинам, и они очень разные. Либо привязанность у тебя действительно гибкая — редкий и хороший вариант. Либо тип выбирает партнёр: с надёжным ты надёжный, с холодным тревожный. Второе встречается чаще, и различить их можно только по конкретным людям, а не по цифрам.",
+        "en": "None of the four scales took the lead. That happens for two reasons, and they're very different. Either your attachment really is flexible — rare and good. Or your type is picked by the partner: secure with a secure one, anxious with a cold one. The second is more common, and the two can only be told apart by looking at specific people, not at numbers."
+      },
+      "strengths": {
+        "ru": [
+          "Ты подстраиваешься, а не тащишь один режим во все отношения.",
+          "Ты понимаешь людей разных типов, потому что бывал каждым.",
+          "Тебя трудно сломать одним сценарием: у тебя есть больше одной реакции."
+        ],
+        "en": [
+          "You adapt instead of dragging one mode into every relationship.",
+          "You understand people of every type, because you've been each of them.",
+          "One scenario isn't enough to break you: you have more than one response available."
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "На вопрос «какой ты в отношениях» у тебя нет ответа, и человеку рядом не за что держаться.",
+          "Ровность бывает не гибкостью, а тем, что ты давно ни к кому не подходил по-настоящему близко.",
+          "Ты можешь не замечать, что тип у тебя выбирает партнёр, а не ты."
+        ],
+        "en": [
+          "You have no answer to “what are you like in a relationship”, and the person beside you has nothing to hold on to.",
+          "Evenness is sometimes not flexibility but the fact that you haven't been properly close to anyone in a while.",
+          "You can miss that your type is being picked by the partner rather than by you."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Посмотри цифры ниже и найди вторую по величине шкалу. Первая — то, что ты показываешь; вторая — то, куда ты уходишь под давлением.",
+          "Разложи последние отношения по типам: где тревожился, где отстранялся. Совпадение обычно не случайное и скажет больше, чем сам тест.",
+          "Вспомни, когда ты последний раз подходил к кому-то по-настоящему близко. Если давно, ровность может быть просто дистанцией."
+        ],
+        "en": [
+          "Look at the numbers below and find the second-highest scale. The first is what you show; the second is where you go under pressure.",
+          "Sort your last few relationships by type: where you got anxious, where you withdrew. The pattern usually isn't random, and it'll tell you more than the test does.",
+          "Remember the last time you were properly close to anyone. If it's been a while, the evenness may just be distance."
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни двоих: с кем ты тревожишься и с кем отстраняешься. Разница между этими людьми и есть твой настоящий результат.",
+        "en": "Think of two people: the one you get anxious with and the one you withdraw from. The difference between them is your actual result."
+      },
+      "inspiringConclusion": {
+        "ru": "Отсутствие одного типа — не отсутствие паттерна. Просто твой паттерн виден не в тебе одном, а в паре с конкретным человеком.",
+        "en": "No single type isn't the same as no pattern. Yours simply doesn't show in you alone — it shows in you plus a particular person."
+      }
+    }
+  },
+  "profileSelection": {
+    "mode": "rules",
+    "fallback": "mixed",
+    "rules": [
+      {
+        "when": [
+          [
+            "secure",
+            ">",
+            70
+          ],
+          [
+            "anxious",
+            "<",
+            30
+          ],
+          [
+            "avoidant",
+            "<",
+            30
+          ],
+          [
+            "fearful",
+            "<",
+            30
+          ]
+        ],
+        "profile": "secure"
+      },
+      {
+        "when": [
+          [
+            "anxious",
+            ">",
+            60
+          ],
+          [
+            "anxious",
+            ">",
+            "avoidant"
+          ],
+          [
+            "anxious",
+            ">",
+            "fearful"
+          ]
+        ],
+        "profile": "anxious"
+      },
+      {
+        "when": [
+          [
+            "avoidant",
+            ">",
+            60
+          ],
+          [
+            "avoidant",
+            ">",
+            "anxious"
+          ],
+          [
+            "avoidant",
+            ">",
+            "fearful"
+          ]
+        ],
+        "profile": "avoidant"
+      },
+      {
+        "when": [
+          [
+            "fearful",
+            ">",
+            60
+          ]
+        ],
+        "profile": "fearful"
+      },
+      {
+        "when": [
+          [
+            "anxious",
+            ">",
+            50
+          ],
+          [
+            "avoidant",
+            ">",
+            50
+          ]
+        ],
+        "profile": "fearful"
+      }
+    ]
+  }
+}
