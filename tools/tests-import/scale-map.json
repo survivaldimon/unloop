@@ -1,0 +1,82 @@
+{
+  "$comment": "Э2 — нормализация реестра шкал под запускной набор (docs/tests-catalogue.md). Отображает шкалы, на которые ссылаются веса tests_app, но которых нет в hierarchical_scales.dart, на канонические шкалы реестра. Применяется скриптом apply-scale-map.mjs.",
+  "principle": "Алиас к существующей шкале везде, где есть разумная цель. Новая шкала добавляется, только если конструкт правдоподобно встретится и в других тестах: шкала, которую использует ровно один тест, не даёт ничего кросс-тестовому профилю, ради которого слой и существует. invert:true переворачивает знак веса, когда цель — противоположный полюс источника.",
+  "scope": "53 фантомные шкалы запускного набора из 7 тестов. Тесты второго эшелона добавят новые — карта расширяется по мере их подключения.",
+
+  "newScales": {
+    "respect": {
+      "name": { "ru": "Уважение к партнёру", "en": "Respect for Partner" },
+      "description": {
+        "ru": "Признание ценности и границ близкого человека",
+        "en": "Recognising the worth and boundaries of a close person"
+      },
+      "categoryId": "cat_relationships",
+      "why": "В реестре нет ничего близкого: politeness — про манеры, tender_mindedness — про сочувствие. Уважение как отдельная величина правдоподобно понадобится тестам про привязанность и конфликты."
+    },
+    "self_victimization": {
+      "name": { "ru": "Позиция жертвы", "en": "Victim Stance" },
+      "description": {
+        "ru": "Склонность объяснять происходящее чужой виной и собственной беспомощностью",
+        "en": "Tendency to explain events through others' fault and one's own helplessness"
+      },
+      "categoryId": "cat_stress_coping",
+      "why": "Атрибутивный стиль, отдельный от rumination и catastrophizing. Встречается в тестах про самосаботаж и границы, не только в токсичных паттернах."
+    }
+  },
+
+  "aliases": {
+    "control": { "to": "dominance", "note": "Контролирующее поведение в паре = доминирование" },
+    "emotional_honesty": { "to": "emotional_openness" },
+    "emotional_intensity": { "to": "emotional_reactivity" },
+    "emotional_withdrawal": { "to": "avoidant_coping", "note": "Молчаливое наказание как уход от контакта" },
+    "cruelty": { "to": "callousness" },
+    "psychological_abuse": { "to": "callousness" },
+    "anger_expression": { "to": "anger" },
+    "hostility": { "to": "anger" },
+    "aggression": { "to": "anger" },
+    "irritability": { "to": "anger" },
+    "gaslighting": { "to": "manipulation" },
+    "reality_distortion": { "to": "manipulation" },
+    "emotional_blackmail": { "to": "manipulation" },
+    "guilt_tripping": { "to": "manipulation" },
+    "sabotage_tendency": { "to": "manipulation" },
+    "conflict_avoidance": { "to": "avoidant_coping" },
+    "fear_of_conflict": { "to": "harm_avoidance" },
+    "external_locus_of_control": { "to": "self_efficacy", "invert": true, "note": "Внешний локус = низкая вера в собственную действенность" },
+    "personal_responsibility": { "to": "responsibility" },
+    "blame_shifting": { "to": "responsibility", "invert": true },
+    "excuse_making": { "to": "responsibility", "invert": true },
+    "self_justification": { "to": "responsibility", "invert": true },
+    "self_confidence": { "to": "self_efficacy" },
+    "insecurity": { "to": "self_esteem", "invert": true },
+    "emotional_regulation": { "to": "mood_stability" },
+    "emotional_control": { "to": "composure" },
+    "self_control": { "to": "self_discipline" },
+    "criticism": { "to": "politeness", "invert": true, "note": "Критика близкого = обратная сторона вежливости в общении" },
+    "judgmentalness": { "to": "politeness", "invert": true },
+    "communication_openness": { "to": "emotional_openness" },
+    "communication_skills": { "to": "verbal_communication" },
+    "communication_clarity": { "to": "verbal_communication" },
+    "emotional_expression": { "to": "expressiveness" },
+    "social_courage": { "to": "social_boldness" },
+    "attention_seeking": { "to": "narcissism", "note": "Требование внимания как нарциссическая грань" },
+    "supportiveness": { "to": "support_giving" },
+    "appreciation": { "to": "affection_expression" },
+    "emotional_invalidation": { "to": "empathy", "invert": true },
+    "perspective_taking": { "to": "empathy" },
+    "selfishness": { "to": "altruism", "invert": true },
+    "pessimism": { "to": "positive_emotions", "invert": true },
+    "passive_aggressiveness": { "to": "straightforwardness", "invert": true, "note": "Пассивная агрессия = непрямота" },
+    "sarcasm_usage": { "to": "straightforwardness", "invert": true },
+    "indirect_communication": { "to": "straightforwardness", "invert": true },
+    "honesty": { "to": "straightforwardness" },
+    "stubbornness": { "to": "compliance", "invert": true },
+    "resentment": { "to": "forgiveness", "invert": true },
+    "paranoia": { "to": "trust", "invert": true },
+    "reliability": { "to": "dependability" },
+    "relationship_stability": { "to": "relationship_security" },
+    "self_pity": { "to": "self_victimization", "note": "На новую шкалу" }
+  },
+
+  "drop": {}
+}
