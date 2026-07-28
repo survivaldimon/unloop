@@ -26,6 +26,8 @@ export interface CreditsCopy {
     confirming: string;
     payError: string;
     payNote: (provider: string) => string;
+    /** The email was already registered, so the funnel runs without an account. */
+    accountPending: string;
   };
   chip: {
     credits: (n: number) => string;
@@ -85,6 +87,8 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       confirming: "Payment received — unlocking…",
       payError: "Payment didn't go through. Try again.",
       payNote: (provider) => `one-time payment · secure checkout by ${provider} · credits never expire`,
+      accountPending:
+        "That email is already registered, so we sent it a sign-in link. Open it to connect your balance — buying works either way, the credits find your account.",
     },
     chip: {
       credits: (n) => `${n} cr`,
@@ -146,6 +150,8 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       confirming: "Оплата прошла — открываем…",
       payError: "Оплата не прошла. Попробуй ещё раз.",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider} · кредиты не сгорают`,
+      accountPending:
+        "Этот email уже зарегистрирован — мы отправили на него ссылку для входа. Открой её, чтобы подключить баланс. Купить можно и так: кредиты найдут твой аккаунт.",
     },
     chip: {
       credits: (n) => `${n} кр`,

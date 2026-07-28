@@ -77,6 +77,22 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
   }
 }
 
+/**
+ * Sign-ins that happen outside the email step — a magic link opened on another
+ * device, a session restored from the URL — have to do the same work that step
+ * does: claim the funnel session, cash a parked promo, refresh the chip.
+ * Without it the visitor ends up signed in holding credits the paywall cannot
+ * use, because a read is debited from the session's owner and the session
+ * still has none. Returns an unsubscribe function.
+ */
+export function onCreditsSignIn(handler: () => void): () => void {
+  if (!creditsEnabled || !supabase) return () => {};
+  const { data } = supabase.auth.onAuthStateChange((event) => {
+    if (event === "SIGNED_IN") handler();
+  });
+  return () => data.subscription.unsubscribe();
+}
+
 /** Claim the funnel session for the signed-in user (who then pays for it). */
 export async function linkSession(funnel: Funnel, sessionId: string): Promise<void> {
   if (!creditsEnabled || !supabase) return;

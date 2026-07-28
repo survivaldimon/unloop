@@ -69,11 +69,14 @@ export default function CreditPaywall({
   onSelect,
   onUnlockWithCredits,
   onPromoRedeemed,
+  accountPending = false,
 }: {
   balance: number | null;
   /** Credits this funnel's read costs (shows the pay-from-balance card when covered). */
   cost: number;
   payState: "idle" | "confirming" | "error";
+  /** Known email → no silent account, so say so instead of failing quietly. */
+  accountPending?: boolean;
   onSelect: (packId: PackId) => void;
   onUnlockWithCredits?: () => void;
   /** A promo code landed — the new balance may already cover the read. */
@@ -194,6 +197,11 @@ export default function CreditPaywall({
       ) : (
         <p className="mt-1 text-center text-[11px] text-mist/70">
           {ui.payNote(paymentsProviderName)}
+        </p>
+      )}
+      {accountPending && (
+        <p className="mt-2 text-center text-[11px] leading-relaxed text-mist">
+          {ui.accountPending}
         </p>
       )}
       {onPromoRedeemed && <PromoField onRedeemed={onPromoRedeemed} />}

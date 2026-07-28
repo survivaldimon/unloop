@@ -27,6 +27,7 @@ export default function Teaser({
   onUnlock,
   payState = "idle",
   balance = null,
+  accountPending = false,
   onUnlockWithCredits,
   onPromoRedeemed,
 }: {
@@ -36,6 +37,8 @@ export default function Teaser({
   payState?: PayState;
   /** Known credit balance, shown under the pack cards. */
   balance?: number | null;
+  /** Known email → no silent account; the paywall explains instead of failing quietly. */
+  accountPending?: boolean;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
@@ -197,6 +200,7 @@ export default function Teaser({
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
+            accountPending={accountPending}
           />
         ) : paymentsEnabled ? (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

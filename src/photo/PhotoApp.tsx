@@ -13,6 +13,7 @@ import {
   fetchMyBalance,
   fetchSessionState,
   linkSession,
+  onCreditsSignIn,
   redeemPendingPromo,
   stateUnlocks,
   type PackId,
@@ -89,6 +90,7 @@ export default function PhotoApp() {
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
   const [payState, setPayState] = useState<PayState>("idle");
   const [myBalance, setMyBalance] = useState<number | null>(null);
+  const [accountPending, setAccountPending] = useState(false);
   const [topUpCost, setTopUpCost] = useState<number | null>(null);
   const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
@@ -127,6 +129,26 @@ export default function PhotoApp() {
       void fetchMyBalance().then(setMyBalance);
     });
   }, []);
+
+  // Signing in can also happen away from the email step — a magic link opened
+  // later, or on another device. Same three jobs, or the credits arrive with
+  // nowhere to be spent.
+  useEffect(
+    () =>
+      onCreditsSignIn(() => {
+        setAccountPending(false);
+        void linkSession("photoread", getPhotoSessionId())
+          .then(() => redeemPendingPromo())
+          .then((promo) => {
+            if (promo?.kind === "ok") {
+              track("promo_redeem", { funnel: "photo", credits: promo.credits, source: "link" });
+            }
+            refreshBalance();
+          });
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
 
   const refreshBalance = () => {
     if (!creditsEnabled) return;
@@ -219,6 +241,9 @@ export default function PhotoApp() {
     // Silent account: the balance needs an owner before the paywall shows up.
     if (creditsEnabled) {
       void ensureAccount(value).then((status) => {
+        // A known email gets a real magic link instead of a silent session —
+        // the paywall says so rather than quietly dropping the balance.
+        setAccountPending(status === "pending");
         if (status !== "ready") return;
         void linkSession("photoread", getPhotoSessionId())
           // The account only exists now, so this is where a ?promo= code from
@@ -516,6 +541,7 @@ export default function PhotoApp() {
             sessionId={getPhotoSessionId()}
             onUnlock={startUnlock}
             balance={myBalance}
+            accountPending={accountPending}
             onUnlockWithCredits={unlockWithBalance}
             onPromoRedeemed={(balance) => {
               if (balance !== null) setMyBalance(balance);

@@ -28,6 +28,7 @@ export default function PhotoTeaser({
   sessionId,
   onUnlock,
   balance = null,
+  accountPending = false,
   onUnlockWithCredits,
   onPromoRedeemed,
 }: {
@@ -42,6 +43,8 @@ export default function PhotoTeaser({
   onUnlock: (packId?: PackId) => void;
   /** Known credit balance, shown under the pack cards. */
   balance?: number | null;
+  /** Known email → no silent account; the paywall explains instead of failing quietly. */
+  accountPending?: boolean;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
@@ -165,6 +168,7 @@ export default function PhotoTeaser({
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
+            accountPending={accountPending}
           />
         ) : (
           <div className="rounded-xl border border-brass/50 p-4 text-center">
