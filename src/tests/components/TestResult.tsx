@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLang } from "../../i18n";
 import { testsCopy } from "../copy";
 import type { LocalizedList, PsychTest, TestOutcome } from "../types";
@@ -16,8 +17,40 @@ export default function TestResult({
   const lang = useLang();
   const ui = testsCopy(lang).result;
   const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
+  const [shareToast, setShareToast] = useState<string | null>(null);
 
   const breakdown = buildBreakdown(test, outcome, lang);
+
+  // The link invites taking the test, not viewing this result — and never
+  // carries the session UUID: owning that UUID grants write access to the row.
+  // The path form resolves to the per-test OG page, so the unfurl names the test.
+  const shareUrl =
+    `https://looplore.app/tests/${test.id}/` +
+    `?utm_source=share&utm_medium=test_result&utm_campaign=${test.id}`;
+
+  const onShare = async () => {
+    const profileName = profile
+      ? `${profile.name[lang]}${outcome.typeCode ? ` (${outcome.typeCode})` : ""}`
+      : null;
+    const text = ui.shareText({ title: test.title[lang], profile: profileName });
+    // TODO(analytics): share events are owned by the analytics session — no track() here.
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ text, url: shareUrl });
+        return;
+      } catch (e) {
+        if ((e as DOMException)?.name === "AbortError") return;
+        // Share sheet failed to open — fall through to the clipboard.
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(`${text} ${shareUrl}`);
+      setShareToast(ui.shareCopied);
+      window.setTimeout(() => setShareToast(null), 4000);
+    } catch {
+      // No share sheet and no clipboard — nothing sensible left to offer.
+    }
+  };
 
   return (
     <div className="flex flex-1 flex-col py-8">
@@ -95,7 +128,11 @@ export default function TestResult({
       )}
 
       <div className="mt-9 flex flex-col gap-3">
-        <button className="btn-primary" onClick={onCatalogue}>
+        <button className="btn-primary" onClick={() => void onShare()}>
+          <span aria-hidden="true">↗</span> {ui.share}
+        </button>
+        {shareToast && <p className="text-center text-xs text-mist">{shareToast}</p>}
+        <button className="btn-ghost" onClick={onCatalogue}>
           {ui.toCatalogue}
         </button>
         <button className="btn-ghost" onClick={onRetake}>

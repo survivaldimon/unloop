@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node tools/generate-test-og.mjs",
     "preview": "vite preview",
     "tests:build": "node tools/tests-import/to-canonical.mjs",
     "tests:verify": "node tools/tests-import/verify-engine.mjs"

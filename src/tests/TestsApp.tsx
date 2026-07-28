@@ -15,6 +15,7 @@ import TestCatalogue from "./components/TestCatalogue";
 import TestResult from "./components/TestResult";
 import TestRunner from "./components/TestRunner";
 import { testsCopy } from "./copy";
+import { scoreTest } from "./engine";
 import { TEST_CATALOGUE, loadTest } from "./registry";
 import type { PsychTest, TestAnswers, TestOutcome } from "./types";
 
@@ -55,12 +56,15 @@ function clearAnswers(testId: string): void {
 }
 
 /**
- * `/tests?t=<id>` opens a test, `/tests` the catalogue. A query rather than a
- * path segment because the site is served as static files: `/tests/<id>` would
- * need a rewrite rule on the host, this needs nothing.
+ * `/tests?t=<id>` opens a test, `/tests` the catalogue. The path form
+ * `/tests/<id>/` resolves to the same test: those URLs are real files — the
+ * per-test OG pages generated at build time (tools/generate-test-og.mjs) — so
+ * they need no rewrite rule either, and shared links unfurl per test.
  */
 function testIdFromUrl(): string | null {
-  const id = new URLSearchParams(window.location.search).get("t");
+  const fromQuery = new URLSearchParams(window.location.search).get("t");
+  const fromPath = /^\/tests\/([^/]+)\/?$/.exec(window.location.pathname)?.[1];
+  const id = fromQuery ?? fromPath;
   return id && TEST_CATALOGUE.some((t) => t.id === id) ? id : null;
 }
 
@@ -76,6 +80,15 @@ export default function TestsApp() {
       try {
         const test = await loadTest(testId);
         if (push) window.history.pushState(null, "", `/tests?t=${testId}`);
+        // Scoring is local and deterministic, so complete saved answers ARE
+        // the result: a reload on the result screen lands back on the result,
+        // not on question one. Retaking goes through the explicit button,
+        // which clears the answers first. Not a start — no test_start here.
+        const saved = readAnswers(testId);
+        if (test.questions.every((q) => saved[q.id])) {
+          setStep({ name: "result", test, outcome: scoreTest(test, saved) });
+          return;
+        }
         track("test_start", { test_id: testId });
         setStep({ name: "running", test });
       } finally {

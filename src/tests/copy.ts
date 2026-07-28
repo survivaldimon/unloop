@@ -34,6 +34,10 @@ interface TestsCopyShape {
     retake: string;
     toCatalogue: string;
     saving: string;
+    share: string;
+    shareCopied: string;
+    /** The message that travels with the link: invite to take, not to look. */
+    shareText: (args: { title: string; profile: string | null }) => string;
   };
 }
 
@@ -66,6 +70,12 @@ const EN: TestsCopyShape = {
     retake: "Take it again",
     toCatalogue: "All tests",
     saving: "Saving…",
+    share: "Send it to a friend",
+    shareCopied: "Link copied — paste it anywhere",
+    shareText: ({ title, profile }) =>
+      profile
+        ? `I got “${profile}” on “${title}”. Your turn:`
+        : `“${title}” — worth your next coffee break:`,
   },
 };
 
@@ -98,6 +108,12 @@ const RU: TestsCopyShape = {
     retake: "Пройти заново",
     toCatalogue: "Все тесты",
     saving: "Сохраняем…",
+    share: "Отправить другу",
+    shareCopied: "Ссылка скопирована — вставь куда угодно",
+    shareText: ({ title, profile }) =>
+      profile
+        ? `Мой результат в тесте «${title}» — ${profile}. Теперь ты:`
+        : `«${title}» — стоит семи минут:`,
   },
 };
 
