@@ -1,12 +1,12 @@
 {
   "id": "attachment_styles_v1",
   "title": {
-    "ru": "Тест стилей привязанности в отношениях",
-    "en": "Attachment Styles in Relationships Test"
+    "ru": "Стили привязанности",
+    "en": "Attachment Styles"
   },
   "description": {
-    "ru": "Этот тест поможет вам понять ваш стиль привязанности — уникальный паттерн того, как вы формируете и поддерживаете близкие отношения. Стиль привязанности формируется в раннем детстве и влияет на то, как вы взаимодействуете с партнерами, друзьями и близкими людьми во взрослой жизни.",
-    "en": "This test will help you understand your attachment style — a unique pattern of how you form and maintain close relationships. Attachment style is formed in early childhood and affects how you interact with partners, friends and loved ones in adulthood."
+    "ru": "60 вопросов о том, что с тобой происходит, когда человек подходит близко — или отходит. Рамка, которой объясняют половину всего, что случается в отношениях.",
+    "en": "60 questions about what happens to you when someone comes close — or steps back. The frame that explains half of what happens in relationships."
   },
   "categoryId": "relationships",
   "estimatedMinutes": 12,
@@ -19,20 +19,20 @@
   ],
   "factorNames": {
     "secure": {
-      "ru": "Безопасный стиль привязанности",
-      "en": "Secure Attachment Style"
+      "ru": "Надёжный",
+      "en": "Secure"
     },
     "anxious": {
-      "ru": "Тревожный стиль привязанности",
-      "en": "Anxious Attachment Style"
+      "ru": "Тревожный",
+      "en": "Anxious"
     },
     "avoidant": {
-      "ru": "Избегающий стиль привязанности",
-      "en": "Avoidant Attachment Style"
+      "ru": "Избегающий",
+      "en": "Avoidant"
     },
     "fearful": {
-      "ru": "Дезорганизованный (тревожно-избегающий) стиль",
-      "en": "Fearful (Anxious-Avoidant) Attachment Style"
+      "ru": "Тревожно-избегающий",
+      "en": "Anxious-avoidant"
     }
   },
   "questions": [
@@ -3573,386 +3573,320 @@
       "id": "secure",
       "icon": null,
       "name": {
-        "ru": "Безопасный стиль привязанности",
-        "en": "Secure Attachment Style"
+        "ru": "Спокойно вблизи",
+        "en": "Close Without Alarm"
       },
       "description": {
-        "ru": "Вы комфортно чувствуете себя как в близости, так и в независимости. Вы доверяете людям и способны строить здоровые, стабильные отношения.",
-        "en": "You feel comfortable with both closeness and independence. You trust people and are able to build healthy, stable relationships."
+        "ru": "Близость тебя не пугает, расстояние не рушит. Ты умеешь и то, и другое — и это встречается реже, чем кажется.",
+        "en": "Closeness doesn't frighten you and distance doesn't break you. You can do both — which is rarer than it sounds."
       },
       "whyThisProfile": {
-        "ru": "Высокий уровень безопасной привязанности (>70%) при низких уровнях тревожности, избегания и дезорганизации (<30% каждый).",
-        "en": "High secure attachment (>70%) with low levels of anxiety, avoidance and disorganization (<30% each)."
+        "ru": "Надёжная шкала выше 70%, а тревожная, избегающая и тревожно-избегающая — ниже 30% каждая. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
+        "en": "Your secure scale is above 70% and the anxious, avoidant and anxious-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
       },
       "strengths": {
         "ru": [
-          "Легкость в выражении чувств и потребностей",
-          "Баланс между близостью и личным пространством",
-          "Доверие к партнеру и уверенность в отношениях",
-          "Конструктивное разрешение конфликтов",
-          "Способность быть уязвимым без страха отвержения",
-          "Поддержка независимости партнера",
-          "Позитивный взгляд на себя и других"
+          "Ты говоришь, чего хочешь, не превращая это в проверку.",
+          "Чужая потребность в пространстве не читается тобой как начало конца.",
+          "Ты можешь быть уязвимым и не ждать за это счёта.",
+          "Ссора у тебя заканчивается решением, а не победой и не исчезновением."
         ],
         "en": [
-          "Ease in expressing feelings and needs",
-          "Balance between closeness and personal space",
-          "Trust in partner and confidence in relationships",
-          "Constructive conflict resolution",
-          "Ability to be vulnerable without fear of rejection",
-          "Support of partner's independence",
-          "Positive view of self and others"
+          "You say what you want without turning it into a test.",
+          "Someone needing space doesn't read to you as the beginning of the end.",
+          "You can be vulnerable without expecting an invoice for it.",
+          "A fight ends for you in a resolution rather than a win or a disappearance."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Риск самодовольства и остановки в развитии",
-          "Возможна жёсткость к тем, кто живёт иначе",
-          "Может быть сложно понять людей с другими стилями привязанности"
+          "Тебе трудно понять, почему для другого это так сложно. Ему это не досталось даром.",
+          "Чужую тревогу легко принять за манипуляцию, а чужую дистанцию — за равнодушие. Иногда так и есть, но не по умолчанию.",
+          "Ровность легко перепутать с тем, что тебе просто не настолько важно."
         ],
         "en": [
-          "Risk of complacency and stagnation",
-          "Possible rigidity toward those who live differently",
-          "May be difficult to understand people with other attachment styles"
+          "It's hard for you to see why this is so difficult for someone else. It didn't come free to them.",
+          "Someone's anxiety is easy to read as manipulation and their distance as indifference. Sometimes it is; not by default.",
+          "Steadiness is easy to mistake for not caring all that much."
         ]
       },
       "recommendations": {
         "ru": [
-          "Продолжайте развивать навыки коммуникации — это ваша сильная сторона",
-          "Будьте терпеливы с партнерами других стилей привязанности",
-          "Используйте свою способность к близости для углубления связи",
-          "Не забывайте о балансе — даже в безопасных отношениях важно сохранять собственные интересы",
-          "Делитесь своим опытом здоровых отношений с друзьями",
-          "Практикуйте осознанность в отношениях"
+          "Помни, что другому типу это стоит усилия, которого ты не тратишь. Терпение здесь полезнее совета.",
+          "Говори тёплое вслух. Тебе кажется, что и так понятно; человеку с другим типом — непонятно.",
+          "Проверь, где ты всё-таки замираешь. Надёжный тип не значит ноль: значит, паттерн узкий и сидит в одной теме."
         ],
         "en": [
-          "Continue developing communication skills — this is your strength",
-          "Be patient with partners of other attachment styles",
-          "Use your ability for closeness to deepen connection",
-          "Do not forget about balance — even in secure relationships it is important to maintain your own interests",
-          "Share your experience of healthy relationships with friends",
-          "Practice mindfulness in relationships"
+          "Remember that another type spends effort here that you don't spend at all. Patience helps more than advice does.",
+          "Say the warm thing out loud. It seems obvious to you; to someone with a different style it isn't.",
+          "Check where you do still freeze. Secure doesn't mean zero — it means the pattern is narrow and lives in one topic."
         ]
       },
       "tryToday": {
-        "ru": "Запишите свои топ-3 качества, которые помогают вам строить здоровые отношения. Поблагодарите себя за них.",
-        "en": "Write down your top 3 qualities that help you build healthy relationships. Thank yourself for them."
+        "ru": "Спроси у близкого, что ему рядом с тобой даётся тяжелее всего. И не объясняй, почему он не прав.",
+        "en": "Ask someone close what they find hardest about being with you. And don't explain why they're wrong."
       },
       "inspiringConclusion": {
-        "ru": "Вы живёте осмысленно. Ваша способность к безопасной привязанности — это редкий дар. Продолжайте этот путь!",
-        "en": "You live meaningfully. Your capacity for secure attachment is a rare gift. Continue this path!"
+        "ru": "Ты умеешь быть рядом, не теряя себя. Самое полезное, что можно с этим сделать, — перестать объяснять другим, что это просто.",
+        "en": "You can be close without losing yourself. The most useful thing you can do with that is stop telling other people it's simple."
       }
     },
     "anxious": {
       "id": "anxious",
       "icon": null,
       "name": {
-        "ru": "Тревожный стиль привязанности",
-        "en": "Anxious Attachment Style"
+        "ru": "Ближе, ещё ближе",
+        "en": "Closer, Closer"
       },
       "description": {
-        "ru": "Вы сильно нуждаетесь в близости и боитесь быть отвергнутым. Вам часто требуется подтверждение любви партнера.",
-        "en": "You strongly need closeness and fear rejection. You often need confirmation of your partner's love."
+        "ru": "Когда человек отходит, ты идёшь за ним. Не от навязчивости — от того, что дистанция ощущается как обрыв связи.",
+        "en": "When someone steps back, you go after them. Not out of neediness — because the distance registers as the line going dead."
       },
       "whyThisProfile": {
-        "ru": "Высокий уровень тревожной привязанности (>60%) — доминирующий стиль по сравнению с другими.",
-        "en": "High anxious attachment (>60%) — dominant style compared to others."
+        "ru": "Тревожная шкала выше 60% и выше остальных. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
+        "en": "Your anxious scale is above 60% and above the others. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
       },
       "strengths": {
         "ru": [
-          "Способность к глубокой эмоциональной близости",
-          "Высокая чувствительность к потребностям партнера",
-          "Готовность вкладываться в отношения",
-          "Сильное желание работать над отношениями",
-          "Осознанность своих эмоций"
+          "Ты замечаешь смену настроения раньше, чем о ней скажут.",
+          "Ты вкладываешься по-настоящему и не считаешь это подвигом.",
+          "Ты готов разговаривать о том, что происходит между вами. Многие не готовы вообще.",
+          "Ты знаешь свои чувства по именам — это половина работы, которую другим ещё предстоит сделать."
         ],
         "en": [
-          "Capacity for deep emotional closeness",
-          "High sensitivity to partner's needs",
-          "Willingness to invest in relationships",
-          "Strong desire to work on relationships",
-          "Awareness of your emotions"
+          "You notice a change of mood before anyone mentions it.",
+          "You invest for real and don't treat it as heroic.",
+          "You're willing to talk about what's happening between you. Plenty of people aren't willing at all.",
+          "You know your feelings by name — that's half the work other people still have ahead of them."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Страх быть покинутым или отвергнутым",
-          "Потребность в постоянном подтверждении любви",
-          "Склонность к ревности и тревоге",
-          "Чрезмерный анализ слов и действий партнера",
-          "Сложность с установлением границ",
-          "Риск эмоционального выгорания"
+          "Твой радар настроен на бурю и срабатывает в ясный день. Ложных тревог у тебя больше, чем настоящих.",
+          "Подтверждений ты просишь так часто, что они перестают работать: полученного хватает на день.",
+          "Границы ты ставишь последними, потому что они ощущаются как риск потерять.",
+          "Ты перечитываешь переписку и находишь там то, чего не писали."
         ],
         "en": [
-          "Fear of being abandoned or rejected",
-          "Need for constant confirmation of love",
-          "Tendency to jealousy and anxiety",
-          "Over-analysis of partner's words and actions",
-          "Difficulty setting boundaries",
-          "Risk of emotional burnout"
+          "Your radar is calibrated for storms and fires on clear days. You get more false alarms than real ones.",
+          "You ask for reassurance so often that it stops working: what you get lasts about a day.",
+          "You set boundaries last, because they feel like a risk of losing them.",
+          "You reread the thread and find things in it that were never written."
         ]
       },
       "recommendations": {
         "ru": [
-          "Работайте над самооценкой — научитесь ценить себя независимо от отношений",
-          "Развивайте навыки саморегуляции эмоций: дыхательные техники, медитация",
-          "Учитесь различать реальные признаки проблем от тревожных фантазий",
-          "Создайте систему поддержки за пределами романтических отношений",
-          "Практикуйте техники осознанности",
-          "Работайте с психотерапевтом, специализирующимся на теории привязанности",
-          "Изучайте паттерны из детства",
-          "Учитесь давать партнеру пространство"
+          "Прежде чем действовать на тревоге, назови её одной фразой вслух: «я сейчас накручиваю». Названная тревога перестаёт быть фактом.",
+          "Проси конкретное вместо подтверждений. «Напиши, когда доедешь» выполнимо; «скажи, что любишь» — нет, если это нужно каждый день.",
+          "Строй жизнь, которая не держится на одном человеке. Это не про запасной аэродром, а про то, чтобы у тревоги было меньше рычага."
         ],
         "en": [
-          "Work on self-esteem — learn to value yourself regardless of relationships",
-          "Develop emotional self-regulation skills: breathing techniques, meditation",
-          "Learn to distinguish real signs of problems from anxious fantasies",
-          "Create a support system outside of romantic relationships",
-          "Practice mindfulness techniques",
-          "Work with a therapist specializing in attachment theory",
-          "Study patterns from childhood",
-          "Learn to give your partner space"
+          "Before you act on the anxiety, name it out loud in one sentence: “I'm spiralling right now.” Named, it stops being a fact.",
+          "Ask for something specific instead of reassurance. “Text me when you get there” is doable; “tell me you love me” isn't, if it's needed daily.",
+          "Build a life that doesn't rest on one person. Not as a backup plan — so the anxiety has less leverage."
         ]
       },
       "tryToday": {
-        "ru": "Практикуйте упражнение: когда возникает тревога, подождите 24 часа, прежде чем действовать на её основе.",
-        "en": "Practice exercise: when anxiety arises, wait 24 hours before acting on it."
+        "ru": "Сегодня, когда захочется написать третье сообщение подряд, — не пиши. Просто заметь, сколько это желание продержалось. Обычно меньше часа.",
+        "en": "Today, when you want to send a third message in a row, don't. Just notice how long the urge lasts. Usually under an hour."
       },
       "inspiringConclusion": {
-        "ru": "Разрыв между ценностями и действиями — это не приговор, а карта к более осознанной жизни. Вы можете развить более безопасный стиль.",
-        "en": "The gap between values and actions is not a verdict, but a map to a more conscious life. You can develop a more secure style."
+        "ru": "Твоя чувствительность настоящая, и она не дефект. Дефект только в калибровке — а её меняют, и меняется она быстрее, чем кажется отсюда.",
+        "en": "Your sensitivity is real and it isn't a fault. The only fault is the calibration — and calibration gets changed, faster than it looks from here."
       }
     },
     "avoidant": {
       "id": "avoidant",
       "icon": null,
       "name": {
-        "ru": "Избегающий стиль привязанности",
-        "en": "Avoidant Attachment Style"
+        "ru": "На расстоянии руки",
+        "en": "Arm's Length"
       },
       "description": {
-        "ru": "Вы цените независимость и чувствуете дискомфорт от слишком большой эмоциональной близости. Вам сложно открываться.",
-        "en": "You value independence and feel uncomfortable with too much emotional closeness. It is difficult for you to open up."
+        "ru": "Тебе хорошо, пока человек не подошёл слишком близко. Тогда становится тесно — и ты отходишь, не объясняя.",
+        "en": "You're fine until someone gets too close. Then it gets crowded, and you step back without explaining."
       },
       "whyThisProfile": {
-        "ru": "Высокий уровень избегающей привязанности (>60%) — доминирующий стиль по сравнению с другими.",
-        "en": "High avoidant attachment (>60%) — dominant style compared to others."
+        "ru": "Избегающая шкала выше 60% и выше остальных. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
+        "en": "Your avoidant scale is above 60% and above the others. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
       },
       "strengths": {
         "ru": [
-          "Высокая независимость и самодостаточность",
-          "Способность справляться с проблемами самостоятельно",
-          "Уважение личных границ",
-          "Рациональность в принятии решений",
-          "Низкая зависимость от других"
+          "Ты справляешься сам и не превращаешь это в требование к другим.",
+          "Ты уважаешь чужое пространство, потому что знаешь ему цену.",
+          "Ты не раздуваешь: проблема у тебя размером с себя.",
+          "В конфликте ты не теряешь голову и не говоришь непоправимого."
         ],
         "en": [
-          "High independence and self-sufficiency",
-          "Ability to cope with problems independently",
-          "Respect for personal boundaries",
-          "Rationality in decision-making",
-          "Low dependence on others"
+          "You manage on your own and don't turn that into a demand on anyone else.",
+          "You respect other people's space, because you know what it's worth.",
+          "You don't inflate things: a problem is the size it is.",
+          "In a fight you keep your head and don't say the irreversible thing."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Дискомфорт с эмоциональной близостью",
-          "Сложности с выражением чувств",
-          "Склонность минимизировать важность отношений",
-          "Держите людей на эмоциональной дистанции",
-          "Восприятие зависимости от других как слабости",
-          "Риск одиночества"
+          "Ты отходишь молча, и человек достраивает причину сам. Достраивает обычно худшую.",
+          "Свои чувства ты замечаешь задним числом, когда решать уже нечего.",
+          "Попросить помощь для тебя равно признать поломку. Поэтому вокруг привыкают, что тебе ничего не надо.",
+          "Ты путаешь автономию с дистанцией. Первая — свобода, вторая — стена, и снаружи они выглядят одинаково."
         ],
         "en": [
-          "Discomfort with emotional closeness",
-          "Difficulty expressing feelings",
-          "Tendency to minimize importance of relationships",
-          "Keep people at emotional distance",
-          "Perception of dependence on others as weakness",
-          "Risk of loneliness"
+          "You step back silently, and the other person fills in the reason themselves. Usually the worst one.",
+          "You notice your own feelings in hindsight, when there's nothing left to decide.",
+          "Asking for help equals admitting a defect, so everyone around you learns you don't need any.",
+          "You confuse autonomy with distance. The first is freedom, the second is a wall, and from outside they look the same."
         ]
       },
       "recommendations": {
         "ru": [
-          "Осознайте свои защитные механизмы и паттерны избегания",
-          "Практикуйте постепенное раскрытие: начните с малого",
-          "Работайте над идентификацией и выражением эмоций",
-          "Изучайте, как ваше детство повлияло на страх близости",
-          "Учитесь видеть уязвимость как силу, а не слабость",
-          "Практикуйте присутствие в моменты дискомфорта",
-          "Работайте с терапевтом над построением безопасности в близости",
-          "Бросайте вызов убеждению, что независимость = дистанция"
+          "Предупреждай, что уходишь: «мне нужно побыть одному, вернусь вечером». Это не близость, это расписание — и оно снимает половину проблемы.",
+          "Называй чувство в момент, а не через неделю. Даже криво. Точность придёт потом.",
+          "Один раз попроси о том, что можешь сделать сам. Проверить надо не человека, а собственную реакцию на просьбу."
         ],
         "en": [
-          "Recognize your defense mechanisms and avoidance patterns",
-          "Practice gradual disclosure: start small",
-          "Work on identifying and expressing emotions",
-          "Study how your childhood influenced your fear of closeness",
-          "Learn to see vulnerability as strength, not weakness",
-          "Practice presence in moments of discomfort",
-          "Work with a therapist on building safety in closeness",
-          "Challenge the belief that independence = distance"
+          "Say when you're going: “I need to be alone, I'll be back this evening.” That isn't closeness, it's a schedule — and it removes half the problem.",
+          "Name the feeling in the moment rather than a week later. Even clumsily. Precision comes afterwards.",
+          "Ask once for something you could do yourself. What you're testing isn't the person — it's your own reaction to asking."
         ]
       },
       "tryToday": {
-        "ru": "Практикуйте упражнение: сегодня поделитесь одним чувством с близким человеком.",
-        "en": "Practice exercise: today share one feeling with a loved one."
+        "ru": "Скажи сегодня одному человеку одну вещь о себе, которую обычно не говоришь. Не самую большую — любую.",
+        "en": "Tell one person one thing about yourself you don't usually say. Not the biggest one — any of them."
       },
       "inspiringConclusion": {
-        "ru": "Ваша независимость — это сила. Но помните: уязвимость делает вас человечными и способными к глубокой связи.",
-        "en": "Your independence is strength. But remember: vulnerability makes you human and capable of deep connection."
+        "ru": "Самостоятельность у тебя настоящая, и отказываться от неё незачем. Нужно только, чтобы рядом с ней помещался кто-то ещё.",
+        "en": "Your self-reliance is real and there's no reason to give it up. It just needs room beside it for somebody else."
       }
     },
     "fearful": {
       "id": "fearful",
       "icon": null,
       "name": {
-        "ru": "Дезорганизованный (тревожно-избегающий) стиль",
-        "en": "Fearful (Anxious-Avoidant) Attachment Style"
+        "ru": "И хочется, и страшно",
+        "en": "Wanting and Afraid"
       },
       "description": {
-        "ru": "Вы одновременно жаждете близости и боитесь её. Вы испытываете противоречивые чувства в отношениях.",
-        "en": "You simultaneously crave closeness and fear it. You experience conflicting feelings in relationships."
+        "ru": "Ты тянешься к человеку и от него же отшатываешься. Обе реакции твои, обе настоящие, и приходят они почти одновременно.",
+        "en": "You reach for someone and recoil from the same person. Both reactions are yours, both are real, and they arrive almost together."
       },
       "whyThisProfile": {
-        "ru": "Высокий уровень дезорганизованной привязанности (>60%) ИЛИ сочетание высоких уровней тревожности и избегания (оба >50%).",
-        "en": "High fearful attachment (>60%) OR combination of high anxiety and avoidance (both >50%)."
+        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип, самый редкий из четырёх. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
+        "en": "Your anxious-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the anxious-avoidant type, the rarest of the four. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
       },
       "strengths": {
         "ru": [
-          "Высокая чувствительность к эмоциям",
-          "Способность к глубокой рефлексии",
-          "Потенциал для трансформации",
-          "Осознание своих сложностей"
+          "Ты видишь в отношениях то, что другие замечают через годы.",
+          "Ты умеешь всерьёз разбираться в себе, а не изображать это.",
+          "Ты честен с собой там, где честность неудобна, — иначе не дошёл бы до конца этого теста.",
+          "Ты понимаешь и тех, кто догоняет, и тех, кто отступает. Ты бывал обоими."
         ],
         "en": [
-          "High sensitivity to emotions",
-          "Capacity for deep reflection",
-          "Potential for transformation",
-          "Awareness of your difficulties"
+          "You see things in a relationship that other people notice years later.",
+          "You can genuinely examine yourself rather than perform it.",
+          "You're honest with yourself where honesty is inconvenient — otherwise you wouldn't have finished this test.",
+          "You understand both the ones who chase and the ones who retreat. You've been both."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Сильное желание близости при одновременном страхе её",
-          "Непредсказуемое поведение в отношениях",
-          "Низкая самооценка и недоверие к другим",
-          "Интенсивный страх предательства",
-          "Саботаж отношений в моменты близости",
-          "Сложности с регуляцией эмоций",
-          "Цикл сближения и отдаления"
+          "Ты рушишь ровно тогда, когда стало хорошо. Хорошо для тебя и есть сигнал опасности.",
+          "Снаружи твоё поведение непредсказуемо, и человек рядом перестаёт понимать, на что реагировать.",
+          "Ты не доверяешь ни себе, ни другому, и круг замыкается: проверить не на чем.",
+          "Сильные состояния приходят быстро, а уходят долго."
         ],
         "en": [
-          "Strong desire for closeness with simultaneous fear of it",
-          "Unpredictable behavior in relationships",
-          "Low self-esteem and distrust of others",
-          "Intense fear of betrayal",
-          "Sabotage of relationships in moments of closeness",
-          "Difficulty regulating emotions",
-          "Cycle of approach and withdrawal"
+          "You break it exactly when it starts going well. Going well is itself the danger signal for you.",
+          "From outside your behaviour is unpredictable, and the person beside you stops knowing what to respond to.",
+          "You trust neither yourself nor them, and the loop closes: there's nothing left to test against.",
+          "The intense states arrive fast and leave slowly."
         ]
       },
       "recommendations": {
         "ru": [
-          "КРИТИЧЕСКИ ВАЖНО: обратитесь к квалифицированному психотерапевту, специализирующемуся на травме и теории привязанности",
-          "Изучайте свою историю привязанности с профессионалом. EMDR, схема-терапия, DBT могут быть полезны",
-          "Работайте над развитием эмоциональной регуляции. Техники DBT: TIPP",
-          "Учитесь различать прошлое и настоящее",
-          "Практикуйте техники заземления (grounding)",
-          "Развивайте безопасные отношения постепенно",
-          "Коммуницируйте с партнером о своих триггерах",
-          "Создайте \"аварийный план\" для моментов сильного возбуждения",
-          "Работайте над самосостраданием",
-          "Изучайте здоровые границы"
+          "Начни с одного специалиста, а не с одного решения. Из четырёх типов этот единственный, где это не совет, а первый шаг.",
+          "Отличай прошлое от настоящего вслух: «это происходит сейчас или я узнаю то, что было?» Вопрос простой и работает не сразу.",
+          "Предупреждай о своих качелях заранее, а не объясняй задним числом. Названное перестаёт быть непредсказуемым.",
+          "Иди в близость по своей скорости. Быстрое сближение запускает у тебя откат надёжнее всего остального."
         ],
         "en": [
-          "CRITICALLY IMPORTANT: seek out a qualified therapist specializing in trauma and attachment theory",
-          "Study your attachment history with a professional. EMDR, schema therapy, DBT can be helpful",
-          "Work on developing emotional regulation. DBT techniques: TIPP",
-          "Learn to distinguish past from present",
-          "Practice grounding techniques",
-          "Develop safe relationships gradually",
-          "Communicate with your partner about your triggers",
-          "Create an \"emergency plan\" for moments of strong arousal",
-          "Work on self-compassion",
-          "Study healthy boundaries"
+          "Start with one professional rather than one decision. Of the four types, this is the only one where that's a first step and not advice.",
+          "Tell past from present out loud: “is this happening now, or am I recognizing something that already happened?” Simple question, and it doesn't work immediately.",
+          "Flag the swings in advance instead of explaining them afterwards. Named, they stop being unpredictable.",
+          "Go into closeness at your own speed. Fast closeness triggers your retreat more reliably than anything else."
         ]
       },
       "tryToday": {
-        "ru": "Найдите терапевта, специализирующегося на травме и привязанности. Это первый и самый важный шаг.",
-        "en": "Find a therapist specializing in trauma and attachment. This is the first and most important step."
+        "ru": "Заметь сегодня один момент, когда стало хорошо и сразу потянуло отойти. Не делай ничего — просто отметь, что это случилось.",
+        "en": "Notice one moment today when things felt good and you immediately wanted to pull away. Do nothing about it — just note that it happened."
       },
       "inspiringConclusion": {
-        "ru": "Помните: вы можете развить более безопасный стиль привязанности, но это путешествие, требующее профессиональной поддержки и времени. Вы заслуживаете любви и безопасности.",
-        "en": "Remember: you can develop a more secure attachment style, but this is a journey requiring professional support and time. You deserve love and safety."
+        "ru": "В тебе живут две стратегии, и обе когда-то были нужны. Выбирать между ними не надо — их разбирают, и это единственная задача из четырёх, которую не стоит решать в одиночку.",
+        "en": "Two strategies live in you, and both were needed once. You don't have to choose between them — they get taken apart, and this is the one task of the four not worth doing alone."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест по 60 самоотчётным ответам, а не диагноз. Он описывает паттерн, а не тебя.\n\nИз четырёх типов этот чаще прочих связан с тяжёлым ранним опытом, и разбирается он не в одиночку — это единственное практическое отличие от остальных трёх. Психолог, работающий с привязанностью, здесь не крайняя мера, а обычный инструмент.\n\nЕсли тебе сейчас небезопасно рядом с кем-то или тяжело настолько, что это мешает жить, — обратись в местную службу психологической помощи, не откладывая.",
+        "en": "This is an educational test built on 60 self-reported answers, not a diagnosis. It describes a pattern, not you.\n\nOf the four types, this one is most often connected to hard early experience, and it doesn't come apart alone — that's the one practical difference from the other three. A therapist who works with attachment is an ordinary tool here, not a last resort.\n\nIf you don't feel safe around someone right now, or things are heavy enough to get in the way of living, contact your local mental-health service without waiting."
       }
     },
     "mixed": {
       "id": "mixed",
       "icon": null,
       "name": {
-        "ru": "Смешанный стиль привязанности",
-        "en": "Mixed Attachment Style"
+        "ru": "Всё сразу",
+        "en": "All of It at Once"
       },
       "description": {
-        "ru": "Вы демонстрируете комбинацию разных стилей привязанности без явного доминирования одного паттерна.",
-        "en": "You demonstrate a combination of different attachment styles without clear dominance of one pattern."
+        "ru": "Ни один тип не выходит вперёд. С разными людьми ты разный — и это скорее про людей, чем про тебя.",
+        "en": "No single type comes out ahead. You're different with different people — and that says more about them than about you."
       },
       "whyThisProfile": {
-        "ru": "Нет явно доминирующего стиля привязанности. Разные стили проявляются в зависимости от контекста и партнера.",
-        "en": "No clearly dominant attachment style. Different styles manifest depending on context and partner."
+        "ru": "Ни одна из четырёх шкал не набрала перевеса. Так бывает по двум причинам, и они очень разные. Либо привязанность у тебя действительно гибкая — редкий и хороший вариант. Либо тип выбирает партнёр: с надёжным ты надёжный, с холодным тревожный. Второе встречается чаще, и различить их можно только по конкретным людям, а не по цифрам.",
+        "en": "None of the four scales took the lead. That happens for two reasons, and they're very different. Either your attachment really is flexible — rare and good. Or your type is picked by the partner: secure with a secure one, anxious with a cold one. The second is more common, and the two can only be told apart by looking at specific people, not at numbers."
       },
       "strengths": {
         "ru": [
-          "Гибкость в разных контекстах отношений",
-          "Способность адаптироваться к разным партнерам",
-          "Понимание разных аспектов близости",
-          "Потенциал для интеграции лучших качеств стилей"
+          "Ты подстраиваешься, а не тащишь один режим во все отношения.",
+          "Ты понимаешь людей разных типов, потому что бывал каждым.",
+          "Тебя трудно сломать одним сценарием: у тебя есть больше одной реакции."
         ],
         "en": [
-          "Flexibility in different relationship contexts",
-          "Ability to adapt to different partners",
-          "Understanding of different aspects of closeness",
-          "Potential to integrate best qualities of styles"
+          "You adapt instead of dragging one mode into every relationship.",
+          "You understand people of every type, because you've been each of them.",
+          "One scenario isn't enough to break you: you have more than one response available."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Возможное отсутствие чёткого направления",
-          "Непредсказуемость реакций в отношениях",
-          "Сложность с самопознанием",
-          "Разные паттерны могут конфликтовать друг с другом"
+          "На вопрос «какой ты в отношениях» у тебя нет ответа, и человеку рядом не за что держаться.",
+          "Ровность бывает не гибкостью, а тем, что ты давно ни к кому не подходил по-настоящему близко.",
+          "Ты можешь не замечать, что тип у тебя выбирает партнёр, а не ты."
         ],
         "en": [
-          "Possible lack of clear direction",
-          "Unpredictability of reactions in relationships",
-          "Difficulty with self-knowledge",
-          "Different patterns may conflict with each other"
+          "You have no answer to “what are you like in a relationship”, and the person beside you has nothing to hold on to.",
+          "Evenness is sometimes not flexibility but the fact that you haven't been properly close to anyone in a while.",
+          "You can miss that your type is being picked by the partner rather than by you."
         ]
       },
       "recommendations": {
         "ru": [
-          "Ведите дневник отношений: отслеживайте, какие паттерны проявляются в разных ситуациях",
-          "Изучайте теорию привязанности глубже",
-          "Работайте с психотерапевтом для интеграции разных аспектов",
-          "Экспериментируйте с практиками безопасной привязанности",
-          "Будьте терпеливы с собой — понимание придёт со временем"
+          "Посмотри цифры ниже и найди вторую по величине шкалу. Первая — то, что ты показываешь; вторая — то, куда ты уходишь под давлением.",
+          "Разложи последние отношения по типам: где тревожился, где отстранялся. Совпадение обычно не случайное и скажет больше, чем сам тест.",
+          "Вспомни, когда ты последний раз подходил к кому-то по-настоящему близко. Если давно, ровность может быть просто дистанцией."
         ],
         "en": [
-          "Keep a relationship journal: track which patterns manifest in different situations",
-          "Study attachment theory more deeply",
-          "Work with a therapist to integrate different aspects",
-          "Experiment with secure attachment practices",
-          "Be patient with yourself — understanding will come with time"
+          "Look at the numbers below and find the second-highest scale. The first is what you show; the second is where you go under pressure.",
+          "Sort your last few relationships by type: where you got anxious, where you withdrew. The pattern usually isn't random, and it'll tell you more than the test does.",
+          "Remember the last time you were properly close to anyone. If it's been a while, the evenness may just be distance."
         ]
       },
       "tryToday": {
-        "ru": "Начните вести дневник: запишите, как вы себя чувствуете в отношениях сегодня. Какой стиль проявляется?",
-        "en": "Start keeping a journal: write down how you feel in relationships today. Which style manifests?"
+        "ru": "Вспомни двоих: с кем ты тревожишься и с кем отстраняешься. Разница между этими людьми и есть твой настоящий результат.",
+        "en": "Think of two people: the one you get anxious with and the one you withdraw from. The difference between them is your actual result."
       },
       "inspiringConclusion": {
-        "ru": "Ваша сложность — это не недостаток. Это приглашение к глубокому самопознанию и росту.",
-        "en": "Your complexity is not a flaw. It is an invitation to deep self-knowledge and growth."
+        "ru": "Отсутствие одного типа — не отсутствие паттерна. Просто твой паттерн виден не в тебе одном, а в паре с конкретным человеком.",
+        "en": "No single type isn't the same as no pattern. Yours simply doesn't show in you alone — it shows in you plus a particular person."
       }
     }
   },

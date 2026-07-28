@@ -16,12 +16,12 @@
   {
     "id": "attachment_styles_v1",
     "title": {
-      "ru": "Тест стилей привязанности в отношениях",
-      "en": "Attachment Styles in Relationships Test"
+      "ru": "Стили привязанности",
+      "en": "Attachment Styles"
     },
     "description": {
-      "ru": "Этот тест поможет вам понять ваш стиль привязанности — уникальный паттерн того, как вы формируете и поддерживаете близкие отношения. Стиль привязанности формируется в раннем детстве и влияет на то, как вы взаимодействуете с партнерами, друзьями и близкими людьми во взрослой жизни.",
-      "en": "This test will help you understand your attachment style — a unique pattern of how you form and maintain close relationships. Attachment style is formed in early childhood and affects how you interact with partners, friends and loved ones in adulthood."
+      "ru": "60 вопросов о том, что с тобой происходит, когда человек подходит близко — или отходит. Рамка, которой объясняют половину всего, что случается в отношениях.",
+      "en": "60 questions about what happens to you when someone comes close — or steps back. The frame that explains half of what happens in relationships."
     },
     "categoryId": "relationships",
     "estimatedMinutes": 12,
