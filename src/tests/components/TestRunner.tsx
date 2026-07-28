@@ -1,0 +1,135 @@
+import { useState } from "react";
+import { useLang } from "../../i18n";
+import { testsCopy } from "../copy";
+import type { PsychTest, TestAnswers, TestQuestion } from "../types";
+
+export default function TestRunner({
+  test,
+  initialAnswers,
+  onProgress,
+  onFinish,
+  onLeave,
+}: {
+  test: PsychTest;
+  initialAnswers: TestAnswers;
+  onProgress: (answers: TestAnswers) => void;
+  onFinish: (answers: TestAnswers) => void;
+  onLeave: () => void;
+}) {
+  const lang = useLang();
+  const ui = testsCopy(lang).runner;
+  const [answers, setAnswers] = useState<TestAnswers>(initialAnswers);
+
+  // Resume where the person stopped rather than at question one.
+  const firstUnanswered = test.questions.findIndex((q) => !answers[q.id]);
+  const [index, setIndex] = useState(firstUnanswered === -1 ? 0 : firstUnanswered);
+
+  const answered = test.questions.filter((q) => answers[q.id]).length;
+  const progress = Math.round((answered / test.questions.length) * 100);
+  const question = test.questions[index];
+
+  const select = (answerId: string) => {
+    const updated = { ...answers, [question.id]: answerId };
+    setAnswers(updated);
+    onProgress(updated);
+    // Brief pause so the choice registers visually before the card moves on.
+    setTimeout(() => {
+      if (index + 1 >= test.questions.length) onFinish(updated);
+      else setIndex(index + 1);
+    }, 240);
+  };
+
+  return (
+    <div className="flex flex-1 flex-col">
+      <div className="flex items-center gap-3 pt-6">
+        <button
+          className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-paper/20 bg-paper/5 text-[17px] text-paper/85 transition hover:border-brass hover:text-brass-2 active:scale-95"
+          onClick={() => (index === 0 ? onLeave() : setIndex(index - 1))}
+          aria-label={index === 0 ? ui.leave : ui.back}
+        >
+          ←
+        </button>
+        <div className="relative flex-1">
+          <div className="h-px bg-paper/15" />
+          <div
+            className="absolute top-0 left-0 h-px bg-brass transition-all duration-500"
+            style={{ width: `${progress}%` }}
+          />
+          <span
+            className="absolute -top-[4px] h-[9px] w-[2px] bg-brass-2 transition-all duration-500"
+            style={{ left: `${progress}%` }}
+          />
+        </div>
+        <span className="font-display w-12 text-right text-[13px] tabular-nums text-mist/80 italic">
+          {ui.progressOf(answered, test.questions.length)}
+        </span>
+      </div>
+
+      <QuestionCard
+        key={`${question.id}-${lang}`}
+        question={question}
+        lang={lang}
+        selected={answers[question.id]}
+        onSelect={select}
+      />
+    </div>
+  );
+}
+
+function QuestionCard({
+  question,
+  lang,
+  selected,
+  onSelect,
+}: {
+  question: TestQuestion;
+  lang: "en" | "ru";
+  selected: string | undefined;
+  onSelect: (answerId: string) => void;
+}) {
+  const letters = lang === "ru" ? "абвгде" : "abcdef";
+  const ui = testsCopy(lang).runner;
+
+  return (
+    <div className="flex flex-1 flex-col gap-7 py-8">
+      {/* Scenario tests lead with the situation; the prompt comes after it. */}
+      {question.scenario && (
+        <div className="rise rounded-2xl border border-paper/10 bg-ink-2/70 p-4">
+          <p className="text-[15px] leading-relaxed whitespace-pre-line text-paper/90">
+            {question.scenario.situation[lang]}
+          </p>
+          {question.scenario.context && (
+            <>
+              <hr className="hairline my-3" />
+              <p className="text-[13px] leading-relaxed text-mist">
+                <span className="overline-label mr-2 text-brass/70">{ui.context}</span>
+                {question.scenario.context[lang]}
+              </p>
+            </>
+          )}
+        </div>
+      )}
+
+      <h2 className="font-display rise rise-1 text-[1.7rem] leading-snug font-semibold">
+        {question.text[lang]}
+      </h2>
+
+      <div className="flex flex-col gap-3">
+        {question.answers.map((answer, i) => (
+          <button
+            key={answer.id}
+            className={`btn-option rise rise-${Math.min(i + 1, 4)} ${
+              selected === answer.id ? "selected" : ""
+            }`}
+            onClick={() => onSelect(answer.id)}
+          >
+            <span className="opt-letter" aria-hidden="true">
+              {letters[i]}
+            </span>
+            <span>{answer.text[lang]}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
