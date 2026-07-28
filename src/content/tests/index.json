@@ -1,0 +1,100 @@
+[
+  {
+    "id": "text_conflict_communication",
+    "title": {
+      "ru": "Конфликты в переписке",
+      "en": "Texting Conflicts"
+    },
+    "description": {
+      "ru": "20 реальных ситуаций из переписок — и то, как ты на них отвечаешь",
+      "en": "20 real texting situations — and how you answer them"
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 20
+  },
+  {
+    "id": "attachment_styles_v1",
+    "title": {
+      "ru": "Стили привязанности",
+      "en": "Attachment Styles"
+    },
+    "description": {
+      "ru": "60 вопросов о том, что с тобой происходит, когда человек подходит близко — или отходит. Рамка, которой объясняют половину всего, что случается в отношениях.",
+      "en": "60 questions about what happens to you when someone comes close — or steps back. The frame that explains half of what happens in relationships."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 12,
+    "questionCount": 60
+  },
+  {
+    "id": "friendship_red_flags_v1",
+    "title": {
+      "ru": "Красные флажки в дружбе",
+      "en": "Red Flags in Friendship"
+    },
+    "description": {
+      "ru": "24 вопроса о том, что ты готов терпеть от друзей. И почему «сложный человек» и «токсичный» — не одно и то же.",
+      "en": "24 questions about what you'll put up with from friends — and why “difficult” and “toxic” aren't the same word."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 24
+  },
+  {
+    "id": "love_languages_v1",
+    "title": {
+      "ru": "Как ты считываешь любовь",
+      "en": "How You Read Love"
+    },
+    "description": {
+      "ru": "30 вопросов о том, по каким признакам ты понимаешь, что тебя любят. И почему то, что делает партнёр, иногда проходит мимо.",
+      "en": "30 questions about what actually makes you feel loved — and why the things your partner does sometimes miss you entirely."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 8,
+    "questionCount": 30
+  },
+  {
+    "id": "toxic_patterns",
+    "title": {
+      "ru": "Тест токсичных паттернов",
+      "en": "Toxic Patterns Test"
+    },
+    "description": {
+      "ru": "48 вопросов о том, что в отношениях делаешь ты. Не партнёр. Самый неудобный тест в наборе.",
+      "en": "48 questions about what you do in relationships. Not your partner. The most uncomfortable test here."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 8,
+    "questionCount": 48
+  },
+  {
+    "id": "ipip_big_five",
+    "title": {
+      "ru": "Большая пятёрка",
+      "en": "The Big Five"
+    },
+    "description": {
+      "ru": "50 утверждений о том, как ты обычно себя ведёшь. Пять черт, которыми психология описывает личность последние сорок лет. Набор пунктов — IPIP, общественное достояние.",
+      "en": "50 statements about how you usually behave. The five traits psychology has used to describe personality for the past forty years. The item pool is IPIP, public domain."
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 10,
+    "questionCount": 50
+  },
+  {
+    "id": "sixteen_types",
+    "title": {
+      "ru": "Как ты устроен",
+      "en": "How You're Wired"
+    },
+    "description": {
+      "ru": "80 вопросов, четыре развилки и код из четырёх букв, который объясняет, почему ты делаешь ровно то, что делаешь. По типологии Юнга.",
+      "en": "80 questions, four forks, and a four-letter code that explains why you keep doing exactly what you do. Built on Jung's typology."
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 15,
+    "questionCount": 80
+  }
+]
