@@ -138,7 +138,10 @@ export type AnalyticsEvent =
   | "topup_view"
   | "chat_question"
   // Promo redemption is revenue-free by construction — PostHog only, never Meta.
-  | "promo_redeem";
+  | "promo_redeem"
+  // The post-read offer to turn a silent account into one with a password.
+  | "save_access_view"
+  | "save_access_click";
 
 export function track(
   event: AnalyticsEvent,

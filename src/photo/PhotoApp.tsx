@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import BalanceChip from "../components/BalanceChip";
 import EmailCapture from "../components/EmailCapture";
 import ReportChat from "../components/ReportChat";
+import SaveAccessCard from "../components/SaveAccessCard";
 import TopUpModal from "../components/TopUpModal";
 import { identifyEmail, refreshSessionContext, setAnalyticsContext, track } from "../lib/analytics";
 import {
@@ -562,15 +563,18 @@ export default function PhotoApp() {
             onRestart={restart}
             chat={
               creditsEnabled && report ? (
-                <ReportChat
-                  funnel="photoread"
-                  sessionId={getPhotoSessionId()}
-                  onInsufficient={(balance) => {
-                    setMyBalance(balance);
-                    setTopUpCost(CREDIT_COSTS.chat_question);
-                  }}
-                  onBalance={setMyBalance}
-                />
+                <>
+                  <ReportChat
+                    funnel="photoread"
+                    sessionId={getPhotoSessionId()}
+                    onInsufficient={(balance) => {
+                      setMyBalance(balance);
+                      setTopUpCost(CREDIT_COSTS.chat_question);
+                    }}
+                    onBalance={setMyBalance}
+                  />
+                  <SaveAccessCard />
+                </>
               ) : undefined
             }
           />

@@ -5,6 +5,7 @@ import Analyzing from "./components/Analyzing";
 import BalanceChip from "./components/BalanceChip";
 import EmailCapture from "./components/EmailCapture";
 import ReportChat from "./components/ReportChat";
+import SaveAccessCard from "./components/SaveAccessCard";
 import Teaser, { type PayState } from "./components/Teaser";
 import TopUpModal from "./components/TopUpModal";
 import Report from "./components/Report";
@@ -500,15 +501,18 @@ export default function App() {
             onRestart={restart}
             chat={
               creditsEnabled ? (
-                <ReportChat
-                  funnel="quiz"
-                  sessionId={getSessionId()}
-                  onInsufficient={(balance) => {
-                    setMyBalance(balance);
-                    setTopUpCost(CREDIT_COSTS.chat_question);
-                  }}
-                  onBalance={setMyBalance}
-                />
+                <>
+                  <ReportChat
+                    funnel="quiz"
+                    sessionId={getSessionId()}
+                    onInsufficient={(balance) => {
+                      setMyBalance(balance);
+                      setTopUpCost(CREDIT_COSTS.chat_question);
+                    }}
+                    onBalance={setMyBalance}
+                  />
+                  <SaveAccessCard />
+                </>
               ) : undefined
             }
           />
