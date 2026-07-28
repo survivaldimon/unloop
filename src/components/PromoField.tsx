@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { redeemPromo, type PromoResult } from "../lib/credits";
+import { ensureAccount, parkPromo, redeemPromo, type PromoResult } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
 import { track } from "../lib/analytics";
 import { useLang } from "../i18n";
@@ -20,6 +20,13 @@ export default function PromoField({
   const [value, setValue] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<PromoResult | null>(null);
+  // Second stage: a visitor who skipped the email step has no account, and
+  // credits can only sit on one. Rather than refusing a valid code, the field
+  // collects the address itself and redeems straight after.
+  const [email, setEmail] = useState("");
+  const [needEmail, setNeedEmail] = useState(false);
+  const [parked, setParked] = useState(false);
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
 
   const message = (r: PromoResult): string => {
     switch (r.kind) {
@@ -43,6 +50,16 @@ export default function PromoField({
     }
   };
 
+  const applyResult = (r: PromoResult) => {
+    setResult(r);
+    if (r.kind === "ok") {
+      setValue("");
+      setNeedEmail(false);
+      track("promo_redeem", { credits: r.credits });
+      onRedeemed(r.balance);
+    }
+  };
+
   const submit = async () => {
     const code = value.trim();
     if (!code || busy) return;
@@ -50,12 +67,34 @@ export default function PromoField({
     setResult(null);
     const r = await redeemPromo(code);
     setBusy(false);
-    setResult(r);
-    if (r.kind === "ok") {
-      setValue("");
-      track("promo_redeem", { credits: r.credits });
-      onRedeemed(r.balance);
+    // No account to pay into — ask for the address instead of dead-ending on a
+    // code that is perfectly valid. Park it first so any later sign-in cashes
+    // it even if they abandon this box.
+    if (r.kind === "sign_in") {
+      parkPromo(code);
+      setNeedEmail(true);
+      return;
     }
+    applyResult(r);
+  };
+
+  /** Create the account, then redeem the code that is already in the box. */
+  const submitEmail = async () => {
+    const code = value.trim();
+    if (!emailValid || !code || busy) return;
+    setBusy(true);
+    setResult(null);
+    const status = await ensureAccount(email.trim());
+    if (status !== "ready") {
+      // Known address → a magic link went out instead of a session. The code
+      // stays parked and lands the moment they open it.
+      setBusy(false);
+      setParked(true);
+      return;
+    }
+    const r = await redeemPromo(code);
+    setBusy(false);
+    applyResult(r);
   };
 
   if (!open) {
@@ -98,6 +137,36 @@ export default function PromoField({
           {busy ? ui.applying : ui.apply}
         </button>
       </form>
+      {needEmail && !parked && (
+        <>
+          <p className="mt-1.5 text-center text-[11px] text-mist">{ui.needEmail}</p>
+          <form
+            className="mt-1.5 flex gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              void submitEmail();
+            }}
+          >
+            <input
+              value={email}
+              type="email"
+              autoFocus
+              maxLength={254}
+              placeholder={ui.emailPlaceholder}
+              onChange={(e) => setEmail(e.target.value)}
+              className="min-w-0 flex-1 rounded-lg border border-paper/15 bg-paper/[0.04] px-3 py-2 text-[13px] outline-none placeholder:text-mist/40 focus:border-brass"
+            />
+            <button
+              type="submit"
+              disabled={busy || !emailValid}
+              className="rounded-lg border border-brass/50 px-3 py-2 text-[13px] text-brass-2 transition hover:border-brass disabled:opacity-40"
+            >
+              {busy ? ui.applying : ui.apply}
+            </button>
+          </form>
+        </>
+      )}
+      {parked && <p className="mt-1.5 text-center text-[11px] text-mist">{ui.parked}</p>}
       {result && (
         <p
           className={`mt-1.5 text-center text-[11px] ${

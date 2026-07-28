@@ -320,11 +320,20 @@ export function capturePromoFromUrl(): void {
     const url = new URL(window.location.href);
     const code = url.searchParams.get("promo");
     if (!code) return;
-    localStorage.setItem(PROMO_PENDING_KEY, code.trim().slice(0, 64));
+    parkPromo(code);
     url.searchParams.delete("promo");
     window.history.replaceState({}, "", url.toString());
   } catch {
     // no storage / exotic URL — the code is simply lost, never fatal
+  }
+}
+
+/** Hold a code until an account exists to pay it into. */
+export function parkPromo(code: string): void {
+  try {
+    localStorage.setItem(PROMO_PENDING_KEY, code.trim().slice(0, 64));
+  } catch {
+    // ignore
   }
 }
 

@@ -132,6 +132,13 @@ Deno.serve(async (req: Request) => {
       },
       body: JSON.stringify({
         products: [productId],
+        // Polar's own "Discount code" box is off: ours is the only kind of code
+        // in this funnel, it grants credits rather than cutting the price, and
+        // it is entered on the paywall before checkout ever opens. Two code
+        // fields meaning different things is a trap — the first person to meet
+        // it typed our credit code into Polar's and was told it doesn't exist.
+        // Turn this back on the day there is a real Polar sale discount.
+        allow_discount_codes: false,
         metadata: {
           kind: "credits",
           pack: pack.id,

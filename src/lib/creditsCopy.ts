@@ -71,6 +71,10 @@ export interface CreditsCopy {
     already: string;
     signIn: string;
     failed: string;
+    /** No account yet — the field collects the email itself rather than refusing. */
+    needEmail: string;
+    emailPlaceholder: string;
+    parked: string;
   };
 }
 
@@ -136,6 +140,9 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       already: "You've already used this code.",
       signIn: "Enter your email first — the credits need an account to land on.",
       failed: "Couldn't check the code. Try again.",
+      needEmail: "Credits need an account to land on. Leave your email and the code applies.",
+      emailPlaceholder: "you@example.com",
+      parked: "Code saved. Open the sign-in link we emailed you and the credits land.",
     },
   },
   // RU has no plural helper on purpose: every credit amount spelled out in full
@@ -205,6 +212,9 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       already: "Ты уже использовал этот код.",
       signIn: "Сначала оставь email — кредитам нужен аккаунт, куда лечь.",
       failed: "Не получилось проверить код. Попробуй ещё раз.",
+      needEmail: "Кредитам нужен аккаунт, куда лечь. Оставь почту — и код применится.",
+      emailPlaceholder: "you@example.com",
+      parked: "Код сохранён. Открой ссылку для входа из письма — кредиты придут.",
     },
   },
 };
