@@ -11,7 +11,6 @@ import {
   CREDIT_PACKS,
   OFFER_BONUS_RATE,
   OFFER_WINDOW_MINUTES,
-  STARTER_COMPARE_USD,
   isPackId,
   packBonus,
   type CreditPack,
@@ -24,7 +23,6 @@ export {
   CREDIT_PACKS,
   OFFER_BONUS_RATE,
   OFFER_WINDOW_MINUTES,
-  STARTER_COMPARE_USD,
   isPackId,
   packBonus,
 };
@@ -58,6 +56,9 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
     if (current.session?.user) return "ready";
     const res = await supabase.functions.invoke("credits-auth", { body: { email } });
     const status = (res.data as { status?: string } | null)?.status;
+    // Throttled: no account, no email, and nothing to wait for. Buying still
+    // works — the webhook attaches credits by the order's email either way.
+    if (status === "throttled") return "failed";
     if (status === "new") {
       const tokenHash = (res.data as { token_hash?: string }).token_hash;
       if (typeof tokenHash === "string" && tokenHash) {

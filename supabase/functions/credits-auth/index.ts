@@ -62,6 +62,23 @@ Deno.serve(async (req: Request) => {
     const enabled = ((await getSecret(admin, "CREDITS_ENABLED")) ?? "").toLowerCase() === "true";
     if (!enabled) return json({ status: "disabled" });
 
+    // This endpoint mints rows in an auth table shared with the CRM, and it
+    // takes anyone's word for the email — so it gets a ceiling per IP before
+    // it gets to create anything.
+    const clientIp = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim();
+    const { data: allowed, error: throttleError } = await admin.rpc("credits_auth_throttle", {
+      p_ip: clientIp,
+    });
+    if (throttleError) {
+      // A broken throttle must not become an open door.
+      console.error("credits-auth throttle", throttleError);
+      return json({ error: "internal" }, 500);
+    }
+    // 200, like every other expected outcome here: functions.invoke turns a
+    // non-2xx into an error with no body, and the client needs to read which
+    // status it was to pick the right sentence for the visitor.
+    if (allowed === false) return json({ status: "throttled" });
+
     // app_metadata.app="looplore" keeps this shared-project auth pool sane:
     // the CRM's handle_new_user trigger skips flagged users (no trial profile).
     const created = await admin.auth.admin.createUser({

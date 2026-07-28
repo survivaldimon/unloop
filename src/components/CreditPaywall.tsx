@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   CREDIT_PACKS,
-  STARTER_COMPARE_USD,
   packBonus,
   touchOffer,
   type AccountStatus,
@@ -147,9 +146,13 @@ export default function CreditPaywall({
         </div>
         <p className="font-display mt-1 text-[17px] font-medium italic">{ui.starterTitle}</p>
         <p className="mt-0.5 text-[12px] leading-snug text-mist">{ui.starterSub}</p>
+        {/* No struck-through anchor here on purpose: Starter has never been
+            sold at a higher price, so crossing one out would be a discount we
+            never gave (EU Omnibus, and the spec's own no-fake-discounts rule).
+            The badge above compares price per credit instead — which is both
+            true and the bigger number. */}
         <p className="mt-2 text-[14px]">
           <span className="text-mist">{ui.credits(CREDIT_PACKS.starter.credits)}</span>{" "}
-          <s className="text-mist/60">{formatUsd(STARTER_COMPARE_USD)}</s>{" "}
           <span className="font-display text-[19px] font-medium text-brass-2 italic">
             {formatUsd(CREDIT_PACKS.starter.usd)}
           </span>

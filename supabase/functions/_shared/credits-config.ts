@@ -79,9 +79,6 @@ export const CREDIT_GRANTS = {
 export const OFFER_BONUS_RATE = 0.25;
 export const OFFER_WINDOW_MINUTES = 15;
 
-/** Struck-through anchor next to the starter price. The charge never changes. */
-export const STARTER_COMPARE_USD = 19.99;
-
 /** Bonus credits for a pack bought inside the offer window. */
 export function packBonus(pack: CreditPack): number {
   return Math.round(pack.credits * OFFER_BONUS_RATE);
