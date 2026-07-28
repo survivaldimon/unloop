@@ -23,6 +23,8 @@ export interface CreditsCopy {
     /** Balance already covers the read — no checkout needed. */
     enoughTitle: string;
     ctaCredits: (cost: number) => string;
+    /** Click → overlay gap: the checkout session is being created. */
+    opening: string;
     confirming: string;
     payError: string;
     payNote: (provider: string) => string;
@@ -96,6 +98,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       cta: (usd) => `Unlock for ${usd}`,
       enoughTitle: "Your balance covers this read",
       ctaCredits: (cost) => `Open for ${cost} credits`,
+      opening: "Opening secure checkout…",
       confirming: "Payment received — unlocking…",
       payError: "Payment didn't go through. Try again.",
       payNote: (provider) => `one-time payment · secure checkout by ${provider} · credits never expire`,
@@ -168,6 +171,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       cta: (usd) => `Открыть за ${usd}`,
       enoughTitle: "Баланса хватает на этот разбор",
       ctaCredits: (cost) => `Открыть за ${cost} кредитов`,
+      opening: "Открываем оплату…",
       confirming: "Оплата прошла — открываем…",
       payError: "Оплата не прошла. Попробуй ещё раз.",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider} · кредиты не сгорают`,

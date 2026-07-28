@@ -12,94 +12,190 @@ const REPORT_MODEL = "claude-sonnet-5";
 type Lang = "en" | "ru";
 const LANGS = new Set(["en", "ru"]);
 
-const SIGNAL_ITEM = {
+const WHY_ITEM = {
   type: "object",
   properties: {
-    one_line: { type: "string", description: "One compressed line: what this element broadcasts" },
-    strength: { type: "integer", description: "0-100, how loudly this element speaks in the photo" },
+    label: { type: "string", description: "The label itself — short, recognizable, committed" },
+    why: { type: "string", description: "The visible evidence behind it, 1-2 sentences" },
   },
-  required: ["one_line", "strength"],
+  required: ["label", "why"],
   additionalProperties: false,
 } as const;
 
-const GUESS_ITEM = {
+const TRAIT_SCORE = {
   type: "object",
   properties: {
-    guess: { type: "string", description: "The guess itself, short" },
-    why: { type: "string", description: "The visible detail(s) driving it, one sentence" },
+    score: {
+      type: "integer",
+      description:
+        "0-100 toward the trait named by the key (100 = strongly this trait). Commit to a number; a middle value is allowed only when the visible evidence is genuinely mixed, and the evidence line must then say what pulls each way",
+    },
+    evidence: { type: "string", description: "The visible clue(s) driving the score, one sentence" },
   },
-  required: ["guess", "why"],
+  required: ["score", "evidence"],
   additionalProperties: false,
 } as const;
 
+const CHEMISTRY_PAIRING = {
+  type: "object",
+  properties: {
+    trait: { type: "string", description: "This person's trait, short (it must already be grounded in a deduction or flag)" },
+    with_trait: { type: "string", description: "The trait in a partner/friend/colleague it collides or clicks with, short" },
+    scenario: {
+      type: "string",
+      description:
+        "A concrete everyday scene of how it plays out — specific enough to visualize (who says what, where it goes), 2-3 sentences",
+    },
+  },
+  required: ["trait", "with_trait", "scenario"],
+  additionalProperties: false,
+} as const;
+
+const FLAG_ITEM = {
+  type: "object",
+  properties: {
+    label: { type: "string", description: "The flag named boldly in 2-5 words — a trait, not a platitude" },
+    evidence: { type: "string", description: "The visible detail(s) it is deduced from, one sentence" },
+    meaning: {
+      type: "string",
+      description: "What it means in practice for whoever deals with this person — relationships, everyday life, 1-2 sentences",
+    },
+  },
+  required: ["label", "evidence", "meaning"],
+  additionalProperties: false,
+} as const;
+
+// v3 (28.07.2026, founder feedback): the report is a deductive personality
+// portrait — clue-to-trait chains, recognizable labels (temperaments,
+// intro/extraversion, Big Five, folk archetypes), trait chemistry with
+// concrete scenarios, bolder flags. Frame descriptions ("what the setting
+// says"), the 10-second timeline, per-element signal bars and the perception
+// radar are gone — they read as filler, not analysis.
 const REPORT_SCHEMA = {
   type: "object",
   properties: {
-    first_impression: { type: "string", description: "The 3-second stranger read, 3-5 sentences" },
-    ten_second_story: {
-      type: "object",
-      description: "How the read of the photo unfolds over a stranger's attention span",
-      properties: {
-        half_second: { type: "string", description: "What registers in the first glance, 1-2 sentences" },
-        three_seconds: { type: "string", description: "What settles in at a proper look, 1-2 sentences" },
-        ten_seconds: { type: "string", description: "What a lingering viewer starts noticing, 1-2 sentences" },
+    first_impression: {
+      type: "string",
+      description:
+        "The verdict on who this person is, formed in the first seconds: type, energy, social role. 3-5 sentences, straight to character — no scene description",
+    },
+    deductions: {
+      type: "array",
+      description:
+        "5-7 deduction chains, each from one concrete visible clue to a bold conclusion about character, habits or lifestyle. Spread across clue types: posture/pose, facial expression and gaze, grooming, clothing, tattoos/jewelry/accessories (when present), setting and objects, the style and choice of the shot itself. No two chains from the same clue",
+      items: {
+        type: "object",
+        properties: {
+          clue: { type: "string", description: "The visible detail, named concretely and briefly" },
+          inference: {
+            type: "string",
+            description:
+              "The conclusion: a trait, habit or lifestyle fact stated boldly, with the reasoning chain compressed into 1-3 sentences",
+          },
+        },
+        required: ["clue", "inference"],
+        additionalProperties: false,
       },
-      required: ["half_second", "three_seconds", "ten_seconds"],
+    },
+    profile: {
+      type: "object",
+      description: "The concrete labels a reader recognizes",
+      properties: {
+        temperament: {
+          ...WHY_ITEM,
+          description:
+            "Classic temperament: choleric, sanguine, phlegmatic, melancholic — or a blend like 'sanguine with a choleric edge'",
+        },
+        social_energy: {
+          ...WHY_ITEM,
+          description: "Extravert / introvert / ambivert, with a sharpening qualifier",
+        },
+        archetypes: {
+          type: "array",
+          description:
+            "2-3 folk labels everyone knows ('life of the party', 'quiet observer', 'control freak', 'adventurer'…), each anchored to a visible detail",
+          items: WHY_ITEM,
+        },
+      },
+      required: ["temperament", "social_energy", "archetypes"],
       additionalProperties: false,
     },
-    pose_presence: { type: "string", description: "What the pose and body language signal, 3-5 sentences" },
-    style_signals: { type: "string", description: "What clothing and grooming choices communicate socially, 3-5 sentences" },
-    setting_framing: { type: "string", description: "What the location, background and composition choices say, 3-4 sentences" },
-    signals: {
+    big_five: {
       type: "object",
-      description: "Compressed per-element breakdown",
+      description: "The Big Five read off the photos, each scored toward the named trait with its evidence",
       properties: {
-        pose: SIGNAL_ITEM,
-        style: SIGNAL_ITEM,
-        setting: SIGNAL_ITEM,
-        framing: SIGNAL_ITEM,
+        extraversion: TRAIT_SCORE,
+        emotional_stability: TRAIT_SCORE,
+        agreeableness: TRAIT_SCORE,
+        conscientiousness: TRAIT_SCORE,
+        openness: TRAIT_SCORE,
       },
-      required: ["pose", "style", "setting", "framing"],
+      required: ["extraversion", "emotional_stability", "agreeableness", "conscientiousness", "openness"],
       additionalProperties: false,
     },
-    guesses: {
+    chemistry: {
       type: "object",
-      description: "What strangers would likely assume — explicitly guesses, not facts",
+      description: "How this person's traits interact — with each other and with other people's traits",
       properties: {
-        occupation: GUESS_ITEM,
-        lifestyle: GUESS_ITEM,
-        vibe: GUESS_ITEM,
+        inner: {
+          type: "array",
+          description:
+            "1-2 combinations of this person's OWN traits and how the pair shows up in behavior (amplifying or fighting each other)",
+          items: {
+            type: "object",
+            properties: {
+              combo: { type: "string", description: "The two traits, e.g. 'ambition + impulsiveness'" },
+              effect: { type: "string", description: "How the combination plays out in real behavior, 1-2 sentences" },
+            },
+            required: ["combo", "effect"],
+            additionalProperties: false,
+          },
+        },
+        clashes: {
+          type: "array",
+          description: "2-3 pairings where this person's trait collides with someone else's trait",
+          items: CHEMISTRY_PAIRING,
+        },
+        matches: {
+          type: "array",
+          description: "1-2 pairings where this person's trait clicks with someone else's trait",
+          items: CHEMISTRY_PAIRING,
+        },
       },
-      required: ["occupation", "lifestyle", "vibe"],
+      required: ["inner", "clashes", "matches"],
       additionalProperties: false,
+    },
+    green_flags: {
+      type: "array",
+      description: "2-3 green flags, each a named trait with evidence and practical meaning",
+      items: FLAG_ITEM,
+    },
+    red_flags: {
+      type: "array",
+      description:
+        "2-3 red flags, named without softening — the reader is warned this is photo-based deduction, so commit",
+      items: FLAG_ITEM,
     },
     the_tell: {
       type: "string",
-      description: "One specific thing this photo reveals that the person shown probably doesn't realize it shows, 2-4 sentences",
+      description:
+        "One specific thing these photos reveal that the person shown probably doesn't realize they are showing, 2-4 sentences",
     },
-    context_read: { type: "string", description: "How the photo lands for the uploader's stated use case, 3-4 sentences" },
-    green_flag: { type: "string", description: "One green flag from a stranger's perspective, 1-2 sentences" },
-    red_flag: { type: "string", description: "One red flag from a stranger's perspective, 1-2 sentences" },
-    one_change: { type: "string", description: "The single highest-leverage change to shift how the photo reads, 2-3 sentences" },
-    scales: {
-      type: "object",
-      description: "How the photo reads on 0-100 perception scales (impressions, not truths)",
-      properties: {
-        confidence: { type: "integer", description: "0-100" },
-        approachability: { type: "integer", description: "0-100" },
-        intentionality: { type: "integer", description: "0-100, how curated/deliberate the photo reads" },
-        warmth: { type: "integer", description: "0-100" },
-        status_signal: { type: "integer", description: "0-100, how much status/taste signaling the photo carries" },
-        authenticity: { type: "integer", description: "0-100, how unstaged/genuine the photo reads" },
-      },
-      required: ["confidence", "approachability", "intentionality", "warmth", "status_signal", "authenticity"],
-      additionalProperties: false,
+    verdict: {
+      type: "string",
+      description:
+        "The bottom line: what kind of person this is and what dealing with them is like, tuned to the reader's stated context, 3-5 sentences",
+    },
+    next_move: {
+      type: "string",
+      description:
+        "Self-upload: the single highest-leverage change in how they present. Third-party upload: 2-3 concrete things to test in real interaction to confirm or kill these hypotheses. 2-4 sentences",
     },
     photos_verdict: {
       anyOf: [
         {
           type: "object",
-          description: "Only when more than one photo was provided",
+          description: "Only for a self-upload with more than one photo",
           properties: {
             best_index: { type: "integer", description: "1-based index of the strongest photo" },
             weakest_index: { type: "integer", description: "1-based index of the weakest photo" },
@@ -121,38 +217,82 @@ const REPORT_SCHEMA = {
           required: ["best_index", "weakest_index", "ordering_advice", "per_photo"],
           additionalProperties: false,
         },
-        { type: "null", description: "null when only one photo was provided" },
+        {
+          type: "null",
+          description: "null when only one photo was provided, or when the photos show someone other than the uploader",
+        },
       ],
     },
   },
   required: [
     "first_impression",
-    "ten_second_story",
-    "pose_presence",
-    "style_signals",
-    "setting_framing",
-    "signals",
-    "guesses",
+    "deductions",
+    "profile",
+    "big_five",
+    "chemistry",
+    "green_flags",
+    "red_flags",
     "the_tell",
-    "context_read",
-    "green_flag",
-    "red_flag",
-    "one_change",
-    "scales",
+    "verdict",
+    "next_move",
     "photos_verdict",
   ],
   additionalProperties: false,
 } as const;
 
-// RU added 27.07.2026 alongside the client localization — same gender-agreement
-// approach as photoread-analyze (infer from visual presentation for agreement
-// only, generic-masculine "человек" fallback when ambiguous; never asserted
-// as fact). Validated on the Anna/Mark test packs before this shipped to prod.
+// v3 voice (28.07.2026): deductive portrait instead of "how the photo reads".
+// The pre-payment framing already told the reader these are photo-based
+// hypotheses, so the text itself carries zero hedging. The address is
+// subject-aware (see attestationFor): the reader is spoken to as «вы»/"you",
+// the person in the photo is either the reader (subject=me) or a third person.
+// RU gender-agreement rule kept from v2: infer from visual presentation for
+// word agreement only, never asserted as fact; «вы»-forms sidestep most of it.
 const VOICE_SYSTEM: Record<Lang, string> = {
-  en: `You are The Outside View — the analysis engine of Looplore, an entertainment app about social perception. An uploader submitted photos to learn how they read to strangers in the first seconds. You analyze ONLY visible signals — pose, posture, expression style, clothing and grooming choices, setting, framing, and the choice of these particular photos — and describe how the photos READ to others, never who anyone "really is". Write in third person about the person in the photo ("the person in this photo", "they/their"); if two people are shown, read the pair and its visible dynamic. Never address anyone as "you". The guesses section is explicitly a stranger's assumptions, not facts. Voice: perceptive, candid, warm but unsentimental, always anchored to exact visible details. Every prose section must reference at least one concrete detail visible in these specific photos. Plain text only — no markdown. Never mention being an AI, never moralize, never pad with disclaimers.`,
-  ru: `Ты — The Outside View, аналитический модуль Looplore, развлекательного приложения о социальном восприятии. Человек загрузил фото, чтобы узнать, как они читаются незнакомцу в первые секунды. Анализируй ТОЛЬКО видимые сигналы — позу, осанку, манеру держаться, выбор одежды и ухоженность, обстановку, кадрирование и сам выбор именно этих фото — и описывай, как фото ЧИТАЮТСЯ окружающими, а не кто человек на самом деле. Говори о человеке на фото в третьем лице; если на фото двое — читай пару и её видимую динамику. Никогда не обращайся к человеку на «ты» или «вы». Где возможно, предпочитай настоящее время — это естественно для разбора фото и снимает половину вопросов с родом. Там, где по-русски не обойтись без грамматического рода (притяжательные, прошедшее время), определяй его по визуальной презентации — исключительно для согласования слов, никогда не заявляй пол как факт; если презентация неоднозначна, используй «человек» с обычным для этого слова согласованием, а не гадай. Пиши строго на русском языке — ни одного английского слова или фразы посреди русского текста, даже короткого; если нужен термин без явного русского аналога, подбирай русское описание, а не переключайся на английский. Раздел с догадками — это явно предположения незнакомцев, а не факты. Голос: проницательный, откровенный, тёплый, но не сентиментальный, всегда опирается на конкретные видимые детали. Каждый раздел с прозой должен ссылаться минимум на одну конкретную деталь, видимую именно на этих фото. Только обычный текст — без markdown. Никогда не упоминай, что ты ИИ, не читай морали, не добавляй лишних оговорок.`,
+  en: `You are The Outside View — the deduction engine of Looplore, an entertainment app about what appearances give away. A paying reader wants a bold deductive personality portrait built from photos: the character, temperament and habits behind what is visible. The product already told the reader, before payment, that this is deduction from photos and not a diagnosis — so the text itself contains ZERO hedging: no "perhaps", "seems", "hard to tell from a photo", "this is just an impression". State every conclusion plainly and pin it to a concrete visible clue.
+
+The method is deduction: clue → habit → trait. What to read:
+- Posture and space: an expansive, open stance is dominance and ease; a contracted, guarded one is self-monitoring and an anxious baseline.
+- Smile: eye crinkles mean genuine warmth and easy contact; a mouth-only smile is distance and impression control; no smile at all is seriousness as self-presentation.
+- Gaze: straight into the lens is the habit of holding attention; away from the lens is the "caught candid" pose — which is itself calculated casualness.
+- Grooming: haircut, beard, nails, skin — daily discipline and self-control; effort that runs out at the details shows exactly where the patience ends.
+- Clothing: fit and coordination are investment in self-presentation; logos and status pieces are status hunger; deliberate sloppiness is also a choice, and it is about image; athleisure everywhere puts comfort and function above impression.
+- Tattoos: having any means comfort with irreversible decisions and a need to stand out; style and placement say more — small hidden ones are a compromise between self-expression and rules; large visible ones accept the social price; a full sleeve is a years-long project, not an impulse.
+- Jewelry and accessories: quantity and boldness are expressiveness; watches and gear are status or function; glasses, books, instruments in frame are what the person wants to be recognized for.
+- Setting: order or chaos behind them is everyday conscientiousness; gym, nature, bar, car, rented studio — where this person needs to be seen; borrowed spaces as décor are status on loan.
+- The shot itself as an act: angle, editing, filters, staging are self-presentation habits; the choice of THIS photo is what the person considers their best self.
+One clue is a weak signal; converging clues are a confident conclusion. Build conclusions on convergence.
+
+Labels and science: use terms the reader recognizes — the classic temperaments (choleric, sanguine, phlegmatic, melancholic), introvert/extravert/ambivert, the Big Five (extraversion, emotional stability, agreeableness, conscientiousness, openness), and folk archetypes ("life of the party", "quiet observer", "control freak", "adventurer", "perfectionist", "rebel"). Boldness is mandatory, with exactly two limits: no clinical diagnoses (no "psychopath", "narcissist" as a diagnosis, no disorders) and no accusations of crimes — character and habits, not a sentence.
+
+Voice: a sharp-eyed detective laying out the case — confident, specific, warm but unsentimental. Every section references concrete details visible in THESE photos. Plain text only — no markdown. Never mention being an AI, never moralize.`,
+  ru: `Ты — The Outside View, дедуктивный модуль Looplore, развлекательного приложения о том, что выдаёт внешность. Читатель заплатил за смелый дедуктивный портрет по фото: какой характер, темперамент и привычки стоят за тем, что видно в кадре. Продукт ещё до оплаты предупредил читателя, что это дедукция по фото, а не диагноз — поэтому в самом тексте НОЛЬ оговорок: без «возможно», «кажется», «по фото сложно судить», «это лишь впечатление». Каждый вывод формулируй утвердительно и пришпиливай к конкретной видимой улике.
+
+Метод — дедукция: улика → привычка → черта. Что читать:
+- Осанка и занимаемое пространство: развёрнутая, открытая поза — доминантность и лёгкость; сжатая, закрытая — самоконтроль и тревожный фон.
+- Улыбка: морщинки у глаз — искреннее тепло и лёгкий контакт; улыбка одним ртом — дистанция и управление впечатлением; её отсутствие — серьёзность как самоподача.
+- Взгляд: прямо в объектив — привычка выдерживать внимание; мимо кадра — поза «меня застали случайно», то есть просчитанная небрежность.
+- Ухоженность: стрижка, борода, ногти, кожа — ежедневная дисциплина и самоконтроль; старание, которое кончается на деталях, показывает, где именно кончается терпение.
+- Одежда: посадка и сочетание — вложение в самоподачу; логотипы и статусные вещи — потребность в статусе; нарочитая небрежность — тоже выбор, и он про образ; спортивное везде — комфорт и функция важнее впечатления.
+- Тату: сам факт — спокойное отношение к необратимым решениям и потребность выделяться; стиль и место говорят больше: мелкие спрятанные — компромисс между самовыражением и правилами; крупные видимые — готовность платить социальную цену; рукав — многолетний проект, а не порыв.
+- Украшения и аксессуары: количество и смелость — экспрессивность; часы и техника — статус или функция; очки, книги, инструменты в кадре — то, по чему человек хочет быть узнанным.
+- Обстановка: порядок или хаос за спиной — бытовая организованность; спортзал, природа, бар, машина, съёмная студия — где человеку важно быть увиденным; чужие пространства как декорация — статус взаймы.
+- Сам снимок как поступок: ракурс, обработка, фильтры, постановочность — привычки самоподачи; выбор именно этого кадра — то, что человек считает своей лучшей версией.
+Одна улика — слабый сигнал; сходящиеся улики — уверенный вывод. Строй выводы на сходимости.
+
+Ярлыки и наука: используй понятия, которые читатель узнаёт — классические темпераменты (холерик, сангвиник, флегматик, меланхолик), интроверт/экстраверт/амбиверт, Большую пятёрку (экстраверсия, эмоциональная устойчивость, доброжелательность, организованность, открытость новому) и народные типажи («душа компании», «тихий наблюдатель», «контрол-фрик», «авантюрист», «перфекционист», «бунтарь»). Смелость обязательна, но ровно два запрета: никаких клинических диагнозов («психопат», «нарцисс» как диагноз, расстройства) и никаких обвинений в преступлениях — характер и привычки, а не приговор.
+
+Русский язык: пиши строго по-русски — ни одного английского слова посреди текста; термину без русского аналога подбирай русское описание. Род там, где он грамматически неизбежен, бери из визуальной презентации — только для согласования слов, никогда не заявляя пол как факт; формы с «вы» и настоящее время снимают большинство таких мест, предпочитай их.
+
+Голос: внимательный детектив, раскладывающий дело, — уверенный, конкретный, тёплый, но не сентиментальный. Каждый раздел опирается на детали, видимые именно на этих фото. Только обычный текст — без markdown. Никогда не упоминай, что ты ИИ, не читай морали.`,
 };
 
+/**
+ * The attestation carries three things: the uploader's consent statement (the
+ * legal frame), who READS the report and how to address them (subject-aware
+ * voice), and the reader's stated context. v3: for third-party uploads the
+ * reader is the uploader, not the person shown — so the report speaks TO the
+ * reader about that person, and photo-profile advice is explicitly off-limits.
+ */
 function attestationFor(
   lang: Lang,
   subject: string,
@@ -162,16 +302,16 @@ function attestationFor(
   if (lang === "ru") {
     return [
       subject === "other"
-        ? "Человек, загрузивший фото, подтверждает: на них — другой человек, разрешение на этот разбор получено, ответственность за загрузку человек берёт на себя."
+        ? "Человек, загрузивший фото, подтверждает: на них — другой человек, разрешение на этот разбор получено, ответственность за загрузку он берёт на себя. Разбор читает ЗАГРУЗИВШИЙ — например, он наткнулся на этот профиль в приложении знакомств и хочет понять, что за человек перед ним. Обращайся к читателю на «вы», о человеке на фото говори в третьем лице. Никаких советов человеку на фото и ни слова о том, какие фото ему ставить в профиль: читателю нужно, что это за тип, чего от него ждать и как это проверить."
         : subject === "us"
-          ? "Загрузивший фото человек подтверждает, что на них — он сам вместе с близким человеком."
-          : "Загрузивший фото человек подтверждает, что на них — он сам.",
-      ageRange ? `Возрастной диапазон основного человека на фото: ${ageRange}.` : "",
+          ? "Загрузивший подтверждает: на фото — он сам вместе с близким человеком, и разбор читает он. Обращайся к читателю на «вы»; второго человека называй по видимой презентации («ваш спутник», «ваша спутница»). Дедукцию строй в первую очередь про читателя, но химию черт читай по видимой динамике пары — кто ведёт, кто позирует, как распределено пространство между ними."
+          : "Загрузивший подтверждает: на фото — он сам, и разбор читает он сам. Обращайся к нему напрямую на «вы»: «вы держитесь…», «ваша улыбка…». Это портрет читателя — говори с ним честно, как детектив, разложивший его собственное дело.",
+      ageRange ? `Возрастной диапазон человека на фото: ${ageRange}.` : "",
       {
-        dating: "Фото в основном используются в приложениях знакомств — context_read описывает, как они читаются там.",
-        social: "Фото в основном используются в соцсетях — context_read описывает, как они читаются там.",
-        professional: "Фото используются в профессиональном контексте — context_read описывает, как они читаются там.",
-        curious: "Загрузившему просто любопытно — context_read описывает, как фото читаются незнакомцам в целом.",
+        dating: "Контекст читателя: знакомства. Вердикт и химию черт затачивай под вопрос «каково с этим человеком в паре»: clashes и matches — это совместимость с чертами потенциального партнёра.",
+        social: "Контекст читателя: соцсети. Вердикт затачивай под то, какой образ этот человек строит для аудитории и что за ним стоит.",
+        professional: "Контекст читателя: работа. Вердикт и химию черт затачивай под рабочие отношения: каково с этим человеком в команде, в переговорах, в дедлайне.",
+        curious: "Контекст читателя: просто любопытство. Вердикт — цельный портрет без привязки к площадке.",
       }[useCase as "dating" | "social" | "professional" | "curious"] ?? "",
     ]
       .filter(Boolean)
@@ -179,16 +319,16 @@ function attestationFor(
   }
   return [
     subject === "other"
-      ? "The uploader states these photos show another person, confirms they have that person's permission to run this read, and takes responsibility for the upload."
+      ? "The uploader states these photos show another person, confirms they have that person's permission to run this read, and takes responsibility for the upload. The reader is the UPLOADER — say, they found this profile on a dating app and want to know who they are looking at. Address the reader as \"you\"; speak about the person in the photos in third person. No advice to the person shown and not a word about which photos they should use in a profile: the reader wants to know what type this is, what to expect from them, and how to verify it."
       : subject === "us"
-        ? "The uploader states these photos show themself together with someone close to them."
-        : "The uploader states these photos show themself.",
-    ageRange ? `Age range of the main person shown: ${ageRange}.` : "",
+        ? "The uploader states the photos show themself together with someone close, and the uploader is the reader. Address the reader as \"you\"; refer to the second person by visible presentation (\"your partner\", \"your companion\"). Build the deduction primarily about the reader, but read the trait chemistry from the pair's visible dynamic — who leads, who poses, how the space between them is shared."
+        : "The uploader states the photos show themself, and they are the reader. Address them directly as \"you\": \"you hold yourself…\", \"your smile…\". This is the reader's own portrait — talk to them straight, like a detective walking them through their own case.",
+    ageRange ? `Age range of the person shown: ${ageRange}.` : "",
     {
-      dating: "The photos are mainly used on dating apps — context_read is how they land there.",
-      social: "The photos are mainly used on social media — context_read is how they land there.",
-      professional: "The photos are mainly used in professional contexts — context_read is how they land there.",
-      curious: "The uploader is curious — context_read is how the photos land with strangers generally.",
+      dating: "Reader's context: dating. Tune the verdict and the trait chemistry to \"what is this person like as a partner\": clashes and matches are compatibility with a potential partner's traits.",
+      social: "Reader's context: social media. Tune the verdict to the image this person builds for an audience and what stands behind it.",
+      professional: "Reader's context: work. Tune the verdict and chemistry to working relationships: what this person is like on a team, in negotiation, on a deadline.",
+      curious: "Reader's context: plain curiosity. The verdict is a whole portrait, no platform attached.",
     }[useCase as "dating" | "social" | "professional" | "curious"] ?? "",
   ]
     .filter(Boolean)
@@ -392,18 +532,38 @@ Deno.serve(async (req: Request) => {
       .join(" ");
 
     const multi = imagesB64.length > 1;
+    // photos_verdict is profile advice — it exists only when the reader IS the
+    // person in the photos (v3 fix: a dating-app viewer must never get "use
+    // this photo as your main" written about someone else's profile).
+    const wantsVerdict = multi && context.subject !== "other";
     const task =
       lang === "ru"
-        ? multi
-          ? `Предоставлено ${imagesB64.length} фото по порядку; фото 1 — главное. Напиши полный разбор: глубокие разделы посвящены фото 1, с учётом остального набора. В photos_verdict сравни все фото: выбери самое сильное и самое слабое, по одной строке на каждое, и дай совет по порядку. Шкалы — это восприятие того, как читается набор, а не факты о человеке. the_tell должен быть по-настоящему неочевидным — деталь, которую сам человек на фото никогда бы не заметил за собой.`
-          : `Предоставлено одно фото. Напиши полный разбор; поставь photos_verdict в null. Шкалы — это восприятие того, как читается фото, а не факты о человеке. the_tell должен быть по-настоящему неочевидным — деталь, которую сам человек на фото никогда бы не заметил за собой.`
-        : multi
-          ? `${imagesB64.length} photos are provided, in order; photo 1 is the main one. Write the full read: the deep sections are about photo 1, informed by the rest of the set. In photos_verdict compare all photos: pick the strongest and weakest, one line each, and give ordering advice. The scales are perception readings of how the set comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`
-          : `One photo is provided. Write the full read; set photos_verdict to null. The scales are perception readings of how the photo comes across, not claims about the person. the_tell must be genuinely non-obvious — the detail the person shown would never notice themself.`;
+        ? [
+            multi
+              ? `Предоставлено ${imagesB64.length} фото по порядку; фото 1 — главное, но улики собирай со всего набора: повторяющиеся выборы (один и тот же ракурс, одна и та же дежурная улыбка, вечно один контекст) — самые сильные улики.`
+              : "Предоставлено одно фото.",
+            "Напиши полный дедуктивный портрет.",
+            wantsVerdict
+              ? "В photos_verdict сравни фото: самое сильное, самое слабое, по строке на каждое и совет по порядку."
+              : "photos_verdict поставь в null.",
+            "В deductions каждая цепочка идёт от улики к смелому выводу о характере или привычке — не трать цепочки на пересказ того, что в кадре. В chemistry каждый сценарий — конкретная бытовая сцена с действиями и репликами, которую читатель может представить дословно. Флаги называй смело и конкретно: черта, улика, что это значит в жизни рядом с этим человеком. the_tell — деталь, которую человек на фото сам за собой не замечает. Числа Большой пятёрки выбирай решительно; середина шкалы — только при действительно противоречивых уликах, и тогда evidence называет, что тянет в обе стороны.",
+          ].join(" ")
+        : [
+            multi
+              ? `${imagesB64.length} photos are provided, in order; photo 1 is the main one, but gather clues across the whole set: repeated choices (the same angle, the same practiced smile, always the same kind of place) are the strongest clues there are.`
+              : "One photo is provided.",
+            "Write the full deductive portrait.",
+            wantsVerdict
+              ? "In photos_verdict compare the photos: strongest, weakest, one line each, and ordering advice."
+              : "Set photos_verdict to null.",
+            "In deductions every chain runs from a clue to a bold conclusion about character or habit — never spend a chain retelling what is in the frame. In chemistry every scenario is a concrete everyday scene with actions and lines the reader can picture verbatim. Name the flags boldly and concretely: the trait, the clue, what it means in real life next to this person. the_tell is the detail the person shown never notices about themself. Pick Big Five numbers decisively; mid-scale only for genuinely conflicting clues, and then the evidence line names what pulls each way.",
+          ].join(" ");
 
     const response = await anthropic.messages.create({
       model: REPORT_MODEL,
-      max_tokens: 3500,
+      // v3 report is wordier than v2 (deduction chains + chemistry scenarios),
+      // and RU output runs well over EN in tokens — headroom over the old 3500.
+      max_tokens: 5000,
       thinking: { type: "disabled" },
       system: VOICE_SYSTEM[lang],
       output_config: { format: { type: "json_schema", schema: REPORT_SCHEMA } },

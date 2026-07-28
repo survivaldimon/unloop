@@ -1,16 +1,27 @@
 /**
- * All photo-funnel copy in one place. EN is the canonical shape; RU (added
- * 27.07.2026) is a native rewrite, not a machine translation — same standing
- * rule the quiz follows. Voice decision 26.07: the analysis itself is written
- * in third person ("the person in this photo", "they" / "человек на фото").
+ * All photo-funnel copy in one place. EN is the canonical shape; RU is a
+ * native rewrite, not a machine translation — same standing rule the quiz
+ * follows. v3 (28.07.2026): the product is a deductive personality portrait —
+ * clue→trait chains, recognizable labels, Big Five scales, trait chemistry,
+ * bold flags. The report addresses the reader as "you"; the person in the
+ * photo is the reader themself (subject=me/us) or a third person (other).
  *
  * Brand terms stay unlocalized in both languages, the same way "LOOPLORE",
  * Roman numerals and "Nº" already do site-wide: "The Outside View" (the
  * analysis engine's name) and "The Tell" (the named report chapter) are proper
  * nouns, not generic UI strings — translating them would be like translating
  * a wordmark.
+ *
+ * Copy for the frozen v2 report renderer lives in PhotoReportLegacy.tsx.
  */
 import type { Lang } from "../i18n";
+import type { BigFiveKey } from "./api";
+
+interface BigFiveAxis {
+  name: string;
+  low: string;
+  high: string;
+}
 
 interface PhotoCopyShape {
   title: string;
@@ -59,11 +70,12 @@ interface PhotoCopyShape {
     lockedTag: string;
     lockedTitle: string;
     tocTitle: string;
-    toc: { n: string; title: string; hook: string; sealed: boolean }[];
+    toc: { n: string; id?: string; title: string; hook: string; sealed: boolean }[];
     tocSetRow: { n: string; title: string; hook: string; sealed: boolean };
     scalesNote: string;
     offerHolds: string;
     unlock: string;
+    opening: string;
     confirming: string;
     payError: string;
     payNote: (provider: string) => string;
@@ -75,32 +87,20 @@ interface PhotoCopyShape {
     header: string;
     sections: {
       first_impression: string;
-      ten_second_story: string;
-      pose_presence: string;
-      style_signals: string;
-      setting_framing: string;
-      signal_breakdown: string;
-      guesses: string;
-      the_tell: string;
-      context_read: Record<string, string>;
+      deductions: string;
+      profile: string;
+      big_five: string;
+      chemistry: string;
       flags: string;
-      one_change: string;
+      the_tell: string;
+      verdict: Record<string, string>;
+      next_move_self: string;
+      next_move_other: string;
       set_verdict: string;
     };
-    guessLabels: { occupation: string; lifestyle: string; vibe: string };
-    guessNote: string;
-    timeMarks: { half_second: string; three_seconds: string; ten_seconds: string };
-    signalLabels: { pose: string; style: string; setting: string; framing: string };
-    scalesTitle: string;
-    scales: {
-      confidence: string;
-      approachability: string;
-      intentionality: string;
-      warmth: string;
-      status_signal: string;
-      authenticity: string;
-    };
-    scalesNote: string;
+    profileLabels: { temperament: string; social_energy: string; archetypes: string };
+    chemistryLabels: { clashes: string; matches: string };
+    bigFive: Record<BigFiveKey, BigFiveAxis>;
     leadTag: string;
     dropTag: string;
     writing: string;
@@ -113,17 +113,17 @@ interface PhotoCopyShape {
 }
 
 const EN: PhotoCopyShape = {
-  title: "Looplore — What does your photo say in 3 seconds?",
+  title: "Looplore — What does a photo give away?",
   folioTag: "PHOTO READ",
 
   landing: {
     h1a: "A photo talks.",
     h1b: "Hear what it says.",
-    body: "Upload up to six photos and get the outside view: what pose, style and framing tell a stranger in the first 3 seconds — including the one thing nobody notices about their own photos.",
+    body: "Upload up to six photos and get a deductive portrait of the person in them: temperament, familiar labels, green and red flags — and which traits clash with which. All read from posture, gaze, grooming, tattoos, and the choice of the shot itself.",
     bullets: [
-      "A stranger's first read — spelled out, detail by detail",
-      "Built only on what actually shows: pose, styling, setting, framing",
-      "The Tell: the one signal the photo sends without anyone knowing",
+      "Clue → conclusion: what the pose, the grooming and the details actually give away",
+      "Concrete labels: temperament, introvert or extravert, the Big Five with evidence",
+      "Trait chemistry and flags — plus The Tell: the detail nobody notices about themself",
     ],
     uploadIdle: "Add a photo",
     uploadSub: "A clear photo of a person. JPG or PNG.",
@@ -173,7 +173,7 @@ const EN: PhotoCopyShape = {
     ],
     thirdParty: {
       title: "One confirmation first",
-      body: "This photo shows someone else. By continuing you confirm you have their permission to run this read, and you take responsibility for the upload. The read describes how the photo comes across — impressions, not facts about them.",
+      body: "This photo shows someone else. By continuing you confirm you have their permission to run this read, and you take responsibility for the upload. The read is deduction from visible details — hypotheses to test, not facts about them.",
       confirm: "I confirm — continue",
       back: "Go back",
     },
@@ -182,11 +182,11 @@ const EN: PhotoCopyShape = {
 
   scanning: {
     steps: [
-      "Reading pose and posture…",
-      "Decoding style and grooming signals…",
-      "Weighing the setting and framing…",
-      "Running the 3-second first-impression pass…",
-      "Writing the read…",
+      "Collecting clues: posture, gaze, details…",
+      "Reading grooming, clothing, tattoos…",
+      "Converging clues into temperament and type…",
+      "Scoring the Big Five, checking the flags…",
+      "Writing the case file…",
     ],
     slowNote: "A careful read takes a few extra seconds.",
   },
@@ -205,77 +205,70 @@ const EN: PhotoCopyShape = {
     photosNote: (count) => `${count} photos in this reading — the teaser reads the main one.`,
     lockedTag: "sealed",
     lockedTitle: "The Tell",
-    tocTitle: "In the full read",
+    tocTitle: "In the full case file",
     toc: [
-      { n: "I", title: "First impression", hook: "the 3-second verdict", sealed: false },
-      { n: "II", title: "The 10-second story", hook: "how the read unfolds as they keep looking", sealed: false },
-      { n: "III", title: "Pose & presence", hook: "what the body language broadcasts", sealed: true },
-      { n: "IV", title: "Style signals", hook: "what the choices say about status and effort", sealed: true },
-      { n: "V", title: "Setting & framing", hook: "what the background gives away", sealed: true },
-      { n: "VI", title: "Signal breakdown", hook: "pose · style · setting · framing, measured", sealed: true },
-      { n: "VII", title: "What strangers would guess", hook: "job, lifestyle, vibe — the assumptions", sealed: true },
-      { n: "VIII", title: "The Tell", hook: "the detail they don't know they're showing", sealed: true },
-      { n: "IX", title: "Context read", hook: "how it lands where the photo actually lives", sealed: true },
-      { n: "X", title: "Flags & the one change", hook: "what pulls people in, and the single fix", sealed: true },
+      { n: "I", title: "First impression", hook: "the type, called in seconds", sealed: false },
+      { n: "II", title: "Deductions", hook: "clue → conclusion: what the details give away", sealed: true },
+      { n: "III", title: "The type", hook: "temperament, intro/extravert, familiar labels", sealed: true },
+      { n: "IV", title: "The Big Five", hook: "five science scales, each with its evidence", sealed: true },
+      { n: "V", title: "Trait chemistry", hook: "what clicks, what sparks — played out in scenes", sealed: true },
+      { n: "VI", title: "Green & red flags", hook: "named boldly, with what they mean", sealed: true },
+      { n: "VII", title: "The Tell", hook: "the detail they never notice about themself", sealed: true },
+      { n: "VIII", id: "verdict", title: "The verdict", hook: "the bottom line, and the next move", sealed: true },
     ],
-    tocSetRow: { n: "XI", title: "Set verdict", hook: "which photo leads, which to drop", sealed: true },
-    scalesNote: "Plus the perception radar — six dials: confidence · approachability · intentionality · warmth · status · authenticity.",
+    tocSetRow: { n: "IX", title: "Set verdict", hook: "which photo leads, which to drop", sealed: true },
+    scalesNote: "The Big Five is the same trait system academic psychology measures people with — here it's read straight off the photo.",
     offerHolds: "price holds for",
     unlock: "Unlock the full read",
+    opening: "Opening secure checkout…",
     confirming: "Confirming your payment…",
     payError: "Payment didn't go through. Try again.",
     payNote: (provider) => `Secure checkout by ${provider} · instant unlock after payment`,
     testNote: "Test build — the full read unlocks without charge.",
     disclaimer:
-      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
+      "The Outside View is an entertainment product: deduction from photos — hypotheses to test, not facts or diagnoses.",
   },
 
   report: {
-    header: "The read",
+    header: "The case file",
     sections: {
       first_impression: "First impression",
-      ten_second_story: "The 10-second story",
-      pose_presence: "Pose & presence",
-      style_signals: "Style signals",
-      setting_framing: "Setting & framing",
-      signal_breakdown: "Signal breakdown",
-      guesses: "What strangers would guess",
+      deductions: "Deductions",
+      profile: "The type",
+      big_five: "The Big Five",
+      chemistry: "Trait chemistry",
+      flags: "Green & red flags",
       the_tell: "The Tell",
-      context_read: {
-        dating: "Dating read",
-        social: "Social read",
-        professional: "Professional read",
-        curious: "Stranger read",
+      verdict: {
+        dating: "The dating verdict",
+        social: "The social verdict",
+        professional: "The work verdict",
+        curious: "The verdict",
       } as Record<string, string>,
-      flags: "Green flag · Red flag",
-      one_change: "The one change",
+      next_move_self: "The one change",
+      next_move_other: "What to test in person",
       set_verdict: "Set verdict",
     },
-    guessLabels: {
-      occupation: "occupation guess",
-      lifestyle: "lifestyle guess",
-      vibe: "vibe guess",
+    profileLabels: {
+      temperament: "temperament",
+      social_energy: "social energy",
+      archetypes: "the labels",
     },
-    guessNote: "Strangers' assumptions — not facts.",
-    timeMarks: { half_second: "0.5s", three_seconds: "3s", ten_seconds: "10s" },
-    signalLabels: { pose: "Pose", style: "Style", setting: "Setting", framing: "Framing" },
-    scalesTitle: "Perception radar",
-    scales: {
-      confidence: "Confidence",
-      approachability: "Approachability",
-      intentionality: "Intentionality",
-      warmth: "Warmth",
-      status_signal: "Status",
-      authenticity: "Authenticity",
+    chemistryLabels: { clashes: "where it sparks", matches: "where it clicks" },
+    bigFive: {
+      extraversion: { name: "Extraversion", low: "introvert", high: "extravert" },
+      emotional_stability: { name: "Emotional stability", low: "quick to feel", high: "hard to shake" },
+      agreeableness: { name: "Agreeableness", low: "pushes through", high: "meets halfway" },
+      conscientiousness: { name: "Conscientiousness", low: "runs on impulse", high: "runs on systems" },
+      openness: { name: "Openness", low: "sticks to the known", high: "drawn to the new" },
     },
-    scalesNote: "How the photo reads — not who anyone is.",
     leadTag: "lead",
     dropTag: "drop",
-    writing: "Writing the read…",
+    writing: "Writing the case file…",
     reportError: "The full read didn't come through. Try again in a moment.",
     retake: "Read another photo",
     disclaimer:
-      "The Outside View is an entertainment self-reflection product. It describes how a photo may read to strangers — impressions, not facts about anyone.",
+      "The Outside View is an entertainment product: deduction from photos — hypotheses to test, not facts or diagnoses.",
   },
 
   email: {
@@ -285,17 +278,17 @@ const EN: PhotoCopyShape = {
 };
 
 const RU: PhotoCopyShape = {
-  title: "Looplore — Что говорит твоё фото за 3 секунды?",
+  title: "Looplore — Что выдаёт фото?",
   folioTag: "PHOTO READ",
 
   landing: {
     h1a: "Фото говорит.",
     h1b: "Услышь, что оно скажет.",
-    body: "Загрузи до шести фото и получи взгляд со стороны: что поза, стиль и кадрирование говорят незнакомцу за первые 3 секунды — включая то единственное, что никто не замечает в своих же фото.",
+    body: "Загрузи до шести фото и получи дедуктивный портрет человека на них: темперамент, знакомые ярлыки, зелёные и красные флаги — и какие черты с какими конфликтуют. Всё выведено из позы, взгляда, ухоженности, тату и самого выбора кадра.",
     bullets: [
-      "Первое впечатление незнакомца — разложенное по деталям",
-      "Основано только на том, что реально видно: поза, стиль, обстановка, кадр",
-      "The Tell: единственный сигнал, который фото подаёт незаметно для себя самого",
+      "Улика → вывод: что на самом деле выдают поза, ухоженность и детали",
+      "Конкретные ярлыки: темперамент, интроверт или экстраверт, Большая пятёрка с уликами",
+      "Химия черт и флаги — плюс The Tell: деталь, которую человек сам за собой не замечает",
     ],
     uploadIdle: "Добавить фото",
     uploadSub: "Чёткое фото человека. JPG или PNG.",
@@ -342,7 +335,7 @@ const RU: PhotoCopyShape = {
     ],
     thirdParty: {
       title: "Сначала одно подтверждение",
-      body: "На этом фото — другой человек. Продолжая, ты подтверждаешь, что получил(а) его разрешение на этот разбор, и берёшь на себя ответственность за загрузку. Разбор описывает, как фото читается со стороны — впечатления, а не факты о нём.",
+      body: "На этом фото — другой человек. Продолжая, ты подтверждаешь, что получил(а) его разрешение на этот разбор, и берёшь на себя ответственность за загрузку. Разбор — дедукция по видимым деталям: гипотезы для проверки, а не факты о нём.",
       confirm: "Подтверждаю — продолжить",
       back: "Назад",
     },
@@ -351,11 +344,11 @@ const RU: PhotoCopyShape = {
 
   scanning: {
     steps: [
-      "Считываю позу и осанку…",
-      "Расшифровываю сигналы стиля и ухоженности…",
-      "Оцениваю обстановку и кадрирование…",
-      "Прогоняю 3-секундный проход первого впечатления…",
-      "Пишу разбор…",
+      "Собираю улики: поза, взгляд, детали…",
+      "Читаю ухоженность, одежду, тату…",
+      "Свожу улики в темперамент и типаж…",
+      "Меряю Большую пятёрку, проверяю флаги…",
+      "Пишу досье…",
     ],
     slowNote: "Внимательный разбор занимает на пару секунд больше.",
   },
@@ -374,77 +367,70 @@ const RU: PhotoCopyShape = {
     photosNote: (count) => `В этом разборе ${count} фото — тизер разбирает главное.`,
     lockedTag: "запечатано",
     lockedTitle: "The Tell",
-    tocTitle: "В полном разборе",
+    tocTitle: "В полном досье",
     toc: [
-      { n: "I", title: "Первое впечатление", hook: "вердикт за 3 секунды", sealed: false },
-      { n: "II", title: "История за 10 секунд", hook: "как разбор разворачивается, пока смотрят дальше", sealed: false },
-      { n: "III", title: "Поза и присутствие", hook: "что транслирует язык тела", sealed: true },
-      { n: "IV", title: "Сигналы стиля", hook: "что выбор говорит о статусе и усилиях", sealed: true },
-      { n: "V", title: "Обстановка и кадр", hook: "что выдаёт фон", sealed: true },
-      { n: "VI", title: "Разбор сигналов", hook: "поза · стиль · обстановка · кадр, в цифрах", sealed: true },
-      { n: "VII", title: "Что подумают незнакомцы", hook: "работа, образ жизни, вайб — предположения", sealed: true },
-      { n: "VIII", title: "The Tell", hook: "деталь, которую показывают, не зная об этом", sealed: true },
-      { n: "IX", title: "Контекстный разбор", hook: "как оно читается там, где фото реально живёт", sealed: true },
-      { n: "X", title: "Флаги и главное изменение", hook: "что привлекает людей и какая правка сработает лучше всего", sealed: true },
+      { n: "I", title: "Первое впечатление", hook: "типаж, названный с первых секунд", sealed: false },
+      { n: "II", title: "Дедукция", hook: "улика → вывод: что выдают детали", sealed: true },
+      { n: "III", title: "Типаж", hook: "темперамент, интроверт или экстраверт, знакомые ярлыки", sealed: true },
+      { n: "IV", title: "Большая пятёрка", hook: "пять научных шкал, каждая с уликой", sealed: true },
+      { n: "V", title: "Химия черт", hook: "что дружит, что заискрит — в сценах", sealed: true },
+      { n: "VI", title: "Зелёные и красные флаги", hook: "названы смело, с расшифровкой", sealed: true },
+      { n: "VII", title: "The Tell", hook: "деталь, которую человек сам за собой не замечает", sealed: true },
+      { n: "VIII", id: "verdict", title: "Вердикт", hook: "итог и следующий шаг", sealed: true },
     ],
-    tocSetRow: { n: "XI", title: "Вердикт по набору", hook: "какое фото лидирует, какое убрать", sealed: true },
-    scalesNote: "Плюс радар восприятия — шесть шкал: уверенность · открытость · осознанность · теплота · статус · подлинность.",
+    tocSetRow: { n: "IX", title: "Вердикт по набору", hook: "какое фото ведёт, какое убрать", sealed: true },
+    scalesNote: "Большая пятёрка — та же система черт, которой личность меряет научная психология; здесь она снята прямо с фото.",
     offerHolds: "цена держится ещё",
     unlock: "Открыть полный разбор",
+    opening: "Открываем оплату…",
     confirming: "Подтверждаем оплату…",
     payError: "Оплата не прошла. Попробуй ещё раз.",
     payNote: (provider) => `Безопасная оплата через ${provider} · мгновенный доступ после оплаты`,
     testNote: "Тестовая сборка — полный разбор открывается бесплатно.",
     disclaimer:
-      "The Outside View — развлекательный продукт для саморефлексии. Он описывает, как фото может читаться незнакомцам — впечатления, а не факты о человеке.",
+      "The Outside View — развлекательный продукт: дедукция по фото — гипотезы для проверки, а не факты или диагнозы.",
   },
 
   report: {
-    header: "Разбор",
+    header: "Досье",
     sections: {
       first_impression: "Первое впечатление",
-      ten_second_story: "История за 10 секунд",
-      pose_presence: "Поза и присутствие",
-      style_signals: "Сигналы стиля",
-      setting_framing: "Обстановка и кадр",
-      signal_breakdown: "Разбор сигналов",
-      guesses: "Что подумают незнакомцы",
+      deductions: "Дедукция",
+      profile: "Типаж",
+      big_five: "Большая пятёрка",
+      chemistry: "Химия черт",
+      flags: "Зелёные и красные флаги",
       the_tell: "The Tell",
-      context_read: {
-        dating: "Разбор для знакомств",
-        social: "Разбор для соцсетей",
-        professional: "Разбор для работы",
-        curious: "Разбор для незнакомцев",
+      verdict: {
+        dating: "Вердикт для знакомств",
+        social: "Вердикт для соцсетей",
+        professional: "Вердикт для работы",
+        curious: "Вердикт",
       } as Record<string, string>,
-      flags: "Зелёный флаг · Красный флаг",
-      one_change: "Главное изменение",
+      next_move_self: "Главная правка",
+      next_move_other: "Что проверить при встрече",
       set_verdict: "Вердикт по набору",
     },
-    guessLabels: {
-      occupation: "догадка о профессии",
-      lifestyle: "догадка об образе жизни",
-      vibe: "догадка о вайбе",
+    profileLabels: {
+      temperament: "темперамент",
+      social_energy: "социальная энергия",
+      archetypes: "ярлыки",
     },
-    guessNote: "Предположения незнакомцев — не факты.",
-    timeMarks: { half_second: "0.5с", three_seconds: "3с", ten_seconds: "10с" },
-    signalLabels: { pose: "Поза", style: "Стиль", setting: "Обстановка", framing: "Кадр" },
-    scalesTitle: "Радар восприятия",
-    scales: {
-      confidence: "Уверенность",
-      approachability: "Открытость",
-      intentionality: "Осознанность",
-      warmth: "Теплота",
-      status_signal: "Статус",
-      authenticity: "Подлинность",
+    chemistryLabels: { clashes: "где заискрит", matches: "где совпадёт" },
+    bigFive: {
+      extraversion: { name: "Экстраверсия", low: "интроверт", high: "экстраверт" },
+      emotional_stability: { name: "Эмоциональная устойчивость", low: "реагирует остро", high: "держит удар" },
+      agreeableness: { name: "Доброжелательность", low: "идёт напролом", high: "идёт навстречу" },
+      conscientiousness: { name: "Организованность", low: "живёт импульсом", high: "живёт по системе" },
+      openness: { name: "Открытость новому", low: "держится привычного", high: "тянется к новому" },
     },
-    scalesNote: "Как читается фото — а не кто перед тобой.",
     leadTag: "лидер",
     dropTag: "аутсайдер",
-    writing: "Пишу разбор…",
+    writing: "Пишу досье…",
     reportError: "Полный разбор не получился. Попробуй ещё раз через минуту.",
     retake: "Разобрать другое фото",
     disclaimer:
-      "The Outside View — развлекательный продукт для саморефлексии. Он описывает, как фото может читаться незнакомцам — впечатления, а не факты о человеке.",
+      "The Outside View — развлекательный продукт: дедукция по фото — гипотезы для проверки, а не факты или диагнозы.",
   },
 
   email: {

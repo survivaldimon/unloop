@@ -12,7 +12,7 @@ import {
 } from "../../lib/credits";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
-import { paymentsProviderName } from "../../lib/payments";
+import { paymentsProviderName, preloadCheckout } from "../../lib/payments";
 import { readingNo } from "../../lib/visual";
 import { getPhotoCopy } from "../copy";
 import Em from "./Em";
@@ -58,15 +58,21 @@ export default function PhotoTeaser({
   const PHOTO_COPY = getPhotoCopy(useLang());
   const ui = PHOTO_COPY.teaser;
   const countdown = useOfferCountdown();
-  const confirming = payState === "confirming";
+  const busy = payState === "opening" || payState === "confirming";
 
   useEffect(() => {
     track("photo_teaser_view", { funnel: "photo" });
+    // Warm the checkout client chunk while the visitor reads the paywall —
+    // the unlock click then only pays the session round-trip.
+    preloadCheckout();
   }, []);
 
-  const contextTitle = PHOTO_COPY.report.sections.context_read[useCase] ?? "Stranger read";
+  // The verdict row is titled for the reader's stated context (matched by id —
+  // matching by title broke silently in RU).
+  const verdictTitle =
+    PHOTO_COPY.report.sections.verdict[useCase] ?? PHOTO_COPY.report.sections.verdict.curious;
   const toc = [
-    ...ui.toc.map((row) => (row.title === "Context read" ? { ...row, title: contextTitle } : row)),
+    ...ui.toc.map((row) => (row.id === "verdict" ? { ...row, title: verdictTitle } : row)),
     ...(photoCount > 1 ? [ui.tocSetRow] : []),
   ];
 
@@ -187,8 +193,8 @@ export default function PhotoTeaser({
             <p className="font-display text-[44px] leading-tight text-brass-2 tabular-nums">
               {countdown}
             </p>
-            <button className="btn-primary mt-2 disabled:opacity-60" onClick={() => onUnlock()} disabled={confirming}>
-              {confirming ? ui.confirming : ui.unlock}
+            <button className="btn-primary mt-2 disabled:opacity-60" onClick={() => onUnlock()} disabled={busy}>
+              {payState === "opening" ? ui.opening : payState === "confirming" ? ui.confirming : ui.unlock}
             </button>
             {payState === "error" ? (
               <p className="mt-2 text-xs text-ember">{ui.payError}</p>

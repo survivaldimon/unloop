@@ -34,4 +34,10 @@ export interface PaymentProvider {
   /** True when the provider has all config it needs to open a checkout. */
   configured: boolean;
   openCheckout(opts: CheckoutOptions): Promise<void>;
+  /**
+   * Optional warm-up: fetch the provider's client code ahead of the first
+   * click so opening the overlay doesn't pay the lazy-chunk cost on top of
+   * the checkout-session round-trip. Fire-and-forget, must never throw.
+   */
+  preload?(): void;
 }

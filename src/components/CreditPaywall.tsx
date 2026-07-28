@@ -74,7 +74,8 @@ export default function CreditPaywall({
   balance: number | null;
   /** Credits this funnel's read costs (shows the pay-from-balance card when covered). */
   cost: number;
-  payState: "idle" | "confirming" | "error";
+  /** "opening" = click → overlay gap (checkout session being created). */
+  payState: "idle" | "opening" | "confirming" | "error";
   /** Known email → no silent account; which sentence depends on what happened. */
   accountNotice?: AccountStatus | null;
   onSelect: (packId: PackId) => void;
@@ -95,7 +96,8 @@ export default function CreditPaywall({
           : null;
   const [selected, setSelected] = useState<PackId>("starter");
   const { label: countdown, active: bonusActive } = useBonusCountdown();
-  const confirming = payState === "confirming";
+  const busy = payState === "opening" || payState === "confirming";
+  const busyLabel = payState === "opening" ? ui.opening : ui.confirming;
   const selectedPack = CREDIT_PACKS[selected];
 
   // A returning buyer with enough balance (the cross-sell case: "оба разбора")
@@ -108,9 +110,9 @@ export default function CreditPaywall({
         <button
           className="btn-primary mt-3 disabled:opacity-60"
           onClick={onUnlockWithCredits}
-          disabled={confirming}
+          disabled={busy}
         >
-          {confirming ? ui.confirming : ui.ctaCredits(cost)}
+          {busy ? busyLabel : ui.ctaCredits(cost)}
         </button>
         <p className="mt-2 text-center text-[11px] text-mist/70">{ui.priceList}</p>
       </div>
@@ -200,9 +202,9 @@ export default function CreditPaywall({
       <button
         className="btn-primary mt-3 disabled:opacity-60"
         onClick={() => onSelect(selected)}
-        disabled={confirming}
+        disabled={busy}
       >
-        {confirming ? ui.confirming : ui.cta(formatUsd(selectedPack.usd))}
+        {busy ? busyLabel : ui.cta(formatUsd(selectedPack.usd))}
       </button>
       <p className="mt-2 text-center text-[11px] text-mist/70">{ui.priceList}</p>
       {payState === "error" ? (

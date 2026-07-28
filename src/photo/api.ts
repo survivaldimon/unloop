@@ -43,6 +43,67 @@ export interface PhotoTeaserData {
   locked_hint: string;
 }
 
+export interface PhotosVerdict {
+  best_index: number;
+  weakest_index: number;
+  ordering_advice: string;
+  per_photo: { index: number; one_line: string }[];
+}
+
+export interface WhyItem {
+  label: string;
+  why: string;
+}
+
+export interface TraitScore {
+  /** 0-100 toward the trait named by the key (100 = strongly this trait). */
+  score: number;
+  evidence: string;
+}
+
+export interface ChemistryPairing {
+  trait: string;
+  with_trait: string;
+  scenario: string;
+}
+
+export interface FlagItem {
+  label: string;
+  evidence: string;
+  meaning: string;
+}
+
+export type BigFiveKey =
+  | "extraversion"
+  | "emotional_stability"
+  | "agreeableness"
+  | "conscientiousness"
+  | "openness";
+
+/** v3 report: deductive personality portrait (28.07.2026). */
+export interface PhotoReportData {
+  first_impression: string;
+  deductions: { clue: string; inference: string }[];
+  profile: { temperament: WhyItem; social_energy: WhyItem; archetypes: WhyItem[] };
+  big_five: Record<BigFiveKey, TraitScore>;
+  chemistry: {
+    inner: { combo: string; effect: string }[];
+    clashes: ChemistryPairing[];
+    matches: ChemistryPairing[];
+  };
+  green_flags: FlagItem[];
+  red_flags: FlagItem[];
+  the_tell: string;
+  verdict: string;
+  next_move: string;
+  photos_verdict: PhotosVerdict | null;
+}
+
+// ---- v2 report shape ------------------------------------------------------
+// Reports generate once and are cached forever, so sessions analyzed before
+// v3 still return this shape from photoread-report. Rendered by
+// PhotoReportLegacy; do not extend.
+
 export interface PhotoScales {
   confidence: number;
   approachability: number;
@@ -62,14 +123,7 @@ export interface GuessItem {
   why: string;
 }
 
-export interface PhotosVerdict {
-  best_index: number;
-  weakest_index: number;
-  ordering_advice: string;
-  per_photo: { index: number; one_line: string }[];
-}
-
-export interface PhotoReportData {
+export interface PhotoReportLegacyData {
   first_impression: string;
   ten_second_story: { half_second: string; three_seconds: string; ten_seconds: string };
   pose_presence: string;
@@ -84,6 +138,12 @@ export interface PhotoReportData {
   one_change: string;
   scales: PhotoScales;
   photos_verdict: PhotosVerdict | null;
+}
+
+export type AnyPhotoReport = PhotoReportData | PhotoReportLegacyData;
+
+export function isLegacyReport(report: AnyPhotoReport): report is PhotoReportLegacyData {
+  return !("deductions" in report);
 }
 
 export type RejectReason = "no_person" | "minor" | "nsfw" | "declined" | "failed";
@@ -156,7 +216,7 @@ export async function analyzePhotos(args: {
 }
 
 export type ReportResult =
-  | { kind: "ok"; report: PhotoReportData }
+  | { kind: "ok"; report: AnyPhotoReport }
   | { kind: "payment_required" }
   | { kind: "expired" }
   | { kind: "failed" };
@@ -167,7 +227,7 @@ export async function fetchPhotoReport(): Promise<ReportResult> {
       session_id: getPhotoSessionId(),
     });
     if (status === 200 && data?.first_impression) {
-      return { kind: "ok", report: data as unknown as PhotoReportData };
+      return { kind: "ok", report: data as unknown as AnyPhotoReport };
     }
     if (status === 402) return { kind: "payment_required" };
     if (status === 410) return { kind: "expired" };
