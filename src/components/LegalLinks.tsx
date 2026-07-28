@@ -12,6 +12,10 @@ export default function LegalLinks() {
       <a className="underline-offset-2 hover:text-mist hover:underline" href="/privacy/">
         {ui.privacy}
       </a>
+      <span> · </span>
+      <a className="underline-offset-2 hover:text-mist hover:underline" href="/account/">
+        {ui.account}
+      </a>
     </p>
   );
 }

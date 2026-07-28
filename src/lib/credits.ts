@@ -73,10 +73,25 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
       return "failed";
     }
     if (status === "existing") {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: { shouldCreateUser: false },
-      });
+      // Send the link back to the page the visitor is on: without an explicit
+      // redirect GoTrue builds it from the project's Site URL, which belongs to
+      // the CRM sharing this Supabase project. If the target is not on the
+      // redirect allow-list, retry without it — the link still signs in and the
+      // auth listener still connects the balance.
+      const client = supabase;
+      const send = (redirect?: string) =>
+        client.auth.signInWithOtp({
+          email,
+          options: { shouldCreateUser: false, ...(redirect ? { emailRedirectTo: redirect } : {}) },
+        });
+      let { error } = await send(window.location.href);
+      if (
+        error &&
+        ((error.message ?? "").toLowerCase().includes("redirect") ||
+          (error as { code?: string }).code === "validation_failed")
+      ) {
+        ({ error } = await send(undefined));
+      }
       if (!error) return "pending";
       // GoTrue enforces a per-user cooldown (the SMTP settings' "minimum
       // interval"). Hitting it means a link went out moments ago and is

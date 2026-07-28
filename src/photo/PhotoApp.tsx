@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import AccountLink from "../components/AccountLink";
 import BalanceChip from "../components/BalanceChip";
 import EmailCapture from "../components/EmailCapture";
 import ReportChat from "../components/ReportChat";
@@ -469,6 +470,7 @@ export default function PhotoApp() {
     <LangContext.Provider value={lang}>
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pb-10 pt-6">
         <div className="fixed top-3 right-3 z-50 flex items-center gap-2">
+          <AccountLink />
           {creditsEnabled && myBalance !== null && (
             <BalanceChip balance={myBalance} onClick={() => setTopUpCost(0)} />
           )}

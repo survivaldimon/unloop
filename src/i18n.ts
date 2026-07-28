@@ -85,7 +85,7 @@ export interface UiStrings {
   };
   loop: { back: string; scrambleSlot: string };
   share: { button: string; kicker: string; saved: string };
-  legal: { terms: string; privacy: string };
+  legal: { terms: string; privacy: string; account: string };
 }
 
 export const UI: Record<Lang, UiStrings> = {
@@ -217,7 +217,7 @@ export const UI: Record<Lang, UiStrings> = {
       kicker: "My relationship pattern",
       saved: "Card saved · link copied",
     },
-    legal: { terms: "Terms of Use", privacy: "Privacy Policy" },
+    legal: { terms: "Terms of Use", privacy: "Privacy Policy", account: "Account" },
   },
   ru: {
     title: "Looplore — Почему твои отношения заканчиваются одинаково?",
@@ -347,7 +347,7 @@ export const UI: Record<Lang, UiStrings> = {
       kicker: "Мой паттерн в отношениях",
       saved: "Карточка сохранена · ссылка скопирована",
     },
-    legal: { terms: "Условия использования", privacy: "Конфиденциальность" },
+    legal: { terms: "Условия использования", privacy: "Конфиденциальность", account: "Аккаунт" },
   },
 };
 
