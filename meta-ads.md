@@ -20,6 +20,7 @@ PostHog отвечает на вопрос «что происходит вну�
 | `quiz_complete` | `QuizComplete` (кастомное) | вовлечённые |
 | `email_submitted` | `Lead` | лиды + advanced matching по email |
 | `teaser_view` | `ViewContent` | увидели оффер |
+| `tests_catalogue_view` | `ViewContent` (content_category `tests`) | верх воронки тестов — задел под будущие кампании |
 | `unlock_click` | `InitiateCheckout` (цена выбранного пака) | начали чекаут |
 | оплата подтверждена | `Purchase` (сумма заказа) | **главное событие оптимизации** |
 

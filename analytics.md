@@ -42,6 +42,19 @@
 | `lang_switch` | переключение языка | `to` (`en`/`ru`) |
 | `purchase` | вебхук подтвердил оплату (поллинг увидел `paid_at`) | — |
 
+### События психотестов (/tests)
+
+| Событие | Когда | Свойства |
+|---|---|---|
+| `tests_catalogue_view` | показ каталога `/tests` — при заходе, возврате кнопкой «назад» и выходе из теста в каталог. Диплинк `?t=<id>` сразу в тест это событие **не** шлёт | — |
+| `test_start` | открытие теста (клик в каталоге или диплинк) | `test_id`, `test_session_id` |
+| `test_question_answered` | каждый ответ на вопрос | `test_id`, `test_session_id`, `question_id`, `index` (1-based порядковый номер), `total` (вопросов в тесте) |
+| `test_complete` | ответ на последний вопрос, результат посчитан | `test_id`, `test_session_id`, `profile_id` |
+
+- `test_session_id` — это `looplore_test_sessions.id` в Supabase: событие можно сджойнить с ответами и результатом теста. Подмешивается в каждое событие теста отдельно, потому что super-prop `session_db_id` указывает на **квизовую** сессию, а не на тестовую.
+- Событие на каждый вопрос — сознательно: кривая доходимости по вопросам решает, резать ли длинные тесты (60–80 вопросов). Объём не страшен: даже длинный тест ≈ 80 событий, при лимите 1 млн/мес это ~12 000 полных прохождений только на тестах.
+- `tests_catalogue_view` дополнительно уходит в Meta как `ViewContent` (content_category `tests`) — см. [meta-ads.md](meta-ads.md).
+
 Ко **всем** событиям автоматически подмешиваются super-props:
 - `lang` — текущий язык (`en`/`ru`);
 - `pattern` — паттерн пользователя (появляется после завершения квиза);
@@ -106,7 +119,20 @@
 
 Видно, какой из паттернов «цепляет» сильнее — под слабые можно переписать текст тизера.
 
-### 5. Мелочи по вкусу
+### 5. Воронка тестов (3 минуты)
+
+1. **New insight → Funnels**: `tests_catalogue_view` → `test_start` → `test_complete`.
+2. **Breakdown → Event properties → `test_id`** — конверсия каждого теста отдельно.
+3. Conversion window: **1 day**. Save как «Tests funnel» → Add to dashboard («Looplore Funnel»).
+
+### 6. Доходимость по вопросам теста (2 минуты)
+
+1. **New insight → Trends**: event `test_question_answered`, агрегация **Unique users**.
+2. **Breakdown → Event properties → `index`**, тип графика **Bar chart** (Total value).
+3. Сверху **Filter → `test_id` = <интересующий тест>** (без фильтра кривые разных тестов смешаются).
+4. Save как «Test drop-off by question» → Add to dashboard. Где столбики проседают — там вопрос, на котором бросают; это и есть данные для решения о сокращении длинных тестов.
+
+### 7. Мелочи по вкусу
 
 - Trends по `email_submitted` vs `email_skipped` — доля оставляющих почту.
 - Trends по `lang_switch` (breakdown `to`) — многим ли нужен второй язык.

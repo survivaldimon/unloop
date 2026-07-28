@@ -10,7 +10,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { LangContext, detectLang, persistLang, type Lang } from "../i18n";
 import { track } from "../lib/analytics";
-import { completeTest, resetTestSession, saveTestAnswers } from "../lib/tests";
+import {
+  completeTest,
+  getTestSessionId,
+  resetTestSession,
+  saveTestAnswers,
+} from "../lib/tests";
 import TestCatalogue from "./components/TestCatalogue";
 import TestResult from "./components/TestResult";
 import TestRunner from "./components/TestRunner";
@@ -76,7 +81,7 @@ export default function TestsApp() {
       try {
         const test = await loadTest(testId);
         if (push) window.history.pushState(null, "", `/tests?t=${testId}`);
-        track("test_start", { test_id: testId });
+        track("test_start", { test_id: testId, test_session_id: getTestSessionId(testId) });
         setStep({ name: "running", test });
       } finally {
         setLoading(false);
@@ -88,12 +93,18 @@ export default function TestsApp() {
   // Deep link straight into a test, and keep the back button meaningful.
   useEffect(() => {
     const id = testIdFromUrl();
+    // The catalogue-view event fires only when the catalogue is what the person
+    // actually sees — a deep link straight into a test skips it.
     if (id) void open(id, { push: false });
+    else track("tests_catalogue_view");
 
     const onPop = () => {
       const next = testIdFromUrl();
       if (next) void open(next, { push: false });
-      else setStep({ name: "catalogue" });
+      else {
+        setStep({ name: "catalogue" });
+        track("tests_catalogue_view");
+      }
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
@@ -106,6 +117,7 @@ export default function TestsApp() {
   const toCatalogue = () => {
     window.history.pushState(null, "", "/tests");
     setStep({ name: "catalogue" });
+    track("tests_catalogue_view");
   };
 
   const switchLang = (next: Lang) => {
@@ -163,6 +175,7 @@ export default function TestsApp() {
               const outcome = await completeTest(step.test, answers, lang);
               track("test_complete", {
                 test_id: step.test.id,
+                test_session_id: getTestSessionId(step.test.id),
                 profile_id: outcome.profileId ?? "none",
               });
               setStep({ name: "result", test: step.test, outcome });
