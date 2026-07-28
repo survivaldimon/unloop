@@ -11,6 +11,11 @@ export default defineConfig({
     // Honor the harness-assigned port when launched via .claude/launch.json.
     port: Number(process.env.PORT) || 5173,
   },
+  preview: {
+    // Same deal for `vite preview`, so parallel worktree sessions don't fight
+    // over 4173.
+    port: Number(process.env.PORT) || 4173,
+  },
   build: {
     rollupOptions: {
       // Four HTML entries, one shared bundle: "/" = photo read, "/loop" = quiz,

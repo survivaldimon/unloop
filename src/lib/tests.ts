@@ -133,6 +133,28 @@ export async function claimTestSessions(): Promise<void> {
   );
 }
 
+export interface CompletedTestSession {
+  id: string;
+  testId: string;
+  completedAt: string;
+  profileId: string | null;
+  typeCode: string | null;
+}
+
+/** Latest completed attempt per test for the signed-in account (/account list). */
+export async function fetchMySessions(): Promise<CompletedTestSession[]> {
+  if (!supabase) return [];
+  const { data, error } = await supabase.rpc("looplore_test_my_sessions");
+  if (error || !data?.ok || !Array.isArray(data.sessions)) return [];
+  return (data.sessions as Record<string, unknown>[]).map((row) => ({
+    id: String(row.id ?? ""),
+    testId: String(row.test_id ?? ""),
+    completedAt: String(row.completed_at ?? ""),
+    profileId: typeof row.profile_id === "string" ? row.profile_id : null,
+    typeCode: typeof row.type_code === "string" ? row.type_code : null,
+  }));
+}
+
 export interface ScaleProfile {
   tests: string[];
   scales: Record<string, number>;

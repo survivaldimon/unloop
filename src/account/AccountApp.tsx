@@ -16,8 +16,11 @@ import {
   type PastRead,
 } from "../lib/account";
 import { fetchMyBalance } from "../lib/credits";
+import { fetchMySessions, type CompletedTestSession } from "../lib/tests";
 import { supabase } from "../lib/supabase";
 import LogoMark from "../components/LogoMark";
+import { TEST_CATALOGUE, loadTest } from "../tests/registry";
+import type { PsychTest } from "../tests/types";
 import { detectLang, persistLang, LangContext, type Lang } from "../i18n";
 
 const MIN_PASSWORD = 8;
@@ -47,6 +50,10 @@ export default function AccountApp() {
   const [balance, setBalance] = useState<number | null>(null);
   const [ledger, setLedger] = useState<LedgerEntry[]>([]);
   const [reads, setReads] = useState<PastRead[]>([]);
+  const [tests, setTests] = useState<CompletedTestSession[]>([]);
+  // Profile names live inside each test's content chunk; loaded lazily for the
+  // tests actually taken, and the list renders fine while (or if) they miss.
+  const [testContent, setTestContent] = useState<Record<string, PsychTest>>({});
   // Arrived from a password-reset link: show the new-password form first.
   const [recovery, setRecovery] = useState(false);
 
@@ -63,14 +70,36 @@ export default function AccountApp() {
     document.title = `${ui.title} — Looplore`;
   }, [lang, ui.title]);
 
+  const loadTestContent = async (sessions: CompletedTestSession[]) => {
+    const ids = [...new Set(sessions.map((s) => s.testId))];
+    const loaded: Record<string, PsychTest> = {};
+    await Promise.all(
+      ids.map(async (id) => {
+        try {
+          loaded[id] = await loadTest(id);
+        } catch {
+          // A test since removed from the registry: its row keeps title and date.
+        }
+      }),
+    );
+    setTestContent(loaded);
+  };
+
   const load = async () => {
     const info = await fetchAccount();
     setAccount(info);
     if (info) {
-      const [b, l, r] = await Promise.all([fetchMyBalance(), fetchLedger(), fetchReads()]);
+      const [b, l, r, t] = await Promise.all([
+        fetchMyBalance(),
+        fetchLedger(),
+        fetchReads(),
+        fetchMySessions(),
+      ]);
       setBalance(b);
       setLedger(l);
       setReads(r);
+      setTests(t);
+      void loadTestContent(t);
     }
     setReady(true);
   };
@@ -305,6 +334,43 @@ export default function AccountApp() {
                 </a>
               </li>
             ))}
+          </ul>
+        )}
+      </section>
+
+      <section className="mt-8">
+        <p className="font-display text-[16px] font-medium">{ui.testsTitle}</p>
+        <hr className="hairline mt-2 mb-3" />
+        {tests.length === 0 ? (
+          <p className="text-[13px] text-mist italic">{ui.testsEmpty}</p>
+        ) : (
+          <ul className="flex flex-col gap-2">
+            {tests.map((s) => {
+              const summary = TEST_CATALOGUE.find((c) => c.id === s.testId);
+              const profile = s.profileId
+                ? testContent[s.testId]?.profiles[s.profileId]
+                : undefined;
+              return (
+                <li key={s.id} className="flex items-baseline justify-between gap-2 text-[13px]">
+                  <span className="min-w-0 text-paper/90">
+                    {summary?.title[lang] ?? s.testId}
+                    {profile && (
+                      <span className="text-mist">
+                        {" · "}
+                        {profile.name[lang]}
+                        {s.typeCode ? ` ${s.typeCode}` : ""}
+                      </span>
+                    )}
+                  </span>
+                  <span className="flex-none text-[11px] text-mist">
+                    {fmtDate(s.completedAt, lang)}
+                  </span>
+                  <a href={`/tests?t=${s.testId}`} className="flex-none text-[12px] text-brass-2">
+                    {ui.openRead}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         )}
       </section>

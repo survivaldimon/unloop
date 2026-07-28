@@ -147,7 +147,11 @@ export type AnalyticsEvent =
   // steps they lead into.
   | "tests_catalogue_view"
   | "test_start"
-  | "test_complete";
+  | "test_complete"
+  // The save-results card under a finished test. email_submitted itself is
+  // shared with the funnels and travels with funnel:"tests".
+  | "test_save_view"
+  | "test_save_result";
 
 export function track(
   event: AnalyticsEvent,

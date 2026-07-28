@@ -9,9 +9,12 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { LangContext, detectLang, persistLang, type Lang } from "../i18n";
+import { fetchAccount } from "../lib/account";
 import { track } from "../lib/analytics";
-import { completeTest, resetTestSession, saveTestAnswers } from "../lib/tests";
+import { onCreditsSignIn } from "../lib/credits";
+import { claimTestSessions, completeTest, resetTestSession, saveTestAnswers } from "../lib/tests";
 import TestCatalogue from "./components/TestCatalogue";
+import SaveResultsCard from "./components/SaveResultsCard";
 import TestResult from "./components/TestResult";
 import TestRunner from "./components/TestRunner";
 import { testsCopy } from "./copy";
@@ -103,6 +106,11 @@ export default function TestsApp() {
     document.title = ui.title;
   }, [ui.title]);
 
+  // A magic link from the save card lands back here signed in (often in a new
+  // tab, and auth state syncs across tabs) — hand the local sessions to the
+  // account it opened. The server leaves sessions owned by someone else alone.
+  useEffect(() => onCreditsSignIn(() => void claimTestSessions()), []);
+
   const toCatalogue = () => {
     window.history.pushState(null, "", "/tests");
     setStep({ name: "catalogue" });
@@ -166,22 +174,30 @@ export default function TestsApp() {
                 profile_id: outcome.profileId ?? "none",
               });
               setStep({ name: "result", test: step.test, outcome });
+              // Already signed in → the finished session attaches itself and
+              // the save card stays hidden.
+              void fetchAccount().then((account) => {
+                if (account) void claimTestSessions();
+              });
             }}
             onLeave={toCatalogue}
           />
         )}
 
         {!loading && step.name === "result" && (
-          <TestResult
-            test={step.test}
-            outcome={step.outcome}
-            onCatalogue={toCatalogue}
-            onRetake={() => {
-              clearAnswers(step.test.id);
-              resetTestSession(step.test.id);
-              void open(step.test.id, { push: false });
-            }}
-          />
+          <>
+            <TestResult
+              test={step.test}
+              outcome={step.outcome}
+              onCatalogue={toCatalogue}
+              onRetake={() => {
+                clearAnswers(step.test.id);
+                resetTestSession(step.test.id);
+                void open(step.test.id, { push: false });
+              }}
+            />
+            <SaveResultsCard />
+          </>
         )}
       </div>
     </LangContext.Provider>

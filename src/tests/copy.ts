@@ -35,6 +35,20 @@ interface TestsCopyShape {
     toCatalogue: string;
     saving: string;
   };
+  /** The save-results card under a finished test (SaveResultsCard). */
+  save: {
+    title: string;
+    body: string;
+    placeholder: string;
+    cta: string;
+    saving: string;
+    savedTitle: string;
+    savedBody: string;
+    attachedBody: string;
+    linkSent: string;
+    linkAlreadySent: string;
+    failed: string;
+  };
 }
 
 const EN: TestsCopyShape = {
@@ -67,6 +81,21 @@ const EN: TestsCopyShape = {
     toCatalogue: "All tests",
     saving: "Saving…",
   },
+  save: {
+    title: "Keep your results",
+    body: "Leave your email — finished tests attach to it and open from any device. If the account is new, +20 credits come along.",
+    placeholder: "you@example.com",
+    cta: "Save",
+    saving: "Saving…",
+    savedTitle: "Saved.",
+    savedBody: "Your results now live on your email, and +20 credits landed on your balance.",
+    attachedBody: "You're signed in — these results are attached to your account.",
+    linkSent:
+      "This email already has an account, so we sent it a sign-in link. Open it and these results attach on their own.",
+    linkAlreadySent:
+      "This email already has an account, and a link went out a minute ago — check your inbox. Open it and these results attach.",
+    failed: "Couldn't save right now. Try again in a minute.",
+  },
 };
 
 const RU: TestsCopyShape = {
@@ -98,6 +127,21 @@ const RU: TestsCopyShape = {
     retake: "Пройти заново",
     toCatalogue: "Все тесты",
     saving: "Сохраняем…",
+  },
+  save: {
+    title: "Сохранить результаты",
+    body: "Оставь почту — пройденные тесты привяжутся к ней, и их можно будет открыть с любого устройства. Если аккаунт новый, вместе с ним придут +20 кредитов.",
+    placeholder: "you@example.com",
+    cta: "Сохранить",
+    saving: "Сохраняем…",
+    savedTitle: "Готово.",
+    savedBody: "Результаты теперь живут на твоей почте, а на балансе — +20 кредитов.",
+    attachedBody: "Вход выполнен — результаты привязаны к твоему аккаунту.",
+    linkSent:
+      "Эта почта уже зарегистрирована — мы отправили на неё ссылку для входа. Открой её, и результаты привяжутся сами.",
+    linkAlreadySent:
+      "Эта почта уже зарегистрирована, а ссылка улетела минуту назад — проверь входящие. Открой её, и результаты привяжутся.",
+    failed: "Не получилось сохранить. Попробуй ещё раз через минуту.",
   },
 };
 
