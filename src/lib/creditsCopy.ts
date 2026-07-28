@@ -26,8 +26,16 @@ export interface CreditsCopy {
     confirming: string;
     payError: string;
     payNote: (provider: string) => string;
-    /** The email was already registered, so the funnel runs without an account. */
-    accountPending: string;
+  };
+  /**
+   * The email was already registered, so the funnel runs without an account.
+   * Three different truths, and the visitor deserves the right one: a link is
+   * on its way, a link went out a moment ago, or no link exists at all.
+   */
+  account: {
+    linkSent: string;
+    linkAlreadySent: string;
+    linkFailed: string;
   };
   chip: {
     credits: (n: number) => string;
@@ -87,8 +95,14 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       confirming: "Payment received — unlocking…",
       payError: "Payment didn't go through. Try again.",
       payNote: (provider) => `one-time payment · secure checkout by ${provider} · credits never expire`,
-      accountPending:
+    },
+    account: {
+      linkSent:
         "That email is already registered, so we sent it a sign-in link. Open it to connect your balance — buying works either way, the credits find your account.",
+      linkAlreadySent:
+        "That email is already registered, and a sign-in link went out a moment ago — check your inbox. Buying works either way, the credits find your account.",
+      linkFailed:
+        "That email is already registered, but the sign-in link wouldn't send. Write to support@looplore.app and we'll connect your balance by hand — buying works either way, the credits find your account.",
     },
     chip: {
       credits: (n) => `${n} cr`,
@@ -150,8 +164,14 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       confirming: "Оплата прошла — открываем…",
       payError: "Оплата не прошла. Попробуй ещё раз.",
       payNote: (provider) => `разовый платёж · безопасная оплата через ${provider} · кредиты не сгорают`,
-      accountPending:
+    },
+    account: {
+      linkSent:
         "Этот email уже зарегистрирован — мы отправили на него ссылку для входа. Открой её, чтобы подключить баланс. Купить можно и так: кредиты найдут твой аккаунт.",
+      linkAlreadySent:
+        "Этот email уже зарегистрирован, а ссылку для входа мы отправили минуту назад — посмотри почту. Купить можно и так: кредиты найдут твой аккаунт.",
+      linkFailed:
+        "Этот email уже зарегистрирован, но письмо со ссылкой не ушло. Напиши на support@looplore.app — подключим баланс руками. Купить можно и так: кредиты найдут твой аккаунт.",
     },
     chip: {
       credits: (n) => `${n} кр`,

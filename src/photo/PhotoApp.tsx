@@ -16,6 +16,7 @@ import {
   onCreditsSignIn,
   redeemPendingPromo,
   stateUnlocks,
+  type AccountStatus,
   type PackId,
 } from "../lib/credits";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
@@ -90,7 +91,7 @@ export default function PhotoApp() {
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
   const [payState, setPayState] = useState<PayState>("idle");
   const [myBalance, setMyBalance] = useState<number | null>(null);
-  const [accountPending, setAccountPending] = useState(false);
+  const [accountNotice, setAccountNotice] = useState<AccountStatus | null>(null);
   const [topUpCost, setTopUpCost] = useState<number | null>(null);
   const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
@@ -136,7 +137,7 @@ export default function PhotoApp() {
   useEffect(
     () =>
       onCreditsSignIn(() => {
-        setAccountPending(false);
+        setAccountNotice(null);
         void linkSession("photoread", getPhotoSessionId())
           .then(() => redeemPendingPromo())
           .then((promo) => {
@@ -243,7 +244,7 @@ export default function PhotoApp() {
       void ensureAccount(value).then((status) => {
         // A known email gets a real magic link instead of a silent session —
         // the paywall says so rather than quietly dropping the balance.
-        setAccountPending(status === "pending");
+        setAccountNotice(status === "ready" ? null : status);
         if (status !== "ready") return;
         void linkSession("photoread", getPhotoSessionId())
           // The account only exists now, so this is where a ?promo= code from
@@ -541,7 +542,7 @@ export default function PhotoApp() {
             sessionId={getPhotoSessionId()}
             onUnlock={startUnlock}
             balance={myBalance}
-            accountPending={accountPending}
+            accountNotice={accountNotice}
             onUnlockWithCredits={unlockWithBalance}
             onPromoRedeemed={(balance) => {
               if (balance !== null) setMyBalance(balance);

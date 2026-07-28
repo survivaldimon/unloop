@@ -38,7 +38,12 @@ export const creditsEnabled: boolean =
 
 export type Funnel = "quiz" | "photoread";
 
-export type AccountStatus = "ready" | "pending" | "off";
+/**
+ * What the funnel can honestly tell the visitor about their account:
+ * signed in, a fresh link just went out, one went out moments ago and is still
+ * in their inbox, or no link exists at all and they should not wait for one.
+ */
+export type AccountStatus = "ready" | "pending" | "cooldown" | "failed" | "off";
 
 /**
  * Silent account at the email step. New email → server returns a magic
@@ -62,18 +67,27 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
         });
         if (!verified.error) return "ready";
       }
-      return "pending";
+      // The account exists and holds its signup grant, but this visitor never
+      // got a session and no email was sent — promising one would be a lie.
+      return "failed";
     }
     if (status === "existing") {
-      // Needs SMTP configured on the Supabase project; harmless no-op without.
-      await supabase.auth
-        .signInWithOtp({ email, options: { shouldCreateUser: false } })
-        .catch(() => undefined);
-      return "pending";
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: { shouldCreateUser: false },
+      });
+      if (!error) return "pending";
+      // GoTrue enforces a per-user cooldown (the SMTP settings' "minimum
+      // interval"). Hitting it means a link went out moments ago and is
+      // already in their inbox — a different sentence from "we sent one".
+      const code = (error as { code?: string }).code ?? "";
+      const httpStatus = (error as { status?: number }).status;
+      if (httpStatus === 429 || code === "over_email_send_rate_limit") return "cooldown";
+      return "failed";
     }
     return "off";
   } catch {
-    return "pending";
+    return "failed";
   }
 }
 

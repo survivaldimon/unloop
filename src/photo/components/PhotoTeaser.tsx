@@ -4,7 +4,12 @@ import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
 import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
-import { CREDIT_COSTS, creditsEnabled, type PackId } from "../../lib/credits";
+import {
+  CREDIT_COSTS,
+  creditsEnabled,
+  type AccountStatus,
+  type PackId,
+} from "../../lib/credits";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
 import { paymentsProviderName } from "../../lib/payments";
@@ -28,7 +33,7 @@ export default function PhotoTeaser({
   sessionId,
   onUnlock,
   balance = null,
-  accountPending = false,
+  accountNotice = null,
   onUnlockWithCredits,
   onPromoRedeemed,
 }: {
@@ -44,7 +49,7 @@ export default function PhotoTeaser({
   /** Known credit balance, shown under the pack cards. */
   balance?: number | null;
   /** Known email → no silent account; the paywall explains instead of failing quietly. */
-  accountPending?: boolean;
+  accountNotice?: AccountStatus | null;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
@@ -168,7 +173,7 @@ export default function PhotoTeaser({
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
-            accountPending={accountPending}
+            accountNotice={accountNotice}
           />
         ) : (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
-import { CREDIT_COSTS, creditsEnabled, type PackId } from "../lib/credits";
+import { CREDIT_COSTS, creditsEnabled, type AccountStatus, type PackId } from "../lib/credits";
 import { REPORT_PRICE_USD } from "../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../lib/offer";
 import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
@@ -27,7 +27,7 @@ export default function Teaser({
   onUnlock,
   payState = "idle",
   balance = null,
-  accountPending = false,
+  accountNotice = null,
   onUnlockWithCredits,
   onPromoRedeemed,
 }: {
@@ -38,7 +38,7 @@ export default function Teaser({
   /** Known credit balance, shown under the pack cards. */
   balance?: number | null;
   /** Known email → no silent account; the paywall explains instead of failing quietly. */
-  accountPending?: boolean;
+  accountNotice?: AccountStatus | null;
   /** Balance covers the read — unlock straight from it (no checkout). */
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
@@ -200,7 +200,7 @@ export default function Teaser({
             onSelect={(packId) => onUnlock(packId)}
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
-            accountPending={accountPending}
+            accountNotice={accountNotice}
           />
         ) : paymentsEnabled ? (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

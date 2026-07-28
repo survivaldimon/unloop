@@ -21,6 +21,7 @@ import {
   onCreditsSignIn,
   redeemPendingPromo,
   stateUnlocks,
+  type AccountStatus,
   type PackId,
 } from "./lib/credits";
 import { openCheckout, paymentsEnabled } from "./lib/payments";
@@ -72,7 +73,7 @@ export default function App() {
   const [llmLoading, setLlmLoading] = useState(false);
   const [payState, setPayState] = useState<PayState>("idle");
   const [myBalance, setMyBalance] = useState<number | null>(null);
-  const [accountPending, setAccountPending] = useState(false);
+  const [accountNotice, setAccountNotice] = useState<AccountStatus | null>(null);
   const [topUpCost, setTopUpCost] = useState<number | null>(null);
   const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
@@ -120,7 +121,7 @@ export default function App() {
   useEffect(
     () =>
       onCreditsSignIn(() => {
-        setAccountPending(false);
+        setAccountNotice(null);
         void linkSession("quiz", getSessionId())
           .then(() => redeemPendingPromo())
           .then((promo) => {
@@ -217,7 +218,7 @@ export default function App() {
       void ensureAccount(value).then((status) => {
         // A known email gets a real magic link instead of a silent session —
         // the paywall says so rather than quietly dropping the balance.
-        setAccountPending(status === "pending");
+        setAccountNotice(status === "ready" ? null : status);
         if (status !== "ready") return;
         void linkSession("quiz", getSessionId())
           // The account only exists now, so this is where a ?promo= code from
@@ -483,7 +484,7 @@ export default function App() {
             onUnlock={startUnlock}
             payState={payState}
             balance={myBalance}
-            accountPending={accountPending}
+            accountNotice={accountNotice}
             onUnlockWithCredits={unlockWithBalance}
             onPromoRedeemed={(balance) => {
               if (balance !== null) setMyBalance(balance);

@@ -4,6 +4,7 @@ import {
   STARTER_COMPARE_USD,
   packBonus,
   touchOffer,
+  type AccountStatus,
   type PackId,
 } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
@@ -69,14 +70,14 @@ export default function CreditPaywall({
   onSelect,
   onUnlockWithCredits,
   onPromoRedeemed,
-  accountPending = false,
+  accountNotice = null,
 }: {
   balance: number | null;
   /** Credits this funnel's read costs (shows the pay-from-balance card when covered). */
   cost: number;
   payState: "idle" | "confirming" | "error";
-  /** Known email → no silent account, so say so instead of failing quietly. */
-  accountPending?: boolean;
+  /** Known email → no silent account; which sentence depends on what happened. */
+  accountNotice?: AccountStatus | null;
   onSelect: (packId: PackId) => void;
   onUnlockWithCredits?: () => void;
   /** A promo code landed — the new balance may already cover the read. */
@@ -84,6 +85,15 @@ export default function CreditPaywall({
 }) {
   const lang = useLang();
   const ui = CREDITS_COPY[lang].paywall;
+  const account = CREDITS_COPY[lang].account;
+  const accountLine =
+    accountNotice === "pending"
+      ? account.linkSent
+      : accountNotice === "cooldown"
+        ? account.linkAlreadySent
+        : accountNotice === "failed"
+          ? account.linkFailed
+          : null;
   const [selected, setSelected] = useState<PackId>("starter");
   const { label: countdown, active: bonusActive } = useBonusCountdown();
   const confirming = payState === "confirming";
@@ -199,10 +209,8 @@ export default function CreditPaywall({
           {ui.payNote(paymentsProviderName)}
         </p>
       )}
-      {accountPending && (
-        <p className="mt-2 text-center text-[11px] leading-relaxed text-mist">
-          {ui.accountPending}
-        </p>
+      {accountLine && (
+        <p className="mt-2 text-center text-[11px] leading-relaxed text-mist">{accountLine}</p>
       )}
       {onPromoRedeemed && <PromoField onRedeemed={onPromoRedeemed} />}
     </div>
