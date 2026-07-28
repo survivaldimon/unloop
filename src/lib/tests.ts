@@ -56,14 +56,14 @@ export async function saveTestAnswers(
 ): Promise<void> {
   if (!supabase) return;
   const sessionId = getTestSessionId(testId);
-  const { error } = await supabase.rpc("test_session_save", {
+  const { error } = await supabase.rpc("looplore_test_session_save", {
     p_session_id: sessionId,
     p_test_id: testId,
     p_lang: lang,
     p_answers: answers,
   });
   // Autosave is best-effort: losing it costs a re-answer, not the result.
-  if (error) console.warn("test_session_save", error.message);
+  if (error) console.warn("looplore_test_session_save", error.message);
 }
 
 /**
@@ -79,13 +79,13 @@ export async function completeTest(
   if (!supabase) return outcome;
 
   const sessionId = getTestSessionId(test.id);
-  await supabase.rpc("test_session_save", {
+  await supabase.rpc("looplore_test_session_save", {
     p_session_id: sessionId,
     p_test_id: test.id,
     p_lang: lang,
     p_answers: answers,
   });
-  const { error } = await supabase.rpc("test_session_complete", {
+  const { error } = await supabase.rpc("looplore_test_session_complete", {
     p_session_id: sessionId,
     p_answers: answers,
     p_outcome: {
@@ -96,7 +96,7 @@ export async function completeTest(
     },
     p_scale_totals: outcome.scaleTotals,
   });
-  if (error) console.warn("test_session_complete", error.message);
+  if (error) console.warn("looplore_test_session_complete", error.message);
   return outcome;
 }
 
@@ -111,7 +111,9 @@ export interface StoredSession {
 
 export async function loadTestSession(sessionId: string): Promise<StoredSession | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.rpc("test_session_get", { p_session_id: sessionId });
+  const { data, error } = await supabase.rpc("looplore_test_session_get", {
+    p_session_id: sessionId,
+  });
   if (error || !data) return null;
   return data as StoredSession;
 }
@@ -126,7 +128,7 @@ export async function claimTestSessions(): Promise<void> {
   const map = readSessions();
   await Promise.all(
     Object.values(map).map((sessionId) =>
-      client.rpc("test_session_claim", { p_session_id: sessionId }),
+      client.rpc("looplore_test_session_claim", { p_session_id: sessionId }),
     ),
   );
 }
@@ -139,7 +141,7 @@ export interface ScaleProfile {
 /** The accumulated portrait across every test the account has finished. */
 export async function fetchScaleProfile(): Promise<ScaleProfile | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.rpc("test_scale_profile");
+  const { data, error } = await supabase.rpc("looplore_test_scale_profile");
   if (error || !data?.ok) return null;
   return { tests: data.tests ?? [], scales: data.scales ?? {} };
 }
