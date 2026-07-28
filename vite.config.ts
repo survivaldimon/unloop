@@ -13,12 +13,14 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      // Three HTML entries, one shared bundle: "/" = photo read, "/loop" = quiz,
-      // "/account" = the balance screen sign-in links come back to.
+      // Four HTML entries, one shared bundle: "/" = photo read, "/loop" = quiz,
+      // "/account" = the balance screen sign-in links come back to,
+      // "/tests" = the psychological tests.
       input: {
         main: "index.html",
         loop: "loop/index.html",
         account: "account/index.html",
+        tests: "tests/index.html",
       },
     },
   },
