@@ -165,6 +165,38 @@
     ]
   },
 
+  "imposter_syndrome": {
+    "$note": "Перенос determineProfile() из imposter_syndrome_data.dart: пороги по среднему всех шести факторов, как toxic_patterns.",
+    "mode": "rules",
+    "fallback": "profile_minimal",
+    "rules": [
+      { "when": [["@avg", ">=", 81]], "profile": "profile_severe" },
+      { "when": [["@avg", ">=", 61]], "profile": "profile_high" },
+      { "when": [["@avg", ">=", 41]], "profile": "profile_moderate" },
+      { "when": [["@avg", ">=", 21]], "profile": "profile_mild" }
+    ]
+  },
+
+  "social_battery_v1": {
+    "$note": "Перенос determineProfile() из social_battery_data.dart: полосы по среднему, внутри полос — ветки по доминирующему фактору (доминанта = сравнение с @top1; при точной ничьей Dart брал первый по порядку обхода, у нас — совпадающий, расхождение только на ничьих). Последнее правило пустое — глубокий интроверт при среднем выше 85.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      { "when": [["@avg", "<=", 25]], "profile": "profile_extrovert" },
+      { "when": [["@avg", "<=", 40], ["recharge_method", ">=", "@top1"]], "profile": "profile_social_recharger" },
+      { "when": [["@avg", "<=", 40], ["interaction_preference", ">=", "@top1"]], "profile": "profile_group_lover" },
+      { "when": [["@avg", "<=", 40]], "profile": "profile_ambivert_social" },
+      { "when": [["@avg", "<=", 60], ["capacity_flexibility", ">=", "@top1"], ["capacity_flexibility", ">", 60]], "profile": "profile_adaptive" },
+      { "when": [["@avg", "<=", 60], ["social_anxiety", ">=", "@top1"], ["social_anxiety", ">", 60]], "profile": "profile_social_anxious" },
+      { "when": [["@avg", "<=", 60]], "profile": "profile_balanced" },
+      { "when": [["@avg", "<=", 75], ["solitude_need", ">=", "@top1"]], "profile": "profile_solitude_seeker" },
+      { "when": [["@avg", "<=", 75], ["depletion_rate", ">=", "@top1"]], "profile": "profile_quick_drainer" },
+      { "when": [["@avg", "<=", 75]], "profile": "profile_ambivert_introvert" },
+      { "when": [["@avg", "<=", 85]], "profile": "profile_introvert" },
+      { "when": [], "profile": "profile_deep_introvert" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

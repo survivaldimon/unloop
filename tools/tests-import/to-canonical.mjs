@@ -31,9 +31,11 @@ const LAUNCH_SET = [
   "toxic_patterns",
   "ipip_big_five",
   "sixteen_types",
-  // волна 2 (второй эшелон, батч 1)
+  // волна 2 (второй эшелон, батчи 1–2)
   "friendship_psychology_v1",
   "values_priorities_v1",
+  "imposter_syndrome",
+  "social_battery_v1",
 ];
 
 /** Scenario tests keep no factor-name map in the source — these are ours. */

@@ -28,6 +28,8 @@ const LAUNCH_SET = [
   "sixteen_types",
   "friendship_psychology_v1",
   "values_priorities_v1",
+  "imposter_syndrome",
+  "social_battery_v1",
 ];
 
 const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));

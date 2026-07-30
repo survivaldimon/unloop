@@ -1,0 +1,770 @@
+{
+  "$comment": "Э8, волна 2 батч 2. Исходник по аудиту чист (0 фантомных шкал) и с whyThisProfile, но голос на «вы», названия-ярлыки, англицизмы (networking), «Диагностика» в заголовке (диагностику не заявляем) и назначения терапевта у тревожного профиля. Переписано: заголовок и типы в метафоре батареи, «ты»-голос, supportNote у тревожного контура вместо «работайте с терапевтом», два вопроса с «вы» переведены на «ты» без смены смысла. Веса и пороги не тронуты.",
+
+  "title": {
+    "ru": "Социальная батарея",
+    "en": "Social Battery"
+  },
+  "description": {
+    "ru": "48 вопросов о том, как быстро садится твой заряд от людей, чем ты его восстанавливаешь и сколько тишины тебе положено по конструкции. 12 типов — от вечного заряда до глубокого интроверта.",
+    "en": "48 questions about how fast people drain your charge, what recharges it, and how much silence your design requires. 12 types — from the ever-charged to the deep introvert."
+  },
+
+  "factorNames": {
+    "depletion_rate": { "ru": "Скорость разряда", "en": "Drain rate" },
+    "recharge_method": { "ru": "Зарядка от людей", "en": "Recharged by people" },
+    "social_anxiety": { "ru": "Напряжение в общении", "en": "Social tension" },
+    "solitude_need": { "ru": "Потребность в тишине", "en": "Need for quiet" },
+    "interaction_preference": { "ru": "Тяга к компаниям", "en": "Pull toward groups" },
+    "capacity_flexibility": { "ru": "Гибкость батареи", "en": "Battery flexibility" }
+  },
+
+  "questions": {
+    "q13": {
+      "text": {
+        "ru": "Как долго ты можешь активно общаться, прежде чем почувствуешь усталость?",
+        "en": "How long can you actively socialize before feeling tired?"
+      }
+    },
+    "q28": {
+      "text": {
+        "ru": "Сколько часов в день тебе нужно для себя, без общения?",
+        "en": "How many hours a day do you need to yourself, with no interaction?"
+      }
+    }
+  },
+
+  "profiles": {
+    "profile_extrovert": {
+      "name": { "ru": "Вечный заряд", "en": "The Ever-Charged" },
+      "description": {
+        "ru": "Люди тебя не разряжают — они и есть твоя розетка. После вечеринки ты бодрее, чем до неё, а тишина довольно быстро начинает звенеть.",
+        "en": "People don't drain you — they are your power outlet. You leave a party more charged than you arrived, and silence starts ringing in your ears pretty fast."
+      },
+      "whyThisProfile": {
+        "ru": "Твой средний уровень «разряда от людей» — ниже 25%: почти ни один вопрос про усталость от общения не отозвался. Это самая экстравертная зона шкалы.",
+        "en": "Your average \"drained by people\" level is under 25%: almost none of the social-fatigue questions landed. That's the most extraverted band of the scale."
+      },
+      "strengths": {
+        "ru": [
+          "Лёгкость контакта: тебе не нужно «собираться с силами», чтобы заговорить",
+          "Выносливость: длинное мероприятие для тебя — удовольствие, а не марафон",
+          "Команда с тобой оживает",
+          "Новые знакомства случаются сами"
+        ],
+        "en": [
+          "Contact comes easy: you don't need to \"gather strength\" to start talking",
+          "Stamina: a long event is a pleasure for you, not a marathon",
+          "Teams come alive around you",
+          "New acquaintances just happen"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Наедине с собой тебе быстро становится не по себе — а часть жизни проходит именно там",
+          "Постоянная внешняя стимуляция может заменять, а не дополнять внутреннюю",
+          "Широта связей иногда съедает их глубину"
+        ],
+        "en": [
+          "Being alone gets uncomfortable fast — and part of life happens exactly there",
+          "Constant external stimulation can replace inner life instead of adding to it",
+          "The breadth of your connections sometimes eats their depth"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Приучай себя к коротким дозам тишины — 15–20 минут в день без людей и ленты",
+          "Выбери две-три связи и вкладывайся в глубину, а не только в охват",
+          "Уважай чужой разряд: не всем хорошо там, где хорошо тебе",
+          "Проверяй, умеешь ли ты быть с собой так же легко, как с другими"
+        ],
+        "en": [
+          "Train yourself on small doses of quiet — 15–20 minutes a day without people or feeds",
+          "Pick two or three connections and invest in depth, not just reach",
+          "Respect other people's drain rate: not everyone thrives where you do",
+          "Check whether you're as easy in your own company as you are in everyone else's"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведи 20 минут в тишине без телефона — просто побудь наедине со своими мыслями.",
+        "en": "Spend 20 minutes in silence without your phone — just you and your own thoughts."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя энергия — редкий ресурс, люди к ней тянутся. Научись ещё и тишине — и станешь неуязвимым.",
+        "en": "Your energy is a rare resource — people gravitate to it. Learn silence too, and you're untouchable."
+      }
+    },
+
+    "profile_social_recharger": {
+      "name": { "ru": "Заряжаюсь от своих", "en": "Charged by Your People" },
+      "description": {
+        "ru": "Тебя восстанавливает не одиночество, а правильные люди. Вечер с близкими возвращает силы лучше, чем вечер в тишине, — но только если люди действительно свои.",
+        "en": "It's not solitude that restores you — it's the right people. An evening with your people recharges you better than an evening of silence — but only if they're genuinely yours."
+      },
+      "whyThisProfile": {
+        "ru": "Общий разряд у тебя невысокий (до 40%), а самый заметный фактор — способ восстановления: тест видит, что заряжает тебя контакт, а не уединение.",
+        "en": "Your overall drain is low (under 40%), and your standout factor is the recharge method: the test sees that contact, not seclusion, is what refills you."
+      },
+      "strengths": {
+        "ru": [
+          "Ты точно чувствуешь, какие люди дают энергию, а какие забирают",
+          "Быстрое восстановление: один хороший разговор — и ты в строю",
+          "Качество окружения для тебя не абстракция, а рабочий инструмент",
+          "Адаптивность в общении выше средней"
+        ],
+        "en": [
+          "You can tell exactly which people give energy and which take it",
+          "Fast recovery: one good conversation and you're back",
+          "The quality of your circle isn't an abstraction to you — it's a working tool",
+          "Above-average adaptability in company"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Когда своих рядом нет, заряжаться нечем — запасного способа у тебя мало",
+          "Не те люди разряжают тебя быстрее, чем большинство",
+          "Зависимость от чужого настроения: чужой плохой день портит твой заряд"
+        ],
+        "en": [
+          "When your people aren't around, there's nothing to charge from — you barely have a backup",
+          "The wrong people drain you faster than they drain most",
+          "Dependence on others' moods: someone else's bad day dents your charge"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Составь честный список: кто из окружения заряжает, кто разряжает — и меняй пропорцию",
+          "Построй запасной способ восстановления без людей: прогулка, спорт, ритуал",
+          "Береги источники: людям, от которых ты заряжаешься, тоже нужно что-то возвращать",
+          "Не жди, что случайная компания сработает как своя, — это разные розетки"
+        ],
+        "en": [
+          "Make an honest list: who in your circle charges you, who drains you — and shift the ratio",
+          "Build a backup recharge that needs no people: a walk, training, a ritual",
+          "Maintain your sources: the people who charge you need something back",
+          "Don't expect a random crowd to work like your people — different outlets"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши человеку, после которого тебе всегда легче, — и договорись увидеться на этой неделе.",
+        "en": "Message the person who always leaves you lighter — and set something up this week."
+      },
+      "inspiringConclusion": {
+        "ru": "Правильные люди — твоя энергосистема. Собирай её так же осознанно, как другие собирают привычки.",
+        "en": "The right people are your power grid. Build it as deliberately as others build habits."
+      }
+    },
+
+    "profile_group_lover": {
+      "name": { "ru": "Командный игрок", "en": "The Team Player" },
+      "description": {
+        "ru": "Тебе легче в компании, чем один на один: групповая динамика тебя несёт, а не пугает. В команде ты на своём месте — сложнее там, где за столом двое и тишина.",
+        "en": "You're more at ease in a group than one-on-one: group dynamics carry you rather than scare you. On a team you're in your element — it gets harder where it's just the two of you and silence."
+      },
+      "whyThisProfile": {
+        "ru": "Общий разряд низкий (до 40%), а ведущий фактор — предпочтение формата: тест видит тягу к групповому общению над камерным.",
+        "en": "Overall drain is low (under 40%) and the leading factor is format preference: the test sees group settings winning over intimate ones."
+      },
+      "strengths": {
+        "ru": [
+          "Групповая динамика для тебя читаема: ты видишь, кто задаёт тон и куда всё катится",
+          "Объединять людей у тебя получается естественно",
+          "Публичность не парализует: выступить, повести, представить — можешь",
+          "В команде твоя энергия умножается"
+        ],
+        "en": [
+          "Group dynamics are legible to you: you see who sets the tone and where things are heading",
+          "Bringing people together comes naturally",
+          "Being visible doesn't paralyze you: presenting, leading, hosting — you can",
+          "On a team, your energy multiplies"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разговоры один на один — особенно личные — даются труднее, чем сцена",
+          "В группе легко раствориться: много общения, мало близости",
+          "Связи рискуют остаться на глубине общего чата"
+        ],
+        "en": [
+          "One-on-one conversations — especially personal ones — are harder for you than a stage",
+          "It's easy to dissolve into the group: lots of contact, little closeness",
+          "Connections risk staying at group-chat depth"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в неделю выбирай встречу один на один — близость живёт там",
+          "В группе замечай, где твоё мнение, а где — среднее по компании",
+          "Тренируй личные разговоры на самых безопасных людях",
+          "Следи, чтобы «мы» не съело «я»"
+        ],
+        "en": [
+          "Once a week choose a one-on-one — closeness lives there",
+          "In the group, notice where your opinion ends and the room's average begins",
+          "Practice personal conversations with your safest people",
+          "Watch that the \"we\" doesn't swallow the \"I\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Позови одного близкого человека на встречу без остальной компании.",
+        "en": "Invite one close person to hang out — without the rest of the group."
+      },
+      "inspiringConclusion": {
+        "ru": "Команда — твоя стихия. Добавь к ней пару разговоров на двоих — и у тебя будет и ширина, и глубина.",
+        "en": "The team is your element. Add a couple of two-person conversations and you'll have both breadth and depth."
+      }
+    },
+
+    "profile_ambivert_social": {
+      "name": { "ru": "Амбиверт на громкой", "en": "Ambivert, Volume Up" },
+      "description": {
+        "ru": "Ты амбиверт с уклоном в общение: люди тебя скорее заряжают, но кнопка «хватит» у тебя тоже есть, и она рабочая. Вопрос лишь в том, слышишь ли ты её вовремя.",
+        "en": "You're an ambivert leaning social: people mostly charge you, but you do have a working \"enough\" button. The only question is whether you hear it in time."
+      },
+      "whyThisProfile": {
+        "ru": "Общий разряд — в нижней трети шкалы (до 40%), но без единого доминирующего фактора: баланс с креном к экстраверсии.",
+        "en": "Your overall drain sits in the lower third (under 40%) with no single dominant factor: balance with a tilt toward extraversion."
+      },
+      "strengths": {
+        "ru": [
+          "Гибкость: тебе хорошо и на вечеринке, и в тихий вечер",
+          "Ты понимаешь оба лагеря — и заводных, и тихих",
+          "Форматы общения подбираешь под себя, а не терпишь",
+          "Баланс активности и отдыха у тебя почти автоматический"
+        ],
+        "en": [
+          "Flexibility: you're fine at a party and on a quiet evening alike",
+          "You understand both camps — the loud and the quiet",
+          "You pick formats that fit you instead of enduring them",
+          "Your activity-rest balance is almost automatic"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Уклон в общение иногда заглушает сигнал усталости — ты замечаешь разряд уже на нуле",
+          "«Могу пойти» ты читаешь как «надо пойти» — и переоцениваешь запас"
+        ],
+        "en": [
+          "The social tilt sometimes mutes the fatigue signal — you notice the drain at zero",
+          "You read \"I could go\" as \"I should go\" — and overestimate the reserve"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй заряд до согласия, а не после прихода",
+          "Отказ от встречи — легальный ход, тренируй его без чувства вины",
+          "Замечай, какие форматы наполняют, а какие просто привычны",
+          "Планируй тишину так же, как планируешь встречи"
+        ],
+        "en": [
+          "Check the battery before saying yes, not after arriving",
+          "Declining an event is a legal move — practice it guilt-free",
+          "Notice which formats fill you and which are merely habitual",
+          "Schedule quiet the way you schedule meetups"
+        ]
+      },
+      "tryToday": {
+        "ru": "Перед ближайшим «да» на встречу спроси себя: я правда хочу — или просто могу?",
+        "en": "Before your next \"yes\" to plans, ask: do I actually want this — or just can?"
+      },
+      "inspiringConclusion": {
+        "ru": "У тебя редкая комплектация: и мотор, и тормоза. Пользуйся обеими педалями.",
+        "en": "You've got the rare full kit: an engine and brakes. Use both pedals."
+      }
+    },
+
+    "profile_adaptive": {
+      "name": { "ru": "Переключатель", "en": "The Switch" },
+      "description": {
+        "ru": "Твоя батарея умеет работать в разных режимах: конференция, тихий вечер, командная неделя, одиночная — ты перестраиваешься без скрипа. Это редкая гибкость, и у неё есть своя цена.",
+        "en": "Your battery runs in multiple modes: a conference, a quiet evening, a team week, a solo one — you switch without grinding. That flexibility is rare, and it has its price."
+      },
+      "whyThisProfile": {
+        "ru": "Средний разряд у тебя в средней зоне, а самый сильный фактор — гибкость батареи, выше 60%: тест видит человека, который подстраивает режим под ситуацию.",
+        "en": "Your average drain is mid-band, and your strongest factor is battery flexibility, above 60%: the test sees someone who tunes the mode to the situation."
+      },
+      "strengths": {
+        "ru": [
+          "Ты работоспособен в форматах, которые других ломают",
+          "Социальная осознанность: ты видишь, какой режим нужен сейчас",
+          "Энергией управляешь, а не просто расходуешь",
+          "И интроверты, и экстраверты считают тебя своим"
+        ],
+        "en": [
+          "You function in formats that break other people",
+          "Social awareness: you see which mode the moment needs",
+          "You manage energy instead of just spending it",
+          "Both introverts and extraverts claim you as their own"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Постоянная подстройка под ситуацию стирает вопрос «а как хочу я?»",
+          "Гибкость легко эксплуатировать: неудобные форматы всегда достаются тебе"
+        ],
+        "en": [
+          "Constant tuning to the situation erases the question \"what do I actually want?\"",
+          "Flexibility is easy to exploit: the inconvenient formats always land on you"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Определи свой режим по умолчанию — тот, где тебе лучше всего без адаптации",
+          "Переключайся осознанно, а не потому, что так удобнее другим",
+          "Замечай, когда «могу подстроиться» становится «всегда подстраиваюсь я»",
+          "Держи в неделе хотя бы один день в своём режиме, не в чужом"
+        ],
+        "en": [
+          "Find your default mode — where you're best with zero adapting",
+          "Switch deliberately, not because it's convenient for others",
+          "Notice when \"I can adjust\" becomes \"I'm always the one adjusting\"",
+          "Keep at least one day a week in your mode, not someone else's"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три своих настоящих социальных предпочтения — без оглядки на то, как удобно окружению.",
+        "en": "Write down three of your true social preferences — with zero regard for what suits everyone else."
+      },
+      "inspiringConclusion": {
+        "ru": "Переключаться умеют немногие. Следи только, чтобы среди всех режимов оставался твой собственный.",
+        "en": "Few people can switch like you. Just make sure one of the modes is still your own."
+      }
+    },
+
+    "profile_social_anxious": {
+      "name": { "ru": "Ток с помехами", "en": "Static in the Line" },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если напряжение перед общением и после него — постоянный фон, который сужает твою жизнь, разговор с психологом — нормальный и очень действенный шаг: с этим паттерном работают хорошо и предметно.",
+        "en": "This is an educational test, not a diagnosis. But if tension before and after socializing is a constant background that keeps narrowing your life, talking to a therapist is a normal and genuinely effective step — this pattern responds well to that work."
+      },
+      "description": {
+        "ru": "Твою батарею разряжает не само общение, а напряжение вокруг него: до — «как всё пройдёт», во время — самоконтроль, после — прокрутка сказанного. Ток есть, но идёт с помехами, и на помехи уходит больше энергии, чем на сам контакт.",
+        "en": "It's not the socializing that drains your battery — it's the tension around it: \"how will it go\" before, self-monitoring during, replaying every word after. The current flows, but with static — and the static burns more energy than the contact itself."
+      },
+      "whyThisProfile": {
+        "ru": "Средний разряд у тебя в средней зоне, но фактор напряжения в общении — самый высокий и выше 60%: батарею съедает не количество людей, а тревога рядом с ними.",
+        "en": "Your average drain is mid-band, but the social-tension factor is your highest and above 60%: it's not the number of people that eats the battery — it's the anxiety around them."
+      },
+      "strengths": {
+        "ru": [
+          "Чувствительность: ты замечаешь в людях то, что другие пропускают",
+          "Ты не бросаешься словами — сказанное тобой взвешено",
+          "Способность к глубокой связи, когда безопасно",
+          "Эмпатия, выросшая из знания, каково это — когда неловко"
+        ],
+        "en": [
+          "Sensitivity: you notice things in people that others miss",
+          "You don't throw words around — what you say is weighed",
+          "A capacity for deep connection where it's safe",
+          "Empathy grown from knowing what awkward feels like"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Прокрутка разговоров задним числом съедает больше сил, чем сами разговоры",
+          "Избегание встреч даёт передышку сейчас и сужает жизнь потом",
+          "Новые знакомства стоят тебе дороже всего — и потому случаются реже всего"
+        ],
+        "en": [
+          "Replaying conversations afterward burns more energy than the conversations did",
+          "Avoiding events buys relief now and narrows life later",
+          "New acquaintances cost you the most — which is why they happen the least"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начинай с малых и безопасных форматов: двое-трое своих, знакомое место",
+          "Перед встречей — медленный выдох длиннее вдоха, пару минут: телу нужен сигнал «не опасно»",
+          "Смести фокус с «как я выгляжу» на «что говорит собеседник» — помехи стихают",
+          "После встречи запрещай себе разбор полётов дольше пяти минут",
+          "Готовь пути отхода заранее: знание, что можешь уйти, само снижает напряжение"
+        ],
+        "en": [
+          "Start with small safe formats: two or three of your people, familiar ground",
+          "Before an event, exhale longer than you inhale for a couple of minutes — the body needs the \"not danger\" signal",
+          "Shift focus from \"how do I look\" to \"what are they saying\" — the static quiets down",
+          "After an event, cap the post-mortem at five minutes",
+          "Plan exits in advance: just knowing you can leave lowers the tension"
+        ]
+      },
+      "tryToday": {
+        "ru": "Попробуй дыхание 4-7-8: вдох на 4, пауза на 7, выдох на 8. Три круга — и заметь разницу.",
+        "en": "Try 4-7-8 breathing: in for 4, hold for 7, out for 8. Three rounds — then notice the difference."
+      },
+      "inspiringConclusion": {
+        "ru": "Помехи — не твоя личность, а фон, который снижается тренировкой. Под ним тот же ток, что у всех, — и часто чище.",
+        "en": "The static isn't your personality — it's background noise that training turns down. Under it runs the same current as everyone's, often cleaner."
+      }
+    },
+
+    "profile_balanced": {
+      "name": { "ru": "Ровный заряд", "en": "Steady Charge" },
+      "description": {
+        "ru": "Твоя батарея без перекосов: общение в радость, тишина в радость, и переход между ними не требует усилий. Это не «ни то ни сё», а рабочее равновесие.",
+        "en": "Your battery has no tilt: company is good, quiet is good, and moving between them takes no effort. That's not \"neither here nor there\" — it's a working equilibrium."
+      },
+      "whyThisProfile": {
+        "ru": "Средний разряд — в середине шкалы, и ни один фактор не вырывается вперёд: тест видит ровный профиль по всем шести измерениям.",
+        "en": "Your average drain sits mid-scale and no factor breaks away: the test sees an even profile across all six dimensions."
+      },
+      "strengths": {
+        "ru": [
+          "Естественный баланс, за который другие борются годами",
+          "Ты понимаешь и заводных, и тихих — и переводишь между ними",
+          "Отдых у тебя разный: и люди, и тишина работают",
+          "Устойчивость: перегрузить твою батарею непросто"
+        ],
+        "en": [
+          "A natural balance others fight years for",
+          "You understand the loud and the quiet — and translate between them",
+          "Your rest comes in both flavors: people and silence both work",
+          "Resilience: overloading your battery isn't easy"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Без сильного сигнала изнутри легко жить по чужому расписанию — тебе ведь «и так нормально»",
+          "Равновесие может маскировать усталость: перекоса нет, а разряд есть"
+        ],
+        "en": [
+          "Without a strong inner signal it's easy to live on other people's schedules — you're \"fine either way\", after all",
+          "Equilibrium can mask fatigue: no tilt, yet the charge still drops"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Прислушивайся к малым сигналам — у тебя они тихие, но точные",
+          "Иногда выбирай не «нормально», а «отлично»: проверяй, что наполняет сильнее",
+          "Помогай сводить твоих полярных друзей — ты редкий переводчик",
+          "Раз в месяц устраивай себе день в одном режиме на выбор — чистый эксперимент"
+        ],
+        "en": [
+          "Listen for the small signals — yours are quiet but accurate",
+          "Sometimes choose \"great\" over \"fine\": test what fills you more",
+          "Help your polar-opposite friends meet in the middle — you're a rare translator",
+          "Once a month give yourself a full day in one mode of your choice — a clean experiment"
+        ]
+      },
+      "tryToday": {
+        "ru": "Спроси себя прямо сейчас: чего хочется — людей или тишины? И дай себе именно это.",
+        "en": "Ask yourself right now: people or quiet? Then give yourself exactly that."
+      },
+      "inspiringConclusion": {
+        "ru": "Ровный заряд — не отсутствие характера, а редкая устойчивость. Пользуйся ею как преимуществом, а не фоном.",
+        "en": "A steady charge isn't a lack of character — it's rare stability. Use it as an advantage, not a backdrop."
+      }
+    },
+
+    "profile_solitude_seeker": {
+      "name": { "ru": "Зарядка в тишине", "en": "Charges in Silence" },
+      "description": {
+        "ru": "Твоя розетка — одиночество. Не потому, что люди плохие, а потому, что восстановление у тебя устроено через тишину: час наедине с собой возвращает больше, чем вечер поддержки.",
+        "en": "Your outlet is solitude. Not because people are bad — because your recovery runs on quiet: an hour alone gives back more than an evening of company ever could."
+      },
+      "whyThisProfile": {
+        "ru": "Разряд у тебя заметный (выше среднего), и главный фактор — потребность в тишине: она обгоняет все остальные шкалы профиля.",
+        "en": "Your drain is noticeable (above mid-scale), and the lead factor is the need for quiet: it outruns every other scale in your profile."
+      },
+      "strengths": {
+        "ru": [
+          "Глубокая рефлексия: наедине с собой ты не скучаешь, а работаешь",
+          "Концентрация, недоступная тем, кто не выносит тишины",
+          "Самодостаточность: тебе не нужен зритель",
+          "Внутренний мир, из которого ты приносишь неожиданное"
+        ],
+        "en": [
+          "Deep reflection: alone, you're not bored — you're working",
+          "A concentration unavailable to those who can't stand silence",
+          "Self-sufficiency: you don't need an audience",
+          "An inner world you bring unexpected things back from"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Тишина затягивает: от восстановления до изоляции — один незаметный шаг",
+          "Связи без подпитки истончаются, даже самые прочные",
+          "Шумные обязательные форматы — работа, праздники — стоят тебе дорого"
+        ],
+        "en": [
+          "Silence pulls you in: from recovery to isolation is one unnoticed step",
+          "Connections thin out without maintenance — even the strong ones",
+          "Loud mandatory formats — work, holidays — cost you a lot"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Держи две-три связи в живом состоянии — им хватит немногого, но регулярного",
+          "Отличай «восстанавливаюсь» от «прячусь»: первое возвращает силы, второе копит долг",
+          "Выбирай работу и роли с автономией — это твоя среда",
+          "Обустрой личное пространство всерьёз: это твоя зарядная станция"
+        ],
+        "en": [
+          "Keep two or three connections alive — they need little, but regularly",
+          "Tell \"recovering\" from \"hiding\": one returns energy, the other accrues debt",
+          "Choose work and roles with autonomy — that's your habitat",
+          "Invest in your personal space properly: it's your charging station"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши близкому человеку пару тёплых строк — связи заряжаются так же, как батареи.",
+        "en": "Send someone close a couple of warm lines — connections charge the same way batteries do."
+      },
+      "inspiringConclusion": {
+        "ru": "Тишина — твой источник, и это законно. Просто выходи из неё к людям до того, как они перестанут ждать.",
+        "en": "Silence is your source, and that's legitimate. Just step out of it toward people before they stop waiting."
+      }
+    },
+
+    "profile_quick_drainer": {
+      "name": { "ru": "Короткий заряд", "en": "Short Battery" },
+      "description": {
+        "ru": "Твоя батарея честная, но маленькая: час-полтора живого общения — и индикатор мигает. Это не дефект, а конструкция, и с ней можно жить отлично — если планировать заряд, как планируют дальнюю поездку.",
+        "en": "Your battery is honest but small: an hour or so of live interaction and the indicator starts blinking. That's not a defect — it's the design, and it works fine if you plan your charge the way people plan a road trip."
+      },
+      "whyThisProfile": {
+        "ru": "Главный фактор твоего профиля — скорость разряда: она выше всех остальных шкал и выше среднего. Утомляет не тревога и не формат, а сама длительность контакта.",
+        "en": "The lead factor in your profile is drain rate: higher than all your other scales and above the average. It's not anxiety or format that tires you — it's the sheer duration of contact."
+      },
+      "strengths": {
+        "ru": [
+          "Погружение: пока заряд есть, ты в разговоре целиком",
+          "Качество вместо количества — твой естественный фильтр",
+          "Ты осознанно выбираешь, на кого тратить заряд",
+          "Личное время у тебя не простаивает"
+        ],
+        "en": [
+          "Immersion: while the charge lasts, you're fully in the conversation",
+          "Quality over quantity is your built-in filter",
+          "You choose deliberately who gets your charge",
+          "Your personal time never idles"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Длинные мероприятия — свадьбы, конференции — выжимают тебя досуха",
+          "Ранние уходы без объяснения читаются как холодность",
+          "Страх «не дотянуть до конца» заставляет отказываться от важного"
+        ],
+        "en": [
+          "Long events — weddings, conferences — wring you dry",
+          "Early exits without explanation read as coldness",
+          "The fear of \"not lasting to the end\" makes you skip things that matter"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Планируй паузы заранее: выйти на десять минут — легальный ход",
+          "Стратегия «прийти раньше — уйти раньше» отдаёт тебе лучшие часы события",
+          "Скажи близким про свою батарею прямо — одна фраза снимает годы недопонимания",
+          "Назначай важные разговоры на заряженное время, а не на остаток",
+          "Уход по плану — не побег: договорись с собой о времени выхода до начала"
+        ],
+        "en": [
+          "Plan breaks in advance: stepping out for ten minutes is a legal move",
+          "\"Arrive early, leave early\" gives you the event's best hours",
+          "Tell the people close to you about your battery outright — one sentence undoes years of misreading",
+          "Schedule important conversations for charged hours, not leftovers",
+          "A planned exit isn't an escape: agree with yourself on the leave time before it starts"
+        ]
+      },
+      "tryToday": {
+        "ru": "Для следующего события заранее реши, во сколько уйдёшь, — и уйди без извинений.",
+        "en": "For your next event, decide the leave time in advance — then leave without apologizing."
+      },
+      "inspiringConclusion": {
+        "ru": "Маленькая батарея при умном менеджменте живёт дольше большой разряженной. Управляй — и хватит на всё важное.",
+        "en": "A small battery, smartly managed, outlasts a big drained one. Manage it — and it covers everything that matters."
+      }
+    },
+
+    "profile_ambivert_introvert": {
+      "name": { "ru": "Амбиверт на тихой", "en": "Ambivert, Volume Down" },
+      "description": {
+        "ru": "Ты амбиверт с уклоном в тишину: общаться умеешь и любишь, но по умолчанию выберешь вечер дома. Социальные навыки на месте — вопрос только в цене, которую ты платишь за их использование.",
+        "en": "You're an ambivert leaning quiet: you can socialize and even enjoy it, but by default you'll pick the evening at home. The social skills are all there — the only question is the price you pay for running them."
+      },
+      "whyThisProfile": {
+        "ru": "Средний разряд — в верхней середине шкалы (до 75%), без одного доминирующего фактора: баланс с креном к интроверсии.",
+        "en": "Your average drain sits in the upper middle (under 75%) with no single dominant factor: balance tilted toward introversion."
+      },
+      "strengths": {
+        "ru": [
+          "Выборочность: твоё общение — по любви, а не по инерции",
+          "Глубина связей: мало, но по-настоящему",
+          "Ты одинаково жизнеспособен в компании и наедине",
+          "Границы чувствуешь и держишь лучше большинства"
+        ],
+        "en": [
+          "Selectiveness: your socializing runs on preference, not inertia",
+          "Depth of connection: few, but real",
+          "You're equally viable in company and alone",
+          "You sense and hold boundaries better than most"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Уклон в тишину незаметно превращается в привычку отказываться от всего",
+          "Отменённые в последний момент планы — твой фирменный жанр",
+          "Потребность в людях ты замечаешь позже, чем она наступает"
+        ],
+        "en": [
+          "The quiet tilt quietly becomes a habit of declining everything",
+          "Last-minute cancellations are your signature genre",
+          "You notice your need for people later than it arrives"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Планируй встречи заранее и держись плана: решение «идти» уже принято, не пересматривай его вечером",
+          "Выбирай камерные форматы — они дают контакт по цене, которую ты готов платить",
+          "Замечай сигналы недостатка людей: раздражительность и тоска умеют маскироваться",
+          "После хорошей встречи записывай, что она дала, — пригодится в следующий раз, когда захочется отменить"
+        ],
+        "en": [
+          "Plan meetups ahead and stick to the plan: the \"go\" decision is made — don't re-vote in the evening",
+          "Choose intimate formats — they deliver contact at a price you're willing to pay",
+          "Watch for people-deficit signals: irritability and melancholy wear disguises",
+          "After a good meetup, note what it gave you — useful next time you feel like cancelling"
+        ]
+      },
+      "tryToday": {
+        "ru": "Согласись на одно приглашение, которое собирался отклонить, — и проверь прогноз по факту.",
+        "en": "Accept one invitation you were about to decline — then check your forecast against reality."
+      },
+      "inspiringConclusion": {
+        "ru": "Тихий уклон даёт глубину. Просто выходи иногда на свет — там тоже твои люди.",
+        "en": "The quiet tilt gives you depth. Just step into the light now and then — some of your people are out there too."
+      }
+    },
+
+    "profile_introvert": {
+      "name": { "ru": "Классический интроверт", "en": "The Classic Introvert" },
+      "description": {
+        "ru": "Общение — расход, тишина — доход: у тебя это устроено ровно так, без исключений на «хорошую компанию». Ты можешь блистать на людях, но счёт за вечер приходит всегда.",
+        "en": "Socializing is expense, silence is income — that's your economy, with no exemptions for \"good company\". You can shine in a room, but the bill for the evening always arrives."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по твоим ответам — в верхней зоне шкалы (до 85%): заряд уходит быстро, тишина нужна регулярно. Классический интровертный контур без крайности.",
+        "en": "Your answers average in the upper band of the scale (under 85%): the charge drains fast and quiet is a regular need. The classic introvert circuit, short of the extreme."
+      },
+      "strengths": {
+        "ru": [
+          "Глубина обработки: ты не болтаешь — ты думаешь",
+          "Концентрация на уровне, недоступном открытым офисам",
+          "Твои немногие связи прочнее большинства широких сетей",
+          "Независимость от чужого одобрения",
+          "Творческая работа в одиночку — твой конёк"
+        ],
+        "en": [
+          "Depth of processing: you don't chatter — you think",
+          "Concentration at a level open offices can't touch",
+          "Your few connections outlast most wide networks",
+          "Independence from external approval",
+          "Solo creative work is your home turf"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Мир мероприятий и созвонов выставляет тебе повышенный тариф",
+          "Молчание на людях читается как высокомерие или скука — а это просто экономия заряда",
+          "Часть возможностей раздаётся в комнатах, куда ты не заходишь"
+        ],
+        "en": [
+          "The world of events and calls charges you a premium rate",
+          "Your silence in company reads as arrogance or boredom — when it's just charge economy",
+          "Some opportunities get handed out in rooms you don't enter"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Строй среду под себя: рабочее место, роли и форматы с минимумом вынужденного шума",
+          "На большие события приходи со стратегией: заряд, паузы, время выхода",
+          "Пару ключевых комнат всё же посещай — выбери те, где цена оправдана",
+          "Восстановление после людей — не роскошь, а часть расписания",
+          "Объясни своим, как ты устроен: пусть не принимают тишину на свой счёт"
+        ],
+        "en": [
+          "Build your environment deliberately: workspace, roles and formats with minimal forced noise",
+          "Arrive at big events with a strategy: charge level, breaks, exit time",
+          "Still enter a couple of key rooms — pick the ones worth the price",
+          "Recovery after people isn't a luxury — it's part of the schedule",
+          "Explain your wiring to your people so they stop taking the silence personally"
+        ]
+      },
+      "tryToday": {
+        "ru": "Придумай себе ритуал восстановления после общения — и проведи его сегодня осознанно.",
+        "en": "Design your post-socializing recovery ritual — and run it deliberately today."
+      },
+      "inspiringConclusion": {
+        "ru": "Интроверсия — не режим ожидания, а другой способ работать на полную. Мир добавил громкости — тебе не обязательно.",
+        "en": "Introversion isn't standby mode — it's a different way of running at full power. The world turned its volume up; you don't have to."
+      }
+    },
+
+    "profile_deep_introvert": {
+      "name": { "ru": "Глубокий интроверт", "en": "The Deep Introvert" },
+      "description": {
+        "ru": "Твоя батарея чувствительнее большинства: даже приятное общение — заметный расход, а тишины для восстановления нужно много. Это не поломка и не приговор — это конструкция, под которую нужно строить жизнь, а не извиняться за неё.",
+        "en": "Your battery is more sensitive than most: even pleasant company is a real expense, and recovery takes a lot of silence. That's not damage and not a sentence — it's a design to build your life around, not apologize for."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по твоим ответам — выше 85%, самая верхняя зона шкалы: почти каждый вопрос про расход энергии и потребность в восстановлении отозвался на максимум.",
+        "en": "Your answers average above 85% — the very top band of the scale: nearly every question about energy cost and recovery need registered at maximum."
+      },
+      "strengths": {
+        "ru": [
+          "Глубина рефлексии, до которой большинству нет доступа",
+          "Концентрация, способная на длинные сложные вещи",
+          "Твои редкие связи — самые настоящие из возможных",
+          "Полная автономия: тебе не скучно с собой никогда",
+          "Внутренний мир, который кормит всё, что ты делаешь"
+        ],
+        "en": [
+          "A depth of reflection most people never access",
+          "Concentration capable of long, hard things",
+          "Your rare connections are as real as connections get",
+          "Full autonomy: you are never bored in your own company",
+          "An inner world that feeds everything you make"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Шаг от уединения до изоляции у тебя короче, чем у кого-либо",
+          "Мир по умолчанию настроен громче твоего комфорта — офисы, праздники, созвоны",
+          "Без осознанного усилия круг общения сжимается до нуля",
+          "Одиночество может подкрасться незаметно — под видом покоя"
+        ],
+        "en": [
+          "Your step from solitude to isolation is shorter than anyone's",
+          "The world's default volume is set above your comfort — offices, holidays, calls",
+          "Without deliberate effort, your circle shrinks toward zero",
+          "Loneliness can sneak up disguised as peace"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Держи минимум две-три живые связи и обслуживай их регулярно, пусть и малыми дозами",
+          "Асинхронное общение — твой формат: письма и сообщения вместо звонков, где возможно",
+          "Ищи роли с автономией и удалённостью — это не прихоть, а совместимость",
+          "Планируй минимальную социальную норму на неделю — как тренировку, по расписанию",
+          "Отличай «мне хорошо одному» от «я отвык от людей»: второе проверяется только контактом"
+        ],
+        "en": [
+          "Keep at least two or three live connections and maintain them regularly, even in small doses",
+          "Asynchronous contact is your format: letters and messages over calls wherever possible",
+          "Seek roles with autonomy and distance — that's compatibility, not indulgence",
+          "Schedule a minimal weekly social quota — like training, on the calendar",
+          "Tell \"I'm happy alone\" from \"I've lost the habit of people\": only contact can test the second"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отправь близкому человеку голосовое вместо текста — на десять секунд ближе, чем буквы.",
+        "en": "Send someone close a voice message instead of text — ten seconds closer than letters."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя глубина — редкость. Мост к людям ей не угроза, а страховка: строй его тонким, но держи целым.",
+        "en": "Your depth is rare. A bridge to people doesn't threaten it — it insures it. Build it thin, but keep it intact."
+      }
+    }
+  }
+}

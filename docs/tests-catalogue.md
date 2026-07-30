@@ -82,10 +82,18 @@
 
 Оба — `spectrum` по типу разбора: новых системных промптов не потребовалось, `tests-generate-report` и `tests-portrait` получили только импорты контента (нужен редеплой функций при выкладке). Верификация: `tests:build` без предупреждений, фикстуры 32/32 (перегенерация подтвердила байт-в-байт воспроизводимость семи прод-тестов), `tsc` чист, прод-сборка собирает оба теста отдельными чанками ~70 КБ, смоук на дев-сервере пройден (оба языка, профили по правилам, граница §2 на экране).
 
-### Второй эшелон — готовы, но не в первую волну (осталось 18)
-`disc_personality_v1`, `holland_code_v1`, `social_battery_v1`, `temperament_profile_test`, `creative_type_v1`, `imposter_syndrome`, `self_confidence_multiscale_v1`, `fomo_social_comparison_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `boundaries_people_pleasing`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+### Батч 2 ✅ в проде (задеплоен 30.07.2026 по «го» основателя)
 
-(`friendship_psychology_v1` и `values_priorities_v1` забраны батчем 1 волны 2, см. выше.)
+**`imposter_syndrome`** («Синдром самозванца», 42 q, 5 уровней) — уровневый тест по среднему шести механизмов, пороги 21/41/61/81 как у toxic_patterns. Scale-map: 32 фантомные шкалы разнесены (+28 алиасов, 2 новые шкалы — `fear_of_failure` под perfectionism_fear_of_error_v1 и `social_comparison` под fomo_social_comparison_v1, 2 в drop). Э8 по линии severe_toxicity: исходник на high прописывал «⚠️ настоятельно психотерапевт», на severe — «🚨 НЕОБХОДИМА помощь, психиатр, излечимое состояние»; теперь паттерн и его цена + спокойный `supportNote` на двух верхних уровнях; атрибуция Кланс/Аймс убрана; названия уровней — арка «Шёпот сомнения → Голос в голове → Самозванец за рулём → В тени самозванца». Тип разбора `levels` (внесён в REPORT_KIND — levels не выводится из механики). Бары платные.
+
+**`social_battery_v1`** («Социальная батарея», 48 q, 12 типов) — единственный чистый по аудиту тест эшелона (0 фантомных шкал). Правила: полосы по среднему + ветки по доминирующему фактору (`X >= @top1`). Э8: «Диагностика» убрана из заголовка, типы в метафоре батареи (Вечный заряд, Короткий заряд, Ток с помехами…), у тревожного контура `supportNote` вместо «работайте с терапевтом», два вопроса переведены с «вы» на «ты». Важная находка: факторы `recharge_method` и `interaction_preference` ключёваны в экстравертную сторону (высокое значение = зарядка от людей / тяга к группам) — подписи факторов написаны по фактической ключёвке, а не по названию. Бары бесплатные (шер-крючок «моя батарея садится за час»).
+
+Верификация: фикстуры 40/40, tsc чист, чанки ~60 и ~88 КБ, смоук обоих на дев-сервере (профили по правилам, supportNote рендерится, граница §2 на экране), линт Э8 чистый.
+
+### Второй эшелон — готовы, но не в первую волну (осталось 16)
+`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `fomo_social_comparison_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `boundaries_people_pleasing`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+
+(`friendship_psychology_v1` и `values_priorities_v1` забраны батчем 1, `imposter_syndrome` и `social_battery_v1` — батчем 2, см. выше.)
 
 Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
 

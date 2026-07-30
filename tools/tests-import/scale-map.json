@@ -1,7 +1,7 @@
 {
   "$comment": "Э2 — нормализация реестра шкал под запускной набор (docs/tests-catalogue.md). Отображает шкалы, на которые ссылаются веса tests_app, но которых нет в hierarchical_scales.dart, на канонические шкалы реестра. Применяется скриптом apply-scale-map.mjs.",
   "principle": "Алиас к существующей шкале везде, где есть разумная цель. Новая шкала добавляется, только если конструкт правдоподобно встретится и в других тестах: шкала, которую использует ровно один тест, не даёт ничего кросс-тестовому профилю, ради которого слой и существует. invert:true переворачивает знак веса, когда цель — противоположный полюс источника.",
-  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2 (friendship_psychology_v1: 3 шкалы, values_priorities_v1: 49). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
+  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2, батч 1 (friendship_psychology_v1: 3, values_priorities_v1: 49) + батч 2 (imposter_syndrome: 32; social_battery_v1 чист). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
 
   "newScales": {
     "conscientiousness": {
@@ -66,6 +66,24 @@
       },
       "categoryId": "cat_stress_coping",
       "why": "Прямо нужен values_priorities (профиль риска выгорания) и станет ядром burnout_diagnostic_v1. Инверсный алиас к vitality потерял бы специфику конструкта."
+    },
+    "fear_of_failure": {
+      "name": { "ru": "Страх неудачи", "en": "Fear of Failure" },
+      "description": {
+        "ru": "Насколько возможность провала управляет решениями и избеганием",
+        "en": "How much the possibility of failing drives decisions and avoidance"
+      },
+      "categoryId": "cat_emotional_stability",
+      "why": "Ядро imposter_syndrome (8 ссылок) и будущего perfectionism_fear_of_error_v1 — тест назван этим конструктом. Ни harm_avoidance, ни worry_tendency его не покрывают."
+    },
+    "social_comparison": {
+      "name": { "ru": "Сравнение себя с другими", "en": "Social Comparison" },
+      "description": {
+        "ru": "Привычка мерить себя чужими результатами и жизнями",
+        "en": "The habit of measuring oneself against other people's results and lives"
+      },
+      "categoryId": "cat_identity",
+      "why": "Одна ссылка в imposter_syndrome, но fomo_social_comparison_v1 из второго эшелона назван этим конструктом — шкала точно понадобится."
     },
     "respect": {
       "name": { "ru": "Уважение к партнёру", "en": "Respect for Partner" },
@@ -180,11 +198,42 @@
     "balance": { "to": "work_life_balance", "note": "На новую шкалу" },
     "stress": { "to": "stress_tolerance", "invert": true },
     "flexibility": { "to": "cognitive_flexibility" },
-    "adaptability": { "to": "adaptability_leadership" }
+    "adaptability": { "to": "adaptability_leadership" },
+
+    "self_doubt": { "to": "self_efficacy", "invert": true, "note": "Батч 2 (imposter_syndrome): сомнение в своих способностях — обратный полюс самоэффективности (insecurity → self_esteem уже занят под общую неуверенность)" },
+    "confidence": { "to": "self_efficacy", "note": "Как self_confidence из запускного набора" },
+    "self_assurance": { "to": "self_efficacy" },
+    "internal_locus_of_control": { "to": "self_efficacy", "note": "Зеркало external_locus_of_control → self_efficacy invert" },
+    "self_criticism": { "to": "self_compassion", "invert": true },
+    "self_satisfaction": { "to": "self_acceptance" },
+    "avoidance": { "to": "avoidant_coping" },
+    "self_sabotage": { "to": "avoidant_coping", "note": "Саботаж СЕБЯ (не партнёра, как sabotage_tendency → manipulation): в контексте самозванца это избегание вызовов" },
+    "fear_of_judgment": { "to": "self_consciousness" },
+    "social_anxiety": { "to": "self_consciousness", "note": "Фасет Большой пятёрки про социальную тревожность и есть ближайшая цель" },
+    "courage": { "to": "social_boldness" },
+    "resilience": { "to": "resilience_meta" },
+    "overwork": { "to": "type_a_behavior" },
+    "pressure": { "to": "stress_tolerance", "invert": true },
+    "worry": { "to": "worry_tendency" },
+    "performance_anxiety": { "to": "anxiety" },
+    "panic": { "to": "panic_tendency" },
+    "restlessness": { "to": "anxiety" },
+    "all_or_nothing_thinking": { "to": "perfectionism", "note": "«Не идеально = провал» — когнитивная сердцевина перфекционизма" },
+    "high_standards": { "to": "perfectionism" },
+    "rigidity": { "to": "cognitive_flexibility", "invert": true },
+    "obsessiveness": { "to": "rumination" },
+    "attention_to_detail": { "to": "order" },
+    "efficiency": { "to": "competence" },
+    "openness_to_experience": { "to": "openness", "note": "На шкалу-домен, заведённую батчем 1" },
+    "control_need": { "to": "dominance", "note": "Как control из запускного набора" },
+    "trust_in_others": { "to": "trust" },
+    "collaboration": { "to": "cooperativeness" }
   },
 
   "drop": {
     "relaxation": "Ценность отдыха без внятной цели в реестре: hedonism уже стоит на тех же вопросах комфорта, слияние съело бы вклад. 3 ссылки.",
-    "practicality": "Слишком размытый конструкт (1 ссылка); ближайшие цели (prudence, competence) — о другом."
+    "practicality": "Слишком размытый конструкт (1 ссылка); ближайшие цели (prudence, competence) — о другом.",
+    "discomfort": "Не конструкт, а состояние (2 ссылки imposter_syndrome); любая цель была бы натяжкой.",
+    "emotional_flatness": "1 ссылка, размыто; positive_emotions invert исказил бы смысл (уплощение — не отсутствие радости)."
   }
 }

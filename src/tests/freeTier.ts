@@ -42,6 +42,12 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   // Twenty bars would be noise, and the importance-vs-energy gaps they hide ARE
   // the paid read (same reasoning as love_languages' hierarchy).
   values_priorities_v1: false,
+  // Level test: which mechanisms make the level IS the paid read (same as
+  // toxic_patterns / red_flags).
+  imposter_syndrome: false,
+  // Typology of 12: "my battery dies in an hour" bars are the share hook; the
+  // paid read builds on answers and the mix, not the bars.
+  social_battery_v1: true,
 };
 
 /**

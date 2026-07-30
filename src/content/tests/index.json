@@ -124,5 +124,33 @@
     "categoryId": "personality",
     "estimatedMinutes": 10,
     "questionCount": 40
+  },
+  {
+    "id": "imposter_syndrome",
+    "title": {
+      "ru": "Синдром самозванца",
+      "en": "Impostor Syndrome"
+    },
+    "description": {
+      "ru": "42 вопроса о том, кому ты приписываешь свои успехи — себе или везению, и чего тебе стоит держать планку. Шесть механизмов, от страха разоблачения до гиперкомпенсации.",
+      "en": "42 questions about who gets the credit for your wins — you or luck — and what holding the bar costs you. Six mechanisms, from fear of exposure to overcompensation."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 10,
+    "questionCount": 42
+  },
+  {
+    "id": "social_battery_v1",
+    "title": {
+      "ru": "Социальная батарея",
+      "en": "Social Battery"
+    },
+    "description": {
+      "ru": "48 вопросов о том, как быстро садится твой заряд от людей, чем ты его восстанавливаешь и сколько тишины тебе положено по конструкции. 12 типов — от вечного заряда до глубокого интроверта.",
+      "en": "48 questions about how fast people drain your charge, what recharges it, and how much silence your design requires. 12 types — from the ever-charged to the deep introvert."
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 10,
+    "questionCount": 48
   }
 ]

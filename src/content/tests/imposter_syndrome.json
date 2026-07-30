@@ -1,0 +1,2835 @@
+{
+  "id": "imposter_syndrome",
+  "title": {
+    "ru": "Синдром самозванца",
+    "en": "Impostor Syndrome"
+  },
+  "description": {
+    "ru": "42 вопроса о том, кому ты приписываешь свои успехи — себе или везению, и чего тебе стоит держать планку. Шесть механизмов, от страха разоблачения до гиперкомпенсации.",
+    "en": "42 questions about who gets the credit for your wins — you or luck — and what holding the bar costs you. Six mechanisms, from fear of exposure to overcompensation."
+  },
+  "categoryId": "emotional",
+  "estimatedMinutes": 10,
+  "scoring": "likert",
+  "factorIds": [
+    "fear_of_exposure",
+    "achievement_devaluation",
+    "perfectionism",
+    "challenge_avoidance",
+    "external_attribution",
+    "overcompensation"
+  ],
+  "factorNames": {
+    "fear_of_exposure": {
+      "ru": "Страх разоблачения",
+      "en": "Fear of exposure"
+    },
+    "achievement_devaluation": {
+      "ru": "Обесценивание успехов",
+      "en": "Devaluing your wins"
+    },
+    "perfectionism": {
+      "ru": "Перфекционизм",
+      "en": "Perfectionism"
+    },
+    "challenge_avoidance": {
+      "ru": "Избегание вызовов",
+      "en": "Avoiding challenges"
+    },
+    "external_attribution": {
+      "ru": "Успех — это не я",
+      "en": "Crediting everything but yourself"
+    },
+    "overcompensation": {
+      "ru": "Гиперкомпенсация",
+      "en": "Overcompensation"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Я боюсь, что люди узнают, насколько я на самом деле некомпетентен",
+        "en": "I fear that people will find out how incompetent I really am"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Я часто думаю, что меня вот-вот «раскусят» и поймут, что я обманщик",
+        "en": "I often think I'm about to be \"found out\" as a fraud"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Когда меня хвалят, я тревожусь, что не смогу оправдать ожидания в будущем",
+        "en": "When praised, I worry I won't meet future expectations"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я уверен(а) в своих способностях и не боюсь, что другие усомнятся в моей компетентности",
+        "en": "I am confident and not afraid others will doubt my competence"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Мне кажется, что я постоянно притворяюсь более способным, чем есть на самом деле",
+        "en": "I feel I'm constantly pretending to be more capable than I am"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Я боюсь задавать вопросы, чтобы не показаться глупым",
+        "en": "I'm afraid to ask questions so I won't appear stupid"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я избегаю ситуаций, где мои знания могут быть проверены",
+        "en": "I avoid situations where my knowledge might be tested"
+      },
+      "factorId": "fear_of_exposure",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я редко чувствую удовлетворение от своих достижений",
+        "en": "I rarely feel satisfaction from my achievements"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Когда я добиваюсь успеха, я думаю: «Это не считается» или «Это было слишком просто»",
+        "en": "When I succeed, I think: \"This doesn't count\" or \"It was too easy\""
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Я горжусь своими достижениями и признаю свою роль в них",
+        "en": "I am proud of my achievements and acknowledge my role"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я думаю, что мои успехи не отражают мои истинные способности",
+        "en": "I think my successes don't reflect my true abilities"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Когда меня хвалят за работу, я чувствую себя неловко и незаслуженно",
+        "en": "When praised for work, I feel awkward and undeserving"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я минимизирую значимость своих достижений в разговорах с другими",
+        "en": "I minimize the significance of my achievements with others"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Мне трудно принимать комплименты — я сразу начинаю их обесценивать",
+        "en": "I find it hard to accept compliments—I immediately devalue them"
+      },
+      "factorId": "achievement_devaluation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Я устанавливаю для себя нереалистично высокие стандарты",
+        "en": "I set unrealistically high standards for myself"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Если я не могу сделать что-то идеально, я чувствую себя полным неудачником",
+        "en": "If I can't do something perfectly, I feel like a complete failure"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я могу признать свои ошибки и рассматриваю их как часть обучения",
+        "en": "I can acknowledge mistakes and view them as part of learning"
+      },
+      "factorId": "perfectionism",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Даже небольшая ошибка заставляет меня сомневаться во всех своих способностях",
+        "en": "Even a small mistake makes me doubt all my abilities"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Я трачу непропорционально много времени на мелкие детали, чтобы всё было безупречно",
+        "en": "I spend disproportionate time on small details for perfection"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Мне трудно начать проект, если я не уверен, что смогу выполнить его идеально",
+        "en": "I find it hard to start a project if unsure I can do it perfectly"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я постоянно сравниваю себя с другими и чувствую, что недотягиваю",
+        "en": "I constantly compare myself to others and feel I fall short"
+      },
+      "factorId": "perfectionism",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Я избегаю новых возможностей из-за страха неудачи",
+        "en": "I avoid new opportunities due to fear of failure"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я отказываюсь от повышений или новых проектов, думая, что не справлюсь",
+        "en": "I turn down promotions or new projects, thinking I can't handle them"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я с энтузиазмом принимаю новые вызовы и возможности для роста",
+        "en": "I enthusiastically embrace new challenges and growth opportunities"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Я предпочитаю оставаться в зоне комфорта, чтобы не рисковать провалом",
+        "en": "I prefer staying in my comfort zone to avoid risking failure"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Мысль о новых обязанностях вызывает у меня панику",
+        "en": "The thought of new responsibilities makes me panic"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я откладываю важные задачи из-за страха не справиться с ними",
+        "en": "I procrastinate on important tasks due to fear of not handling them"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я саботирую собственные возможности, потому что боюсь ожиданий",
+        "en": "I sabotage my own opportunities because I fear expectations"
+      },
+      "factorId": "challenge_avoidance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Когда я добиваюсь успеха, я думаю, что мне просто повезло",
+        "en": "When I succeed, I think I was just lucky"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Я считаю, что мои достижения — результат моих усилий и способностей",
+        "en": "I believe my achievements are the result of my efforts and abilities"
+      },
+      "factorId": "external_attribution",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я думаю, что успех случился благодаря помощи других, а не мне",
+        "en": "I think success happened thanks to others' help, not me"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Мне кажется, что я оказался на своей позиции случайно",
+        "en": "I feel I ended up in my position by accident"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Когда задача оказывается легче ожидаемого, я чувствую, что не заслужил успеха",
+        "en": "When a task is easier than expected, I feel I didn't deserve success"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Я приписываю свои неудачи недостатку способностей, а успехи — внешним обстоятельствам",
+        "en": "I attribute failures to lack of ability, successes to external factors"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Мне трудно признать, что я действительно заслужил свои достижения",
+        "en": "I find it hard to admit I truly earned my achievements"
+      },
+      "factorId": "external_attribution",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Я работаю намного больше других, чтобы «компенсировать» свою недостаточность",
+        "en": "I work much harder than others to \"compensate\" for my inadequacy"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Я чувствую постоянное давление доказывать свою ценность через работу",
+        "en": "I feel constant pressure to prove my worth through work"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Я могу расслабиться и не чувствую необходимости постоянно что-то доказывать",
+        "en": "I can relax and don't feel the need to constantly prove something"
+      },
+      "factorId": "overcompensation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "Я перегружаю себя работой, потому что боюсь выглядеть ленивым",
+        "en": "I overload myself with work because I fear appearing lazy"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "Даже после успешного проекта я сразу берусь за новый, не давая себе отдохнуть",
+        "en": "Even after a successful project, I immediately take on a new one without rest"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Мне трудно делегировать задачи — я думаю, что должен делать всё сам",
+        "en": "I find it hard to delegate tasks—I think I should do everything myself"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Я жертвую личным временем и здоровьем ради работы",
+        "en": "I sacrifice personal time and health for work"
+      },
+      "factorId": "overcompensation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Совершенно не согласен",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Скорее не согласен",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Скорее согласен",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Полностью согласен",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "anxiety": 0.9,
+      "self_efficacy": -0.9,
+      "self_consciousness": 0.9,
+      "vulnerability": 0.7,
+      "self_esteem": -0.9
+    },
+    "q2": {
+      "anxiety": 0.9,
+      "self_efficacy": -1,
+      "self_consciousness": 0.9,
+      "self_esteem": -0.9,
+      "worry_tendency": 0.8,
+      "vulnerability": 0.8,
+      "authenticity": -0.7
+    },
+    "q3": {
+      "anxiety": 0.9,
+      "worry_tendency": 0.9,
+      "self_consciousness": 0.8,
+      "stress_tolerance": -0.8,
+      "self_efficacy": -0.7
+    },
+    "q4": {
+      "self_efficacy": 0.9,
+      "self_esteem": 0.9,
+      "assertiveness": 0.7,
+      "anxiety": -0.8
+    },
+    "q5": {
+      "authenticity": -0.9,
+      "self_efficacy": -0.9,
+      "self_esteem": -0.9,
+      "self_consciousness": 0.8
+    },
+    "q6": {
+      "self_consciousness": 0.9,
+      "self_esteem": -0.8,
+      "assertiveness": -0.8,
+      "self_efficacy": -0.7
+    },
+    "q7": {
+      "avoidant_coping": 0.9,
+      "self_consciousness": 0.8,
+      "anxiety": 0.8,
+      "self_efficacy": -0.8,
+      "social_boldness": -0.7
+    },
+    "q8": {
+      "self_esteem": -0.9,
+      "self_acceptance": -0.9,
+      "self_efficacy": -0.8,
+      "positive_emotions": -0.7
+    },
+    "q9": {
+      "self_esteem": -0.9,
+      "self_efficacy": -0.9,
+      "self_compassion": -0.9,
+      "positive_emotions": -0.7
+    },
+    "q10": {
+      "self_esteem": 0.9,
+      "self_efficacy": 0.9,
+      "self_acceptance": 0.9,
+      "self_compassion": 0.8
+    },
+    "q11": {
+      "self_efficacy": -0.9,
+      "self_esteem": -0.8
+    },
+    "q12": {
+      "self_consciousness": 0.8,
+      "self_esteem": -0.9,
+      "self_efficacy": -0.8
+    },
+    "q13": {
+      "self_esteem": -0.9,
+      "self_efficacy": -0.8,
+      "modesty": 0.6
+    },
+    "q14": {
+      "self_esteem": -0.9,
+      "self_efficacy": -0.9,
+      "self_compassion": -0.8
+    },
+    "q15": {
+      "perfectionism": 0.9,
+      "self_compassion": -0.8,
+      "cognitive_flexibility": -0.7
+    },
+    "q16": {
+      "perfectionism": 0.9,
+      "self_compassion": -0.9,
+      "self_esteem": -0.8,
+      "resilience_meta": -0.7
+    },
+    "q17": {
+      "self_acceptance": 0.9,
+      "resilience_meta": 0.9,
+      "growth_mindset": 0.9,
+      "cognitive_flexibility": 0.8,
+      "perfectionism": -0.8,
+      "self_compassion": 0.8
+    },
+    "q18": {
+      "perfectionism": 0.8,
+      "self_compassion": -0.9,
+      "self_efficacy": -0.9,
+      "resilience_meta": -0.8,
+      "self_esteem": -0.7
+    },
+    "q19": {
+      "perfectionism": 0.9,
+      "rumination": 0.8,
+      "order": 0.7,
+      "competence": -0.6,
+      "cognitive_flexibility": -0.7
+    },
+    "q20": {
+      "perfectionism": 0.9,
+      "procrastination": 0.8,
+      "fear_of_failure": 0.9,
+      "self_efficacy": -0.8
+    },
+    "q21": {
+      "social_comparison": 0.9,
+      "self_compassion": -0.8,
+      "self_esteem": -0.8,
+      "life_satisfaction": -0.7
+    },
+    "q22": {
+      "avoidant_coping": 0.9,
+      "fear_of_failure": 0.9,
+      "anxiety": 0.8,
+      "social_boldness": -0.8,
+      "risk_taking": -0.8
+    },
+    "q23": {
+      "avoidant_coping": 0.9,
+      "self_efficacy": -0.9,
+      "fear_of_failure": 0.8,
+      "ambition": -0.7
+    },
+    "q24": {
+      "social_boldness": 0.9,
+      "self_efficacy": 0.9,
+      "openness": 0.8,
+      "growth_mindset": 0.8,
+      "avoidant_coping": -0.9,
+      "fear_of_failure": -0.8
+    },
+    "q25": {
+      "avoidant_coping": 0.9,
+      "hedonism": 0.8,
+      "fear_of_failure": 0.8,
+      "risk_taking": -0.8,
+      "social_boldness": -0.7
+    },
+    "q26": {
+      "anxiety": 0.9,
+      "panic_tendency": 0.9,
+      "avoidant_coping": 0.8,
+      "fear_of_failure": 0.8,
+      "self_efficacy": -0.8,
+      "resilience_meta": -0.7
+    },
+    "q27": {
+      "procrastination": 0.9,
+      "avoidant_coping": 0.9,
+      "fear_of_failure": 0.8,
+      "self_efficacy": -0.8,
+      "self_discipline": -0.7
+    },
+    "q28": {
+      "avoidant_coping": 0.9,
+      "fear_of_failure": 0.9,
+      "anxiety": 0.8,
+      "self_efficacy": -0.8
+    },
+    "q29": {
+      "self_efficacy": -0.9,
+      "self_esteem": -0.8
+    },
+    "q30": {
+      "self_efficacy": 0.9,
+      "self_esteem": 0.8
+    },
+    "q31": {
+      "self_efficacy": -0.9,
+      "self_esteem": -0.8
+    },
+    "q32": {
+      "self_efficacy": -0.9,
+      "self_esteem": -0.9
+    },
+    "q33": {
+      "self_esteem": -0.9,
+      "self_efficacy": -0.8,
+      "self_compassion": -0.7
+    },
+    "q34": {
+      "self_efficacy": -0.9,
+      "self_compassion": -0.8,
+      "positive_emotions": -0.7,
+      "self_esteem": -0.8
+    },
+    "q35": {
+      "self_esteem": -0.9,
+      "self_efficacy": -0.9,
+      "self_acceptance": -0.8
+    },
+    "q36": {
+      "type_a_behavior": 0.9,
+      "self_efficacy": -0.8,
+      "self_esteem": -0.8,
+      "work_life_balance": -0.8
+    },
+    "q37": {
+      "stress_tolerance": -0.9,
+      "anxiety": 0.8,
+      "self_efficacy": -0.8,
+      "self_esteem": -0.8,
+      "self_acceptance": -0.7
+    },
+    "q38": {
+      "self_acceptance": 0.9,
+      "self_efficacy": 0.8,
+      "work_life_balance": 0.8,
+      "stress_tolerance": 0.8,
+      "anxiety": -0.7
+    },
+    "q39": {
+      "type_a_behavior": 0.9,
+      "self_consciousness": 0.8,
+      "anxiety": 0.8,
+      "work_life_balance": -0.8
+    },
+    "q40": {
+      "type_a_behavior": 0.9,
+      "anxiety": 0.8,
+      "work_life_balance": -0.9,
+      "self_care": -0.7
+    },
+    "q41": {
+      "dominance": 0.8,
+      "perfectionism": 0.7,
+      "trust": -0.7,
+      "delegation": -0.8,
+      "cooperativeness": -0.6
+    },
+    "q42": {
+      "type_a_behavior": 0.9,
+      "work_life_balance": -0.9,
+      "self_care": -0.9,
+      "health_consciousness": -0.8
+    }
+  },
+  "profiles": {
+    "profile_minimal": {
+      "id": "profile_minimal",
+      "icon": null,
+      "name": {
+        "ru": "Заслуженно твоё",
+        "en": "Rightfully Yours"
+      },
+      "description": {
+        "ru": "Свои успехи ты записываешь на свой счёт — и это не самоуверенность, а точность. Ты видишь и сильные стороны, и слабые, и не ждёшь, что кто-то вот-вот «раскроет обман», которого нет.",
+        "en": "You put your wins on your own account — and that's accuracy, not arrogance. You see both your strengths and your gaps, and you're not waiting for someone to \"expose a fraud\" that doesn't exist."
+      },
+      "whyThisProfile": {
+        "ru": "По всем шести механизмам самозванца твои ответы в нижней зоне: страх разоблачения, обесценивание, внешняя атрибуция — всё почти на нуле. Средний балл ниже 21%.",
+        "en": "Across all six impostor mechanisms your answers sit in the low zone: fear of exposure, devaluation, external attribution — all near the floor. Your average is under 21%."
+      },
+      "strengths": {
+        "ru": [
+          "Похвалу ты принимаешь, не отнекиваясь и не подозревая подвоха",
+          "Новые задачи берёшь без паралича «а вдруг не потяну»",
+          "Свои ошибки называешь ошибками, а не доказательством никчёмности",
+          "Оценка себя у тебя не скачет от каждого чужого взгляда"
+        ],
+        "en": [
+          "You take praise without deflecting or suspecting a catch",
+          "You pick up new challenges without the \"what if I can't\" paralysis",
+          "You call your mistakes mistakes — not proof of worthlessness",
+          "Your self-assessment doesn't swing with every stranger's glance"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Уверенность без проверки иногда пропускает реальные пробелы — сомнение тоже бывает полезным инструментом",
+          "Тебе может быть трудно понять тех, кого душат сомнения: их «я не заслужил» звучит для тебя как кокетство"
+        ],
+        "en": [
+          "Confidence without a check sometimes misses real gaps — doubt can be a useful tool too",
+          "People strangled by self-doubt can be hard for you to read: their \"I didn't earn this\" sounds like fishing to you"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Используй устойчивость как ресурс: бери задачи, на которые другие не решаются",
+          "Замечай, когда рядом кто-то обесценивает себя, — одна твоя реплика может многое поменять",
+          "Раз в квартал честно ищи свои слепые зоны: уверенность любит проверку",
+          "Делись тем, как ты относишься к ошибкам, — это редкий навык"
+        ],
+        "en": [
+          "Use the stability as a resource: take on what others hesitate to touch",
+          "Notice when someone near you talks themselves down — one line from you can shift a lot",
+          "Once a quarter, honestly hunt your blind spots: confidence likes an audit",
+          "Share how you treat mistakes — it's a rarer skill than you think"
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи коллеге или другу, что у него хорошо получилось, — конкретно и без «но».",
+        "en": "Tell a colleague or friend what they did well — specifically, and without a \"but\"."
+      },
+      "inspiringConclusion": {
+        "ru": "Спокойное «это сделал я» — редкая настройка. Береги её и одалживай тем, у кого она сбита.",
+        "en": "A calm \"I did that\" is a rare setting. Keep it — and lend it to people whose setting is off."
+      }
+    },
+    "profile_mild": {
+      "id": "profile_mild",
+      "icon": null,
+      "name": {
+        "ru": "Шёпот сомнения",
+        "en": "The Whisper"
+      },
+      "description": {
+        "ru": "Чаще всего ты знаешь себе цену, но иногда включается голос: «повезло», «просто совпало», «сейчас заметят». Он тихий и жизни не ломает — просто время от времени крадёт удовольствие от побед.",
+        "en": "Most of the time you know your worth, but now and then a voice cuts in: \"lucky\", \"it just lined up\", \"they'll notice any minute\". It's quiet and doesn't wreck anything — it just steals the pleasure of a win from time to time."
+      },
+      "whyThisProfile": {
+        "ru": "Средний балл по шести механизмам — между 21 и 40%: сомнения появляются эпизодами, но ни один механизм не работает постоянно.",
+        "en": "Your average across the six mechanisms lands between 21 and 40%: the doubts come in episodes, but no mechanism runs constantly."
+      },
+      "strengths": {
+        "ru": [
+          "С сомнениями ты справляешься сам — они приходят и уходят",
+          "Большинство вызовов ты всё-таки берёшь",
+          "Ты способен отличить полезную самокритику от самоедства",
+          "Новые ситуации адаптируют тебя, а не ломают"
+        ],
+        "en": [
+          "You handle the doubts yourself — they come and go",
+          "You still take most of the challenges",
+          "You can tell useful self-criticism from self-flagellation",
+          "New situations adapt you rather than break you"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "После сильного результата первым приходит «повезло», и только потом — «я сделал»",
+          "Комплименты ты возвращаешь отправителю: «да ладно, ничего особенного»",
+          "Перед новым уровнем ответственности шёпот становится громче"
+        ],
+        "en": [
+          "After a strong result, \"lucky\" arrives first and \"I did that\" second",
+          "You return compliments to sender: \"oh, it was nothing\"",
+          "Before a new level of responsibility, the whisper gets louder"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Заведи файл достижений и пиши туда факты, а не ощущения: даты, результаты, отзывы",
+          "Комплимент принимай одним словом — «спасибо», без сносок мелким шрифтом",
+          "Когда приходит «повезло», спроси себя: что конкретно я для этого сделал",
+          "Проговаривай сомнения вслух тому, кому доверяешь, — на воздухе они мельчают"
+        ],
+        "en": [
+          "Start a wins file and log facts, not feelings: dates, results, feedback",
+          "Accept a compliment with one word — \"thanks\" — no fine-print footnotes",
+          "When \"lucky\" shows up, ask: what exactly did I do to make this happen",
+          "Say the doubts out loud to someone you trust — they shrink in open air"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три своих результата за месяц и рядом — что именно ты сделал, чтобы они случились.",
+        "en": "Write down three results from this month — and next to each, what you specifically did to make it happen."
+      },
+      "inspiringConclusion": {
+        "ru": "Сомнение в малых дозах — признак того, что тебе не всё равно. Просто не давай ему право голоса на твоих победах.",
+        "en": "Doubt in small doses means you care. Just don't give it the microphone at your own victories."
+      }
+    },
+    "profile_moderate": {
+      "id": "profile_moderate",
+      "icon": null,
+      "name": {
+        "ru": "Голос в голове",
+        "en": "The Voice"
+      },
+      "description": {
+        "ru": "Сомнение из гостя превратилось в соседа: ты регулярно обесцениваешь сделанное, боишься не оправдать ожиданий и часть возможностей пропускаешь ещё до старта. Снаружи всё выглядит нормально — счёт оплачиваешь ты один.",
+        "en": "The doubt has gone from visitor to housemate: you regularly discount what you've done, fear falling short of expectations, and pass on some opportunities before the starting line. From the outside everything looks fine — the bill is paid by you alone."
+      },
+      "whyThisProfile": {
+        "ru": "Средний балл по механизмам — между 41 и 60%: это уже не эпизоды, а устойчивый фон. Какие именно механизмы делают основной вклад — видно по твоим ответам в платном разборе.",
+        "en": "Your average across the mechanisms is between 41 and 60%: no longer episodes but a steady background. Which mechanisms carry most of it shows up in your answers — that's what the full read unpacks."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь проблему — большинство носителей этого паттерна её отрицают",
+          "Самоанализ у тебя работает, осталось направить его на защиту, а не обвинение",
+          "Требовательность к себе даёт реальное качество работы",
+          "Готовность меняться уже есть — ты прошёл этот тест до конца"
+        ],
+        "en": [
+          "You see the pattern — most people running it deny it",
+          "Your self-analysis works; it just needs to switch from prosecution to defense",
+          "Your demands on yourself produce genuinely good work",
+          "The readiness to change is already here — you finished this test"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Достижения испаряются из памяти, ошибки хранятся вечно",
+          "Часть карьерных шагов ты не делаешь не потому, что не хочешь, а потому что «ещё не готов»",
+          "Планка «идеально или провал» не оставляет места, где можно просто хорошо сделать",
+          "Похвала отскакивает, критика прилипает"
+        ],
+        "en": [
+          "Achievements evaporate from memory; mistakes are archived forever",
+          "Some career moves don't happen not because you don't want them, but because you're \"not ready yet\"",
+          "The \"perfect or failure\" bar leaves no room to simply do well",
+          "Praise bounces off; criticism sticks"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Собери папку доказательств: отзывы, результаты, благодарности — и открывай её, когда голос включается",
+          "Лови мысль «мне просто повезло» и переписывай её в факт: что я сделал, что умею, что вложил",
+          "Один раз в месяц бери задачу чуть выше комфорта — маленькое несовершенство по расписанию",
+          "Сравнивай себя с собой полгода назад, а не с чужими хайлайтами",
+          "Проговори паттерн с человеком, которому доверяешь: самозванец не выносит свидетелей"
+        ],
+        "en": [
+          "Build an evidence folder: feedback, results, thank-yous — open it whenever the voice starts",
+          "Catch the \"I just got lucky\" thought and rewrite it into fact: what I did, what I know, what I put in",
+          "Once a month take a task slightly above comfort — a small scheduled imperfection",
+          "Compare yourself to yourself six months ago, not to other people's highlight reels",
+          "Say the pattern out loud to someone you trust: the impostor hates witnesses"
+        ]
+      },
+      "tryToday": {
+        "ru": "Составь список своих навыков и фактов, которые их подтверждают, — не ощущений, а фактов.",
+        "en": "List your skills and the facts that back them — facts, not feelings."
+      },
+      "inspiringConclusion": {
+        "ru": "Голос в голове говорит уверенно, но у него нет ни одного доказательства. У тебя — есть. Собери их.",
+        "en": "The voice speaks with confidence, but it holds zero evidence. You hold plenty. Collect it."
+      }
+    },
+    "profile_high": {
+      "id": "profile_high",
+      "icon": null,
+      "name": {
+        "ru": "Самозванец за рулём",
+        "en": "The Impostor at the Wheel"
+      },
+      "description": {
+        "ru": "Паттерн уже не комментирует — он рулит. Страх разоблачения решает, за что ты берёшься, гиперкомпенсация — сколько ты работаешь, обесценивание — что ты чувствуешь после. Возможности проходят мимо, а усталость копится: ты платишь двойную цену — за работу и за страх.",
+        "en": "The pattern isn't commenting anymore — it's driving. Fear of exposure decides what you take on, overcompensation decides how much you work, devaluation decides how you feel afterwards. Opportunities pass by while fatigue piles up: you pay a double price — for the work, and for the fear."
+      },
+      "whyThisProfile": {
+        "ru": "Средний балл по шести механизмам — между 61 и 80%. На этом уровне паттерн влияет на решения: что взять, куда не пойти, сколько переработать.",
+        "en": "Your average across the six mechanisms is between 61 and 80%. At this level the pattern shapes decisions: what to take, where not to go, how much to overwork."
+      },
+      "strengths": {
+        "ru": [
+          "Ты дошёл до конца теста про самое неудобное в себе — это уже действие",
+          "Честность с собой: ты не приукрасил ответы",
+          "Работоспособность, которую паттерн использует против тебя, — сама по себе ресурс",
+          "Цена паттерна тебе видна — значит, есть с чего начать"
+        ],
+        "en": [
+          "You finished a test about the most uncomfortable thing in you — that's already action",
+          "Honesty with yourself: you didn't polish the answers",
+          "The work capacity the pattern uses against you is a resource in itself",
+          "You can see what the pattern costs — which means there's a starting point"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Постоянный фоновый страх, что «сейчас все поймут», выматывает сильнее самой работы",
+          "Переработка как оправдание своего места — прямая дорога к истощению",
+          "Успехи ты отдаёшь обстоятельствам, ошибки забираешь себе целиком",
+          "Рост тормозит не отсутствие способностей, а решение «мне туда рано»"
+        ],
+        "en": [
+          "The constant background fear of \"they're about to see\" drains you more than the work itself",
+          "Overworking to justify your seat is the direct road to depletion",
+          "You hand your wins to circumstance and keep every mistake for yourself",
+          "What slows your growth isn't ability — it's the ruling \"I'm not ready for that yet\""
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни с тела, а не с мыслей: нормальный сон и границы рабочего дня возвращают силы бороться с паттерном",
+          "Одна переработка в неделю — под запрет: заметь, что мир не рухнул",
+          "Записывай каждый факт, который противоречит «я не на своём месте», — буквально каждый",
+          "Расскажи одному доверенному человеку, как это устроено у тебя внутри: паттерн держится на секретности",
+          "Тренируй «достаточно хорошо»: сдай работу на 90% и посмотри, что произойдёт"
+        ],
+        "en": [
+          "Start with the body, not the thoughts: real sleep and workday boundaries restore the strength to push back",
+          "Ban one overwork session a week — and notice the world doesn't end",
+          "Write down every fact that contradicts \"I don't belong here\" — literally every one",
+          "Tell one trusted person how this works inside you: the pattern runs on secrecy",
+          "Practice \"good enough\": hand in work at 90% and watch what actually happens"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одно дело, которое ты сегодня сделаешь хорошо — и намеренно не идеально.",
+        "en": "Pick one thing today to do well — and deliberately not perfectly."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты годами проходил собеседование, которое давно закончилось. Оно закончилось — тебя взяли.",
+        "en": "You've spent years sitting an interview that ended long ago. It ended — you got the job."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, а не диагноз. Но если страх и самообесценивание — твой постоянный фон и они всерьёз влияют на работу, сон или отношения, разговор с психологом — это не капитуляция, а нормальный следующий шаг. С этим паттерном хорошо умеют работать.",
+        "en": "This is an educational test, not a diagnosis. But if fear and self-discounting are your constant background and they seriously affect your work, sleep or relationships, talking to a therapist isn't surrender — it's a reasonable next step. This pattern responds well to that work."
+      }
+    },
+    "profile_severe": {
+      "id": "profile_severe",
+      "icon": null,
+      "name": {
+        "ru": "В тени самозванца",
+        "en": "In the Impostor's Shadow"
+      },
+      "description": {
+        "ru": "Почти в каждом ответе ты выбрал самую жёсткую формулировку о себе. Так выглядит паттерн, который занял всё поле: страх не отпускает, успехи не присваиваются, вызовы обходятся стороной, а работа на износ не приносит ощущения «я на месте». Важно сказать и второе: иногда так отвечает не самый тяжёлый паттерн, а привычка описывать себя в самых беспощадных словах — она тоже часть картины.",
+        "en": "In almost every answer you picked the harshest wording about yourself. That's what the pattern looks like at full occupation: the fear doesn't let go, the wins don't get claimed, the challenges get bypassed, and working yourself down never buys the feeling of belonging. One more thing needs saying: sometimes answers like these come not from the heaviest pattern but from a habit of describing yourself in the most merciless words available — that habit is part of the picture too."
+      },
+      "whyThisProfile": {
+        "ru": "Средний балл по шести механизмам выше 81% — верхняя зона шкалы. Все механизмы работают одновременно и на полную.",
+        "en": "Your average across the six mechanisms is above 81% — the top band of the scale. Every mechanism is running at once, at full strength."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честно посмотрел на то, от чего большинство отводит глаза",
+          "Раз ты дочитал до этих строк — часть тебя не согласна с приговором самозванца",
+          "Способность столько лет тянуть при таком фоне говорит о выносливости, которую ты себе не записываешь"
+        ],
+        "en": [
+          "You looked straight at what most people look away from",
+          "If you've read this far, part of you disagrees with the impostor's verdict",
+          "Carrying this background for years takes an endurance you never credit yourself with"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Постоянный страх такого уровня истощает — физически, а не фигурально",
+          "Полный отказ себе в заслугах оставляет без опоры именно тогда, когда она нужнее всего",
+          "Избегание вызовов сужает жизнь до коридора, где «безопасно», но тесно",
+          "Изоляция: паттерн шепчет, что рассказать — значит подтвердить «обман»"
+        ],
+        "en": [
+          "Constant fear at this level is physically, not figuratively, exhausting",
+          "Denying yourself every credit removes the ground exactly when you need it most",
+          "Avoiding challenges narrows life to a corridor that's \"safe\" but cramped",
+          "Isolation: the pattern whispers that telling anyone would confirm the \"fraud\""
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не неси это один: один честный разговор — с близким или со специалистом — уже меняет вес",
+          "Снизь нагрузку там, где можешь: паттерн такого уровня не разбирают на бегу",
+          "Заведи вечерний ритуал из одного пункта: записать одну вещь, которую сегодня сделал ты — не повезло, а сделал",
+          "Когда накрывает, возвращайся в тело: медленный выдох длиннее вдоха, ноги на полу, пять предметов вокруг назвать вслух",
+          "Отмечай моменты, когда жёсткие слова о себе — привычка, а не факт"
+        ],
+        "en": [
+          "Don't carry this alone: one honest conversation — with someone close or a professional — already changes the weight",
+          "Reduce the load where you can: a pattern at this level can't be dismantled at a run",
+          "Start a one-line evening ritual: write down one thing YOU did today — not luck, you",
+          "When it floods, come back to the body: exhale longer than the inhale, feet on the floor, name five things around you out loud",
+          "Notice the moments when the harsh words about yourself are a habit, not a fact"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши одному человеку, которому доверяешь, что хочешь поговорить. Не о чём — просто договорись о разговоре.",
+        "en": "Message one person you trust and say you'd like to talk. Not about what — just set the conversation up."
+      },
+      "inspiringConclusion": {
+        "ru": "Самозванец кажется всесильным, пока сидит в темноте. Каждый, кому ты его покажешь, забирает у него часть власти.",
+        "en": "The impostor seems all-powerful only while it sits in the dark. Every person you show it to takes away part of its power."
+      },
+      "supportNote": {
+        "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн, а не расстройство. Но такой уровень постоянного страха и самообесценивания — тяжёлая ноша, и нести её в одиночку не обязательно. Разговор с психологом или психотерапевтом — самый прямой путь; если фон совсем тёмный и задевает сон, еду или желание жить — не откладывай его.",
+        "en": "This result is not a diagnosis: the test is educational and measures a pattern, not a disorder. But this level of constant fear and self-erasure is a heavy load, and you don't have to carry it alone. Talking to a therapist is the most direct route — and if the background gets very dark and touches your sleep, appetite or will to live, don't postpone that conversation."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из imposter_syndrome_data.dart: пороги по среднему всех шести факторов, как toxic_patterns.",
+    "mode": "rules",
+    "fallback": "profile_minimal",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            81
+          ]
+        ],
+        "profile": "profile_severe"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            61
+          ]
+        ],
+        "profile": "profile_high"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            41
+          ]
+        ],
+        "profile": "profile_moderate"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            21
+          ]
+        ],
+        "profile": "profile_mild"
+      }
+    ]
+  }
+}

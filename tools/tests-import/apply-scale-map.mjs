@@ -32,6 +32,8 @@ const LAUNCH_SET = [
   "sixteen_types",
   "friendship_psychology_v1",
   "values_priorities_v1",
+  "imposter_syndrome",
+  "social_battery_v1",
 ];
 
 const scales = JSON.parse(fs.readFileSync(path.join(OUT, "scales.json"), "utf8"));
