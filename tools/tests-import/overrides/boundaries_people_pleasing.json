@@ -1,0 +1,223 @@
+{
+  "$comment": "Э8, волна 2 батч 3. Три профиля-уровня навыка границ. Из заголовка убран англицизм People-Pleasing (в RU), эмодзи из названий профилей, «работа с психологом» из рекомендаций удобного заменена на supportNote-мягкую строку и поведенческие ходы. Пороги (60/60 у угодника, 65×3 у мастера) и веса не тронуты.",
+
+  "title": {
+    "ru": "Личные границы и угождение",
+    "en": "Boundaries and People-Pleasing"
+  },
+  "description": {
+    "ru": "48 вопросов о том, кому достаётся твоё «да»: тебе или всем остальным. Шесть механизмов — от ассертивности до страха отвержения.",
+    "en": "48 questions about who gets your \"yes\" — you, or everyone else. Six mechanisms, from assertiveness to the fear of rejection."
+  },
+
+  "factorNames": {
+    "assertiveness": { "ru": "Ассертивность", "en": "Assertiveness" },
+    "self_prioritization": { "ru": "Приоритет себя", "en": "Putting yourself first" },
+    "emotional_autonomy": { "ru": "Эмоциональная автономия", "en": "Emotional autonomy" },
+    "people_pleasing": { "ru": "Угождение", "en": "People-pleasing" },
+    "fear_of_rejection": { "ru": "Страх отвержения", "en": "Fear of rejection" },
+    "boundary_clarity": { "ru": "Ясность границ", "en": "Boundary clarity" }
+  },
+
+  "profiles": {
+    "people_pleaser": {
+      "name": { "ru": "Удобный", "en": "The Convenient One" },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если привычка угождать выросла из отношений, где отказ был небезопасен, и до сих пор управляет твоей жизнью — разбирать её с психологом легче и быстрее, чем в одиночку. Это рабочая, хорошо изученная тема.",
+        "en": "This is an educational test, not a diagnosis. But if the pleasing habit grew out of relationships where saying no wasn't safe, and it still runs your life — untangling it with a therapist is easier and faster than doing it alone. It's a well-understood, workable pattern."
+      },
+      "description": {
+        "ru": "Твоё «да» отвечает раньше, чем ты успеваешь подумать. Чужой комфорт стоит в расписании первым, отказ ощущается как риск потерять человека — и ты платишь собой за спокойствие всех вокруг.",
+        "en": "Your \"yes\" answers before you've had time to think. Other people's comfort comes first in the schedule, refusing feels like risking the relationship — and you pay with yourself for everyone else's peace."
+      },
+      "whyThisProfile": {
+        "ru": "Два механизма в твоих ответах высокие одновременно: угождение и страх отвержения — оба выше 60%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
+        "en": "Two mechanisms run high in your answers at once: people-pleasing and fear of rejection, both above 60%. That pair is the profile's formula — not kindness itself, but kindness under fear."
+      },
+      "strengths": {
+        "ru": [
+          "Эмпатия: ты считываешь чужое состояние без слов",
+          "Ты умеешь гасить конфликты до того, как они разгорятся",
+          "Внимательность: люди рядом с тобой чувствуют себя замеченными",
+          "Ты легко встраиваешься в любой коллектив"
+        ],
+        "en": [
+          "Empathy: you read people's states without words",
+          "You defuse conflicts before they catch fire",
+          "Attentiveness: people around you feel seen",
+          "You fit into any team with ease"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Свои потребности ты замечаешь последними — когда сил уже нет",
+          "Живя для других, легко потерять след того, чего хочешь ты",
+          "Тем, кто ищет удобных, ты виден издалека",
+          "Проглоченное «нет» не исчезает — оно копится злостью и обидой",
+          "Самооценка держится на чужом одобрении, а это арендованная опора"
+        ],
+        "en": [
+          "You notice your own needs last — once the energy is already gone",
+          "Living for others, it's easy to lose track of what you want",
+          "To people hunting for convenient ones, you're visible from afar",
+          "A swallowed \"no\" doesn't vanish — it piles up as anger and resentment",
+          "Your self-worth rests on others' approval, and that's rented ground"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Вставляй паузу перед согласием: «дай подумать» — легальный ответ на любую просьбу",
+          "Начни с маленьких границ в безопасных местах: не то блюдо в кафе, неудобное время встречи",
+          "Записывай ситуации, где пожертвовал собой, — паттерн видно только на бумаге",
+          "Лови автоматическое «да» и спрашивай себя: я соглашаюсь из желания или из страха?",
+          "Разреши себе быть неудобным на пять минут в день — и замечай, что отношения выдерживают"
+        ],
+        "en": [
+          "Put a pause before agreeing: \"let me think\" is a legal answer to any request",
+          "Start with small boundaries in safe places: the wrong dish at a café, an inconvenient meeting time",
+          "Write down the moments you sacrificed yourself — the pattern is only visible on paper",
+          "Catch the automatic \"yes\" and ask: am I agreeing out of desire or out of fear?",
+          "Allow yourself five inconvenient minutes a day — and notice the relationships survive"
+        ]
+      },
+      "tryToday": {
+        "ru": "На следующую просьбу ответь «дай мне подумать» — и реши через час, а не через секунду.",
+        "en": "Answer the next request with \"let me think about it\" — and decide in an hour, not in a second."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя ценность не измеряется тем, сколько ты отдал. Люди, которым ты правда дорог, останутся рядом и после твоего «нет» — а те, кто уйдёт, держались не за тебя.",
+        "en": "Your worth isn't measured by how much you give away. The people who truly value you will stay after your \"no\" — and the ones who leave were never holding on to you."
+      }
+    },
+
+    "boundary_builder": {
+      "name": { "ru": "Строитель границ", "en": "The Boundary Builder" },
+      "description": {
+        "ru": "Ты уже знаешь, где проходят твои границы, и иногда успешно их держишь. Но не везде и не со всеми: с чужими получается, с близкими — через раз, и после отказа ещё звенит вина.",
+        "en": "You already know where your boundaries run, and sometimes you hold them. But not everywhere and not with everyone: it works with strangers, every other time with the people close to you — and guilt still rings after a refusal."
+      },
+      "whyThisProfile": {
+        "ru": "Твои ответы не попадают ни в формулу удобного (угождение и страх отвержения выше 60%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия выше 65%). Ты посередине — там, где навык уже строится, но ещё не достроен.",
+        "en": "Your answers fit neither the Convenient One's formula (pleasing and rejection fear above 60%) nor the Keeper's (assertiveness, self-priority and autonomy above 65%). You're in the middle — where the skill is under construction but not finished."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь момент, когда границу продавливают, — это уже половина навыка",
+          "Мотивация: ты работаешь над этим, а не миришься",
+          "Гибкость: ты различаешь, где стоит уступить, а где нельзя",
+          "Каждый удачный отказ ты запоминаешь и используешь"
+        ],
+        "en": [
+          "You notice the moment a boundary is being pushed — that's half the skill",
+          "Motivation: you're working on it, not settling",
+          "Flexibility: you can tell where giving in is fine and where it isn't",
+          "You remember every successful refusal and build on it"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Непоследовательность: сегодня граница держится, завтра — нет, и люди это запоминают",
+          "После «нет» приходит вина и уговаривает переиграть",
+          "С самыми близкими границы держатся хуже всего — там страшнее всего терять",
+          "Постоянная борьба выматывает: иногда проще уступить, и это откат"
+        ],
+        "en": [
+          "Inconsistency: the boundary holds today and folds tomorrow, and people remember which",
+          "After a \"no\", guilt arrives and lobbies for a replay",
+          "Boundaries hold worst with the closest people — that's where losing feels scariest",
+          "The constant fight is tiring: sometimes giving in is easier, and that's the backslide"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Частота важнее размера: маленькая граница каждый день тренирует лучше редких больших",
+          "Формулируй границу спокойно и без оправданий — длинные объяснения приглашают торговаться",
+          "Разбери свои триггеры: с кем и в каких ситуациях граница падает чаще всего",
+          "Держись ближе к людям, которые уважают твои «нет», — на них навык растёт быстрее",
+          "Вина после отказа — не сигнал ошибки, а след старой привычки; пережди её, не отменяя решения"
+        ],
+        "en": [
+          "Frequency beats size: one small boundary a day trains better than rare big ones",
+          "State the boundary calmly and without excuses — long explanations invite bargaining",
+          "Map your triggers: with whom and in which situations the boundary falls most often",
+          "Stay close to people who respect your \"no\" — the skill grows fastest around them",
+          "Guilt after refusing isn't an error signal — it's the residue of an old habit; wait it out without reversing the decision"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни две недавние ситуации: где граница удержалась и где нет. Найди одно отличие между ними.",
+        "en": "Recall two recent situations: one where the boundary held and one where it didn't. Find one difference between them."
+      },
+      "inspiringConclusion": {
+        "ru": "Границы — это мышца, и твоя уже растёт. Каждое удержанное «нет» делает следующее дешевле.",
+        "en": "Boundaries are a muscle, and yours is already growing. Every \"no\" you hold makes the next one cheaper."
+      }
+    },
+
+    "boundary_master": {
+      "name": { "ru": "Хозяин границ", "en": "The Boundary Keeper" },
+      "description": {
+        "ru": "Ты говоришь «нет» без вины и «да» без страха. Свои потребности ты называешь прямо, чужое настроение не управляет твоим, и люди рядом с тобой знают, где проходят линии. Это выстроено, а не досталось даром.",
+        "en": "You say no without guilt and yes without fear. You name your needs directly, other people's moods don't steer yours, and everyone around you knows where the lines run. This was built, not given."
+      },
+      "whyThisProfile": {
+        "ru": "Три механизма высокие одновременно: ассертивность, приоритет себя и эмоциональная автономия — все выше 65%. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
+        "en": "Three mechanisms run high at once: assertiveness, self-priority and emotional autonomy — all above 65%. That combination is almost never innate; it's the result of work done."
+      },
+      "strengths": {
+        "ru": [
+          "Ты просишь о том, что нужно, прямо — без намёков и обид",
+          "Чужая критика и чужой восторг не раскачивают твою самооценку",
+          "Твои отношения строятся на взаимном уважении, а не на долге",
+          "Ты умеешь защищать своё, не нападая",
+          "Рядом с тобой другим легче держать собственные границы"
+        ],
+        "en": [
+          "You ask for what you need directly — no hints, no grudges",
+          "Neither criticism nor applause swings your self-worth",
+          "Your relationships run on mutual respect, not obligation",
+          "You defend what's yours without attacking",
+          "Around you, other people find their own boundaries easier to hold"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Слишком ровные стены: границы могут превратиться в дистанцию",
+          "Тебе бывает трудно понять тех, кто своих границ пока не держит",
+          "Твёрдость иногда съедает гибкость там, где компромисс был бы дешевле",
+          "Со стороны твоя автономия может читаться как холод"
+        ],
+        "en": [
+          "Walls too even: boundaries can turn into distance",
+          "People who can't hold their boundaries yet can be hard for you to understand",
+          "Firmness sometimes eats the flexibility where a compromise would've been cheaper",
+          "From the outside, your autonomy can read as coldness"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй границы на актуальность: правило, поставленное три года назад, могло пережить свою причину",
+          "Показывай уязвимость доверенным людям — граница не обязана быть бронёй",
+          "С теми, кто только учится отказывать, будь терпеливее: ты сам был там",
+          "Иногда выбирай компромисс осознанно — не как поражение, а как ход",
+          "Делись механикой: одно твоё объяснение сэкономит кому-то годы"
+        ],
+        "en": [
+          "Audit your boundaries for relevance: a rule set three years ago may have outlived its reason",
+          "Show vulnerability to trusted people — a boundary doesn't have to be armor",
+          "Be patient with those still learning to refuse: you were there once",
+          "Sometimes choose compromise deliberately — as a move, not a defeat",
+          "Share the mechanics: one explanation from you saves someone years"
+        ]
+      },
+      "tryToday": {
+        "ru": "Найди одну ситуацию, где можешь уступить без ущерба себе, — и уступи осознанно. Отследи, как это ощущается.",
+        "en": "Find one situation where you can give ground without losing yourself — and do it deliberately. Track how it feels."
+      },
+      "inspiringConclusion": {
+        "ru": "Границы — не стены, а двери: ты решаешь, когда они открыты. Следи только, чтобы они не заржавели закрытыми.",
+        "en": "Boundaries aren't walls — they're doors: you decide when they open. Just don't let them rust shut."
+      }
+    }
+  }
+}

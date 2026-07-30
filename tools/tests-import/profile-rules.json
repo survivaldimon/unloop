@@ -197,6 +197,28 @@
     ]
   },
 
+  "boundaries_people_pleasing": {
+    "$note": "Перенос determineProfile() из boundaries_people_pleasing_data.dart: два порога, промежуточный billed как фолбэк. boundary_clarity в выборе профиля оригиналом не используется.",
+    "mode": "rules",
+    "fallback": "boundary_builder",
+    "rules": [
+      { "when": [["people_pleasing", ">=", 60], ["fear_of_rejection", ">=", 60]], "profile": "people_pleaser" },
+      { "when": [["assertiveness", ">=", 65], ["self_prioritization", ">=", 65], ["emotional_autonomy", ">=", 65]], "profile": "boundary_master" }
+    ]
+  },
+
+  "fomo_social_comparison_v1": {
+    "$note": "Перенос determineProfile() из fomo_social_comparison_data.dart: пороги по среднему шести факторов (выше = хуже), как imposter_syndrome. 'profile_developing' из пустой ветки оригинала не существует среди профилей — мёртвый код, не переносим.",
+    "mode": "rules",
+    "fallback": "profile_excellent",
+    "rules": [
+      { "when": [["@avg", ">=", 81]], "profile": "profile_danger" },
+      { "when": [["@avg", ">=", 61]], "profile": "profile_critical" },
+      { "when": [["@avg", ">=", 41]], "profile": "profile_warning" },
+      { "when": [["@avg", ">=", 21]], "profile": "profile_good" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

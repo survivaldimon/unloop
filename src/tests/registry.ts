@@ -26,6 +26,8 @@ export const TEST_CATALOGUE = catalogue as TestSummary[];
  */
 const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   attachment_styles_v1: () => import("../content/tests/attachment_styles_v1.json"),
+  boundaries_people_pleasing: () => import("../content/tests/boundaries_people_pleasing.json"),
+  fomo_social_comparison_v1: () => import("../content/tests/fomo_social_comparison_v1.json"),
   friendship_psychology_v1: () => import("../content/tests/friendship_psychology_v1.json"),
   friendship_red_flags_v1: () => import("../content/tests/friendship_red_flags_v1.json"),
   imposter_syndrome: () => import("../content/tests/imposter_syndrome.json"),

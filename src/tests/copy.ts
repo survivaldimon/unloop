@@ -132,7 +132,7 @@ const EN: TestsCopyShape = {
   title: "Tests — Looplore",
   catalogue: {
     kicker: "Nº 01 · Tests",
-    h1: "Eleven ways to read yourself",
+    h1: "Thirteen ways to read yourself",
     body: "Short, honest, no horoscopes. Each one adds to the same portrait — the more you take, the sharper it gets.",
     minutes: (n) => `${n} min`,
     questions: (n) => `${n} questions`,
@@ -252,7 +252,7 @@ const RU: TestsCopyShape = {
   title: "Тесты — Looplore",
   catalogue: {
     kicker: "Nº 01 · Тесты",
-    h1: "Одиннадцать способов прочитать себя",
+    h1: "Тринадцать способов прочитать себя",
     body: "Коротко, честно, без гороскопов. Каждый добавляет к одному портрету — чем больше пройдёшь, тем он точнее.",
     minutes: (n) => `${n} мин`,
     questions: (n) => `${n} вопросов`,

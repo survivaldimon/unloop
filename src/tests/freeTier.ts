@@ -48,6 +48,10 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   // Typology of 12: "my battery dies in an hour" bars are the share hook; the
   // paid read builds on answers and the mix, not the bars.
   social_battery_v1: true,
+  // "Which mechanisms make you convenient" IS the paid read.
+  boundaries_people_pleasing: false,
+  // Level test: the six mechanisms behind the level are the paid read.
+  fomo_social_comparison_v1: false,
 };
 
 /**

@@ -1,0 +1,3147 @@
+{
+  "id": "boundaries_people_pleasing",
+  "title": {
+    "ru": "Личные границы и угождение",
+    "en": "Boundaries and People-Pleasing"
+  },
+  "description": {
+    "ru": "48 вопросов о том, кому достаётся твоё «да»: тебе или всем остальным. Шесть механизмов — от ассертивности до страха отвержения.",
+    "en": "48 questions about who gets your \"yes\" — you, or everyone else. Six mechanisms, from assertiveness to the fear of rejection."
+  },
+  "categoryId": "emotional",
+  "estimatedMinutes": 10,
+  "scoring": "likert",
+  "factorIds": [
+    "assertiveness",
+    "self_prioritization",
+    "emotional_autonomy",
+    "people_pleasing",
+    "fear_of_rejection",
+    "boundary_clarity"
+  ],
+  "factorNames": {
+    "assertiveness": {
+      "ru": "Ассертивность",
+      "en": "Assertiveness"
+    },
+    "self_prioritization": {
+      "ru": "Приоритет себя",
+      "en": "Putting yourself first"
+    },
+    "emotional_autonomy": {
+      "ru": "Эмоциональная автономия",
+      "en": "Emotional autonomy"
+    },
+    "people_pleasing": {
+      "ru": "Угождение",
+      "en": "People-pleasing"
+    },
+    "fear_of_rejection": {
+      "ru": "Страх отвержения",
+      "en": "Fear of rejection"
+    },
+    "boundary_clarity": {
+      "ru": "Ясность границ",
+      "en": "Boundary clarity"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Я легко выражаю свои потребности и желания.",
+        "en": "I easily express my needs and wants."
+      },
+      "factorId": "assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Мне сложно высказывать несогласие с чужим мнением.",
+        "en": "I find it hard to disagree with others' opinions."
+      },
+      "factorId": "assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я могу настоять на своём, даже если это вызывает напряжение.",
+        "en": "I can stand my ground even if it creates tension."
+      },
+      "factorId": "assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я избегаю конфликтов, даже когда мои права нарушены.",
+        "en": "I avoid conflicts even when my rights are violated."
+      },
+      "factorId": "assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Я уверенно говорю «нет», когда что-то не подходит мне.",
+        "en": "I confidently say \"no\" when something doesn't suit me."
+      },
+      "factorId": "assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Мне трудно отказать людям, даже если мне неудобно.",
+        "en": "I find it hard to refuse people, even when it's inconvenient."
+      },
+      "factorId": "assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я защищаю свои границы, не чувствуя вины.",
+        "en": "I defend my boundaries without feeling guilty."
+      },
+      "factorId": "assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я чувствую себя неуютно, когда приходится отстаивать своё мнение.",
+        "en": "I feel uncomfortable when I have to defend my opinion."
+      },
+      "factorId": "assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я забочусь о своих потребностях так же, как о потребностях других.",
+        "en": "I take care of my needs as much as others' needs."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Я жертвую своими интересами ради других.",
+        "en": "I sacrifice my interests for others."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я уделяю время себе, не чувствуя вины.",
+        "en": "I spend time on myself without feeling guilty."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Мне кажется эгоистичным ставить свои нужды на первое место.",
+        "en": "I think it's selfish to put my needs first."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я позволяю себе отдыхать, когда чувствую усталость.",
+        "en": "I allow myself to rest when I feel tired."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я чувствую себя обязанным помогать всем, кто просит.",
+        "en": "I feel obligated to help everyone who asks."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Я принимаю решения исходя из своих ценностей, а не ожиданий других.",
+        "en": "I make decisions based on my values, not others' expectations."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Я откладываю свои дела ради просьб других людей.",
+        "en": "I postpone my tasks to fulfill others' requests."
+      },
+      "factorId": "self_prioritization",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я могу сохранять спокойствие, даже если кто-то недоволен мной.",
+        "en": "I can stay calm even if someone is displeased with me."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Я сильно переживаю, если чувствую, что разочаровал кого-то.",
+        "en": "I get very upset if I feel I disappointed someone."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Моё настроение не зависит от одобрения или критики других.",
+        "en": "My mood doesn't depend on others' approval or criticism."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Я болезненно реагирую на критику в свой адрес.",
+        "en": "I react painfully to criticism directed at me."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я принимаю, что невозможно всем нравиться.",
+        "en": "I accept that it's impossible to please everyone."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Мне нужно одобрение других, чтобы чувствовать себя уверенно.",
+        "en": "I need others' approval to feel confident."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я сохраняю уверенность в себе, даже когда другие не согласны со мной.",
+        "en": "I maintain self-confidence even when others disagree."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Чужое неодобрение сильно влияет на моё эмоциональное состояние.",
+        "en": "Others' disapproval strongly affects my emotional state."
+      },
+      "factorId": "emotional_autonomy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Я стараюсь сделать всё, чтобы другие были довольны мной.",
+        "en": "I try to do everything to make others happy with me."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Я соглашаюсь с другими, чтобы избежать конфликтов.",
+        "en": "I agree with others to avoid conflicts."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я изменяю своё поведение, чтобы соответствовать ожиданиям других.",
+        "en": "I change my behavior to meet others' expectations."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я часто говорю «да», когда хочу сказать «нет».",
+        "en": "I often say \"yes\" when I want to say \"no\"."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я чувствую себя ответственным за настроение других людей.",
+        "en": "I feel responsible for other people's mood."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Я извиняюсь даже тогда, когда не виноват.",
+        "en": "I apologize even when I'm not at fault."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я стараюсь предугадать желания других и выполнить их.",
+        "en": "I try to anticipate others' wishes and fulfill them."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Мне трудно делать выбор, если он может кого-то расстроить.",
+        "en": "I find it hard to make choices if they might upset someone."
+      },
+      "factorId": "people_pleasing",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Я боюсь, что люди перестанут общаться со мной, если я буду отказывать.",
+        "en": "I fear people will stop talking to me if I refuse them."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Мысль о том, что меня могут отвергнуть, вызывает сильную тревогу.",
+        "en": "The thought of being rejected causes strong anxiety."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Я избегаю высказывать своё мнение из страха быть непринятым.",
+        "en": "I avoid expressing my opinion for fear of being rejected."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Я часто думаю, что другие могут меня бросить или отвергнуть.",
+        "en": "I often think others might abandon or reject me."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Я соглашаюсь на вещи, которые мне неприятны, чтобы сохранить отношения.",
+        "en": "I agree to unpleasant things to preserve relationships."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Мне тяжело переживать ситуации, где кто-то недоволен мной.",
+        "en": "I find it hard to cope with situations where someone is unhappy with me."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "Я постоянно беспокоюсь о том, что думают обо мне другие.",
+        "en": "I constantly worry about what others think of me."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "Я чувствую панику, если отношения с кем-то напряжены.",
+        "en": "I feel panic when my relationship with someone is strained."
+      },
+      "factorId": "fear_of_rejection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Я чётко понимаю, где проходят мои личные границы.",
+        "en": "I clearly understand where my personal boundaries are."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Мне трудно определить, когда кто-то нарушает мои границы.",
+        "en": "I find it hard to determine when someone violates my boundaries."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "text": {
+        "ru": "Я знаю, что мне комфортно, а что — нет, в отношениях.",
+        "en": "I know what makes me comfortable and uncomfortable in relationships."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "text": {
+        "ru": "Мне сложно понять, где заканчиваются мои обязанности и начинаются чужие.",
+        "en": "I find it hard to understand where my responsibilities end and others' begin."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "text": {
+        "ru": "Я могу объяснить другим, что для меня приемлемо, а что — нет.",
+        "en": "I can explain to others what is acceptable to me and what is not."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "text": {
+        "ru": "Я часто не замечаю, что беру на себя чужие проблемы.",
+        "en": "I often don't notice when I take on others' problems."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "text": {
+        "ru": "Я осознаю свои эмоциональные и физические пределы.",
+        "en": "I am aware of my emotional and physical limits."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "text": {
+        "ru": "Мне трудно распознать, когда кто-то манипулирует мной.",
+        "en": "I find it hard to recognize when someone is manipulating me."
+      },
+      "factorId": "boundary_clarity",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "assertiveness": 1,
+      "self_efficacy": 0.9,
+      "expressiveness": 0.9,
+      "emotional_openness": 0.8,
+      "straightforwardness": 0.8,
+      "verbal_communication": 0.8,
+      "social_boldness": 0.7,
+      "activity": 0.9,
+      "compliance": -0.8
+    },
+    "q2": {
+      "assertiveness": -0.9,
+      "avoidant_coping": 0.9,
+      "activity": -0.8,
+      "compliance": 0.8,
+      "people_pleasing": 0.7,
+      "harm_avoidance": 0.8,
+      "social_boldness": -0.7,
+      "autonomy_need": -0.7
+    },
+    "q3": {
+      "assertiveness": 1,
+      "social_boldness": 0.9,
+      "persistence": 0.9,
+      "conflict_management": 0.8,
+      "resilience_meta": 0.7,
+      "avoidant_coping": -0.9,
+      "compliance": -0.8
+    },
+    "q4": {
+      "assertiveness": -1,
+      "avoidant_coping": 1,
+      "activity": -0.9,
+      "social_boldness": -0.8,
+      "compliance": 0.8,
+      "harm_avoidance": 0.8
+    },
+    "q5": {
+      "assertiveness": 1,
+      "boundary_setting": 1,
+      "self_efficacy": 0.9,
+      "self_esteem": 0.9,
+      "autonomy_need": 0.8,
+      "straightforwardness": 0.8,
+      "people_pleasing": -0.9,
+      "compliance": -0.8
+    },
+    "q6": {
+      "assertiveness": -0.9,
+      "people_pleasing": 1,
+      "boundary_setting": -1,
+      "compliance": 0.8,
+      "fear_of_abandonment": 0.7,
+      "self_care": -0.8,
+      "self_compassion": -0.7
+    },
+    "q7": {
+      "assertiveness": 1,
+      "boundary_setting": 1,
+      "self_esteem": 0.9,
+      "self_compassion": 0.9,
+      "emotional_resilience": 0.8,
+      "people_pleasing": -0.8
+    },
+    "q8": {
+      "assertiveness": -0.9,
+      "anxiety": 0.8,
+      "self_consciousness": 0.8,
+      "self_efficacy": -0.8,
+      "avoidant_coping": 0.8,
+      "social_boldness": -0.7
+    },
+    "q9": {
+      "self_care": 1,
+      "work_life_balance": 0.9,
+      "self_esteem": 0.9,
+      "boundary_setting": 0.9,
+      "assertiveness": 0.8,
+      "altruism": -0.8,
+      "people_pleasing": -0.8
+    },
+    "q10": {
+      "self_care": -1,
+      "people_pleasing": 1,
+      "altruism": 0.9,
+      "codependency": 0.8,
+      "self_victimization": 0.8
+    },
+    "q11": {
+      "self_care": 1,
+      "self_compassion": 0.9,
+      "self_esteem": 0.9,
+      "work_life_balance": 0.8,
+      "people_pleasing": -0.8
+    },
+    "q12": {
+      "self_care": -0.9,
+      "self_compassion": -1,
+      "people_pleasing": 0.9,
+      "self_victimization": 0.7
+    },
+    "q13": {
+      "self_care": 1,
+      "self_awareness": 0.9,
+      "boundary_setting": 0.9,
+      "burnout": -0.8,
+      "type_a_behavior": -0.8,
+      "people_pleasing": -0.7
+    },
+    "q14": {
+      "self_care": -0.9,
+      "people_pleasing": 1,
+      "responsibility": 0.9,
+      "codependency": 0.9,
+      "boundary_setting": -0.9,
+      "self_compassion": -0.7
+    },
+    "q15": {
+      "self_care": 1,
+      "autonomy_need": 1,
+      "authenticity": 0.9,
+      "conformity": -0.9,
+      "people_pleasing": -0.8
+    },
+    "q16": {
+      "self_care": -1,
+      "people_pleasing": 0.9,
+      "boundary_setting": -0.9,
+      "organization": -0.7,
+      "assertiveness": -0.7,
+      "responsibility": 0.8
+    },
+    "q17": {
+      "autonomy_wellbeing": 1,
+      "emotional_resilience": 0.9,
+      "calmness": 0.9,
+      "mood_stability": 0.9,
+      "self_efficacy": 0.8,
+      "autonomy_need": 0.8,
+      "reward_dependence": -0.9,
+      "anxiety": -0.7
+    },
+    "q18": {
+      "autonomy_wellbeing": -0.9,
+      "self_compassion": -1,
+      "reward_dependence": 0.9,
+      "people_pleasing": 0.8,
+      "anxiety": 0.8,
+      "emotional_resilience": -0.8
+    },
+    "q19": {
+      "autonomy_wellbeing": 1,
+      "mood_stability": 1,
+      "autonomy_need": 0.9,
+      "self_efficacy": 0.9,
+      "resilience_meta": 0.8,
+      "reward_dependence": -1,
+      "vulnerability": -0.7
+    },
+    "q20": {
+      "autonomy_wellbeing": -0.9,
+      "emotional_reactivity": 0.9,
+      "vulnerability": 0.9,
+      "emotional_resilience": -0.9,
+      "self_efficacy": -0.8,
+      "reward_dependence": 0.7
+    },
+    "q21": {
+      "autonomy_wellbeing": 1,
+      "self_acceptance": 1,
+      "critical_thinking": 0.9,
+      "maturity": 0.9,
+      "autonomy_need": 0.8,
+      "reward_dependence": -1,
+      "people_pleasing": -0.9,
+      "perfectionism": -0.7
+    },
+    "q22": {
+      "autonomy_wellbeing": -1,
+      "reward_dependence": 1,
+      "self_efficacy": -0.9,
+      "autonomy_need": -0.9,
+      "codependency": 0.8,
+      "self_esteem": -0.8
+    },
+    "q23": {
+      "autonomy_wellbeing": 1,
+      "self_efficacy": 1,
+      "autonomy_need": 0.9,
+      "resilience_meta": 0.9,
+      "mood_stability": 0.9,
+      "assertiveness": 0.8,
+      "reward_dependence": -0.9,
+      "self_esteem": 0.8
+    },
+    "q24": {
+      "autonomy_wellbeing": -1,
+      "reward_dependence": 1,
+      "mood_stability": -0.9,
+      "vulnerability": 0.9,
+      "emotional_reactivity": 0.8,
+      "resilience_meta": -0.8
+    },
+    "q25": {
+      "people_pleasing": 1,
+      "reward_dependence": 0.9,
+      "responsibility": 0.8,
+      "authenticity": -0.8,
+      "self_care": -0.8,
+      "autonomy_need": -0.7
+    },
+    "q26": {
+      "people_pleasing": 1,
+      "avoidant_coping": 1,
+      "compliance": 0.9,
+      "assertiveness": -0.9,
+      "authenticity": -0.8,
+      "harm_avoidance": 0.8,
+      "activity": -0.8
+    },
+    "q27": {
+      "people_pleasing": 1,
+      "conformity": 1,
+      "authenticity": -1,
+      "reward_dependence": 0.9,
+      "adaptability_leadership": 0.6,
+      "autonomy_need": -0.8
+    },
+    "q28": {
+      "people_pleasing": 1,
+      "boundary_setting": -1,
+      "assertiveness": -0.9,
+      "authenticity": -0.9,
+      "self_esteem": -0.8
+    },
+    "q29": {
+      "people_pleasing": 0.9,
+      "responsibility": 1,
+      "codependency": 0.9,
+      "boundary_setting": -0.9,
+      "autonomy_wellbeing": -0.8,
+      "support_giving": 0.8
+    },
+    "q30": {
+      "people_pleasing": 0.9,
+      "self_compassion": -1,
+      "responsibility": 0.9,
+      "compliance": 0.8,
+      "self_esteem": -0.8,
+      "assertiveness": -0.7,
+      "avoidant_coping": 0.8
+    },
+    "q31": {
+      "people_pleasing": 1,
+      "anxiety": 0.9,
+      "support_giving": 0.9,
+      "codependency": 0.8,
+      "responsibility": 0.8,
+      "self_care": -0.8,
+      "boundary_setting": -0.8
+    },
+    "q32": {
+      "people_pleasing": 1,
+      "fear_of_abandonment": 0.9,
+      "avoidant_coping": 0.9,
+      "decisiveness": -0.8,
+      "assertiveness": -0.8,
+      "self_care": -0.8,
+      "self_compassion": -0.7
+    },
+    "q33": {
+      "fear_of_abandonment": 1,
+      "self_esteem": -0.9,
+      "people_pleasing": 0.8,
+      "boundary_setting": -0.9,
+      "self_efficacy": -0.8,
+      "anxiety": 0.8
+    },
+    "q34": {
+      "fear_of_abandonment": 1,
+      "anxiety": 1,
+      "self_esteem": -0.9,
+      "emotional_resilience": -0.8,
+      "vulnerability": 0.8,
+      "anxious_attachment": 0.8
+    },
+    "q35": {
+      "fear_of_abandonment": 1,
+      "assertiveness": -0.9,
+      "self_consciousness": 0.9,
+      "reward_dependence": 0.9,
+      "expressiveness": -0.9,
+      "authenticity": -0.8,
+      "avoidant_coping": 0.8
+    },
+    "q36": {
+      "fear_of_abandonment": 1,
+      "self_esteem": -0.9,
+      "catastrophizing": 0.9,
+      "anxious_attachment": 0.9,
+      "trust": -0.8,
+      "self_efficacy": -0.8
+    },
+    "q37": {
+      "fear_of_abandonment": 0.9,
+      "boundary_setting": -1,
+      "people_pleasing": 0.9,
+      "self_esteem": -0.9,
+      "codependency": 0.8,
+      "authenticity": -0.8
+    },
+    "q38": {
+      "fear_of_abandonment": 0.9,
+      "reward_dependence": 0.9,
+      "emotional_resilience": -0.9,
+      "anxiety": 0.8,
+      "emotional_reactivity": 0.8,
+      "mood_stability": -0.8,
+      "self_efficacy": -0.7
+    },
+    "q39": {
+      "fear_of_abandonment": 0.9,
+      "self_consciousness": 1,
+      "reward_dependence": 1,
+      "self_efficacy": -0.9,
+      "rumination": 0.8,
+      "anxiety": 0.8
+    },
+    "q40": {
+      "fear_of_abandonment": 1,
+      "panic_tendency": 0.9,
+      "anxiety": 0.9,
+      "emotional_resilience": -0.9,
+      "conflict_management": -0.9,
+      "anxious_attachment": 0.8
+    },
+    "q41": {
+      "boundary_setting": 1,
+      "self_awareness": 1,
+      "assertiveness": 0.8,
+      "self_esteem": 0.8
+    },
+    "q42": {
+      "boundary_setting": -1,
+      "self_awareness": -0.9,
+      "vulnerability": 0.8,
+      "compliance": 0.8
+    },
+    "q43": {
+      "boundary_setting": 1,
+      "self_awareness": 1,
+      "emotional_intelligence": 0.9,
+      "assertiveness": 0.7
+    },
+    "q44": {
+      "boundary_setting": -1,
+      "responsibility": 0.9,
+      "codependency": 0.9,
+      "self_awareness": -0.8
+    },
+    "q45": {
+      "boundary_setting": 1,
+      "assertiveness": 0.9,
+      "verbal_communication": 0.9,
+      "expressiveness": 0.9,
+      "self_efficacy": 0.8,
+      "straightforwardness": 0.8
+    },
+    "q46": {
+      "boundary_setting": -1,
+      "responsibility": 1,
+      "codependency": 0.9,
+      "support_giving": 0.9,
+      "self_awareness": -0.8
+    },
+    "q47": {
+      "boundary_setting": 1,
+      "self_awareness": 1,
+      "emotional_intelligence": 0.9,
+      "self_care": 0.9,
+      "burnout": -0.8
+    },
+    "q48": {
+      "boundary_setting": -0.9,
+      "compliance": 1,
+      "vulnerability": 0.9,
+      "trust": 0.8,
+      "self_awareness": -0.8,
+      "assertiveness": -0.7
+    }
+  },
+  "profiles": {
+    "people_pleaser": {
+      "id": "people_pleaser",
+      "icon": null,
+      "name": {
+        "ru": "Удобный",
+        "en": "The Convenient One"
+      },
+      "description": {
+        "ru": "Твоё «да» отвечает раньше, чем ты успеваешь подумать. Чужой комфорт стоит в расписании первым, отказ ощущается как риск потерять человека — и ты платишь собой за спокойствие всех вокруг.",
+        "en": "Your \"yes\" answers before you've had time to think. Other people's comfort comes first in the schedule, refusing feels like risking the relationship — and you pay with yourself for everyone else's peace."
+      },
+      "whyThisProfile": {
+        "ru": "Два механизма в твоих ответах высокие одновременно: угождение и страх отвержения — оба выше 60%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
+        "en": "Two mechanisms run high in your answers at once: people-pleasing and fear of rejection, both above 60%. That pair is the profile's formula — not kindness itself, but kindness under fear."
+      },
+      "strengths": {
+        "ru": [
+          "Эмпатия: ты считываешь чужое состояние без слов",
+          "Ты умеешь гасить конфликты до того, как они разгорятся",
+          "Внимательность: люди рядом с тобой чувствуют себя замеченными",
+          "Ты легко встраиваешься в любой коллектив"
+        ],
+        "en": [
+          "Empathy: you read people's states without words",
+          "You defuse conflicts before they catch fire",
+          "Attentiveness: people around you feel seen",
+          "You fit into any team with ease"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Свои потребности ты замечаешь последними — когда сил уже нет",
+          "Живя для других, легко потерять след того, чего хочешь ты",
+          "Тем, кто ищет удобных, ты виден издалека",
+          "Проглоченное «нет» не исчезает — оно копится злостью и обидой",
+          "Самооценка держится на чужом одобрении, а это арендованная опора"
+        ],
+        "en": [
+          "You notice your own needs last — once the energy is already gone",
+          "Living for others, it's easy to lose track of what you want",
+          "To people hunting for convenient ones, you're visible from afar",
+          "A swallowed \"no\" doesn't vanish — it piles up as anger and resentment",
+          "Your self-worth rests on others' approval, and that's rented ground"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Вставляй паузу перед согласием: «дай подумать» — легальный ответ на любую просьбу",
+          "Начни с маленьких границ в безопасных местах: не то блюдо в кафе, неудобное время встречи",
+          "Записывай ситуации, где пожертвовал собой, — паттерн видно только на бумаге",
+          "Лови автоматическое «да» и спрашивай себя: я соглашаюсь из желания или из страха?",
+          "Разреши себе быть неудобным на пять минут в день — и замечай, что отношения выдерживают"
+        ],
+        "en": [
+          "Put a pause before agreeing: \"let me think\" is a legal answer to any request",
+          "Start with small boundaries in safe places: the wrong dish at a café, an inconvenient meeting time",
+          "Write down the moments you sacrificed yourself — the pattern is only visible on paper",
+          "Catch the automatic \"yes\" and ask: am I agreeing out of desire or out of fear?",
+          "Allow yourself five inconvenient minutes a day — and notice the relationships survive"
+        ]
+      },
+      "tryToday": {
+        "ru": "На следующую просьбу ответь «дай мне подумать» — и реши через час, а не через секунду.",
+        "en": "Answer the next request with \"let me think about it\" — and decide in an hour, not in a second."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя ценность не измеряется тем, сколько ты отдал. Люди, которым ты правда дорог, останутся рядом и после твоего «нет» — а те, кто уйдёт, держались не за тебя.",
+        "en": "Your worth isn't measured by how much you give away. The people who truly value you will stay after your \"no\" — and the ones who leave were never holding on to you."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если привычка угождать выросла из отношений, где отказ был небезопасен, и до сих пор управляет твоей жизнью — разбирать её с психологом легче и быстрее, чем в одиночку. Это рабочая, хорошо изученная тема.",
+        "en": "This is an educational test, not a diagnosis. But if the pleasing habit grew out of relationships where saying no wasn't safe, and it still runs your life — untangling it with a therapist is easier and faster than doing it alone. It's a well-understood, workable pattern."
+      }
+    },
+    "boundary_builder": {
+      "id": "boundary_builder",
+      "icon": null,
+      "name": {
+        "ru": "Строитель границ",
+        "en": "The Boundary Builder"
+      },
+      "description": {
+        "ru": "Ты уже знаешь, где проходят твои границы, и иногда успешно их держишь. Но не везде и не со всеми: с чужими получается, с близкими — через раз, и после отказа ещё звенит вина.",
+        "en": "You already know where your boundaries run, and sometimes you hold them. But not everywhere and not with everyone: it works with strangers, every other time with the people close to you — and guilt still rings after a refusal."
+      },
+      "whyThisProfile": {
+        "ru": "Твои ответы не попадают ни в формулу удобного (угождение и страх отвержения выше 60%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия выше 65%). Ты посередине — там, где навык уже строится, но ещё не достроен.",
+        "en": "Your answers fit neither the Convenient One's formula (pleasing and rejection fear above 60%) nor the Keeper's (assertiveness, self-priority and autonomy above 65%). You're in the middle — where the skill is under construction but not finished."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь момент, когда границу продавливают, — это уже половина навыка",
+          "Мотивация: ты работаешь над этим, а не миришься",
+          "Гибкость: ты различаешь, где стоит уступить, а где нельзя",
+          "Каждый удачный отказ ты запоминаешь и используешь"
+        ],
+        "en": [
+          "You notice the moment a boundary is being pushed — that's half the skill",
+          "Motivation: you're working on it, not settling",
+          "Flexibility: you can tell where giving in is fine and where it isn't",
+          "You remember every successful refusal and build on it"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Непоследовательность: сегодня граница держится, завтра — нет, и люди это запоминают",
+          "После «нет» приходит вина и уговаривает переиграть",
+          "С самыми близкими границы держатся хуже всего — там страшнее всего терять",
+          "Постоянная борьба выматывает: иногда проще уступить, и это откат"
+        ],
+        "en": [
+          "Inconsistency: the boundary holds today and folds tomorrow, and people remember which",
+          "After a \"no\", guilt arrives and lobbies for a replay",
+          "Boundaries hold worst with the closest people — that's where losing feels scariest",
+          "The constant fight is tiring: sometimes giving in is easier, and that's the backslide"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Частота важнее размера: маленькая граница каждый день тренирует лучше редких больших",
+          "Формулируй границу спокойно и без оправданий — длинные объяснения приглашают торговаться",
+          "Разбери свои триггеры: с кем и в каких ситуациях граница падает чаще всего",
+          "Держись ближе к людям, которые уважают твои «нет», — на них навык растёт быстрее",
+          "Вина после отказа — не сигнал ошибки, а след старой привычки; пережди её, не отменяя решения"
+        ],
+        "en": [
+          "Frequency beats size: one small boundary a day trains better than rare big ones",
+          "State the boundary calmly and without excuses — long explanations invite bargaining",
+          "Map your triggers: with whom and in which situations the boundary falls most often",
+          "Stay close to people who respect your \"no\" — the skill grows fastest around them",
+          "Guilt after refusing isn't an error signal — it's the residue of an old habit; wait it out without reversing the decision"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни две недавние ситуации: где граница удержалась и где нет. Найди одно отличие между ними.",
+        "en": "Recall two recent situations: one where the boundary held and one where it didn't. Find one difference between them."
+      },
+      "inspiringConclusion": {
+        "ru": "Границы — это мышца, и твоя уже растёт. Каждое удержанное «нет» делает следующее дешевле.",
+        "en": "Boundaries are a muscle, and yours is already growing. Every \"no\" you hold makes the next one cheaper."
+      }
+    },
+    "boundary_master": {
+      "id": "boundary_master",
+      "icon": null,
+      "name": {
+        "ru": "Хозяин границ",
+        "en": "The Boundary Keeper"
+      },
+      "description": {
+        "ru": "Ты говоришь «нет» без вины и «да» без страха. Свои потребности ты называешь прямо, чужое настроение не управляет твоим, и люди рядом с тобой знают, где проходят линии. Это выстроено, а не досталось даром.",
+        "en": "You say no without guilt and yes without fear. You name your needs directly, other people's moods don't steer yours, and everyone around you knows where the lines run. This was built, not given."
+      },
+      "whyThisProfile": {
+        "ru": "Три механизма высокие одновременно: ассертивность, приоритет себя и эмоциональная автономия — все выше 65%. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
+        "en": "Three mechanisms run high at once: assertiveness, self-priority and emotional autonomy — all above 65%. That combination is almost never innate; it's the result of work done."
+      },
+      "strengths": {
+        "ru": [
+          "Ты просишь о том, что нужно, прямо — без намёков и обид",
+          "Чужая критика и чужой восторг не раскачивают твою самооценку",
+          "Твои отношения строятся на взаимном уважении, а не на долге",
+          "Ты умеешь защищать своё, не нападая",
+          "Рядом с тобой другим легче держать собственные границы"
+        ],
+        "en": [
+          "You ask for what you need directly — no hints, no grudges",
+          "Neither criticism nor applause swings your self-worth",
+          "Your relationships run on mutual respect, not obligation",
+          "You defend what's yours without attacking",
+          "Around you, other people find their own boundaries easier to hold"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Слишком ровные стены: границы могут превратиться в дистанцию",
+          "Тебе бывает трудно понять тех, кто своих границ пока не держит",
+          "Твёрдость иногда съедает гибкость там, где компромисс был бы дешевле",
+          "Со стороны твоя автономия может читаться как холод"
+        ],
+        "en": [
+          "Walls too even: boundaries can turn into distance",
+          "People who can't hold their boundaries yet can be hard for you to understand",
+          "Firmness sometimes eats the flexibility where a compromise would've been cheaper",
+          "From the outside, your autonomy can read as coldness"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй границы на актуальность: правило, поставленное три года назад, могло пережить свою причину",
+          "Показывай уязвимость доверенным людям — граница не обязана быть бронёй",
+          "С теми, кто только учится отказывать, будь терпеливее: ты сам был там",
+          "Иногда выбирай компромисс осознанно — не как поражение, а как ход",
+          "Делись механикой: одно твоё объяснение сэкономит кому-то годы"
+        ],
+        "en": [
+          "Audit your boundaries for relevance: a rule set three years ago may have outlived its reason",
+          "Show vulnerability to trusted people — a boundary doesn't have to be armor",
+          "Be patient with those still learning to refuse: you were there once",
+          "Sometimes choose compromise deliberately — as a move, not a defeat",
+          "Share the mechanics: one explanation from you saves someone years"
+        ]
+      },
+      "tryToday": {
+        "ru": "Найди одну ситуацию, где можешь уступить без ущерба себе, — и уступи осознанно. Отследи, как это ощущается.",
+        "en": "Find one situation where you can give ground without losing yourself — and do it deliberately. Track how it feels."
+      },
+      "inspiringConclusion": {
+        "ru": "Границы — не стены, а двери: ты решаешь, когда они открыты. Следи только, чтобы они не заржавели закрытыми.",
+        "en": "Boundaries aren't walls — they're doors: you decide when they open. Just don't let them rust shut."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из boundaries_people_pleasing_data.dart: два порога, промежуточный billed как фолбэк. boundary_clarity в выборе профиля оригиналом не используется.",
+    "mode": "rules",
+    "fallback": "boundary_builder",
+    "rules": [
+      {
+        "when": [
+          [
+            "people_pleasing",
+            ">=",
+            60
+          ],
+          [
+            "fear_of_rejection",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "people_pleaser"
+      },
+      {
+        "when": [
+          [
+            "assertiveness",
+            ">=",
+            65
+          ],
+          [
+            "self_prioritization",
+            ">=",
+            65
+          ],
+          [
+            "emotional_autonomy",
+            ">=",
+            65
+          ]
+        ],
+        "profile": "boundary_master"
+      }
+    ]
+  }
+}

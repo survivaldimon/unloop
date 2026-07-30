@@ -90,10 +90,18 @@
 
 Верификация: фикстуры 40/40, tsc чист, чанки ~60 и ~88 КБ, смоук обоих на дев-сервере (профили по правилам, supportNote рендерится, граница §2 на экране), линт Э8 чистый.
 
-### Второй эшелон — готовы, но не в первую волну (осталось 16)
-`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `fomo_social_comparison_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `boundaries_people_pleasing`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+### Батч 3 ✅ в проде (задеплоен 30.07.2026 по «делаем» основателя)
 
-(`friendship_psychology_v1` и `values_priorities_v1` забраны батчем 1, `imposter_syndrome` и `social_battery_v1` — батчем 2, см. выше.)
+**`boundaries_people_pleasing`** («Личные границы и угождение», 48 q, 3 профиля) — 47 фантомных шкал разнесены (+42 алиаса, 2 новые шкалы: `people_pleasing` и `codependency` — оба вернутся в реляционных тестах, 3 в drop). Правила: две пороговые комбинации + фолбэк-строитель. Э8: англицизм из заголовка, эмодзи из названий («Удобный», «Строитель границ», «Хозяин границ»), у Удобного «работа с психологом» из рекомендаций заменена мягким supportNote. Бары платные.
+
+**`fomo_social_comparison_v1`** («FOMO и чужая идеальная жизнь», 48 q, 5 уровней) — чист по аудиту, но самый тяжёлый контент после severe_toxicity: на верхних уровнях исходник ставил «клиническую зависимость», назначал психиатра «НА СЕГОДНЯ», антидепрессанты, стационар и кризисный телефон, плюс бренды (Instagram, TikTok, книги) и эмодзи в каждой строке. Переписан целиком: арка уровней «Лента — инструмент → Лёгкий крючок → Скролл берёт своё → Лента рулит → Жизнь на ленте», supportNote на двух верхних (без телефонов и назначений), у нижнего уровня — честная оговорка про привычку предельных слов. Тип разбора `levels`. Бары платные.
+
+Верификация: фикстуры 48/48, синтетика подтвердила достижимость boundary_master, tsc чист, чанки 50 и 70 КБ, смоук на дев-сервере, линт Э8 чистый.
+
+### Второй эшелон — готовы, но не в первую волну (осталось 14)
+`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+
+(Забраны волной 2: батч 1 — `friendship_psychology_v1`, `values_priorities_v1`; батч 2 — `imposter_syndrome`, `social_battery_v1`; батч 3 — `boundaries_people_pleasing`, `fomo_social_comparison_v1`.)
 
 Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
 

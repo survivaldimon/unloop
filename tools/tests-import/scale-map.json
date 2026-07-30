@@ -1,7 +1,7 @@
 {
   "$comment": "Э2 — нормализация реестра шкал под запускной набор (docs/tests-catalogue.md). Отображает шкалы, на которые ссылаются веса tests_app, но которых нет в hierarchical_scales.dart, на канонические шкалы реестра. Применяется скриптом apply-scale-map.mjs.",
   "principle": "Алиас к существующей шкале везде, где есть разумная цель. Новая шкала добавляется, только если конструкт правдоподобно встретится и в других тестах: шкала, которую использует ровно один тест, не даёт ничего кросс-тестовому профилю, ради которого слой и существует. invert:true переворачивает знак веса, когда цель — противоположный полюс источника.",
-  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2, батч 1 (friendship_psychology_v1: 3, values_priorities_v1: 49) + батч 2 (imposter_syndrome: 32; social_battery_v1 чист). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
+  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2: батч 1 (friendship_psychology_v1: 3, values_priorities_v1: 49), батч 2 (imposter_syndrome: 32; social_battery_v1 чист), батч 3 (boundaries_people_pleasing: 47; fomo_social_comparison_v1 чист). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
 
   "newScales": {
     "conscientiousness": {
@@ -84,6 +84,24 @@
       },
       "categoryId": "cat_identity",
       "why": "Одна ссылка в imposter_syndrome, но fomo_social_comparison_v1 из второго эшелона назван этим конструктом — шкала точно понадобится."
+    },
+    "people_pleasing": {
+      "name": { "ru": "Угождение другим", "en": "People-Pleasing" },
+      "description": {
+        "ru": "Привычка ставить чужой комфорт выше собственных потребностей из страха отвержения",
+        "en": "The habit of putting others' comfort above one's own needs for fear of rejection"
+      },
+      "categoryId": "cat_relationships",
+      "why": "Центральный конструкт boundaries_people_pleasing (21 ссылка + синонимический куст self_sacrifice). Compliance из Большой пятёрки — про уступчивость как черту, не про страховое угождение; вернётся в реляционных тестах эшелона."
+    },
+    "codependency": {
+      "name": { "ru": "Созависимость", "en": "Codependency" },
+      "description": {
+        "ru": "Самооценка через нужность другому и растворение в его потребностях",
+        "en": "Self-worth through being needed and dissolving into another's needs"
+      },
+      "categoryId": "cat_relationships",
+      "why": "7 ссылок здесь + relationship_dependency; ни anxious_attachment (тревога связи), ни reward_dependence (темперамент) не покрывают. Встретится в romantic_potential_v1 и relationship_compatibility_v1."
     },
     "respect": {
       "name": { "ru": "Уважение к партнёру", "en": "Respect for Partner" },
@@ -227,13 +245,59 @@
     "openness_to_experience": { "to": "openness", "note": "На шкалу-домен, заведённую батчем 1" },
     "control_need": { "to": "dominance", "note": "Как control из запускного набора" },
     "trust_in_others": { "to": "trust" },
-    "collaboration": { "to": "cooperativeness" }
+    "collaboration": { "to": "cooperativeness" },
+
+    "self_sacrifice": { "to": "people_pleasing", "note": "Батч 3 (boundaries): жертвенность — синонимический куст угождения на тех же вопросах" },
+    "approval_seeking": { "to": "reward_dependence", "note": "Зависимость от социального одобрения — это и есть конструкт reward_dependence" },
+    "external_validation": { "to": "reward_dependence" },
+    "self_prioritization": { "to": "self_care" },
+    "healthy_selfishness": { "to": "self_care" },
+    "rest_priority": { "to": "self_care" },
+    "healthy_boundaries": { "to": "boundary_setting" },
+    "boundary_clarity": { "to": "boundary_setting" },
+    "boundary_confusion": { "to": "boundary_setting", "invert": true },
+    "fear_of_rejection": { "to": "fear_of_abandonment", "note": "Отвержение шире покидания, но в реляционном контексте теста это один страх" },
+    "abandonment_fear": { "to": "fear_of_abandonment" },
+    "emotional_autonomy": { "to": "autonomy_wellbeing" },
+    "self_respect": { "to": "self_esteem" },
+    "guilt_proneness": { "to": "self_compassion", "invert": true, "note": "Хроническая вина = обратная сторона сочувствия к себе (как self_criticism)" },
+    "guilt_freedom": { "to": "self_compassion" },
+    "overresponsibility": { "to": "responsibility", "note": "Гипертрофия того же конструкта; направление сигнала сохраняется" },
+    "overwork_tendency": { "to": "type_a_behavior" },
+    "emotional_stability": { "to": "mood_stability" },
+    "self_advocacy": { "to": "assertiveness" },
+    "directness": { "to": "straightforwardness" },
+    "sensitivity": { "to": "emotional_reactivity" },
+    "attachment_anxiety": { "to": "anxious_attachment" },
+    "relationship_dependency": { "to": "codependency", "note": "На новую шкалу" },
+    "martyrdom": { "to": "self_victimization" },
+    "self_knowledge": { "to": "self_awareness" },
+    "conflict_tolerance": { "to": "conflict_management" },
+    "autonomy": { "to": "autonomy_need" },
+    "selflessness": { "to": "altruism" },
+    "burnout_resistance": { "to": "burnout", "invert": true },
+    "self_integrity": { "to": "authenticity" },
+    "value_alignment": { "to": "authenticity" },
+    "self_betrayal": { "to": "authenticity", "invert": true },
+    "caretaking": { "to": "support_giving" },
+    "anticipatory_caretaking": { "to": "support_giving" },
+    "manipulation_susceptibility": { "to": "compliance" },
+    "naivety": { "to": "trust", "note": "Избыточное доверие — та же шкала, знак сохраняется" },
+    "time_management": { "to": "organization" },
+    "realistic_thinking": { "to": "critical_thinking" },
+    "emotional_maturity": { "to": "maturity" },
+    "hypervigilance": { "to": "anxiety" },
+    "decision_difficulty": { "to": "decisiveness", "invert": true },
+    "catastrophic_thinking": { "to": "catastrophizing" }
   },
 
   "drop": {
     "relaxation": "Ценность отдыха без внятной цели в реестре: hedonism уже стоит на тех же вопросах комфорта, слияние съело бы вклад. 3 ссылки.",
     "practicality": "Слишком размытый конструкт (1 ссылка); ближайшие цели (prudence, competence) — о другом.",
     "discomfort": "Не конструкт, а состояние (2 ссылки imposter_syndrome); любая цель была бы натяжкой.",
-    "emotional_flatness": "1 ссылка, размыто; positive_emotions invert исказил бы смысл (уплощение — не отсутствие радости)."
+    "emotional_flatness": "1 ссылка, размыто; positive_emotions invert исказил бы смысл (уплощение — не отсутствие радости).",
+    "strength": "1 ссылка (boundaries), не конструкт.",
+    "defensiveness": "1 ссылка, размыто между composure invert и hostility — обе цели натяжка.",
+    "internal_conflict": "1 ссылка, состояние без внятной шкалы-цели."
   }
 }

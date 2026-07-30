@@ -1,0 +1,347 @@
+{
+  "$comment": "Э8, волна 2 батч 3. Уровневый тест (пороги 21/41/61/81 по среднему шести факторов). Самый тяжёлый исходник после severe_toxicity: на верхних уровнях — «клиническая зависимость», «психиатр НА СЕГОДНЯ», антидепрессанты, стационар, 12 шагов, кризисный телефон, плюс бренды (Instagram, TikTok, Freedom, Cold Turkey, книги Ньюпорта/Курпатова/Eyal) и эмодзи в каждой строке. Переписано целиком: паттерн и его цена вместо диагноза, спокойный supportNote на двух верхних уровнях (без телефонов), названия уровней — арка ленты. Пороги и веса не тронуты.",
+
+  "title": {
+    "ru": "FOMO и чужая идеальная жизнь",
+    "en": "FOMO and Everyone Else's Perfect Life"
+  },
+  "description": {
+    "ru": "48 вопросов о том, что с тобой делает лента: страх упустить, сравнение с чужими хайлайтами, зависимость от реакций. Пять уровней — от «лента как инструмент» до «жизнь внутри ленты».",
+    "en": "48 questions about what the feed does to you: the fear of missing out, comparing yourself to other people's highlights, depending on reactions. Five levels — from \"the feed is a tool\" to \"living inside the feed\"."
+  },
+
+  "factorNames": {
+    "fomo": { "ru": "Страх упустить", "en": "Fear of missing out" },
+    "social_comparison": { "ru": "Сравнение с другими", "en": "Comparing yourself" },
+    "validation_seeking": { "ru": "Зависимость от реакций", "en": "Needing the reactions" },
+    "envy_discontent": { "ru": "Зависть к чужой жизни", "en": "Envy of other lives" },
+    "compulsive_checking": { "ru": "Компульсивный скролл", "en": "Compulsive scrolling" },
+    "self_worth_dependency": { "ru": "Самооценка из ленты", "en": "Self-worth from the feed" }
+  },
+
+  "profiles": {
+    "profile_excellent": {
+      "name": { "ru": "Лента — инструмент", "en": "The Feed Is a Tool" },
+      "description": {
+        "ru": "Соцсети у тебя на своём месте: ты ими пользуешься, а не они тобой. Чужие сторис не портят тебе вечер, лайки не решают, каким было твоё утро, а телефон откладывается без ломки.",
+        "en": "Social media sits where it belongs in your life: you use it, it doesn't use you. Other people's stories don't ruin your evening, likes don't decide how your morning went, and the phone goes down without withdrawal."
+      },
+      "whyThisProfile": {
+        "ru": "Все шесть механизмов в твоих ответах — в нижней зоне, среднее до 21%: страх упустить, сравнение, зависимость от реакций и компульсивный скролл почти не отозвались.",
+        "en": "All six mechanisms sit in the low zone of your answers, averaging under 21%: fear of missing out, comparison, needing reactions and compulsive scrolling barely registered."
+      },
+      "strengths": {
+        "ru": [
+          "Твоя самооценка живёт не в ленте — её не раскачать чужим постом",
+          "Ты помнишь, что видишь чужие хайлайты, а не чужую жизнь",
+          "Телефон подчиняется твоим планам, а не наоборот",
+          "Чужим успехам ты радуешься, а не сверяешь по ним свою цену"
+        ],
+        "en": [
+          "Your self-worth doesn't live in the feed — no one's post can swing it",
+          "You remember you're watching people's highlights, not their lives",
+          "The phone obeys your plans, not the other way around",
+          "You enjoy other people's wins instead of pricing yourself against them"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Устойчивость — не прививка навсегда: стресс и перемены умеют возвращать скролл",
+          "Если всё окружение живёт в ленте, её гравитация тянет и тебя"
+        ],
+        "en": [
+          "Stability isn't a permanent vaccine: stress and life changes can bring the scroll back",
+          "If everyone around you lives in the feed, its gravity pulls on you too"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в месяц поглядывай на экранное время — дрейф начинается незаметно",
+          "Заходя в ленту, спрашивай себя, зачем зашёл, — привычка, которая держит остальные",
+          "Замечай аккаунты, после которых настроение проседает, и убирай их сразу",
+          "Свою устойчивость не прячь: расскажи, как она устроена, тому, кто тонет"
+        ],
+        "en": [
+          "Glance at your screen time once a month — drift starts quietly",
+          "When you open the feed, ask yourself why you came — the habit that holds up all the others",
+          "Notice the accounts that dent your mood and cut them immediately",
+          "Don't hide your stability: explain how it works to someone who's drowning"
+        ]
+      },
+      "tryToday": {
+        "ru": "Расскажи одному человеку, который залипает в ленте, как у тебя устроены отношения с соцсетями.",
+        "en": "Tell one person who's stuck in the feed how your relationship with social media actually works."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты живёшь в эпоху ленты и остаёшься себе хозяином — это редкость. Твоя цена не измеряется реакциями, и ты это уже знаешь.",
+        "en": "You live in the feed era and remain your own person — that's rare. Your worth isn't measured in reactions, and you already know it."
+      }
+    },
+
+    "profile_good": {
+      "name": { "ru": "Лёгкий крючок", "en": "A Light Hook" },
+      "description": {
+        "ru": "В целом лента тебе подчиняется, но крючок уже заброшен: иногда ты ловишь себя на сравнении, проверяешь реакции чаще, чем хотел бы, и залипаешь дольше, чем планировал. Пока это эпизоды — самое время не дать им стать фоном.",
+        "en": "Mostly the feed obeys you, but the hook is in the water: sometimes you catch yourself comparing, you check reactions more often than you'd like, and you scroll longer than you planned. For now these are episodes — the right time to keep them from becoming the background."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по шести механизмам — между 21 и 40%: здоровые привычки перемешаны с эпизодами сравнения, проверки реакций и страха упустить.",
+        "en": "Your average across the six mechanisms lands between 21 and 40%: healthy habits mixed with episodes of comparing, checking reactions and fearing you'll miss out."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь, когда лента портит тебе настроение, — это уже фильтр",
+          "У тебя есть жизнь вне экрана, и она перевешивает",
+          "Идеальным картинкам ты чаще не веришь, чем веришь",
+          "Отложить телефон ты пока можешь — навык на месте"
+        ],
+        "en": [
+          "You notice when the feed sours your mood — that's already a filter",
+          "You have a life off-screen, and it outweighs the feed",
+          "You disbelieve the perfect pictures more often than you believe them",
+          "You can still put the phone down — the skill is intact"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Скука и одиночество включают скролл сами, без твоего решения",
+          "Чужой удачный пост иногда добирается до настроения",
+          "Время в ленте регулярно превышает план — понемногу, но каждый раз",
+          "Без внимания эти эпизоды имеют привычку срастаться в фон"
+        ],
+        "en": [
+          "Boredom and loneliness start the scroll on their own, without your decision",
+          "Someone's lucky post still reaches your mood sometimes",
+          "Feed time regularly overruns the plan — a little, but every time",
+          "Left unattended, these episodes tend to fuse into a background"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Запиши неделю триггеров: в какие моменты рука тянется к ленте сама",
+          "Отпишись от аккаунтов, после которых сравниваешь себя, — лента обязана работать на тебя",
+          "Убери уведомления соцсетей: заходи, когда решил сам, а не когда позвали",
+          "Заведи один день в неделю без ленты и посмотри, что изменится",
+          "Прокачивай офлайн-источники радости — крючок держит слабее, когда есть чем жить"
+        ],
+        "en": [
+          "Log a week of triggers: which moments send your hand to the feed on its own",
+          "Unfollow the accounts that leave you comparing — the feed must work for you",
+          "Kill social notifications: come when you decide, not when you're summoned",
+          "Set one feed-free day a week and see what changes",
+          "Grow your offline sources of joy — the hook holds weaker when there's something else to live on"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отключи уведомления соцсетей прямо сейчас — проверяй ленту, когда сам решишь, а не когда она позовёт.",
+        "en": "Turn off social notifications right now — check the feed when you decide, not when it calls."
+      },
+      "inspiringConclusion": {
+        "ru": "Лента спроектирована так, чтобы тебя удерживать, — а ты пока удерживаешь её. Пара небольших правил сейчас избавит от большой уборки потом.",
+        "en": "The feed is engineered to hold you — and for now, you're holding it. A couple of small rules today saves a big cleanup later."
+      }
+    },
+
+    "profile_warning": {
+      "name": { "ru": "Скролл берёт своё", "en": "The Scroll Takes Its Cut" },
+      "description": {
+        "ru": "Лента уже влияет на твою жизнь: сравнение с чужими кадрами стало привычкой, реакции под постом решают больше, чем хотелось бы, а телефон проверяется сам. Это ещё не потеря управления — но комиссия, которую скролл снимает с твоего настроения и времени, растёт каждый месяц.",
+        "en": "The feed already shapes your life: comparing yourself to other people's frames has become a habit, the reactions under a post decide more than you'd like, and the phone checks itself. It's not lost control yet — but the commission the scroll charges on your mood and time grows every month."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по механизмам — между 41 и 60%: сравнение, зависимость от реакций, страх упустить и компульсивная проверка выражены и работают регулярно, а не эпизодами.",
+        "en": "Your average across the mechanisms is between 41 and 60%: comparison, needing reactions, fear of missing out and compulsive checking are pronounced and run regularly, not in episodes."
+      },
+      "strengths": {
+        "ru": [
+          "Ты прошёл тест и смотришь на цифры — большинство не доходит и до этого",
+          "Ты видишь связь между лентой и своим настроением, а не отрицаешь её",
+          "На этой стадии рулевое управление ещё в твоих руках",
+          "Мотивация уже есть: ты ищешь выход, а не оправдание"
+        ],
+        "en": [
+          "You took the test and you're looking at the numbers — most people never get this far",
+          "You see the link between the feed and your mood instead of denying it",
+          "At this stage the steering wheel is still in your hands",
+          "The motivation is already here: you're looking for a way out, not an excuse"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Самооценка всё чаще сверяется с чужими постами — а это сравнение нечестное по построению",
+          "После сессии в ленте настроение стабильно ниже, чем до неё",
+          "Часы уходят в скролл незаметно и не возвращаются",
+          "Страх упустить не даёт просто отдохнуть: отпуск с телефоном в руке — не отпуск",
+          "Зависть из эпизода превращается в фон"
+        ],
+        "en": [
+          "Your self-worth checks itself against other people's posts more and more — a comparison rigged by design",
+          "Your mood after a feed session is consistently lower than before it",
+          "Hours vanish into the scroll unnoticed and don't come back",
+          "The fear of missing out won't let you simply rest: a holiday with phone in hand isn't a holiday",
+          "Envy is turning from an episode into a background"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Поставь жёсткий лимит на самое липкое приложение — и отдай ему пароль от лимита кому-то другому",
+          "Убери одно приложение с телефона на две недели: не навсегда, а как эксперимент с замером настроения",
+          "Почисти подписки наполовину: оставь людей, которых знаешь, и контент, который учит или радует",
+          "Записывай настроение до и после ленты неделю — цифры убеждают лучше намерений",
+          "Верни в неделю два-три часа офлайн-занятия, которое было вытеснено скроллом"
+        ],
+        "en": [
+          "Put a hard limit on the stickiest app — and give the limit's password to someone else",
+          "Remove one app from your phone for two weeks: not forever, an experiment with a mood log",
+          "Cut your follows in half: keep people you know and content that teaches or delights",
+          "Log your mood before and after the feed for a week — numbers persuade better than intentions",
+          "Give back two or three weekly hours to the offline thing the scroll crowded out"
+        ]
+      },
+      "tryToday": {
+        "ru": "Удали с телефона одно приложение — то, которое цепляет сильнее всего. На неделю. Прямо сейчас.",
+        "en": "Delete one app from your phone — the one that hooks you hardest. For a week. Right now."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты на развилке, и обе дороги ещё открыты. Алгоритм сильный, но у него нет главного — права решать за тебя.",
+        "en": "You're at a fork, and both roads are still open. The algorithm is strong, but it lacks the one thing that matters — the right to decide for you."
+      }
+    },
+
+    "profile_critical": {
+      "name": { "ru": "Лента рулит", "en": "The Feed Is Driving" },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если лента съедает часы каждый день, а настроение и сон всерьёз просели — разговор с психологом заметно ускорит выход: компульсивный скролл и самооценка, привязанная к реакциям, — рабочие, хорошо изученные темы.",
+        "en": "This is an educational test, not a diagnosis. But if the feed eats hours daily and your mood and sleep have genuinely sagged, talking to a therapist will speed up the way out: compulsive scrolling and reaction-tied self-worth are workable, well-studied territory."
+      },
+      "description": {
+        "ru": "Руль у ленты: она решает, когда тебе проверять телефон, с кем себя сравнивать и как себя чувствовать после. Время уходит часами, самооценка привязана к реакциям, чужие кадры стабильно бьют по твоим. Управление можно вернуть — но уже не парой настроек.",
+        "en": "The feed holds the wheel: it decides when you check the phone, who you compare yourself to and how you feel afterwards. Hours go to it daily, your self-worth is tied to reactions, other people's frames reliably bruise yours. Control can be taken back — but no longer with a couple of settings."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по шести механизмам — между 61 и 80%: почти все они работают одновременно и сильно. На этом уровне лента влияет уже не на настроение, а на устройство дня.",
+        "en": "Your average across the six mechanisms is between 61 and 80%: nearly all of them run strong and simultaneously. At this level the feed shapes not your mood but the structure of your day."
+      },
+      "strengths": {
+        "ru": [
+          "Ты дошёл до конца теста и не отвернулся от результата — это не мелочь",
+          "Ты называешь происходящее своим именем, без «да всё нормально»",
+          "Сама усталость от ленты — уже ресурс: бежать из места, которое надоело, легче"
+        ],
+        "en": [
+          "You finished the test and didn't look away from the result — that's not nothing",
+          "You call what's happening by its name, without the \"it's fine\" cover",
+          "Being tired of the feed is itself a resource: it's easier to leave a place you're sick of"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Самооценка почти целиком вынесена наружу — в чужие пальцы на чужих экранах",
+          "Часы в ленте вытесняют сон, работу и живых людей",
+          "Остановиться по собственному решению получается всё реже",
+          "Зависть и сравнение стали постоянным фоном, и он тяжёлый",
+          "Телефон до глубокой ночи — и усталость наутро как часть распорядка"
+        ],
+        "en": [
+          "Your self-worth has been moved almost entirely outside — into other people's thumbs on other people's screens",
+          "Feed hours crowd out sleep, work and living people",
+          "Stopping by your own decision works less and less often",
+          "Envy and comparison have become a constant background, and it's a heavy one",
+          "The phone runs deep into the night — and next-morning exhaustion is part of the schedule"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не пытайся выйти на силе воли одной: убери приложения с телефона полностью хотя бы на месяц",
+          "Скажи близкому человеку, что происходит, — паттерн слабеет от свидетелей",
+          "Поставь телефону физические границы: не в спальне, не за едой, не в первый час утра",
+          "Верни в жизнь одно офлайн-дело, которое лента вытеснила, — по расписанию, как встречу",
+          "Заполни освободившиеся часы заранее спланированным: пустота — главный союзник скролла"
+        ],
+        "en": [
+          "Don't try to leave on willpower alone: take the apps off the phone entirely for at least a month",
+          "Tell someone close what's going on — the pattern weakens in front of witnesses",
+          "Give the phone physical borders: not in the bedroom, not at meals, not in the first hour of the day",
+          "Bring back one offline thing the feed crowded out — scheduled, like a meeting",
+          "Fill the freed hours with something planned in advance: emptiness is the scroll's best ally"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня перед сном оставь телефон заряжаться в другой комнате. Одна ночь — и посмотри на утро.",
+        "en": "Tonight, leave the phone charging in another room. One night — then look at the morning."
+      },
+      "inspiringConclusion": {
+        "ru": "Лента сильна ровно тем временем, которое ты ей отдаёшь. Каждый возвращённый час — это минус её власть и плюс твоя.",
+        "en": "The feed is exactly as strong as the hours you hand it. Every hour you take back is subtracted from its power and added to yours."
+      }
+    },
+
+    "profile_danger": {
+      "name": { "ru": "Жизнь на ленте", "en": "Living Inside the Feed" },
+      "supportNote": {
+        "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн. Но почти в каждом ответе ты выбрал самый тяжёлый вариант, и такой фон — большая нагрузка. Если скролл идёт рядом с ненавистью к себе, бессонницей или ощущением, что просвета нет, — поговори со специалистом, не откладывая: это самый короткий путь, и по нему выходили многие.",
+        "en": "This result is not a diagnosis: the test is educational and measures a pattern. But you picked the heaviest option on nearly every answer, and that background is a serious load. If the scrolling comes with self-hatred, sleeplessness or the sense that there's no way out — talk to a professional without postponing it: that's the shortest road, and many have walked it out."
+      },
+      "description": {
+        "ru": "Почти в каждом ответе ты выбрал самую жёсткую формулировку: лента решает, как ты спишь, что чувствуешь и чего стоишь. Реальная жизнь получает остаток — и остатка почти нет. Важно сказать и второе: иногда такие ответы даёт не сам паттерн, а привычка описывать себя в предельных словах. И то и другое — повод отнестись к себе всерьёз, а не приговор.",
+        "en": "You picked the harshest wording on nearly every answer: the feed decides how you sleep, what you feel and what you're worth. Real life gets the remainder — and there's almost none left. One more thing needs saying: sometimes answers like these come not from the pattern itself but from a habit of describing yourself in absolute terms. Either way it's a reason to take yourself seriously — not a verdict."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по шести механизмам выше 81% — верхняя зона шкалы. Все механизмы: страх упустить, сравнение, зависимость от реакций, зависть, компульсивный скролл и самооценка из ленты — на максимуме одновременно.",
+        "en": "Your average across the six mechanisms is above 81% — the top band of the scale. Every mechanism — fear of missing out, comparison, needing reactions, envy, compulsive scrolling and feed-based self-worth — is at maximum simultaneously."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честно ответил на 48 неудобных вопросов — отрицание так не выглядит",
+          "Ты видишь цифры, и они перед глазами: с этого места начинают",
+          "Часть тебя привела тебя сюда и дочитала до этой строки — она и есть выход"
+        ],
+        "en": [
+          "You answered 48 uncomfortable questions honestly — denial doesn't look like that",
+          "You see the numbers and they're in front of you: this is where people start",
+          "Part of you brought you here and read this far — that part is the way out"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Самооценки вне ленты почти не осталось — а лента оценивает беспощадно и нечестно",
+          "Сон, еда и движение подчинены скроллу, и тело уже платит по этому счёту",
+          "Постоянное сравнение с чужими хайлайтами — конвейер ненависти к себе",
+          "Живые связи истончились: лента заняла место людей",
+          "Чем хуже от скролла, тем сильнее тянет скроллить — петля замкнулась"
+        ],
+        "en": [
+          "Almost no self-worth is left outside the feed — and the feed grades mercilessly and unfairly",
+          "Sleep, food and movement answer to the scroll, and the body is already paying that bill",
+          "Constant comparison with other people's highlights is a self-hatred conveyor",
+          "Living connections have thinned: the feed took the place of people",
+          "The worse the scroll makes you feel, the harder it pulls — the loop has closed"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не выходи из этого один: один разговор — с близким или со специалистом — уже меняет вес ноши",
+          "Сними приложения с телефона сегодня; не как подвиг навсегда, а как передышку, из которой видно яснее",
+          "Начни с тела, оно быстрее ума: ночь без телефона в спальне, еда без экрана, двадцать минут улицы",
+          "Каждый вечер записывай одну вещь, которая сегодня была настоящей — не из ленты",
+          "Замечай моменты, когда описываешь себя предельными словами, — это привычка петли, а не факт о тебе"
+        ],
+        "en": [
+          "Don't walk out of this alone: one conversation — with someone close or a professional — already changes the weight",
+          "Take the apps off the phone today; not as a forever feat but as a breather you can see clearly from",
+          "Start with the body, it's faster than the mind: a night with no phone in the bedroom, meals without a screen, twenty minutes outside",
+          "Every evening write down one thing that was real today — not from the feed",
+          "Notice when you describe yourself in absolute terms — that's the loop's habit, not a fact about you"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши одному человеку, которому доверяешь: «хочу поговорить». Не про что — просто назначь разговор.",
+        "en": "Message one person you trust: \"I want to talk.\" Not about what — just set the conversation."
+      },
+      "inspiringConclusion": {
+        "ru": "Лента убедила тебя, что твоя жизнь — черновик чужих. Это её единственный фокус, и он перестаёт работать в ту минуту, когда на него перестают смотреть.",
+        "en": "The feed has convinced you your life is a rough draft of other people's. That's its only trick — and it stops working the minute you stop watching it."
+      }
+    }
+  }
+}

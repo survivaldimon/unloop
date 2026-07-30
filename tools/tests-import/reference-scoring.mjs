@@ -30,6 +30,8 @@ const LAUNCH_SET = [
   "values_priorities_v1",
   "imposter_syndrome",
   "social_battery_v1",
+  "boundaries_people_pleasing",
+  "fomo_social_comparison_v1",
 ];
 
 const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));

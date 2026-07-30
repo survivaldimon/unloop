@@ -36,6 +36,8 @@ const LAUNCH_SET = [
   "values_priorities_v1",
   "imposter_syndrome",
   "social_battery_v1",
+  "boundaries_people_pleasing",
+  "fomo_social_comparison_v1",
 ];
 
 /** Scenario tests keep no factor-name map in the source — these are ours. */

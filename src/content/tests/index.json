@@ -152,5 +152,33 @@
     "categoryId": "personality",
     "estimatedMinutes": 10,
     "questionCount": 48
+  },
+  {
+    "id": "boundaries_people_pleasing",
+    "title": {
+      "ru": "Личные границы и угождение",
+      "en": "Boundaries and People-Pleasing"
+    },
+    "description": {
+      "ru": "48 вопросов о том, кому достаётся твоё «да»: тебе или всем остальным. Шесть механизмов — от ассертивности до страха отвержения.",
+      "en": "48 questions about who gets your \"yes\" — you, or everyone else. Six mechanisms, from assertiveness to the fear of rejection."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 10,
+    "questionCount": 48
+  },
+  {
+    "id": "fomo_social_comparison_v1",
+    "title": {
+      "ru": "FOMO и чужая идеальная жизнь",
+      "en": "FOMO and Everyone Else's Perfect Life"
+    },
+    "description": {
+      "ru": "48 вопросов о том, что с тобой делает лента: страх упустить, сравнение с чужими хайлайтами, зависимость от реакций. Пять уровней — от «лента как инструмент» до «жизнь внутри ленты».",
+      "en": "48 questions about what the feed does to you: the fear of missing out, comparing yourself to other people's highlights, depending on reactions. Five levels — from \"the feed is a tool\" to \"living inside the feed\"."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 8,
+    "questionCount": 48
   }
 ]

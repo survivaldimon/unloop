@@ -14,6 +14,8 @@ import type {
 // the limits — docs/tests-monetization.md §6). Raw answers plus these files are
 // everything the server needs to recompute a result without trusting the client.
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
+import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
+import fomoSocialComparison from "../../../src/content/tests/fomo_social_comparison_v1.json" with { type: "json" };
 import friendshipPsychology from "../../../src/content/tests/friendship_psychology_v1.json" with { type: "json" };
 import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
 import imposterSyndrome from "../../../src/content/tests/imposter_syndrome.json" with { type: "json" };
@@ -39,6 +41,8 @@ type Lang = "en" | "ru";
 const TESTS: Record<string, PsychTest> = Object.fromEntries(
   [
     attachmentStyles,
+    boundariesPeoplePleasing,
+    fomoSocialComparison,
     friendshipPsychology,
     friendshipRedFlags,
     imposterSyndrome,
@@ -75,6 +79,8 @@ const REPORT_KIND: Record<string, ReportKind> = {
   values_priorities_v1: "spectrum",
   imposter_syndrome: "levels",
   social_battery_v1: "spectrum",
+  boundaries_people_pleasing: "spectrum",
+  fomo_social_comparison_v1: "levels",
 };
 
 function reportKind(test: PsychTest): ReportKind {
