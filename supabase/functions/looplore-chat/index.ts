@@ -1,4 +1,5 @@
-// Follow-up chat about an unlocked read (docs/credits-economy.md §6.4, §10).
+// Follow-up chat about an unlocked read (docs/credits-economy.md §6.4, §10;
+// the tests branch: docs/tests-monetization.md §3).
 // One question = one credit spend (idempotent on the client-minted msg_id, so
 // network retries never double-charge). Capability model matches the rest of
 // the app: possession of the session UUID both reads the report and spends
@@ -6,6 +7,18 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+
+// The seven test content files ride into the bundle (≈660KB, the size
+// docs/tests-monetization.md §6 accepts) so titles, factor labels and profile
+// names come from the same source the app renders. Only those small fields
+// reach the prompt — the unlocked report has already digested the raw answers.
+import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
+import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
+import ipipBigFive from "../../../src/content/tests/ipip_big_five.json" with { type: "json" };
+import loveLanguages from "../../../src/content/tests/love_languages_v1.json" with { type: "json" };
+import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
+import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
+import toxicPatterns from "../../../src/content/tests/toxic_patterns.json" with { type: "json" };
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -41,6 +54,116 @@ Voice: perceptive, candid, warm but unsentimental, anchored to the concrete deta
 
 Rules: answer the actual question from the read's material; no judgments of attractiveness or body; no identity guesses beyond what the read already says; if the question needs the photos themselves, say the photos are deleted and answer from the written read as far as it goes. 120-220 words. Plain text, no markdown.`;
 
+const TESTS_SYSTEM = `You are the voice of Looplore, answering a reader's follow-up question about their psychological test result and the personal analysis they unlocked (pop-psychology self-knowledge, entertainment and self-reflection — not therapy, not a clinical assessment).
+
+You are given their unlocked analysis, their test profile and their factor percentages. Ground every answer in THAT material. Voice: warm but unsentimental, precise, a little literary — the same perceptive friend who wrote the analysis. Second person.
+
+Rules: answer the actual question; reference their specific profile, percentages and analysis details where they help; no clinical jargon, no diagnosis, no medication or medical advice; if asked for therapy/medical/crisis help, say plainly this is a self-reflection product and a licensed professional is the right place — warmly, one sentence, then still give what reflection you safely can. Never invent facts about the reader beyond the provided data. 120-220 words. Plain text, no markdown, no lists unless truly natural.`;
+
+// Level-scored tests add a tone frame: behavior and its cost, not a verdict —
+// the same line docs/tests-monetization.md §2 draws for their paid reports.
+const TESTS_LEVEL_TONE = `\n\nThis test reports a level (how strong a risky pattern runs), so hold one extra frame: speak about behaviors and what they cost, never about what the reader is. No labels, no moral grading — a pattern is something they do and can stop doing, not who they are. If safety comes up (theirs or someone else's), treat it seriously and name real help plainly, without drama.`;
+
+const LEVEL_TESTS = new Set(["toxic_patterns", "friendship_red_flags_v1"]);
+
+type Localized = { en?: string; ru?: string };
+
+interface TestChatContent {
+  id: string;
+  title: Localized;
+  factorNames: Record<string, Localized>;
+  profiles: Record<string, { name: Localized; description: Localized }>;
+  profileSelection?: {
+    mode?: string;
+    dimensions?: { poles: [string, string]; letters: [string, string] }[];
+  };
+}
+
+// Loosely cast: the chat only dips into these fields, and a content edit must
+// degrade to a null label at runtime, not a failed deploy.
+const TEST_CONTENT: Record<string, TestChatContent> = Object.fromEntries(
+  (
+    [
+      attachmentStyles,
+      friendshipRedFlags,
+      ipipBigFive,
+      loveLanguages,
+      sixteenTypes,
+      textConflict,
+      toxicPatterns,
+    ] as unknown as TestChatContent[]
+  ).map((t) => [t.id, t]),
+);
+
+const pick = (loc: Localized | undefined, lang: "en" | "ru"): string | null =>
+  loc?.[lang] ?? loc?.en ?? null;
+
+// Chat context per docs/tests-monetization.md §3: the unlocked report, the
+// profile's name and description, factor percentages, and nothing else — raw
+// answers stay out, the report has already digested them. The row's outcome is
+// trusted only because chat is gated on a bought report, whose generation
+// recomputed these numbers from the answers and wrote them back server-side.
+function testsChatContext(
+  row: { report: unknown; test_id?: string; outcome?: unknown },
+  lang: "en" | "ru",
+) {
+  const content = row.test_id ? TEST_CONTENT[row.test_id] : undefined;
+  const outcome = (row.outcome ?? {}) as {
+    profileId?: string | null;
+    typeCode?: string;
+    factorPercentages?: Record<string, number>;
+    scaleScores?: Record<string, number>;
+  };
+  const profile = outcome.profileId ? content?.profiles[outcome.profileId] : undefined;
+  const report = row.report as Record<string, unknown> | null;
+
+  // The bipolar test's factor percentages are meaningless as absolutes
+  // (agreeing with everything maxes both poles — see selectProfile in
+  // src/tests/engine.ts), and its paid tier talks in pair balances, so the
+  // chat does too. Every other test gets its factor percentages under the
+  // content's display names.
+  let numbers: Record<string, unknown> = {};
+  const dimensions =
+    content?.profileSelection?.mode === "bipolar"
+      ? content.profileSelection.dimensions
+      : undefined;
+  if (dimensions && outcome.scaleScores) {
+    const scores = outcome.scaleScores;
+    numbers = {
+      pair_balances: dimensions.map(({ poles, letters }) => {
+        const a = scores[poles[0]] ?? 0;
+        const b = scores[poles[1]] ?? 0;
+        const left = a + b > 0 ? Math.round((a / (a + b)) * 100) : 50;
+        return {
+          balance: `${letters[0]} ${left} / ${letters[1]} ${100 - left}`,
+          poles: `${pick(content?.factorNames[poles[0]], lang) ?? poles[0]} / ${
+            pick(content?.factorNames[poles[1]], lang) ?? poles[1]
+          }`,
+        };
+      }),
+    };
+  } else if (!dimensions) {
+    numbers = {
+      factor_percentages: Object.entries(outcome.factorPercentages ?? {}).map(
+        ([id, percent]) => ({ id, name: pick(content?.factorNames[id], lang) ?? id, percent }),
+      ),
+    };
+  }
+
+  return {
+    // The session language's chapters when cached; otherwise whatever exists.
+    report: report?.[lang] ?? report,
+    test: pick(content?.title, lang) ?? row.test_id ?? null,
+    profile: {
+      id: outcome.profileId ?? null,
+      name: pick(profile?.name, lang),
+      description: pick(profile?.description, lang),
+    },
+    ...(outcome.typeCode ? { type_code: outcome.typeCode } : {}),
+    ...numbers,
+  };
+}
+
 const secretCache = new Map<string, string>();
 
 async function getSecret(
@@ -72,7 +195,8 @@ Deno.serve(async (req: Request) => {
     const body = await req.json();
     const sessionId = typeof body?.session_id === "string" ? body.session_id.toLowerCase() : "";
     const msgId = typeof body?.msg_id === "string" ? body.msg_id.toLowerCase() : "";
-    const funnel = body?.funnel === "photoread" ? "photoread" : "quiz";
+    const funnel =
+      body?.funnel === "photoread" ? "photoread" : body?.funnel === "tests" ? "tests" : "quiz";
     const lang = body?.lang === "ru" ? "ru" : "en";
     const question = typeof body?.question === "string" ? body.question.trim() : "";
     if (
@@ -93,11 +217,18 @@ Deno.serve(async (req: Request) => {
     if (!enabled) return json({ error: "credits_disabled" }, 503);
 
     // Load the session's cached read — chat exists only after an unlocked report.
-    const table = funnel === "photoread" ? "photoread_sessions" : "unloop_sessions";
+    const table =
+      funnel === "photoread"
+        ? "photoread_sessions"
+        : funnel === "tests"
+          ? "looplore_test_sessions"
+          : "unloop_sessions";
     const columns =
       funnel === "photoread"
         ? "report, user_id, context"
-        : "report, user_id, pattern, anx, avo";
+        : funnel === "tests"
+          ? "report, user_id, test_id, outcome"
+          : "report, user_id, pattern, anx, avo";
     const { data: row, error: rowError } = await admin
       .from(table)
       .select(columns)
@@ -157,14 +288,22 @@ Deno.serve(async (req: Request) => {
     if (!apiKey) return json({ error: "llm_not_configured" }, 500);
     const anthropic = new Anthropic({ apiKey });
 
+    // Tests speak in the quiz register (docs/tests-monetization.md §3), so
+    // they share its language suffix.
     const system =
       funnel === "photoread"
         ? PHOTO_SYSTEM + PHOTO_LANG_SUFFIX[lang]
-        : QUIZ_SYSTEM + QUIZ_LANG_SUFFIX[lang];
+        : funnel === "tests"
+          ? TESTS_SYSTEM +
+            (LEVEL_TESTS.has(row.test_id) ? TESTS_LEVEL_TONE : "") +
+            QUIZ_LANG_SUFFIX[lang]
+          : QUIZ_SYSTEM + QUIZ_LANG_SUFFIX[lang];
     const contextPayload =
       funnel === "photoread"
         ? { read: report, uploader_context: row.context ?? null }
-        : { report, pattern: row.pattern, anxiety_0_100: row.anx, avoidance_0_100: row.avo };
+        : funnel === "tests"
+          ? testsChatContext(row, lang)
+          : { report, pattern: row.pattern, anxiety_0_100: row.anx, avoidance_0_100: row.avo };
 
     const messages: { role: "user" | "assistant"; content: string }[] = [
       {
