@@ -158,6 +158,9 @@ export type AnalyticsEvent =
   | "test_start"
   | "test_question_answered"
   | "test_complete"
+  // Share from the result screen — fires only once a share actually happened;
+  // method says which path delivered it (native sheet vs clipboard fallback).
+  | "test_share"
   // The save-results card under a finished test. email_submitted itself is
   // shared with the funnels and travels with funnel:"tests".
   | "test_save_view"

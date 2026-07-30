@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLang } from "../../i18n";
+import { track } from "../../lib/analytics";
+import { getTestSessionId } from "../../lib/tests";
 import { testsCopy } from "../copy";
 import type { LocalizedList, PsychTest, TestOutcome } from "../types";
 
@@ -33,10 +35,18 @@ export default function TestResult({
       ? `${profile.name[lang]}${outcome.typeCode ? ` (${outcome.typeCode})` : ""}`
       : null;
     const text = ui.shareText({ title: test.title[lang], profile: profileName });
-    // TODO(analytics): share events are owned by the analytics session — no track() here.
+    // Tracked per delivered share, not per click: a cancelled sheet is not a share.
+    const trackShare = (method: "share_sheet" | "clipboard") =>
+      track("test_share", {
+        test_id: test.id,
+        test_session_id: getTestSessionId(test.id),
+        profile_id: outcome.profileId ?? "none",
+        method,
+      });
     if (typeof navigator.share === "function") {
       try {
         await navigator.share({ text, url: shareUrl });
+        trackShare("share_sheet");
         return;
       } catch (e) {
         if ((e as DOMException)?.name === "AbortError") return;
@@ -45,6 +55,7 @@ export default function TestResult({
     }
     try {
       await navigator.clipboard.writeText(`${text} ${shareUrl}`);
+      trackShare("clipboard");
       setShareToast(ui.shareCopied);
       window.setTimeout(() => setShareToast(null), 4000);
     } catch {
