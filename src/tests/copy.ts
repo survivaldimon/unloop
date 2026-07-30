@@ -73,6 +73,8 @@ interface TestsCopyShape {
     loading: string;
     error: string;
     retry: string;
+    /** Heading over the one-small-thing line inside the moves chapter. */
+    tryToday: string;
     /** Chapter titles for the teaser: 1 is per-test (§2), 2–5 are the skeleton. */
     chapters: (testId: string) => string[];
     crossCatalogue: string;
@@ -171,6 +173,7 @@ const EN: TestsCopyShape = {
     loading: "Writing your read…",
     error: "The read didn't come through. Try again — you've already paid for it.",
     retry: "Try again",
+    tryToday: "Try today",
     chapters: (testId) => [
       FIRST_CHAPTER_EN[testId] ?? "Your layout",
       "How it looks from outside",
@@ -290,6 +293,7 @@ const RU: TestsCopyShape = {
     loading: "Пишем твой разбор…",
     error: "Разбор не дошёл. Попробуй ещё раз — он уже оплачен.",
     retry: "Попробовать снова",
+    tryToday: "Попробуй сегодня",
     chapters: (testId) => [
       FIRST_CHAPTER_RU[testId] ?? "Твой расклад",
       "Как это выглядит снаружи",

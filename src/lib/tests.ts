@@ -6,6 +6,7 @@
  * access to the row. Answers are autosaved so a refresh mid-test costs nothing.
  */
 
+import { CREDIT_COSTS } from "../../supabase/functions/_shared/credits-config.ts";
 import { scoreTest } from "../tests/engine";
 import type { PsychTest, TestAnswers, TestOutcome } from "../tests/types";
 import { supabase } from "./supabase";
@@ -14,13 +15,11 @@ const FN_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
 
 /**
- * Prices mirror docs/tests-monetization.md (§1, §4); the server enforces them
- * inside tests-generate-report / tests-portrait via credits-config.ts, which
- * is where the real tuning lever lives. Kept as local constants so the front
- * doesn't edit the shared supabase config from this branch.
+ * Prices come from the same config the edge functions enforce
+ * (docs/tests-monetization.md §1, §4) — repricing an action is one edit there.
  */
-export const TEST_REPORT_COST = 95;
-export const PORTRAIT_COST = 145;
+export const TEST_REPORT_COST = CREDIT_COSTS.report_test;
+export const PORTRAIT_COST = CREDIT_COSTS.portrait;
 /** Completed tests required before the portrait can be bought (§4). */
 export const PORTRAIT_GATE = 3;
 
@@ -331,16 +330,38 @@ export async function fetchScaleProfile(): Promise<ScaleProfile | null> {
 
 // ---- Paid report and portrait (docs/tests-monetization.md §2, §4, §8) -------
 
+export interface ReportStep {
+  title: string;
+  how: string;
+}
+
 export interface ReportChapter {
   title: string;
   body: string;
+  /** "What to do with it" arrives as moves rather than prose (§2). */
+  steps?: ReportStep[];
+  tryToday?: string;
+}
+
+function parseSteps(value: unknown): ReportStep[] | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const steps = value.flatMap((entry) => {
+    if (!entry || typeof entry !== "object") return [];
+    const row = entry as Record<string, unknown>;
+    if (typeof row.title !== "string" || typeof row.how !== "string") return [];
+    return [{ title: row.title, how: row.how }];
+  });
+  return steps.length > 0 ? steps : undefined;
 }
 
 /**
- * Both functions answer with the requested language's chapters. The parser is
- * deliberately tolerant about the body key (body/content/text) — the functions
- * are being written in a parallel session against the same spec, and the exact
- * field name is the kind of seam final assembly closes.
+ * tests-generate-report answers with the requested language's chapters. The
+ * parser stays tolerant about the body key (body/content/text) — the functions
+ * were written in a parallel session against the same spec.
+ *
+ * A chapter counts as present if it carries prose OR moves: the "what to do"
+ * chapter has no body at all, and dropping it would take the most actionable
+ * part of a paid read off the screen while the chat still quotes from it.
  */
 function parseChapters(data: Record<string, unknown> | null): ReportChapter[] | null {
   const nested = (data?.report as Record<string, unknown> | undefined)?.chapters;
@@ -353,11 +374,45 @@ function parseChapters(data: Record<string, unknown> | null): ReportChapter[] | 
       const body = [row.body, row.content, row.text].find((v) => typeof v === "string") as
         | string
         | undefined;
-      if (!body) return null;
-      return { title: typeof row.title === "string" ? row.title : "", body };
+      const steps = parseSteps(row.steps);
+      const tryToday = typeof row.tryToday === "string" ? row.tryToday : undefined;
+      if (!body && !steps && !tryToday) return null;
+      return {
+        title: typeof row.title === "string" ? row.title : "",
+        body: body ?? "",
+        ...(steps ? { steps } : {}),
+        ...(tryToday ? { tryToday } : {}),
+      };
     })
     .filter((c): c is ReportChapter => c !== null);
   return chapters.length > 0 ? chapters : null;
+}
+
+/**
+ * The portrait's six chapters, in the order tests-portrait writes them. The
+ * function returns them as one flat object keyed by these ids and leaves the
+ * localized titles to the app (§4), so the order here is what pairs a body
+ * with its title on screen — keep it in sync with CHAPTER_KEYS in the function.
+ */
+const PORTRAIT_CHAPTER_KEYS = [
+  "frame",
+  "throughlines",
+  "interplay",
+  "weak_link",
+  "in_action",
+  "missing",
+] as const;
+
+function parsePortraitChapters(data: Record<string, unknown> | null): ReportChapter[] | null {
+  const flat = data?.portrait ?? data?.report;
+  if (flat && typeof flat === "object" && !Array.isArray(flat)) {
+    const row = flat as Record<string, unknown>;
+    const chapters = PORTRAIT_CHAPTER_KEYS.flatMap((key) =>
+      typeof row[key] === "string" && row[key] ? [{ title: "", body: row[key] as string }] : [],
+    );
+    if (chapters.length > 0) return chapters;
+  }
+  return parseChapters(data);
 }
 
 /** Raw fetch, not functions.invoke: the flow branches on 402/403 bodies. */
@@ -452,7 +507,7 @@ export async function fetchPortrait(lang: string): Promise<PortraitResult> {
     if (!jwt) return { kind: "signin" };
     const { status, data } = await callTestsFn("tests-portrait", { lang }, jwt);
     if (status === 200) {
-      const chapters = parseChapters(data);
+      const chapters = parsePortraitChapters(data);
       if (!chapters) return { kind: "failed" };
       // A cached portrait was written earlier than this moment, so the date
       // has to come from the server — showing "today" for a week-old read

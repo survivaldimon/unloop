@@ -689,6 +689,7 @@ export default function TestsApp() {
             error: ui.report.error,
             retry: ui.report.retry,
             answersFrom: ui.report.answersFrom,
+            tryToday: ui.report.tryToday,
           }}
         />
         {reportView === "ready" && (

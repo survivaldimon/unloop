@@ -107,6 +107,7 @@ export default function PortraitScreen({
               error: ui.error,
               retry: ui.retry,
               answersFrom: ui.generatedOn,
+              tryToday: testsCopy(lang).report.tryToday,
             }}
           />
         </div>

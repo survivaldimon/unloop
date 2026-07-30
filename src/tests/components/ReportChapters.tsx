@@ -6,6 +6,8 @@ export interface ChapterLabels {
   error: string;
   retry: string;
   answersFrom: (date: string) => string;
+  /** Heading over the one-small-thing line of the moves chapter. */
+  tryToday: string;
 }
 
 /**
@@ -91,18 +93,43 @@ export default function ReportChapters({
             {chapter.title || titles[i] || ""}
           </h2>
           <hr className="hairline mt-3 mb-4" />
-          <div className="flex flex-col gap-3">
-            {chapter.body.split(/\n\n+/).map((paragraph, j) => (
-              <p
-                key={j}
-                className={`text-[15px] leading-relaxed text-paper/90 ${
-                  i === 0 && j === 0 ? "dropcap" : ""
-                }`}
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          {chapter.body && (
+            <div className="flex flex-col gap-3">
+              {chapter.body.split(/\n\n+/).map((paragraph, j) => (
+                <p
+                  key={j}
+                  className={`text-[15px] leading-relaxed text-paper/90 ${
+                    i === 0 && j === 0 ? "dropcap" : ""
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
+          {chapter.steps && (
+            <ol className={`flex flex-col gap-4 ${chapter.body ? "mt-4" : ""}`}>
+              {chapter.steps.map((step, j) => (
+                <li key={j} className="flex gap-3">
+                  <span className="font-display flex-none text-[13px] text-brass italic">
+                    {String(j + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <p className="text-[15px] leading-snug font-semibold text-paper">
+                      {step.title}
+                    </p>
+                    <p className="mt-1 text-[15px] leading-relaxed text-paper/90">{step.how}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          )}
+          {chapter.tryToday && (
+            <div className="mt-5 rounded-xl border border-brass/30 p-4">
+              <p className="text-[11px] tracking-[0.12em] text-brass uppercase">{labels.tryToday}</p>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-paper/90">{chapter.tryToday}</p>
+            </div>
+          )}
         </article>
       ))}
     </section>

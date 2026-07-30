@@ -16,6 +16,7 @@
 // data self-heals, and only then summed (once) into the cross-test scale layer.
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 import { normalizeScaleTotals, scoreTest } from "../../../src/tests/engine.ts";
 import type { PsychTest, ScaleTotals, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
@@ -33,11 +34,6 @@ const CORS = {
 };
 
 const REPORT_MODEL = "claude-sonnet-5";
-
-// TODO(Э7 assembly): switch to CREDIT_COSTS.portrait — the А1 monetization
-// migration session adds `portrait: 145` to _shared/credits-config.ts; replace
-// this local constant with the import when the branches merge.
-const PORTRAIT_COST = 145;
 
 /** Gate (§4): the portrait exists from three completed tests up. */
 const PORTRAIT_GATE = 3;
@@ -415,7 +411,7 @@ Deno.serve(async (req: Request) => {
     // language all free (duplicate spends return ok without a new debit).
     const spend = await admin.rpc("credits_spend", {
       p_user_id: userId,
-      p_amount: PORTRAIT_COST,
+      p_amount: CREDIT_COSTS.portrait,
       p_kind: "spend_portrait",
       p_key: `portrait:${userId}:${setHash}`,
       p_ref: setHash,
