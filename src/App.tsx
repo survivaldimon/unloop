@@ -178,7 +178,9 @@ export default function App() {
   useEffect(() => {
     const s = new URLSearchParams(window.location.search).get("s");
     if (!s || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return;
-    window.history.replaceState(null, "", window.location.pathname);
+    // Settle on the funnel's own path: old emails carry /?s=, and a reload of
+    // the bare root would land on the tests catalogue, not this quiz.
+    window.history.replaceState(null, "", "/loop/");
     void adoptSession(s).then((restored) => {
       if (!restored) return;
       refreshSessionContext();

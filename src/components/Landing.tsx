@@ -69,7 +69,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
             competing with it above the fold (§7). */}
         <p className="text-center text-xs leading-relaxed text-mist/70">
           {nav.teaserFromQuiz}{" "}
-          <a href="/tests" className="text-brass-2 no-underline hover:underline">
+          <a href="/" className="text-brass-2 no-underline hover:underline">
             {nav.testsCta} →
           </a>
         </p>

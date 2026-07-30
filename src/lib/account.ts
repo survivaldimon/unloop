@@ -189,9 +189,11 @@ export async function fetchReads(): Promise<PastRead[]> {
 
 /**
  * Deep link back into the funnel that produced a read. The two funnels use
- * different params on purpose: main.tsx routes any `?s=` to the quiz (old quiz
- * emails landed on the root), so the photo read has to travel as `?p=`.
+ * different params on purpose: main.tsx routes any `?s=` to the quiz and any
+ * `?p=` to the photo read regardless of path (both funnels' old emails landed
+ * on the root back when it was theirs), so old links keep working while new
+ * ones point at the funnel's own path.
  */
 export function readHref(read: PastRead): string {
-  return read.funnel === "quiz" ? `/loop/?s=${read.id}` : `/?p=${read.id}`;
+  return read.funnel === "quiz" ? `/loop/?s=${read.id}` : `/photo/?p=${read.id}`;
 }

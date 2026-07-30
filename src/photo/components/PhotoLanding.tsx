@@ -174,7 +174,7 @@ export default function PhotoLanding({
             competing with it above the fold (§7). */}
         <p className="text-center text-xs leading-relaxed text-mist/70">
           {t(lang).nav.teaserFromPhoto}{" "}
-          <a href="/tests" className="text-brass-2 no-underline hover:underline">
+          <a href="/" className="text-brass-2 no-underline hover:underline">
             {t(lang).nav.testsCta} →
           </a>
         </p>

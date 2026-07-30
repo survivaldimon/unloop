@@ -425,7 +425,7 @@ export default function AccountApp() {
         {tests.length === 0 ? (
           <p className="text-[13px] text-mist italic">
             {ui.testsEmpty}{" "}
-            <a href="/tests" className="text-brass-2 not-italic underline-offset-4 hover:underline">
+            <a href="/" className="text-brass-2 not-italic underline-offset-4 hover:underline">
               {ui.takeTest} →
             </a>
           </p>
@@ -455,7 +455,7 @@ export default function AccountApp() {
                       bought on top of it — opens on this device too, not just
                       the one that took the test. */}
                   <a
-                    href={`/tests?t=${s.testId}&ts=${s.id}`}
+                    href={`/?t=${s.testId}&ts=${s.id}`}
                     className="flex-none text-[12px] text-brass-2"
                   >
                     {ui.openRead}
@@ -469,7 +469,7 @@ export default function AccountApp() {
             way in. The screen itself explains the 3-test gate when short. */}
         {tests.length > 0 && (
           <a
-            href="/tests?view=portrait"
+            href="/?view=portrait"
             className="mt-3 inline-block text-[13px] text-brass-2 underline-offset-4 hover:underline"
           >
             {ui.portraitLink} →

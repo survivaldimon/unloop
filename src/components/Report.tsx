@@ -256,7 +256,7 @@ export default function Report({
           never competes with an open paywall (§7). */}
       <div className="mt-10 flex flex-col gap-2 text-center">
         <p className="text-[13px] leading-relaxed text-mist">{ui.crossTests}</p>
-        <a href="/tests" className="text-[13px] text-brass-2 no-underline hover:underline">
+        <a href="/" className="text-[13px] text-brass-2 no-underline hover:underline">
           {ui.crossTestsCta} →
         </a>
       </div>

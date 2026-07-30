@@ -191,7 +191,9 @@ export default function PhotoApp() {
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get("p");
     if (!p || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(p)) return;
-    window.history.replaceState(null, "", window.location.pathname);
+    // Settle on the funnel's own path: old emails carry /?p=, and a reload of
+    // the bare root would land on the tests catalogue, not this report.
+    window.history.replaceState(null, "", "/photo/");
     void adoptPhotoSession(p).then((restored) => {
       if (!restored) return;
       refreshSessionContext();

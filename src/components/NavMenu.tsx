@@ -14,18 +14,19 @@ export default function NavMenu() {
   const rootRef = useRef<HTMLDivElement>(null);
 
   // Where we are, for highlighting only — every link is a full page load
-  // because the surfaces are separate lazy chunks off their own paths.
+  // because the surfaces are separate lazy chunks off their own paths. Mirrors
+  // main.tsx: queries from old emails (?s= quiz, ?p= photo) win over the path.
   const path = window.location.pathname;
-  const isPortrait =
-    path.startsWith("/tests") &&
-    new URLSearchParams(window.location.search).get("view") === "portrait";
+  const params = new URLSearchParams(window.location.search);
   const surface = path.startsWith("/account")
     ? "account"
-    : path.startsWith("/loop")
+    : path.startsWith("/loop") || params.has("s")
       ? "quiz"
-      : path.startsWith("/tests")
-        ? (isPortrait ? "portrait" : "tests")
-        : "photo";
+      : path.startsWith("/photo") || params.has("p")
+        ? "photo"
+        : params.get("view") === "portrait"
+          ? "portrait"
+          : "tests";
 
   useEffect(() => {
     if (!open) return;
@@ -44,10 +45,10 @@ export default function NavMenu() {
   }, [open]);
 
   const items = [
-    { id: "photo", href: "/", label: ui.photo },
+    { id: "tests", href: "/", label: ui.tests },
     { id: "quiz", href: "/loop/", label: ui.quiz },
-    { id: "tests", href: "/tests", label: ui.tests },
-    { id: "portrait", href: "/tests?view=portrait", label: ui.portrait },
+    { id: "photo", href: "/photo/", label: ui.photo },
+    { id: "portrait", href: "/?view=portrait", label: ui.portrait },
     { id: "account", href: "/account/", label: ui.account },
   ] as const;
 

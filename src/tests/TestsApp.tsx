@@ -91,6 +91,14 @@ type PayState = "idle" | "opening" | "confirming" | "error";
 const ANSWERS_KEY = "looplore_test_answers";
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+/**
+ * The tests answer at both "/" (the site's front door) and "/tests" (old
+ * links, and the path the per-test OG pages live under). History pushes keep
+ * whichever base the visitor arrived on, so back/forward and reloads stay on
+ * familiar URLs instead of silently teleporting between the two.
+ */
+const TESTS_BASE = window.location.pathname.startsWith("/tests") ? "/tests" : "/";
+
 function readAnswers(testId: string): TestAnswers {
   try {
     const all = JSON.parse(localStorage.getItem(ANSWERS_KEY) ?? "{}");
@@ -216,7 +224,7 @@ export default function TestsApp() {
       setLoading(true);
       try {
         const test = await loadTest(testId);
-        if (push) window.history.pushState(null, "", `/tests?t=${testId}`);
+        if (push) window.history.pushState(null, "", `${TESTS_BASE}?t=${testId}`);
         // Scoring is local and deterministic, so complete saved answers ARE
         // the result: a reload on the result screen lands back on the result,
         // not on question one. Retaking goes through the explicit button,
@@ -247,7 +255,7 @@ export default function TestsApp() {
       try {
         adoptTestSession(testId, sessionId);
         const [test, stored] = await Promise.all([loadTest(testId), loadTestSession(sessionId)]);
-        window.history.replaceState(null, "", `/tests?t=${testId}`);
+        window.history.replaceState(null, "", `${TESTS_BASE}?t=${testId}`);
         // A row that answers with an empty map (a lean payload, or answers
         // pruned server-side) must not throw away what this device already
         // has — landing someone back in question one of a test they finished
@@ -271,13 +279,13 @@ export default function TestsApp() {
   );
 
   const toCatalogue = useCallback(() => {
-    window.history.pushState(null, "", "/tests");
+    window.history.pushState(null, "", TESTS_BASE);
     setStep({ name: "catalogue" });
     track("tests_catalogue_view");
   }, []);
 
   const toPortrait = useCallback(() => {
-    window.history.pushState(null, "", "/tests?view=portrait");
+    window.history.pushState(null, "", `${TESTS_BASE}?view=portrait`);
     setStep({ name: "portrait" });
   }, []);
 
