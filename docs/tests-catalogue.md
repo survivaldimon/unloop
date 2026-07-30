@@ -98,10 +98,16 @@
 
 Верификация: фикстуры 48/48, синтетика подтвердила достижимость boundary_master, tsc чист, чанки 50 и 70 КБ, смоук на дев-сервере, линт Э8 чистый.
 
-### Второй эшелон — готовы, но не в первую волну (осталось 14)
-`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+### Батч 4 ✅ в проде (задеплоен 30.07.2026 по «делаем» основателя)
 
-(Забраны волной 2: батч 1 — `friendship_psychology_v1`, `values_priorities_v1`; батч 2 — `imposter_syndrome`, `social_battery_v1`; батч 3 — `boundaries_people_pleasing`, `fomo_social_comparison_v1`.)
+**`burnout_diagnostic_v1`** («Выгорание», 54 q, 12 профилей) и **`digital_detox_test`** («Цифровой детокс», 50 q, 12 профилей) — оба чисты по аудиту (0 фантомных шкал: заведённые батчами 1–3 `burnout`, `self_care`, `work_life_balance` уже кормятся). Правила у обоих одной формы: полосы по среднему + доминирующий симптом в средней полосе (порядок правил повторяет порядок обхода факторов Dart — ничьи решаются одинаково); мёртвые default-ветки свитча (`profile_moderate`, `profile_problematic`) стали фолбэками средней полосы. Э8: у выгорания убраны «Диагностика»/ВОЗ/Маслач и рецепты (КПТ, психиатр, медикаменты, больничный) — supportNote на severe/critical + мягкая медицинская строка у соматического; у детокса вычищена рамка «зависимость» и бренды, supportNote на двух верхних. Названия — «Пустой бак», «Броня цинизма», «Тело говорит первым», «Рука сама тянется», «Внимание вдребезги», «Жизнь на экране»… 14 вопросов переведены с «вы» на «ты» (ловушка: `\\w` в JS не матчит кириллицу — «Ваша» ловится только явным списком форм). Бары платные у обоих — разбивка по каналам и есть разбор. Тип `levels` у обоих.
+
+Верификация: фикстуры 56/56, tsc чист, чанки 105 и 94 КБ, смоук с целевыми доминантами (Броня цинизма, Внимание вдребезги) на дев-сервере, линт Э8 чистый.
+
+### Второй эшелон — готовы, но не в первую волну (осталось 12)
+`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `procrastination_productivity_style_v1`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+
+(Забраны волной 2: батч 1 — `friendship_psychology_v1`, `values_priorities_v1`; батч 2 — `imposter_syndrome`, `social_battery_v1`; батч 3 — `boundaries_people_pleasing`, `fomo_social_comparison_v1`; батч 4 — `burnout_diagnostic_v1`, `digital_detox_test`.)
 
 Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
 

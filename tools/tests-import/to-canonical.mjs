@@ -38,6 +38,8 @@ const LAUNCH_SET = [
   "social_battery_v1",
   "boundaries_people_pleasing",
   "fomo_social_comparison_v1",
+  "burnout_diagnostic_v1",
+  "digital_detox_test",
 ];
 
 /** Scenario tests keep no factor-name map in the source — these are ours. */

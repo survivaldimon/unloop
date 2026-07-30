@@ -15,6 +15,8 @@ import type {
 // everything the server needs to recompute a result without trusting the client.
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
 import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
+import burnoutDiagnostic from "../../../src/content/tests/burnout_diagnostic_v1.json" with { type: "json" };
+import digitalDetox from "../../../src/content/tests/digital_detox_test.json" with { type: "json" };
 import fomoSocialComparison from "../../../src/content/tests/fomo_social_comparison_v1.json" with { type: "json" };
 import friendshipPsychology from "../../../src/content/tests/friendship_psychology_v1.json" with { type: "json" };
 import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
@@ -42,6 +44,8 @@ const TESTS: Record<string, PsychTest> = Object.fromEntries(
   [
     attachmentStyles,
     boundariesPeoplePleasing,
+    burnoutDiagnostic,
+    digitalDetox,
     fomoSocialComparison,
     friendshipPsychology,
     friendshipRedFlags,
@@ -81,6 +85,8 @@ const REPORT_KIND: Record<string, ReportKind> = {
   social_battery_v1: "spectrum",
   boundaries_people_pleasing: "spectrum",
   fomo_social_comparison_v1: "levels",
+  burnout_diagnostic_v1: "levels",
+  digital_detox_test: "levels",
 };
 
 function reportKind(test: PsychTest): ReportKind {

@@ -1,0 +1,787 @@
+{
+  "$comment": "Э8, волна 2 батч 4. 12 профилей: полосы + доминирующий симптом. Из заголовка убрана «Диагностика» (не заявляем), из описания — ВОЗ и Маслач/MBI (атрибуции). Рецепты исходника (КПТ, схема-терапия, психиатр, медикаменты, больничный, невролог) заменены поведенческими ходами + supportNote на severe/critical и мягкая медицинская строка у соматического. Шесть вопросов переведены с «вы» на «ты» без смены смысла. Пороги и веса не тронуты.",
+
+  "title": {
+    "ru": "Выгорание",
+    "en": "Burnout"
+  },
+  "description": {
+    "ru": "54 вопроса о том, сколько тебя остаётся после работы: истощение, цинизм, туман в голове и счёт, который выставляет тело. 12 профилей — от «ресурс на месте» до «на пределе».",
+    "en": "54 questions about how much of you is left after work: exhaustion, cynicism, brain fog and the bill your body writes. 12 profiles — from \"fuel in the tank\" to \"at the limit\"."
+  },
+
+  "factorNames": {
+    "emotional_exhaustion": { "ru": "Эмоциональное истощение", "en": "Emotional exhaustion" },
+    "depersonalization": { "ru": "Цинизм и отстранение", "en": "Cynicism and detachment" },
+    "reduced_efficacy": { "ru": "Ощущение «не справляюсь»", "en": "Feeling ineffective" },
+    "physical_symptoms": { "ru": "Сигналы тела", "en": "Body signals" },
+    "cognitive_impairment": { "ru": "Туман в голове", "en": "Brain fog" },
+    "motivation_loss": { "ru": "Потеря смысла", "en": "Loss of meaning" },
+    "work_environment": { "ru": "Нагрузка и среда", "en": "Load and environment" }
+  },
+
+  "questions": {
+    "q7": { "text": { "ru": "Сколько часов в неделю ты работаешь, включая переработки?", "en": "How many hours a week do you work, overtime included?" } },
+    "q14": { "text": { "ru": "Как часто ты работаешь в выходные?", "en": "How often do you work on weekends?" } },
+    "q21": { "text": { "ru": "У тебя есть возможность влиять на решения, касающиеся твоей работы?", "en": "Do you get a say in the decisions that concern your work?" } },
+    "q28": { "text": { "ru": "Ты получаешь признание и поддержку от руководства?", "en": "Do you get recognition and support from management?" } },
+    "q49": { "text": { "ru": "Сколько дней отпуска ты взял за последний год?", "en": "How many vacation days have you taken in the past year?" } },
+    "q53": { "text": { "ru": "У тебя есть ресурсы и поддержка для работы — оборудование, коллеги, информация?", "en": "Do you have the resources and support to do the job — equipment, colleagues, information?" } },
+    "q35": { "text": { "ru": "Твоя рабочая нагрузка соответствует твоим возможностям?", "en": "Does your workload match your capacity?" } },
+    "q54": { "text": { "ru": "Твоя работа соответствует твоим ценностям и убеждениям?", "en": "Does your work match your values and beliefs?" } }
+  },
+
+  "profiles": {
+    "profile_minimal": {
+      "name": { "ru": "Ресурс на месте", "en": "Fuel in the Tank" },
+      "description": {
+        "ru": "Работа берёт у тебя силы — и возвращает. Стресс случается, но не копится: границы держатся, сон работает, и в понедельник ты не считаешь дни до пятницы.",
+        "en": "Work takes energy from you — and gives it back. Stress happens but doesn't accumulate: the boundaries hold, sleep works, and on Monday you're not counting days to Friday."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи компонентам выгорания в твоих ответах — ниже 25%: истощение, цинизм, туман и телесные сигналы почти не отозвались.",
+        "en": "Your average across the seven burnout components is under 25%: exhaustion, cynicism, fog and body signals barely registered."
+      },
+      "strengths": {
+        "ru": [
+          "Стресс у тебя обрабатывается, а не складируется",
+          "Граница между работой и жизнью реально существует",
+          "Вовлечённость и эмпатия не выгорели — редкость на длинной дистанции",
+          "Ты понимаешь, зачем делаешь свою работу"
+        ],
+        "en": [
+          "Your stress gets processed, not warehoused",
+          "The line between work and life actually exists",
+          "Engagement and empathy haven't burned off — rare over the long run",
+          "You know why you do your work"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Хорошее состояние легко принять за вечное — выгорание подбирается тихо",
+          "Устойчивых часто догружают: твой ресурс может стать чужим резервом"
+        ],
+        "en": [
+          "It's easy to mistake a good state for a permanent one — burnout arrives quietly",
+          "The resilient tend to get loaded up: your resource can become someone else's reserve"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не меняй то, что работает: твои практики восстановления уже настроены",
+          "Раз в квартал сверяйся с собой: не сползли ли границы",
+          "Замечай, когда чужие задачи прилетают именно тебе «потому что ты вывозишь»",
+          "Поделись своими настройками с коллегой, который тлеет"
+        ],
+        "en": [
+          "Don't change what works: your recovery practices are already tuned",
+          "Check in with yourself quarterly: have the boundaries slipped",
+          "Notice when extra tasks land on you \"because you can handle it\"",
+          "Share your setup with a colleague who's smoldering"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три вещи, которые держат твой баланс, — чтобы знать, что защищать, когда нагрузка вырастет.",
+        "en": "Write down the three things holding your balance — so you know what to defend when the load grows."
+      },
+      "inspiringConclusion": {
+        "ru": "Устойчивость — не везение, а система, которую ты собрал. Береги её как рабочий инструмент.",
+        "en": "Resilience isn't luck — it's a system you built. Maintain it like the working tool it is."
+      }
+    },
+
+    "profile_mild": {
+      "name": { "ru": "Первый дым", "en": "Early Smoke" },
+      "description": {
+        "ru": "Огня ещё нет, но дымом уже тянет: усталость к пятнице глубже обычной, энтузиазм местами просел, сон иногда сбоит. Это нормальная реакция на нагрузку — и лучший момент вмешаться.",
+        "en": "No fire yet, but you can smell the smoke: Friday fatigue runs deeper than it used to, enthusiasm dips in places, sleep occasionally stutters. It's a normal response to load — and the best possible moment to act."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по компонентам — между 25 и 40%: часть показателей приподнята, но ни один не горит. Стадия, на которой восстановление стоит дешевле всего.",
+        "en": "Your average across the components is between 25 and 40%: some readings are elevated, none are burning. The stage where recovery is at its cheapest."
+      },
+      "strengths": {
+        "ru": [
+          "Мотивация жива — работа ещё имеет вкус",
+          "Ты замечаешь свой стресс, а не узнаёшь о нём от других",
+          "Ресурсы восстановления доступны: сон, отдых и спорт ещё работают",
+          "Эффективность не просела — есть из чего строить"
+        ],
+        "en": [
+          "Motivation is alive — work still has taste",
+          "You notice your stress instead of hearing about it from others",
+          "Recovery resources are available: sleep, rest and movement still work",
+          "Your effectiveness hasn't dipped — there's something to build from"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "«Просто тяжёлый месяц» имеет привычку становиться тяжёлым годом",
+          "Усталость к концу недели уже не всегда закрывается выходными",
+          "Первые сбои сна и аппетита легко списать на что угодно"
+        ],
+        "en": [
+          "\"Just a rough month\" has a habit of becoming a rough year",
+          "End-of-week fatigue no longer always clears over the weekend",
+          "The first sleep and appetite glitches are easy to blame on anything else"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Поставь сон первым приоритетом: семь-девять часов — это ремонт, а не роскошь",
+          "Введи точку выключения: время, после которого рабочие чаты не существуют",
+          "Дроби день перерывами — короткая пауза каждый час дешевле длинного отходняка",
+          "Верни в неделю движение: полчаса ходьбы уже меняют фон",
+          "Если нагрузка выросла объективно — говори с руководством сейчас, пока есть силы на разговор"
+        ],
+        "en": [
+          "Make sleep the first priority: seven to nine hours is repair, not luxury",
+          "Set a shutdown point: a time after which work chats don't exist",
+          "Slice the day with breaks — a short pause every hour is cheaper than a long recovery",
+          "Bring movement back into the week: half an hour of walking already shifts the background",
+          "If the load has objectively grown — talk to management now, while you still have the energy for the talk"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня вечером полностью отключись от рабочих каналов и займись тем, что возвращает силы.",
+        "en": "Tonight, disconnect completely from work channels and do the thing that gives you energy back."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты заметил дым до огня — это лучший из возможных моментов. Небольшие изменения сейчас заменяют большой ремонт потом.",
+        "en": "You smelled the smoke before the fire — the best possible timing. Small changes now replace a major overhaul later."
+      }
+    },
+
+    "profile_emotional_exhaustion": {
+      "name": { "ru": "Пустой бак", "en": "The Empty Tank" },
+      "description": {
+        "ru": "Главный симптом — эмоции кончились. Ты просыпаешься уже уставшим, к людям идёшь через силу, а то, что раньше трогало, теперь глухо. Бак не наполняется за ночь — и это не лень, это истощение.",
+        "en": "The lead symptom: the emotions have run out. You wake up already tired, people take effort, and what used to move you now lands on numbness. The tank doesn't refill overnight — and that's not laziness, it's depletion."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень выгорания у тебя средний (40–60%), а самый высокий компонент — эмоциональное истощение. Так чаще всего выгорают те, кто много отдаёт людям.",
+        "en": "Your overall burnout level is moderate (40–60%), and your highest component is emotional exhaustion. This is how people who give a lot to others most often burn."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь своё состояние, а не бежишь от него",
+          "Профессиональные навыки на месте — истощён ресурс, не мастерство",
+          "Сама способность так уставать говорит о том, сколько ты вкладывал"
+        ],
+        "en": [
+          "You see your state instead of running from it",
+          "The professional skills are intact — the resource is drained, not the craft",
+          "The very ability to get this tired shows how much you were putting in"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "После работы тебя нет — вечер уходит на то, чтобы просто прийти в себя",
+          "Утро начинается с тревоги перед днём, а не с сил на него",
+          "Эмоциональное онемение перекидывается с работы на близких",
+          "Отдых перестал наполнять — выходные проходят, бак остаётся пустым"
+        ],
+        "en": [
+          "After work there's no you left — the evening goes on merely coming back to life",
+          "Mornings start with dread of the day, not energy for it",
+          "The emotional numbness spills from work onto the people close to you",
+          "Rest has stopped refilling — weekends pass and the tank stays empty"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Сократи эмоциональную отдачу там, где это возможно: не каждый разговор обязан проходить через тебя",
+          "Верни телу простые опоры: сон, еда по расписанию, воздух — эмоции чинятся через физиологию",
+          "Освой одну технику разрядки и пользуйся ею ежедневно: медленный выдох длиннее вдоха уже работает",
+          "Защити один вечер в неделю, где ты никому ничего не должен",
+          "Если работа помогающая — найди, с кем разбирать тяжёлые случаи: носить их в одиночку и есть истощение"
+        ],
+        "en": [
+          "Cut the emotional output where you can: not every conversation has to run through you",
+          "Give the body its basics back: sleep, regular meals, air — emotions repair through physiology",
+          "Learn one discharge technique and use it daily: an exhale longer than the inhale already works",
+          "Protect one evening a week where you owe no one anything",
+          "If your work is a helping one — find someone to unpack the heavy cases with: carrying them alone is the depletion"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай десять медленных выдохов длиннее вдоха — прямо сейчас. Это разряжает накопленное напряжение.",
+        "en": "Take ten slow exhales, each longer than the inhale — right now. It discharges the stored tension."
+      },
+      "inspiringConclusion": {
+        "ru": "Пустой бак — это счёт за годы отдачи, а не характеристика тебя. Эмоции возвращаются, когда им дают право на дозаправку.",
+        "en": "The empty tank is the bill for years of giving — not a description of you. Emotions come back once they're given the right to refuel."
+      }
+    },
+
+    "profile_cynicism": {
+      "name": { "ru": "Броня цинизма", "en": "The Cynic's Armor" },
+      "description": {
+        "ru": "Главный симптом — отстранение. Люди на работе превратились в «задачи» и «кейсы», сарказм стал вторым языком, и тебе всё равно там, где раньше было не всё равно. Это броня: она защищает от перегрузки — и она же отрезает от того, ради чего ты начинал.",
+        "en": "The lead symptom: detachment. People at work have turned into \"tasks\" and \"cases\", sarcasm has become your second language, and you don't care where you used to care. It's armor: it protects you from overload — and it cuts you off from what you started for."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминирует деперсонализация — защитная реакция психики на эмоциональную перегрузку. Броня выросла не на пустом месте.",
+        "en": "Your overall level is moderate (40–60%) with depersonalization dominating — the psyche's defensive response to emotional overload. The armor didn't grow out of nothing."
+      },
+      "strengths": {
+        "ru": [
+          "Дистанция в умеренной дозе — рабочий инструмент, ты им владеешь",
+          "Ты видишь ситуацию трезво, без розовых очков",
+          "Броня означает, что под ней есть что защищать"
+        ],
+        "en": [
+          "Distance in moderate doses is a working tool, and you own it",
+          "You see the situation soberly, without rose tint",
+          "Armor means there's something under it worth protecting"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Равнодушие в работе с людьми рано или поздно конвертируется в ошибки",
+          "Сарказм, который снимает твоё напряжение, копит чужое",
+          "Отстранённость не выключается на выходе из офиса — её получают и близкие",
+          "Цинизм съедает профессиональную идентичность: трудно уважать себя за работу, которую презираешь"
+        ],
+        "en": [
+          "Indifference in people-work converts into mistakes sooner or later",
+          "The sarcasm that vents your tension builds up other people's",
+          "Detachment doesn't switch off at the office door — the people close to you get it too",
+          "Cynicism eats professional identity: it's hard to respect yourself for work you despise"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в день возвращай одному «кейсу» человеческое лицо: что этого человека волнует на самом деле",
+          "Найди коллег, с которыми можно говорить честно, — цинизм тает в компании тех, кто понимает",
+          "Сократи контакт с самыми тяжёлыми людьми, если это в твоей власти, — броня нужна реже, когда обстрел реже",
+          "Отследи, что именно перегрузило: броня — ответ, вопрос был раньше",
+          "Спроси себя честно: этот способ выживания ещё работает на тебя — или уже против?"
+        ],
+        "en": [
+          "Once a day, give one \"case\" a human face back: what actually worries this person",
+          "Find colleagues you can be honest with — cynicism melts around people who get it",
+          "Cut contact with the heaviest people where you can — armor is needed less when the shelling is rarer",
+          "Trace what overloaded you: the armor is an answer, the question came earlier",
+          "Ask yourself honestly: is this survival strategy still working for you — or already against you?"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одного человека на работе и узнай о нём что-то настоящее — не по делу, а по-человечески.",
+        "en": "Pick one person at work and learn something real about them — not business, human."
+      },
+      "inspiringConclusion": {
+        "ru": "Цинизм — не твоя природа, а шрам от перегрузки. Под бронёй по-прежнему тот, кто выбрал это дело всерьёз, — и он никуда не делся.",
+        "en": "Cynicism isn't your nature — it's a scar from overload. Under the armor is still the person who chose this work for real, and they haven't gone anywhere."
+      }
+    },
+
+    "profile_inefficacy": {
+      "name": { "ru": "«Я не справляюсь»", "en": "The 'Not Good Enough'" },
+      "description": {
+        "ru": "Главный симптом — ощущение профессиональной несостоятельности. Кажется, что ты сдал: решения даются трудно, результаты будто мельче, чем у всех, и внутренний контролёр ставит двойки за всё подряд. Важно: на этой стадии восприятие обычно искажено сильнее, чем реальность.",
+        "en": "The lead symptom: feeling professionally inadequate. It seems you've slipped: decisions come hard, your results look smaller than everyone's, and the inner examiner fails you on everything. Important: at this stage, perception is usually more distorted than reality."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминирует ощущение сниженной эффективности. Выгорание умеет подделывать почерк некомпетентности — усталый профессионал выглядит для себя как плохой.",
+        "en": "Your overall level is moderate (40–60%) with reduced efficacy dominating. Burnout is good at forging incompetence's handwriting — a tired professional looks, to himself, like a bad one."
+      },
+      "strengths": {
+        "ru": [
+          "Высокая планка качества — она и болит, но она же держит уровень",
+          "Самокритика значит, что тебе не всё равно, как сделано",
+          "Стремление расти никуда не делось — оно просто устало"
+        ],
+        "en": [
+          "A high quality bar — it hurts, but it also holds the standard",
+          "Self-criticism means you care how things are done",
+          "The drive to grow hasn't gone — it's just tired"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Сомнение в компетентности при усталости превращается в самосбывающийся прогноз",
+          "Ошибок объективно больше — но от истощения, а не от бездарности",
+          "Перфекционизм требует прежней планки от человека с половиной ресурса",
+          "Сюда же подключается самозванец: успехи чужие, провалы твои"
+        ],
+        "en": [
+          "Doubt in your competence, under fatigue, becomes a self-fulfilling forecast",
+          "There really are more mistakes — from depletion, not from lack of talent",
+          "Perfectionism demands the old bar from a person running on half resource",
+          "The impostor plugs in here too: the wins are circumstance, the failures are yours"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Разведи два вопроса: «я хуже работаю» и «я хуже себя чувствую» — обычно верно второе",
+          "Заведи журнал фактов: что сделано за день, без оценок — только список",
+          "Сними нагрузку до уровня, где качество возвращается: меньше, но лучше",
+          "Попроси обратную связь у того, кому доверяешь, — внешняя оптика честнее внутренней",
+          "Отложи большие карьерные выводы: решения о своей ценности не принимают из ямы"
+        ],
+        "en": [
+          "Separate two questions: \"I work worse\" and \"I feel worse\" — it's usually the second",
+          "Keep a facts log: what got done today, no grades — just the list",
+          "Cut the load to where quality returns: less, but better",
+          "Ask someone you trust for feedback — external optics are honester than internal ones",
+          "Postpone big career conclusions: you don't judge your worth from inside the pit"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три рабочих результата за месяц — факты, не ощущения. Перечитай список вслух.",
+        "en": "Write down three work results from this month — facts, not feelings. Read the list out loud."
+      },
+      "inspiringConclusion": {
+        "ru": "Чувство «не справляюсь» — симптом усталости, а не вердикт о способностях. Отдохнувший ты и сегодняшний ты — разные специалисты.",
+        "en": "\"Not good enough\" is a symptom of fatigue, not a verdict on ability. Rested you and today's you are two different professionals."
+      }
+    },
+
+    "profile_somatic": {
+      "name": { "ru": "Тело говорит первым", "en": "The Body Speaks First" },
+      "supportNote": {
+        "ru": "Тест образовательный и ничего не диагностирует. Но постоянная усталость, боли и сбитый сон — это повод показаться врачу: часть таких симптомов имеет и другие причины, которые стоит исключить, а не списывать всё на стресс.",
+        "en": "This test is educational and diagnoses nothing. But constant fatigue, aches and broken sleep are a reason to see a doctor: some of these symptoms have other causes worth ruling out rather than blaming everything on stress."
+      },
+      "description": {
+        "ru": "Главный симптом — телесный. Психика ещё держит лицо, а тело уже выставляет счета: усталость, которую не закрывает сон, боли в спине и шее, простуды одна за другой. Тело всегда узнаёт о выгорании первым — оно просто говорит на другом языке.",
+        "en": "The lead symptom is physical. The mind still keeps a straight face while the body is already invoicing: fatigue sleep won't clear, neck and back pain, one cold after another. The body always learns about burnout first — it just speaks a different language."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминируют физические симптомы: твой основной канал сигнала — соматика, не эмоции.",
+        "en": "Your overall level is moderate (40–60%) with physical symptoms dominating: your main signal channel is the body, not the emotions."
+      },
+      "strengths": {
+        "ru": [
+          "Ты слышишь тело — многие глушат его до последнего",
+          "Телесные симптомы конкретны: их видно, их можно измерять",
+          "Физика отвечает на заботу быстрее психики — результат придёт раньше"
+        ],
+        "en": [
+          "You hear the body — many people mute it until the end",
+          "Physical symptoms are concrete: visible, measurable",
+          "The body responds to care faster than the psyche — results arrive sooner"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Усталость перестала закрываться отдыхом — это уже хроника, не эпизод",
+          "Сон ломается с двух сторон: трудно уснуть и трудно проснуться",
+          "Иммунитет проседает: болезни цепляются чаще и держатся дольше",
+          "Шея, спина и голова носят твой стресс за тебя"
+        ],
+        "en": [
+          "Fatigue no longer clears with rest — that's chronic now, not episodic",
+          "Sleep breaks at both ends: hard to fall asleep, hard to wake",
+          "Immunity sags: illnesses latch on more often and stay longer",
+          "Your neck, back and head carry your stress for you"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни со сна — это фундамент: режим, темнота, прохлада, экраны за час до",
+          "Верни телу движение без подвигов: полчаса ходьбы в день уже лечат фон",
+          "Дроби сидение: подъём и пара минут движения каждый час",
+          "Освой телесную разгрузку: прогрессивное расслабление мышц или тёплый душ с полным вниманием к телу",
+          "Симптомы, которые не уходят три-четыре недели, — на приём к врачу, без самодиагностики"
+        ],
+        "en": [
+          "Start with sleep — the foundation: schedule, darkness, cool air, screens off an hour before",
+          "Give the body movement without heroics: half an hour of walking a day already treats the background",
+          "Break up the sitting: stand and move a couple of minutes every hour",
+          "Learn physical unloading: progressive muscle relaxation, or a warm shower with full attention on the body",
+          "Symptoms that don't lift in three or four weeks go to a doctor — no self-diagnosis"
+        ]
+      },
+      "tryToday": {
+        "ru": "Ляг, закрой глаза и медленно пройди вниманием от макушки до стоп. Найди зоны напряжения и отпусти, что отпустится.",
+        "en": "Lie down, close your eyes and walk your attention slowly from crown to feet. Find the tension zones and release what releases."
+      },
+      "inspiringConclusion": {
+        "ru": "Тело не саботирует тебя — оно доносит правду, которую удобно не слышать. Начни отвечать ему, и оно первым вернётся в строй.",
+        "en": "Your body isn't sabotaging you — it's delivering the truth that's inconvenient to hear. Start answering it, and it'll be the first thing back in service."
+      }
+    },
+
+    "profile_cognitive": {
+      "name": { "ru": "Туман в голове", "en": "The Brain Fog" },
+      "description": {
+        "ru": "Главный симптом — когнитивный. Концентрация рвётся, простые решения требуют усилий, слова и дела выпадают из памяти. Это не «поглупел» — это мозг, которому долго не давали восстановиться, экономит энергию на всём подряд.",
+        "en": "The lead symptom is cognitive. Concentration tears, simple decisions take effort, words and tasks fall out of memory. You haven't \"gotten dumber\" — this is a brain long denied recovery, saving energy on everything at once."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминируют когнитивные нарушения: высшие функции — внимание, память, решения — сдают при хроническом стрессе первыми.",
+        "en": "Your overall level is moderate (40–60%) with cognitive impairment dominating: the higher functions — attention, memory, decisions — are the first to give under chronic stress."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь изменения мышления — сам факт наблюдения сохранен",
+          "База профессии на месте: провалы в оперативке, не в мастерстве",
+          "Мозг пластичен: этот туман рассеивается при восстановлении"
+        ],
+        "en": [
+          "You notice the changes in your thinking — observation itself is intact",
+          "The professional base is there: the gaps are in RAM, not in craft",
+          "The brain is plastic: this fog lifts with recovery"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Внимание рвётся на куски — длинные задачи стали почти недоступны",
+          "Забывчивость подтачивает уверенность и добавляет тревоги",
+          "Решения откладываются, потому что каждое стоит непомерно дорого",
+          "Ошибок больше — и каждая бьёт по самооценке дважды"
+        ],
+        "en": [
+          "Attention tears to pieces — long tasks have become nearly inaccessible",
+          "Forgetfulness erodes confidence and feeds anxiety",
+          "Decisions get postponed because each one costs too much",
+          "More mistakes — and each hits your self-esteem twice"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Почини сон в первую очередь: когнитивные функции собираются ночью",
+          "Одна задача за раз — многозадачность сейчас не для тебя, и это временно",
+          "Вынеси память наружу: списки, напоминания, заметки — пусть голова думает, а не хранит",
+          "Работай отрезками по 25–30 минут с настоящими паузами",
+          "Сократи входящий шум: новости и ленты съедают тот же ресурс, что и работа"
+        ],
+        "en": [
+          "Fix sleep first: cognitive functions get reassembled at night",
+          "One task at a time — multitasking isn't for you right now, and that's temporary",
+          "Externalize memory: lists, reminders, notes — let the head think, not store",
+          "Work in 25–30 minute blocks with real pauses",
+          "Cut the incoming noise: news and feeds eat the same resource work does"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одну задачу и дай ей 25 минут без телефона и вкладок. Заметь, как меняется качество.",
+        "en": "Pick one task and give it 25 minutes with no phone and no tabs. Notice what happens to the quality."
+      },
+      "inspiringConclusion": {
+        "ru": "Туман — не новая норма, а погода. Дай мозгу сон, паузы и меньше шума — и ясность вернётся, она умеет.",
+        "en": "The fog isn't the new normal — it's weather. Give the brain sleep, pauses and less noise, and clarity comes back. It knows the way."
+      }
+    },
+
+    "profile_demotivation": {
+      "name": { "ru": "Зачем всё это", "en": "The 'What's It For'" },
+      "description": {
+        "ru": "Главный симптом — смысл вышел из чата. Работа делается на автопилоте, вопрос «зачем» не находит ответа, а мысль об увольнении из случайной стала фоновой. Это экзистенциальная грань выгорания — и она честнее прочих: она спрашивает о главном.",
+        "en": "The lead symptom: meaning has left the chat. Work runs on autopilot, the question \"what for\" finds no answer, and the thought of quitting has gone from occasional to ambient. This is burnout's existential edge — and the honestest one: it asks about what matters."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминирует потеря мотивации и смысла. Когда работа перестаёт отвечать на «зачем», энергия не приходит даже после отдыха.",
+        "en": "Your overall level is moderate (40–60%) with loss of motivation and meaning dominating. When work stops answering \"what for\", energy doesn't come back even after rest."
+      },
+      "strengths": {
+        "ru": [
+          "Ты задаёшь себе настоящие вопросы, а не глушишь их",
+          "Честность с собой — у автоматических людей этот кризис не наступает",
+          "Готовность к переменам уже зреет — кризис смысла всегда о росте"
+        ],
+        "en": [
+          "You ask yourself the real questions instead of muting them",
+          "Honesty with yourself — people on full autopilot never reach this crisis",
+          "Readiness for change is ripening — a crisis of meaning is always about growth"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Без «зачем» каждая задача весит вдвое больше",
+          "Прокрастинация здесь — не лень, а забастовка смысла",
+          "Мечты об увольнении без плана превращаются в хроническую жвачку",
+          "Ощущение бега по кругу забирает больше сил, чем сам бег"
+        ],
+        "en": [
+          "Without the \"what for\", every task weighs double",
+          "Procrastination here isn't laziness — it's a strike over meaning",
+          "Quitting dreams without a plan become chronic chewing gum",
+          "The sense of running in circles drains more than the running itself"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Вспомни, что привело тебя в профессию, — и проверь, жив ли тот мотив или сменился",
+          "Ищи смысл в масштабе дня, не карьеры: кому сегодня стало лучше от твоей работы",
+          "Попробуй сместить фокус внутри профессии: новая роль, проект или специализация часто дешевле смены всего",
+          "Добавь смысла вне работы — волонтёрство и своё дело разгружают требование «работа обязана давать всё»",
+          "Если после честной проверки ответ «не моё» — уход не поражение, а вывод из данных"
+        ],
+        "en": [
+          "Recall what brought you into this profession — and check whether that motive is alive or replaced",
+          "Look for meaning at the scale of a day, not a career: who got something from your work today",
+          "Try shifting focus inside the profession: a new role, project or specialty is often cheaper than changing everything",
+          "Add meaning outside work — volunteering and side projects unload the demand that work must provide everything",
+          "If, after an honest audit, the answer is \"not mine\" — leaving isn't defeat, it's a conclusion from data"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три вещи, которые в твоей работе всё ещё ценны, — даже если сегодня они кажутся мелкими.",
+        "en": "Write down three things in your work that still hold value — even if they look small today."
+      },
+      "inspiringConclusion": {
+        "ru": "Потеря смысла — это не конец пути, а требование пересобрать маршрут. За таким кризисом обычно приходит более твоя версия жизни.",
+        "en": "Lost meaning isn't the end of the road — it's a demand to redraw the route. On the far side of this crisis usually waits a more-yours version of life."
+      }
+    },
+
+    "profile_work_overload": {
+      "name": { "ru": "Дело в системе", "en": "It's the System" },
+      "description": {
+        "ru": "Главный фактор — не в тебе, а вокруг: переработки, работа в выходные, нехватка ресурсов и поддержки. В такой среде выгорает кто угодно, и твои симптомы — нормальная реакция на ненормальную нагрузку.",
+        "en": "The main factor isn't in you — it's around you: overtime, weekend work, missing resources and support. Anyone burns out in that environment, and your symptoms are a normal response to an abnormal load."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (40–60%), а доминирует фактор рабочей среды: часы, выходные, ресурсы и поддержка. Тест видит перегруз снаружи раньше, чем поломку внутри.",
+        "en": "Your overall level is moderate (40–60%) with the work-environment factor dominating: hours, weekends, resources, support. The test sees the external overload before any internal breakage."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь, что проблема системная, — это защищает от самообвинения",
+          "Внутренние ресурсы ещё не выжжены: среда бьёт первой, ты пока держишься",
+          "Способность анализировать условия — основа для переговоров или ухода"
+        ],
+        "en": [
+          "You see the problem is systemic — that protects you from self-blame",
+          "Your inner resources aren't scorched yet: the environment hits first, you're still holding",
+          "The ability to analyze conditions is the basis for negotiation — or departure"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "50+ часов в неделю не компенсируются никакой стрессоустойчивостью",
+          "Работа в выходные съедает именно то время, которым чинятся будни",
+          "Без ресурсов и поддержки цена каждой задачи растёт вдвое",
+          "Терпеть токсичную среду «пока не наладится» — ставка, которая почти не играет"
+        ],
+        "en": [
+          "Fifty-plus hours a week aren't offset by any amount of stress tolerance",
+          "Weekend work eats exactly the time that repairs the weekdays",
+          "Without resources and support, every task costs double",
+          "Enduring a toxic environment \"until it improves\" is a bet that almost never pays"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Собери факты: часы, задачи, сорванные выходные — и иди на разговор с данными, а не с усталостью",
+          "Верни выходным статус выходных: это не бонус, а часть трудового цикла",
+          "Найди союзников: системные проблемы видят многие, поодиночке их терпят, вместе — меняют",
+          "Проведи границу возможного: что ты реально можешь изменить в этой организации, а что — нет",
+          "Если система глуха — обнови резюме не в панике, а по плану: уход из токсичной среды это стратегия, не бегство"
+        ],
+        "en": [
+          "Collect the facts: hours, tasks, lost weekends — and take data to the conversation, not fatigue",
+          "Give weekends their status back: they're part of the work cycle, not a bonus",
+          "Find allies: many people see systemic problems; alone they're endured, together they're changed",
+          "Draw the line of the possible: what you can actually change in this organization and what you can't",
+          "If the system is deaf — update the résumé by plan, not in panic: leaving a toxic environment is strategy, not flight"
+        ]
+      },
+      "tryToday": {
+        "ru": "Найди одну задачу, которую можно отдать или отложить, — и освободи себе час на восстановление.",
+        "en": "Find one task you can hand off or postpone — and free yourself an hour to recover."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты не обязан выигрывать соревнование с системой на выносливость. Работа, где тебя хватает и на жизнь, существует — и ты имеешь на неё право.",
+        "en": "You're not obliged to win an endurance contest against a system. Work that leaves enough of you for a life exists — and you're entitled to it."
+      }
+    },
+
+    "profile_moderate": {
+      "name": { "ru": "Тление", "en": "The Smolder" },
+      "description": {
+        "ru": "Выгорание среднего уровня без одного громкого симптома: понемногу горит везде — усталость, скепсис, рассеянность, тело. Ровное тление коварнее вспышки: его легче не замечать.",
+        "en": "Mid-level burnout with no single loud symptom: everything smolders a little — fatigue, skepticism, scattered focus, the body. An even smolder is trickier than a flare: it's easier not to notice."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по компонентам — в средней полосе (40–60%), и ни один фактор не вырывается вперёд: нагрузка распределилась по всем каналам сразу.",
+        "en": "Your average sits in the middle band (40–60%) and no factor breaks away: the load has spread across all channels at once."
+      },
+      "strengths": {
+        "ru": [
+          "Ресурсы на восстановление ещё есть — стадия обратимая",
+          "Ты распознал проблему до кризиса",
+          "Отсутствие одного очага значит: помогает всё общее — сон, отдых, границы"
+        ],
+        "en": [
+          "The resources for recovery are still there — this stage is reversible",
+          "You recognized the problem before the crisis",
+          "No single hotspot means the general things all help: sleep, rest, boundaries"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Истощение приходит волнами и уходит — легко решить, что «само пройдёт»",
+          "Энтузиазм тает медленно, и это незаметно изнутри",
+          "Тело уже подаёт сигналы, пока негромкие",
+          "Концентрация проседает в самые нагруженные дни"
+        ],
+        "en": [
+          "The exhaustion comes in waves and recedes — easy to decide it'll \"pass on its own\"",
+          "Enthusiasm melts slowly, invisibly from the inside",
+          "The body is already signaling, quietly for now",
+          "Concentration dips on the heaviest days"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Возьми настоящий отдых — не длинные выходные, а неделю без работы и рабочих чатов",
+          "Определи главный источник утечки и начни с него, а не со всего сразу",
+          "Пересмотри нагрузку с руководством, пока разговор ещё лёгкий",
+          "Верни в расписание то, что наполняет: спорт, людей, хобби — по календарю, не по остатку",
+          "Поставь контрольную точку через месяц: лучше, так же, хуже?"
+        ],
+        "en": [
+          "Take real rest — not a long weekend, a week without work or work chats",
+          "Find the main leak and start there, not everywhere at once",
+          "Renegotiate the load with management while the conversation is still easy",
+          "Put what fills you back on the schedule: movement, people, hobbies — by calendar, not by leftovers",
+          "Set a checkpoint a month out: better, same, or worse?"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одну зону — сон, движение или отдых — и сделай в ней один конкретный шаг сегодня.",
+        "en": "Pick one zone — sleep, movement or rest — and take one concrete step in it today."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты поймал выгорание на стадии, где хватает обычных мер. Действуй сейчас — и через пару месяцев скажешь себе спасибо.",
+        "en": "You caught the burnout at a stage where ordinary measures still work. Act now, and in a couple of months you'll thank yourself."
+      }
+    },
+
+    "profile_severe": {
+      "name": { "ru": "Глубокое выгорание", "en": "Deep Burnout" },
+      "supportNote": {
+        "ru": "Тест образовательный, диагнозов не ставит. Но уровень, который показывают твои ответы, — это уже не про «взять выходной»: с таким состоянием заметно быстрее выходят при поддержке психолога или психотерапевта, а телесные симптомы стоит показать врачу. Это обычная практика, а не крайняя мера.",
+        "en": "This test is educational and diagnoses nothing. But the level your answers show is past the \"take a day off\" stage: people come out of this state noticeably faster with a therapist's support, and the physical symptoms are worth showing to a doctor. That's standard practice, not a last resort."
+      },
+      "description": {
+        "ru": "Выгорание зашло глубоко: истощение стало хроническим, цинизм и сомнения в себе — постоянными, тело сигналит всерьёз. Это состояние не «пройдёт с отпуском» само — но оно проходит, если заняться им как главным проектом.",
+        "en": "The burnout runs deep: exhaustion has gone chronic, the cynicism and self-doubt constant, the body signaling in earnest. This state won't clear with one vacation on its own — but it does clear, once you treat it as the main project."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи компонентам — между 60 и 75%: высокие значения почти по всем каналам сразу. Это уже не перегруженный месяц, а перегруженный способ жить.",
+        "en": "Your average across the seven components is between 60 and 75%: high readings on nearly every channel at once. This isn't an overloaded month anymore — it's an overloaded way of living."
+      },
+      "strengths": {
+        "ru": [
+          "Ты назвал вещи своими именами — с этого начинается выход",
+          "Дойти до этой точки и продолжать работать — свидетельство выносливости, которую ты не учитываешь",
+          "Готовность искать помощь у тебя уже есть: ты здесь"
+        ],
+        "en": [
+          "You called things by their names — that's where the way out starts",
+          "Reaching this point and still working is proof of an endurance you don't credit yourself with",
+          "The readiness to seek help is already in you: you're here"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Истощение теперь и эмоциональное, и физическое — они кормят друг друга",
+          "Здоровье уже в счёте: сон, иммунитет, тело",
+          "Цинизм и сомнения в компетентности стали фоном, а не эпизодами",
+          "Смысл работы почти не просматривается из этой точки"
+        ],
+        "en": [
+          "The exhaustion is now both emotional and physical — and they feed each other",
+          "Health is already on the bill: sleep, immunity, the body",
+          "Cynicism and competence doubts are background now, not episodes",
+          "The meaning of the work is barely visible from this point"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Возьми длинный перерыв — две-три недели минимум: короткий отдых на этой глубине не достаёт до дна",
+          "Радикально срежь нагрузку на время восстановления — это условие, а не пожелание",
+          "Не выходи один: поддержка специалиста на этой стадии ускоряет всё",
+          "Телесные симптомы — врачу: часть из них накопилась и требует внимания сама по себе",
+          "После передышки — честный пересмотр: что в этой работе и этом графике должно измениться, чтобы не вернуться сюда"
+        ],
+        "en": [
+          "Take a long break — two to three weeks minimum: short rest doesn't reach the bottom at this depth",
+          "Cut the load radically for the recovery period — that's a condition, not a wish",
+          "Don't walk out alone: professional support at this stage speeds up everything",
+          "Take the body's symptoms to a doctor: some of them have accumulated and need attention in their own right",
+          "After the breather — an honest review: what about this job and this schedule must change so you don't return here"
+        ]
+      },
+      "tryToday": {
+        "ru": "Позвони близкому человеку и расскажи, как ты на самом деле. Не для решения — для того, чтобы не нести одному.",
+        "en": "Call someone close and tell them how you actually are. Not to solve it — so you're not carrying it alone."
+      },
+      "inspiringConclusion": {
+        "ru": "Глубокое выгорание — это счёт за то, что ты слишком долго вывозил слишком много. Долг гасится: временем, поддержкой и другим устройством нагрузки.",
+        "en": "Deep burnout is the bill for hauling too much for too long. The debt does get paid off — with time, support, and a different architecture of load."
+      }
+    },
+
+    "profile_critical": {
+      "name": { "ru": "На пределе", "en": "At the Limit" },
+      "supportNote": {
+        "ru": "Это образовательный тест, а не диагноз. Но твои ответы — почти всюду верхняя граница шкалы, и такое состояние не разбирают в одиночку: разговор с врачом и психотерапевтом — самый прямой путь, и откладывать его не стоит. Если фон совсем тёмный и задевает сон, еду или желание жить — пусть этот разговор случится в ближайшие дни.",
+        "en": "This is an educational test, not a diagnosis. But your answers sit at the top of the scale almost everywhere, and a state like this isn't dismantled alone: talking to a doctor and a therapist is the most direct route, and it shouldn't wait. If the background is very dark and touches your sleep, appetite or will to live — let that conversation happen within days."
+      },
+      "description": {
+        "ru": "Почти в каждом ответе — верхняя граница: истощение, отстранение, туман, тело, смысл. Так выглядит состояние, в котором ресурс не просто на нуле — он в минусе, и работа продолжается в долг у здоровья. Терпеть дальше — не стратегия: на этой глубине состояние само не разворачивается.",
+        "en": "Almost every answer sits at the top: exhaustion, detachment, fog, the body, meaning. This is what it looks like when the resource isn't just at zero — it's negative, and the work continues on credit borrowed from health. Enduring further isn't a strategy: at this depth the state doesn't turn around on its own."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи компонентам — выше 75%, верхняя зона шкалы. Все каналы выгорания работают одновременно и на максимуме.",
+        "en": "Your average across the seven components is above 75% — the top band of the scale. Every burnout channel is running at maximum, simultaneously."
+      },
+      "strengths": {
+        "ru": [
+          "Ты прошёл 54 вопроса о самом тяжёлом — и не приукрасил ответы",
+          "Осознание масштаба — единственная дверь, через которую отсюда выходят",
+          "Тот, кто дотянул досюда и ещё ищет выход, — не слабый человек"
+        ],
+        "en": [
+          "You went through 54 questions about the hardest stuff — and didn't polish the answers",
+          "Seeing the scale of it is the only door people leave through",
+          "Someone who has hauled this far and is still looking for a way out is not a weak person"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Истощение тотальное: не отдельный симптом, а всё сразу",
+          "Здоровье платит по счетам ежедневно — и проценты растут",
+          "Из этой точки решения принимаются хуже всего, а принимать их надо",
+          "Изоляция: сил на людей нет, а без людей глубже"
+        ],
+        "en": [
+          "The depletion is total: not one symptom but everything at once",
+          "Health pays the bills daily — and the interest is compounding",
+          "From this point decisions are made worst — and they must be made",
+          "Isolation: no energy for people, and without people it gets deeper"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Останови набор долга: больничный, отпуск, что угодно легальное — телу нужен выход из режима войны",
+          "«Перетерпеть» из списка вариантов вычеркни: это единственная гарантированно проигрышная ставка",
+          "Позови помощь — врача, психотерапевта, близких: на этой глубине выходят командой",
+          "Реши только сегодняшнее: один звонок, один шаг. Большие решения подождут восстановления",
+          "Помни порядок приоритетов: сначала ты, потом всё остальное — любая работа заменима"
+        ],
+        "en": [
+          "Stop accruing the debt: sick leave, vacation, anything legal — the body needs out of war mode",
+          "Cross \"tough it out\" off the list: it's the one guaranteed losing bet",
+          "Call in help — a doctor, a therapist, your people: from this depth, you leave as a team",
+          "Decide only today's things: one call, one step. The big decisions can wait for recovery",
+          "Keep the priority order: you first, everything else after — any job is replaceable"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай один звонок — врачу или человеку, которому доверяешь. Один. Остальное — потом.",
+        "en": "Make one call — to a doctor or to someone you trust. One. Everything else comes after."
+      },
+      "inspiringConclusion": {
+        "ru": "Выгорание такой глубины — не слабость характера, а перегруз системы, которая слишком долго работала без ремонта. Системы чинятся. Люди восстанавливаются. Ты тоже.",
+        "en": "Burnout this deep isn't weak character — it's an overloaded system that ran too long without repair. Systems get fixed. People recover. So will you."
+      }
+    }
+  }
+}

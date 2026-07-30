@@ -1,0 +1,775 @@
+{
+  "$comment": "Э8, волна 2 батч 4. 12 профилей: полосы + доминирующий симптом. Из описания и названий убрана рамка «зависимость/диагностика» (та же линия, что у fomo: паттерн, не диагноз), бренды (Facebook, Instagram, kSafe, Cold Turkey, Freedom, Digital Minimalism) и «специалист по зависимостям» — вычищены. supportNote на двух верхних уровнях. Восемь вопросов переведены с «вы» на «ты». Пороги и веса не тронуты.",
+
+  "title": {
+    "ru": "Цифровой детокс",
+    "en": "Digital Detox"
+  },
+  "description": {
+    "ru": "50 вопросов о том, кто у кого в руках — ты у телефона или он у тебя. Внимание, сон, продуктивность, живые люди и настроение против экрана. 12 профилей.",
+    "en": "50 questions about who's holding whom — you the phone, or the phone you. Attention, sleep, productivity, real people and mood versus the screen. 12 profiles."
+  },
+
+  "factorNames": {
+    "dependency_level": { "ru": "Привязанность к телефону", "en": "Phone attachment" },
+    "attention_control": { "ru": "Рассеянное внимание", "en": "Scattered attention" },
+    "social_impact": { "ru": "Цена для живого общения", "en": "Cost to real life" },
+    "physical_health": { "ru": "Счёт от тела", "en": "The body's bill" },
+    "productivity_loss": { "ru": "Утечка продуктивности", "en": "Productivity drain" },
+    "emotional_state": { "ru": "Качели настроения", "en": "Mood swings" },
+    "usage_patterns": { "ru": "Экран везде", "en": "Screens everywhere" }
+  },
+
+  "questions": {
+    "q7": { "text": { "ru": "Сколько часов в день ты проводишь перед экранами — телефон, компьютер, планшет?", "en": "How many hours a day do you spend in front of screens — phone, computer, tablet?" } },
+    "q14": { "text": { "ru": "Как часто ты проверяешь телефон в течение дня?", "en": "How often do you check your phone during the day?" } },
+    "q21": { "text": { "ru": "Сколько времени проходит между «взял телефон в руки» и «убрал его»?", "en": "How much time passes between picking your phone up and putting it down?" } },
+    "q28": { "text": { "ru": "Как быстро после уведомления ты его проверяешь?", "en": "How quickly do you check a notification after it arrives?" } },
+    "q35": { "text": { "ru": "Ты используешь телефон во время еды?", "en": "Do you use your phone while eating?" } },
+    "q42": { "text": { "ru": "Ты берёшь телефон в постель перед сном?", "en": "Do you take your phone to bed before sleep?" } },
+    "q49": { "text": { "ru": "Сколько приложений ты проверяешь в первые полчаса после пробуждения?", "en": "How many apps do you check in the first half hour after waking?" } },
+    "q50": { "text": { "ru": "Как часто ты достаёшь телефон, когда чего-то ждёшь — в очереди, на остановке?", "en": "How often do you pull out your phone while waiting — in a line, at a stop?" } }
+  },
+
+  "profiles": {
+    "profile_healthy": {
+      "name": { "ru": "Телефон знает своё место", "en": "The Phone Knows Its Place" },
+      "description": {
+        "ru": "Экран у тебя — инструмент: взял, сделал, положил. Внимание целое, сон свой, живые люди получают тебя без уведомлений посередине.",
+        "en": "For you the screen is a tool: pick up, do the thing, put down. Your attention is whole, your sleep is yours, and real people get you without notifications in the middle."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи показателям — ниже 25%: привязанность к телефону, рассеянность, потери сна и продуктивности почти не отозвались.",
+        "en": "Your average across the seven readings is under 25%: phone attachment, scatter, sleep and productivity losses barely registered."
+      },
+      "strengths": {
+        "ru": [
+          "Телефон подчиняется твоим задачам, а не твоей скуке",
+          "Ты способен на длинную концентрацию — редкий навык эпохи",
+          "Живое общение у тебя не проиграло онлайну",
+          "Сон и тело не платят за экран"
+        ],
+        "en": [
+          "The phone answers to your tasks, not your boredom",
+          "You're capable of long concentration — a rare skill for the era",
+          "Real conversation hasn't lost to online for you",
+          "Your sleep and body don't pay for the screen"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Экранное время имеет привычку расти незаметно — особенно в стресс",
+          "Самоотчёт всегда льстит: реальные цифры обычно выше ощущений"
+        ],
+        "en": [
+          "Screen time has a habit of growing unnoticed — especially under stress",
+          "Self-report always flatters: the real numbers usually beat the feeling"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в месяц сверяй ощущения с фактическим экранным временем",
+          "Сохрани свои правила при смене обстоятельств — переезды и стрессы расшатывают привычки",
+          "Помоги близким с их экранными привычками — у тебя есть чем поделиться"
+        ],
+        "en": [
+          "Once a month, check your feeling against the actual screen time",
+          "Keep your rules through changing circumstances — moves and stress loosen habits",
+          "Help the people around you with their screen habits — you've got something to share"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведи час без телефона — не в наказание, а чтобы заметить, каким длинным бывает час.",
+        "en": "Spend an hour without your phone — not as punishment, but to notice how long an hour can be."
+      },
+      "inspiringConclusion": {
+        "ru": "Хозяин своего внимания — самая недооценённая роль десятилетия. Ты в ней. Оставайся.",
+        "en": "Owner of your own attention — the most underrated title of the decade. It's yours. Keep it."
+      }
+    },
+
+    "profile_moderate_use": {
+      "name": { "ru": "Лёгкий перебор", "en": "A Bit Much" },
+      "description": {
+        "ru": "В целом ты управляешь экраном, но местами он подруливает: рука тянется к телефону сама, вечер уходит чуть дальше плана, утро начинается с ленты чаще, чем хотелось бы.",
+        "en": "Mostly you steer the screen, but in places it steers back: the hand reaches for the phone on its own, evenings run past the plan, mornings start with the feed more often than you'd like."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по показателям — между 25 и 45%: контроль на месте, но часть привычек уже работает без твоего участия.",
+        "en": "Your average sits between 25 and 45%: control is intact, but some habits already run without your input."
+      },
+      "strengths": {
+        "ru": [
+          "База контроля на месте — телефон ещё слушается",
+          "Ты замечаешь машинальные проверки, а не отрицаешь их",
+          "Изменения на этой стадии дёшевы и быстро дают эффект"
+        ],
+        "en": [
+          "The control base is intact — the phone still listens",
+          "You notice the automatic checks instead of denying them",
+          "Changes at this stage are cheap and pay off fast"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Машинальные проверки — десятки в день, и каждая рвёт фокус",
+          "Вечер с телефоном подъедает сон по чуть-чуть",
+          "Скука мгновенно конвертируется в скролл"
+        ],
+        "en": [
+          "Automatic checks — dozens a day, each one tearing focus",
+          "Evenings with the phone nibble at sleep bit by bit",
+          "Boredom converts to scrolling instantly"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выключи несрочные уведомления — пусть телефон ждёт тебя, а не зовёт",
+          "Заведи зоны без экрана: стол во время еды и спальня — хорошие первые две",
+          "Попробуй первый час дня без телефона — утро задаёт тон всему",
+          "Поставь лимиты на пару самых липких приложений и посмотри на цифры через неделю"
+        ],
+        "en": [
+          "Turn off non-urgent notifications — let the phone wait for you, not summon you",
+          "Set screen-free zones: the table at meals and the bedroom make good first two",
+          "Try the first hour of the day phone-free — mornings set the tone for everything",
+          "Put limits on your two stickiest apps and check the numbers in a week"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отключи уведомления у трёх приложений, которые дёргают тебя чаще всего.",
+        "en": "Kill notifications on the three apps that tug at you most."
+      },
+      "inspiringConclusion": {
+        "ru": "Небольшая настройка сейчас — и перебор не станет системой. Ты успеваешь раньше проблемы.",
+        "en": "A small tune-up now, and the excess never becomes the system. You're ahead of the problem."
+      }
+    },
+
+    "profile_addiction_focus": {
+      "name": { "ru": "Рука сама тянется", "en": "The Reaching Hand" },
+      "description": {
+        "ru": "Главный симптом — привязанность к самому устройству: без телефона тревожно, при низком заряде — почти паника, проверка происходит раньше, чем ты успел её решить. Это не слабоволие — интерфейсы спроектированы, чтобы рука тянулась. Но руку можно переучить.",
+        "en": "The lead symptom is attachment to the device itself: no phone means anxiety, low battery means near-panic, the check happens before you've decided to check. That's not weak will — interfaces are engineered to make the hand reach. But hands can be retrained."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминирует привязанность к телефону: дискомфорт без устройства выражен сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with phone attachment dominating: discomfort without the device outweighs every other reading."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь механизм, а не только следствия",
+          "Привычка тела переучивается быстрее, чем кажется",
+          "Осознанная проверка вместо машинальной — навык, который тренируется"
+        ],
+        "en": [
+          "You see the mechanism, not just the consequences",
+          "A body habit retrains faster than it feels like it will",
+          "Deliberate checking instead of automatic is a trainable skill"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Тревога без телефона реальна — и она же держит привычку",
+          "Проверок так много, что они стали невидимыми",
+          "Фантомные вибрации: телефон «зовёт», даже когда молчит",
+          "Заряд батареи стал показателем твоего спокойствия"
+        ],
+        "en": [
+          "The anxiety without the phone is real — and it's what holds the habit",
+          "The checks are so frequent they've become invisible",
+          "Phantom vibrations: the phone \"calls\" even when silent",
+          "The battery percentage has become the gauge of your calm"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни с часа в день без телефона — в другой комнате, не в кармане",
+          "Убери телефон из поля зрения: лежащий рядом экран тянет, даже выключенный",
+          "Сделай экран чёрно-белым — серые приложения заметно скучнее",
+          "Носи часы: половина проверок начинается с «сколько времени»",
+          "Убери самое липкое приложение на неделю и замерь, что изменилось"
+        ],
+        "en": [
+          "Start with one phone-free hour a day — in another room, not a pocket",
+          "Keep the phone out of sight: a screen lying nearby pulls even when off",
+          "Switch the display to grayscale — gray apps are visibly duller",
+          "Wear a watch: half the checks start as \"what time is it\"",
+          "Remove the stickiest app for a week and measure what changes"
+        ]
+      },
+      "tryToday": {
+        "ru": "Оставь телефон в другой комнате на два часа и посчитай, сколько раз рука потянется к нему.",
+        "en": "Leave the phone in another room for two hours and count how many times your hand reaches for it."
+      },
+      "inspiringConclusion": {
+        "ru": "Тяга руки к телефону — выученная, а не врождённая. Всё выученное переучивается — особенно когда видишь, кто тебя учил.",
+        "en": "The hand's pull toward the phone was learned, not born. Everything learned can be relearned — especially once you see who was teaching you."
+      }
+    },
+
+    "profile_attention_focus": {
+      "name": { "ru": "Внимание вдребезги", "en": "Shattered Focus" },
+      "description": {
+        "ru": "Главный симптом — внимание. Длинный текст не читается, задача не держится, каждое уведомление уводит — и вернуться стоит дороже, чем уйти. Хорошая новость: внимание — мышца, и она восстанавливается тренировкой.",
+        "en": "The lead symptom is attention. Long texts won't read, tasks won't hold, every notification pulls you away — and coming back costs more than leaving did. The good news: attention is a muscle, and it rebuilds with training."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминирует рассеянность: сложность с концентрацией выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with scatter dominating: difficulty concentrating outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь сам момент отвлечения — это база тренировки",
+          "Понимание цены: ты видишь, что рассеянность стоит результатов",
+          "Внимание отзывчиво: первые улучшения приходят за неделю"
+        ],
+        "en": [
+          "You notice the moment of distraction itself — that's the training base",
+          "You see the price: scatter is costing you results",
+          "Attention is responsive: the first improvements arrive within a week"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Фокус живёт минутами: длинные задачи разваливаются на попытки",
+          "Переключения съедают до трети рабочего времени незаметно",
+          "Чтение стало прокруткой: глаза скользят, смысл не цепляется",
+          "Многозадачность маскирует неспособность держать одну задачу"
+        ],
+        "en": [
+          "Focus lives in minutes: long tasks crumble into attempts",
+          "Switching quietly eats up to a third of working time",
+          "Reading has become scrolling: the eyes glide, the meaning doesn't catch",
+          "Multitasking masks the inability to hold a single task"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Работай отрезками: 25 минут одна задача, телефон вне комнаты",
+          "Режим «не беспокоить» на время фокуса — по расписанию, не по настроению",
+          "Пятнадцать минут бумажной книги в день — спортзал для внимания",
+          "Одна задача за раз: многозадачность сейчас работает против тебя",
+          "Убери телефон со стола: даже лежащий экраном вниз, он тянет фокус"
+        ],
+        "en": [
+          "Work in blocks: 25 minutes, one task, phone out of the room",
+          "Do-not-disturb during focus time — by schedule, not by mood",
+          "Fifteen minutes of a paper book daily — the gym for attention",
+          "One task at a time: multitasking is working against you right now",
+          "Get the phone off the desk: even face down, it pulls focus"
+        ]
+      },
+      "tryToday": {
+        "ru": "Дай одной задаче 25 минут без телефона в комнате — и сравни качество с обычным режимом.",
+        "en": "Give one task 25 minutes with the phone out of the room — and compare the quality to your usual mode."
+      },
+      "inspiringConclusion": {
+        "ru": "Внимание разобрали на осколки не за один день — и склеивается оно тоже по кусочку. Каждый удержанный фокус кладёт кусочек на место.",
+        "en": "Your attention wasn't shattered in a day — and it glues back piece by piece too. Every held focus puts a piece back in place."
+      }
+    },
+
+    "profile_social_focus": {
+      "name": { "ru": "Онлайн вместо людей", "en": "Online Instead of People" },
+      "description": {
+        "ru": "Главный симптом — экран подменил живых людей. Переписка вместо встречи, реакции вместо разговора, сотни контактов и растущее одиночество. Онлайн-связь похожа на настоящую, но насыщает как картинка еды.",
+        "en": "The lead symptom: the screen has stood in for real people. Texting instead of meeting, reactions instead of conversation, hundreds of contacts and a growing loneliness. Online connection resembles the real thing — but it nourishes like a picture of food."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминирует цена для живого общения: влияние экрана на реальные связи выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with the cost to real life dominating: the screen's impact on live connection outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Ты чувствуешь разницу между перепиской и присутствием — она тебя и беспокоит",
+          "Способность к настоящей связи на месте, просто без практики",
+          "Живое общение возвращается быстро: людям с людьми хорошо"
+        ],
+        "en": [
+          "You feel the difference between texting and presence — that's what's bothering you",
+          "The capacity for real connection is intact, just out of practice",
+          "Live contact comes back fast: people are good for people"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Встречи заменились перепиской, и разница накапливается одиночеством",
+          "Чужие витрины в ленте кормят сравнение и недовольство своим",
+          "Онлайн-общение проще — и этим оно вытесняет настоящее",
+          "Тысяча контактов не заменяет двух людей, которым можно позвонить ночью"
+        ],
+        "en": [
+          "Meetings got replaced by threads, and the difference accrues as loneliness",
+          "Other people's shop windows in the feed feed comparison and discontent",
+          "Online contact is easier — which is exactly how it crowds out the real thing",
+          "A thousand contacts don't replace two people you could call at 3 a.m."
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Меняй одну онлайн-сессию в день на один живой контакт: звонок, прогулка, встреча",
+          "Сократи подписки до людей, которых знаешь лично, — лента станет тише и честнее",
+          "Помни про монтаж: в ленте у всех премьеры, черновики не показывают",
+          "Дистанцию до близких меряй встречами, а не сообщениями",
+          "Освой радость пропущенного: не быть везде — нормально"
+        ],
+        "en": [
+          "Trade one online session a day for one live contact: a call, a walk, a meetup",
+          "Trim follows to people you actually know — the feed gets quieter and honester",
+          "Remember the editing: everyone posts premieres, nobody posts drafts",
+          "Measure distance to your people in meetings, not messages",
+          "Learn the joy of missing out: not being everywhere is fine"
+        ]
+      },
+      "tryToday": {
+        "ru": "Позвони или встреться с одним человеком — вместо лайков и комментариев ему же.",
+        "en": "Call or meet one person — instead of liking and commenting at them."
+      },
+      "inspiringConclusion": {
+        "ru": "Настоящий разговор не масштабируется — в этом его цена и его ценность. Инвестируй в несколько живых связей, и лента потеряет власть сама.",
+        "en": "A real conversation doesn't scale — that's both its price and its worth. Invest in a few live connections, and the feed loses its power on its own."
+      }
+    },
+
+    "profile_health_focus": {
+      "name": { "ru": "Тело платит", "en": "The Body Pays" },
+      "description": {
+        "ru": "Главный симптом — физический. Сон сбит светом экрана, шея и спина держат позу «в телефон», глаза сохнут, движения всё меньше. Счёт приходит телу — и оно уже присылает напоминания.",
+        "en": "The lead symptom is physical. Sleep is knocked off by screen light, the neck and back hold the phone posture, the eyes run dry, movement keeps shrinking. The bill goes to the body — and it's already sending reminders."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминирует счёт от тела: физические последствия экрана выражены сильнее остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with the body's bill dominating: the physical toll of the screen outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Симптомы конкретны — их видно и можно отслеживать",
+          "Тело отзывчиво: физика улучшается быстрее психики",
+          "Причина ясна, значит ясны и меры"
+        ],
+        "en": [
+          "The symptoms are concrete — visible and trackable",
+          "The body is responsive: the physical improves faster than the mental",
+          "The cause is clear, so the measures are too"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Экран перед сном крадёт самый восстановительный час ночи",
+          "«Текстовая шея»: голова над телефоном весит для позвоночника втрое",
+          "Глаза работают на ближней дистанции часами без паузы",
+          "Сидение с экраном вытеснило почти всё движение"
+        ],
+        "en": [
+          "The screen before bed steals the night's most restorative hour",
+          "Text neck: a head bent over a phone weighs triple on the spine",
+          "The eyes work at close range for hours without a break",
+          "Sitting with a screen has crowded out nearly all movement"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Экраны за час до сна — выключены: это самое рентабельное изменение из всех",
+          "Правило 20-20-20: каждые 20 минут — взгляд вдаль на 20 секунд",
+          "Купи обычный будильник и выставь телефон из спальни",
+          "Каждый час — пара минут движения: шея, плечи, пройтись",
+          "Ночной режим экрана на всех устройствах — с заката"
+        ],
+        "en": [
+          "Screens off an hour before bed — the highest-yield change of them all",
+          "The 20-20-20 rule: every 20 minutes, look into the distance for 20 seconds",
+          "Buy a plain alarm clock and evict the phone from the bedroom",
+          "Every hour, a couple of minutes of movement: neck, shoulders, a short walk",
+          "Night mode on every device — from sunset"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня вечером оставь телефон вне спальни. Одна ночь без экрана перед сном — и сравни утро.",
+        "en": "Tonight, leave the phone outside the bedroom. One night without a screen before sleep — then compare the morning."
+      },
+      "inspiringConclusion": {
+        "ru": "Тело выставляет счета честно — и так же честно возвращает долги. Пара недель заботы, и оно ответит энергией.",
+        "en": "The body bills honestly — and repays just as honestly. A couple of weeks of care and it answers with energy."
+      }
+    },
+
+    "profile_productivity_focus": {
+      "name": { "ru": "Часы в никуда", "en": "Hours to Nowhere" },
+      "description": {
+        "ru": "Главный симптом — время. День кончается, задачи нет, а история браузера знает, куда всё ушло: скролл, видео по кругу, «пять минуточек» на два часа. Прокрастинация нашла себе идеальный инструмент.",
+        "en": "The lead symptom is time. The day ends, the task isn't done, and the browser history knows where it all went: scrolling, videos on loop, \"five little minutes\" stretched to two hours. Procrastination has found its perfect instrument."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминирует утечка продуктивности: влияние экрана на дела выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with productivity drain dominating: the screen's impact on getting things done outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь, куда утекает время, — уже не иллюзия занятости",
+          "Желание вернуть продуктивность живо и злит — это топливо",
+          "Продуктивность отзывается быстро: неделя дисциплины уже видна в результатах"
+        ],
+        "en": [
+          "You can see where the time drains — no illusion of busyness left",
+          "The wish to reclaim productivity is alive and angry — that's fuel",
+          "Productivity responds fast: one disciplined week already shows in results"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Утро начинается с телефона — и лучшие часы дня уходят первыми",
+          "«Кроличьи норы» рекомендаций проглатывают вечера целиком",
+          "Переключение между задачей и телефоном обнуляет разгон",
+          "Важное проигрывает залипательному каждый вечер по очкам"
+        ],
+        "en": [
+          "The day starts with the phone — and the day's best hours go first",
+          "Recommendation rabbit holes swallow evenings whole",
+          "Switching between task and phone resets your momentum to zero",
+          "What matters loses on points to what's sticky, every single evening"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Работай до первой проверки телефона: утро — для главного дела",
+          "Блокируй отвлекающие сайты на время работы — решением заранее, а не силой воли в моменте",
+          "Телефон в другую комнату на время важных задач",
+          "Назначь телефону расписание: два-три окна в день вместо постоянного доступа",
+          "Смотри на экранное время еженедельно: цифра сама по себе дисциплинирует"
+        ],
+        "en": [
+          "Work before the first phone check: mornings belong to the main thing",
+          "Block distracting sites during work hours — by advance decision, not in-the-moment willpower",
+          "Phone in another room during important tasks",
+          "Give the phone a schedule: two or three windows a day instead of constant access",
+          "Review screen time weekly: the number alone disciplines"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай главное дело дня до первой проверки телефона — и посмотри, каким получится день.",
+        "en": "Do the day's main thing before the first phone check — and see what kind of day follows."
+      },
+      "inspiringConclusion": {
+        "ru": "Каждый час, отбитый у скролла, — это час на проекты, людей и сон. Время не появится — его можно только вернуть.",
+        "en": "Every hour won back from the scroll is an hour for projects, people and sleep. Time won't appear — it can only be reclaimed."
+      }
+    },
+
+    "profile_emotional_focus": {
+      "name": { "ru": "Настроение на зарядке", "en": "Mood on the Charger" },
+      "description": {
+        "ru": "Главный симптом — эмоции подключены к экрану. Настроение скачет от реакций, тишина без сети тревожит, невозможность проверить телефон злит. Твои чувства ходят на поводке у уведомлений — а поводок можно снять.",
+        "en": "The lead symptom: your emotions are plugged into the screen. Mood jumps with the reactions, offline silence makes you anxious, not being able to check the phone makes you angry. Your feelings walk on the notifications' leash — and the leash comes off."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминируют качели настроения: эмоциональная связка с экраном выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with mood swings dominating: the emotional tether to the screen outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Эмоциональная чувствительность — она же станет ресурсом офлайн",
+          "Ты замечаешь свои триггеры: какие приложения что включают",
+          "Эмоции отзываются на детокс быстро — фон выравнивается за дни"
+        ],
+        "en": [
+          "Emotional sensitivity — the same trait becomes a resource offline",
+          "You notice your triggers: which apps switch on what",
+          "Emotions respond to detox fast — the background levels out in days"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Утро задаётся первым уведомлением, а не тобой",
+          "Реакции на пост решают, каким будет вечер",
+          "Раздражительность при разлуке с телефоном бьёт по близким",
+          "Эмоциональные качели выматывают сильнее самих эмоций"
+        ],
+        "en": [
+          "The morning is set by the first notification, not by you",
+          "The reactions to a post decide what the evening will be",
+          "The irritability of phone separation lands on the people close to you",
+          "The mood swings exhaust more than the moods themselves"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Перед каждым открытием приложения — вопрос «зачем я иду туда?»; нет ответа — не открывай",
+          "Веди неделю дневник: настроение до экрана и после — увидишь связку своими глазами",
+          "Замени первую утреннюю проверку на что-то своё: вода, окно, пара страниц",
+          "Один день в неделю без соцсетей — эмоциональный выходной",
+          "Когда накрывает, разряжайся телом, а не скроллом: дыхание, прогулка, вода"
+        ],
+        "en": [
+          "Before opening any app, ask \"what am I here for?\" — no answer, no opening",
+          "Keep a one-week log: mood before the screen and after — you'll see the tether with your own eyes",
+          "Replace the first morning check with something of yours: water, the window, a couple of pages",
+          "One social-free day a week — an emotional day off",
+          "When it floods, discharge through the body, not the scroll: breath, a walk, water"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши настроение до и после каждой сессии в телефоне — один день честных замеров скажет больше месяца догадок.",
+        "en": "Log your mood before and after every phone session — one day of honest readings beats a month of guessing."
+      },
+      "inspiringConclusion": {
+        "ru": "Твои эмоции принадлежат тебе, а не алгоритмам, которые научились их дёргать. Отключи поводок — и качели остановятся сами.",
+        "en": "Your emotions belong to you, not to the algorithms that learned to tug them. Unclip the leash and the swings stop on their own."
+      }
+    },
+
+    "profile_usage_focus": {
+      "name": { "ru": "Экран везде", "en": "Screens Everywhere" },
+      "description": {
+        "ru": "Главный симптом — экран проник во все сцены дня: постель, еда, очередь, туалет, первая минута утра и последняя минута вечера. Каждая сцена по отдельности — мелочь; вместе они значат, что у жизни не осталось мест без экрана.",
+        "en": "The lead symptom: the screen has seeped into every scene of the day — bed, meals, lines, the bathroom, the first minute of morning and the last of night. Each scene alone is a trifle; together they mean life has no screen-free places left."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), а доминируют паттерны использования: где и когда ты с экраном — сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (45–65%) with usage patterns dominating: where and when you're with the screen outweighs the other readings."
+      },
+      "strengths": {
+        "ru": [
+          "Паттерны — самая изменяемая часть привычки: правила работают",
+          "Ты видишь свои сцены — знаешь, где именно экран лишний",
+          "Каждая возвращённая сцена даёт эффект сразу"
+        ],
+        "en": [
+          "Patterns are the most changeable part of a habit: rules work here",
+          "You can see your scenes — you know exactly where the screen doesn't belong",
+          "Every scene you take back pays off immediately"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Телефон в постели растягивает вечер и крадёт сон",
+          "Еда с экраном — это еда, которую ты не заметил",
+          "Первые полчаса утра принадлежат приложениям, а не тебе",
+          "Ни одной паузы дня без заполнителя: мозгу негде переварить"
+        ],
+        "en": [
+          "The phone in bed stretches the evening and steals the sleep",
+          "A meal with a screen is a meal you didn't notice",
+          "The first half hour of morning belongs to the apps, not to you",
+          "No pause of the day left unfilled: the mind has nowhere to digest"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Верни три сцены: спальня, стол во время еды, первые полчаса утра — без экрана",
+          "Будильник вместо телефона — и заряжай его вне спальни",
+          "Назначь телефону дом: одно место в квартире, где он живёт",
+          "Оставляй ожидания пустыми: очередь и остановка — законные паузы мозга",
+          "Одно правило в неделю: закрепи сцену и добавляй следующую"
+        ],
+        "en": [
+          "Take back three scenes: the bedroom, the table at meals, the first half hour of morning — screen-free",
+          "An alarm clock instead of the phone — charge the phone outside the bedroom",
+          "Give the phone a home: one place in the flat where it lives",
+          "Leave the waits unfilled: lines and bus stops are the mind's legitimate pauses",
+          "One rule a week: lock in a scene, then add the next"
+        ]
+      },
+      "tryToday": {
+        "ru": "Убери телефон из спальни на сегодняшнюю ночь — будильником поработает что-нибудь попроще.",
+        "en": "Evict the phone from the bedroom tonight — something simpler can handle the alarm."
+      },
+      "inspiringConclusion": {
+        "ru": "Жизнь состоит из сцен, и ты возвращаешь их себе по одной. Через месяц окажется, что экрану осталось только его законное место.",
+        "en": "Life is made of scenes, and you take them back one at a time. A month from now the screen will hold only the place it's entitled to."
+      }
+    },
+
+    "profile_problematic": {
+      "name": { "ru": "По всем фронтам", "en": "On Every Front" },
+      "description": {
+        "ru": "Экран давит сразу по нескольким направлениям: внимание, время, сон, настроение — без одного громкого лидера. Это значит, что точечные меры не сработают: нужна общая перестройка отношений с телефоном.",
+        "en": "The screen presses on several fronts at once: attention, time, sleep, mood — with no single loud leader. Which means point fixes won't cut it: the whole relationship with the phone needs a rebuild."
+      },
+      "whyThisProfile": {
+        "ru": "Общий уровень средний (45–65%), и повышение размазано по нескольким показателям без явной доминанты.",
+        "en": "Your overall level is moderate (45–65%), with the elevation spread across several readings and no clear dominant."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь картину целиком, а не отдельный симптом",
+          "Комплексная перестройка даёт самый устойчивый результат",
+          "Мотивация на месте: ты дочитал до этого места"
+        ],
+        "en": [
+          "You see the whole picture, not a single symptom",
+          "A full rebuild gives the most durable result",
+          "The motivation is here: you've read this far"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Несколько умеренных симптомов в сумме весят как один тяжёлый",
+          "Без общего плана улучшение в одном месте перетекает в ухудшение в другом",
+          "Дрейф вниз продолжится сам — для него ничего не нужно делать"
+        ],
+        "en": [
+          "Several moderate symptoms add up to the weight of one severe",
+          "Without an overall plan, improvement in one place drains into another",
+          "The downward drift continues on its own — it requires nothing from you"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Устрой месяц перезагрузки: жёсткие лимиты, зоны без экрана, соцсети только с компьютера",
+          "Один день в неделю — полностью без телефона: суббота подходит",
+          "Найди офлайн-занятие, которое реально нравится, — пустоту надо заполнять, не оставлять",
+          "Подключи близкого человека: правила вдвоём держатся лучше",
+          "Через месяц пройди тест снова и сравни профиль"
+        ],
+        "en": [
+          "Run a reset month: hard limits, screen-free zones, social media only from a computer",
+          "One fully phone-free day a week — Saturday works",
+          "Find an offline pursuit you genuinely enjoy — the void needs filling, not leaving",
+          "Bring in someone close: rules held by two hold better",
+          "Retake the test in a month and compare the profile"
+        ]
+      },
+      "tryToday": {
+        "ru": "Удали одно приложение, которое крадёт больше всего времени. Через неделю оцени, чего тебе не хватало.",
+        "en": "Delete the one app that steals the most time. In a week, assess what you actually missed."
+      },
+      "inspiringConclusion": {
+        "ru": "Широкий фронт значит и широкий выигрыш: каждая починенная зона улучшает остальные. Начни с одной — остальные подтянутся.",
+        "en": "A wide front also means a wide win: every zone you fix improves the others. Start with one — the rest will follow."
+      }
+    },
+
+    "profile_severe": {
+      "name": { "ru": "Телефон главнее", "en": "The Phone Is in Charge" },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если экран уже всерьёз теснит сон, работу и живых людей, а самостоятельные попытки срываются раз за разом — разговор с психологом ощутимо ускоряет выход: с компульсивными цифровыми привычками работают предметно и успешно.",
+        "en": "This is an educational test, not a diagnosis. But if the screen is seriously crowding out sleep, work and real people, and solo attempts keep collapsing — talking to a therapist speeds up the exit considerably: compulsive digital habits are treated concretely and successfully."
+      },
+      "description": {
+        "ru": "Телефон стал главным арендатором твоего времени: он решает, когда ты спишь, с кем общаешься и что успеваешь. Влияние видно во всех сферах сразу, и попытки «поменьше сидеть» силой воли срываются — потому что против тебя работает индустрия. Нужны меры покрупнее настроек.",
+        "en": "The phone has become the main tenant of your time: it decides when you sleep, whom you talk to and what gets done. The impact shows in every sphere at once, and willpower attempts to \"use it less\" keep collapsing — because an industry is working against you. The measures needed are bigger than settings."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи показателям — между 65 и 80%: высокие значения почти по всем каналам одновременно.",
+        "en": "Your average across the seven readings is between 65 and 80%: high values on nearly every channel at once."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честно посмотрел на масштаб — большинство не решается",
+          "Готовность к серьёзным мерам уже есть, раз ты дочитал",
+          "Даже глубокая привычка разворачивается — люди выходили и из большего"
+        ],
+        "en": [
+          "You looked at the scale honestly — most people don't dare",
+          "The readiness for serious measures is here, since you're still reading",
+          "Even a deep habit turns around — people have walked out of worse"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Сон, здоровье и отношения уже платят по этому счёту",
+          "Продуктивность просела настолько, что это видно снаружи",
+          "Живые связи истончились — экран занял их время",
+          "Каждая сорвавшаяся попытка ослабляет веру в следующую"
+        ],
+        "en": [
+          "Sleep, health and relationships are already paying this bill",
+          "Productivity has sagged enough to show from the outside",
+          "Live connections have thinned — the screen took their hours",
+          "Every collapsed attempt weakens faith in the next one"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Смени среду, не силу воли: убери приложения, поставь блокировщики, вынеси телефон из спальни — решениями заранее",
+          "Попробуй месяц с простым кнопочным телефоном — радикально, но это работает",
+          "Расскажи близким и попроси держать тебя в курсе, когда срываешься, — подотчётность сильнее намерений",
+          "Заполни освободившиеся часы заранее спланированным делом — пустота вернёт экран",
+          "Не полагайся только на себя: поддержка специалиста заметно поднимает шансы"
+        ],
+        "en": [
+          "Change the environment, not the willpower: remove the apps, install blockers, evict the phone from the bedroom — by advance decision",
+          "Try a month on a basic push-button phone — radical, but it works",
+          "Tell the people close to you and ask them to flag your relapses — accountability beats intentions",
+          "Pre-plan what fills the freed hours — emptiness will bring the screen back",
+          "Don't rely on yourself alone: professional support raises the odds considerably"
+        ]
+      },
+      "tryToday": {
+        "ru": "Попроси близкого человека помочь: пусть установит лимиты на твоём телефоне и держит пароль у себя.",
+        "en": "Ask someone close for help: have them set the limits on your phone and keep the password."
+      },
+      "inspiringConclusion": {
+        "ru": "Телефон занял главное место, потому что его отдавали по сантиметру. Возвращать можно так же — по сантиметру, но в свою сторону.",
+        "en": "The phone took the main seat because it was surrendered an inch at a time. It can be taken back the same way — an inch at a time, in your direction."
+      }
+    },
+
+    "profile_critical": {
+      "name": { "ru": "Жизнь на экране", "en": "Life on the Screen" },
+      "supportNote": {
+        "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн. Но почти каждый твой ответ — верхняя граница шкалы, и это тяжёлый фон. Если экран идёт в связке с бессонницей, подавленностью или ощущением, что без него ты не существуешь, — поговори со специалистом в ближайшие дни: с этим работают, и работают успешно.",
+        "en": "This result is not a diagnosis: the test is educational and measures a pattern. But nearly every answer you gave sits at the top of the scale, and that's a heavy background. If the screen comes bundled with sleeplessness, low mood or the sense that you don't exist without it — talk to a professional within days: this is treatable, and treated successfully."
+      },
+      "description": {
+        "ru": "Почти в каждом ответе — максимум: экран занял сон, еду, работу, людей и настроение. Так выглядит жизнь, пересевшая на экран целиком, — и одновременно так отвечает человек, который привык описывать себя в предельных словах. В обоих случаях это не приговор, а самая громкая версия сигнала «пора».",
+        "en": "Nearly every answer at maximum: the screen has taken sleep, meals, work, people and mood. This is what a life fully moved onto the screen looks like — and also how a person answers who's used to describing themselves in absolute terms. Either way it's not a verdict — it's the loudest possible version of the signal that it's time."
+      },
+      "whyThisProfile": {
+        "ru": "Среднее по семи показателям выше 80% — верхняя зона шкалы. Все каналы влияния экрана работают одновременно и на максимум.",
+        "en": "Your average across the seven readings is above 80% — the top band of the scale. Every channel of the screen's influence is running at maximum, simultaneously."
+      },
+      "strengths": {
+        "ru": [
+          "Ты прошёл 50 вопросов о самом неудобном и не отвёл глаз",
+          "Часть тебя уже не согласна с таким распределением жизни — она и привела тебя сюда",
+          "Радикальные меры при таком уровне дают самый быстрый видимый результат"
+        ],
+        "en": [
+          "You went through 50 uncomfortable questions and didn't look away",
+          "Part of you already disagrees with this allocation of life — that part brought you here",
+          "At this level, radical measures give the fastest visible result"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Тело и сон платят за экран каждый день, и долг растёт",
+          "Живые отношения на голодном пайке — экран съел их время",
+          "Настроение полностью подключено к устройству",
+          "Чем тяжелее от экрана, тем сильнее тянет к экрану — петля замкнулась"
+        ],
+        "en": [
+          "The body and sleep pay for the screen daily, and the debt grows",
+          "Live relationships are on starvation rations — the screen ate their hours",
+          "Mood is fully wired to the device",
+          "The worse the screen makes you feel, the harder it pulls — the loop has closed"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не выходи один: расскажи близкому человеку и попроси помощи — реальной, с паролями и лимитами",
+          "Сделай экран физически недоступным на часть дня: отдай, запри, оставь дома — среда сильнее воли",
+          "Начни с тела: ночь без телефона в спальне, еда без экрана, полчаса улицы в день",
+          "Каждый вечер — одна строка: что сегодня было настоящим, не с экрана",
+          "Разговор со специалистом поставь в план на эту неделю — не как крайность, а как самый короткий путь"
+        ],
+        "en": [
+          "Don't leave alone: tell someone close and ask for real help — the kind with passwords and limits",
+          "Make the screen physically unavailable for part of the day: hand it over, lock it up, leave it home — environment beats will",
+          "Start with the body: a night with no phone in the bedroom, meals without a screen, half an hour outside daily",
+          "One line every evening: what was real today, not from the screen",
+          "Put the conversation with a professional on this week's plan — not as a last resort, but as the shortest road"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отдай телефон близкому человеку на вечер. Один вечер. Заметь, что останется, — это и есть твоя жизнь.",
+        "en": "Hand your phone to someone close for the evening. One evening. Notice what remains — that's your life."
+      },
+      "inspiringConclusion": {
+        "ru": "Экран научил тебя, что без него пусто. Правда в другом: за ним всё это время стояла жизнь и ждала, когда ты обернёшься.",
+        "en": "The screen taught you that without it there's emptiness. The truth is different: behind it, all this time, a life has been standing and waiting for you to turn around."
+      }
+    }
+  }
+}

@@ -180,5 +180,33 @@
     "categoryId": "emotional",
     "estimatedMinutes": 8,
     "questionCount": 48
+  },
+  {
+    "id": "burnout_diagnostic_v1",
+    "title": {
+      "ru": "Выгорание",
+      "en": "Burnout"
+    },
+    "description": {
+      "ru": "54 вопроса о том, сколько тебя остаётся после работы: истощение, цинизм, туман в голове и счёт, который выставляет тело. 12 профилей — от «ресурс на месте» до «на пределе».",
+      "en": "54 questions about how much of you is left after work: exhaustion, cynicism, brain fog and the bill your body writes. 12 profiles — from \"fuel in the tank\" to \"at the limit\"."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 12,
+    "questionCount": 54
+  },
+  {
+    "id": "digital_detox_test",
+    "title": {
+      "ru": "Цифровой детокс",
+      "en": "Digital Detox"
+    },
+    "description": {
+      "ru": "50 вопросов о том, кто у кого в руках — ты у телефона или он у тебя. Внимание, сон, продуктивность, живые люди и настроение против экрана. 12 профилей.",
+      "en": "50 questions about who's holding whom — you the phone, or the phone you. Attention, sleep, productivity, real people and mood versus the screen. 12 profiles."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 10,
+    "questionCount": 50
   }
 ]

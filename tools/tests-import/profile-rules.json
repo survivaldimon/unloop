@@ -219,6 +219,46 @@
     ]
   },
 
+  "burnout_diagnostic_v1": {
+    "$note": "Перенос determineProfile() из burnout_diagnostic_data.dart: полосы по среднему семи факторов, в средней полосе (40–60) — ветка по доминирующему фактору. Порядок правил повторяет порядок обхода факторов в Dart — ничьи решаются так же. profile_moderate — default свитча (недостижим и в оригинале), здесь — фолбэк средней полосы.",
+    "mode": "rules",
+    "fallback": "profile_minimal",
+    "rules": [
+      { "when": [["@avg", "<=", 25]], "profile": "profile_minimal" },
+      { "when": [["@avg", "<=", 40]], "profile": "profile_mild" },
+      { "when": [["@avg", "<=", 60], ["emotional_exhaustion", ">=", "@top1"]], "profile": "profile_emotional_exhaustion" },
+      { "when": [["@avg", "<=", 60], ["depersonalization", ">=", "@top1"]], "profile": "profile_cynicism" },
+      { "when": [["@avg", "<=", 60], ["reduced_efficacy", ">=", "@top1"]], "profile": "profile_inefficacy" },
+      { "when": [["@avg", "<=", 60], ["physical_symptoms", ">=", "@top1"]], "profile": "profile_somatic" },
+      { "when": [["@avg", "<=", 60], ["cognitive_impairment", ">=", "@top1"]], "profile": "profile_cognitive" },
+      { "when": [["@avg", "<=", 60], ["motivation_loss", ">=", "@top1"]], "profile": "profile_demotivation" },
+      { "when": [["@avg", "<=", 60], ["work_environment", ">=", "@top1"]], "profile": "profile_work_overload" },
+      { "when": [["@avg", "<=", 60]], "profile": "profile_moderate" },
+      { "when": [["@avg", "<=", 75]], "profile": "profile_severe" },
+      { "when": [], "profile": "profile_critical" }
+    ]
+  },
+
+  "digital_detox_test": {
+    "$note": "Перенос determineProfile() из digital_detox_data.dart: та же форма, что burnout — полосы (25/45/65/80) + доминанта в средней полосе. profile_problematic — default свитча, фолбэк средней полосы.",
+    "mode": "rules",
+    "fallback": "profile_healthy",
+    "rules": [
+      { "when": [["@avg", "<=", 25]], "profile": "profile_healthy" },
+      { "when": [["@avg", "<=", 45]], "profile": "profile_moderate_use" },
+      { "when": [["@avg", "<=", 65], ["dependency_level", ">=", "@top1"]], "profile": "profile_addiction_focus" },
+      { "when": [["@avg", "<=", 65], ["attention_control", ">=", "@top1"]], "profile": "profile_attention_focus" },
+      { "when": [["@avg", "<=", 65], ["social_impact", ">=", "@top1"]], "profile": "profile_social_focus" },
+      { "when": [["@avg", "<=", 65], ["physical_health", ">=", "@top1"]], "profile": "profile_health_focus" },
+      { "when": [["@avg", "<=", 65], ["productivity_loss", ">=", "@top1"]], "profile": "profile_productivity_focus" },
+      { "when": [["@avg", "<=", 65], ["emotional_state", ">=", "@top1"]], "profile": "profile_emotional_focus" },
+      { "when": [["@avg", "<=", 65], ["usage_patterns", ">=", "@top1"]], "profile": "profile_usage_focus" },
+      { "when": [["@avg", "<=", 65]], "profile": "profile_problematic" },
+      { "when": [["@avg", "<=", 80]], "profile": "profile_severe" },
+      { "when": [], "profile": "profile_critical" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

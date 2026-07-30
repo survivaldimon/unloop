@@ -52,6 +52,10 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   boundaries_people_pleasing: false,
   // Level test: the six mechanisms behind the level are the paid read.
   fomo_social_comparison_v1: false,
+  // Which burnout channel is loudest IS the paid read (levels + dominant symptom).
+  burnout_diagnostic_v1: false,
+  // Same shape as burnout: the per-channel breakdown is the paid read.
+  digital_detox_test: false,
 };
 
 /**
