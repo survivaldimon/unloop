@@ -177,7 +177,12 @@ export type AnalyticsEvent =
   | "test_retake"
   // Server recompute disagreed with the locally scored result (§6) — either
   // engine drift or a doctored outcome; interesting as a signal either way.
-  | "test_outcome_mismatch";
+  | "test_outcome_mismatch"
+  // The global NavMenu, shared by all surfaces. PostHog-only: `from` is the
+  // surface it opened on, `to` the section a click chose — together they map
+  // which bridges between the funnels actually get walked.
+  | "nav_open"
+  | "nav_click";
 
 export function track(
   event: AnalyticsEvent,

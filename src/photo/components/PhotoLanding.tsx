@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
-import { useLang } from "../../i18n";
+import { t, useLang } from "../../i18n";
 import { ROMAN } from "../../lib/visual";
 import { MAX_PHOTOS, type RejectReason } from "../api";
 import { getPhotoCopy } from "../copy";
@@ -170,6 +170,14 @@ export default function PhotoLanding({
           </button>
         )}
         <p className="text-center text-xs leading-relaxed text-mist/70">{ui.note}</p>
+        {/* An exit for the not-converting, under the funnel's own CTA — never
+            competing with it above the fold (§7). */}
+        <p className="text-center text-xs leading-relaxed text-mist/70">
+          {t(lang).nav.teaserFromPhoto}{" "}
+          <a href="/tests" className="text-brass-2 no-underline hover:underline">
+            {t(lang).nav.testsCta} →
+          </a>
+        </p>
         <LegalLinks />
       </footer>
     </div>

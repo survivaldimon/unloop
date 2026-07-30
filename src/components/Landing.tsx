@@ -7,6 +7,7 @@ import LogoMark from "./LogoMark";
 export default function Landing({ onStart }: { onStart: () => void }) {
   const lang = useLang();
   const ui = t(lang).landing;
+  const nav = t(lang).nav;
 
   return (
     <div className="flex flex-1 flex-col justify-between">
@@ -64,6 +65,14 @@ export default function Landing({ onStart }: { onStart: () => void }) {
           {ui.cta}
         </button>
         <p className="text-center text-xs leading-relaxed text-mist/70">{ui.note}</p>
+        {/* An exit for the not-converting, under the funnel's own CTA — never
+            competing with it above the fold (§7). */}
+        <p className="text-center text-xs leading-relaxed text-mist/70">
+          {nav.teaserFromQuiz}{" "}
+          <a href="/tests" className="text-brass-2 no-underline hover:underline">
+            {nav.testsCta} →
+          </a>
+        </p>
         <LegalLinks />
       </footer>
     </div>

@@ -252,6 +252,15 @@ export default function Report({
         />
       </div>
 
+      {/* Cross-sell into the tests, after the purchase only — a cross-link
+          never competes with an open paywall (§7). */}
+      <div className="mt-10 flex flex-col gap-2 text-center">
+        <p className="text-[13px] leading-relaxed text-mist">{ui.crossTests}</p>
+        <a href="/tests" className="text-[13px] text-brass-2 no-underline hover:underline">
+          {ui.crossTestsCta} →
+        </a>
+      </div>
+
       <footer className="mt-8 flex flex-col gap-4 text-center">
         <hr className="hairline" />
         <p className="text-xs leading-relaxed text-mist/50">{ui.disclaimer}</p>

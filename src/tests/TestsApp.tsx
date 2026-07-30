@@ -17,6 +17,7 @@ import BalanceChip from "../components/BalanceChip";
 import CreditPaywall from "../components/CreditPaywall";
 import EmailCapture from "../components/EmailCapture";
 import LegalLinks from "../components/LegalLinks";
+import NavMenu from "../components/NavMenu";
 import ReportChat from "../components/ReportChat";
 import TopUpModal from "../components/TopUpModal";
 import { LangContext, detectLang, persistLang, type Lang } from "../i18n";
@@ -774,6 +775,7 @@ export default function TestsApp() {
     <LangContext.Provider value={lang}>
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-clip px-5 pt-6 pb-10">
         <div className="fixed top-4 right-4 z-20 flex items-center gap-2">
+          <NavMenu />
           {creditsEnabled && balance !== null && (
             <BalanceChip balance={balance} onClick={() => setTopUpCost(0)} />
           )}

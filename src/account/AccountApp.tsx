@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ACCOUNT_COPY } from "../lib/accountCopy";
 import {
   fetchAccount,
@@ -15,10 +15,14 @@ import {
   type LedgerEntry,
   type PastRead,
 } from "../lib/account";
-import { fetchMyBalance } from "../lib/credits";
+import { CREDIT_PACKS, fetchMyBalance, type PackId } from "../lib/credits";
+import { openCheckout, paymentsEnabled } from "../lib/payments";
+import { track } from "../lib/analytics";
 import { fetchMySessions, type CompletedTestSession } from "../lib/tests";
 import { supabase } from "../lib/supabase";
 import LogoMark from "../components/LogoMark";
+import NavMenu from "../components/NavMenu";
+import TopUpModal from "../components/TopUpModal";
 import { TEST_CATALOGUE, loadTest } from "../tests/registry";
 import type { PsychTest } from "../tests/types";
 import { detectLang, persistLang, LangContext, type Lang } from "../i18n";
@@ -63,6 +67,68 @@ export default function AccountApp() {
   const [notice, setNotice] = useState<AuthResult | null>(null);
   const [newPassword, setNewPassword] = useState("");
   const [passwordNotice, setPasswordNotice] = useState<AuthResult | null>(null);
+
+  // In-place top-up: the button used to send people to /loop/, dropping them
+  // out of the account into a funnel's landing. The pack sheet opens here now.
+  const [topUpOpen, setTopUpOpen] = useState(false);
+  const [topUpBusy, setTopUpBusy] = useState(false);
+  const pollTimer = useRef<number | null>(null);
+
+  useEffect(
+    () => () => {
+      if (pollTimer.current !== null) window.clearTimeout(pollTimer.current);
+    },
+    [],
+  );
+
+  /** Buy a pack, wait for the webhook's grant, then re-read balance + ledger. */
+  const buyTopUp = (packId: PackId) => {
+    if (topUpBusy) return;
+    setTopUpBusy(true);
+    track("unlock_click", {
+      funnel: "account",
+      pack: packId,
+      value: CREDIT_PACKS[packId].usd,
+      context: "topup",
+    });
+    const before = balance ?? 0;
+    openCheckout({
+      endpoint: "credits-polar-checkout",
+      packId,
+      // The webhook lands credits on the signed-in account (metadata.user_id,
+      // else the order's email) — the session id is only checkout metadata,
+      // and the account screen has no funnel session to offer.
+      sessionId: crypto.randomUUID(),
+      email: account?.email,
+      lang,
+      onPaid: () => {
+        const startedAt = Date.now();
+        const tick = async () => {
+          const value = await fetchMyBalance();
+          if (value !== null && value > before) {
+            track("credits_purchase", {
+              funnel: "account",
+              pack: packId,
+              value: CREDIT_PACKS[packId].usd,
+              context: "topup",
+            });
+            setTopUpBusy(false);
+            setTopUpOpen(false);
+            void load();
+            return;
+          }
+          if (Date.now() - startedAt > 90_000) {
+            setTopUpBusy(false);
+            return;
+          }
+          pollTimer.current = window.setTimeout(tick, 2500);
+        };
+        void tick();
+      },
+      onClosed: () => setTopUpBusy(false),
+      onError: () => setTopUpBusy(false),
+    }).catch(() => setTopUpBusy(false));
+  };
 
   useEffect(() => {
     persistLang(lang);
@@ -184,7 +250,10 @@ export default function AccountApp() {
             <LogoMark />
             LOOPLORE
           </a>
-          {langToggle}
+          <div className="flex items-center gap-2">
+            <NavMenu />
+            {langToggle}
+          </div>
         </header>
         <hr className="hairline mt-2.5" />
         <h1 className="font-display mt-6 text-[26px] font-medium italic">{ui.title}</h1>
@@ -308,9 +377,21 @@ export default function AccountApp() {
           {balance ?? 0}
         </p>
         <p className="mt-1 text-[12px] text-mist">{ui.credits(balance ?? 0)}</p>
-        <a href="/loop/" className="btn-primary mt-3 inline-block no-underline">
-          {ui.topUp}
-        </a>
+        {/* With payments off there is nothing to sell in place — the quiz's
+            test-mode paywall is the closest thing to a top-up that exists. */}
+        {paymentsEnabled ? (
+          <button
+            type="button"
+            className="btn-primary mt-3 inline-block"
+            onClick={() => setTopUpOpen(true)}
+          >
+            {ui.topUp}
+          </button>
+        ) : (
+          <a href="/loop/" className="btn-primary mt-3 inline-block no-underline">
+            {ui.topUp}
+          </a>
+        )}
       </section>
 
       {passwordBlock}
@@ -342,7 +423,12 @@ export default function AccountApp() {
         <p className="font-display text-[16px] font-medium">{ui.testsTitle}</p>
         <hr className="hairline mt-2 mb-3" />
         {tests.length === 0 ? (
-          <p className="text-[13px] text-mist italic">{ui.testsEmpty}</p>
+          <p className="text-[13px] text-mist italic">
+            {ui.testsEmpty}{" "}
+            <a href="/tests" className="text-brass-2 not-italic underline-offset-4 hover:underline">
+              {ui.takeTest} →
+            </a>
+          </p>
         ) : (
           <ul className="flex flex-col gap-2">
             {tests.map((s) => {
@@ -379,6 +465,16 @@ export default function AccountApp() {
             })}
           </ul>
         )}
+        {/* The portrait's other door: the tests catalogue used to be the only
+            way in. The screen itself explains the 3-test gate when short. */}
+        {tests.length > 0 && (
+          <a
+            href="/tests?view=portrait"
+            className="mt-3 inline-block text-[13px] text-brass-2 underline-offset-4 hover:underline"
+          >
+            {ui.portraitLink} →
+          </a>
+        )}
       </section>
 
       <section className="mt-8">
@@ -412,6 +508,23 @@ export default function AccountApp() {
       >
         {ui.signOut}
       </button>
+
+      {topUpOpen && (
+        <TopUpModal
+          balance={balance ?? 0}
+          cost={0}
+          busy={topUpBusy}
+          onBuy={buyTopUp}
+          onPromoRedeemed={(value) => {
+            if (value !== null) setBalance(value);
+            void load();
+          }}
+          onClose={() => {
+            setTopUpOpen(false);
+            setTopUpBusy(false);
+          }}
+        />
+      )}
     </div>,
   );
 }
