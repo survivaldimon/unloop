@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
@@ -30,7 +30,15 @@ export default function TestRunner({
   const progress = Math.round((answered / test.questions.length) * 100);
   const question = test.questions[index];
 
+  // One transition per question: while the pause below is pending, a second
+  // tap must not re-enter — on the last question it would fire onFinish (and
+  // its test_complete) once per tap, and any tap would double its
+  // test_question_answered.
+  const advancing = useRef(false);
+
   const select = (answerId: string) => {
+    if (advancing.current) return;
+    advancing.current = true;
     const updated = { ...answers, [question.id]: answerId };
     setAnswers(updated);
     onProgress(updated);
@@ -45,6 +53,7 @@ export default function TestRunner({
     });
     // Brief pause so the choice registers visually before the card moves on.
     setTimeout(() => {
+      advancing.current = false;
       if (index + 1 >= test.questions.length) onFinish(updated);
       else setIndex(index + 1);
     }, 240);
@@ -55,7 +64,13 @@ export default function TestRunner({
       <div className="flex items-center gap-3 pt-6">
         <button
           className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-paper/20 bg-paper/5 text-[17px] text-paper/85 transition hover:border-brass hover:text-brass-2 active:scale-95"
-          onClick={() => (index === 0 ? onLeave() : setIndex(index - 1))}
+          onClick={() => {
+            // Mid-transition "back" would land and then be overridden by the
+            // pending advance — a press forward the person never made.
+            if (advancing.current) return;
+            if (index === 0) onLeave();
+            else setIndex(index - 1);
+          }}
           aria-label={index === 0 ? ui.leave : ui.back}
         >
           ←
