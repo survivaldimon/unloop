@@ -18,6 +18,10 @@ export const CREDIT_COSTS = {
   chat_question: 5,
   /** Daily insight (stage D — priced now, wired later). */
   daily_insight: 10,
+  /** Full psych-test report. Both languages of one session, one spend (Э7). */
+  report_test: 95,
+  /** Cross-test portrait, gated on 3+ completed tests (Э7). */
+  portrait: 145,
 } as const;
 
 export type PackId = "mini" | "starter" | "big" | "bigplus";

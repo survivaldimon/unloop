@@ -8,6 +8,8 @@
  * the reference is tools/tests-import/out/fixtures/, not that app.
  */
 
+// Explicit .ts extension: the Э7 edge functions import this engine under Deno,
+// which resolves specifiers literally (the SPA build accepts it either way).
 import type {
   Comparison,
   Condition,
@@ -18,7 +20,13 @@ import type {
   TestAnswers,
   TestOutcome,
   TestQuestion,
-} from "./types";
+} from "./types.ts";
+
+/**
+ * Bumped when weights or profile rules change meaning. Stored on the session
+ * row at completion/writeback so stale outcomes can be found and replayed.
+ */
+export const ENGINE_VERSION = 1;
 
 function answerRange(question: TestQuestion): { min: number; max: number } {
   let min = Infinity;
