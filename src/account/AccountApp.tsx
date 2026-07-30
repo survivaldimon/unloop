@@ -365,7 +365,13 @@ export default function AccountApp() {
                   <span className="flex-none text-[11px] text-mist">
                     {fmtDate(s.completedAt, lang)}
                   </span>
-                  <a href={`/tests?t=${s.testId}`} className="flex-none text-[12px] text-brass-2">
+                  {/* The session id travels along so the result — and the read
+                      bought on top of it — opens on this device too, not just
+                      the one that took the test. */}
+                  <a
+                    href={`/tests?t=${s.testId}&ts=${s.id}`}
+                    className="flex-none text-[12px] text-brass-2"
+                  >
                     {ui.openRead}
                   </a>
                 </li>

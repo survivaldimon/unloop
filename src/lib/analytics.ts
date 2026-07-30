@@ -164,7 +164,20 @@ export type AnalyticsEvent =
   // The save-results card under a finished test. email_submitted itself is
   // shared with the funnels and travels with funnel:"tests".
   | "test_save_view"
-  | "test_save_result";
+  | "test_save_result"
+  // Tests monetization (docs/tests-monetization.md §8). Per-test events carry
+  // test_id + test_session_id; portrait events span tests, so they carry the
+  // completed-test count instead. Meta stays untouched: pack Purchases come
+  // from the Polar webhook's Conversions API event, unlock_click already
+  // forwards InitiateCheckout for every funnel.
+  | "test_report_teaser_view"
+  | "test_report_unlock"
+  | "portrait_teaser_view"
+  | "portrait_unlock"
+  | "test_retake"
+  // Server recompute disagreed with the locally scored result (§6) — either
+  // engine drift or a doctored outcome; interesting as a signal either way.
+  | "test_outcome_mismatch";
 
 export function track(
   event: AnalyticsEvent,

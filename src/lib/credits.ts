@@ -34,7 +34,7 @@ const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
 export const creditsEnabled: boolean =
   import.meta.env.VITE_CREDITS_ENABLED === "true" && Boolean(supabase);
 
-export type Funnel = "quiz" | "photoread";
+export type Funnel = "quiz" | "photoread" | "tests";
 
 /**
  * What the funnel can honestly tell the visitor about their account:
@@ -123,8 +123,15 @@ export function onCreditsSignIn(handler: () => void): () => void {
   return () => data.subscription.unsubscribe();
 }
 
-/** Claim the funnel session for the signed-in user (who then pays for it). */
-export async function linkSession(funnel: Funnel, sessionId: string): Promise<void> {
+/**
+ * Claim the funnel session for the signed-in user (who then pays for it).
+ * Test sessions are claimed through claimTestSessions (src/lib/tests.ts), so
+ * this only ever takes the two funnels that have a link RPC.
+ */
+export async function linkSession(
+  funnel: Exclude<Funnel, "tests">,
+  sessionId: string,
+): Promise<void> {
   if (!creditsEnabled || !supabase) return;
   try {
     await supabase.rpc(
