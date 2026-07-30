@@ -48,6 +48,9 @@ export interface AccountCopy {
   quizRead: string;
   photoRead: string;
   unfinished: string;
+
+  testsTitle: string;
+  testsEmpty: string;
 }
 
 export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
@@ -112,6 +115,9 @@ export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
     quizRead: "Quiz read",
     photoRead: "Photo read",
     unfinished: "unfinished",
+
+    testsTitle: "Your tests",
+    testsEmpty: "No tests finished yet.",
   },
   ru: {
     title: "Аккаунт",
@@ -174,5 +180,8 @@ export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
     quizRead: "Разбор по квизу",
     photoRead: "Фото-разбор",
     unfinished: "не завершён",
+
+    testsTitle: "Твои тесты",
+    testsEmpty: "Пока ни одного пройденного.",
   },
 };
