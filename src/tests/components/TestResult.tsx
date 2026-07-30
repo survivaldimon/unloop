@@ -3,25 +3,41 @@ import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
 import { testsCopy } from "../copy";
-import type { LocalizedList, PsychTest, TestOutcome } from "../types";
+import { showsFreeBreakdown } from "../freeTier";
+import type { PsychTest, TestOutcome } from "../types";
 
+/**
+ * The free result screen (docs/tests-monetization.md §2): who you are, plus the
+ * proof the test actually worked. Everything that answers "why, where does it
+ * hurt, what do I do" lives in the paid read, which the parent injects through
+ * `report` — this file owns the free half and the share hook only.
+ */
 export default function TestResult({
   test,
   outcome,
   onRetake,
   onCatalogue,
+  report,
+  retakeNote,
+  cooldownNote,
 }: {
   test: PsychTest;
   outcome: TestOutcome;
   onRetake: () => void;
   onCatalogue: () => void;
+  /** The monetization block: teaser + CTA, paywall, or the purchased chapters. */
+  report?: React.ReactNode;
+  /** Soft retake cooldown message (§5) — the button stays, the copy explains. */
+  retakeNote?: string | null;
+  /** The server refused to store this attempt because of the 24h cooldown. */
+  cooldownNote?: string | null;
 }) {
   const lang = useLang();
   const ui = testsCopy(lang).result;
   const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
   const [shareToast, setShareToast] = useState<string | null>(null);
 
-  const breakdown = buildBreakdown(test, outcome, lang);
+  const breakdown = showsFreeBreakdown(test.id) ? buildBreakdown(test, outcome, lang) : [];
 
   // The link invites taking the test, not viewing this result — and never
   // carries the session UUID: owning that UUID grants write access to the row.
@@ -88,6 +104,12 @@ export default function TestResult({
 
       <hr className="hairline rise rise-2 mt-6" />
 
+      {cooldownNote && (
+        <p className="mt-5 rounded-2xl border border-paper/15 bg-paper/[0.04] p-4 text-[13px] leading-relaxed text-mist">
+          {cooldownNote}
+        </p>
+      )}
+
       {profile?.whyThisProfile?.[lang] && (
         <Section title={ui.whyThis}>
           <p className="text-[15px] leading-relaxed text-mist">
@@ -96,22 +118,11 @@ export default function TestResult({
         </Section>
       )}
 
+      {/* Safety copy, free on every test and in every state (§2). */}
       {profile?.supportNote?.[lang] && (
         <p className="mt-6 rounded-2xl border border-paper/15 bg-paper/[0.04] p-4 text-[14px] leading-relaxed whitespace-pre-line text-mist">
           {profile.supportNote[lang]}
         </p>
-      )}
-
-      <Bullets title={ui.strengths} list={profile?.strengths} lang={lang} />
-      <Bullets title={ui.vulnerabilities} list={profile?.vulnerabilities} lang={lang} />
-      <Bullets title={ui.recommendations} list={profile?.recommendations} lang={lang} />
-
-      {profile?.tryToday?.[lang] && (
-        <Section title={ui.tryToday}>
-          <p className="rounded-2xl border border-brass/25 bg-brass/5 p-4 text-[15px] leading-relaxed text-paper/90">
-            {profile.tryToday[lang]}
-          </p>
-        </Section>
       )}
 
       {breakdown.length > 0 && (
@@ -132,14 +143,11 @@ export default function TestResult({
         </Section>
       )}
 
-      {profile?.inspiringConclusion?.[lang] && (
-        <p className="font-display mt-8 text-[16px] leading-relaxed whitespace-pre-line text-paper/85 italic">
-          {profile.inspiringConclusion[lang]}
-        </p>
-      )}
+      {/* The one CTA on the free screen, and everything it grows into (§7). */}
+      {report && <div className="mt-9">{report}</div>}
 
       <div className="mt-9 flex flex-col gap-3">
-        <button className="btn-primary" onClick={() => void onShare()}>
+        <button className="btn-ghost" onClick={() => void onShare()}>
           <span aria-hidden="true">↗</span> {ui.share}
         </button>
         {shareToast && <p className="text-center text-xs text-mist">{shareToast}</p>}
@@ -149,6 +157,9 @@ export default function TestResult({
         <button className="btn-ghost" onClick={onRetake}>
           {ui.retake}
         </button>
+        {retakeNote && (
+          <p className="text-center text-[12px] leading-relaxed text-mist/70">{retakeNote}</p>
+        )}
       </div>
 
       <p className="mt-6 text-center text-[12px] leading-relaxed text-mist/60">{ui.disclaimer}</p>
@@ -200,30 +211,5 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       <h2 className="overline-label text-brass/80">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>
-  );
-}
-
-function Bullets({
-  title,
-  list,
-  lang,
-}: {
-  title: string;
-  list: LocalizedList | null | undefined;
-  lang: "en" | "ru";
-}) {
-  const items = list?.[lang] ?? [];
-  if (!items.length) return null;
-  return (
-    <Section title={title}>
-      <ul className="flex flex-col gap-2">
-        {items.map((item, i) => (
-          <li key={i} className="flex gap-3 text-[15px] leading-relaxed text-mist">
-            <span className="mt-[9px] h-px w-3 flex-none bg-brass/50" aria-hidden="true" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </Section>
   );
 }

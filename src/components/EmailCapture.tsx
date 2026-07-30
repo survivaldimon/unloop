@@ -6,12 +6,21 @@ export default function EmailCapture({
   onSkip,
   title,
   body,
+  submitLabel,
+  skipLabel,
 }: {
   onSubmit: (email: string) => void;
   onSkip: () => void;
-  /** Copy overrides for non-quiz funnels (the defaults are quiz wording). */
+  /**
+   * Copy overrides for non-quiz funnels (the defaults are quiz wording, and
+   * "Show my results" is plainly wrong where the results are already on
+   * screen — as in the tests funnel, which asks for the email only once
+   * there is something to pay for).
+   */
   title?: string;
   body?: string;
+  submitLabel?: string;
+  skipLabel?: string;
 }) {
   const ui = t(useLang()).email;
   const [value, setValue] = useState("");
@@ -40,14 +49,14 @@ export default function EmailCapture({
           className="w-full rounded-lg border border-paper/15 bg-paper/[0.04] px-5 py-4 text-[16px] outline-none placeholder:text-mist/40 focus:border-brass"
         />
         <button className="btn-primary disabled:opacity-40" disabled={!valid} type="submit">
-          {ui.submit}
+          {submitLabel ?? ui.submit}
         </button>
       </form>
       <button
         className="rise rise-3 text-sm text-mist/60 underline-offset-4 hover:underline"
         onClick={onSkip}
       >
-        {ui.skip}
+        {skipLabel ?? ui.skip}
       </button>
     </div>
   );
