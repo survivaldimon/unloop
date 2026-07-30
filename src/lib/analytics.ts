@@ -80,6 +80,13 @@ function forwardToMeta(
         content_category: "photo_teaser",
       });
       break;
+    case "tests_catalogue_view":
+      // Top of the tests funnel — gives future campaigns an optimization event.
+      metaTrack("ViewContent", {
+        content_name: "tests_catalogue",
+        content_category: "tests",
+      });
+      break;
     case "unlock_click":
       metaTrack("InitiateCheckout", {
         // Credit-mode clicks carry the selected pack's price; legacy defaults
@@ -142,11 +149,14 @@ export type AnalyticsEvent =
   // The post-read offer to turn a silent account into one with a password.
   | "save_access_view"
   | "save_access_click"
-  // Psychological tests (/tests, docs/tests-integration.md). PostHog-only for
-  // now: the tests are top-of-funnel, the Meta events still fire on the paid
-  // steps they lead into.
+  // Psychological tests (/tests, docs/tests-integration.md). All carry
+  // test_session_id (looplore_test_sessions.id) so PostHog joins with the DB;
+  // per-question progress feeds the completion curve that decides whether the
+  // long tests get shortened. Meta only sees the catalogue ViewContent — the
+  // paid steps the tests lead into fire their own Meta events.
   | "tests_catalogue_view"
   | "test_start"
+  | "test_question_answered"
   | "test_complete"
   // The save-results card under a finished test. email_submitted itself is
   // shared with the funnels and travels with funnel:"tests".

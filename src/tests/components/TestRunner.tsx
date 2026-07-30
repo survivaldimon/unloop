@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLang } from "../../i18n";
+import { track } from "../../lib/analytics";
+import { getTestSessionId } from "../../lib/tests";
 import { testsCopy } from "../copy";
 import type { PsychTest, TestAnswers, TestQuestion } from "../types";
 
@@ -32,6 +34,15 @@ export default function TestRunner({
     const updated = { ...answers, [question.id]: answerId };
     setAnswers(updated);
     onProgress(updated);
+    // Every answer, 1-based like the quiz: the per-question completion curve is
+    // what decides whether the 60–80-question tests get shortened.
+    track("test_question_answered", {
+      test_id: test.id,
+      test_session_id: getTestSessionId(test.id),
+      question_id: question.id,
+      index: index + 1,
+      total: test.questions.length,
+    });
     // Brief pause so the choice registers visually before the card moves on.
     setTimeout(() => {
       if (index + 1 >= test.questions.length) onFinish(updated);
