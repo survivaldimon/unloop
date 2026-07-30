@@ -14,12 +14,14 @@ import type {
 // the limits — docs/tests-monetization.md §6). Raw answers plus these files are
 // everything the server needs to recompute a result without trusting the client.
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
+import friendshipPsychology from "../../../src/content/tests/friendship_psychology_v1.json" with { type: "json" };
 import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
 import ipipBigFive from "../../../src/content/tests/ipip_big_five.json" with { type: "json" };
 import loveLanguages from "../../../src/content/tests/love_languages_v1.json" with { type: "json" };
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
 import toxicPatterns from "../../../src/content/tests/toxic_patterns.json" with { type: "json" };
+import valuesPriorities from "../../../src/content/tests/values_priorities_v1.json" with { type: "json" };
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -35,12 +37,14 @@ type Lang = "en" | "ru";
 const TESTS: Record<string, PsychTest> = Object.fromEntries(
   [
     attachmentStyles,
+    friendshipPsychology,
     friendshipRedFlags,
     ipipBigFive,
     loveLanguages,
     sixteenTypes,
     textConflict,
     toxicPatterns,
+    valuesPriorities,
   ].map((raw) => {
     const test = raw as unknown as PsychTest;
     return [test.id, test] as const;
@@ -63,6 +67,8 @@ const REPORT_KIND: Record<string, ReportKind> = {
   attachment_styles_v1: "spectrum",
   love_languages_v1: "spectrum",
   ipip_big_five: "spectrum",
+  friendship_psychology_v1: "spectrum",
+  values_priorities_v1: "spectrum",
 };
 
 function reportKind(test: PsychTest): ReportKind {
@@ -86,6 +92,7 @@ const HAND_TITLES: Record<ReportKind, Localized> = {
 
 const HAND_TITLE_OVERRIDES: Record<string, Localized> = {
   love_languages_v1: { ru: "Твоя иерархия", en: "Your hierarchy" },
+  values_priorities_v1: { ru: "Важность против энергии", en: "Importance vs. energy" },
   ipip_big_five: { ru: "Форма твоей пятёрки", en: "The shape of your five" },
   attachment_styles_v1: { ru: "Твоя смесь стилей", en: "Your mix of styles" },
 };

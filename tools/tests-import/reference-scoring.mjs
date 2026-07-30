@@ -26,6 +26,8 @@ const LAUNCH_SET = [
   "toxic_patterns",
   "ipip_big_five",
   "sixteen_types",
+  "friendship_psychology_v1",
+  "values_priorities_v1",
 ];
 
 const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));

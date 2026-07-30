@@ -43,9 +43,18 @@ export type ScoringMode = "likert" | "answer_factor" | "bipolar";
 
 /**
  * Left or right side of a condition:
- * a number, a factor id, or a derived value — `@avg`, `@range`, `@diff12`.
+ * a number, a factor id, or a derived value — `@avg`, `@range`, `@diff12`,
+ * or a name the selection declares in `derived`.
  */
 export type Operand = number | string;
+
+/**
+ * A named derived value the rules of one test can compare against: the average
+ * of a factor subset, or the average absolute gap across factor pairs. This is
+ * what lets "importance vs invested energy" tests stay data — the composite
+ * indices live next to the rules instead of in code.
+ */
+export type DerivedOperand = { avg: string[] } | { avgAbsDiff: [string, string][] };
 export type Comparison = ">" | ">=" | "<" | "<=";
 export type Condition = [Operand, Comparison, Operand];
 
@@ -71,7 +80,13 @@ export interface BipolarDimension {
 }
 
 export type ProfileSelection =
-  | { mode: "rules"; fallback: string; rules: ProfileRule[] }
+  | {
+      mode: "rules";
+      fallback: string;
+      rules: ProfileRule[];
+      /** Extra operands for this test's rules, keyed by their `@name`. */
+      derived?: Record<string, DerivedOperand>;
+    }
   | { mode: "bipolar"; dimensions: BipolarDimension[] };
 
 export interface TestProfileContent {

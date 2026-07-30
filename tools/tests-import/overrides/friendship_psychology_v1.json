@@ -1,0 +1,803 @@
+{
+  "$comment": "Э8, волна 2. Тест недооценён исходником: 13 типов с живой типологией, но подача была учебником («Практикуйте эмоциональную открытость») и с эмодзи в факторах. Переписано: названия типов из ярлыков в короткие образы, whyThisProfile написан с нуля под правила выбора (в исходнике его не было), suitableRoles исходника вплетены в описания. Механика и веса не тронуты.",
+
+  "title": {
+    "ru": "Какой ты друг",
+    "en": "What Kind of Friend You Are"
+  },
+  "description": {
+    "ru": "24 вопроса о том, как ты дружишь: близость, доверие, границы, поддержка. На выходе — один из 13 типов, от Тёплого эмпата до Наблюдателя.",
+    "en": "24 questions about how you do friendship: closeness, trust, boundaries, support. You land on one of 13 types — from the Warm Empath to the Observer."
+  },
+
+  "factorNames": {
+    "emotional_closeness": { "ru": "Эмоциональная близость", "en": "Emotional closeness" },
+    "communication_style": { "ru": "Стиль общения", "en": "Communication style" },
+    "trust_and_loyalty": { "ru": "Доверие и надёжность", "en": "Trust and loyalty" },
+    "boundaries_and_space": { "ru": "Границы и пространство", "en": "Boundaries and space" },
+    "supportive_behavior": { "ru": "Поддержка", "en": "Support" },
+    "friendship_expectations": { "ru": "Ожидания от дружбы", "en": "Expectations" }
+  },
+
+  "profiles": {
+    "warm_empathic_friend": {
+      "name": { "ru": "Тёплый эмпат", "en": "The Warm Empath" },
+      "description": {
+        "ru": "Рядом с тобой безопасно. Ты слушаешь не для того, чтобы ответить, а чтобы понять — и друзья это чувствуют. К тебе приходят с тем, что не расскажешь остальным.",
+        "en": "People feel safe around you. You listen to understand, not to reply — and your friends can tell. They bring you the things they can't tell anyone else."
+      },
+      "whyThisProfile": {
+        "ru": "В твоих ответах два фактора в верхней зоне сразу: эмоциональная близость и поддержка — обе выше 70%. Тебе легко открываться самому и держать пространство для чужих чувств; эта пара и определяет тип.",
+        "en": "Two factors in your answers sit in the top zone at once: emotional closeness and support, both above 70%. Opening up comes easily to you, and so does holding space for other people's feelings — that pair defines the type."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь чужое состояние раньше, чем человек его назовёт",
+          "В трудный момент ты рядом — не с советом, а с присутствием",
+          "Твои дружбы глубокие, а не многочисленные",
+          "Ты умеешь слушать без оценок — это редкость",
+          "Атмосферу доверия вокруг тебя создаёшь именно ты"
+        ],
+        "en": [
+          "You notice how someone is doing before they name it themselves",
+          "In hard moments you show up — with presence, not advice",
+          "Your friendships run deep rather than wide",
+          "You can listen without judging — that's rare",
+          "The atmosphere of trust around you is your doing"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Чужие эмоции ты носишь как свои — это выматывает",
+          "Ты чаще опора для других, чем они для тебя, и перекос копится"
+        ],
+        "en": [
+          "You carry other people's emotions as your own — and it drains you",
+          "You're the support more often than the supported, and the imbalance adds up"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Замечай момент, когда слушать уже нет сил, — и честно говори об этом",
+          "Раз в неделю проверяй: кто в этой дружбе спрашивал, как дела у тебя",
+          "«Нет» на просьбу — это не отказ от дружбы, а её страховка",
+          "Проси поддержку сам, не жди, пока догадаются"
+        ],
+        "en": [
+          "Notice the moment you're out of capacity to listen — and say so honestly",
+          "Once a week, check: who in this friendship asked how you were doing",
+          "Saying no to a request isn't quitting the friendship — it's insurance for it",
+          "Ask for support yourself instead of waiting to be guessed"
+        ]
+      },
+      "tryToday": {
+        "ru": "Расскажи другу о том, что тебя самого сейчас тревожит, — не дожидаясь вопроса.",
+        "en": "Tell a friend what's actually weighing on you right now — without waiting to be asked."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение делать так, чтобы рядом с тобой было безопасно, — навык, который не купишь. Просто помни: тебе тоже положено такое место.",
+        "en": "Making people feel safe around you is a skill money can't buy. Just remember: you're entitled to a place like that too."
+      }
+    },
+
+    "reliable_stable_friend": {
+      "name": { "ru": "Опора", "en": "The Rock" },
+      "description": {
+        "ru": "Ты тот, кто приезжает, когда обещал, и помнит, о чём договаривались. Твоя дружба не самая громкая, но на неё можно поставить.",
+        "en": "You're the one who shows up when you said you would and remembers what was agreed. Your friendship isn't the loudest in the room — but it's the one people can bet on."
+      },
+      "whyThisProfile": {
+        "ru": "Доверие и надёжность у тебя выше 70%, при этом эмоциональная близость заметно ниже. Ты держишь слово лучше, чем открываешь чувства, — это и есть формула типа.",
+        "en": "Your trust and loyalty score is above 70% while emotional closeness sits noticeably lower. You keep your word better than you open up — that's the formula of this type."
+      },
+      "strengths": {
+        "ru": [
+          "Обещал — сделал: у тебя это не лозунг, а привычка",
+          "В кризис друзья звонят тебе первым, потому что ты не паникуешь",
+          "Ты не исчезаешь: твои дружбы измеряются годами",
+          "Прямота: с тобой понятно, где стоишь",
+          "Предсказуемость, которая в дружбе дороже фейерверков"
+        ],
+        "en": [
+          "Said it — did it: for you that's a habit, not a slogan",
+          "In a crisis, friends call you first because you don't panic",
+          "You don't vanish: your friendships are measured in years",
+          "Straightforwardness — with you, people know where they stand",
+          "A predictability worth more in friendship than fireworks"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Про чувства ты молчишь — и друзья могут годами не знать, что у тебя внутри",
+          "Надёжность без открытости легко принять за дистанцию"
+        ],
+        "en": [
+          "You keep feelings to yourself — friends can go years without knowing what's inside",
+          "Reliability without openness is easily mistaken for distance"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в месяц говори близкому другу что-то, что обычно оставляешь при себе",
+          "Уязвимость — не слабость, а вторая половина доверия, которое ты уже построил",
+          "Позволь себе спонтанность: не всё в дружбе должно быть по плану",
+          "Замечай, когда «всё нормально» на самом деле означает другое"
+        ],
+        "en": [
+          "Once a month, tell a close friend something you'd normally keep to yourself",
+          "Vulnerability isn't weakness — it's the other half of the trust you've already built",
+          "Allow yourself spontaneity: not everything in friendship needs a plan",
+          "Notice when your \"I'm fine\" actually means something else"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поделись с другом чем-то личным — тем, что обычно не рассказываешь.",
+        "en": "Share something personal with a friend — the kind of thing you usually don't."
+      },
+      "inspiringConclusion": {
+        "ru": "На таких, как ты, дружбы держатся. Добавь к этому фундаменту немного открытости — и увидишь, как люди потянутся ближе.",
+        "en": "Friendships stand on people like you. Add a little openness to that foundation and watch people move closer."
+      }
+    },
+
+    "communication_bridge": {
+      "name": { "ru": "Мост", "en": "The Bridge" },
+      "description": {
+        "ru": "Ты умеешь переводить с человеческого на человеческий: гасить конфликты, слышать обе стороны, соединять людей, которые сами бы не договорились.",
+        "en": "You translate human to human: defusing conflicts, hearing both sides, connecting people who'd never have worked it out on their own."
+      },
+      "whyThisProfile": {
+        "ru": "Стиль общения — твой самый сильный фактор, выше 75% и выше всех остальных. Разговор для тебя не фон дружбы, а её главный инструмент.",
+        "en": "Communication style is your strongest factor — above 75% and above everything else. For you, conversation isn't the background of friendship; it's its main tool."
+      },
+      "strengths": {
+        "ru": [
+          "Такт: ты говоришь сложные вещи так, что их можно услышать",
+          "Ты видишь обе стороны конфликта раньше, чем они сами",
+          "Гибкость: с каждым находишь его язык",
+          "Слушаешь по-настоящему, а не ждёшь своей очереди",
+          "После разговора с тобой людям понятнее, что делать"
+        ],
+        "en": [
+          "Tact: you say hard things in a way people can actually hear",
+          "You see both sides of a conflict before they do",
+          "Flexibility — you find each person's language",
+          "You truly listen instead of waiting for your turn",
+          "After talking to you, people know what to do next"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разруливая чужое, ты откладываешь своё — до бесконечности",
+          "Роль посредника съедает право на собственное мнение"
+        ],
+        "en": [
+          "While sorting out everyone else's things, you postpone your own — indefinitely",
+          "The mediator role eats away at your right to your own opinion"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Хотя бы раз в день называй своё чувство, а не отражай чужие",
+          "Не всякий чужой конфликт — твоя работа: иногда людям полезно договориться самим",
+          "Говори «я думаю иначе» — мост не рухнет",
+          "Спрашивай себя: чего в этом разговоре хочу я"
+        ],
+        "en": [
+          "At least once a day, name your own feeling instead of reflecting someone else's",
+          "Not every conflict is your job — sometimes people need to work it out themselves",
+          "Say \"I see it differently\" — the bridge won't collapse",
+          "Ask yourself: what do I want out of this conversation"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выскажи мнение, которое отличается от мнения компании, — и не смягчай его.",
+        "en": "Voice an opinion that differs from the group's — and don't soften it."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты соединяешь людей — это редкий талант. Не забывай подключать к этой сети и себя.",
+        "en": "You connect people — that's a rare talent. Don't forget to plug yourself into that network too."
+      }
+    },
+
+    "motivator_inspirer": {
+      "name": { "ru": "Искра", "en": "The Spark" },
+      "description": {
+        "ru": "С тобой у друзей появляются планы, билеты и новые увлечения. Ты приносишь в дружбу энергию движения — рядом с тобой не отсидишься.",
+        "en": "Around you, friends end up with plans, tickets and new obsessions. You bring momentum into friendship — no one gets to sit still near you."
+      },
+      "whyThisProfile": {
+        "ru": "Высокие ожидания от дружбы (выше 70%) вместе с высокой поддержкой: ты не просто ждёшь от дружбы много — ты сам в неё много вкладываешь, заряжая и подталкивая.",
+        "en": "High expectations of friendship (above 70%) paired with high support: you don't just expect a lot from friendship — you pour a lot in, charging people up and nudging them forward."
+      },
+      "strengths": {
+        "ru": [
+          "Идеи из тебя не заканчиваются",
+          "Твой энтузиазм заражает даже скептиков",
+          "Ты умеешь верить в друга громче, чем его сомнения",
+          "Оптимизм у тебя не наивный, а действующий",
+          "Скучных выходных с тобой не бывает"
+        ],
+        "en": [
+          "You never run out of ideas",
+          "Your enthusiasm infects even the sceptics",
+          "You can believe in a friend louder than their doubts",
+          "Your optimism isn't naive — it acts",
+          "There's no such thing as a boring weekend with you"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Когда драйв спадает, ты пропадаешь — а дружба живёт и в паузах",
+          "Тихие трудные вечера друзей выдерживать сложнее, чем их праздники"
+        ],
+        "en": [
+          "When the momentum dips, you disappear — but friendship lives in the pauses too",
+          "A friend's quiet hard evening is harder for you to sit through than their party"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Учись быть рядом, когда ничего не происходит, — это тоже дружба",
+          "Доводи до конца хотя бы часть начатых вместе затей",
+          "Спрашивай «как ты?» не по дороге на движ, а отдельно",
+          "Помни: другу иногда нужен не заряд, а тишина рядом"
+        ],
+        "en": [
+          "Learn to be around when nothing is happening — that's friendship too",
+          "Finish at least some of the adventures you start together",
+          "Ask \"how are you?\" as its own conversation, not on the way to the next thing",
+          "Remember: sometimes a friend needs quiet company, not a charge"
+        ]
+      },
+      "tryToday": {
+        "ru": "Позвони другу и просто поговори — без планов, идей и предложений.",
+        "en": "Call a friend and just talk — no plans, no ideas, no pitches."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя энергия — то, за что тебя любят. Научись оставаться и в тихих кадрах — и станешь другом на все сезоны.",
+        "en": "Your energy is what people love you for. Learn to stay for the quiet scenes too, and you'll be a friend for all seasons."
+      }
+    },
+
+    "philosophical_deep_friend": {
+      "name": { "ru": "Философ", "en": "The Philosopher" },
+      "description": {
+        "ru": "Смолл-ток — не твоё. Тебе нужны разговоры, после которых что-то меняется. Друзей у тебя немного, но каждый выбран всерьёз.",
+        "en": "Small talk isn't your thing. You want the conversations that change something. You don't have many friends — but every one of them was chosen deliberately."
+      },
+      "whyThisProfile": {
+        "ru": "Редкое сочетание: эмоциональная близость и границы одновременно выше 70%. Ты подпускаешь глубоко, но бережёшь пространство — и своё, и чужое.",
+        "en": "A rare combination: emotional closeness and boundaries both above 70%. You let people in deep, yet guard the space — yours and theirs."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь суть там, где другие видят повод поболтать",
+          "Качество связи для тебя важнее её количества",
+          "Рефлексия: ты понимаешь, что происходит между людьми",
+          "Друзья приходят к тебе думать, а не просто жаловаться",
+          "Ты не путаешь близость с растворением"
+        ],
+        "en": [
+          "You see the essence where others see a chance to chat",
+          "Quality of connection matters more to you than quantity",
+          "Reflection: you understand what's happening between people",
+          "Friends come to you to think, not just to vent",
+          "You don't confuse closeness with losing yourself"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Планка глубины отсекает людей, которые могли бы стать близкими позже",
+          "Со стороны твоя избирательность выглядит как холод"
+        ],
+        "en": [
+          "Your depth bar filters out people who might have become close later",
+          "From the outside, your selectiveness reads as coldness"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Разреши разговору иногда быть просто лёгким — глубина от этого не обесценится",
+          "Дай людям время дорасти до близости, не отсеивай на входе",
+          "Весёлое и глупое тоже сближает — проверь",
+          "Замечай, когда собеседник устал от серьёзного"
+        ],
+        "en": [
+          "Let a conversation just be light sometimes — depth won't lose its value",
+          "Give people time to grow into closeness instead of filtering at the door",
+          "Silly and fun bring people close too — test it",
+          "Notice when the other person is tired of the serious register"
+        ]
+      },
+      "tryToday": {
+        "ru": "Позови друга просто погулять — и ни разу не сверни на смысл жизни.",
+        "en": "Invite a friend for a plain walk — and don't steer into the meaning of life once."
+      },
+      "inspiringConclusion": {
+        "ru": "Глубина — твой способ любить. Иногда она прячется и в лёгкости: разреши себе оба регистра.",
+        "en": "Depth is how you love. Sometimes it hides inside lightness too — allow yourself both registers."
+      }
+    },
+
+    "independent_free_friend": {
+      "name": { "ru": "Вольный", "en": "The Free Agent" },
+      "description": {
+        "ru": "Твоя дружба не требует ежедневных отчётов. Можно не видеться месяц — и встретиться так, будто расстались вчера. Свобода для тебя не против близости, а её условие.",
+        "en": "Your friendship doesn't demand daily check-ins. You can go a month without meeting and pick up like it was yesterday. For you, freedom isn't the opposite of closeness — it's the condition for it."
+      },
+      "whyThisProfile": {
+        "ru": "Границы и пространство выше 70%, а ожидания от дружбы — ниже 50%: ты не требуешь от друзей многого и не даёшь требовать от себя. Дистанция для тебя — форма уважения.",
+        "en": "Boundaries and space above 70%, expectations below 50%: you don't demand much from friends and don't let them demand it of you. Distance, for you, is a form of respect."
+      },
+      "strengths": {
+        "ru": [
+          "Ты не душишь дружбу контролем",
+          "Чужие границы для тебя очевидны — их не приходится защищать",
+          "Твоя привязанность без зависимости",
+          "Пауза в общении тебя не пугает и не обижает",
+          "С тобой легко тем, кого другие «додавливают»"
+        ],
+        "en": [
+          "You don't suffocate friendship with control",
+          "Other people's boundaries are obvious to you — no one has to defend them",
+          "Your attachment comes without dependency",
+          "A pause in contact neither scares nor offends you",
+          "People whom others smother find it easy to breathe around you"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Твоё «не навязываюсь» друзья могут читать как «мне всё равно»",
+          "Если оба ждут, кто напишет первым, дружба тихо истончается"
+        ],
+        "en": [
+          "Your \"I don't impose\" can read as \"I don't care\"",
+          "If both of you wait for the other to text first, the friendship quietly thins out"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Маленькие знаки внимания не отнимают свободу — раздавай их",
+          "Пиши первым хотя бы иногда: инициатива не равна навязчивости",
+          "Говори вслух, что дружба тебе дорога, — сама она не догадается",
+          "Проверяй: дистанция ещё комфорт или уже отдаление"
+        ],
+        "en": [
+          "Small gestures of attention don't cost freedom — hand them out",
+          "Text first at least sometimes: initiative isn't imposition",
+          "Say out loud that the friendship matters — it won't guess on its own",
+          "Check in: is the distance still comfort, or already drift"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши другу тёплое сообщение без повода — просто потому что вспомнил.",
+        "en": "Send a friend a warm message for no reason — just because they crossed your mind."
+      },
+      "inspiringConclusion": {
+        "ru": "Уважать чужую свободу умеют немногие — у тебя это встроено. Добавь немного видимого тепла, и твоя дружба станет неуязвимой.",
+        "en": "Few people truly respect others' freedom — for you it's built in. Add a little visible warmth and your friendship becomes untouchable."
+      }
+    },
+
+    "adventure_partner": {
+      "name": { "ru": "Напарник", "en": "The Adventure Partner" },
+      "description": {
+        "ru": "Твоя дружба живёт в действии: поход, спортзал, поездка без плана. Ты ближе всего к людям, когда вы что-то делаете вместе, а не когда сидите и разговариваете.",
+        "en": "Your friendship lives in motion: a hike, the gym, a trip with no plan. You're closest to people when you're doing something together — not when you're sitting and talking."
+      },
+      "whyThisProfile": {
+        "ru": "Ожидания от дружбы и поддержка у тебя высокие, а эмоциональная близость — умеренная: связь через совместное дело, а не через разговоры о чувствах. Это профиль действия.",
+        "en": "Your expectations and support run high while emotional closeness stays moderate: connection through shared action rather than talks about feelings. This is the doing profile."
+      },
+      "strengths": {
+        "ru": [
+          "Ты превращаешь «надо бы как-нибудь» в «выезжаем в субботу»",
+          "В экстремальной ситуации на тебя можно положиться",
+          "Командность: ты играешь за друзей, а не рядом с ними",
+          "Новые впечатления при тебе перестают откладываться",
+          "Общее дело с тобой сплачивает быстрее откровений"
+        ],
+        "en": [
+          "You turn \"we should sometime\" into \"we leave Saturday\"",
+          "In an extreme situation, you're the one to rely on",
+          "Team spirit: you play for your friends, not just beside them",
+          "New experiences stop being postponed when you're around",
+          "A shared mission with you bonds faster than confessions"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Когда друг хочет поговорить, а не поехать, ты теряешься",
+          "Дружба, которая держится только на активностях, буксует в тихие периоды"
+        ],
+        "en": [
+          "When a friend wants to talk rather than go, you're lost",
+          "A friendship that runs only on activities stalls in the quiet seasons"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "После совместного дела оставляй время на разговор — там дружба и оседает",
+          "Спрашивай о переживаниях, а не только о планах",
+          "Тихий вечер с другом — тоже событие, попробуй",
+          "Если друг «выпал» из активностей, узнай, что с ним, а не ищи замену"
+        ],
+        "en": [
+          "Leave time to talk after the shared mission — that's where friendship settles",
+          "Ask about feelings, not just plans",
+          "A quiet evening with a friend counts as an event too — try it",
+          "If a friend drops out of the activities, find out what's wrong instead of finding a stand-in"
+        ]
+      },
+      "tryToday": {
+        "ru": "Спроси друга, как он на самом деле, — и не переводи разговор на следующий план.",
+        "en": "Ask a friend how they really are — and don't steer the talk to the next plan."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты даришь друзьям истории, которые они будут рассказывать годами. Добавь к ним пару настоящих разговоров — и эти истории станут глубже.",
+        "en": "You give friends the stories they'll tell for years. Add a couple of real conversations, and those stories get deeper."
+      }
+    },
+
+    "caring_guardian": {
+      "name": { "ru": "Хранитель", "en": "The Guardian" },
+      "description": {
+        "ru": "Ты замечаешь, что другу плохо, раньше всех — и уже везёшь суп. Забота у тебя на автопилоте; вопрос в том, остаётся ли что-то тебе самому.",
+        "en": "You notice a friend is struggling before anyone else — and you're already bringing soup. Caring is your autopilot; the question is what's left for you."
+      },
+      "whyThisProfile": {
+        "ru": "Поддержка у тебя выше 80% — это почти потолок шкалы — при высокой эмоциональной близости. Ты вкладываешься в друзей больше, чем почти кто-либо, проходящий этот тест.",
+        "en": "Your support score is above 80% — near the ceiling of the scale — alongside high emotional closeness. You invest in friends more than almost anyone who takes this test."
+      },
+      "strengths": {
+        "ru": [
+          "Ты предугадываешь, что нужно, до просьбы",
+          "Щедрость временем и силами — не жест, а образ жизни",
+          "Преданность: ты не уходишь, когда трудно",
+          "Помощь от тебя приходит без счётчика",
+          "Друзья знают: с тобой они не одни"
+        ],
+        "en": [
+          "You anticipate what's needed before it's asked",
+          "Generosity with time and energy isn't a gesture — it's how you live",
+          "Loyalty: you don't leave when it gets hard",
+          "Your help arrives with no meter running",
+          "Your friends know they're not alone"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Своя ценность у тебя незаметно привязалась к полезности",
+          "Просить о помощи для тебя труднее, чем оказывать её"
+        ],
+        "en": [
+          "Your sense of worth has quietly attached itself to being useful",
+          "Asking for help is harder for you than giving it"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Перед тем как спасать, спроси, нужна ли помощь, — иногда нужен просто слушатель",
+          "Считай баланс: кто в этой дружбе даёт, а кто принимает",
+          "Попроси о помощи сам — это тренируется",
+          "Забота о себе — не остаток после всех, а строка в том же списке"
+        ],
+        "en": [
+          "Before rescuing, ask if help is wanted — sometimes they just need a listener",
+          "Track the balance: who gives in this friendship and who receives",
+          "Ask for help yourself — it's a trainable skill",
+          "Caring for yourself isn't the leftovers after everyone else — it's a line on the same list"
+        ]
+      },
+      "tryToday": {
+        "ru": "Попроси друга о небольшой услуге — и прими её, не отрабатывая ответной.",
+        "en": "Ask a friend for a small favor — and accept it without paying it back immediately."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты умеешь заботиться так, как мало кто умеет. Направь десятую часть этого на себя — и тебя хватит на всех, включая тебя.",
+        "en": "You care the way few people can. Point a tenth of it at yourself, and there'll be enough of you for everyone — you included."
+      }
+    },
+
+    "intuitive_feel_reader": {
+      "name": { "ru": "Радар", "en": "The Radar" },
+      "description": {
+        "ru": "Ты считываешь настроение друга по паузе в переписке. Тебе не нужно рассказывать — ты уже понял. Вопрос только в том, что делать с этим объёмом сигнала.",
+        "en": "You read a friend's mood from a pause in the chat. No one needs to tell you — you already know. The only question is what to do with all that signal."
+      },
+      "whyThisProfile": {
+        "ru": "Поддержка и стиль общения одновременно выше 70%: ты не только чувствуешь чужое состояние, но и умеешь про него говорить. Эта пара факторов и есть «радар».",
+        "en": "Support and communication style both above 70%: you don't just sense what someone's feeling — you know how to talk about it. That pair of factors is the radar."
+      },
+      "strengths": {
+        "ru": [
+          "Невербальное для тебя — открытый текст",
+          "Ты настраиваешься на человека за минуты",
+          "Друзьям не приходится объяснять тебе очевидное",
+          "Ты слышишь то, что сказано между строк",
+          "Чуткость плюс умение говорить — редкая пара"
+        ],
+        "en": [
+          "The nonverbal is plain text to you",
+          "You tune into a person within minutes",
+          "Your friends never have to explain the obvious to you",
+          "You hear what's said between the lines",
+          "Sensitivity plus the words for it — a rare pair"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Радар не выключается — и ты устаёшь от чужих состояний",
+          "Иногда ты «считываешь» то, чего нет, и действуешь по догадке"
+        ],
+        "en": [
+          "The radar has no off switch — and other people's states wear you out",
+          "Sometimes you \"read\" what isn't there and act on the guess"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй считанное вопросом: «мне кажется, ты расстроен — так?»",
+          "Разрешай себе не улавливать: ты друг, а не дежурный по эмоциям",
+          "Отслеживай, чьё чувство сейчас несёшь — своё или чужое",
+          "После насыщенного общения давай радару остыть в одиночестве"
+        ],
+        "en": [
+          "Verify what you picked up with a question: \"you seem upset — am I right?\"",
+          "Give yourself permission not to catch everything: you're a friend, not the emotions attendant",
+          "Track whose feeling you're carrying right now — yours or theirs",
+          "After intense socialising, let the radar cool down in solitude"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вместо того чтобы догадываться, спроси друга напрямую, что он чувствует.",
+        "en": "Instead of guessing, ask a friend directly what they're feeling."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя чуткость — редкая оптика. Береги прибор: он работает лучше, когда у него есть время на перезарядку.",
+        "en": "Your sensitivity is rare optics. Take care of the instrument — it works best when it gets time to recharge."
+      }
+    },
+
+    "social_circle_builder": {
+      "name": { "ru": "Собиратель круга", "en": "The Circle Builder" },
+      "description": {
+        "ru": "Ты знакомишь людей, собираешь компании и помнишь про все дни рождения. Половина дружб в твоём окружении существует потому, что ты их когда-то соединил.",
+        "en": "You introduce people, gather the group and remember every birthday. Half the friendships around you exist because you once connected them."
+      },
+      "whyThisProfile": {
+        "ru": "Высокие ожидания от дружбы (выше 70%) вместе с сильным стилем общения: тебе важно, чтобы круг жил, и у тебя есть коммуникативный мотор, чтобы его крутить.",
+        "en": "High expectations of friendship (above 70%) paired with strong communication: you need the circle to be alive, and you've got the communicative engine to keep it spinning."
+      },
+      "strengths": {
+        "ru": [
+          "Ты объединяешь людей, которые сами бы не встретились",
+          "Организация встреч на тебе — и они правда случаются",
+          "Ты чувствуешь атмосферу компании и умеешь её настроить",
+          "Твоя сеть связей работает на всех её участников",
+          "Инициатива у тебя не выгорает от первого «не могу»"
+        ],
+        "en": [
+          "You unite people who'd never have met on their own",
+          "Gatherings are on you — and they actually happen",
+          "You sense a group's atmosphere and know how to tune it",
+          "Your network works for everyone in it",
+          "Your initiative doesn't burn out at the first \"can't make it\""
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты — инфраструктура круга, и когда ты устаёшь, никто не подхватывает",
+          "За широтой круга легко потерять пару по-настоящему близких людей"
+        ],
+        "en": [
+          "You're the circle's infrastructure — and when you're tired, nobody picks up the slack",
+          "Behind the breadth of the circle it's easy to lose the two or three truly close people"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Отдавай часть организации другим — пусть встреча случится и без тебя",
+          "Раз в неделю выбирай глубину: один человек вместо всей компании",
+          "Проверяй, кто позовёт тебя, если ты перестанешь звать",
+          "Отдых от роли хозяина — тоже часть роли"
+        ],
+        "en": [
+          "Hand off part of the organising — let a gathering happen without you",
+          "Once a week choose depth: one person instead of the whole group",
+          "Check who'd invite you if you stopped inviting",
+          "Rest from hosting is part of hosting"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведи время один на один с близким другом — без компании и без программы.",
+        "en": "Spend one-on-one time with a close friend — no group, no agenda."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты строишь миры, в которых люди находят друг друга. Убедись, что в одном из этих миров есть удобное кресло для тебя.",
+        "en": "You build worlds where people find each other. Make sure one of those worlds has a comfortable chair for you."
+      }
+    },
+
+    "calm_observer": {
+      "name": { "ru": "Наблюдатель", "en": "The Observer" },
+      "description": {
+        "ru": "Ты не пишешь первым и не тащишь всех на квесты — но ты рядом, стабильно и без драм. Твоё присутствие тихое, и те, кто его распробовал, ценят его дороже громких.",
+        "en": "You don't text first and you don't drag everyone to events — but you're there, steady and drama-free. Your presence is quiet, and those who've tasted it value it above the loud kind."
+      },
+      "whyThisProfile": {
+        "ru": "Границы и пространство у тебя выше 65% при сдержанном стиле общения (ниже 60%): ты присутствуешь в дружбе наблюдением и постоянством, а не потоком слов.",
+        "en": "Boundaries and space above 65% with a reserved communication style (below 60%): you inhabit friendship through observation and constancy, not a stream of words."
+      },
+      "strengths": {
+        "ru": [
+          "Ты принимаешь людей, не пытаясь их переделать",
+          "Рядом с тобой можно молчать — и это не неловко",
+          "Ты видишь динамику компании, которую остальные не замечают",
+          "Стабильность: ты не тот друг, что вспыхивает и гаснет",
+          "Ты не давишь — и этим удерживаешь"
+        ],
+        "en": [
+          "You accept people without trying to fix them",
+          "Silence next to you isn't awkward",
+          "You see group dynamics everyone else misses",
+          "Steadiness: you're not the friend who flares and fades",
+          "You don't push — and that's exactly what keeps people"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ты ждёшь приглашения — и тебя постепенно перестают звать",
+          "Твоё молчание друзья могут читать как равнодушие"
+        ],
+        "en": [
+          "You wait to be invited — and gradually the invitations stop",
+          "Friends can read your silence as indifference"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Делай первый шаг хотя бы иногда — одно сообщение меняет динамику",
+          "Называй вслух то, что заметил: твои наблюдения ценны",
+          "Предложи встречу сам, не жди повода",
+          "Показывай симпатию действием, если словами трудно"
+        ],
+        "en": [
+          "Make the first move at least sometimes — one message changes the dynamic",
+          "Say out loud what you've noticed: your observations are valuable",
+          "Suggest a meetup yourself — don't wait for an occasion",
+          "Show you care through action if words are hard"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши другу первым и предложи встретиться на этой неделе.",
+        "en": "Text a friend first and suggest meeting up this week."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоё спокойное присутствие — якорь для многих, даже если тебе об этом не говорили. Стань чуть заметнее — и услышишь.",
+        "en": "Your calm presence anchors more people than you know — even if no one has said it. Become a little more visible, and you'll hear it."
+      }
+    },
+
+    "emotional_dramatic_friend": {
+      "name": { "ru": "Фейерверк", "en": "The Firework" },
+      "description": {
+        "ru": "С тобой дружба — на полной громкости: восторг, обида, примирение и снова восторг. Ты не умеешь наполовину, и в этом твоя сила и твой счёт за неё.",
+        "en": "Friendship with you plays at full volume: delight, hurt, making up, delight again. You don't do things by halves — that's your power, and the bill for it."
+      },
+      "whyThisProfile": {
+        "ru": "Эмоциональная близость и ожидания от дружбы одновременно выше 70%: ты вкладываешь в дружбу сильные чувства и ждёшь такой же отдачи. Отсюда яркость — и перепады.",
+        "en": "Emotional closeness and expectations both above 70%: you pour strong feelings into friendship and expect the same charge back. Hence the brightness — and the swings."
+      },
+      "strengths": {
+        "ru": [
+          "Искренность: с тобой всегда понятно, что ты чувствуешь",
+          "Ты отдаёшься дружбе целиком, без полутонов",
+          "Рядом с тобой жизнь не бывает пресной",
+          "Твоя радость за друга — настоящая и громкая",
+          "Ты не копишь молча: всё выясняется сразу"
+        ],
+        "en": [
+          "Sincerity: with you, people always know what you feel",
+          "You give yourself to friendship whole, no half-measures",
+          "Life around you is never bland",
+          "Your joy for a friend is real and loud",
+          "You don't stew in silence — everything gets aired at once"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Твои перепады заставляют друзей ходить по тонкому льду",
+          "В момент вспышки ты говоришь то, о чём потом жалеешь"
+        ],
+        "en": [
+          "Your swings put friends on thin ice",
+          "Mid-flare, you say things you regret later"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Между чувством и реакцией вставляй паузу — хотя бы три вдоха",
+          "Проверяй масштаб: то, что кажется предательством, часто просто усталость друга",
+          "Яркость не обязана быть штормом: тренируй ровные тёплые дни",
+          "Извиняйся быстро — это твой ремонт тонкого льда"
+        ],
+        "en": [
+          "Put a pause between feeling and reaction — three breaths minimum",
+          "Check the scale: what feels like betrayal is often just a tired friend",
+          "Brightness doesn't have to be a storm — practice warm, even days",
+          "Apologise fast — that's how you repair the thin ice"
+        ]
+      },
+      "tryToday": {
+        "ru": "Перед следующей эмоциональной реакцией возьми паузу и подыши — а потом отвечай.",
+        "en": "Before your next emotional reaction, pause and breathe — then answer."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя искренность — редкость, которую не заменит никакая выдержка. Добавь к ней немного тишины — и станешь незаменимым.",
+        "en": "Your sincerity is a rarity no amount of composure can replace. Add a little quiet to it, and you become irreplaceable."
+      }
+    },
+
+    "profile_mixed": {
+      "name": { "ru": "Универсал", "en": "The All-Rounder" },
+      "description": {
+        "ru": "У тебя нет одного доминирующего стиля: с философом ты глубокий, с компанией — заводной, с тем, кому плохо, — опора. Ты подстраиваешься под человека, а не под шаблон.",
+        "en": "You have no single dominant style: deep with the philosopher, lively with the group, solid for whoever's struggling. You adapt to the person, not to a template."
+      },
+      "whyThisProfile": {
+        "ru": "Между твоим самым сильным и вторым фактором меньше 10% разрыва — ни одна грань не перевешивает. Это не «невнятный результат», а ровный профиль без перекосов.",
+        "en": "The gap between your strongest factor and the runner-up is under 10% — no single side outweighs the rest. That's not a fuzzy result; it's an even profile with no tilt."
+      },
+      "strengths": {
+        "ru": [
+          "Гибкость: ты находишь общий язык почти с любым",
+          "Разным друзьям ты даёшь разное — и каждому нужное",
+          "Без крайностей: тебя не заносит",
+          "Ты одинаково выдерживаешь и веселье, и трудный разговор",
+          "Разносторонность делает тебя другом «на все случаи»"
+        ],
+        "en": [
+          "Flexibility: you find common ground with almost anyone",
+          "You give different friends different things — each what they need",
+          "No extremes: you don't spin out",
+          "You handle the party and the hard conversation equally well",
+          "Versatility makes you the friend for every situation"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Подстраиваясь под всех, легко забыть, каким другом хочешь быть ты",
+          "Ровный профиль иногда означает, что ты нигде не вкладываешься на полную"
+        ],
+        "en": [
+          "Adapting to everyone, it's easy to forget what kind of friend you want to be",
+          "An even profile sometimes means you're never all-in anywhere"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Замечай, в каком стиле дружбы тебе самому теплее всего",
+          "Выбери одну-две грани и вложись в них глубже",
+          "Гибкость — сила, пока за ней не исчезаешь ты сам",
+          "Спроси себя: с кем из друзей я настоящий, а с кем — удобный"
+        ],
+        "en": [
+          "Notice which style of friendship feels warmest to you",
+          "Pick one or two sides and invest in them deeper",
+          "Flexibility is strength — until you disappear behind it",
+          "Ask yourself: with which friends am I real, and with which merely convenient"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни, какая дружба даёт тебе больше всего энергии, — и напиши этому человеку.",
+        "en": "Think of the friendship that gives you the most energy — and message that person."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение быть разным — редкий диапазон. Осталось выбрать, где звучать в полную силу.",
+        "en": "Being able to be different things is rare range. All that's left is choosing where to play at full volume."
+      }
+    }
+  }
+}

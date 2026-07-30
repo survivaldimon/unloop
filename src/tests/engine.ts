@@ -13,6 +13,7 @@
 import type {
   Comparison,
   Condition,
+  DerivedOperand,
   Operand,
   ProfileOutcome,
   PsychTest,
@@ -165,8 +166,21 @@ function ranked(percentages: Record<string, number>): Array<[string, number]> {
   return Object.entries(percentages).sort((a, b) => b[1] - a[1]);
 }
 
-function resolveOperand(operand: Operand, percentages: Record<string, number>): number {
+function resolveOperand(
+  operand: Operand,
+  percentages: Record<string, number>,
+  derived?: Record<string, DerivedOperand>,
+): number {
   if (typeof operand === "number") return operand;
+  const custom = derived?.[operand];
+  if (custom) {
+    if ("avg" in custom) {
+      const values = custom.avg.map((f) => percentages[f] ?? 0);
+      return values.length ? values.reduce((sum, v) => sum + v, 0) / values.length : 0;
+    }
+    const gaps = custom.avgAbsDiff.map(([a, b]) => Math.abs((percentages[a] ?? 0) - (percentages[b] ?? 0)));
+    return gaps.length ? gaps.reduce((sum, v) => sum + v, 0) / gaps.length : 0;
+  }
   if (operand.startsWith("@")) {
     const order = ranked(percentages);
     const values = order.map(([, value]) => value);
@@ -201,9 +215,13 @@ function compare(left: number, op: Comparison, right: number): boolean {
   }
 }
 
-function matches(conditions: Condition[], percentages: Record<string, number>): boolean {
+function matches(
+  conditions: Condition[],
+  percentages: Record<string, number>,
+  derived?: Record<string, DerivedOperand>,
+): boolean {
   return conditions.every(([left, op, right]) =>
-    compare(resolveOperand(left, percentages), op, resolveOperand(right, percentages)),
+    compare(resolveOperand(left, percentages, derived), op, resolveOperand(right, percentages, derived)),
   );
 }
 
@@ -244,7 +262,7 @@ export function selectProfile(
   }
 
   for (const rule of selection.rules) {
-    if (matches(rule.when, percentages)) {
+    if (matches(rule.when, percentages, selection.derived)) {
       return { profileId: resolveOutcome(rule.profile, percentages, selection.fallback) };
     }
   }

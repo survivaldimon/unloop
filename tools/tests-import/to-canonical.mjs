@@ -31,6 +31,9 @@ const LAUNCH_SET = [
   "toxic_patterns",
   "ipip_big_five",
   "sixteen_types",
+  // волна 2 (второй эшелон, батч 1)
+  "friendship_psychology_v1",
+  "values_priorities_v1",
 ];
 
 /** Scenario tests keep no factor-name map in the source — these are ours. */
@@ -158,6 +161,30 @@ function factorNamesFrom(blocks, factorIds) {
   return out;
 }
 
+/**
+ * Some tests declare their own profile class instead of `TestProfile`
+ * (`FriendshipProfile` and friends — see the Э0 audit's `Alt` column). The
+ * extractor stages those under `customProfiles`; the field names differ but the
+ * shape maps cleanly onto the canonical seven sections. `suitableRoles` has no
+ * canonical slot and is dropped — Э8 folds anything worth keeping into the text.
+ */
+function convertCustomProfiles(customProfiles) {
+  return convertProfiles(
+    (customProfiles ?? []).map((p) => ({
+      id: p.fields?.id ?? p.id,
+      icon: p.fields?.icon ?? null,
+      name: p.fields?.name,
+      description: p.fields?.description,
+      whyThisProfile: p.fields?.whyThisProfile,
+      strengths: p.fields?.strengths ?? p.fields?.characteristics,
+      vulnerabilities: p.fields?.vulnerabilities,
+      recommendations: p.fields?.recommendations,
+      tryToday: p.fields?.tryToday,
+      inspiringConclusion: p.fields?.inspiringConclusion ?? p.fields?.inspiringMessage,
+    })),
+  );
+}
+
 function convertProfiles(profiles) {
   const out = {};
   for (const p of profiles) {
@@ -207,7 +234,9 @@ function fromStandard(testId) {
       ? profilesFromTypeDescriptions(
           test.contentBlocks?.[Object.keys(test.contentBlocks ?? {}).find((k) => /typedescription/i.test(k)) ?? ""],
         )
-      : convertProfiles(test.profiles ?? []),
+      : test.profiles?.length
+        ? convertProfiles(test.profiles)
+        : convertCustomProfiles(test.customProfiles),
     profileSelection: selection,
   };
 }

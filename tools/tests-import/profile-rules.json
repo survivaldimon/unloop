@@ -112,6 +112,59 @@
     "$note": "Последнее правило — ветка «по доминирующему фактору», которая в оригинале срабатывает только если лидер выше 65."
   },
 
+  "friendship_psychology_v1": {
+    "$note": "Перенос determineProfile() из friendship_psychology_data.dart один в один. Первое правило — оригинальное «разрыв топ-1/топ-2 меньше 10 = смешанный»; оно же гарантирует, что в правиле communication_bridge сравнение с @top1 однозначно (ничьих наверху уже не бывает).",
+    "mode": "rules",
+    "fallback": "profile_mixed",
+    "rules": [
+      { "when": [["@diff12", "<", 10]], "profile": "profile_mixed" },
+      { "when": [["emotional_closeness", ">=", 70], ["supportive_behavior", ">=", 70]], "profile": "warm_empathic_friend" },
+      { "when": [["trust_and_loyalty", ">=", 70], ["emotional_closeness", "<", 70]], "profile": "reliable_stable_friend" },
+      { "when": [["communication_style", ">=", 75], ["communication_style", ">=", "@top1"]], "profile": "communication_bridge" },
+      { "when": [["supportive_behavior", ">=", 80], ["emotional_closeness", ">=", 60]], "profile": "caring_guardian" },
+      { "when": [["boundaries_and_space", ">=", 70], ["friendship_expectations", "<", 50]], "profile": "independent_free_friend" },
+      { "when": [["emotional_closeness", ">=", 70], ["boundaries_and_space", ">=", 70]], "profile": "philosophical_deep_friend" },
+      { "when": [["supportive_behavior", ">=", 70], ["communication_style", ">=", 70]], "profile": "intuitive_feel_reader" },
+      { "when": [["friendship_expectations", ">=", 70], ["communication_style", ">=", 65]], "profile": "social_circle_builder" },
+      { "when": [["friendship_expectations", ">=", 65], ["supportive_behavior", ">=", 60], ["emotional_closeness", "<", 70]], "profile": "adventure_partner" },
+      { "when": [["friendship_expectations", ">=", 70], ["supportive_behavior", ">=", 65]], "profile": "motivator_inspirer" },
+      { "when": [["boundaries_and_space", ">=", 65], ["communication_style", "<", 60]], "profile": "calm_observer" },
+      { "when": [["emotional_closeness", ">=", 70], ["friendship_expectations", ">=", 70]], "profile": "emotional_dramatic_friend" }
+    ]
+  },
+
+  "values_priorities_v1": {
+    "$note": "Перенос determineProfile() из values_priorities_data.dart. Композитные индексы оригинала (средняя важность, средняя энергия, средний |разрыв| по десяти парам важность/энергия) объявлены здесь как derived-операнды — движок считает их из тех же процентов.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "derived": {
+      "@importance": { "avg": ["security_importance", "freedom_importance", "achievement_importance", "creativity_importance", "relationships_importance", "growth_importance", "influence_importance", "comfort_importance", "contribution_importance", "health_balance_importance"] },
+      "@energy": { "avg": ["security_energy", "freedom_energy", "achievement_energy", "creativity_energy", "relationships_energy", "growth_energy", "influence_energy", "comfort_energy", "contribution_energy", "health_balance_energy"] },
+      "@alignment": { "avgAbsDiff": [
+        ["security_importance", "security_energy"],
+        ["freedom_importance", "freedom_energy"],
+        ["achievement_importance", "achievement_energy"],
+        ["creativity_importance", "creativity_energy"],
+        ["relationships_importance", "relationships_energy"],
+        ["growth_importance", "growth_energy"],
+        ["influence_importance", "influence_energy"],
+        ["comfort_importance", "comfort_energy"],
+        ["contribution_importance", "contribution_energy"],
+        ["health_balance_importance", "health_balance_energy"]
+      ] }
+    },
+    "rules": [
+      { "when": [["@alignment", "<", 15], ["@importance", ">=", 50], ["@energy", ">=", 50]], "profile": "profile_aligned" },
+      { "when": [["@importance", ">=", 60], ["@energy", "<", 50]], "profile": "profile_values_without_action" },
+      { "when": [["@energy", ">=", 50], ["@alignment", ">=", 25]], "profile": "profile_energy_misaligned" },
+      { "when": [["@energy", ">=", 70], ["health_balance_energy", "<", 40]], "profile": "profile_burnout_risk" },
+      { "when": [["freedom_importance", ">=", 70], ["security_importance", "<", 40]], "profile": "profile_freedom_seeker" },
+      { "when": [["security_importance", ">=", 70], ["freedom_importance", "<", 40]], "profile": "profile_stability_seeker" },
+      { "when": [["relationships_importance", ">=", 70], ["relationships_energy", ">=", 60]], "profile": "profile_relationships_focused" },
+      { "when": [["growth_importance", ">=", 70], ["growth_energy", ">=", 60]], "profile": "profile_growth_oriented" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

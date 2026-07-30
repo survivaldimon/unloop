@@ -1,9 +1,72 @@
 {
   "$comment": "Э2 — нормализация реестра шкал под запускной набор (docs/tests-catalogue.md). Отображает шкалы, на которые ссылаются веса tests_app, но которых нет в hierarchical_scales.dart, на канонические шкалы реестра. Применяется скриптом apply-scale-map.mjs.",
   "principle": "Алиас к существующей шкале везде, где есть разумная цель. Новая шкала добавляется, только если конструкт правдоподобно встретится и в других тестах: шкала, которую использует ровно один тест, не даёт ничего кросс-тестовому профилю, ради которого слой и существует. invert:true переворачивает знак веса, когда цель — противоположный полюс источника.",
-  "scope": "53 фантомные шкалы запускного набора из 7 тестов. Тесты второго эшелона добавят новые — карта расширяется по мере их подключения.",
+  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2 (friendship_psychology_v1: 3 шкалы, values_priorities_v1: 49). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
 
   "newScales": {
+    "conscientiousness": {
+      "name": { "ru": "Добросовестность", "en": "Conscientiousness" },
+      "description": {
+        "ru": "Организованность, дисциплина и надёжность как общая черта",
+        "en": "Organisation, discipline and reliability as a broad trait"
+      },
+      "categoryId": "cat_conscientiousness",
+      "why": "Домен Большой пятёрки: в реестре есть фасеты (dutifulness, self_discipline), но не сам домен. 65 ссылок в 13 тестах — самая частая фантомная шкала всего корпуса (бриф Э2)."
+    },
+    "openness": {
+      "name": { "ru": "Открытость опыту", "en": "Openness to Experience" },
+      "description": {
+        "ru": "Интерес к новому, идеям и впечатлениям как общая черта",
+        "en": "Interest in novelty, ideas and experience as a broad trait"
+      },
+      "categoryId": "cat_openness",
+      "why": "Второй домен Большой пятёрки без записи в реестре (54 ссылки по корпусу). Фасеты (fantasy, ideas, curiosity) есть, домена нет."
+    },
+    "creativity": {
+      "name": { "ru": "Креативность", "en": "Creativity" },
+      "description": {
+        "ru": "Склонность создавать и выражать себя через новое",
+        "en": "Tendency to create and express oneself through the new"
+      },
+      "categoryId": "cat_creativity",
+      "why": "В cat_creativity только узкие фасеты (divergent_thinking, originality). Общий конструкт нужен values_priorities и придёт с creative_type_v1."
+    },
+    "self_care": {
+      "name": { "ru": "Забота о себе", "en": "Self-Care" },
+      "description": {
+        "ru": "Действия в пользу собственного здоровья и восстановления",
+        "en": "Acting on one's own health and recovery"
+      },
+      "categoryId": "cat_wellbeing",
+      "why": "Поведение, а не установка (self_compassion — про отношение к себе). Встретится в burnout_diagnostic_v1, digital_detox_test, wellbeing_happiness_inventory_v1."
+    },
+    "work_life_balance": {
+      "name": { "ru": "Баланс работы и жизни", "en": "Work–Life Balance" },
+      "description": {
+        "ru": "Умение не отдавать работе всё время и силы",
+        "en": "Keeping work from taking all of one's time and energy"
+      },
+      "categoryId": "cat_wellbeing",
+      "why": "Ядро values_priorities (фактор health_balance) и будущих burnout_diagnostic_v1 / procrastination_productivity_style_v1."
+    },
+    "health_consciousness": {
+      "name": { "ru": "Внимание к здоровью", "en": "Health Consciousness" },
+      "description": {
+        "ru": "Насколько человек учитывает здоровье в повседневных решениях",
+        "en": "How much health figures in everyday decisions"
+      },
+      "categoryId": "cat_wellbeing",
+      "why": "Отдельно от self_care: установка, а не действия. Встретится в wellbeing_happiness_inventory_v1 и burnout_diagnostic_v1."
+    },
+    "burnout": {
+      "name": { "ru": "Выгорание", "en": "Burnout" },
+      "description": {
+        "ru": "Истощение от длительной перегрузки без восстановления",
+        "en": "Exhaustion from prolonged overload without recovery"
+      },
+      "categoryId": "cat_stress_coping",
+      "why": "Прямо нужен values_priorities (профиль риска выгорания) и станет ядром burnout_diagnostic_v1. Инверсный алиас к vitality потерял бы специфику конструкта."
+    },
     "respect": {
       "name": { "ru": "Уважение к партнёру", "en": "Respect for Partner" },
       "description": {
@@ -75,8 +138,53 @@
     "paranoia": { "to": "trust", "invert": true },
     "reliability": { "to": "dependability" },
     "relationship_stability": { "to": "relationship_security" },
-    "self_pity": { "to": "self_victimization", "note": "На новую шкалу" }
+    "self_pity": { "to": "self_victimization", "note": "На новую шкалу" },
+
+    "nurturance": { "to": "support_giving", "note": "Волна 2 (friendship_psychology_v1): заботливость в дружбе = поддержка" },
+    "independence": { "to": "autonomy_need", "note": "Волна 2: самостоятельность как потребность в автономии" },
+    "need_for_security": { "to": "security_value" },
+    "stability": { "to": "security_value" },
+    "intimacy": { "to": "emotional_intimacy" },
+    "influence_motivation": { "to": "power_motivation" },
+    "leadership": { "to": "dominance", "note": "Обобщённое «лидерство» в ценностных вопросах — грань доминирования; фасеты cat_leadership слишком узкие для этого сигнала" },
+    "initiative": { "to": "decisiveness" },
+    "helping_others": { "to": "altruism" },
+    "care": { "to": "support_giving" },
+    "social_responsibility": { "to": "universalism" },
+    "goal_orientation": { "to": "achievement_motivation" },
+    "artistic_interests": { "to": "artistic_appreciation" },
+    "aesthetic_appreciation": { "to": "aesthetics" },
+    "imaginativeness": { "to": "fantasy" },
+    "self_expression": { "to": "expressiveness" },
+    "pleasure_seeking": { "to": "hedonism" },
+    "comfort_seeking": { "to": "hedonism" },
+    "asceticism": { "to": "hedonism", "invert": true, "note": "«Могу потерпеть без комфорта» — обратный полюс гедонизма" },
+    "adventurousness": { "to": "novelty_seeking" },
+    "financial_responsibility": { "to": "prudence" },
+    "future_orientation": { "to": "prudence" },
+    "planning": { "to": "organization" },
+    "submissiveness": { "to": "compliance" },
+    "conventionality": { "to": "conformity" },
+    "complacency": { "to": "achievement_striving", "invert": true, "note": "«Достаточно не отставать» = обратная сторона стремления к достижениям" },
+    "contentment": { "to": "life_satisfaction" },
+    "wellbeing": { "to": "life_satisfaction" },
+    "relationship_value": { "to": "relatedness_need" },
+    "relationship_satisfaction": { "to": "positive_relations" },
+    "workaholism": { "to": "type_a_behavior" },
+    "self_interest": { "to": "self_direction" },
+    "individualism": { "to": "self_direction" },
+    "stagnation": { "to": "personal_growth", "invert": true },
+    "motivation_loss": { "to": "intrinsic_motivation", "invert": true },
+    "passivity": { "to": "activity", "invert": true },
+    "energy_level": { "to": "vitality" },
+    "balance": { "to": "work_life_balance", "note": "На новую шкалу" },
+    "stress": { "to": "stress_tolerance", "invert": true },
+    "flexibility": { "to": "cognitive_flexibility" },
+    "adaptability": { "to": "adaptability_leadership" }
   },
 
-  "drop": {}
+  "drop": {
+    "relaxation": "Ценность отдыха без внятной цели в реестре: hedonism уже стоит на тех же вопросах комфорта, слияние съело бы вклад. 3 ссылки.",
+    "practicality": "Слишком размытый конструкт (1 ссылка); ближайшие цели (prudence, competence) — о другом."
+  }
 }

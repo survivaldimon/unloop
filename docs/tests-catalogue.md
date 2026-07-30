@@ -1,6 +1,6 @@
 # Э1 — Каталожный триаж: что берём из tests_app
 
-Статус: запускной набор подтверждён основателем 28.07.2026; с 30.07.2026 семь тестов живут на проде (`looplore.app/tests`). Права с партнёром урегулированы (устно, 27.07.2026).
+Статус: запускной набор подтверждён основателем 28.07.2026; с 30.07.2026 семь тестов живут на проде (`looplore.app/tests`). Права с партнёром урегулированы (устно, 27.07.2026). **Волна 2 начата 30.07.2026** — батч 1 (`friendship_psychology_v1`, `values_priorities_v1`) собран и ждёт «го», см. раздел «Волна 2» ниже.
 
 Основание: `tools/tests-import/out/` (извлечение Э0) + выборочный просмотр вопросов и профилей. Итоговые цифры аудита пересчитываются командой из `tools/tests-import/README.md`.
 
@@ -68,10 +68,24 @@
 | `dark_personality_traits` | Тёмная триада — высокий спрос, но подача «вы нарцисс» неприемлема. Переписать рамку с диагноза на паттерн. Не зарегистрирован в оригинале |
 | `self_sabotage_how_you_block_yourself_v1` | Хорошая тема, 24 вопроса, но 47 фантомных шкал на такой объём. Не зарегистрирован |
 
-### Второй эшелон — готовы, но не в первую волну (20)
-`disc_personality_v1`, `holland_code_v1`, `social_battery_v1`, `temperament_profile_test`, `values_priorities_v1`, `creative_type_v1`, `imposter_syndrome`, `self_confidence_multiscale_v1`, `fomo_social_comparison_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `boundaries_people_pleasing`, `romantic_potential_v1`, `relationship_compatibility_v1`, `friendship_psychology_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+## Волна 2 — расширение каталога (с 30.07.2026)
 
-Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. `friendship_psychology_v1` заметно недооценён — у него 13 профилей в собственном классе `FriendshipProfile` с полями вплоть до `tryToday` и `inspiringMessage`; кандидат на повышение при следующем пересмотре. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов. `values_priorities_v1` устроен интереснее прочих: 10 ценностей × две шкалы (важность и вкладываемая энергия) — разрыв между ними и есть инсайт.
+Порядок: батчами по 1–2 теста (урок Э8), сначала второй эшелон по ожидаемой ценности, четвёрка «переработать» — последней. Каждый батч проходит весь конвейер: scale-map → правила профиля → канонический JSON → оверрайды Э8 → фикстуры → регистрация (registry, freeTier, обе эдж-функции) → верификация → смоук. Деплой каждого батча — только после «го».
+
+### Батч 1 ✅ собран, ждёт «го» (30.07.2026)
+
+**`friendship_psychology_v1`** («Какой ты друг», 24 q, 13 профилей) — повышен из второго эшелона, как и предполагал триаж. Профили жили в собственном классе `FriendshipProfile` — конвертер научен читать `customProfiles` (маппинг `characteristics`→`strengths`, `inspiringMessage`→`inspiringConclusion`; `suitableRoles` канонического слота не имеет, смыслы вплетены в описания). Правила выбора перенесены из Dart один в один (13 веток, первое правило — «разрыв топ-1/топ-2 < 10% = смешанный»). Scale-map: +2 алиаса, `conscientiousness` заведена новой шкалой (домен Большой пятёрки, 65 ссылок в 13 тестах — пригодится всему второму эшелону). Э8: названия типов из ярлыков в короткие образы (Тёплый эмпат, Мост, Радар, Фейерверк…), `whyThisProfile` написан с нуля под правила. Бары бесплатны (типология: тип — шер-объект, бары — его доказательство).
+
+**`values_priorities_v1`** («Куда уходит твоя энергия», 40 q, 9 профилей) — механика «важность vs энергия» по 10 сферам. Композитные индексы оригинала (средняя важность, средняя энергия, средний |разрыв| по парам) выражены новым генерическим механизмом `derived`-операндов в правилах (`src/tests/types.ts` + `engine.ts`, ~20 строк): любой будущий тест с групповыми факторами обходится данными, движок по-прежнему не знает id тестов. Scale-map: 49 фантомных шкал разнесены (+40 алиасов, 6 новых шкал под будущие тесты выгорания/креативности/веллбинга, 2 в drop). Э8: голос, выброшены англицизмы, у «На износ» (риск выгорания) капс и совет про психолога заменены на спокойный `supportNote`. Бары скрыты — 20 полос это шум, а разрывы важность/вложение и есть платный разбор.
+
+Оба — `spectrum` по типу разбора: новых системных промптов не потребовалось, `tests-generate-report` и `tests-portrait` получили только импорты контента (нужен редеплой функций при выкладке). Верификация: `tests:build` без предупреждений, фикстуры 32/32 (перегенерация подтвердила байт-в-байт воспроизводимость семи прод-тестов), `tsc` чист, прод-сборка собирает оба теста отдельными чанками ~70 КБ, смоук на дев-сервере пройден (оба языка, профили по правилам, граница §2 на экране).
+
+### Второй эшелон — готовы, но не в первую волну (осталось 18)
+`disc_personality_v1`, `holland_code_v1`, `social_battery_v1`, `temperament_profile_test`, `creative_type_v1`, `imposter_syndrome`, `self_confidence_multiscale_v1`, `fomo_social_comparison_v1`, `burnout_diagnostic_v1`, `digital_detox_test`, `procrastination_productivity_style_v1`, `boundaries_people_pleasing`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+
+(`friendship_psychology_v1` и `values_priorities_v1` забраны батчем 1 волны 2, см. выше.)
+
+Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
 
 ### Не берём (17)
 

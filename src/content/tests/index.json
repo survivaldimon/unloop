@@ -96,5 +96,33 @@
     "categoryId": "personality",
     "estimatedMinutes": 15,
     "questionCount": 80
+  },
+  {
+    "id": "friendship_psychology_v1",
+    "title": {
+      "ru": "Какой ты друг",
+      "en": "What Kind of Friend You Are"
+    },
+    "description": {
+      "ru": "24 вопроса о том, как ты дружишь: близость, доверие, границы, поддержка. На выходе — один из 13 типов, от Тёплого эмпата до Наблюдателя.",
+      "en": "24 questions about how you do friendship: closeness, trust, boundaries, support. You land on one of 13 types — from the Warm Empath to the Observer."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 24
+  },
+  {
+    "id": "values_priorities_v1",
+    "title": {
+      "ru": "Куда уходит твоя энергия",
+      "en": "Where Your Energy Goes"
+    },
+    "description": {
+      "ru": "40 вопросов о десяти сферах жизни, каждая измерена дважды: насколько она важна тебе — и сколько сил ты в неё реально вкладываешь. Разрыв между этими двумя списками и есть главный результат.",
+      "en": "40 questions across ten areas of life, each measured twice: how much it matters to you — and how much energy you actually put in. The gap between those two lists is the real result."
+    },
+    "categoryId": "personality",
+    "estimatedMinutes": 10,
+    "questionCount": 40
   }
 ]

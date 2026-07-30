@@ -26,12 +26,14 @@ export const TEST_CATALOGUE = catalogue as TestSummary[];
  */
 const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   attachment_styles_v1: () => import("../content/tests/attachment_styles_v1.json"),
+  friendship_psychology_v1: () => import("../content/tests/friendship_psychology_v1.json"),
   friendship_red_flags_v1: () => import("../content/tests/friendship_red_flags_v1.json"),
   ipip_big_five: () => import("../content/tests/ipip_big_five.json"),
   love_languages_v1: () => import("../content/tests/love_languages_v1.json"),
   sixteen_types: () => import("../content/tests/sixteen_types.json"),
   text_conflict_communication: () => import("../content/tests/text_conflict_communication.json"),
   toxic_patterns: () => import("../content/tests/toxic_patterns.json"),
+  values_priorities_v1: () => import("../content/tests/values_priorities_v1.json"),
 };
 
 const cache = new Map<string, PsychTest>();

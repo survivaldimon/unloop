@@ -1,0 +1,581 @@
+{
+  "$comment": "Э8, волна 2. Механика теста — самая интересная на полке: 10 ценностей, каждая измерена дважды (важность и реально вкладываемая энергия), профиль строится на разрыве между ними. Переписано: голос с «вы» на «ты», выброшены англицизмы («accountability partner», «не aligned»), капс и клинические советы у риска выгорания заменены на supportNote. whyThisProfile был в исходнике — переписан человеческим языком без процентов-порогов. Веса и пороги не тронуты.",
+
+  "title": {
+    "ru": "Куда уходит твоя энергия",
+    "en": "Where Your Energy Goes"
+  },
+  "description": {
+    "ru": "40 вопросов о десяти сферах жизни, каждая измерена дважды: насколько она важна тебе — и сколько сил ты в неё реально вкладываешь. Разрыв между этими двумя списками и есть главный результат.",
+    "en": "40 questions across ten areas of life, each measured twice: how much it matters to you — and how much energy you actually put in. The gap between those two lists is the real result."
+  },
+
+  "factorNames": {
+    "security_importance": { "ru": "Безопасность: важность", "en": "Security: importance" },
+    "security_energy": { "ru": "Безопасность: вложение", "en": "Security: invested" },
+    "freedom_importance": { "ru": "Свобода: важность", "en": "Freedom: importance" },
+    "freedom_energy": { "ru": "Свобода: вложение", "en": "Freedom: invested" },
+    "achievement_importance": { "ru": "Достижения: важность", "en": "Achievement: importance" },
+    "achievement_energy": { "ru": "Достижения: вложение", "en": "Achievement: invested" },
+    "creativity_importance": { "ru": "Творчество: важность", "en": "Creativity: importance" },
+    "creativity_energy": { "ru": "Творчество: вложение", "en": "Creativity: invested" },
+    "relationships_importance": { "ru": "Отношения: важность", "en": "Relationships: importance" },
+    "relationships_energy": { "ru": "Отношения: вложение", "en": "Relationships: invested" },
+    "growth_importance": { "ru": "Развитие: важность", "en": "Growth: importance" },
+    "growth_energy": { "ru": "Развитие: вложение", "en": "Growth: invested" },
+    "influence_importance": { "ru": "Влияние: важность", "en": "Influence: importance" },
+    "influence_energy": { "ru": "Влияние: вложение", "en": "Influence: invested" },
+    "comfort_importance": { "ru": "Комфорт: важность", "en": "Comfort: importance" },
+    "comfort_energy": { "ru": "Комфорт: вложение", "en": "Comfort: invested" },
+    "contribution_importance": { "ru": "Польза другим: важность", "en": "Contribution: importance" },
+    "contribution_energy": { "ru": "Польза другим: вложение", "en": "Contribution: invested" },
+    "health_balance_importance": { "ru": "Здоровье и баланс: важность", "en": "Health and balance: importance" },
+    "health_balance_energy": { "ru": "Здоровье и баланс: вложение", "en": "Health and balance: invested" }
+  },
+
+  "profiles": {
+    "profile_aligned": {
+      "name": { "ru": "В согласии с собой", "en": "In Alignment" },
+      "description": {
+        "ru": "То, что ты называешь важным, и то, на что уходят твои силы, — почти один и тот же список. Такое совпадение встречается реже, чем кажется.",
+        "en": "The things you call important and the things your energy actually goes to are nearly the same list. That match is rarer than it sounds."
+      },
+      "whyThisProfile": {
+        "ru": "Тест сравнил два измерения каждой из десяти сфер — заявленную важность и реальное вложение сил. У тебя эти пары почти совпадают, и обе стороны при этом не проседают: ты не просто мало хочешь и мало делаешь, а хочешь и делаешь.",
+        "en": "The test compared two readings for each of the ten areas — stated importance and actual invested energy. Yours nearly match, and neither side runs low: it's not that you want little and do little — you want and you do."
+      },
+      "strengths": {
+        "ru": [
+          "Ты знаешь, что для тебя важно, — и календарь это подтверждает",
+          "Решения ты принимаешь от ценностей, а не от паники",
+          "Хроническое «живу не свою жизнь» — не про тебя",
+          "Внутренняя согласованность даёт ровный фон удовлетворённости"
+        ],
+        "en": [
+          "You know what matters to you — and your calendar backs it up",
+          "You make decisions from values, not from panic",
+          "The chronic \"this isn't my life\" feeling isn't your story",
+          "Inner consistency gives you a steady baseline of satisfaction"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Согласие с собой легко перепутать с остановкой: список ценностей тоже стареет",
+          "К тем, кто живёт вразнобой с собой, ты можешь быть строже, чем стоило бы"
+        ],
+        "en": [
+          "Being in alignment is easy to confuse with standing still: a list of values ages too",
+          "You can be harsher than you should with people living out of sync with themselves"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в полгода пересматривай приоритеты: согласие — не пункт назначения",
+          "Используй ясность ценностей как фильтр для новых проектов и людей",
+          "Проверяй, не стало ли какое-то «важно» привычкой по инерции",
+          "Делись тем, как ты выбираешь, — многим этого навыка не хватает"
+        ],
+        "en": [
+          "Revisit your priorities every six months: alignment isn't a destination",
+          "Use your clarity of values as a filter for new projects and people",
+          "Check whether any \"important\" has quietly become inertia",
+          "Share how you choose — plenty of people never learned that skill"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши свои топ-3 ценности и проверь календарь на эту неделю: отражает ли он их на самом деле.",
+        "en": "Write down your top-3 values and check this week's calendar: does it actually reflect them."
+      },
+      "inspiringConclusion": {
+        "ru": "Жить в ладу с собственным списком — редкий навык. Только не превращай его в музей: пересобирай.",
+        "en": "Living in step with your own list is a rare skill. Just don't turn it into a museum — keep rebuilding it."
+      }
+    },
+
+    "profile_values_without_action": {
+      "name": { "ru": "Знаю, но не делаю", "en": "Knowing Without Doing" },
+      "description": {
+        "ru": "Ты хорошо понимаешь, что для тебя важно. Но в повседневности эти сферы почти не получают твоих сил — список ценностей живёт отдельно от расписания.",
+        "en": "You understand perfectly well what matters to you. But day to day, those areas barely get your energy — the list of values lives separately from the schedule."
+      },
+      "whyThisProfile": {
+        "ru": "По важности твои ценности набрали высокие баллы, а по реальному вложению сил — низкие. Тест ловит именно этот перекос: понимание есть, действия отстают.",
+        "en": "Your values scored high on importance and low on actual invested energy. That's exactly the tilt this test catches: the understanding is there, the action lags."
+      },
+      "strengths": {
+        "ru": [
+          "Ясность: тебе не нужно искать, что важно, — ты уже знаешь",
+          "Ты видишь проблему, а не прячешься от неё",
+          "Готовность к переменам в тебе есть — не хватает первого шага",
+          "Потенциал роста удовлетворённости у тебя больше, чем у большинства"
+        ],
+        "en": [
+          "Clarity: you don't need to search for what matters — you already know",
+          "You see the problem instead of hiding from it",
+          "The readiness for change is in you — what's missing is the first step",
+          "Your upside in life satisfaction is bigger than most people's"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разрыв между «важно» и «делаю» капает виной и фрустрацией",
+          "«Начну с понедельника» рискует стать твоим постоянным адресом",
+          "Чем дольше откладываешь, тем тише становится сама ценность"
+        ],
+        "en": [
+          "The gap between \"matters\" and \"do\" drips guilt and frustration",
+          "\"Starting Monday\" risks becoming your permanent address",
+          "The longer you postpone, the quieter the value itself becomes"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выбери одну-две ценности — не все сразу — и работай только с ними",
+          "Сформулируй шаг на неделю настолько маленький, что отказаться будет стыдно",
+          "Ставь планку ниже: маленькая регулярность бьёт большие рывки",
+          "Найди человека, которому будешь рассказывать о шагах, — вслух обещания живут дольше",
+          "Разбери честно, что мешает: нехватка сил, страх или чужие ожидания"
+        ],
+        "en": [
+          "Pick one or two values — not all of them — and work only on those",
+          "Make the week's step so small that skipping it would feel embarrassing",
+          "Lower the bar: small regularity beats big lunges",
+          "Find someone to report your steps to — promises said out loud live longer",
+          "Look honestly at what's in the way: low energy, fear, or other people's expectations"
+        ]
+      },
+      "tryToday": {
+        "ru": "Возьми самую важную ценность и сделай в её сторону одно пятиминутное действие прямо сейчас.",
+        "en": "Take your most important value and make one five-minute move toward it right now."
+      },
+      "inspiringConclusion": {
+        "ru": "Разрыв между ценностями и действиями — не приговор, а карта: на ней уже отмечено, куда идти.",
+        "en": "The gap between values and actions isn't a verdict — it's a map, and the destination is already marked."
+      }
+    },
+
+    "profile_energy_misaligned": {
+      "name": { "ru": "Занят не тем", "en": "Busy With the Wrong Things" },
+      "description": {
+        "ru": "Энергии ты тратишь много — но заметная её часть уходит в сферы, которые тебе не особенно важны. Дел полно, а ощущения смысла нет.",
+        "en": "You spend plenty of energy — but a real share of it goes to areas that don't matter much to you. The days are full; the sense of meaning isn't."
+      },
+      "whyThisProfile": {
+        "ru": "Вложение сил у тебя высокое, но списки «куда уходит энергия» и «что важно» сильно расходятся. Это профиль занятости, которая не конвертируется в удовлетворённость.",
+        "en": "Your invested energy is high, but the \"where energy goes\" and \"what matters\" lists diverge sharply. This is the profile of busyness that doesn't convert into satisfaction."
+      },
+      "strengths": {
+        "ru": [
+          "Работоспособность: двигатель у тебя мощный",
+          "Дисциплина — ты доводишь начатое до конца",
+          "Этот же ресурс, перенаправленный, изменит жизнь быстро",
+          "Ты умеешь быть продуктивным — осталось выбрать, где"
+        ],
+        "en": [
+          "Capacity: your engine is powerful",
+          "Discipline — you finish what you start",
+          "That same resource, redirected, will change your life fast",
+          "You know how to be productive — what's left is choosing where"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "«Много делаю, но не туда» — прямой маршрут к выгоранию",
+          "Чужие обязательства съедают твои приоритеты незаметно",
+          "Колесо крутится так быстро, что некогда спросить, куда едем"
+        ],
+        "en": [
+          "\"Doing a lot, but not the right things\" is the express route to burnout",
+          "Other people's obligations eat your priorities unnoticed",
+          "The wheel spins too fast to ask where it's rolling"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Сравни свои топ-5 сфер по важности и по вложению — найди самые большие расхождения",
+          "Найди дела, которые можно отдать или сократить без последствий",
+          "Освободи хотя бы десятую часть недели под то, что в топе важности",
+          "Тренируй «нет» обязательствам, которые не проходят фильтр ценностей"
+        ],
+        "en": [
+          "Compare your top-5 areas by importance and by investment — find the widest gaps",
+          "Spot the tasks you can hand off or cut without consequences",
+          "Free up at least a tenth of your week for what tops the importance list",
+          "Practice saying no to commitments that fail the values filter"
+        ]
+      },
+      "tryToday": {
+        "ru": "Посмотри на сегодняшний список дел: от какого одного пункта можно отказаться или отдать его другому?",
+        "en": "Look at today's to-do list: which single item could you drop or hand to someone else?"
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя энергия — капитал. Вопрос не в том, сколько её, а в том, на что она работает.",
+        "en": "Your energy is capital. The question isn't how much you have — it's what it's working for."
+      }
+    },
+
+    "profile_burnout_risk": {
+      "name": { "ru": "На износ", "en": "Running on Empty" },
+      "description": {
+        "ru": "Ты вкладываешься почти во всё — кроме собственного восстановления. Сферы «здоровье и баланс» в твоих ответах почти пусто, и на длинной дистанции этот счёт придёт.",
+        "en": "You invest in almost everything — except your own recovery. The \"health and balance\" area is nearly empty in your answers, and over the long run that bill arrives."
+      },
+      "supportNote": {
+        "ru": "Этот тест образовательный и не ставит диагнозов. Но если усталость стала постоянной — не проходит после выходных, мешает спать или радоваться, — это повод поговорить с врачом или психологом, а не дожидаться, пока организм остановит тебя сам.",
+        "en": "This test is educational and doesn't diagnose anything. But if the exhaustion has become constant — doesn't lift after a weekend, disrupts sleep or joy — that's a reason to talk to a doctor or therapist rather than wait for your body to stop you itself."
+      },
+      "whyThisProfile": {
+        "ru": "Общее вложение энергии у тебя очень высокое, а вложение в здоровье и баланс — низкое. Именно эта пара сигналов и определяет профиль: расход без восстановления.",
+        "en": "Your overall energy investment is very high while your investment in health and balance is low. That exact pair of signals defines the profile: spending without recovery."
+      },
+      "strengths": {
+        "ru": [
+          "Выносливость: ты тянешь объём, который многим не по силам",
+          "Целеустремлённость — ты не бросаешь на полпути",
+          "Ответственность: на тебя рассчитывают, и не зря"
+        ],
+        "en": [
+          "Endurance: you carry a load most people couldn't",
+          "Drive — you don't quit halfway",
+          "Responsibility: people count on you, and rightly so"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ресурс не бесконечен: усталость уже накапливается быстрее, чем уходит",
+          "Истощение сначала съедает эффективность, потом удовольствие, потом здоровье",
+          "Ты замечаешь перегруз позже всех, кто рядом с тобой"
+        ],
+        "en": [
+          "The resource isn't infinite: fatigue is already piling up faster than it drains",
+          "Exhaustion eats efficiency first, then enjoyment, then health",
+          "You notice the overload later than everyone around you"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Поставь отдых в календарь как встречу, которую нельзя двигать",
+          "Начни со сна: семь-восемь часов — не роскошь, а техобслуживание",
+          "Определи часы, в которые работа не существует, — и защищай их",
+          "Верни телу движение, которое в радость, а не «ещё одна задача»"
+        ],
+        "en": [
+          "Put rest in the calendar as a meeting that can't be moved",
+          "Start with sleep: seven to eight hours is maintenance, not luxury",
+          "Define hours where work doesn't exist — and defend them",
+          "Give your body movement it enjoys, not another task"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запланируй сегодня 30 минут отдыха без экранов и работы — и внеси их в календарь прямо сейчас.",
+        "en": "Schedule 30 minutes of rest today — no screens, no work — and put it in the calendar right now."
+      },
+      "inspiringConclusion": {
+        "ru": "Забота о себе — не эгоизм, а инфраструктура всего, что ты делаешь. Невозможно наливать из пустого.",
+        "en": "Taking care of yourself isn't selfish — it's the infrastructure of everything you do. You can't pour from an empty jug."
+      }
+    },
+
+    "profile_freedom_seeker": {
+      "name": { "ru": "Свобода дороже", "en": "Freedom First" },
+      "description": {
+        "ru": "Право самому выбирать — как жить, где работать, когда вставать — для тебя весит больше, чем гарантии. Стабильностью ты готов платить, и платишь.",
+        "en": "The right to choose for yourself — how to live, where to work, when to wake — outweighs guarantees for you. You're willing to pay in stability, and you do."
+      },
+      "whyThisProfile": {
+        "ru": "Свобода в твоих ответах — среди самого важного, а безопасность и стабильность — в самом низу списка. Такой контраст между этими двумя ценностями и есть формула профиля.",
+        "en": "Freedom ranks near the top of your answers while security sits at the bottom of the list. That contrast between the two values is the profile's formula."
+      },
+      "strengths": {
+        "ru": [
+          "Перемены тебя не ломают — ты в них живёшь",
+          "Смелость решений: ты выбираешь сам, а не по инструкции",
+          "Независимое мышление — чужое «так принято» на тебя не действует",
+          "Ты умеешь начинать заново"
+        ],
+        "en": [
+          "Change doesn't break you — you live in it",
+          "Bold decisions: you choose for yourself, not by the manual",
+          "Independent thinking — \"that's how it's done\" doesn't move you",
+          "You know how to start over"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Без финансовой подушки каждая свобода — с петлёй на удаче",
+          "Импульсивные решения иногда выдают себя за свободные",
+          "Длинные планы скучны тебе настолько, что их просто нет"
+        ],
+        "en": [
+          "Without a financial cushion, every freedom rides on luck",
+          "Impulsive decisions sometimes disguise themselves as free ones",
+          "Long-range plans bore you so much they simply don't exist"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Собери подушку на три месяца — это не клетка, а трамплин для смелых ходов",
+          "Отличай свободный выбор от побега: первый к чему-то, второй — от",
+          "Ищи гибкий формат, а не полный хаос: свободе тоже нужна опора",
+          "Минимальный каркас планов оставляет больше свободы, чем его отсутствие"
+        ],
+        "en": [
+          "Build a three-month cushion — it's not a cage, it's a launch pad for bold moves",
+          "Tell free choice from escape: one moves toward something, the other away",
+          "Look for flexible structure, not total chaos: freedom needs footing too",
+          "A minimal skeleton of plans leaves more freedom than none at all"
+        ]
+      },
+      "tryToday": {
+        "ru": "Отложи 5% ближайшего дохода в «фонд свободы» — ресурс для следующего смелого решения.",
+        "en": "Put 5% of your next income into a \"freedom fund\" — fuel for the next bold decision."
+      },
+      "inspiringConclusion": {
+        "ru": "Свобода — это ответственность, которую ты выбрал сам. Дай ей немного тыла, и она унесёт дальше.",
+        "en": "Freedom is a responsibility you chose yourself. Give it a bit of backup and it will carry you further."
+      }
+    },
+
+    "profile_stability_seeker": {
+      "name": { "ru": "Почва под ногами", "en": "Solid Ground" },
+      "description": {
+        "ru": "Тебе важно знать, что будет завтра: устойчивый доход, свой угол, предсказуемые люди. Определённость для тебя не скука, а фундамент, на котором строится остальное.",
+        "en": "You need to know what tomorrow holds: steady income, a place of your own, predictable people. Certainty isn't boredom to you — it's the foundation everything else is built on."
+      },
+      "whyThisProfile": {
+        "ru": "Безопасность и стабильность — на вершине твоего списка важности, а свобода и риск — внизу. Профиль определён этим контрастом, зеркальным к «Свобода дороже».",
+        "en": "Security tops your importance list while freedom and risk sit at the bottom. The profile is defined by that contrast — the mirror image of Freedom First."
+      },
+      "strengths": {
+        "ru": [
+          "Планирование: у тебя есть запас и план Б",
+          "Последовательность — тебя хватает на длинные дистанции",
+          "Импульсивные глупости обходят тебя стороной",
+          "Рядом с тобой спокойно и другим"
+        ],
+        "en": [
+          "Planning: you have reserves and a plan B",
+          "Consistency — you last the long distances",
+          "Impulsive mistakes pass you by",
+          "People around you feel steadier too"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Страх потерять устойчивое иногда дороже, чем сама потеря",
+          "Лучшие возможности часто выглядят как риск — и ты их пропускаешь",
+          "Перемены, которых не избежать, бьют по тебе сильнее, чем по гибким"
+        ],
+        "en": [
+          "The fear of losing stability sometimes costs more than the loss would",
+          "The best opportunities often look like risk — and you let them pass",
+          "The changes you can't avoid hit you harder than they hit the flexible"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выходи из зоны комфорта маленькими шагами — по одному, но регулярно",
+          "Тренируй решения в неопределённости на мелких ставках",
+          "Заведи «фонд экспериментов»: деньги, которые можно потерять без драмы",
+          "Помни: гибкость — это тоже форма безопасности"
+        ],
+        "en": [
+          "Leave the comfort zone in small steps — one at a time, but regularly",
+          "Practice deciding under uncertainty with small stakes",
+          "Start an \"experiment fund\": money you can lose without drama",
+          "Remember: flexibility is a form of safety too"
+        ]
+      },
+      "tryToday": {
+        "ru": "Попробуй сегодня одну маленькую новую вещь: другой маршрут, незнакомое блюдо, новый подкаст.",
+        "en": "Try one small new thing today: a different route, an unfamiliar dish, a new podcast."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение строить прочное — сила. Добавь к ней немного гибкости, и тебя не пошатнёт вообще ничто.",
+        "en": "Building solid things is a strength. Add a little flexibility and nothing will shake you at all."
+      }
+    },
+
+    "profile_relationships_focused": {
+      "name": { "ru": "Люди прежде всего", "en": "People First" },
+      "description": {
+        "ru": "Близкие связи — не одна из сфер твоей жизни, а её ось. Ты не только называешь отношения главным — ты реально вкладываешь в людей время и силы.",
+        "en": "Close connection isn't one area of your life — it's the axis. You don't just call relationships central; you actually put your time and energy into people."
+      },
+      "whyThisProfile": {
+        "ru": "Отношения в твоих ответах высоки по обоим измерениям сразу: и по важности, и по реальному вложению энергии. Это не декларация, а подтверждённый делом приоритет.",
+        "en": "Relationships score high on both of your readings at once: importance and actually invested energy. That's not a declaration — it's a priority backed by action."
+      },
+      "strengths": {
+        "ru": [
+          "Вокруг тебя настоящая сеть поддержки, а не список контактов",
+          "Ты понимаешь людей и умеешь быть рядом",
+          "Глубокие связи — твоя валюта, и её у тебя много",
+          "В трудный момент тебе есть кому позвонить — редкое богатство"
+        ],
+        "en": [
+          "Around you is a real support network, not a contact list",
+          "You understand people and know how to be there",
+          "Deep connection is your currency, and you're wealthy in it",
+          "When things get hard, you have someone to call — a rare kind of rich"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Свои цели тихо съезжают на дно списка — люди всегда важнее",
+          "Границы: отказать близкому тебе труднее, чем предать себя",
+          "Конфликт выбивает тебя сильнее, чем любые рабочие неудачи"
+        ],
+        "en": [
+          "Your own goals quietly sink to the bottom of the list — people always come first",
+          "Boundaries: refusing someone close is harder for you than betraying yourself",
+          "Conflict knocks you down harder than any work setback"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй взаимность: кто из твоих людей вкладывается в тебя",
+          "Держи в неделе время, которое принадлежит только твоим целям",
+          "Забота о себе — не измена близким, а условие, что тебя на них хватит",
+          "Учись говорить «нет» без длинных оправданий"
+        ],
+        "en": [
+          "Check the reciprocity: which of your people invest back in you",
+          "Keep weekly time that belongs to your goals alone",
+          "Caring for yourself isn't betraying your people — it's how there stays enough of you for them",
+          "Practice saying no without a long apology"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши или позвони близкому человеку — просто сказать, что он у тебя есть и это ценно.",
+        "en": "Message or call someone close — just to say you're glad they exist."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение вкладываться в людей — самая недооценённая форма богатства. Только не выпадай из списка тех, о ком заботишься.",
+        "en": "Investing in people is the most underrated form of wealth. Just don't drop yourself off the list of people you care for."
+      }
+    },
+
+    "profile_growth_oriented": {
+      "name": { "ru": "Режим роста", "en": "Growth Mode" },
+      "description": {
+        "ru": "Учиться — твоё естественное состояние: курсы, книги, новые навыки. Развитие у тебя не в планах, а в расписании, и это видно по обоим измерениям теста.",
+        "en": "Learning is your natural state: courses, books, new skills. Growth isn't in your plans — it's in your schedule, and both readings of this test show it."
+      },
+      "whyThisProfile": {
+        "ru": "Развитие и обучение высоки у тебя и по важности, и по реально вложенной энергии. Ты из тех, у кого «хочу разобраться» превращается в открытый учебник в тот же вечер.",
+        "en": "Growth and learning score high for you on both importance and invested energy. You're the kind whose \"I want to figure this out\" turns into an open textbook the same evening."
+      },
+      "strengths": {
+        "ru": [
+          "Навыки у тебя множатся, а не пылятся",
+          "Любознательность — двигатель, который не глохнет",
+          "Адаптивность: новое тебя не пугает, а зовёт",
+          "На длинной дистанции ты обгоняешь тех, кто остановился"
+        ],
+        "en": [
+          "Your skills multiply instead of gathering dust",
+          "Curiosity is an engine that doesn't stall",
+          "Adaptability: the new doesn't scare you, it calls you",
+          "Over the long run you overtake everyone who stopped"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "«Вечный студент»: знания копятся быстрее, чем применяются",
+          "Курс куплен — уже приятно; пройден ли — вопрос второй",
+          "Незакрытые проекты и вкладки размножаются сами",
+          "Чужие успехи в ленте включают у тебя самозванца"
+        ],
+        "en": [
+          "\"Eternal student\": knowledge piles up faster than it gets used",
+          "Buying the course already feels good; finishing it is another matter",
+          "Unfinished projects and open tabs breed on their own",
+          "Other people's wins in the feed switch on your impostor"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Правило пары: к каждому часу теории — час применения",
+          "Определи, что значит «достаточно хорошо», и останавливайся там",
+          "Глубина в одной-двух областях даст больше, чем ширина в десяти",
+          "Объясни выученное другому — так оно становится твоим"
+        ],
+        "en": [
+          "Pair rule: for every hour of theory, an hour of practice",
+          "Define \"good enough\" and actually stop there",
+          "Depth in one or two areas beats breadth in ten",
+          "Explain what you've learned to someone — that's how it becomes yours"
+        ]
+      },
+      "tryToday": {
+        "ru": "Возьми одну вещь, которую недавно изучил, и примени её. Пятнадцать минут практики стоят часа теории.",
+        "en": "Take one thing you learned recently and use it. Fifteen minutes of practice beats an hour of theory."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя жажда знаний — суперсила. Направь её из накопления в создание — и увидишь разницу.",
+        "en": "Your hunger to learn is a superpower. Point it from collecting toward creating and watch the difference."
+      }
+    },
+
+    "profile_balanced": {
+      "name": { "ru": "Без перекосов", "en": "Even Keel" },
+      "description": {
+        "ru": "Ни одна сфера не перетягивает твою жизнь на себя: важность и силы распределены ровно. Это может быть осознанным балансом — а может значить, что главное ещё не выбрано.",
+        "en": "No single area pulls your life toward itself: importance and energy are spread evenly. That may be deliberate balance — or a sign the main thing hasn't been chosen yet."
+      },
+      "whyThisProfile": {
+        "ru": "В твоих ответах нет ярко выраженных пиков: ни одна ценность не оторвалась от остальных ни по важности, ни по вложению. Тест показывает ровный ландшафт — без вершин и провалов.",
+        "en": "Your answers show no sharp peaks: no value breaks away from the rest on either importance or investment. The test sees an even landscape — no summits, no craters."
+      },
+      "strengths": {
+        "ru": [
+          "Гибкость: ты не заложник одной сферы",
+          "Крайности и зависимости — не твоя история",
+          "Ты видишь разные перспективы, потому что не залип в одной",
+          "Открытость к экспериментам — попробовать тебе легче, чем многим"
+        ],
+        "en": [
+          "Flexibility: you're hostage to no single area",
+          "Extremes and fixations aren't your story",
+          "You see multiple perspectives because you're stuck in none",
+          "Openness to experiment — trying things is easier for you than for most"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ровный ландшафт без ориентира: куда идти — неочевидно",
+          "Силы, размазанные на всё, нигде не дают глубины",
+          "Выбор даётся трудно, когда всё «примерно одинаково важно»"
+        ],
+        "en": [
+          "An even landscape has no landmark: where to head isn't obvious",
+          "Energy spread over everything gives depth nowhere",
+          "Choosing is hard when everything is \"about equally important\""
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Попробуй 90 дней фокуса на одной ценности — и посмотри, что изменится",
+          "Веди дневник решений: отмечай, что реально радует, а что — по привычке",
+          "Разреши себе временный перекос: крайность — быстрый способ узнать себя",
+          "Пересобери список: возможно, «всё одинаково» значит «давно не спрашивал себя»"
+        ],
+        "en": [
+          "Try 90 days of focus on one value — and see what changes",
+          "Keep a decision journal: note what genuinely delights you and what's just habit",
+          "Allow yourself a temporary tilt: an extreme is a fast way to learn who you are",
+          "Rebuild the list: maybe \"everything's equal\" means \"haven't asked myself in a while\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одну ценность на эту неделю и живи так, будто она главная. В следующий раз — другую.",
+        "en": "Pick one value for this week and live as if it's the main one. Next time, pick another."
+      },
+      "inspiringConclusion": {
+        "ru": "Баланс — не отсутствие выбора, а его отложенная форма. Сделай выбор осознанным — и ровность станет силой.",
+        "en": "Balance isn't the absence of choice — it's choice postponed. Make it deliberate, and evenness becomes strength."
+      }
+    }
+  }
+}

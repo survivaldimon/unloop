@@ -35,6 +35,13 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   // The code is free (it travels), the closeness of each pair is not — 52/48
   // and 95/5 are different people wearing the same four letters.
   sixteen_types: false,
+  // Typology of 13: the named type is the share object and the six bars are its
+  // proof — same logic as attachment. The paid read is built from answers and
+  // the mix, not from the bars.
+  friendship_psychology_v1: true,
+  // Twenty bars would be noise, and the importance-vs-energy gaps they hide ARE
+  // the paid read (same reasoning as love_languages' hierarchy).
+  values_priorities_v1: false,
 };
 
 /**
