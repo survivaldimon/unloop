@@ -1,3 +1,4 @@
-# Extracted content is jointly owned with the tests_app partner — regenerate it
-# with extract.mjs rather than committing it here.
+# Raw extraction from the tests_app clone — bulky and fully regenerable
+# (extract.mjs + apply-scale-map.mjs), so it stays out of git. The distilled
+# artifacts the app and CI need are committed: src/content/tests/ and fixtures/.
 out/

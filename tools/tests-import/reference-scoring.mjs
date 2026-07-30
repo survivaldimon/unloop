@@ -133,7 +133,9 @@ const PATTERNS = {
 };
 
 function main() {
-  const fixturesDir = path.join(OUT, "fixtures");
+  // Fixtures are committed (verify-engine.mjs runs from a bare checkout), so
+  // they land next to this script rather than under the git-ignored out/.
+  const fixturesDir = path.join(import.meta.dirname, "fixtures");
   fs.rmSync(fixturesDir, { recursive: true, force: true });
   fs.mkdirSync(fixturesDir, { recursive: true });
 
