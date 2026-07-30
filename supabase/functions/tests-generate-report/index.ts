@@ -23,6 +23,8 @@ import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_
 import imposterSyndrome from "../../../src/content/tests/imposter_syndrome.json" with { type: "json" };
 import ipipBigFive from "../../../src/content/tests/ipip_big_five.json" with { type: "json" };
 import loveLanguages from "../../../src/content/tests/love_languages_v1.json" with { type: "json" };
+import relationshipCompatibility from "../../../src/content/tests/relationship_compatibility_v1.json" with { type: "json" };
+import romanticPotential from "../../../src/content/tests/romantic_potential_v1.json" with { type: "json" };
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
 import socialBattery from "../../../src/content/tests/social_battery_v1.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
@@ -52,6 +54,8 @@ const TESTS: Record<string, PsychTest> = Object.fromEntries(
     imposterSyndrome,
     ipipBigFive,
     loveLanguages,
+    relationshipCompatibility,
+    romanticPotential,
     sixteenTypes,
     socialBattery,
     textConflict,
@@ -87,6 +91,8 @@ const REPORT_KIND: Record<string, ReportKind> = {
   fomo_social_comparison_v1: "levels",
   burnout_diagnostic_v1: "levels",
   digital_detox_test: "levels",
+  romantic_potential_v1: "levels",
+  relationship_compatibility_v1: "levels",
 };
 
 function reportKind(test: PsychTest): ReportKind {

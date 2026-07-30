@@ -38,6 +38,8 @@ const LAUNCH_SET = [
   "fomo_social_comparison_v1",
   "burnout_diagnostic_v1",
   "digital_detox_test",
+  "romantic_potential_v1",
+  "relationship_compatibility_v1",
 ];
 
 const scales = JSON.parse(fs.readFileSync(path.join(OUT, "scales.json"), "utf8"));

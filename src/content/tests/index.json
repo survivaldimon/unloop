@@ -208,5 +208,33 @@
     "categoryId": "emotional",
     "estimatedMinutes": 10,
     "questionCount": 50
+  },
+  {
+    "id": "romantic_potential_v1",
+    "title": {
+      "ru": "Твой сценарий любви",
+      "en": "Your Love Script"
+    },
+    "description": {
+      "ru": "36 вопросов о том, по какой истории ты любишь: что считаешь нормой в близости, каких сюжетов ждёшь от любви и насколько готов в неё войти. Три шкалы — готовность к близости, убеждения о любви и сценарии, по которым ты её проживаешь.",
+      "en": "36 questions about the story you love by: what you treat as normal in closeness, which plots you expect from love, and how ready you are to step into it. Three scales — readiness for intimacy, beliefs about love, and the scripts you live it by."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 10,
+    "questionCount": 36
+  },
+  {
+    "id": "relationship_compatibility_v1",
+    "title": {
+      "ru": "Твоя формула совместимости",
+      "en": "Your Compatibility Formula"
+    },
+    "description": {
+      "ru": "24 вопроса о том, из чего складывается твоя совместимость с партнёром: близость, общение, ценности, ожидания, конфликты и романтика. Тест не сравнивает двоих — он показывает твой собственный стиль строить «мы»: где в нём опоры и где зазоры.",
+      "en": "24 questions about what your compatibility with a partner is made of: closeness, communication, values, expectations, conflict, and romance. The test doesn't compare two people — it shows your own style of building a \"we\": where its supports are, and where the gaps."
+    },
+    "categoryId": "relationships",
+    "estimatedMinutes": 7,
+    "questionCount": 24
   }
 ]

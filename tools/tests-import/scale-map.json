@@ -1,7 +1,7 @@
 {
   "$comment": "Э2 — нормализация реестра шкал под запускной набор (docs/tests-catalogue.md). Отображает шкалы, на которые ссылаются веса tests_app, но которых нет в hierarchical_scales.dart, на канонические шкалы реестра. Применяется скриптом apply-scale-map.mjs.",
   "principle": "Алиас к существующей шкале везде, где есть разумная цель. Новая шкала добавляется, только если конструкт правдоподобно встретится и в других тестах: шкала, которую использует ровно один тест, не даёт ничего кросс-тестовому профилю, ради которого слой и существует. invert:true переворачивает знак веса, когда цель — противоположный полюс источника.",
-  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2: батч 1 (friendship_psychology_v1: 3, values_priorities_v1: 49), батч 2 (imposter_syndrome: 32; social_battery_v1 чист), батч 3 (boundaries_people_pleasing: 47; fomo_social_comparison_v1 чист). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
+  "scope": "53 фантомные шкалы запускного набора из 7 тестов + волна 2: батч 1 (friendship_psychology_v1: 3, values_priorities_v1: 49), батч 2 (imposter_syndrome: 32; social_battery_v1 чист), батч 3 (boundaries_people_pleasing: 47; fomo_social_comparison_v1 чист), батч 5 (relationship_compatibility_v1: 6; romantic_potential_v1 чист). Тесты второго эшелона добавляют свои — карта расширяется по мере подключения.",
 
   "newScales": {
     "conscientiousness": {
@@ -288,7 +288,12 @@
     "emotional_maturity": { "to": "maturity" },
     "hypervigilance": { "to": "anxiety" },
     "decision_difficulty": { "to": "decisiveness", "invert": true },
-    "catastrophic_thinking": { "to": "catastrophizing" }
+    "catastrophic_thinking": { "to": "catastrophizing" },
+    "values_ethics": { "to": "values", "note": "Совпадение ценностей в паре — вклад в общую шкалу ценностей. 4 ссылки (relationship_compatibility)" },
+    "attachment_security": { "to": "secure_attachment", "note": "Тот же конструкт под другим именем" },
+    "self_sufficiency": { "to": "autonomy_need", "note": "Личное пространство в паре = потребность в автономии. 1 ссылка" },
+    "need_for_stability": { "to": "relationship_security", "note": "Потребность в ровном предсказуемом развитии отношений. 1 ссылка" },
+    "cooperation": { "to": "cooperativeness" }
   },
 
   "drop": {
@@ -298,6 +303,7 @@
     "emotional_flatness": "1 ссылка, размыто; positive_emotions invert исказил бы смысл (уплощение — не отсутствие радости).",
     "strength": "1 ссылка (boundaries), не конструкт.",
     "defensiveness": "1 ссылка, размыто между composure invert и hostility — обе цели натяжка.",
-    "internal_conflict": "1 ссылка, состояние без внятной шкалы-цели."
+    "internal_conflict": "1 ссылка, состояние без внятной шкалы-цели.",
+    "predictability": "Синоним стабильности на том же вопросе q15 relationship_compatibility (need_for_stability уже даёт вклад); слияние удвоило бы сигнал. 1 ссылка."
   }
 }

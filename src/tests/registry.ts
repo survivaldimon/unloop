@@ -35,6 +35,8 @@ const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   imposter_syndrome: () => import("../content/tests/imposter_syndrome.json"),
   ipip_big_five: () => import("../content/tests/ipip_big_five.json"),
   love_languages_v1: () => import("../content/tests/love_languages_v1.json"),
+  relationship_compatibility_v1: () => import("../content/tests/relationship_compatibility_v1.json"),
+  romantic_potential_v1: () => import("../content/tests/romantic_potential_v1.json"),
   sixteen_types: () => import("../content/tests/sixteen_types.json"),
   social_battery_v1: () => import("../content/tests/social_battery_v1.json"),
   text_conflict_communication: () => import("../content/tests/text_conflict_communication.json"),

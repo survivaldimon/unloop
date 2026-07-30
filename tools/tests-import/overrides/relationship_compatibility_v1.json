@@ -1,0 +1,237 @@
+{
+  "$comment": "Э8, волна 2 батч 5. Три профиля-уровня по среднему шести шкал (75/45). Заголовок уведён от «Тест „Совместимость и идеальные отношения“», эмодзи из названий факторов, markdown и КАПС-секции из описания, характеристики нижнего профиля разнесены на честные strengths и vulnerabilities, «семейный психолог» из рекомендаций заменён мягким supportNote. Пороги и веса не тронуты. Пофакторные интерпретации исходника (3 уровня × 6 факторов) осознанно не перенесены: слота в схеме нет, пофакторный разбор — работа платного LLM-отчёта.",
+  "title": {
+    "ru": "Твоя формула совместимости",
+    "en": "Your Compatibility Formula"
+  },
+  "description": {
+    "ru": "24 вопроса о том, из чего складывается твоя совместимость с партнёром: близость, общение, ценности, ожидания, конфликты и романтика. Тест не сравнивает двоих — он показывает твой собственный стиль строить «мы»: где в нём опоры и где зазоры.",
+    "en": "24 questions about what your compatibility with a partner is made of: closeness, communication, values, expectations, conflict, and romance. The test doesn't compare two people — it shows your own style of building a \"we\": where its supports are, and where the gaps."
+  },
+  "factorNames": {
+    "emotional_connection": {
+      "ru": "Эмоциональная близость",
+      "en": "Emotional closeness"
+    },
+    "communication_style": {
+      "ru": "Стиль общения",
+      "en": "Communication style"
+    },
+    "values_alignment": {
+      "ru": "Совпадение ценностей",
+      "en": "Values alignment"
+    },
+    "relationship_expectations": {
+      "ru": "Ожидания от отношений",
+      "en": "Relationship expectations"
+    },
+    "conflict_management": {
+      "ru": "Решение конфликтов",
+      "en": "Conflict management"
+    },
+    "intimacy_and_romance": {
+      "ru": "Близость и романтика",
+      "en": "Intimacy and romance"
+    }
+  },
+  "profiles": {
+    "profile_perfect_match": {
+      "name": {
+        "ru": "Чистый сигнал",
+        "en": "Clear Signal"
+      },
+      "description": {
+        "ru": "Твой способ строить отношения складывается в цельную картину: тебе важна близость, и ты умеешь её создавать; ты говоришь и слышишь; ценности и ожидания не воюют друг с другом. С таким фундаментом «мы» строится не на удаче, а на навыке — и это чувствуется рядом с тобой.",
+        "en": "The way you build relationships adds up: closeness matters to you and you know how to create it; you speak and you hear; your values and expectations aren't at war. On that foundation a \"we\" rests on skill, not luck — and people can feel it around you."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм усредняет шесть шкал теста — близость, общение, ценности, ожидания, конфликты и романтику. Твой средний выше 75 из 100: по всем опорам ты отвечал в сторону контакта и диалога.",
+        "en": "The algorithm averages the six scales — closeness, communication, values, expectations, conflict, and romance. Your average is above 75 out of 100: on every pillar you answered toward contact and dialogue."
+      },
+      "strengths": {
+        "ru": [
+          "Чувства и логика работают в паре, а не по очереди",
+          "Ты умеешь и поддержать, и принять поддержку — второе встречается реже",
+          "Конфликт для тебя — задача на двоих, а не поле боя",
+          "Ожидания названы словами, а не копятся в обиды",
+          "Романтика не выветрилась в быт: ты помнишь, зачем всё это"
+        ],
+        "en": [
+          "Feeling and logic work as a team, not in turns",
+          "You can give support and receive it — the second is the rarer skill",
+          "Conflict is a two-person task for you, not a battlefield",
+          "Expectations get said out loud instead of fermenting into grudges",
+          "Romance hasn't dissolved into routine: you remember what this is all for"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Высокая планка контакта: партнёру, который так не умеет, рядом может быть тесно",
+          "Есть риск доделывать отношения за двоих и не замечать своей усталости",
+          "Гармония может стать привычкой, которую страшно тревожить честным «мне не окей»",
+          "Свои потребности легко отложить «ради нас»"
+        ],
+        "en": [
+          "A high bar for contact: a partner who can't match it may feel crowded next to you",
+          "There's a risk of doing the relationship's work for two and missing your own fatigue",
+          "Harmony can become a habit you're afraid to disturb with an honest \"I'm not okay\"",
+          "Your own needs are easy to shelve \"for us\""
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй, что вклад в пару двусторонний — забота не должна течь в одну сторону",
+          "Говори «мне не окей» до того, как станет совсем не окей",
+          "Оставь партнёру место на его способ любить — он может отличаться от твоего",
+          "Раз в месяц спрашивай не «как у нас дела», а «чего тебе не хватает»"
+        ],
+        "en": [
+          "Check that the investment flows both ways — care shouldn't run in one direction",
+          "Say \"I'm not okay\" before it becomes really not okay",
+          "Leave room for your partner's way of loving — it may not look like yours",
+          "Once a month, ask not \"how are we doing\" but \"what are you missing\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Поблагодари партнёра за одну конкретную вещь этой недели — не «за всё», а за момент, который ты правда заметил.",
+        "en": "Thank your partner for one specific thing from this week — not \"for everything\", but for a moment you actually noticed."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение строить «мы» — навык, который дорожает с каждым годом отношений. У тебя он уже есть; дальше — не растерять и делиться.",
+        "en": "Building a \"we\" is a skill that grows more valuable with every year of a relationship. You already have it — now keep it, and share it."
+      }
+    },
+    "profile_good_potential": {
+      "name": {
+        "ru": "Настройка в процессе",
+        "en": "Tuning In"
+      },
+      "description": {
+        "ru": "База у тебя есть: желание понимать, готовность договариваться, живой интерес к партнёру. Но часть опор ещё дрожит — где-то ожидания расходятся с реальностью, где-то эмоции берут верх в конфликте, где-то трудно сказать о своём. Это рабочее состояние: настройка, а не поломка.",
+        "en": "The base is there: the wish to understand, the readiness to negotiate, real interest in your partner. But some pillars still wobble — expectations drift from reality here, emotions win the conflict there, saying what you need feels hard somewhere else. That's a working state: tuning, not damage."
+      },
+      "whyThisProfile": {
+        "ru": "Средний по шести шкалам — близость, общение, ценности, ожидания, конфликты, романтика — у тебя между 45 и 74 из 100: часть опор уверенная, часть ответов уходила в сторону сомнений или дистанции.",
+        "en": "Your average across the six scales — closeness, communication, values, expectations, conflict, romance — sits between 45 and 74 out of 100: some pillars are steady, others leaned toward doubt or distance."
+      },
+      "strengths": {
+        "ru": [
+          "Готовность работать над отношениями — не на словах: ты дошёл до конца теста о них",
+          "Умение договариваться, когда эмоции дают договорить",
+          "Живое желание понять партнёра, а не выиграть у него",
+          "Ты видишь свои зоны роста — это половина настройки"
+        ],
+        "en": [
+          "Willingness to work on the relationship — for real: you finished a whole test about it",
+          "The ability to negotiate, when emotions let you finish the sentence",
+          "A live wish to understand your partner, not to beat them",
+          "You see your growth areas — that's half the tuning done"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ожидания часто живут в голове, а проговариваются уже как претензии",
+          "В конфликте эмоция иногда успевает раньше слов",
+          "Качество времени вместе проседает под делами",
+          "Разница в ценностях замечается по обиде, а не по разговору"
+        ],
+        "en": [
+          "Expectations live in your head and come out already shaped as complaints",
+          "In conflict, emotion sometimes arrives before words do",
+          "Quality time together sinks under the to-do list",
+          "Value differences get noticed through hurt feelings, not conversation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проговаривай ожидания до того, как они станут претензиями — «я жду» вместо «ты опять»",
+          "В конфликте бери паузу на выдох, а не на хлопок дверью",
+          "Планируй время вдвоём так же всерьёз, как работу — само оно не появляется",
+          "Слушай, чтобы понять, а не чтобы ответить: перескажи партнёру его точку зрения, пока он не скажет «да, так»"
+        ],
+        "en": [
+          "Say expectations out loud before they turn into complaints — \"I was hoping\" instead of \"you again\"",
+          "In conflict, pause for a breath, not for a door slam",
+          "Schedule time together as seriously as work — it doesn't appear on its own",
+          "Listen to understand, not to reply: retell your partner's point until they say \"yes, that's it\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Спроси партнёра: «Что я могу делать, чтобы тебе было со мной теплее?» — и просто выслушай, не защищаясь.",
+        "en": "Ask your partner: \"What could I do that would make things warmer for you?\" — and just listen, without defending."
+      },
+      "inspiringConclusion": {
+        "ru": "Совместимость не находят готовой — её настраивают. Большая часть инструментов уже у тебя на руках.",
+        "en": "Compatibility isn't found ready-made — it's tuned. And most of the tools are already in your hands."
+      }
+    },
+    "profile_needs_alignment": {
+      "name": {
+        "ru": "Разные частоты",
+        "en": "Crossed Signals"
+      },
+      "description": {
+        "ru": "Сейчас твой способ строить отношения часто расходится с тем, что нужно для устойчивого «мы»: близость то нужна, то давит; в разговорах больше защиты, чем контакта; ожидания и ценности живут непроговорёнными. Это не значит, что отношения не для тебя. Это значит, что связь пока идёт с помехами — а с помехами можно работать.",
+        "en": "Right now the way you build relationships often runs against what a steady \"we\" needs: closeness is wanted one day and suffocating the next; conversations hold more defense than contact; expectations and values go unspoken. It doesn't mean relationships aren't for you. It means the signal is noisy for now — and noise can be worked with."
+      },
+      "whyThisProfile": {
+        "ru": "Средний по шести шкалам — близость, общение, ценности, ожидания, конфликты, романтика — у тебя ниже 45 из 100: в большинстве опор ответы уходили в сторону дистанции, защиты или несовпадения.",
+        "en": "Your average across the six scales — closeness, communication, values, expectations, conflict, romance — is below 45 out of 100: on most pillars your answers leaned toward distance, defense, or mismatch."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честно ответил на неудобные вопросы — с этого начинается любая настройка",
+          "Дистанция научила тебя самостоятельности: ты не растворяешься в другом",
+          "Ты чувствуешь несовпадение раньше, чем оно взорвётся, — осталось говорить о нём словами",
+          "Твоя планка на «своего человека» высокая — это защищает от отношений на автомате"
+        ],
+        "en": [
+          "You answered uncomfortable questions honestly — every tuning starts there",
+          "Distance taught you self-reliance: you don't dissolve into another person",
+          "You sense mismatch before it blows up — what's left is to put it into words",
+          "Your bar for \"your person\" is high — it protects you from relationships on autopilot"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разный темп сближения: тебе нужно больше времени, чем принято ждать",
+          "В трудном разговоре включается защита — молчание, сарказм или уход",
+          "Будущее с партнёром видится по-разному, но обсуждается редко",
+          "Точки напряжения в ценностях копятся молча — до большого разрыва"
+        ],
+        "en": [
+          "A different pace of closeness: you need more time than people tend to give",
+          "In hard conversations the defense kicks in — silence, sarcasm, or exit",
+          "You and your partner picture the future differently but rarely discuss it",
+          "Value tensions pile up in silence — until the big rupture"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Сверяй ожидания регулярно, а не только в кризис — короткий разговор раз в неделю дешевле одного взрыва",
+          "Меняй «ты никогда» на «мне важно» — форма меняет исход разговора",
+          "Разница — не приговор: спроси, что стоит за позицией партнёра, прежде чем защищаться",
+          "Начни с одного честного разговора в неделю — не о быте, а о вас двоих"
+        ],
+        "en": [
+          "Check expectations regularly, not only in crisis — a short weekly talk costs less than one big explosion",
+          "Swap \"you never\" for \"it matters to me\" — the form changes how the talk ends",
+          "Difference isn't a verdict: ask what's behind your partner's position before defending yours",
+          "Start with one honest conversation a week — not about chores, about the two of you"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три качества партнёра — или человека, который был тебе близок, — которые ты правда ценишь. Заметь, как давно ты говорил об этом вслух.",
+        "en": "Write down three qualities of your partner — or someone who was close to you — that you genuinely value. Notice how long it's been since you said any of it out loud."
+      },
+      "inspiringConclusion": {
+        "ru": "Разные частоты — не про «не судьба», а про ненастроенный приём. Настройка начинается с одного честного разговора.",
+        "en": "Crossed signals aren't fate saying no — they're an untuned receiver. And tuning starts with one honest conversation."
+      },
+      "supportNote": {
+        "ru": "Тест образовательный и не ставит диагнозов — ни тебе, ни паре. Если разговоры идут по кругу и каждый заканчивается глухой стеной, позвать третьего — семейного психолога — не поражение, а способ услышать друг друга быстрее.",
+        "en": "This test is educational — it doesn't diagnose you or your relationship. If conversations keep looping and every one ends at a blank wall, bringing in a third party — a couples counselor — isn't defeat, it's a faster way to hear each other."
+      }
+    }
+  }
+}

@@ -1,0 +1,1688 @@
+{
+  "id": "relationship_compatibility_v1",
+  "title": {
+    "ru": "Твоя формула совместимости",
+    "en": "Your Compatibility Formula"
+  },
+  "description": {
+    "ru": "24 вопроса о том, из чего складывается твоя совместимость с партнёром: близость, общение, ценности, ожидания, конфликты и романтика. Тест не сравнивает двоих — он показывает твой собственный стиль строить «мы»: где в нём опоры и где зазоры.",
+    "en": "24 questions about what your compatibility with a partner is made of: closeness, communication, values, expectations, conflict, and romance. The test doesn't compare two people — it shows your own style of building a \"we\": where its supports are, and where the gaps."
+  },
+  "categoryId": "relationships",
+  "estimatedMinutes": 7,
+  "scoring": "likert",
+  "factorIds": [
+    "emotional_connection",
+    "communication_style",
+    "values_alignment",
+    "relationship_expectations",
+    "conflict_management",
+    "intimacy_and_romance"
+  ],
+  "factorNames": {
+    "emotional_connection": {
+      "ru": "Эмоциональная близость",
+      "en": "Emotional closeness"
+    },
+    "communication_style": {
+      "ru": "Стиль общения",
+      "en": "Communication style"
+    },
+    "values_alignment": {
+      "ru": "Совпадение ценностей",
+      "en": "Values alignment"
+    },
+    "relationship_expectations": {
+      "ru": "Ожидания от отношений",
+      "en": "Relationship expectations"
+    },
+    "conflict_management": {
+      "ru": "Решение конфликтов",
+      "en": "Conflict management"
+    },
+    "intimacy_and_romance": {
+      "ru": "Близость и романтика",
+      "en": "Intimacy and romance"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Мне важно чувствовать эмоциональную поддержку от партнёра.",
+        "en": "It is important for me to feel emotional support from my partner."
+      },
+      "factorId": "emotional_connection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Мне легко говорить о своих потребностях партнёру.",
+        "en": "It is easy for me to talk about my needs to my partner."
+      },
+      "factorId": "communication_style",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Наши ценности — ключевой элемент совместимости.",
+        "en": "Our values are a key element of compatibility."
+      },
+      "factorId": "values_alignment",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я быстро привязываюсь к человеку, если чувствую тепло и заботу.",
+        "en": "I quickly become attached to a person if I feel warmth and care."
+      },
+      "factorId": "emotional_connection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "В конфликте я стараюсь объяснить, что чувствую и почему.",
+        "en": "In conflict, I try to explain what I feel and why."
+      },
+      "factorId": "communication_style",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Для гармонии важно совпадать во взглядах на семью, работу и будущее.",
+        "en": "For harmony, it is important to share views on family, work and future."
+      },
+      "factorId": "values_alignment",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я чувствую себя ближе к человеку, когда он делится со мной переживаниями.",
+        "en": "I feel closer to a person when they share their experiences with me."
+      },
+      "factorId": "emotional_connection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Мне сложно открыто говорить, что меня тревожит.",
+        "en": "It is difficult for me to openly say what worries me."
+      },
+      "factorId": "communication_style",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Мне важно, чтобы партнёр разделял мои жизненные приоритеты.",
+        "en": "It is important for me that my partner shares my life priorities."
+      },
+      "factorId": "values_alignment",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Я стремлюсь поддерживать партнёра эмоционально даже в мелочах.",
+        "en": "I strive to support my partner emotionally even in small things."
+      },
+      "factorId": "emotional_connection",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я умею слушать и не перебивать, даже если эмоции сильные.",
+        "en": "I can listen without interrupting, even when emotions are strong."
+      },
+      "factorId": "communication_style",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Ценности оказывают влияние на то, насколько я сближаюсь с человеком.",
+        "en": "Values influence how close I get to a person."
+      },
+      "factorId": "values_alignment",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я ожидаю, что партнёр будет инициативным в развитии отношений.",
+        "en": "I expect my partner to be proactive in developing the relationship."
+      },
+      "factorId": "relationship_expectations",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я предпочитаю отношения, где каждый сохраняет личное пространство.",
+        "en": "I prefer relationships where everyone maintains personal space."
+      },
+      "factorId": "relationship_expectations",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Мне важно, чтобы отношения развивались равномерно и предсказуемо.",
+        "en": "It is important to me that relationships develop evenly and predictably."
+      },
+      "factorId": "relationship_expectations",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Я ожидаю много романтики и эмоциональных жестов в отношениях.",
+        "en": "I expect a lot of romance and emotional gestures in relationships."
+      },
+      "factorId": "relationship_expectations",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "В конфликте я стараюсь искать компромисс и спокойное обсуждение.",
+        "en": "In conflict, I try to find compromise and calm discussion."
+      },
+      "factorId": "conflict_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Когда конфликт становится сильным, я предпочитаю отдалиться.",
+        "en": "When conflict becomes intense, I prefer to distance myself."
+      },
+      "factorId": "conflict_management",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Во время разногласий мне важно быть услышанным.",
+        "en": "During disagreements, it is important for me to be heard."
+      },
+      "factorId": "conflict_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Я могу резко реагировать, если чувствую несправедливость.",
+        "en": "I can react sharply if I feel injustice."
+      },
+      "factorId": "conflict_management",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Мне важна тактильность в отношениях (объятия, прикосновения, жесты).",
+        "en": "Tactility is important to me in relationships (hugs, touches, gestures)."
+      },
+      "factorId": "intimacy_and_romance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Романтические жесты помогают мне чувствовать связь с партнёром.",
+        "en": "Romantic gestures help me feel connected to my partner."
+      },
+      "factorId": "intimacy_and_romance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я воспринимаю романтику как важную часть отношений.",
+        "en": "I perceive romance as an important part of relationships."
+      },
+      "factorId": "intimacy_and_romance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я чувствую себя ближе к партнёру через совместные тёплые жесты.",
+        "en": "I feel closer to my partner through shared warm gestures."
+      },
+      "factorId": "intimacy_and_romance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Затрудняюсь ответить",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly agree"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "trust_in_relationships": 0.9,
+      "emotional_intimacy": 0.9,
+      "support_giving": 0.7,
+      "warmth": 0.6,
+      "empathy": 0.5,
+      "feeling": 0.3
+    },
+    "q4": {
+      "trust_in_relationships": 0.8,
+      "warmth": 0.8,
+      "emotional_intimacy": 0.7,
+      "secure_attachment": 0.6,
+      "feeling": 0.3,
+      "openness": 0.4
+    },
+    "q7": {
+      "empathy": 0.9,
+      "emotional_intimacy": 0.8,
+      "trust_in_relationships": 0.7,
+      "intimacy_comfort": 0.6,
+      "warmth": 0.5,
+      "feeling": 0.3
+    },
+    "q10": {
+      "support_giving": 0.9,
+      "empathy": 0.8,
+      "warmth": 0.7,
+      "emotional_intimacy": 0.6,
+      "feeling": 0.3
+    },
+    "q2": {
+      "communication_quality": 0.9,
+      "assertiveness": 0.8,
+      "verbal_communication": 0.7,
+      "social_confidence": 0.6,
+      "self_consciousness": -0.5,
+      "extraversion": 0.4
+    },
+    "q5": {
+      "communication_quality": 0.9,
+      "conflict_resolution": 0.8,
+      "verbal_communication": 0.7,
+      "assertiveness": 0.6,
+      "emotional_resilience": 0.5,
+      "feeling": 0.3
+    },
+    "q8": {
+      "communication_quality": -0.9,
+      "assertiveness": -0.8,
+      "verbal_communication": -0.7,
+      "social_confidence": -0.6,
+      "self_consciousness": 0.6,
+      "anxiety": 0.5,
+      "introversion": 0.4
+    },
+    "q11": {
+      "communication_quality": 0.9,
+      "empathy": 0.7,
+      "patience": 0.8,
+      "impulsiveness": -0.6,
+      "composure": 0.6,
+      "conflict_resolution": 0.5
+    },
+    "q3": {
+      "commitment": 0.8,
+      "conscientiousness": 0.7,
+      "values": 0.9,
+      "trust_in_relationships": 0.6,
+      "judging": 0.4
+    },
+    "q6": {
+      "commitment": 0.9,
+      "values": 0.8,
+      "conscientiousness": 0.7,
+      "prudence": 0.6,
+      "judging": 0.4
+    },
+    "q9": {
+      "commitment": 0.9,
+      "values": 0.8,
+      "trust_in_relationships": 0.7,
+      "conscientiousness": 0.5,
+      "judging": 0.3
+    },
+    "q12": {
+      "values": 0.9,
+      "commitment": 0.8,
+      "conscientiousness": 0.6,
+      "trust": 0.5,
+      "judging": 0.3
+    },
+    "q13": {
+      "commitment": 0.7,
+      "activity": 0.6,
+      "positive_relations": 0.5,
+      "assertiveness": 0.4
+    },
+    "q14": {
+      "autonomy_need": 0.9,
+      "introversion": 0.5,
+      "secure_attachment": 0.4
+    },
+    "q15": {
+      "relationship_security": 0.9,
+      "security_value": 0.8,
+      "judging": 0.5,
+      "anxiety": 0.3
+    },
+    "q16": {
+      "physical_intimacy": 0.8,
+      "emotional_intimacy": 0.7,
+      "expressiveness": 0.7,
+      "positive_emotions": 0.6,
+      "feeling": 0.4
+    },
+    "q17": {
+      "conflict_resolution": 0.9,
+      "conflict_management": 0.9,
+      "composure": 0.8,
+      "cooperativeness": 0.7,
+      "emotional_resilience": 0.6,
+      "calmness": 0.5
+    },
+    "q18": {
+      "conflict_resolution": -0.8,
+      "conflict_management": -0.8,
+      "avoidant_coping": 0.9,
+      "assertiveness": -0.6,
+      "anxiety": 0.5,
+      "introversion": 0.4
+    },
+    "q19": {
+      "assertiveness": 0.8,
+      "communication_quality": 0.7,
+      "conflict_resolution": 0.6,
+      "self_esteem": 0.5,
+      "verbal_communication": 0.6
+    },
+    "q20": {
+      "conflict_resolution": -0.7,
+      "composure": -0.8,
+      "impulsiveness": 0.8,
+      "emotional_reactivity": 0.7,
+      "anger": 0.6,
+      "calmness": -0.6
+    },
+    "q21": {
+      "physical_intimacy": 0.9,
+      "intimacy_comfort": 0.8,
+      "warmth": 0.7,
+      "emotional_intimacy": 0.5,
+      "expressiveness": 0.5,
+      "feeling": 0.3
+    },
+    "q22": {
+      "emotional_intimacy": 0.9,
+      "physical_intimacy": 0.7,
+      "warmth": 0.6,
+      "positive_emotions": 0.6,
+      "expressiveness": 0.5,
+      "feeling": 0.4
+    },
+    "q23": {
+      "emotional_intimacy": 0.8,
+      "physical_intimacy": 0.7,
+      "commitment": 0.6,
+      "positive_emotions": 0.6,
+      "expressiveness": 0.5,
+      "feeling": 0.4
+    },
+    "q24": {
+      "physical_intimacy": 0.9,
+      "emotional_intimacy": 0.8,
+      "warmth": 0.8,
+      "intimacy_comfort": 0.7,
+      "trust_in_relationships": 0.5,
+      "feeling": 0.3
+    }
+  },
+  "profiles": {
+    "profile_perfect_match": {
+      "id": "profile_perfect_match",
+      "icon": null,
+      "name": {
+        "ru": "Чистый сигнал",
+        "en": "Clear Signal"
+      },
+      "description": {
+        "ru": "Твой способ строить отношения складывается в цельную картину: тебе важна близость, и ты умеешь её создавать; ты говоришь и слышишь; ценности и ожидания не воюют друг с другом. С таким фундаментом «мы» строится не на удаче, а на навыке — и это чувствуется рядом с тобой.",
+        "en": "The way you build relationships adds up: closeness matters to you and you know how to create it; you speak and you hear; your values and expectations aren't at war. On that foundation a \"we\" rests on skill, not luck — and people can feel it around you."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм усредняет шесть шкал теста — близость, общение, ценности, ожидания, конфликты и романтику. Твой средний выше 75 из 100: по всем опорам ты отвечал в сторону контакта и диалога.",
+        "en": "The algorithm averages the six scales — closeness, communication, values, expectations, conflict, and romance. Your average is above 75 out of 100: on every pillar you answered toward contact and dialogue."
+      },
+      "strengths": {
+        "ru": [
+          "Чувства и логика работают в паре, а не по очереди",
+          "Ты умеешь и поддержать, и принять поддержку — второе встречается реже",
+          "Конфликт для тебя — задача на двоих, а не поле боя",
+          "Ожидания названы словами, а не копятся в обиды",
+          "Романтика не выветрилась в быт: ты помнишь, зачем всё это"
+        ],
+        "en": [
+          "Feeling and logic work as a team, not in turns",
+          "You can give support and receive it — the second is the rarer skill",
+          "Conflict is a two-person task for you, not a battlefield",
+          "Expectations get said out loud instead of fermenting into grudges",
+          "Romance hasn't dissolved into routine: you remember what this is all for"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Высокая планка контакта: партнёру, который так не умеет, рядом может быть тесно",
+          "Есть риск доделывать отношения за двоих и не замечать своей усталости",
+          "Гармония может стать привычкой, которую страшно тревожить честным «мне не окей»",
+          "Свои потребности легко отложить «ради нас»"
+        ],
+        "en": [
+          "A high bar for contact: a partner who can't match it may feel crowded next to you",
+          "There's a risk of doing the relationship's work for two and missing your own fatigue",
+          "Harmony can become a habit you're afraid to disturb with an honest \"I'm not okay\"",
+          "Your own needs are easy to shelve \"for us\""
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй, что вклад в пару двусторонний — забота не должна течь в одну сторону",
+          "Говори «мне не окей» до того, как станет совсем не окей",
+          "Оставь партнёру место на его способ любить — он может отличаться от твоего",
+          "Раз в месяц спрашивай не «как у нас дела», а «чего тебе не хватает»"
+        ],
+        "en": [
+          "Check that the investment flows both ways — care shouldn't run in one direction",
+          "Say \"I'm not okay\" before it becomes really not okay",
+          "Leave room for your partner's way of loving — it may not look like yours",
+          "Once a month, ask not \"how are we doing\" but \"what are you missing\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Поблагодари партнёра за одну конкретную вещь этой недели — не «за всё», а за момент, который ты правда заметил.",
+        "en": "Thank your partner for one specific thing from this week — not \"for everything\", but for a moment you actually noticed."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение строить «мы» — навык, который дорожает с каждым годом отношений. У тебя он уже есть; дальше — не растерять и делиться.",
+        "en": "Building a \"we\" is a skill that grows more valuable with every year of a relationship. You already have it — now keep it, and share it."
+      }
+    },
+    "profile_good_potential": {
+      "id": "profile_good_potential",
+      "icon": null,
+      "name": {
+        "ru": "Настройка в процессе",
+        "en": "Tuning In"
+      },
+      "description": {
+        "ru": "База у тебя есть: желание понимать, готовность договариваться, живой интерес к партнёру. Но часть опор ещё дрожит — где-то ожидания расходятся с реальностью, где-то эмоции берут верх в конфликте, где-то трудно сказать о своём. Это рабочее состояние: настройка, а не поломка.",
+        "en": "The base is there: the wish to understand, the readiness to negotiate, real interest in your partner. But some pillars still wobble — expectations drift from reality here, emotions win the conflict there, saying what you need feels hard somewhere else. That's a working state: tuning, not damage."
+      },
+      "whyThisProfile": {
+        "ru": "Средний по шести шкалам — близость, общение, ценности, ожидания, конфликты, романтика — у тебя между 45 и 74 из 100: часть опор уверенная, часть ответов уходила в сторону сомнений или дистанции.",
+        "en": "Your average across the six scales — closeness, communication, values, expectations, conflict, romance — sits between 45 and 74 out of 100: some pillars are steady, others leaned toward doubt or distance."
+      },
+      "strengths": {
+        "ru": [
+          "Готовность работать над отношениями — не на словах: ты дошёл до конца теста о них",
+          "Умение договариваться, когда эмоции дают договорить",
+          "Живое желание понять партнёра, а не выиграть у него",
+          "Ты видишь свои зоны роста — это половина настройки"
+        ],
+        "en": [
+          "Willingness to work on the relationship — for real: you finished a whole test about it",
+          "The ability to negotiate, when emotions let you finish the sentence",
+          "A live wish to understand your partner, not to beat them",
+          "You see your growth areas — that's half the tuning done"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ожидания часто живут в голове, а проговариваются уже как претензии",
+          "В конфликте эмоция иногда успевает раньше слов",
+          "Качество времени вместе проседает под делами",
+          "Разница в ценностях замечается по обиде, а не по разговору"
+        ],
+        "en": [
+          "Expectations live in your head and come out already shaped as complaints",
+          "In conflict, emotion sometimes arrives before words do",
+          "Quality time together sinks under the to-do list",
+          "Value differences get noticed through hurt feelings, not conversation"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проговаривай ожидания до того, как они станут претензиями — «я жду» вместо «ты опять»",
+          "В конфликте бери паузу на выдох, а не на хлопок дверью",
+          "Планируй время вдвоём так же всерьёз, как работу — само оно не появляется",
+          "Слушай, чтобы понять, а не чтобы ответить: перескажи партнёру его точку зрения, пока он не скажет «да, так»"
+        ],
+        "en": [
+          "Say expectations out loud before they turn into complaints — \"I was hoping\" instead of \"you again\"",
+          "In conflict, pause for a breath, not for a door slam",
+          "Schedule time together as seriously as work — it doesn't appear on its own",
+          "Listen to understand, not to reply: retell your partner's point until they say \"yes, that's it\""
+        ]
+      },
+      "tryToday": {
+        "ru": "Спроси партнёра: «Что я могу делать, чтобы тебе было со мной теплее?» — и просто выслушай, не защищаясь.",
+        "en": "Ask your partner: \"What could I do that would make things warmer for you?\" — and just listen, without defending."
+      },
+      "inspiringConclusion": {
+        "ru": "Совместимость не находят готовой — её настраивают. Большая часть инструментов уже у тебя на руках.",
+        "en": "Compatibility isn't found ready-made — it's tuned. And most of the tools are already in your hands."
+      }
+    },
+    "profile_needs_alignment": {
+      "id": "profile_needs_alignment",
+      "icon": null,
+      "name": {
+        "ru": "Разные частоты",
+        "en": "Crossed Signals"
+      },
+      "description": {
+        "ru": "Сейчас твой способ строить отношения часто расходится с тем, что нужно для устойчивого «мы»: близость то нужна, то давит; в разговорах больше защиты, чем контакта; ожидания и ценности живут непроговорёнными. Это не значит, что отношения не для тебя. Это значит, что связь пока идёт с помехами — а с помехами можно работать.",
+        "en": "Right now the way you build relationships often runs against what a steady \"we\" needs: closeness is wanted one day and suffocating the next; conversations hold more defense than contact; expectations and values go unspoken. It doesn't mean relationships aren't for you. It means the signal is noisy for now — and noise can be worked with."
+      },
+      "whyThisProfile": {
+        "ru": "Средний по шести шкалам — близость, общение, ценности, ожидания, конфликты, романтика — у тебя ниже 45 из 100: в большинстве опор ответы уходили в сторону дистанции, защиты или несовпадения.",
+        "en": "Your average across the six scales — closeness, communication, values, expectations, conflict, romance — is below 45 out of 100: on most pillars your answers leaned toward distance, defense, or mismatch."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честно ответил на неудобные вопросы — с этого начинается любая настройка",
+          "Дистанция научила тебя самостоятельности: ты не растворяешься в другом",
+          "Ты чувствуешь несовпадение раньше, чем оно взорвётся, — осталось говорить о нём словами",
+          "Твоя планка на «своего человека» высокая — это защищает от отношений на автомате"
+        ],
+        "en": [
+          "You answered uncomfortable questions honestly — every tuning starts there",
+          "Distance taught you self-reliance: you don't dissolve into another person",
+          "You sense mismatch before it blows up — what's left is to put it into words",
+          "Your bar for \"your person\" is high — it protects you from relationships on autopilot"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разный темп сближения: тебе нужно больше времени, чем принято ждать",
+          "В трудном разговоре включается защита — молчание, сарказм или уход",
+          "Будущее с партнёром видится по-разному, но обсуждается редко",
+          "Точки напряжения в ценностях копятся молча — до большого разрыва"
+        ],
+        "en": [
+          "A different pace of closeness: you need more time than people tend to give",
+          "In hard conversations the defense kicks in — silence, sarcasm, or exit",
+          "You and your partner picture the future differently but rarely discuss it",
+          "Value tensions pile up in silence — until the big rupture"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Сверяй ожидания регулярно, а не только в кризис — короткий разговор раз в неделю дешевле одного взрыва",
+          "Меняй «ты никогда» на «мне важно» — форма меняет исход разговора",
+          "Разница — не приговор: спроси, что стоит за позицией партнёра, прежде чем защищаться",
+          "Начни с одного честного разговора в неделю — не о быте, а о вас двоих"
+        ],
+        "en": [
+          "Check expectations regularly, not only in crisis — a short weekly talk costs less than one big explosion",
+          "Swap \"you never\" for \"it matters to me\" — the form changes how the talk ends",
+          "Difference isn't a verdict: ask what's behind your partner's position before defending yours",
+          "Start with one honest conversation a week — not about chores, about the two of you"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три качества партнёра — или человека, который был тебе близок, — которые ты правда ценишь. Заметь, как давно ты говорил об этом вслух.",
+        "en": "Write down three qualities of your partner — or someone who was close to you — that you genuinely value. Notice how long it's been since you said any of it out loud."
+      },
+      "inspiringConclusion": {
+        "ru": "Разные частоты — не про «не судьба», а про ненастроенный приём. Настройка начинается с одного честного разговора.",
+        "en": "Crossed signals aren't fate saying no — they're an untuned receiver. And tuning starts with one honest conversation."
+      },
+      "supportNote": {
+        "ru": "Тест образовательный и не ставит диагнозов — ни тебе, ни паре. Если разговоры идут по кругу и каждый заканчивается глухой стеной, позвать третьего — семейного психолога — не поражение, а способ услышать друг друга быстрее.",
+        "en": "This test is educational — it doesn't diagnose you or your relationship. If conversations keep looping and every one ends at a blank wall, bringing in a third party — a couples counselor — isn't defeat, it's a faster way to hear each other."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из relationship_compatibility_data.dart: пороги по среднему шести факторов, 75/45.",
+    "mode": "rules",
+    "fallback": "profile_needs_alignment",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            75
+          ]
+        ],
+        "profile": "profile_perfect_match"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            45
+          ]
+        ],
+        "profile": "profile_good_potential"
+      }
+    ]
+  }
+}

@@ -259,6 +259,26 @@
     ]
   },
 
+  "romantic_potential_v1": {
+    "$note": "Перенос determineProfile() из romantic_potential_data.dart: пороги по среднему трёх факторов, 75/45.",
+    "mode": "rules",
+    "fallback": "profile_romantic_challenges",
+    "rules": [
+      { "when": [["@avg", ">=", 75]], "profile": "profile_secure_romantic" },
+      { "when": [["@avg", ">=", 45]], "profile": "profile_mixed_romantic" }
+    ]
+  },
+
+  "relationship_compatibility_v1": {
+    "$note": "Перенос determineProfile() из relationship_compatibility_data.dart: пороги по среднему шести факторов, 75/45.",
+    "mode": "rules",
+    "fallback": "profile_needs_alignment",
+    "rules": [
+      { "when": [["@avg", ">=", 75]], "profile": "profile_perfect_match" },
+      { "when": [["@avg", ">=", 45]], "profile": "profile_good_potential" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

@@ -56,6 +56,10 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   burnout_diagnostic_v1: false,
   // Same shape as burnout: the per-channel breakdown is the paid read.
   digital_detox_test: false,
+  // Level test: which of the three scales holds the level down IS the paid read.
+  romantic_potential_v1: false,
+  // Level test: the six pillars behind the compatibility level are the paid read.
+  relationship_compatibility_v1: false,
 };
 
 /**

@@ -1,0 +1,225 @@
+{
+  "$comment": "Э8, волна 2 батч 5. Три профиля-уровня по среднему трёх шкал (75/45). Заголовок уведён от канцелярита («Романтические представления и потенциал»), markdown и списки из описания убраны, характеристики средних/нижних профилей разнесены на честные strengths и vulnerabilities (в исходнике проблемы лежали в strengths), «работа с психологом» из рекомендаций нижнего заменена мягким supportNote. Пороги и веса не тронуты. Пофакторные интерпретации исходника (3 уровня × 3 фактора) осознанно не перенесены: слота в схеме нет, персональный пофакторный разбор — работа платного LLM-отчёта.",
+  "title": {
+    "ru": "Твой сценарий любви",
+    "en": "Your Love Script"
+  },
+  "description": {
+    "ru": "36 вопросов о том, по какой истории ты любишь: что считаешь нормой в близости, каких сюжетов ждёшь от любви и насколько готов в неё войти. Три шкалы — готовность к близости, убеждения о любви и сценарии, по которым ты её проживаешь.",
+    "en": "36 questions about the story you love by: what you treat as normal in closeness, which plots you expect from love, and how ready you are to step into it. Three scales — readiness for intimacy, beliefs about love, and the scripts you live it by."
+  },
+  "factorNames": {
+    "romantic_potential": {
+      "ru": "Готовность к близости",
+      "en": "Readiness for intimacy"
+    },
+    "love_attitudes": {
+      "ru": "Убеждения о любви",
+      "en": "Beliefs about love"
+    },
+    "love_stories": {
+      "ru": "Сценарии любви",
+      "en": "Love scripts"
+    }
+  },
+  "profiles": {
+    "profile_secure_romantic": {
+      "name": {
+        "ru": "Ровное пламя",
+        "en": "Steady Flame"
+      },
+      "description": {
+        "ru": "Твоя картина любви устойчивая и взрослая: близость тебя не пугает, чувства не нужно заслуживать или выигрывать, а разговор для тебя — нормальный способ решать сложное. Ты ждёшь от любви партнёрства, а не спасения, и это редкая опора — и для тебя, и для того, кто рядом.",
+        "en": "Your picture of love is steady and grown-up: closeness doesn't scare you, feelings don't have to be earned or won, and talking things through is your normal way of handling the hard parts. You expect partnership from love, not rescue — and that's a rare kind of ground to stand on, for you and for whoever is next to you."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по трём шкалам теста — готовности к близости, убеждениям о любви и сценариям. У тебя он выше 75 из 100: во всех трёх ты отвечал в сторону открытости, диалога и реалистичных ожиданий.",
+        "en": "The algorithm averages your three scales — readiness for intimacy, beliefs about love, and love scripts. Yours is above 75 out of 100: on all three you answered toward openness, dialogue, and realistic expectations."
+      },
+      "strengths": {
+        "ru": [
+          "Близость не воспринимается как риск — ты умеешь подпускать людей",
+          "Баланс чувств и головы: эмоции не отменяют здравый смысл",
+          "Ожидания от любви реалистичные — без сказки, но и без цинизма",
+          "Сценарий партнёрства: два человека идут рядом, не растворяясь друг в друге",
+          "Уязвимость для тебя — способ сблизиться, а не проигрыш"
+        ],
+        "en": [
+          "Closeness doesn't read as danger — you know how to let people in",
+          "Feelings and reason balance out: emotion doesn't switch off common sense",
+          "Realistic expectations of love — no fairy tale, no cynicism either",
+          "A partnership script: two people walking side by side without dissolving into each other",
+          "Vulnerability is your way of getting closer, not a defeat"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ровность легко принять за холодность — партнёру с драматичным сценарием тебя может «не хватать»",
+          "Ты можешь недооценивать, насколько другим страшно то, что тебе даётся легко",
+          "Привычка решать разговором даёт сбой рядом с тем, кто разговаривать не умеет",
+          "Есть риск тянуть отношения на своей зрелости — и уставать за двоих"
+        ],
+        "en": [
+          "Steadiness can be mistaken for coolness — a partner with a dramatic script may find you \"not enough\"",
+          "You may underestimate how frightening the things that come easy to you are for others",
+          "Solving things by talking breaks down next to someone who can't talk",
+          "There's a risk of carrying the relationship on your maturity — and getting tired for two"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй, что твоё спокойствие видно как забота, а не как дистанция — называй чувства словами",
+          "Не бери на себя всю взрослость в паре: проси, а не только давай",
+          "Замечай, когда «мы всё обсудили» стало привычкой вместо близости",
+          "Оставляй место сюрпризу — устойчивость не обязана быть предсказуемостью"
+        ],
+        "en": [
+          "Make sure your calm reads as care, not distance — say feelings out loud",
+          "Don't carry all the adulthood in the pair: ask, not only give",
+          "Notice when \"we talked it through\" has become a routine instead of closeness",
+          "Leave room for surprise — steady doesn't have to mean predictable"
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи или напиши близкому человеку про конкретный момент, когда рядом с ним было спокойно. Не «спасибо за всё», а один момент — и чем он был важен.",
+        "en": "Tell or text someone close about one specific moment when being near them felt calm. Not \"thanks for everything\" — one moment, and why it mattered."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение любить ровно — не скучный талант, а редкий. Огонь, который не сжигает дом, греет дольше.",
+        "en": "Loving steadily isn't a boring talent — it's a rare one. A fire that doesn't burn the house down keeps you warm longer."
+      }
+    },
+    "profile_mixed_romantic": {
+      "name": {
+        "ru": "Между сценариями",
+        "en": "Between Scripts"
+      },
+      "description": {
+        "ru": "В твоей картине любви несколько историй спорят друг с другом: тянет к близости — и тут же включается осторожность; ценишь партнёрство — и всё же ждёшь немного кино. Это не путаница, а представления о любви на переписывании: свои правила ещё дописываются.",
+        "en": "In your picture of love, several stories argue with each other: you're drawn to closeness — and caution kicks in; you value partnership — and still expect a bit of cinema. That's not confusion, it's your ideas about love mid-rewrite: your own rules are still being drafted."
+      },
+      "whyThisProfile": {
+        "ru": "Средний уровень по трём шкалам — готовности к близости, убеждениям и сценариям — у тебя между 45 и 74 из 100: часть ответов в сторону открытости и партнёрства, часть — в сторону идеализации или осторожности.",
+        "en": "Your average across the three scales — readiness for intimacy, beliefs, and scripts — sits between 45 and 74 out of 100: some answers lean toward openness and partnership, others toward idealizing or holding back."
+      },
+      "strengths": {
+        "ru": [
+          "Тебе доступны оба языка — и чувство, и трезвый взгляд",
+          "Ты уже видишь свои сценарии, а не просто проживаешь их вслепую",
+          "Гибкость: разные отношения не мерятся одной линейкой",
+          "Желание близости живое — его не убила ни осторожность, ни опыт"
+        ],
+        "en": [
+          "You speak both languages — feeling and sober judgment",
+          "You already see your scripts instead of living them blindly",
+          "Flexibility: you don't measure every relationship with one ruler",
+          "The wish for closeness is alive — neither caution nor experience has killed it"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Качели «ближе — дальше»: партнёру трудно предсказать, какой ты сегодня",
+          "Идеал из головы иногда спорит с живым человеком рядом",
+          "В непонятных ситуациях включается то драма, то молчание — вместо вопроса",
+          "Стабильность может ощущаться пресной, а буря — доказательством чувств"
+        ],
+        "en": [
+          "The push-pull swing: it's hard for a partner to predict which you shows up today",
+          "The ideal in your head sometimes argues with the living person next to you",
+          "In unclear situations you reach for drama or silence — instead of a question",
+          "Stability can taste bland, while a storm feels like proof of feeling"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Лови момент переключения сценария: что именно запустило отход или драму",
+          "Сверяй ожидание с человеком, а не с фильмом: чего я жду и говорил ли я об этом вслух",
+          "Дай стабильности шанс: две недели без проверок и качелей — и посмотри, как оно",
+          "Разреши себе просить о предсказуемости прямо — это не слабость, а настройка"
+        ],
+        "en": [
+          "Catch the moment the script flips: what exactly set off the retreat or the drama",
+          "Check expectations against the person, not the movie: what am I waiting for, and did I ever say it out loud",
+          "Give stability a chance: two weeks without tests and swings — see how it feels",
+          "Let yourself ask for predictability directly — that's not weakness, it's tuning"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три своих убеждения о любви. Рядом с каждым — один вопрос: оно помогает мне быть ближе или держит на расстоянии?",
+        "en": "Write down three of your beliefs about love. Next to each, one question: does it bring me closer or keep me at a distance?"
+      },
+      "inspiringConclusion": {
+        "ru": "Между сценариями — не потерянность, а выбор, который ещё делается. Свою историю любви ты дописываешь сам, и черновик уже неплохой.",
+        "en": "Being between scripts isn't being lost — it's a choice still being made. You're writing your own love story, and the draft is already worth reading."
+      }
+    },
+    "profile_romantic_challenges": {
+      "name": {
+        "ru": "Любовь на ощупь",
+        "en": "Feeling Your Way"
+      },
+      "description": {
+        "ru": "Близость сейчас даётся тебе трудно: доверие включается с боем, ожидания скачут от «всё или ничего» до «лучше не начинать», а любовь в твоих сценариях часто выглядит как борьба или зависимость. Это не приговор и не диагноз — это карта мест, где было больно. А по карте можно идти.",
+        "en": "Closeness is hard work for you right now: trust switches on reluctantly, expectations jump between \"all or nothing\" and \"better not to start\", and in your scripts love often looks like struggle or dependency. This is not a verdict and not a diagnosis — it's a map of the places that once hurt. And a map is something you can walk by."
+      },
+      "whyThisProfile": {
+        "ru": "Средний уровень по трём шкалам — готовности к близости, убеждениям и сценариям — у тебя ниже 45 из 100: в ответах много осторожности, недоверия к близости или драматичных ожиданий от любви.",
+        "en": "Your average across the three scales — readiness for intimacy, beliefs, and scripts — is below 45 out of 100: your answers carry a lot of caution, distrust of closeness, or dramatic expectations of love."
+      },
+      "strengths": {
+        "ru": [
+          "Ты дошёл до конца честного теста о больном — это уже не избегание",
+          "Осторожность выросла не на пустом месте: ты умеешь замечать риски, которых другие не видят",
+          "Твоя чувствительность к фальши — рабочий инструмент, если направить её не против себя",
+          "Опыт трудной любви делает тебя внимательнее к чужой боли"
+        ],
+        "en": [
+          "You finished an honest test about a sore spot — that's already not avoidance",
+          "Your caution didn't grow out of nowhere: you notice risks others miss",
+          "Your radar for fakeness is a working tool — once it stops pointing at you",
+          "Having loved the hard way makes you more attentive to other people's pain"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Страх близости и страх одиночества дёргают в разные стороны одновременно",
+          "Драма может ощущаться как любовь, а спокойствие — как её отсутствие",
+          "Уязвимость приравнена к опасности, поэтому разговор о чувствах откладывается до взрыва",
+          "Ожидания от партнёра меняются быстрее, чем он успевает их понять"
+        ],
+        "en": [
+          "Fear of closeness and fear of loneliness pull you in opposite directions at once",
+          "Drama can feel like love, and calm like its absence",
+          "Vulnerability equals danger, so the conversation about feelings waits until the explosion",
+          "What you expect from a partner changes faster than they can catch up"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Ищи, откуда сценарий: где ты впервые увидел такую любовь — дома, в первом опыте, в кино",
+          "Тренируй маленькую уязвимость: одно честное «мне это неприятно» вместо накопленного взрыва",
+          "Доверие строится шагами по силам — не проверками и не прыжком с обрыва",
+          "Начни с дружбы: в ней те же навыки близости, но ниже ставки"
+        ],
+        "en": [
+          "Trace the script to its source: where did you first see love look like this — home, first love, the movies",
+          "Practice small vulnerability: one honest \"I don't like this\" instead of a stored-up explosion",
+          "Trust is built in steps you can actually take — not by tests, not by cliff jumps",
+          "Start with friendship: the same closeness skills, lower stakes"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни одни закончившиеся отношения. Без суда запиши два списка: что я делал из страха — и что из любви. Просто посмотри на разницу.",
+        "en": "Think of one relationship that ended. Without judging, write two lists: what I did out of fear — and what out of love. Just look at the difference."
+      },
+      "inspiringConclusion": {
+        "ru": "Сценарий, по которому было больно, не обязан повторяться. Любовь — навык, а навыкам учатся. В том числе заново.",
+        "en": "A script that hurt once doesn't have to run again. Love is a skill, and skills can be learned — including relearned."
+      },
+      "supportNote": {
+        "ru": "Этот тест образовательный, он не ставит диагнозов. Но если за осторожностью стоит опыт, к которому больно прикасаться, разбирать его не обязательно в одиночку: один разговор с психологом может сдвинуть больше, чем месяцы самоанализа.",
+        "en": "This test is educational — it doesn't diagnose. But if your caution grew from an experience that still hurts to touch, you don't have to unpack it alone: one conversation with a therapist can move more than months of self-analysis."
+      }
+    }
+  }
+}

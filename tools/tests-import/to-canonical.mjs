@@ -40,6 +40,8 @@ const LAUNCH_SET = [
   "fomo_social_comparison_v1",
   "burnout_diagnostic_v1",
   "digital_detox_test",
+  "romantic_potential_v1",
+  "relationship_compatibility_v1",
 ];
 
 /** Scenario tests keep no factor-name map in the source — these are ours. */

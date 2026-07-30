@@ -1,0 +1,2394 @@
+{
+  "id": "romantic_potential_v1",
+  "title": {
+    "ru": "Твой сценарий любви",
+    "en": "Your Love Script"
+  },
+  "description": {
+    "ru": "36 вопросов о том, по какой истории ты любишь: что считаешь нормой в близости, каких сюжетов ждёшь от любви и насколько готов в неё войти. Три шкалы — готовность к близости, убеждения о любви и сценарии, по которым ты её проживаешь.",
+    "en": "36 questions about the story you love by: what you treat as normal in closeness, which plots you expect from love, and how ready you are to step into it. Three scales — readiness for intimacy, beliefs about love, and the scripts you live it by."
+  },
+  "categoryId": "relationships",
+  "estimatedMinutes": 10,
+  "scoring": "likert",
+  "factorIds": [
+    "romantic_potential",
+    "love_attitudes",
+    "love_stories"
+  ],
+  "factorNames": {
+    "romantic_potential": {
+      "ru": "Готовность к близости",
+      "en": "Readiness for intimacy"
+    },
+    "love_attitudes": {
+      "ru": "Убеждения о любви",
+      "en": "Beliefs about love"
+    },
+    "love_stories": {
+      "ru": "Сценарии любви",
+      "en": "Love scripts"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Мне легко выражать чувства человеку, который мне нравится.",
+        "en": "I find it easy to express my feelings to someone I like."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Я умею устанавливать эмоциональную близость без страха быть отвергнутым.",
+        "en": "I can establish emotional intimacy without fear of being rejected."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Мне сложно доверять партнёру полностью.",
+        "en": "I find it difficult to fully trust my partner."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я открыт(а) к новым отношениям и эмоциональному опыту.",
+        "en": "I am open to new relationships and emotional experiences."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Я умею спокойно обсуждать свои потребности в отношениях.",
+        "en": "I can calmly discuss my needs in relationships."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Я часто избегаю разговоров о чувствах.",
+        "en": "I often avoid conversations about feelings."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я способен(на) поддерживать эмоциональную стабильность даже в сложные периоды.",
+        "en": "I am able to maintain emotional stability even during difficult times."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Мне трудно начать отношения, даже если человек мне нравится.",
+        "en": "I find it difficult to start a relationship, even if I like the person."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я умею проявлять заботу и внимательность по отношению к партнёру.",
+        "en": "I know how to show care and attention to my partner."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Я чувствую уверенность, когда строю отношения.",
+        "en": "I feel confident when building relationships."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Иногда я закрываюсь, когда отношения становятся слишком близкими.",
+        "en": "Sometimes I shut down when relationships become too close."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Мне нравится идея стабильных, долгосрочных отношений.",
+        "en": "I like the idea of stable, long-term relationships."
+      },
+      "factorId": "romantic_potential",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Любовь — это прежде всего доверие и партнёрство.",
+        "en": "Love is primarily about trust and partnership."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я верю, что истинная любовь всегда иррациональна.",
+        "en": "I believe that true love is always irrational."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Любовь должна быть страстной, иначе это не любовь.",
+        "en": "Love should be passionate, otherwise it's not love."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Любовь — это ежедневный выбор и работа.",
+        "en": "Love is a daily choice and work."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я считаю, что любовь должна происходить естественно, без усилий.",
+        "en": "I believe that love should happen naturally, without effort."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Чем сильнее чувства, тем лучше отношения.",
+        "en": "The stronger the feelings, the better the relationship."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Настоящая любовь исключает идеализацию партнёра.",
+        "en": "True love excludes idealization of the partner."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Любовь — это гармония между эмоциями и разумом.",
+        "en": "Love is a harmony between emotions and reason."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Настоящая любовь всегда драматична.",
+        "en": "True love is always dramatic."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Любовь — это пространство, где оба могут быть собой.",
+        "en": "Love is a space where both can be themselves."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Любовь требует полной эмоциональной зависимости.",
+        "en": "Love requires complete emotional dependency."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Любовь — это свобода и взаимное уважение.",
+        "en": "Love is freedom and mutual respect."
+      },
+      "factorId": "love_attitudes",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Мне близка идея любви как партнёрства, где двое идут одной дорогой.",
+        "en": "I relate to the idea of love as a partnership where two walk the same path."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Для меня любовь — это история страсти и эмоциональной интенсивности.",
+        "en": "For me, love is a story of passion and emotional intensity."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я воспринимаю любовь как заботу и постоянную поддержку.",
+        "en": "I perceive love as care and constant support."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Любовь — это история личностного роста, где партнёры помогают друг другу развиваться.",
+        "en": "Love is a story of personal growth where partners help each other develop."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Любовь — это борьба, преодоление и драматичные повороты.",
+        "en": "Love is struggle, overcoming and dramatic turns."
+      },
+      "factorId": "love_stories",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Мне важно сохранять чувство свободы и автономии даже в любви.",
+        "en": "It's important for me to maintain a sense of freedom and autonomy even in love."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Любовь — это когда партнёры полностью принадлежат друг другу.",
+        "en": "Love is when partners completely belong to each other."
+      },
+      "factorId": "love_stories",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Любовь должна приносить ощущение спокойствия и надёжности.",
+        "en": "Love should bring a sense of calm and security."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Любовь — это поиск ярких переживаний и эмоциональных всплесков.",
+        "en": "Love is the search for vivid experiences and emotional surges."
+      },
+      "factorId": "love_stories",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "В здоровой любви партнёры могут оставаться самостоятельными.",
+        "en": "In healthy love, partners can remain independent."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Для меня любовь связана с глубокой эмоциональной зависимостью.",
+        "en": "For me, love is associated with deep emotional dependency."
+      },
+      "factorId": "love_stories",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Любовь — это поддержка, развитие и уважение к индивидуальности партнёра.",
+        "en": "Love is support, growth and respect for the partner's individuality."
+      },
+      "factorId": "love_stories",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совсем не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "emotional_openness": 1.2,
+      "expressiveness": 1,
+      "vulnerability_sharing": 0.9,
+      "affection_expression": 0.8,
+      "social_confidence": 0.6,
+      "extraversion": 0.5
+    },
+    "q2": {
+      "emotional_intimacy": 1.2,
+      "secure_attachment": 1,
+      "intimacy_comfort": 0.9,
+      "fear_of_abandonment": -0.8,
+      "emotional_resilience": 0.7,
+      "self_esteem": 0.5
+    },
+    "q3": {
+      "trust": -1.2,
+      "trust_in_relationships": -1,
+      "secure_attachment": -0.9,
+      "avoidant_attachment": 0.8,
+      "fear_of_abandonment": 0.7,
+      "vulnerability": 0.5
+    },
+    "q4": {
+      "emotional_openness": 1.2,
+      "feelings": 1,
+      "novelty_seeking": 0.8,
+      "risk_taking": 0.6,
+      "spontaneity": 0.5,
+      "extraversion": 0.4
+    },
+    "q5": {
+      "communication_quality": 1.2,
+      "assertiveness": 1,
+      "verbal_communication": 0.8,
+      "conflict_resolution": 0.7,
+      "emotional_intelligence": 0.6,
+      "composure": 0.5
+    },
+    "q6": {
+      "emotional_openness": -1.2,
+      "communication_quality": -1,
+      "vulnerability_sharing": -0.9,
+      "avoidant_coping": 0.8,
+      "avoidant_attachment": 0.7,
+      "introversion": 0.5
+    },
+    "q7": {
+      "emotional_resilience": 1.2,
+      "mood_stability": 1,
+      "stress_tolerance": 0.9,
+      "composure": 0.8,
+      "emotion_focused_coping": 0.6,
+      "maturity": 0.5
+    },
+    "q8": {
+      "social_boldness": -1,
+      "social_confidence": -0.9,
+      "assertiveness": -0.8,
+      "self_consciousness": 0.8,
+      "avoidant_attachment": 0.7,
+      "anxiety": 0.5
+    },
+    "q9": {
+      "support_giving": 1.2,
+      "empathy": 1,
+      "affection_expression": 0.9,
+      "tender_mindedness": 0.8,
+      "compassion": 0.7,
+      "altruism": 0.5
+    },
+    "q10": {
+      "social_confidence": 1.2,
+      "self_efficacy": 1,
+      "self_esteem": 0.9,
+      "secure_attachment": 0.8,
+      "relationship_security": 0.7,
+      "competence": 0.5
+    },
+    "q11": {
+      "intimacy_comfort": -1.2,
+      "emotional_intimacy": -1,
+      "vulnerability_sharing": -0.9,
+      "avoidant_attachment": 0.9,
+      "fear_of_abandonment": 0.6,
+      "boundary_setting": 0.4
+    },
+    "q12": {
+      "commitment": 1.2,
+      "reliability_partnership": 1,
+      "loyalty": 0.9,
+      "relationship_security": 0.8,
+      "shared_goals": 0.6,
+      "security_value": 0.5
+    },
+    "q13": {
+      "trust_in_relationships": 1.2,
+      "reliability_partnership": 1,
+      "commitment": 0.9,
+      "trust": 0.8,
+      "cooperativeness": 0.6,
+      "maturity": 0.5
+    },
+    "q14": {
+      "passion_vitality": 0.9,
+      "excitement_seeking": 0.7,
+      "fantasy": 0.6,
+      "sensation_seeking": 0.5,
+      "impulsiveness": 0.4,
+      "feeling": 0.3
+    },
+    "q15": {
+      "passion_vitality": 1,
+      "physical_intimacy": 0.8,
+      "excitement_seeking": 0.7,
+      "sensation_seeking": 0.6,
+      "emotional_reactivity": 0.5,
+      "stimulation": 0.4
+    },
+    "q16": {
+      "commitment": 1.2,
+      "responsibility": 1,
+      "persistence": 0.9,
+      "deliberation": 0.7,
+      "maturity": 0.6,
+      "wisdom": 0.5
+    },
+    "q17": {
+      "persistence": -0.9,
+      "commitment": -0.8,
+      "responsibility": -0.7,
+      "fantasy": 0.7,
+      "spontaneity": 0.5,
+      "impulsiveness": 0.4
+    },
+    "q18": {
+      "emotional_resilience": -0.7,
+      "mood_stability": -0.6,
+      "emotional_reactivity": 0.8,
+      "sensation_seeking": 0.7,
+      "anxious_attachment": 0.6,
+      "passion_vitality": 0.5
+    },
+    "q19": {
+      "self_awareness": 1,
+      "critical_thinking": 0.9,
+      "acceptance": 0.8,
+      "maturity": 0.7,
+      "cognitive_reappraisal": 0.6,
+      "wisdom": 0.5
+    },
+    "q20": {
+      "emotional_intelligence": 1.2,
+      "deliberation": 1,
+      "composure": 0.8,
+      "emotional_resilience": 0.7,
+      "maturity": 0.6,
+      "wisdom": 0.5
+    },
+    "q21": {
+      "emotional_resilience": -0.9,
+      "mood_stability": -0.8,
+      "calmness": -0.7,
+      "emotional_reactivity": 0.8,
+      "sensation_seeking": 0.7,
+      "anxious_attachment": 0.6
+    },
+    "q22": {
+      "authenticity": 1.2,
+      "autonomy_wellbeing": 1,
+      "self_acceptance": 0.9,
+      "emotional_openness": 0.8,
+      "intimacy_comfort": 0.7,
+      "secure_attachment": 0.6
+    },
+    "q23": {
+      "autonomy_need": -1,
+      "autonomy_wellbeing": -0.9,
+      "boundary_setting": -0.8,
+      "anxious_attachment": 0.9,
+      "fear_of_abandonment": 0.8,
+      "reward_dependence": 0.6
+    },
+    "q24": {
+      "autonomy_wellbeing": 1.2,
+      "positive_relations": 1,
+      "boundary_setting": 0.9,
+      "trust_in_relationships": 0.8,
+      "self_direction": 0.7,
+      "secure_attachment": 0.6
+    },
+    "q25": {
+      "reliability_partnership": 1.2,
+      "shared_goals": 1,
+      "cooperativeness": 0.9,
+      "commitment": 0.8,
+      "trust_in_relationships": 0.7,
+      "benevolence": 0.5
+    },
+    "q26": {
+      "passion_vitality": 1.2,
+      "excitement_seeking": 0.9,
+      "sensation_seeking": 0.8,
+      "emotional_reactivity": 0.7,
+      "physical_intimacy": 0.6,
+      "stimulation": 0.5
+    },
+    "q27": {
+      "support_giving": 1.2,
+      "tender_mindedness": 1,
+      "compassion": 0.9,
+      "empathy": 0.8,
+      "altruism": 0.7,
+      "benevolence": 0.6
+    },
+    "q28": {
+      "personal_growth": 1.2,
+      "growth_mindset": 1,
+      "shared_goals": 0.9,
+      "support_giving": 0.8,
+      "mentoring": 0.6,
+      "maturity": 0.5
+    },
+    "q29": {
+      "calmness": -1,
+      "mood_stability": -0.9,
+      "relationship_security": -0.8,
+      "emotional_reactivity": 0.9,
+      "sensation_seeking": 0.7,
+      "anxious_attachment": 0.6
+    },
+    "q30": {
+      "autonomy_need": 1.2,
+      "autonomy_wellbeing": 1,
+      "self_direction": 0.9,
+      "boundary_setting": 0.8,
+      "identity_clarity": 0.6,
+      "self_acceptance": 0.5
+    },
+    "q31": {
+      "autonomy_need": -1,
+      "boundary_setting": -0.9,
+      "identity_clarity": -0.8,
+      "anxious_attachment": 0.9,
+      "fear_of_abandonment": 0.7,
+      "jealousy": 0.6
+    },
+    "q32": {
+      "relationship_security": 1.2,
+      "calmness": 1,
+      "reliability_partnership": 0.9,
+      "secure_attachment": 0.8,
+      "dependability": 0.7,
+      "security_value": 0.6
+    },
+    "q33": {
+      "calmness": -0.9,
+      "mood_stability": -0.8,
+      "emotional_resilience": -0.7,
+      "sensation_seeking": 0.9,
+      "excitement_seeking": 0.8,
+      "emotional_reactivity": 0.7
+    },
+    "q34": {
+      "autonomy_wellbeing": 1.2,
+      "autonomy_need": 1,
+      "boundary_setting": 0.9,
+      "identity_clarity": 0.8,
+      "self_acceptance": 0.7,
+      "maturity": 0.6
+    },
+    "q35": {
+      "autonomy_need": -1,
+      "secure_attachment": -0.8,
+      "identity_clarity": -0.7,
+      "anxious_attachment": 1,
+      "fear_of_abandonment": 0.8,
+      "reward_dependence": 0.7
+    },
+    "q36": {
+      "support_giving": 1.2,
+      "personal_growth": 1,
+      "autonomy_wellbeing": 0.9,
+      "positive_relations": 0.8,
+      "empathy": 0.7,
+      "maturity": 0.6
+    }
+  },
+  "profiles": {
+    "profile_secure_romantic": {
+      "id": "profile_secure_romantic",
+      "icon": null,
+      "name": {
+        "ru": "Ровное пламя",
+        "en": "Steady Flame"
+      },
+      "description": {
+        "ru": "Твоя картина любви устойчивая и взрослая: близость тебя не пугает, чувства не нужно заслуживать или выигрывать, а разговор для тебя — нормальный способ решать сложное. Ты ждёшь от любви партнёрства, а не спасения, и это редкая опора — и для тебя, и для того, кто рядом.",
+        "en": "Your picture of love is steady and grown-up: closeness doesn't scare you, feelings don't have to be earned or won, and talking things through is your normal way of handling the hard parts. You expect partnership from love, not rescue — and that's a rare kind of ground to stand on, for you and for whoever is next to you."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по трём шкалам теста — готовности к близости, убеждениям о любви и сценариям. У тебя он выше 75 из 100: во всех трёх ты отвечал в сторону открытости, диалога и реалистичных ожиданий.",
+        "en": "The algorithm averages your three scales — readiness for intimacy, beliefs about love, and love scripts. Yours is above 75 out of 100: on all three you answered toward openness, dialogue, and realistic expectations."
+      },
+      "strengths": {
+        "ru": [
+          "Близость не воспринимается как риск — ты умеешь подпускать людей",
+          "Баланс чувств и головы: эмоции не отменяют здравый смысл",
+          "Ожидания от любви реалистичные — без сказки, но и без цинизма",
+          "Сценарий партнёрства: два человека идут рядом, не растворяясь друг в друге",
+          "Уязвимость для тебя — способ сблизиться, а не проигрыш"
+        ],
+        "en": [
+          "Closeness doesn't read as danger — you know how to let people in",
+          "Feelings and reason balance out: emotion doesn't switch off common sense",
+          "Realistic expectations of love — no fairy tale, no cynicism either",
+          "A partnership script: two people walking side by side without dissolving into each other",
+          "Vulnerability is your way of getting closer, not a defeat"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ровность легко принять за холодность — партнёру с драматичным сценарием тебя может «не хватать»",
+          "Ты можешь недооценивать, насколько другим страшно то, что тебе даётся легко",
+          "Привычка решать разговором даёт сбой рядом с тем, кто разговаривать не умеет",
+          "Есть риск тянуть отношения на своей зрелости — и уставать за двоих"
+        ],
+        "en": [
+          "Steadiness can be mistaken for coolness — a partner with a dramatic script may find you \"not enough\"",
+          "You may underestimate how frightening the things that come easy to you are for others",
+          "Solving things by talking breaks down next to someone who can't talk",
+          "There's a risk of carrying the relationship on your maturity — and getting tired for two"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй, что твоё спокойствие видно как забота, а не как дистанция — называй чувства словами",
+          "Не бери на себя всю взрослость в паре: проси, а не только давай",
+          "Замечай, когда «мы всё обсудили» стало привычкой вместо близости",
+          "Оставляй место сюрпризу — устойчивость не обязана быть предсказуемостью"
+        ],
+        "en": [
+          "Make sure your calm reads as care, not distance — say feelings out loud",
+          "Don't carry all the adulthood in the pair: ask, not only give",
+          "Notice when \"we talked it through\" has become a routine instead of closeness",
+          "Leave room for surprise — steady doesn't have to mean predictable"
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи или напиши близкому человеку про конкретный момент, когда рядом с ним было спокойно. Не «спасибо за всё», а один момент — и чем он был важен.",
+        "en": "Tell or text someone close about one specific moment when being near them felt calm. Not \"thanks for everything\" — one moment, and why it mattered."
+      },
+      "inspiringConclusion": {
+        "ru": "Умение любить ровно — не скучный талант, а редкий. Огонь, который не сжигает дом, греет дольше.",
+        "en": "Loving steadily isn't a boring talent — it's a rare one. A fire that doesn't burn the house down keeps you warm longer."
+      }
+    },
+    "profile_mixed_romantic": {
+      "id": "profile_mixed_romantic",
+      "icon": null,
+      "name": {
+        "ru": "Между сценариями",
+        "en": "Between Scripts"
+      },
+      "description": {
+        "ru": "В твоей картине любви несколько историй спорят друг с другом: тянет к близости — и тут же включается осторожность; ценишь партнёрство — и всё же ждёшь немного кино. Это не путаница, а представления о любви на переписывании: свои правила ещё дописываются.",
+        "en": "In your picture of love, several stories argue with each other: you're drawn to closeness — and caution kicks in; you value partnership — and still expect a bit of cinema. That's not confusion, it's your ideas about love mid-rewrite: your own rules are still being drafted."
+      },
+      "whyThisProfile": {
+        "ru": "Средний уровень по трём шкалам — готовности к близости, убеждениям и сценариям — у тебя между 45 и 74 из 100: часть ответов в сторону открытости и партнёрства, часть — в сторону идеализации или осторожности.",
+        "en": "Your average across the three scales — readiness for intimacy, beliefs, and scripts — sits between 45 and 74 out of 100: some answers lean toward openness and partnership, others toward idealizing or holding back."
+      },
+      "strengths": {
+        "ru": [
+          "Тебе доступны оба языка — и чувство, и трезвый взгляд",
+          "Ты уже видишь свои сценарии, а не просто проживаешь их вслепую",
+          "Гибкость: разные отношения не мерятся одной линейкой",
+          "Желание близости живое — его не убила ни осторожность, ни опыт"
+        ],
+        "en": [
+          "You speak both languages — feeling and sober judgment",
+          "You already see your scripts instead of living them blindly",
+          "Flexibility: you don't measure every relationship with one ruler",
+          "The wish for closeness is alive — neither caution nor experience has killed it"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Качели «ближе — дальше»: партнёру трудно предсказать, какой ты сегодня",
+          "Идеал из головы иногда спорит с живым человеком рядом",
+          "В непонятных ситуациях включается то драма, то молчание — вместо вопроса",
+          "Стабильность может ощущаться пресной, а буря — доказательством чувств"
+        ],
+        "en": [
+          "The push-pull swing: it's hard for a partner to predict which you shows up today",
+          "The ideal in your head sometimes argues with the living person next to you",
+          "In unclear situations you reach for drama or silence — instead of a question",
+          "Stability can taste bland, while a storm feels like proof of feeling"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Лови момент переключения сценария: что именно запустило отход или драму",
+          "Сверяй ожидание с человеком, а не с фильмом: чего я жду и говорил ли я об этом вслух",
+          "Дай стабильности шанс: две недели без проверок и качелей — и посмотри, как оно",
+          "Разреши себе просить о предсказуемости прямо — это не слабость, а настройка"
+        ],
+        "en": [
+          "Catch the moment the script flips: what exactly set off the retreat or the drama",
+          "Check expectations against the person, not the movie: what am I waiting for, and did I ever say it out loud",
+          "Give stability a chance: two weeks without tests and swings — see how it feels",
+          "Let yourself ask for predictability directly — that's not weakness, it's tuning"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три своих убеждения о любви. Рядом с каждым — один вопрос: оно помогает мне быть ближе или держит на расстоянии?",
+        "en": "Write down three of your beliefs about love. Next to each, one question: does it bring me closer or keep me at a distance?"
+      },
+      "inspiringConclusion": {
+        "ru": "Между сценариями — не потерянность, а выбор, который ещё делается. Свою историю любви ты дописываешь сам, и черновик уже неплохой.",
+        "en": "Being between scripts isn't being lost — it's a choice still being made. You're writing your own love story, and the draft is already worth reading."
+      }
+    },
+    "profile_romantic_challenges": {
+      "id": "profile_romantic_challenges",
+      "icon": null,
+      "name": {
+        "ru": "Любовь на ощупь",
+        "en": "Feeling Your Way"
+      },
+      "description": {
+        "ru": "Близость сейчас даётся тебе трудно: доверие включается с боем, ожидания скачут от «всё или ничего» до «лучше не начинать», а любовь в твоих сценариях часто выглядит как борьба или зависимость. Это не приговор и не диагноз — это карта мест, где было больно. А по карте можно идти.",
+        "en": "Closeness is hard work for you right now: trust switches on reluctantly, expectations jump between \"all or nothing\" and \"better not to start\", and in your scripts love often looks like struggle or dependency. This is not a verdict and not a diagnosis — it's a map of the places that once hurt. And a map is something you can walk by."
+      },
+      "whyThisProfile": {
+        "ru": "Средний уровень по трём шкалам — готовности к близости, убеждениям и сценариям — у тебя ниже 45 из 100: в ответах много осторожности, недоверия к близости или драматичных ожиданий от любви.",
+        "en": "Your average across the three scales — readiness for intimacy, beliefs, and scripts — is below 45 out of 100: your answers carry a lot of caution, distrust of closeness, or dramatic expectations of love."
+      },
+      "strengths": {
+        "ru": [
+          "Ты дошёл до конца честного теста о больном — это уже не избегание",
+          "Осторожность выросла не на пустом месте: ты умеешь замечать риски, которых другие не видят",
+          "Твоя чувствительность к фальши — рабочий инструмент, если направить её не против себя",
+          "Опыт трудной любви делает тебя внимательнее к чужой боли"
+        ],
+        "en": [
+          "You finished an honest test about a sore spot — that's already not avoidance",
+          "Your caution didn't grow out of nowhere: you notice risks others miss",
+          "Your radar for fakeness is a working tool — once it stops pointing at you",
+          "Having loved the hard way makes you more attentive to other people's pain"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Страх близости и страх одиночества дёргают в разные стороны одновременно",
+          "Драма может ощущаться как любовь, а спокойствие — как её отсутствие",
+          "Уязвимость приравнена к опасности, поэтому разговор о чувствах откладывается до взрыва",
+          "Ожидания от партнёра меняются быстрее, чем он успевает их понять"
+        ],
+        "en": [
+          "Fear of closeness and fear of loneliness pull you in opposite directions at once",
+          "Drama can feel like love, and calm like its absence",
+          "Vulnerability equals danger, so the conversation about feelings waits until the explosion",
+          "What you expect from a partner changes faster than they can catch up"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Ищи, откуда сценарий: где ты впервые увидел такую любовь — дома, в первом опыте, в кино",
+          "Тренируй маленькую уязвимость: одно честное «мне это неприятно» вместо накопленного взрыва",
+          "Доверие строится шагами по силам — не проверками и не прыжком с обрыва",
+          "Начни с дружбы: в ней те же навыки близости, но ниже ставки"
+        ],
+        "en": [
+          "Trace the script to its source: where did you first see love look like this — home, first love, the movies",
+          "Practice small vulnerability: one honest \"I don't like this\" instead of a stored-up explosion",
+          "Trust is built in steps you can actually take — not by tests, not by cliff jumps",
+          "Start with friendship: the same closeness skills, lower stakes"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вспомни одни закончившиеся отношения. Без суда запиши два списка: что я делал из страха — и что из любви. Просто посмотри на разницу.",
+        "en": "Think of one relationship that ended. Without judging, write two lists: what I did out of fear — and what out of love. Just look at the difference."
+      },
+      "inspiringConclusion": {
+        "ru": "Сценарий, по которому было больно, не обязан повторяться. Любовь — навык, а навыкам учатся. В том числе заново.",
+        "en": "A script that hurt once doesn't have to run again. Love is a skill, and skills can be learned — including relearned."
+      },
+      "supportNote": {
+        "ru": "Этот тест образовательный, он не ставит диагнозов. Но если за осторожностью стоит опыт, к которому больно прикасаться, разбирать его не обязательно в одиночку: один разговор с психологом может сдвинуть больше, чем месяцы самоанализа.",
+        "en": "This test is educational — it doesn't diagnose. But if your caution grew from an experience that still hurts to touch, you don't have to unpack it alone: one conversation with a therapist can move more than months of self-analysis."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из romantic_potential_data.dart: пороги по среднему трёх факторов, 75/45.",
+    "mode": "rules",
+    "fallback": "profile_romantic_challenges",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            75
+          ]
+        ],
+        "profile": "profile_secure_romantic"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            45
+          ]
+        ],
+        "profile": "profile_mixed_romantic"
+      }
+    ]
+  }
+}
