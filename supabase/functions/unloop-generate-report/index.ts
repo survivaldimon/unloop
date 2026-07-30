@@ -7,6 +7,8 @@ const CORS = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+const REPORT_MODEL = "claude-sonnet-5";
+
 const PATTERN_META: Record<string, { name: string; nameRu: string; tagline: string; essence: string }> = {
   pursuer: {
     name: "The Pursuer",
@@ -230,8 +232,11 @@ Deno.serve(async (req: Request) => {
     };
 
     const response = await anthropic.messages.create({
-      model: "claude-haiku-4-5",
+      model: REPORT_MODEL,
       max_tokens: 1500,
+      // Left on, thinking would share the 1500-token budget with the two
+      // chapters and can truncate the JSON.
+      thinking: { type: "disabled" },
       system: SYSTEM_PROMPT_BASE + LANG_SUFFIX[lang],
       output_config: { format: { type: "json_schema", schema: OUTPUT_SCHEMA } },
       messages: [
