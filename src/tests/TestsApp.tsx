@@ -361,6 +361,20 @@ export default function TestsApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentTestId]);
 
+  // One spend covers a read in both languages, but the function answers in the
+  // language it was asked for — so a language switch has to ask again, or the
+  // page turns Russian around a read that stays English. Free either way: the
+  // other side comes from the session cache, or is generated on the same key.
+  const langRef = useRef(lang);
+  useEffect(() => {
+    if (langRef.current === lang) return;
+    langRef.current = lang;
+    if (!creditsEnabled) return;
+    if (currentTestId && reportView === "ready") void loadReport(currentTestId, false);
+    if (portraitView === "ready") void loadPortrait(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
+
   const switchLang = (next: Lang) => {
     persistLang(next);
     setLang(next);
