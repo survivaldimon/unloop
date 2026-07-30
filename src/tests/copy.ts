@@ -38,6 +38,7 @@ interface TestsCopyShape {
     shareCopied: string;
     /** The message that travels with the link: invite to take, not to look. */
     shareText: (args: { title: string; profile: string | null }) => string;
+    disclaimer: string;
   };
   /** The save-results card under a finished test (SaveResultsCard). */
   save: {
@@ -90,6 +91,7 @@ const EN: TestsCopyShape = {
       profile
         ? `I got “${profile}” on “${title}”. Your turn:`
         : `“${title}” — worth your next coffee break:`,
+    disclaimer: "This is an educational test — a mirror, not a diagnosis.",
   },
   save: {
     title: "Keep your results",
@@ -143,6 +145,7 @@ const RU: TestsCopyShape = {
       profile
         ? `Мой результат в тесте «${title}» — ${profile}. Теперь ты:`
         : `«${title}» — стоит семи минут:`,
+    disclaimer: "Это образовательный тест — зеркало, а не диагноз.",
   },
   save: {
     title: "Сохранить результаты",

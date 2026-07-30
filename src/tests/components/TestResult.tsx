@@ -139,6 +139,8 @@ export default function TestResult({
           {ui.retake}
         </button>
       </div>
+
+      <p className="mt-6 text-center text-[12px] leading-relaxed text-mist/60">{ui.disclaimer}</p>
     </div>
   );
 }

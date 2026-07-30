@@ -8,6 +8,7 @@
  */
 
 import { useCallback, useEffect, useState } from "react";
+import LegalLinks from "../components/LegalLinks";
 import { LangContext, detectLang, persistLang, type Lang } from "../i18n";
 import { fetchAccount } from "../lib/account";
 import { track } from "../lib/analytics";
@@ -226,6 +227,10 @@ export default function TestsApp() {
             <SaveResultsCard />
           </>
         )}
+
+        <footer className="mt-auto pt-10">
+          <LegalLinks />
+        </footer>
       </div>
     </LangContext.Provider>
   );
