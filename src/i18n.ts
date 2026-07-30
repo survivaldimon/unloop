@@ -74,6 +74,9 @@ export interface UiStrings {
     retrigger: string;
     writing: string;
     retake: string;
+    /** Cross-sell into /tests — shown after the purchase only (§7). */
+    crossTests: string;
+    crossTestsCta: string;
     disclaimer: string;
     fallback: (args: {
       patternName: string;
@@ -86,6 +89,20 @@ export interface UiStrings {
   loop: { back: string; scrambleSlot: string };
   share: { button: string; kicker: string; saved: string };
   legal: { terms: string; privacy: string; account: string };
+  /** The global menu (NavMenu) plus the quiet cross-links between surfaces. */
+  nav: {
+    menu: string;
+    photo: string;
+    quiz: string;
+    tests: string;
+    portrait: string;
+    account: string;
+    /** Landing-footer lines: an exit for people the funnel isn't converting —
+     *  never competing with the funnel's own CTA above them. */
+    teaserFromPhoto: string;
+    teaserFromQuiz: string;
+    testsCta: string;
+  };
 }
 
 export const UI: Record<Lang, UiStrings> = {
@@ -201,6 +218,9 @@ export const UI: Record<Lang, UiStrings> = {
       retrigger: "Re-triggers your loop",
       writing: "Writing your personal read…",
       retake: "Retake the test",
+      crossTests:
+        "The quiz read your pattern inside a couple. Seven short tests each add an angle of their own — and they build into one portrait.",
+      crossTestsCta: "Take a test",
       disclaimer:
         "Looplore is a self-reflection tool grounded in attachment research. It is not therapy, diagnosis, or medical advice.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
@@ -218,6 +238,17 @@ export const UI: Record<Lang, UiStrings> = {
       saved: "Card saved · link copied",
     },
     legal: { terms: "Terms of Use", privacy: "Privacy Policy", account: "Account" },
+    nav: {
+      menu: "Menu",
+      photo: "Photo read",
+      quiz: "Relationship quiz",
+      tests: "Psychology tests",
+      portrait: "Composite portrait",
+      account: "Account",
+      teaserFromPhoto: "No photo at hand? Seven short psychology tests, free to take.",
+      teaserFromQuiz: "Want a shorter mirror first? Seven psychology tests, free to take.",
+      testsCta: "Browse the tests",
+    },
   },
   ru: {
     title: "Looplore — Почему твои отношения заканчиваются одинаково?",
@@ -331,6 +362,9 @@ export const UI: Record<Lang, UiStrings> = {
       retrigger: "Кто снова запустит круг",
       writing: "Пишем разбор по твоим ответам…",
       retake: "Пройти ещё раз",
+      crossTests:
+        "Квиз прочитал твой паттерн внутри пары. Семь коротких тестов добавляют каждый свой угол — и складываются в один портрет.",
+      crossTestsCta: "Пройти тест",
       disclaimer:
         "Looplore — инструмент саморефлексии, опирающийся на исследования привязанности. Это не терапия, не диагностика и не замена помощи специалиста.",
       fallback: ({ patternName, tagline, anx, avo, secondaryName }) =>
@@ -348,6 +382,17 @@ export const UI: Record<Lang, UiStrings> = {
       saved: "Карточка сохранена · ссылка скопирована",
     },
     legal: { terms: "Условия использования", privacy: "Конфиденциальность", account: "Аккаунт" },
+    nav: {
+      menu: "Меню",
+      photo: "Фото-разбор",
+      quiz: "Квиз об отношениях",
+      tests: "Психотесты",
+      portrait: "Сводный портрет",
+      account: "Аккаунт",
+      teaserFromPhoto: "Нет фото под рукой? Есть семь коротких психотестов — бесплатно.",
+      teaserFromQuiz: "Хочешь зеркало покороче? Семь психотестов — бесплатно.",
+      testsCta: "Смотреть тесты",
+    },
   },
 };
 

@@ -51,6 +51,10 @@ export interface AccountCopy {
 
   testsTitle: string;
   testsEmpty: string;
+  /** Link into /tests when the list is empty — the free surface is the answer. */
+  takeTest: string;
+  /** Link to the cross-test portrait under the finished-tests list. */
+  portraitLink: string;
 }
 
 export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
@@ -120,6 +124,8 @@ export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
 
     testsTitle: "Your tests",
     testsEmpty: "No tests finished yet.",
+    takeTest: "Take a test",
+    portraitLink: "Composite portrait",
   },
   ru: {
     title: "Аккаунт",
@@ -187,5 +193,7 @@ export const ACCOUNT_COPY: Record<Lang, AccountCopy> = {
 
     testsTitle: "Твои тесты",
     testsEmpty: "Пока ни одного пройденного.",
+    takeTest: "Пройти тест",
+    portraitLink: "Сводный портрет",
   },
 };
