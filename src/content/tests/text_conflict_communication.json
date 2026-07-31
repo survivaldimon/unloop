@@ -618,8 +618,8 @@
         {
           "id": "11d",
           "text": {
-            "ru": "«Не могу одолжить. В прошлый раз деньги не вернулись, и я больше не даю в долг. Но могу посоветовать [ресурс для микрозаймов/помощи]»",
-            "en": "'Can't lend. Last time money wasn't returned, and I don't lend anymore. But can recommend [resource for microloans/help]'"
+            "ru": "«Не могу одолжить. В прошлый раз деньги не вернулись, и я больше не даю в долг.»",
+            "en": "'Can't lend. Last time money wasn't returned, and I don't lend anymore.'"
           },
           "score": 3
         }
@@ -936,8 +936,8 @@
         {
           "id": "17d",
           "text": {
-            "ru": "«Ой, извините, это была неудачная шутка 😅 Я имел в виду [объяснение]. Понимаю что прозвучало не так»",
-            "en": "'Oh, sorry, that was bad joke 😅 I meant [explanation]. Understand it sounded wrong'"
+            "ru": "«Да, шутка вышла неудачная — признаю. Задеть никого не хотел, извините. Всё, проехали?»",
+            "en": "'Yeah, the joke didn't land — my bad. Didn't mean to hurt anyone, sorry. Can we move on?'"
           },
           "score": 3
         }

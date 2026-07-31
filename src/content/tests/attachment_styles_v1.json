@@ -32,7 +32,7 @@
     },
     "fearful": {
       "ru": "Тревожно-избегающий",
-      "en": "Anxious-avoidant"
+      "en": "Fearful-avoidant"
     }
   },
   "questions": [
@@ -3582,7 +3582,7 @@
       },
       "whyThisProfile": {
         "ru": "Надёжная шкала выше 70%, а тревожная, избегающая и тревожно-избегающая — ниже 30% каждая. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
-        "en": "Your secure scale is above 70% and the anxious, avoidant and anxious-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
+        "en": "Your secure scale is above 70% and the anxious, avoidant and fearful-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
       },
       "strengths": {
         "ru": [
@@ -3771,8 +3771,8 @@
         "en": "You reach for someone and recoil from the same person. Both reactions are yours, both are real, and they arrive almost together."
       },
       "whyThisProfile": {
-        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип, самый редкий из четырёх. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
-        "en": "Your anxious-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the anxious-avoidant type, the rarest of the four. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
+        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
+        "en": "Your fearful-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the fearful-avoidant type. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
       },
       "strengths": {
         "ru": [
