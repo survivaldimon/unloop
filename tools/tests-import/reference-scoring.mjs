@@ -36,6 +36,8 @@ const LAUNCH_SET = [
   "digital_detox_test",
   "romantic_potential_v1",
   "relationship_compatibility_v1",
+  "emotional_intelligence",
+  "self_confidence_multiscale_v1",
 ];
 
 const load = (p) => JSON.parse(fs.readFileSync(p, "utf8"));

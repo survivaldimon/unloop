@@ -23,6 +23,7 @@ import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.js
 import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
 import burnoutDiagnostic from "../../../src/content/tests/burnout_diagnostic_v1.json" with { type: "json" };
 import digitalDetox from "../../../src/content/tests/digital_detox_test.json" with { type: "json" };
+import emotionalIntelligence from "../../../src/content/tests/emotional_intelligence.json" with { type: "json" };
 import fomoSocialComparison from "../../../src/content/tests/fomo_social_comparison_v1.json" with { type: "json" };
 import friendshipPsychology from "../../../src/content/tests/friendship_psychology_v1.json" with { type: "json" };
 import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
@@ -31,6 +32,7 @@ import ipipBigFive from "../../../src/content/tests/ipip_big_five.json" with { t
 import loveLanguages from "../../../src/content/tests/love_languages_v1.json" with { type: "json" };
 import relationshipCompatibility from "../../../src/content/tests/relationship_compatibility_v1.json" with { type: "json" };
 import romanticPotential from "../../../src/content/tests/romantic_potential_v1.json" with { type: "json" };
+import selfConfidenceMultiscale from "../../../src/content/tests/self_confidence_multiscale_v1.json" with { type: "json" };
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
 import socialBattery from "../../../src/content/tests/social_battery_v1.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
@@ -65,6 +67,7 @@ for (const raw of [
   boundariesPeoplePleasing,
   burnoutDiagnostic,
   digitalDetox,
+  emotionalIntelligence,
   fomoSocialComparison,
   friendshipPsychology,
   friendshipRedFlags,
@@ -73,6 +76,7 @@ for (const raw of [
   loveLanguages,
   relationshipCompatibility,
   romanticPotential,
+  selfConfidenceMultiscale,
   sixteenTypes,
   socialBattery,
   textConflict,

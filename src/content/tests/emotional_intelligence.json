@@ -1,0 +1,4360 @@
+{
+  "id": "emotional_intelligence",
+  "title": {
+    "ru": "Эмоциональный интеллект",
+    "en": "Emotional Intelligence"
+  },
+  "description": {
+    "ru": "70 утверждений о том, как ты обращаешься с чувствами — своими и чужими. Замечаешь ли ты, что происходит с людьми рядом, понимаешь ли, откуда берутся твои реакции, и что делаешь, когда эмоции накрывают. Семь шкал: восприятие эмоций, их понимание, управление собой, использование эмоций в деле, эмпатия, социальные навыки и мотивация.",
+    "en": "70 statements about how you handle feelings — your own and other people's. Do you notice what's going on with the people around you, do you understand where your reactions come from, and what do you do when emotions hit. Seven scales: perceiving emotions, understanding them, self-management, putting emotions to work, empathy, social skills and motivation."
+  },
+  "categoryId": "intelligence",
+  "estimatedMinutes": 15,
+  "scoring": "likert",
+  "factorIds": [
+    "emotional_perception",
+    "emotional_understanding",
+    "self_management",
+    "emotional_facilitation",
+    "empathy",
+    "social_skills",
+    "motivation"
+  ],
+  "factorNames": {
+    "emotional_perception": {
+      "ru": "Восприятие эмоций",
+      "en": "Emotional Perception"
+    },
+    "emotional_understanding": {
+      "ru": "Понимание эмоций",
+      "en": "Emotional Understanding"
+    },
+    "self_management": {
+      "ru": "Управление собой",
+      "en": "Self-Management"
+    },
+    "emotional_facilitation": {
+      "ru": "Использование эмоций",
+      "en": "Emotional Facilitation"
+    },
+    "empathy": {
+      "ru": "Эмпатия",
+      "en": "Empathy"
+    },
+    "social_skills": {
+      "ru": "Социальные навыки",
+      "en": "Social Skills"
+    },
+    "motivation": {
+      "ru": "Мотивация",
+      "en": "Motivation"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "Я легко определяю, в каком настроении находятся окружающие",
+        "en": "I easily identify what mood people around me are in"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Мне сложно понять, что я чувствую в данный момент",
+        "en": "I find it difficult to understand what I am feeling at the moment"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я замечаю тонкие изменения в выражении лица собеседника",
+        "en": "I notice subtle changes in my conversation partner's facial expressions"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "По интонации голоса я могу определить истинные чувства человека",
+        "en": "I can identify a person's true feelings by the tone of their voice"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Мне трудно распознать, когда кто-то расстроен или обижен",
+        "en": "I find it hard to recognize when someone is upset or offended"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Я быстро осознаю изменения в своём эмоциональном состоянии",
+        "en": "I quickly become aware of changes in my emotional state"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Язык тела людей говорит мне больше, чем их слова",
+        "en": "People's body language tells me more than their words"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "Я с трудом могу назвать эмоцию, которую испытываю",
+        "en": "I struggle to name the emotion I am experiencing"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я замечаю эмоциональную атмосферу в группе людей",
+        "en": "I notice the emotional atmosphere in a group of people"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "Мне легко определить, когда человек неискренен в своих эмоциях",
+        "en": "I easily identify when someone is insincere with their emotions"
+      },
+      "factorId": "emotional_perception",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Я понимаю, почему у меня возникают определённые эмоции",
+        "en": "I understand why I experience certain emotions"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Мне трудно объяснить причины моих чувств",
+        "en": "I find it difficult to explain the reasons for my feelings"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Я знаю, как одна эмоция может перерасти в другую",
+        "en": "I know how one emotion can evolve into another"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я понимаю взаимосвязь между моими мыслями и эмоциями",
+        "en": "I understand the connection between my thoughts and emotions"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Сложные эмоции других людей остаются для меня загадкой",
+        "en": "Complex emotions of other people remain a mystery to me"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Я могу предсказать, как изменятся мои чувства в ближайшем будущем",
+        "en": "I can predict how my feelings will change in the near future"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "Я понимаю, какие события вызывают у меня стресс",
+        "en": "I understand which events cause me stress"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Мне сложно разобраться в смешанных эмоциях",
+        "en": "I find it hard to make sense of mixed emotions"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Я осознаю, как моё поведение влияет на эмоции окружающих",
+        "en": "I realize how my behavior affects the emotions of those around me"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Я понимаю культурные различия в выражении эмоций",
+        "en": "I understand cultural differences in expressing emotions"
+      },
+      "factorId": "emotional_understanding",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я могу сохранять спокойствие в стрессовых ситуациях",
+        "en": "I can remain calm in stressful situations"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Когда я злюсь, мне трудно контролировать свои реакции",
+        "en": "When I am angry, I find it hard to control my reactions"
+      },
+      "factorId": "self_management",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Я умею быстро восстанавливаться после разочарований",
+        "en": "I know how to recover quickly from disappointments"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я могу отложить удовольствие ради достижения важной цели",
+        "en": "I can delay gratification to achieve an important goal"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "Мои эмоции часто выходят из-под контроля",
+        "en": "My emotions often get out of control"
+      },
+      "factorId": "self_management",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Я использую техники для управления своим стрессом",
+        "en": "I use techniques to manage my stress"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я могу сохранить позитивный настрой даже в трудные времена",
+        "en": "I can maintain a positive attitude even in difficult times"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Я часто действую импульсивно под влиянием эмоций",
+        "en": "I often act impulsively under the influence of emotions"
+      },
+      "factorId": "self_management",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я умею переключаться с негативных мыслей на позитивные",
+        "en": "I know how to switch from negative thoughts to positive ones"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "Я контролирую свои эмоциональные реакции в конфликтах",
+        "en": "I control my emotional reactions in conflicts"
+      },
+      "factorId": "self_management",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Я использую свои эмоции для повышения креативности",
+        "en": "I use my emotions to enhance creativity"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Эмоции мешают мне принимать правильные решения",
+        "en": "Emotions prevent me from making the right decisions"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "text": {
+        "ru": "Позитивное настроение помогает мне решать проблемы",
+        "en": "A positive mood helps me solve problems"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "text": {
+        "ru": "Я знаю, какие эмоции полезны для разных видов задач",
+        "en": "I know which emotions are useful for different types of tasks"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "text": {
+        "ru": "Мне трудно использовать эмоции в конструктивных целях",
+        "en": "I find it difficult to use emotions for constructive purposes"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "text": {
+        "ru": "Я могу создать нужное настроение для выполнения задачи",
+        "en": "I can create the right mood to complete a task"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "text": {
+        "ru": "Эмоции помогают мне расставлять приоритеты в делах",
+        "en": "Emotions help me prioritize tasks"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "text": {
+        "ru": "Я не понимаю, как можно использовать эмоции для работы",
+        "en": "I don't understand how emotions can be used for work"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "text": {
+        "ru": "Я учитываю своё эмоциональное состояние при планировании дел",
+        "en": "I consider my emotional state when planning tasks"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "text": {
+        "ru": "Разные эмоции дают мне разные взгляды на проблему",
+        "en": "Different emotions give me different perspectives on a problem"
+      },
+      "factorId": "emotional_facilitation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "text": {
+        "ru": "Я глубоко сопереживаю чувствам других людей",
+        "en": "I deeply empathize with other people's feelings"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "text": {
+        "ru": "Мне сложно понять, почему люди реагируют так, а не иначе",
+        "en": "I find it hard to understand why people react the way they do"
+      },
+      "factorId": "empathy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "text": {
+        "ru": "Я чувствую боль других людей, как свою собственную",
+        "en": "I feel other people's pain as if it were my own"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "text": {
+        "ru": "Я умею поставить себя на место другого человека",
+        "en": "I know how to put myself in another person's shoes"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "text": {
+        "ru": "Эмоциональные проблемы других меня не очень волнуют",
+        "en": "Other people's emotional problems don't concern me much"
+      },
+      "factorId": "empathy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "text": {
+        "ru": "Я внимательно выслушиваю людей, когда им плохо",
+        "en": "I listen carefully to people when they are feeling bad"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "text": {
+        "ru": "Я чувствую, когда человеку нужна моя поддержка",
+        "en": "I sense when someone needs my support"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "text": {
+        "ru": "Мне трудно разделять эмоции других людей",
+        "en": "I find it difficult to share other people's emotions"
+      },
+      "factorId": "empathy",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "text": {
+        "ru": "Я замечаю, когда кому-то нужна помощь, даже если они не просят",
+        "en": "I notice when someone needs help, even if they don't ask"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q50",
+      "text": {
+        "ru": "Я понимаю невысказанные переживания близких мне людей",
+        "en": "I understand the unspoken feelings of people close to me"
+      },
+      "factorId": "empathy",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q51",
+      "text": {
+        "ru": "Я легко нахожу общий язык с разными людьми",
+        "en": "I easily find common ground with different people"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q52",
+      "text": {
+        "ru": "Мне сложно разрешать конфликты между людьми",
+        "en": "I find it difficult to resolve conflicts between people"
+      },
+      "factorId": "social_skills",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q53",
+      "text": {
+        "ru": "Я умею вдохновлять и мотивировать других",
+        "en": "I know how to inspire and motivate others"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q54",
+      "text": {
+        "ru": "Я эффективно работаю в команде",
+        "en": "I work effectively in a team"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q55",
+      "text": {
+        "ru": "Мне трудно влиять на мнение других людей",
+        "en": "I find it hard to influence other people's opinions"
+      },
+      "factorId": "social_skills",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q56",
+      "text": {
+        "ru": "Я помогаю людям находить компромиссы в спорах",
+        "en": "I help people find compromises in arguments"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q57",
+      "text": {
+        "ru": "Я создаю позитивную атмосферу в группе",
+        "en": "I create a positive atmosphere in a group"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q58",
+      "text": {
+        "ru": "Мне сложно выстраивать долгосрочные отношения",
+        "en": "I find it difficult to build long-term relationships"
+      },
+      "factorId": "social_skills",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q59",
+      "text": {
+        "ru": "Я умею давать конструктивную обратную связь",
+        "en": "I know how to give constructive feedback"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q60",
+      "text": {
+        "ru": "Я успешно адаптируюсь к разным социальным ситуациям",
+        "en": "I successfully adapt to different social situations"
+      },
+      "factorId": "social_skills",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q61",
+      "text": {
+        "ru": "Я сохраняю энтузиазм даже при столкновении с трудностями",
+        "en": "I maintain enthusiasm even when facing difficulties"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q62",
+      "text": {
+        "ru": "Мне трудно заставить себя работать над долгосрочными целями",
+        "en": "I find it hard to make myself work on long-term goals"
+      },
+      "factorId": "motivation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q63",
+      "text": {
+        "ru": "Я нахожу внутренние ресурсы для преодоления препятствий",
+        "en": "I find internal resources to overcome obstacles"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q64",
+      "text": {
+        "ru": "Я стремлюсь к совершенству в том, что делаю",
+        "en": "I strive for excellence in what I do"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q65",
+      "text": {
+        "ru": "Я быстро теряю интерес к начатым делам",
+        "en": "I quickly lose interest in things I start"
+      },
+      "factorId": "motivation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q66",
+      "text": {
+        "ru": "Я использую свои эмоции как источник энергии для действий",
+        "en": "I use my emotions as a source of energy for action"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q67",
+      "text": {
+        "ru": "Я настойчив в достижении важных для меня целей",
+        "en": "I am persistent in achieving goals that are important to me"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q68",
+      "text": {
+        "ru": "Неудачи сильно подрывают мою мотивацию",
+        "en": "Failures severely undermine my motivation"
+      },
+      "factorId": "motivation",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q69",
+      "text": {
+        "ru": "Я нахожу смысл и удовлетворение в своей деятельности",
+        "en": "I find meaning and satisfaction in my activities"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q70",
+      "text": {
+        "ru": "Я оптимистично смотрю на будущее",
+        "en": "I look at the future with optimism"
+      },
+      "factorId": "motivation",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "0",
+          "text": {
+            "ru": "Никогда",
+            "en": "Never"
+          },
+          "score": 0
+        },
+        {
+          "id": "1",
+          "text": {
+            "ru": "Редко",
+            "en": "Rarely"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "text": {
+            "ru": "Иногда",
+            "en": "Sometimes"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "text": {
+            "ru": "Часто",
+            "en": "Often"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "text": {
+            "ru": "Всегда",
+            "en": "Always"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "empathy": 0.9,
+      "social_perception": 0.8
+    },
+    "q2": {
+      "self_awareness": -0.9
+    },
+    "q3": {
+      "social_perception": 1,
+      "empathy": 0.8
+    },
+    "q4": {
+      "social_perception": 0.9,
+      "empathy": 0.9
+    },
+    "q5": {
+      "empathy": -0.9,
+      "social_perception": -0.9
+    },
+    "q6": {
+      "self_awareness": 1,
+      "mindfulness_coping": 0.8
+    },
+    "q7": {
+      "social_perception": 1,
+      "empathy": 0.7
+    },
+    "q8": {
+      "self_awareness": -0.9
+    },
+    "q9": {
+      "social_perception": 1,
+      "empathy": 0.8
+    },
+    "q10": {
+      "social_perception": 1
+    },
+    "q11": {
+      "self_awareness": 1
+    },
+    "q12": {
+      "self_awareness": -0.9
+    },
+    "q13": {
+      "self_awareness": 0.9
+    },
+    "q14": {
+      "self_awareness": 1
+    },
+    "q15": {
+      "empathy": -0.9,
+      "self_awareness": -0.8,
+      "social_perception": -0.7
+    },
+    "q16": {
+      "self_awareness": 0.9
+    },
+    "q17": {
+      "self_awareness": 1
+    },
+    "q18": {
+      "self_awareness": -0.7
+    },
+    "q19": {
+      "empathy": 0.9,
+      "self_awareness": 0.7
+    },
+    "q20": {
+      "openness": 0.8,
+      "empathy": 0.7,
+      "intellectual_curiosity": 0.6
+    },
+    "q21": {
+      "composure": 1,
+      "calmness": 1,
+      "stress_tolerance": 1,
+      "mood_stability": 0.9,
+      "self_discipline": 0.9
+    },
+    "q22": {
+      "self_discipline": -1,
+      "composure": -0.9,
+      "impulsiveness": 0.8,
+      "mood_stability": -0.8
+    },
+    "q23": {
+      "emotional_resilience": 1,
+      "optimism": 0.8,
+      "frustration_tolerance": 0.9,
+      "adaptability_leadership": 0.7
+    },
+    "q24": {
+      "self_discipline": 1,
+      "achievement_motivation": 0.9,
+      "deliberation": 0.8,
+      "impulsiveness": -0.9
+    },
+    "q25": {
+      "self_discipline": -1,
+      "mood_stability": -1,
+      "composure": -0.9,
+      "impulsiveness": 0.9,
+      "emotional_reactivity": 0.8
+    },
+    "q26": {
+      "stress_tolerance": 1,
+      "self_care": 0.9,
+      "self_discipline": 0.7,
+      "mindfulness_coping": 0.8
+    },
+    "q27": {
+      "optimism": 1,
+      "emotional_resilience": 1,
+      "calmness": 0.8
+    },
+    "q28": {
+      "impulsiveness": 1,
+      "self_discipline": -1,
+      "deliberation": -0.9,
+      "composure": -0.8,
+      "mood_stability": -0.7
+    },
+    "q29": {
+      "cognitive_flexibility": 1,
+      "optimism": 0.9,
+      "mood_stability": 1,
+      "self_discipline": 0.8,
+      "adaptability_leadership": 0.8
+    },
+    "q30": {
+      "composure": 1,
+      "self_discipline": 1,
+      "conflict_management": 0.9,
+      "mood_stability": 0.9
+    },
+    "q31": {
+      "creativity": 0.9,
+      "self_awareness": 0.7
+    },
+    "q32": {
+      "mood_stability": -0.9,
+      "composure": -0.7,
+      "self_discipline": -0.7,
+      "deliberation": -0.6
+    },
+    "q33": {
+      "optimism": 0.9,
+      "problem_solving": 0.8,
+      "positive_emotions": 0.7
+    },
+    "q34": {
+      "self_awareness": 0.9,
+      "strategic_thinking": 0.7
+    },
+    "q35": {
+      "mood_stability": -0.9,
+      "self_awareness": -0.7
+    },
+    "q36": {
+      "self_discipline": 0.9,
+      "mood_stability": 1,
+      "achievement_motivation": 0.7
+    },
+    "q37": {
+      "achievement_motivation": 0.7,
+      "self_awareness": 0.8,
+      "organization": 0.6
+    },
+    "q38": {
+      "self_awareness": -0.8
+    },
+    "q39": {
+      "self_awareness": 1,
+      "self_care": 0.8,
+      "organization": 0.7,
+      "mindfulness_coping": 0.8
+    },
+    "q40": {
+      "cognitive_flexibility": 0.9,
+      "openness": 0.8,
+      "empathy": 0.9
+    },
+    "q41": {
+      "empathy": 1,
+      "compassion": 1,
+      "tender_mindedness": 0.9,
+      "altruism": 0.8
+    },
+    "q42": {
+      "empathy": -1,
+      "social_perception": -0.7
+    },
+    "q43": {
+      "empathy": 1,
+      "compassion": 1,
+      "tender_mindedness": 1
+    },
+    "q44": {
+      "empathy": 1
+    },
+    "q45": {
+      "empathy": -1,
+      "compassion": -1,
+      "altruism": -0.9,
+      "tender_mindedness": -0.9
+    },
+    "q46": {
+      "empathy": 0.9,
+      "compassion": 0.9,
+      "active_listening": 1,
+      "support_giving": 1
+    },
+    "q47": {
+      "empathy": 1,
+      "social_perception": 0.9,
+      "support_giving": 0.8
+    },
+    "q48": {
+      "empathy": -1,
+      "compassion": -0.8
+    },
+    "q49": {
+      "empathy": 1,
+      "social_perception": 1,
+      "altruism": 0.8
+    },
+    "q50": {
+      "empathy": 1,
+      "social_perception": 1,
+      "emotional_intimacy": 0.8
+    },
+    "q51": {
+      "warmth": 0.9,
+      "gregariousness": 0.8,
+      "adaptability_leadership": 0.8
+    },
+    "q52": {
+      "conflict_management": -1,
+      "assertiveness": -0.6,
+      "negotiation": -0.9,
+      "dominance": -0.6
+    },
+    "q53": {
+      "dominance": 1,
+      "persuasion": 1,
+      "assertiveness": 0.8,
+      "inspirational_motivation": 1
+    },
+    "q54": {
+      "team_building": 1,
+      "cooperativeness": 1,
+      "adaptability_leadership": 0.7,
+      "trust": 0.7
+    },
+    "q55": {
+      "persuasion": -1,
+      "assertiveness": -0.9,
+      "dominance": -0.8
+    },
+    "q56": {
+      "conflict_management": 1,
+      "negotiation": 1,
+      "cooperativeness": 0.9
+    },
+    "q57": {
+      "positive_emotions": 0.9,
+      "warmth": 0.9,
+      "gregariousness": 0.7
+    },
+    "q58": {
+      "commitment": -0.9,
+      "trust": -0.8,
+      "emotional_intimacy": -0.8,
+      "loyalty": -0.9
+    },
+    "q59": {
+      "assertiveness": 0.8,
+      "negotiation": 0.9,
+      "straightforwardness": 0.7,
+      "support_giving": 0.7
+    },
+    "q60": {
+      "adaptability_leadership": 1,
+      "cognitive_flexibility": 0.9
+    },
+    "q61": {
+      "persistence": 1,
+      "optimism": 0.9,
+      "emotional_resilience": 0.9,
+      "activity": 0.7
+    },
+    "q62": {
+      "achievement_motivation": -1,
+      "self_discipline": -1,
+      "persistence": -0.9,
+      "achievement_striving": -1,
+      "dutifulness": -0.7
+    },
+    "q63": {
+      "emotional_resilience": 1
+    },
+    "q64": {
+      "achievement_striving": 1,
+      "perfectionism": 0.8,
+      "competence": 0.9,
+      "achievement_motivation": 0.9,
+      "ambition": 0.8
+    },
+    "q65": {
+      "persistence": -1,
+      "self_discipline": -0.9,
+      "dutifulness": -0.8,
+      "achievement_striving": -0.9
+    },
+    "q66": {
+      "activity": 0.8,
+      "self_awareness": 0.8
+    },
+    "q67": {
+      "persistence": 1,
+      "achievement_motivation": 1,
+      "achievement_striving": 1,
+      "self_discipline": 0.9
+    },
+    "q68": {
+      "emotional_resilience": -1,
+      "optimism": -0.8,
+      "frustration_tolerance": -0.9,
+      "vulnerability": 0.8
+    },
+    "q69": {
+      "life_satisfaction": 0.9,
+      "meaning_purpose": 1,
+      "intrinsic_motivation": 1
+    },
+    "q70": {
+      "optimism": 1,
+      "positive_emotions": 0.7,
+      "mood_stability": 0.7
+    }
+  },
+  "profiles": {
+    "profile_eq_master": {
+      "id": "profile_eq_master",
+      "icon": null,
+      "name": {
+        "ru": "Родной язык чувств",
+        "en": "Native Tongue"
+      },
+      "description": {
+        "ru": "Эмоции для тебя — родной язык. Ты считываешь их с полуслова у себя и у других, понимаешь, откуда они берутся и куда развернутся, и умеешь не подавлять их, а использовать: как сигнал, как топливо, как способ стать ближе. Люди рядом с тобой чувствуют себя понятыми — и это редкость.",
+        "en": "Emotion is your native tongue. You read it at a glance in yourself and in others, you see where a feeling comes from and where it will turn, and you don't suppress it — you use it: as a signal, as fuel, as a way to get closer. People around you feel understood, and that is rare."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста — от восприятия эмоций до мотивации. У тебя он выше 75 из 100: почти во всех сферах ты отвечал в сторону точного распознавания, понимания и спокойного управления чувствами.",
+        "en": "The algorithm averages your seven scales — from perceiving emotions to motivation. Yours is above 75 out of 100: across nearly every area you answered toward accurate reading, understanding and calm handling of feelings."
+      },
+      "strengths": {
+        "ru": [
+          "Точно распознаёшь эмоции — свои и чужие, даже недосказанные",
+          "Понимаешь, откуда чувство пришло и во что оно перерастёт",
+          "Управляешь своими реакциями, не глуша их",
+          "Глубокая эмпатия: людям рядом с тобой не нужно объяснять себя дважды",
+          "Умеешь превращать эмоции в энергию для дел и решений",
+          "Устойчивая внутренняя мотивация, которая не зависит от чужих оценок"
+        ],
+        "en": [
+          "You read emotions precisely — your own and other people's, even the unspoken ones",
+          "You understand where a feeling came from and what it will grow into",
+          "You manage your reactions without muting them",
+          "Deep empathy: people around you don't have to explain themselves twice",
+          "You turn emotions into energy for work and decisions",
+          "Steady inner motivation that doesn't depend on outside approval"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Высокая чувствительность к чужим состояниям выматывает — риск эмоционального выгорания реален",
+          "К тебе идут за поддержкой чаще, чем ты успеваешь восстанавливаться",
+          "Привычка глубоко разбирать чувства иногда тормозит простые решения"
+        ],
+        "en": [
+          "High sensitivity to other people's states is draining — the risk of emotional burnout is real",
+          "People come to you for support more often than you manage to recover",
+          "The habit of deeply unpacking feelings sometimes slows down simple decisions"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Следи за своим ресурсом так же внимательно, как за чужим: чувствительность без восстановления выгорает",
+          "Учись говорить «не сегодня», когда запросов на твою поддержку больше, чем сил",
+          "Не каждое чувство требует разбора — иногда достаточно заметить и отпустить",
+          "Используй свой навык там, где он множится: в команде, в близких отношениях, в сложных разговорах"
+        ],
+        "en": [
+          "Watch your own resource as closely as you watch everyone else's: sensitivity without recovery burns out",
+          "Learn to say 'not today' when requests for your support outnumber your energy",
+          "Not every feeling needs unpacking — sometimes noticing and letting go is enough",
+          "Spend the skill where it compounds: in a team, in close relationships, in hard conversations"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня помоги кому-то назвать его чувство: «Мне кажется, ты сейчас чувствуешь… я прав?» — и посмотри, как меняется разговор.",
+        "en": "Today, help someone name what they feel: 'It seems to me you're feeling… am I right?' — and watch how the conversation changes."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоё чутьё на эмоции — это опора для многих. Не забывай, что у переводчика тоже есть чувства — и они заслуживают того же внимания.",
+        "en": "Your feel for emotions is something many people lean on. Don't forget the translator has feelings too — and they deserve the same attention."
+      }
+    },
+    "profile_emotionally_intelligent": {
+      "id": "profile_emotionally_intelligent",
+      "icon": null,
+      "name": {
+        "ru": "Уверенный переводчик",
+        "en": "The Confident Translator"
+      },
+      "description": {
+        "ru": "Ты хорошо говоришь на языке эмоций. Понимаешь свои чувства и чужие, в большинстве ситуаций управляешь реакциями, а не они тобой, и людям с тобой легко. Иногда — в стрессе, в сложных многослойных ситуациях — беглость сбоит, но базу у тебя не отнять.",
+        "en": "You speak the language of emotion well. You understand your feelings and other people's, in most situations you run your reactions rather than the other way around, and people find you easy to be with. Under stress or in layered, messy situations the fluency can slip — but the foundation is solidly yours."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 60 и 75 из 100 — уверенный результат по большинству сфер, без провалов, но с запасом для роста в отдельных местах.",
+        "en": "The algorithm averages your seven scales. Yours sits between 60 and 75 out of 100 — a confident score across most areas, no failures, with room to grow in a few spots."
+      },
+      "strengths": {
+        "ru": [
+          "Хорошо считываешь эмоциональные сигналы в моменте",
+          "Понимаешь, как устроены чувства и что за ними стоит",
+          "Развитая эмпатия — люди тебе доверяют",
+          "В большинстве ситуаций управляешь своими реакциями",
+          "Умеешь ладить с очень разными людьми",
+          "Способен мотивировать и себя, и других"
+        ],
+        "en": [
+          "You read emotional signals well in the moment",
+          "You understand how feelings work and what stands behind them",
+          "Developed empathy — people trust you",
+          "In most situations you manage your reactions",
+          "You get along with very different people",
+          "You can motivate yourself and others"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "В сильном стрессе контроль над реакциями слабеет",
+          "Сложные, многослойные эмоциональные ситуации пока даются с усилием",
+          "В отдельных шкалах есть заметный запас роста — и он виден в разбивке"
+        ],
+        "en": [
+          "Under heavy stress your grip on reactions loosens",
+          "Complex, layered emotional situations still take real effort",
+          "Some scales have visible room to grow — the breakdown shows where"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Посмотри, какая из семи шкал у тебя ниже остальных, — рост сейчас именно там",
+          "Замечай, что происходит с твоими реакциями в стрессе: это твоя главная зона турбулентности",
+          "Тренируй точность: называй чувство конкретным словом, а не «нормально» и «не очень»",
+          "В сложных разговорах пробуй сначала назвать эмоцию собеседника, потом своё несогласие"
+        ],
+        "en": [
+          "Check which of the seven scales runs lowest for you — that's where the growth is right now",
+          "Notice what happens to your reactions under stress: that's your main turbulence zone",
+          "Train precision: name the feeling with a specific word, not 'fine' or 'meh'",
+          "In hard conversations, try naming the other person's emotion first, your disagreement second"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня, когда накроет неприятное чувство, остановись и спроси: что оно пытается мне сказать? Какая потребность сейчас не закрыта?",
+        "en": "Today, when an unpleasant feeling hits, pause and ask: what is it trying to tell me? Which need is going unmet right now?"
+      },
+      "inspiringConclusion": {
+        "ru": "Ты уже свободно говоришь на языке, который многие только начинают учить. Осталось отшлифовать акцент.",
+        "en": "You already speak fluently a language most people are only starting to learn. All that's left is polishing the accent."
+      }
+    },
+    "profile_developing_eq": {
+      "id": "profile_developing_eq",
+      "icon": null,
+      "name": {
+        "ru": "Разговорник в кармане",
+        "en": "Phrasebook in Hand"
+      },
+      "description": {
+        "ru": "Ты знаешь язык эмоций на уровне разговорника: базовые чувства распознаёшь, простые ситуации разруливаешь, но беглости пока нет. Тонкие оттенки ускользают, сложные состояния путаются, а под нагрузкой эмоции иногда берут управление на себя. Это не потолок — это середина пути.",
+        "en": "You know the language of emotion at phrasebook level: you recognise the basic feelings and handle simple situations, but fluency isn't there yet. Subtle shades slip past, complex states blur together, and under pressure emotions sometimes grab the wheel. This isn't a ceiling — it's the middle of the road."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 40 и 60 из 100 — средний диапазон: база есть, свободного владения пока нет.",
+        "en": "The algorithm averages your seven scales. Yours sits between 40 and 60 out of 100 — the middle range: the base is there, the fluency isn't yet."
+      },
+      "strengths": {
+        "ru": [
+          "Распознаёшь базовые эмоции у себя и других",
+          "Понимаешь, что эмоциональная сфера — это навык, а не данность",
+          "В спокойной обстановке неплохо управляешь реакциями",
+          "Готов разбираться в себе — сам факт прохождения теста об этом говорит"
+        ],
+        "en": [
+          "You recognise the basic emotions in yourself and others",
+          "You get that emotional skill is a skill, not a given",
+          "In calm settings you manage your reactions decently",
+          "You're willing to look inward — taking this test says as much"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Тонкие эмоциональные нюансы проходят мимо",
+          "Под нагрузкой эмоции иногда выходят из-под контроля",
+          "Сложные, смешанные состояния сбивают с толку",
+          "Эмоции пока редко работают на тебя — чаще просто случаются"
+        ],
+        "en": [
+          "Subtle emotional nuance passes you by",
+          "Under pressure, emotions sometimes slip out of control",
+          "Complex, mixed states throw you off",
+          "Emotions rarely work for you yet — mostly they just happen"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Заведи привычку дважды в день называть своё чувство одним точным словом",
+          "В разговорах слушай не только слова, но и то, как они сказаны",
+          "Когда эмоция накрывает, попробуй сначала назвать её про себя — это уже половина управления",
+          "Разбирай задним числом сложные ситуации: что я почувствовал, почему, что сделал бы иначе",
+          "Читай художественную прозу — это тренажёр эмпатии, который работает незаметно"
+        ],
+        "en": [
+          "Build the habit of naming your feeling with one precise word twice a day",
+          "In conversations, listen not just to the words but to how they're said",
+          "When an emotion hits, try naming it silently first — that's already half the handling",
+          "Debrief hard situations after the fact: what did I feel, why, what would I do differently",
+          "Read fiction — it's an empathy gym that works without you noticing"
+        ]
+      },
+      "tryToday": {
+        "ru": "Три раза за сегодня остановись и спроси себя: что я сейчас чувствую? Назови эмоцию как можно точнее — не «нормально», а конкретным словом.",
+        "en": "Three times today, stop and ask yourself: what am I feeling right now? Name it as precisely as you can — not 'fine', an actual word."
+      },
+      "inspiringConclusion": {
+        "ru": "Любой язык учится практикой, и язык эмоций не исключение. Разговорник у тебя уже есть — дальше только разговаривать.",
+        "en": "Every language is learned by speaking it, and the language of emotion is no exception. You've got the phrasebook — now it's just practice."
+      }
+    },
+    "profile_low_eq": {
+      "id": "profile_low_eq",
+      "icon": null,
+      "name": {
+        "ru": "Чужая грамматика",
+        "en": "Foreign Grammar"
+      },
+      "description": {
+        "ru": "Язык эмоций пока звучит для тебя как чужой: слова знакомые, а смысл ускользает. Тебе непросто понять, что ты чувствуешь и что происходит с другими, и из-за этого общение и отношения требуют больше сил, чем должны. Хорошая новость: это грамматика, а грамматика учится.",
+        "en": "The language of emotion still sounds foreign to you: the words are familiar, the meaning slips away. It's hard to tell what you're feeling and what's going on with other people, so communication and relationships take more effort than they should. The good news: it's grammar, and grammar can be learned."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 25 и 40 из 100: в большинстве сфер ты отвечал в сторону трудностей с распознаванием и управлением эмоциями.",
+        "en": "The algorithm averages your seven scales. Yours sits between 25 and 40 out of 100: across most areas you answered toward difficulty reading and handling emotions."
+      },
+      "strengths": {
+        "ru": [
+          "Ты ответил честно там, где можно было приукрасить, — это редкое качество",
+          "Ты видишь проблему, а не прячешься от неё",
+          "У навыка с низкой базой самый быстрый видимый прогресс — каждый шаг заметен"
+        ],
+        "en": [
+          "You answered honestly where you could have flattered yourself — that's rare",
+          "You see the problem instead of hiding from it",
+          "A skill starting low shows the fastest visible progress — every step counts"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Собственные эмоции часто остаются неопознанными — они есть, а слов для них нет",
+          "Чужие чувства приходится угадывать, и догадки часто мимо",
+          "Реакции срабатывают раньше, чем ты успеваешь их заметить",
+          "В отношениях из-за этого копятся недопонимания, которых могло не быть"
+        ],
+        "en": [
+          "Your own emotions often go unidentified — they're there, but the words aren't",
+          "Other people's feelings have to be guessed, and the guesses often miss",
+          "Reactions fire before you manage to notice them",
+          "Misunderstandings pile up in relationships that never needed to happen"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни с шести базовых эмоций: радость, грусть, злость, страх, удивление, отвращение — учись находить их у себя",
+          "Записывай раз в день одно чувство и ситуацию, в которой оно появилось",
+          "Смотри на лица в разговоре: брови, уголки рта, темп речи расскажут больше слов",
+          "Когда не понимаешь, что с человеком, — спрашивай прямо, это работает лучше догадок",
+          "Не требуй от себя беглости сразу: один месяц практики уже даст сдвиг"
+        ],
+        "en": [
+          "Start with the six basic emotions: joy, sadness, anger, fear, surprise, disgust — learn to spot them in yourself",
+          "Once a day, write down one feeling and the situation it showed up in",
+          "Watch faces while you talk: eyebrows, mouth corners, pace of speech say more than words",
+          "When you can't tell what's up with someone — ask directly, it beats guessing",
+          "Don't demand fluency overnight: one month of practice already moves the needle"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня раз в пару часов останавливайся на минуту и пробуй назвать хотя бы одну эмоцию, которую сейчас чувствуешь. Неважно, попадёшь или нет, — важна сама попытка.",
+        "en": "Today, every couple of hours, stop for a minute and try to name at least one emotion you're feeling. Whether you get it right doesn't matter — the attempt does."
+      },
+      "inspiringConclusion": {
+        "ru": "Эмоциональный интеллект — не врождённый дар, а навык. Чужая грамматика становится своей ровно так же, как любой язык: понемногу и регулярно.",
+        "en": "Emotional intelligence isn't an inborn gift — it's a skill. Foreign grammar becomes your own the way any language does: a little at a time, regularly."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если непонимание эмоций всерьёз осложняет отношения или работу, разбирать это с психологом заметно быстрее, чем в одиночку: распознавание чувств — хорошо изученная, рабочая тема.",
+        "en": "This is an educational test, not a diagnosis. But if reading emotions is seriously straining your relationships or work, working through it with a psychologist is much faster than going alone: recognising feelings is a well-studied, workable skill."
+      }
+    },
+    "profile_very_low_eq": {
+      "id": "profile_very_low_eq",
+      "icon": null,
+      "name": {
+        "ru": "Без словаря",
+        "en": "No Dictionary"
+      },
+      "description": {
+        "ru": "Сейчас эмоциональная сфера для тебя — язык без словаря: чувства происходят, но распознать, понять и назвать их почти не получается, ни у себя, ни у других. Это делает отношения, работу и самочувствие заметно тяжелее, чем они могли бы быть. Важно знать: это не приговор и не черта характера — это навык на нулевой отметке, и двигаться от нуля можно.",
+        "en": "Right now the emotional world is a language you have no dictionary for: feelings happen, but recognising, understanding and naming them barely works — in yourself or in others. That makes relationships, work and daily life noticeably harder than they need to be. What matters: this is not a verdict or a character trait — it's a skill at zero, and moving up from zero is possible."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он ниже 25 из 100: почти во всех сферах ты отвечал в сторону серьёзных трудностей с эмоциями.",
+        "en": "The algorithm averages your seven scales. Yours is below 25 out of 100: across nearly every area you answered toward serious difficulty with emotions."
+      },
+      "strengths": {
+        "ru": [
+          "Ты дошёл до конца теста и ответил честно — с этого начинается любое движение",
+          "На нулевой отметке каждый шаг даёт заметный результат",
+          "У тебя нет иллюзий о себе, а это лучшая стартовая точка из возможных"
+        ],
+        "en": [
+          "You finished the test and answered honestly — every change starts there",
+          "From zero, every step shows",
+          "You hold no illusions about yourself — the best possible starting point"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Свои эмоции почти не распознаются — остаётся только смутное «хорошо» или «плохо»",
+          "Чужие чувства и мотивы остаются загадкой, и это бьёт по отношениям",
+          "Реакции живут своей жизнью: вспышки и отстранённость происходят сами",
+          "Мотивация проседает, потому что непонятно, что её кормит и что съедает"
+        ],
+        "en": [
+          "Your own emotions barely register — just a vague 'good' or 'bad' remains",
+          "Other people's feelings and motives stay a mystery, and relationships take the hit",
+          "Reactions live their own life: flare-ups and shutdowns just happen",
+          "Motivation sags because it's unclear what feeds it and what drains it"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начни с самого простого: раз в день отмечай, был день скорее хорошим, нейтральным или тяжёлым",
+          "Учись замечать тело: сжатые челюсти, тяжесть в груди, ком в горле — это эмоции говорят физически",
+          "Освой шесть базовых эмоций, прежде чем браться за оттенки",
+          "Одно наблюдение в день достаточно — регулярность здесь важнее объёма",
+          "Не сравнивай себя с другими: твоя точка отсчёта — ты вчерашний"
+        ],
+        "en": [
+          "Start with the simplest thing: once a day, note whether the day was mostly good, neutral or heavy",
+          "Learn to notice your body: clenched jaw, heavy chest, lump in the throat — that's emotion speaking physically",
+          "Get the six basic emotions down before reaching for the shades",
+          "One observation a day is enough — regularity beats volume here",
+          "Don't measure yourself against others: your baseline is who you were yesterday"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня перед сном запиши одну фразу: «Мой день был в целом хорошим / нейтральным / тяжёлым». Это первый шаг к словарю.",
+        "en": "Tonight before bed, write one line: 'My day was mostly good / neutral / heavy.' That's the first entry in the dictionary."
+      },
+      "inspiringConclusion": {
+        "ru": "Словарь собирается по одному слову. Ты уже начал — сам факт, что ты прошёл этот тест до конца, означает, что тебе не всё равно.",
+        "en": "A dictionary is built one word at a time. You've already started — finishing this test means you care."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но такой результат означает, что эмоциональная сфера почти не даёт тебе опоры, — а это тяжёлый фон для жизни. Работа с психологом здесь не крайняя мера, а самый короткий путь: специалист поможет выстроить то, что сложно построить в одиночку.",
+        "en": "This is an educational test, not a diagnosis. But a result like this means the emotional sphere gives you almost nothing to lean on — and that's a heavy background to live against. Seeing a psychologist here isn't a last resort, it's the shortest path: a specialist helps build what's hard to build alone."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из emotional_intelligence_data.dart: пороги по среднему семи факторов, 75/60/40/25. Ветка пустого ввода (profile_developing_eq) недостижима с реальными ответами.",
+    "mode": "rules",
+    "fallback": "profile_very_low_eq",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            75
+          ]
+        ],
+        "profile": "profile_eq_master"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "profile_emotionally_intelligent"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ]
+        ],
+        "profile": "profile_developing_eq"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            25
+          ]
+        ],
+        "profile": "profile_low_eq"
+      }
+    ]
+  }
+}

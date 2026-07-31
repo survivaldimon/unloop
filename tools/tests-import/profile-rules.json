@@ -279,6 +279,38 @@
     ]
   },
 
+  "emotional_intelligence": {
+    "$note": "Перенос determineProfile() из emotional_intelligence_data.dart: пороги по среднему семи факторов, 75/60/40/25. Ветка пустого ввода (profile_developing_eq) недостижима с реальными ответами.",
+    "mode": "rules",
+    "fallback": "profile_very_low_eq",
+    "rules": [
+      { "when": [["@avg", ">=", 75]], "profile": "profile_eq_master" },
+      { "when": [["@avg", ">=", 60]], "profile": "profile_emotionally_intelligent" },
+      { "when": [["@avg", ">=", 40]], "profile": "profile_developing_eq" },
+      { "when": [["@avg", ">=", 25]], "profile": "profile_low_eq" }
+    ]
+  },
+
+  "self_confidence_multiscale_v1": {
+    "$note": "Перенос determineProfile() из self_confidence_multiscale_data.dart: полосы по среднему четырёх факторов (80/60/40/20); в полосе 60–80 при разбросе >20 — ветка по доминирующему фактору, в полосе 40–60 при слабейшем <35 — ветка по слабейшему. Доминанта = сравнение с @top1, слабейший = попарные <= (Dart на 4 элементах сортирует стабильно и берёт первый — порядок правил повторяет порядок обхода факторов, ничьи решаются одинаково). profile_balanced — ветка пустого ввода, с реальными ответами недостижима.",
+    "mode": "rules",
+    "fallback": "profile_struggling",
+    "rules": [
+      { "when": [["@avg", ">=", 80]], "profile": "profile_high_confidence" },
+      { "when": [["@avg", ">=", 60], ["@range", ">", 20], ["general_self_belief", ">=", "@top1"]], "profile": "profile_self_believer" },
+      { "when": [["@avg", ">=", 60], ["@range", ">", 20], ["social_assertiveness", ">=", "@top1"]], "profile": "profile_social_confident" },
+      { "when": [["@avg", ">=", 60], ["@range", ">", 20], ["self_acceptance", ">=", "@top1"]], "profile": "profile_self_accepting" },
+      { "when": [["@avg", ">=", 60], ["@range", ">", 20], ["initiative_resilience", ">=", "@top1"]], "profile": "profile_resilient" },
+      { "when": [["@avg", ">=", 60]], "profile": "profile_confident" },
+      { "when": [["@avg", ">=", 40], ["general_self_belief", "<", 35], ["general_self_belief", "<=", "social_assertiveness"], ["general_self_belief", "<=", "self_acceptance"], ["general_self_belief", "<=", "initiative_resilience"]], "profile": "profile_doubter" },
+      { "when": [["@avg", ">=", 40], ["social_assertiveness", "<", 35], ["social_assertiveness", "<=", "general_self_belief"], ["social_assertiveness", "<=", "self_acceptance"], ["social_assertiveness", "<=", "initiative_resilience"]], "profile": "profile_shy" },
+      { "when": [["@avg", ">=", 40], ["self_acceptance", "<", 35], ["self_acceptance", "<=", "general_self_belief"], ["self_acceptance", "<=", "social_assertiveness"], ["self_acceptance", "<=", "initiative_resilience"]], "profile": "profile_self_critical" },
+      { "when": [["@avg", ">=", 40], ["initiative_resilience", "<", 35], ["initiative_resilience", "<=", "general_self_belief"], ["initiative_resilience", "<=", "social_assertiveness"], ["initiative_resilience", "<=", "self_acceptance"]], "profile": "profile_cautious" },
+      { "when": [["@avg", ">=", 40]], "profile": "profile_developing" },
+      { "when": [["@avg", ">=", 20]], "profile": "profile_low_confidence" }
+    ]
+  },
+
   "sixteen_types": {
     "mode": "bipolar",
     "dimensions": [

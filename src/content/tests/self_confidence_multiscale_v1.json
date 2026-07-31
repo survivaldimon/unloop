@@ -1,0 +1,3107 @@
+{
+  "id": "self_confidence_multiscale_v1",
+  "title": {
+    "ru": "Из чего собрана твоя уверенность",
+    "en": "What Your Confidence Stands On"
+  },
+  "description": {
+    "ru": "32 утверждения о четырёх опорах уверенности: вера в свои силы, смелость в общении, отношение к себе и готовность действовать после неудач. Тест покажет, какая опора держит тебя крепче всего — и какая прогибается под нагрузкой.",
+    "en": "32 statements about the four pillars of confidence: belief in your abilities, boldness with people, how you treat yourself, and readiness to act after setbacks. The test shows which pillar holds you up strongest — and which one bends under load."
+  },
+  "categoryId": "emotional",
+  "estimatedMinutes": 10,
+  "scoring": "likert",
+  "factorIds": [
+    "general_self_belief",
+    "social_assertiveness",
+    "self_acceptance",
+    "initiative_resilience"
+  ],
+  "factorNames": {
+    "general_self_belief": {
+      "ru": "Вера в свои силы",
+      "en": "Belief in Your Abilities"
+    },
+    "social_assertiveness": {
+      "ru": "Смелость в общении",
+      "en": "Boldness with People"
+    },
+    "self_acceptance": {
+      "ru": "Отношение к себе",
+      "en": "How You Treat Yourself"
+    },
+    "initiative_resilience": {
+      "ru": "Готовность действовать",
+      "en": "Readiness to Act"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": {
+        "ru": "В целом я считаю себя человеком, который справляется с большинством жизненных задач.",
+        "en": "Overall, I consider myself a person who copes with most life tasks."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": {
+        "ru": "Мне легко заговорить с незнакомым человеком, если это необходимо.",
+        "en": "It is easy for me to talk to a stranger when necessary."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": {
+        "ru": "Я принимаю свои недостатки и не обесцениваю себя из-за них.",
+        "en": "I accept my flaws and don't put myself down because of them."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": {
+        "ru": "Я лучше действую, чем долго сомневаюсь и откладываю решения.",
+        "en": "I prefer to act rather than hesitate and postpone decisions for a long time."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": {
+        "ru": "Когда передо мной стоит сложная задача, я обычно уверен(а), что найду способ с ней справиться.",
+        "en": "When faced with a difficult task, I usually believe I will find a way to handle it."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": {
+        "ru": "Мне трудно отстоять свою точку зрения, если собеседник ведёт себя уверенно.",
+        "en": "It is difficult for me to defend my point of view if the other person acts confidently."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": {
+        "ru": "Я часто ругаю себя за промахи дольше, чем это действительно нужно.",
+        "en": "I often blame myself for mistakes longer than necessary."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": {
+        "ru": "После неудачи мне требуется много времени, чтобы снова решиться действовать.",
+        "en": "After a failure, it takes me a long time to take action again."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": {
+        "ru": "Я доверяю своим решениям, даже если вокруг есть люди с другим мнением.",
+        "en": "I trust my decisions even when others have different opinions."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": {
+        "ru": "В группе людей я обычно чувствую себя зажатым(ой) и неловким(ой).",
+        "en": "In a group of people, I usually feel constrained and awkward."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": {
+        "ru": "Мне сложно сказать о себе что-то хорошее, не чувствуя неловкости.",
+        "en": "It is difficult for me to say something good about myself without feeling awkward."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": {
+        "ru": "Столкнувшись с трудностями, я скорее продолжаю пробовать, чем сдаюсь.",
+        "en": "When facing difficulties, I tend to keep trying rather than give up."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": {
+        "ru": "Если я взял(а) на себя ответственность, я уверен(а), что доведу дело до конца.",
+        "en": "If I take on responsibility, I am confident I will see it through."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": {
+        "ru": "Я без особого напряжения прошу о помощи или поддержке, когда она мне нужна.",
+        "en": "I can ask for help or support without much tension when I need it."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": {
+        "ru": "Я считаю, что имею право на ошибки и не обязан(а) быть идеальным(ой).",
+        "en": "I believe I have the right to make mistakes and don't have to be perfect."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": {
+        "ru": "Когда появляется возможность чего-то нового, я часто отказываюсь из-за страха не справиться.",
+        "en": "When a new opportunity arises, I often decline due to fear of not coping."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": {
+        "ru": "В неожиданных ситуациях я обычно сохраняю способность действовать и принимать решения.",
+        "en": "In unexpected situations, I usually maintain the ability to act and make decisions."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": {
+        "ru": "Мне трудно сказать «нет», даже когда просьба мне неудобна.",
+        "en": "It is difficult for me to say \"no\" even when a request is inconvenient."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": {
+        "ru": "Даже небольшие недостатки во внешности или характере сильно снижают мою самооценку.",
+        "en": "Even small flaws in appearance or character significantly lower my self-esteem."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": {
+        "ru": "Если что-то не получилось с первого раза, я воспринимаю это как полезный опыт.",
+        "en": "If something doesn't work out the first time, I see it as useful experience."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": {
+        "ru": "Я верю, что в долгосрочной перспективе могу реализовать свои цели.",
+        "en": "I believe I can achieve my goals in the long run."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": {
+        "ru": "Я спокойно высказываю своё мнение, даже если оно отличается от мнения большинства.",
+        "en": "I calmly express my opinion even if it differs from the majority."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": {
+        "ru": "Когда меня критикуют, я не обесцениваю себя целиком как личность.",
+        "en": "When criticized, I don't devalue myself as a person."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": {
+        "ru": "Я часто отказываюсь от инициативы, потому что боюсь выглядеть глупо.",
+        "en": "I often refuse to take initiative because I fear looking foolish."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": {
+        "ru": "В сложных обстоятельствах я могу опереться на себя и свои ресурсы.",
+        "en": "In difficult circumstances, I can rely on myself and my resources."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "text": {
+        "ru": "Мне комфортно быть в центре внимания, когда я выступаю или делюсь своими идеями.",
+        "en": "I feel comfortable being the center of attention when presenting or sharing my ideas."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "text": {
+        "ru": "Я отношусь к себе скорее с пониманием и поддержкой, чем с критикой.",
+        "en": "I treat myself with understanding and support rather than criticism."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "text": {
+        "ru": "Если меня подводит результат, я надолго застреваю в мыслях о своём поражении.",
+        "en": "If the result disappoints me, I dwell on my defeat for a long time."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "text": {
+        "ru": "Я ощущаю, что в большинстве ситуаций способен(на) влиять на ход событий.",
+        "en": "I feel that in most situations I can influence the course of events."
+      },
+      "factorId": "general_self_belief",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "text": {
+        "ru": "В спорной ситуации я предпочитаю промолчать, даже если считаю себя правым(ой).",
+        "en": "In a controversial situation, I prefer to remain silent even if I believe I am right."
+      },
+      "factorId": "social_assertiveness",
+      "isReversed": true,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "text": {
+        "ru": "Мне удаётся сохранять уважение к себе, даже сталкиваясь с критикой или ошибками.",
+        "en": "I manage to maintain self-respect even when facing criticism or mistakes."
+      },
+      "factorId": "self_acceptance",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "text": {
+        "ru": "Если план А не срабатывает, я способен(на) перейти к плану Б или придумать новый подход.",
+        "en": "If Plan A doesn't work, I can move to Plan B or come up with a new approach."
+      },
+      "factorId": "initiative_resilience",
+      "isReversed": false,
+      "answers": [
+        {
+          "id": "a1",
+          "text": {
+            "ru": "Совершенно не согласен(на)",
+            "en": "Strongly Disagree"
+          },
+          "score": 0
+        },
+        {
+          "id": "a2",
+          "text": {
+            "ru": "Скорее не согласен(на)",
+            "en": "Disagree"
+          },
+          "score": 1
+        },
+        {
+          "id": "a3",
+          "text": {
+            "ru": "Нейтрально",
+            "en": "Neutral"
+          },
+          "score": 2
+        },
+        {
+          "id": "a4",
+          "text": {
+            "ru": "Скорее согласен(на)",
+            "en": "Agree"
+          },
+          "score": 3
+        },
+        {
+          "id": "a5",
+          "text": {
+            "ru": "Полностью согласен(на)",
+            "en": "Strongly Agree"
+          },
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "weights": {
+    "q1": {
+      "self_efficacy": 1,
+      "self_esteem": 0.9,
+      "competence": 0.8,
+      "environmental_mastery": 0.7,
+      "resilience_meta": 0.6,
+      "growth_mindset": 0.5,
+      "sensing": 0.3
+    },
+    "q5": {
+      "self_efficacy": 1,
+      "problem_solving": 0.8,
+      "competence": 0.7,
+      "resilience_meta": 0.7,
+      "cognitive_flexibility": 0.6,
+      "stress_tolerance": 0.5,
+      "positive_emotions": 0.6,
+      "intuition": 0.4,
+      "perceiving": 0.3
+    },
+    "q9": {
+      "self_efficacy": 0.9,
+      "decisiveness": 0.8,
+      "autonomy_need": 0.8,
+      "self_direction": 0.7,
+      "identity_clarity": 0.6,
+      "authenticity": 0.6,
+      "confidence_building": 0.7,
+      "thinking": 0.4
+    },
+    "q13": {
+      "self_efficacy": 0.9,
+      "responsibility": 0.9,
+      "self_discipline": 0.8,
+      "persistence": 0.8,
+      "commitment": 0.7,
+      "dutifulness": 0.6,
+      "accountability": 0.7,
+      "judging": 0.5
+    },
+    "q17": {
+      "self_efficacy": 0.9,
+      "stress_tolerance": 0.8,
+      "decisiveness": 0.8,
+      "composure": 0.7,
+      "calmness": 0.6,
+      "emotional_resilience": 0.7,
+      "adaptability_leadership": 0.6,
+      "thinking": 0.4,
+      "perceiving": 0.4
+    },
+    "q21": {
+      "self_efficacy": 0.9,
+      "achievement_motivation": 0.8,
+      "meaning_purpose": 0.7,
+      "ambition": 0.7,
+      "persistence": 0.6,
+      "growth_mindset": 0.7,
+      "life_satisfaction": 0.5,
+      "intuition": 0.4,
+      "judging": 0.4
+    },
+    "q25": {
+      "self_efficacy": 1,
+      "autonomy_need": 0.8,
+      "resilience_meta": 0.8,
+      "environmental_mastery": 0.7,
+      "problem_focused_coping": 0.6,
+      "self_direction": 0.6,
+      "competence": 0.7,
+      "introversion": 0.3,
+      "sensing": 0.3
+    },
+    "q29": {
+      "self_efficacy": 1,
+      "environmental_mastery": 0.9,
+      "power_motivation": 0.6,
+      "autonomy_need": 0.7,
+      "decisiveness": 0.6,
+      "self_direction": 0.6,
+      "competence": 0.7,
+      "extraversion": 0.4,
+      "judging": 0.4
+    },
+    "q2": {
+      "assertiveness": 0.9,
+      "social_boldness": 0.9,
+      "social_confidence": 0.8,
+      "warmth": 0.6,
+      "gregariousness": 0.7,
+      "extraversion": 0.7
+    },
+    "q6": {
+      "assertiveness": -0.9,
+      "social_confidence": -0.8,
+      "social_boldness": -0.7,
+      "dominance": -0.6,
+      "compliance": 0.6,
+      "vulnerability": 0.5,
+      "introversion": 0.5,
+      "feeling": 0.4
+    },
+    "q10": {
+      "social_confidence": -1,
+      "social_boldness": -0.8,
+      "gregariousness": -0.7,
+      "self_consciousness": 0.8,
+      "anxiety": 0.6,
+      "introversion": 0.7
+    },
+    "q14": {
+      "assertiveness": 0.7,
+      "social_support_seeking": 0.9,
+      "trust": 0.7,
+      "relatedness_need": 0.6,
+      "vulnerability_sharing": 0.8,
+      "social_confidence": 0.6,
+      "extraversion": 0.5,
+      "feeling": 0.5
+    },
+    "q18": {
+      "assertiveness": -0.9,
+      "boundary_setting": -0.9,
+      "autonomy_need": -0.7,
+      "compliance": 0.7,
+      "self_direction": -0.6,
+      "modesty": 0.5,
+      "feeling": 0.5
+    },
+    "q22": {
+      "assertiveness": 1,
+      "social_boldness": 0.8,
+      "autonomy_need": 0.7,
+      "self_direction": 0.8,
+      "authenticity": 0.7,
+      "social_confidence": 0.7,
+      "conformity": -0.6,
+      "extraversion": 0.6,
+      "thinking": 0.5
+    },
+    "q26": {
+      "social_boldness": 1,
+      "social_confidence": 0.9,
+      "assertiveness": 0.7,
+      "expressiveness": 0.8,
+      "self_consciousness": -0.6,
+      "extraversion": 0.8
+    },
+    "q30": {
+      "assertiveness": -0.9,
+      "social_boldness": -0.7,
+      "social_confidence": -0.7,
+      "conflict_management": -0.6,
+      "avoidant_coping": 0.6,
+      "compliance": 0.5,
+      "introversion": 0.5,
+      "feeling": 0.4
+    },
+    "q3": {
+      "self_acceptance": 1,
+      "self_compassion": 0.9,
+      "self_esteem": 0.8,
+      "emotional_resilience": 0.6,
+      "acceptance": 0.7,
+      "identity_clarity": 0.5,
+      "feeling": 0.5,
+      "perceiving": 0.3
+    },
+    "q7": {
+      "self_compassion": -0.9,
+      "self_acceptance": -0.8,
+      "rumination": 0.8,
+      "self_esteem": -0.7,
+      "perfectionism": 0.6,
+      "neuroticism": 0.5,
+      "judging": 0.4,
+      "introversion": 0.3
+    },
+    "q11": {
+      "self_acceptance": -0.9,
+      "self_esteem": -0.8,
+      "self_consciousness": 0.7,
+      "modesty": 0.5,
+      "vulnerability": 0.5,
+      "authenticity": -0.5,
+      "introversion": 0.5
+    },
+    "q15": {
+      "self_acceptance": 1,
+      "self_compassion": 0.9,
+      "perfectionism": -0.7,
+      "acceptance": 0.7,
+      "growth_mindset": 0.6,
+      "emotional_resilience": 0.5,
+      "perceiving": 0.5,
+      "feeling": 0.4
+    },
+    "q19": {
+      "self_acceptance": -1,
+      "self_esteem": -0.9,
+      "body_image": -0.7,
+      "self_consciousness": 0.8,
+      "perfectionism": 0.6,
+      "vulnerability": 0.7,
+      "sensing": 0.4,
+      "judging": 0.4
+    },
+    "q23": {
+      "self_acceptance": 0.9,
+      "emotional_resilience": 0.8,
+      "self_esteem": 0.8,
+      "self_compassion": 0.7,
+      "identity_clarity": 0.6,
+      "cognitive_reappraisal": 0.6,
+      "thinking": 0.5
+    },
+    "q27": {
+      "self_compassion": 1,
+      "self_acceptance": 0.9,
+      "self_esteem": 0.7,
+      "tender_mindedness": 0.5,
+      "emotional_resilience": 0.5,
+      "life_satisfaction": 0.5,
+      "feeling": 0.6
+    },
+    "q31": {
+      "self_acceptance": 0.9,
+      "self_esteem": 0.9,
+      "emotional_resilience": 0.8,
+      "self_compassion": 0.7,
+      "identity_clarity": 0.6,
+      "composure": 0.5,
+      "thinking": 0.4
+    },
+    "q4": {
+      "decisiveness": 0.9,
+      "activity": 0.8,
+      "procrastination": -0.8,
+      "self_efficacy": 0.7,
+      "impulsiveness": 0.4,
+      "judging": 0.6,
+      "extraversion": 0.4
+    },
+    "q8": {
+      "resilience_meta": -0.9,
+      "persistence": -0.8,
+      "emotional_resilience": -0.7,
+      "harm_avoidance": 0.6,
+      "rumination": 0.6,
+      "stress_tolerance": -0.6,
+      "introversion": 0.4
+    },
+    "q12": {
+      "persistence": 1,
+      "resilience_meta": 0.9,
+      "self_efficacy": 0.7,
+      "achievement_striving": 0.7,
+      "growth_mindset": 0.6,
+      "drive_for_excellence": 0.6,
+      "judging": 0.5
+    },
+    "q16": {
+      "self_efficacy": -0.9,
+      "risk_taking": -0.7,
+      "novelty_seeking": -0.6,
+      "harm_avoidance": 0.7,
+      "avoidant_coping": 0.6,
+      "anxiety": 0.6,
+      "sensing": 0.4,
+      "judging": 0.3
+    },
+    "q20": {
+      "growth_mindset": 1,
+      "resilience_meta": 0.8,
+      "cognitive_reappraisal": 0.8,
+      "learning_ability": 0.6,
+      "acceptance": 0.6,
+      "positive_emotions": 0.5,
+      "intuition": 0.5,
+      "perceiving": 0.5
+    },
+    "q24": {
+      "social_boldness": -0.8,
+      "assertiveness": -0.7,
+      "self_consciousness": 0.8,
+      "social_confidence": -0.7,
+      "avoidant_coping": 0.6,
+      "anxiety": 0.5,
+      "introversion": 0.6
+    },
+    "q28": {
+      "resilience_meta": -0.9,
+      "emotional_resilience": -0.8,
+      "rumination": 0.9,
+      "stress_tolerance": -0.6,
+      "acceptance": -0.6,
+      "neuroticism": 0.6,
+      "introversion": 0.4,
+      "feeling": 0.4
+    },
+    "q32": {
+      "cognitive_flexibility": 1,
+      "problem_solving": 0.9,
+      "resilience_meta": 0.8,
+      "adaptability_leadership": 0.7,
+      "divergent_thinking": 0.6,
+      "self_efficacy": 0.7,
+      "intuition": 0.6,
+      "perceiving": 0.6
+    }
+  },
+  "profiles": {
+    "profile_high_confidence": {
+      "id": "profile_high_confidence",
+      "icon": null,
+      "name": {
+        "ru": "Земля под ногами",
+        "en": "Solid Ground"
+      },
+      "description": {
+        "ru": "Все четыре опоры уверенности у тебя держат: ты веришь в свои силы, не теряешься среди людей, спокойно относишься к своим слабым местам и не разваливаешься после неудач. Это даёт редкую свободу — браться за большое и не тратить силы на борьбу с собой.",
+        "en": "All four pillars of your confidence hold: you trust your abilities, you don't shrink around people, you're at peace with your weak spots, and setbacks don't take you apart. That buys a rare freedom — to go after big things without wasting energy fighting yourself."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам теста. У тебя он выше 80 из 100 — высокий результат по всем опорам сразу.",
+        "en": "The algorithm averages your four scales. Yours is above 80 out of 100 — high across all pillars at once."
+      },
+      "strengths": {
+        "ru": [
+          "Веришь в свои силы и подтверждаешь это делом",
+          "Спокойно держишься в любой компании и отстаиваешь своё",
+          "Принимаешь себя целиком — с сильными и слабыми местами",
+          "Быстро встаёшь после неудач и пробуешь снова",
+          "Твоя уверенность заражает — рядом с тобой люди сами становятся смелее"
+        ],
+        "en": [
+          "You trust your abilities and back it up with action",
+          "You hold your own in any room and stand your ground",
+          "You accept yourself whole — strengths and flaws alike",
+          "You get back up fast after setbacks and try again",
+          "Your confidence is contagious — people get braver around you"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Высокая уверенность иногда переоценивает свои возможности",
+          "Слепые зоны роста легко не заметить — кажется, что всё уже работает",
+          "Критику проще отбить, чем услышать"
+        ],
+        "en": [
+          "High confidence sometimes overestimates what it can carry",
+          "Blind spots are easy to miss when everything seems to work",
+          "Criticism is easier to deflect than to hear"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй уверенность фактами: раз в месяц честно сверяй планы с результатами",
+          "Держи рядом людей, которые говорят тебе неудобную правду",
+          "Трать уверенность на цели, которые пугают, — на остальные её жалко",
+          "Помогай тем, у кого опоры слабее: уверенность растёт, когда ей делятся"
+        ],
+        "en": [
+          "Audit confidence against facts: once a month, honestly compare plans with results",
+          "Keep people around who tell you the uncomfortable truth",
+          "Spend confidence on goals that scare you — anything less is a waste of it",
+          "Help those whose pillars are weaker: confidence grows when it's shared"
+        ]
+      },
+      "tryToday": {
+        "ru": "Найди человека, которому не хватает веры в себя, и скажи ему, что у него получается хорошо. Конкретно, не из вежливости.",
+        "en": "Find someone short on self-belief and tell them what they're genuinely good at. Specifically — not out of politeness."
+      },
+      "inspiringConclusion": {
+        "ru": "Твёрдая земля под ногами — это не данность, а результат. Ты её построил — теперь строй на ней.",
+        "en": "Solid ground isn't a given — it's built. You built it; now build on it."
+      }
+    },
+    "profile_confident": {
+      "id": "profile_confident",
+      "icon": null,
+      "name": {
+        "ru": "Ровный шаг",
+        "en": "Steady Stride"
+      },
+      "description": {
+        "ru": "Твоя уверенность стабильная и реалистичная: без перекосов, без бравады. Все четыре опоры держат примерно одинаково хорошо, и это чувствуется — ты идёшь по жизни ровным шагом, не спотыкаясь о собственные сомнения.",
+        "en": "Your confidence is stable and realistic: no distortions, no bravado. All four pillars hold about equally well, and it shows — you move through life at a steady stride, without tripping over your own doubts."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам. У тебя он между 60 и 80 из 100, и ни одна шкала не вырывается далеко вперёд — уверенность распределена ровно.",
+        "en": "The algorithm averages your four scales. Yours sits between 60 and 80 out of 100 with no scale racing far ahead — confidence spread evenly."
+      },
+      "strengths": {
+        "ru": [
+          "Уверенность без перекосов — все опоры работают",
+          "Реалистичная самооценка: знаешь, что умеешь, и не приукрашиваешь",
+          "Умеешь честно смотреть на себя без самобичевания",
+          "Держишь удар в сложных ситуациях"
+        ],
+        "en": [
+          "Confidence without distortions — every pillar carries weight",
+          "Realistic self-assessment: you know what you can do, no embellishment",
+          "You can look at yourself honestly without self-flagellation",
+          "You take hits well in tough situations"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "В затяжном стрессе уверенность может проседать",
+          "Ровный профиль иногда означает, что ни одна опора не прокачана до предела"
+        ],
+        "en": [
+          "Under prolonged stress, confidence can sag",
+          "An even profile sometimes means no pillar is built out to its limit"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Укрепляй уверенность действиями — она растёт от сделанного, а не от размышлений",
+          "Замечай и записывай свои победы: память услужливо хранит только провалы",
+          "Выбери одну опору и прокачай её до максимума — ровная база это позволяет",
+          "Оберегай привычки, которые тебя держат: сон, спорт, люди, после которых сил больше"
+        ],
+        "en": [
+          "Build confidence through action — it grows from things done, not things pondered",
+          "Notice and write down your wins: memory helpfully keeps only the failures",
+          "Pick one pillar and build it out to the max — an even base lets you",
+          "Protect the habits that hold you up: sleep, exercise, people who leave you with more energy"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши пять вещей, которыми ты в себе гордишься, и перечитай список вечером.",
+        "en": "Write down five things you're proud of in yourself and reread the list tonight."
+      },
+      "inspiringConclusion": {
+        "ru": "Ровный шаг уводит дальше, чем рывки. Продолжай идти.",
+        "en": "A steady stride carries you farther than sprints. Keep walking."
+      }
+    },
+    "profile_self_believer": {
+      "id": "profile_self_believer",
+      "icon": null,
+      "name": {
+        "ru": "Внутренний компас",
+        "en": "The Inner Compass"
+      },
+      "description": {
+        "ru": "Твоя главная опора — вера в собственные силы. Ты знаешь, что справишься с тем, за что берёшься, и это знание не зависит от чужих оценок. Внутренний компас работает — даже когда снаружи штормит.",
+        "en": "Your strongest pillar is belief in your own abilities. You know you can handle what you take on, and that knowledge doesn't hinge on anyone's approval. The inner compass works — even when it's storming outside."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и смотрит на разброс. У тебя средний выше 60, а шкала «Вера в свои силы» заметно опережает остальные — она и определила профиль.",
+        "en": "The algorithm averages your four scales and looks at the spread. Your average is above 60, and 'Belief in Your Abilities' clearly leads the rest — that's what set your profile."
+      },
+      "strengths": {
+        "ru": [
+          "Глубокая вера в свои способности, не зависящая от чужого мнения",
+          "Берёшься за сложные задачи без долгих уговоров себя",
+          "Настойчивость: раз решил — идёшь до конца",
+          "Опираешься на себя, а не на обстоятельства"
+        ],
+        "en": [
+          "Deep belief in your abilities that doesn't lean on others' opinions",
+          "You take on hard tasks without lengthy self-persuasion",
+          "Persistence: once decided, you see it through",
+          "You lean on yourself, not on circumstances"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "В социальных ситуациях уверенность может звучать тише, чем она есть",
+          "Внутренняя вера не всегда видна снаружи — и люди могут её недооценивать"
+        ],
+        "en": [
+          "In social settings your confidence can sound quieter than it is",
+          "Inner belief isn't always visible from outside — people may underrate it"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Тренируй внешний слой: говори о своих результатах вслух, не жди, что заметят сами",
+          "Выноси внутреннюю уверенность в общение — она заслуживает быть услышанной",
+          "Используй веру в себя как трамплин для социальных вызовов, которые откладывал"
+        ],
+        "en": [
+          "Train the outer layer: speak your results out loud instead of waiting to be noticed",
+          "Bring your inner confidence into conversations — it deserves to be heard",
+          "Use self-belief as a springboard for the social challenges you've been postponing"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выскажи свою идею или позицию в группе — дай другим увидеть уверенность, которую ты обычно держишь внутри.",
+        "en": "Voice an idea or a stance in a group today — let others see the confidence you usually keep inside."
+      },
+      "inspiringConclusion": {
+        "ru": "Компас, который работает, жалко держать в кармане. Доставай его при людях.",
+        "en": "A compass that works is wasted in a pocket. Take it out where people can see."
+      }
+    },
+    "profile_social_confident": {
+      "id": "profile_social_confident",
+      "icon": null,
+      "name": {
+        "ru": "Голос в комнате",
+        "en": "A Voice in the Room"
+      },
+      "description": {
+        "ru": "Твоя главная опора — смелость в общении. Ты легко входишь в контакт, отстаиваешь своё мнение и чувствуешь себя среди людей как дома. В любой комнате твой голос слышен — и это открывает двери.",
+        "en": "Your strongest pillar is boldness with people. You connect easily, defend your opinions, and feel at home in a crowd. In any room your voice carries — and that opens doors."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и смотрит на разброс. У тебя средний выше 60, а шкала «Смелость в общении» заметно опережает остальные.",
+        "en": "The algorithm averages your four scales and looks at the spread. Your average is above 60, and 'Boldness with People' clearly leads the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Легко находишь общий язык с новыми людьми",
+          "Уверенно отстаиваешь своё мнение, даже против течения",
+          "В группах чувствуешь себя свободно, а не выживаешь",
+          "Силён в переговорах и выступлениях"
+        ],
+        "en": [
+          "You find common ground with new people easily",
+          "You defend your opinion confidently, even against the current",
+          "In groups you feel free, not in survival mode",
+          "Strong in negotiations and presentations"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Внутренняя самооценка может быть менее устойчивой, чем внешний образ",
+          "Социальная лёгкость иногда маскирует сомнения, которые никуда не делись"
+        ],
+        "en": [
+          "Your inner self-esteem can be less stable than the outer image",
+          "Social ease sometimes masks doubts that haven't gone anywhere"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверь, на чём держится уверенность, когда рядом никого нет, — и укрепляй именно это",
+          "Работай над отношением к себе без зрителей: оно должно выдерживать тишину",
+          "Используй социальную силу, чтобы подтягивать остальные опоры — проси обратную связь у людей, которым доверяешь"
+        ],
+        "en": [
+          "Check what your confidence stands on when no one's around — and reinforce exactly that",
+          "Work on how you treat yourself with no audience: it should survive silence",
+          "Use your social strength to lift the other pillars — ask people you trust for honest feedback"
+        ]
+      },
+      "tryToday": {
+        "ru": "Проведи десять минут в тишине и запиши три своих качества, которые ценишь без связи с чужим одобрением.",
+        "en": "Spend ten minutes in silence and write down three qualities you value in yourself with no link to anyone's approval."
+      },
+      "inspiringConclusion": {
+        "ru": "Твой голос уже слышен в комнате. Позаботься, чтобы он звучал так же уверенно, когда комната пуста.",
+        "en": "Your voice already carries in the room. Make sure it sounds just as sure when the room is empty."
+      }
+    },
+    "profile_self_accepting": {
+      "id": "profile_self_accepting",
+      "icon": null,
+      "name": {
+        "ru": "Мир с собой",
+        "en": "At Peace with Yourself"
+      },
+      "description": {
+        "ru": "Твоя главная опора — здоровое отношение к себе. Ты принимаешь свои слабые места без самоедства, прощаешь себе ошибки и не тратишь жизнь на войну с собственным отражением. Это фундамент, которого у многих уверенных снаружи людей нет.",
+        "en": "Your strongest pillar is how you treat yourself. You accept your weak spots without self-torture, forgive your mistakes, and don't spend your life at war with your own reflection. That's a foundation many outwardly confident people lack."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и смотрит на разброс. У тебя средний выше 60, а шкала «Отношение к себе» заметно опережает остальные.",
+        "en": "The algorithm averages your four scales and looks at the spread. Your average is above 60, and 'How You Treat Yourself' clearly leads the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Спокойно признаёшь свои слабые места — без драмы и отрицания",
+          "Умеешь прощать себе ошибки и идти дальше",
+          "Эмоционально устойчив: самооценка не скачет от каждого промаха",
+          "Видишь себя реалистично, без кривых зеркал"
+        ],
+        "en": [
+          "You own your weak spots calmly — no drama, no denial",
+          "You forgive your mistakes and move on",
+          "Emotionally steady: your self-worth doesn't lurch at every slip",
+          "You see yourself realistically, no funhouse mirrors"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Принятие может переходить в «и так сойдёт» — мотивация к росту буксует",
+          "Смелость в общении и готовность действовать могут отставать от внутреннего покоя"
+        ],
+        "en": [
+          "Acceptance can slide into 'good enough' — motivation to grow stalls",
+          "Boldness with people and readiness to act can lag behind the inner calm"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Сочетай принятие с движением: мир с собой — это база, а не финиш",
+          "Переводи спокойствие в действие — ставь цели, которые чуть страшно называть вслух",
+          "Используй самопринятие как страховку для смелых шагов: падать с ней не так больно"
+        ],
+        "en": [
+          "Pair acceptance with motion: peace with yourself is a base, not a finish line",
+          "Convert calm into action — set goals slightly scary to say out loud",
+          "Use self-acceptance as a safety rope for bold moves: falling hurts less with it on"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поставь себе один небольшой вызов в области, где чувствуешь неуверенность, — именно потому, что теперь есть на что опереться.",
+        "en": "Set yourself one small challenge in an area where you feel unsure — precisely because now you have something to land on."
+      },
+      "inspiringConclusion": {
+        "ru": "Мир с собой — редкая валюта. Трать её на рост, а не только на покой.",
+        "en": "Peace with yourself is rare currency. Spend it on growth, not just on quiet."
+      }
+    },
+    "profile_resilient": {
+      "id": "profile_resilient",
+      "icon": null,
+      "name": {
+        "ru": "Пружина",
+        "en": "The Spring"
+      },
+      "description": {
+        "ru": "Твоя главная опора — готовность действовать и подниматься после неудач. Ты не боишься пробовать новое, а провалы сжимают тебя лишь для того, чтобы ты распрямился сильнее. Пока другие обдумывают риски, ты уже вторая попытка.",
+        "en": "Your strongest pillar is readiness to act and bounce back. You're not afraid to try new things, and failures compress you only for you to snap back stronger. While others weigh the risks, you're already on attempt two."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и смотрит на разброс. У тебя средний выше 60, а шкала «Готовность действовать» заметно опережает остальные.",
+        "en": "The algorithm averages your four scales and looks at the spread. Your average is above 60, and 'Readiness to Act' clearly leads the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Пробуешь новое без долгой раскачки",
+          "Быстро восстанавливаешься после неудач",
+          "Ошибки для тебя — материал, а не приговор",
+          "Действуешь, даже когда страшно"
+        ],
+        "en": [
+          "You try new things without a long wind-up",
+          "You recover fast from setbacks",
+          "Mistakes are material to you, not a verdict",
+          "You act even when it's scary"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "За постоянным действием может прятаться недостаток глубинной веры в себя",
+          "Активность иногда работает как способ не оставаться с собой наедине"
+        ],
+        "en": [
+          "Constant motion can hide a shortage of deep self-belief",
+          "Activity sometimes doubles as a way to avoid being alone with yourself"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Останавливайся, чтобы присвоить победы: сделанное без осмысления не кормит уверенность",
+          "Укрепляй веру в себя, а не только счётчик попыток",
+          "Учись отдыхать без чувства вины — пружине нужно и разжиматься"
+        ],
+        "en": [
+          "Pause to claim your wins: things done but never digested don't feed confidence",
+          "Strengthen belief in yourself, not just the attempt counter",
+          "Learn to rest without guilt — a spring needs to uncoil too"
+        ]
+      },
+      "tryToday": {
+        "ru": "После активного дня выдели вечером десять минут на вопрос «кто я, когда ничего не делаю» — и не сбегай от ответа в дела.",
+        "en": "After a busy day, give the evening ten minutes to the question 'who am I when I'm not doing anything' — and don't escape the answer into tasks."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя способность подниматься — суперсила. Дай ей ещё и точку опоры внутри — и тебя будет не остановить.",
+        "en": "Your ability to get back up is a superpower. Give it an anchor inside as well — and nothing will stop you."
+      }
+    },
+    "profile_doubter": {
+      "id": "profile_doubter",
+      "icon": null,
+      "name": {
+        "ru": "Внутренний скептик",
+        "en": "The Inner Skeptic"
+      },
+      "description": {
+        "ru": "В целом твоя уверенность на среднем уровне, но одна опора прогибается: вера в собственные силы. Внутренний скептик проверяет каждый твой план на прочность — и часто бракует то, с чем ты бы справился. Способности у тебя больше, чем он тебе рассказывает.",
+        "en": "Overall your confidence is mid-level, but one pillar bends: belief in your own abilities. The inner skeptic stress-tests every plan you make — and often rejects things you could have handled. You have more ability than he gives you credit for."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и ищет слабейшую. У тебя средний между 40 и 60, а заметно ниже остальных просела шкала «Вера в свои силы».",
+        "en": "The algorithm averages your four scales and finds the weakest. Your average sits between 40 and 60, and 'Belief in Your Abilities' dipped clearly below the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Трезво оцениваешь риски — авантюры мимо тебя не проходят",
+          "Готовишься тщательно, потому и делаешь качественно",
+          "Умеешь сомневаться — а значит, и проверять, где другие верят на слово"
+        ],
+        "en": [
+          "You assess risks soberly — reckless bets don't get past you",
+          "You prepare thoroughly, which is why your work holds up",
+          "You know how to doubt — which means you verify where others take things on faith"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Сомнения в своих силах часто громче фактов",
+          "Откладываешь начинания, потому что «ещё не готов»",
+          "Возможности уходят к тем, кто сомневался меньше"
+        ],
+        "en": [
+          "Doubts about your abilities often shout louder than facts",
+          "You postpone starts because you're 'not ready yet'",
+          "Opportunities go to people who doubted less"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Заведи дневник успехов и записывай сделанное — скептику нужны документы",
+          "Бросай себе маленькие вызовы и фиксируй победы",
+          "Лови скептика на слове: он говорил «не получится» — а что вышло на деле?",
+          "Перед новым вызовом вспоминай три прошлых, где ты справился лучше ожиданий"
+        ],
+        "en": [
+          "Keep a wins journal and log what you've done — the skeptic demands paperwork",
+          "Set yourself small challenges and record the victories",
+          "Catch the skeptic lying: he said 'it won't work' — what actually happened?",
+          "Before a new challenge, recall three past ones where you beat your own expectations"
+        ]
+      },
+      "tryToday": {
+        "ru": "Запиши три ситуации из прошлого, где ты справился лучше, чем ожидал. Это показания против твоего скептика.",
+        "en": "Write down three past situations where you did better than expected. That's evidence against your skeptic."
+      },
+      "inspiringConclusion": {
+        "ru": "Сомнения — не правда о тебе, а только версия. Факты у тебя лучше.",
+        "en": "Doubt isn't the truth about you — just a theory. Your facts are better."
+      }
+    },
+    "profile_shy": {
+      "id": "profile_shy",
+      "icon": null,
+      "name": {
+        "ru": "Тихий голос",
+        "en": "The Quiet Voice"
+      },
+      "description": {
+        "ru": "Внутри у тебя есть уверенность — но в социальных ситуациях она говорит шёпотом. Ты знаешь себе цену наедине с собой, а в группе твой голос теряется, и люди недооценивают того, кого не слышно. Твоя задача не «стать другим», а вывести громкость внутреннего на внешнее.",
+        "en": "There is confidence inside you — but in social situations it speaks in a whisper. Alone, you know your worth; in a group your voice gets lost, and people underrate whoever they can't hear. The task isn't to 'become someone else' — it's to turn the inner volume outward."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и ищет слабейшую. У тебя средний между 40 и 60, а заметно ниже остальных — шкала «Смелость в общении».",
+        "en": "The algorithm averages your four scales and finds the weakest. Your average sits between 40 and 60, and 'Boldness with People' dipped clearly below the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Внутренняя уверенность в своих способностях — база уже есть",
+          "Глубина: ты думаешь, прежде чем говорить",
+          "Наблюдательность — видишь в людях то, что болтуны пропускают",
+          "Умеешь слушать, и людям это дорого"
+        ],
+        "en": [
+          "Inner confidence in your abilities — the base is already there",
+          "Depth: you think before you speak",
+          "Observation — you see things in people that talkers miss",
+          "You know how to listen, and people treasure that"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Отстаивать своё мнение вслух даётся тяжело",
+          "Группы и большие компании съедают энергию",
+          "Тебя недооценивают — не по способностям, а по громкости"
+        ],
+        "en": [
+          "Defending your opinion out loud comes hard",
+          "Groups and crowds drain your energy",
+          "People underrate you — not on ability, on volume"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Тренируй голос малыми дозами: один комментарий на встрече — уже победа",
+          "Готовь реплики заранее — заготовки снимают половину страха",
+          "Помни: твоё мнение не менее ценно оттого, что сказано тихо",
+          "Найди людей, рядом с которыми говорить легко, и расширяй круг от них"
+        ],
+        "en": [
+          "Train the voice in small doses: one comment in a meeting already counts as a win",
+          "Prepare lines in advance — drafts remove half the fear",
+          "Remember: your opinion loses no value for being said quietly",
+          "Find the people you speak easily around, and widen the circle from there"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выскажи сегодня одно мнение в разговоре, даже если некомфортно. Одно. Этого достаточно.",
+        "en": "Voice one opinion in a conversation today, even if it's uncomfortable. One. That's enough."
+      },
+      "inspiringConclusion": {
+        "ru": "Тихий голос — всё ещё голос. Миру стоит его услышать.",
+        "en": "A quiet voice is still a voice. The world deserves to hear it."
+      }
+    },
+    "profile_self_critical": {
+      "id": "profile_self_critical",
+      "icon": null,
+      "name": {
+        "ru": "Строгий судья",
+        "en": "The Harsh Judge"
+      },
+      "description": {
+        "ru": "Твоя уверенность в целом на среднем уровне, но её подтачивает внутренний судья: он строже к тебе, чем ты когда-либо был бы к другому. Достижения он записывает карандашом, ошибки — чернилами. С таким обвинителем тебе не нужны внешние критики.",
+        "en": "Your confidence is mid-level overall, but an inner judge keeps eroding it: he's harsher on you than you would ever be on anyone else. He writes your achievements in pencil and your mistakes in ink. With a prosecutor like that, you don't need outside critics."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и ищет слабейшую. У тебя средний между 40 и 60, а заметно ниже остальных — шкала «Отношение к себе».",
+        "en": "The algorithm averages your four scales and finds the weakest. Your average sits between 40 and 60, and 'How You Treat Yourself' dipped clearly below the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Высокие стандарты — халтура через тебя не проходит",
+          "Постоянное стремление становиться лучше",
+          "Глубокая рефлексия: ты видишь в себе то, чего другие не замечают"
+        ],
+        "en": [
+          "High standards — sloppy work doesn't get past you",
+          "A constant drive to get better",
+          "Deep reflection: you see things in yourself others never notice"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Самокритика бьёт сильнее и чаще, чем того требует дело",
+          "Комплименты отскакивают — принять похвалу почти невозможно",
+          "Взгляд прикован к недостаткам, достоинства проходят фоном"
+        ],
+        "en": [
+          "Self-criticism hits harder and more often than the job requires",
+          "Compliments bounce off — accepting praise feels nearly impossible",
+          "Your gaze locks onto flaws while strengths pass by unnoticed"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Говори с собой как с другом: тон, которым ты утешаешь других, подходит и тебе",
+          "Замечай судью в момент выступления и отвечай ему спокойно, фактами",
+          "Празднуй маленькие победы намеренно — судья сам их не объявит",
+          "Ошибка — это событие, а не характеристика. Разделяй «я ошибся» и «я ошибка»"
+        ],
+        "en": [
+          "Talk to yourself the way you'd talk to a friend: the tone you comfort others with fits you too",
+          "Catch the judge mid-speech and answer him calmly, with facts",
+          "Celebrate small wins deliberately — the judge won't announce them",
+          "A mistake is an event, not an identity. Keep 'I made a mistake' apart from 'I am a mistake'"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поймав себя на самокритике, спроси: «Что бы я сказал другу в этой ситуации?» — и скажи это себе.",
+        "en": "When you catch yourself in self-criticism, ask: 'What would I tell a friend in this situation?' — then tell it to yourself."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты заслуживаешь той же доброты, которую раздаёшь другим. Начни выдавать её и себе.",
+        "en": "You deserve the same kindness you hand out to others. Start issuing some to yourself."
+      }
+    },
+    "profile_cautious": {
+      "id": "profile_cautious",
+      "icon": null,
+      "name": {
+        "ru": "Осторожный шаг",
+        "en": "The Careful Step"
+      },
+      "description": {
+        "ru": "Твоя уверенность в целом на среднем уровне, но слабее всего опора действия: неудачи бьют больно и заживают долго, поэтому ты предпочитаешь проверенные тропы новым. Осторожность бережёт от падений — и заодно от находок.",
+        "en": "Your confidence is mid-level overall, but the action pillar is your weakest: failures hit hard and heal slowly, so you prefer proven paths to new ones. Caution protects you from falls — and from discoveries, too."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам и ищет слабейшую. У тебя средний между 40 и 60, а заметно ниже остальных — шкала «Готовность действовать».",
+        "en": "The algorithm averages your four scales and finds the weakest. Your average sits between 40 and 60, and 'Readiness to Act' dipped clearly below the rest."
+      },
+      "strengths": {
+        "ru": [
+          "Решения обдуманы, а не импульсивны",
+          "Риски просчитаны — рядом с тобой спокойно",
+          "Надёжность: если ты взялся, ты доведёшь"
+        ],
+        "en": [
+          "Your decisions are considered, not impulsive",
+          "Risks are calculated — people feel safe around you",
+          "Reliability: if you take something on, you finish it"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Новые возможности проходят мимо, пока идёт оценка рисков",
+          "После неудач восстанавливаешься дольше, чем хотелось бы",
+          "Страх ошибки местами превращается в стояние на месте"
+        ],
+        "en": [
+          "New opportunities pass by while the risk assessment is still running",
+          "You take longer to recover from failures than you'd like",
+          "Fear of mistakes sometimes turns into standing still"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Практикуй маленькие безопасные «провалы» — учись падать там, где невысоко",
+          "Переопредели неудачу: это данные, а не приговор",
+          "Ставь микроцели на инициативу: одно новое действие в неделю",
+          "Считай попытки, а не только результаты — попытка уже меняет тебя",
+          "Помни: бездействие — тоже ставка, просто её проигрыш виден не сразу"
+        ],
+        "en": [
+          "Practice small safe 'failures' — learn to fall where it isn't far down",
+          "Redefine failure: it's data, not a verdict",
+          "Set micro-goals for initiative: one new action a week",
+          "Count attempts, not just results — the attempt itself changes you",
+          "Remember: inaction is a bet too, its losses just show up later"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай сегодня одну маленькую вещь, которую откладывал из страха неудачи. Самую маленькую из списка.",
+        "en": "Do one small thing today you've been postponing out of fear of failure. The smallest one on the list."
+      },
+      "inspiringConclusion": {
+        "ru": "Каждая попытка — победа независимо от результата. Осторожный шаг — всё ещё шаг.",
+        "en": "Every attempt is a win regardless of outcome. A careful step is still a step."
+      }
+    },
+    "profile_developing": {
+      "id": "profile_developing",
+      "icon": null,
+      "name": {
+        "ru": "Фундамент строится",
+        "en": "Foundation in Progress"
+      },
+      "description": {
+        "ru": "Твоя уверенность на среднем уровне без выраженных провалов — фундамент заложен, но стройка идёт. В хорошие дни опоры держат, в тяжёлые — пошатываются. Это самая благодарная точка для роста: основание есть, осталось наращивать этажи.",
+        "en": "Your confidence is mid-level with no pronounced dips — the foundation is laid, but construction is ongoing. On good days the pillars hold; on hard days they wobble. It's the most rewarding place to grow from: the base exists, now come the floors."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам. У тебя он между 40 и 60 из 100, и ни одна шкала не просела критически — ровный средний профиль.",
+        "en": "The algorithm averages your four scales. Yours sits between 40 and 60 out of 100 with no scale dipping critically — an even middle profile."
+      },
+      "strengths": {
+        "ru": [
+          "Реалистичный взгляд на себя — без розовых и без чёрных очков",
+          "Нет критических провалов: все опоры на месте",
+          "Способность к честной саморефлексии",
+          "Открытость росту — ты здесь, и это не случайно"
+        ],
+        "en": [
+          "A realistic view of yourself — no rose-tinted glasses, no black ones",
+          "No critical dips: every pillar is standing",
+          "A capacity for honest self-reflection",
+          "Openness to growth — you're here, and that's no accident"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Уверенность колеблется вместе с обстоятельствами",
+          "Средний уровень везде может означать «нигде не силён по-настоящему»"
+        ],
+        "en": [
+          "Confidence sways with circumstances",
+          "Mid-level everywhere can mean truly strong nowhere"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выбери одну опору и сфокусируйся на ней месяц — распылённые усилия не строят",
+          "Ставь достижимые цели и закрывай их: уверенность растёт от завершённого",
+          "Фиксируй прогресс письменно — на глаз он незаметен",
+          "Окружай себя людьми, после которых хочется делать, а не оправдываться"
+        ],
+        "en": [
+          "Pick one pillar and focus on it for a month — scattered effort builds nothing",
+          "Set reachable goals and close them: confidence grows from finished things",
+          "Track progress in writing — the naked eye can't see it",
+          "Surround yourself with people who leave you wanting to act, not to apologise"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одну из четырёх опор для работы на этой неделе и сделай сегодня первый конкретный шаг.",
+        "en": "Choose one of the four pillars to work on this week and take the first concrete step today."
+      },
+      "inspiringConclusion": {
+        "ru": "Уверенность строится этажами, а не появляется зданием. Твой фундамент уже залит.",
+        "en": "Confidence goes up floor by floor — it doesn't arrive as a finished building. Your foundation is already poured."
+      }
+    },
+    "profile_low_confidence": {
+      "id": "profile_low_confidence",
+      "icon": null,
+      "name": {
+        "ru": "Зыбкая почва",
+        "en": "Shaky Ground"
+      },
+      "description": {
+        "ru": "Сейчас уверенность даётся тебе тяжело: почва под ногами зыбкая, и решения, разговоры, новые шаги требуют больше сил, чем должны. Часто это не черта характера, а след обстоятельств — усталости, неудач, людей, которые тебя не поддержали. Почва укрепляется, и это делается по шагам.",
+        "en": "Confidence is hard for you right now: the ground underfoot is shaky, and decisions, conversations, new steps cost more energy than they should. Often that's not a character trait but the residue of circumstances — exhaustion, setbacks, people who didn't hold you up. Ground can be reinforced, and it's done step by step."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам. У тебя он между 20 и 40 из 100 — уверенность просела в нескольких опорах сразу.",
+        "en": "The algorithm averages your four scales. Yours sits between 20 and 40 out of 100 — confidence has sagged across several pillars at once."
+      },
+      "strengths": {
+        "ru": [
+          "Ты видишь ситуацию честно — без этого не бывает изменений",
+          "Ты ищешь ответы, а не оправдания: тест тому свидетель",
+          "Опыт неуверенности делает тебя внимательным к другим людям"
+        ],
+        "en": [
+          "You see the situation honestly — no change happens without that",
+          "You're looking for answers, not excuses: this test is proof",
+          "Knowing what self-doubt feels like makes you attentive to other people"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Низкая уверенность задевает сразу многое: работу, общение, решения",
+          "Внутренний диалог чаще обвиняет, чем поддерживает",
+          "Есть соблазн избегать людей и ситуаций — а изоляция усиливает круг"
+        ],
+        "en": [
+          "Low confidence touches many things at once: work, people, decisions",
+          "Your inner dialogue prosecutes more often than it supports",
+          "Avoiding people and situations is tempting — and isolation feeds the loop"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Начинай с целей на один шаг: слишком маленьких, чтобы провалить",
+          "Разговаривай с собой как с человеком, которому хочешь помочь, а не которого судишь",
+          "Не сравнивай себя с другими — сравнивай с собой месячной давности",
+          "Фокусируйся на процессе: «я сделал», а не «получилось ли идеально»",
+          "Держись людей, после которых сил больше, а не меньше"
+        ],
+        "en": [
+          "Start with one-step goals: too small to fail",
+          "Talk to yourself like someone you want to help, not someone on trial",
+          "Don't compare yourself with others — compare with yourself a month ago",
+          "Focus on process: 'I did it', not 'was it perfect'",
+          "Stay close to people who leave you with more energy, not less"
+        ]
+      },
+      "tryToday": {
+        "ru": "Напиши себе короткое письмо поддержки от лица друга, который в тебя верит. Сохрани его — оно ещё пригодится.",
+        "en": "Write yourself a short letter of support in the voice of a friend who believes in you. Keep it — you'll want it again."
+      },
+      "inspiringConclusion": {
+        "ru": "Уверенность — навык, а не лотерейный билет при рождении. Зыбкая почва укрепляется — по шагу за раз.",
+        "en": "Confidence is a skill, not a ticket drawn at birth. Shaky ground firms up — one step at a time."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если неуверенность давно мешает жить — решениям, работе, отношениям, — разговор с психологом ощутимо ускоряет дорогу: самооценка — одна из самых рабочих тем, с ней действительно умеют помогать.",
+        "en": "This is an educational test, not a diagnosis. But if self-doubt has been in the way of your life for a while — decisions, work, relationships — talking to a psychologist genuinely shortens the road: self-esteem is one of the most workable topics, and help for it really works."
+      }
+    },
+    "profile_struggling": {
+      "id": "profile_struggling",
+      "icon": null,
+      "name": {
+        "ru": "Без опоры",
+        "en": "Nothing to Lean On"
+      },
+      "description": {
+        "ru": "Сейчас ты почти без опоры: вера в себя, смелость с людьми, отношение к себе и готовность действовать — всё просело одновременно. Так жить очень тяжело, и то, что ты дочитал до этого места, уже поступок. Этот результат — про текущий период, а не про то, кем ты являешься.",
+        "en": "Right now you have almost nothing to lean on: belief in yourself, boldness with people, how you treat yourself and readiness to act have all sagged at once. Living like that is genuinely hard, and reading this far is already an act. This result describes a period — not who you are."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по четырём шкалам. У тебя он ниже 20 из 100 — очень низкие ответы по всем опорам уверенности.",
+        "en": "The algorithm averages your four scales. Yours is below 20 out of 100 — very low answers across every pillar of confidence."
+      },
+      "strengths": {
+        "ru": [
+          "Ты честен с собой в момент, когда честность даётся дороже всего",
+          "Ты прошёл тест до конца — значит, готовность к изменениям есть",
+          "Ты способен попросить о помощи, а это сила, которой не хватает многим уверенным"
+        ],
+        "en": [
+          "You're honest with yourself at the moment honesty costs the most",
+          "You finished the test — so the readiness for change is there",
+          "You're able to ask for help, a strength many confident people lack"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Самооценка сейчас не выполняет свою работу — не защищает и не поддерживает",
+          "Тяжёлый внутренний фон может тянуть за собой сон, энергию и желание общаться",
+          "В таком состоянии легко поверить, что это навсегда, — это не так"
+        ],
+        "en": [
+          "Self-esteem isn't doing its job right now — it neither protects nor supports",
+          "The heavy inner background can drag down sleep, energy and the wish to see people",
+          "In this state it's easy to believe it's forever — it isn't"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Не изолируйся: держи связь хотя бы с одним человеком, рядом с которым легче",
+          "Будь к себе максимально бережен — сейчас не время для самотребований",
+          "Один маленький шаг в день — этого правда достаточно",
+          "Отмечай любой просвет: что сегодня было чуть легче, чем вчера?"
+        ],
+        "en": [
+          "Don't isolate: keep contact with at least one person who makes things lighter",
+          "Be as gentle with yourself as you can — this is not the season for demands",
+          "One small step a day — that truly is enough",
+          "Note every patch of light: what was a little easier today than yesterday?"
+        ]
+      },
+      "tryToday": {
+        "ru": "Позвони или напиши одному близкому человеку — просто поговорить. Не о проблемах, если не хочется. Просто голос рядом.",
+        "en": "Call or text one close person — just to talk. Not about problems, if you'd rather not. Just a voice nearby."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты не один, и помощь существует. Опоры отстраиваются — у тебя есть право на поддержку, пока они строятся.",
+        "en": "You are not alone, and help exists. Pillars can be rebuilt — and you're allowed to be held up while they are."
+      },
+      "supportNote": {
+        "ru": "Этот результат — не диагноз: тест образовательный. Но почти в каждом ответе ты выбирал самый тяжёлый вариант, и такой фон — большая нагрузка, которую не стоит нести в одиночку. Поговори со специалистом, не откладывая: с состояниями, когда опоры не держат, психологи работают каждый день — и по этой дороге выходили многие.",
+        "en": "This result is not a diagnosis: the test is educational. But in almost every answer you chose the heaviest option, and a background like that is too much to carry alone. Talk to a professional without putting it off: psychologists work with states like this every day — and many people have walked out of them."
+      }
+    },
+    "profile_balanced": {
+      "id": "profile_balanced",
+      "icon": null,
+      "name": {
+        "ru": "Ровная площадка",
+        "en": "Level Ground"
+      },
+      "description": {
+        "ru": "Твой профиль уверенности ровный: без выраженных пиков и провалов. Опоры держат одинаково — это хорошая площадка, с которой можно строить в любую сторону.",
+        "en": "Your confidence profile is even: no pronounced peaks or dips. The pillars hold equally — good level ground you can build on in any direction."
+      },
+      "whyThisProfile": {
+        "ru": "Ответы распределились равномерно по всем четырём шкалам, без выраженного лидера и слабого места.",
+        "en": "Your answers spread evenly across all four scales, with no clear leader and no weak spot."
+      },
+      "strengths": {
+        "ru": [
+          "Равномерное развитие всех опор",
+          "Нет критических слабых мест",
+          "Стабильная, предсказуемая самооценка"
+        ],
+        "en": [
+          "Even development across all pillars",
+          "No critical weak spots",
+          "Stable, predictable self-esteem"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Ровный профиль может означать отсутствие ярко выраженной сильной стороны",
+          "Расти можно во всех направлениях — а значит, легко не выбрать ни одного"
+        ],
+        "en": [
+          "An even profile can mean no single standout strength",
+          "You can grow in every direction — which makes it easy to pick none"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Выбери одно направление и вкладывайся в него осознанно",
+          "Укрепляй уверенность действием — площадка любит стройку",
+          "Отмечай успехи письменно, чтобы видеть движение"
+        ],
+        "en": [
+          "Pick one direction and invest in it deliberately",
+          "Build confidence through action — level ground is made for building",
+          "Write your wins down so the movement is visible"
+        ]
+      },
+      "tryToday": {
+        "ru": "Выбери одну опору уверенности и запланируй конкретное действие для её развития на этой неделе.",
+        "en": "Choose one pillar of confidence and plan a concrete action to develop it this week."
+      },
+      "inspiringConclusion": {
+        "ru": "Ровная площадка — отличный старт. Выбери, что на ней построить.",
+        "en": "Level ground is a great start. Decide what to build on it."
+      }
+    }
+  },
+  "profileSelection": {
+    "$note": "Перенос determineProfile() из self_confidence_multiscale_data.dart: полосы по среднему четырёх факторов (80/60/40/20); в полосе 60–80 при разбросе >20 — ветка по доминирующему фактору, в полосе 40–60 при слабейшем <35 — ветка по слабейшему. Доминанта = сравнение с @top1, слабейший = попарные <= (Dart на 4 элементах сортирует стабильно и берёт первый — порядок правил повторяет порядок обхода факторов, ничьи решаются одинаково). profile_balanced — ветка пустого ввода, с реальными ответами недостижима.",
+    "mode": "rules",
+    "fallback": "profile_struggling",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            80
+          ]
+        ],
+        "profile": "profile_high_confidence"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ],
+          [
+            "@range",
+            ">",
+            20
+          ],
+          [
+            "general_self_belief",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_self_believer"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ],
+          [
+            "@range",
+            ">",
+            20
+          ],
+          [
+            "social_assertiveness",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_social_confident"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ],
+          [
+            "@range",
+            ">",
+            20
+          ],
+          [
+            "self_acceptance",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_self_accepting"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ],
+          [
+            "@range",
+            ">",
+            20
+          ],
+          [
+            "initiative_resilience",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_resilient"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            60
+          ]
+        ],
+        "profile": "profile_confident"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ],
+          [
+            "general_self_belief",
+            "<",
+            35
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "self_acceptance"
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_doubter"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ],
+          [
+            "social_assertiveness",
+            "<",
+            35
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "self_acceptance"
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_shy"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ],
+          [
+            "self_acceptance",
+            "<",
+            35
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_self_critical"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ],
+          [
+            "initiative_resilience",
+            "<",
+            35
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "self_acceptance"
+          ]
+        ],
+        "profile": "profile_cautious"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            40
+          ]
+        ],
+        "profile": "profile_developing"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            20
+          ]
+        ],
+        "profile": "profile_low_confidence"
+      }
+    ]
+  }
+}

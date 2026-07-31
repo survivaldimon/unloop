@@ -60,6 +60,11 @@ const FREE_BREAKDOWN: Record<string, boolean> = {
   romantic_potential_v1: false,
   // Level test: the six pillars behind the compatibility level are the paid read.
   relationship_compatibility_v1: false,
+  // Level test: which of the seven EQ components carries the level IS the paid read.
+  emotional_intelligence: false,
+  // Level bands with a named type inside them, but the type name already says
+  // which pillar leads or bends — the four numbers behind it are the paid read.
+  self_confidence_multiscale_v1: false,
 };
 
 /**

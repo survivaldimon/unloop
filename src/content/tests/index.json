@@ -236,5 +236,33 @@
     "categoryId": "relationships",
     "estimatedMinutes": 7,
     "questionCount": 24
+  },
+  {
+    "id": "emotional_intelligence",
+    "title": {
+      "ru": "Эмоциональный интеллект",
+      "en": "Emotional Intelligence"
+    },
+    "description": {
+      "ru": "70 утверждений о том, как ты обращаешься с чувствами — своими и чужими. Замечаешь ли ты, что происходит с людьми рядом, понимаешь ли, откуда берутся твои реакции, и что делаешь, когда эмоции накрывают. Семь шкал: восприятие эмоций, их понимание, управление собой, использование эмоций в деле, эмпатия, социальные навыки и мотивация.",
+      "en": "70 statements about how you handle feelings — your own and other people's. Do you notice what's going on with the people around you, do you understand where your reactions come from, and what do you do when emotions hit. Seven scales: perceiving emotions, understanding them, self-management, putting emotions to work, empathy, social skills and motivation."
+    },
+    "categoryId": "intelligence",
+    "estimatedMinutes": 15,
+    "questionCount": 70
+  },
+  {
+    "id": "self_confidence_multiscale_v1",
+    "title": {
+      "ru": "Из чего собрана твоя уверенность",
+      "en": "What Your Confidence Stands On"
+    },
+    "description": {
+      "ru": "32 утверждения о четырёх опорах уверенности: вера в свои силы, смелость в общении, отношение к себе и готовность действовать после неудач. Тест покажет, какая опора держит тебя крепче всего — и какая прогибается под нагрузкой.",
+      "en": "32 statements about the four pillars of confidence: belief in your abilities, boldness with people, how you treat yourself, and readiness to act after setbacks. The test shows which pillar holds you up strongest — and which one bends under load."
+    },
+    "categoryId": "emotional",
+    "estimatedMinutes": 10,
+    "questionCount": 32
   }
 ]
