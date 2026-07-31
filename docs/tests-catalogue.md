@@ -1,6 +1,6 @@
 # Э1 — Каталожный триаж: что берём из tests_app
 
-Статус: запускной набор подтверждён основателем 28.07.2026; с 30.07.2026 семь тестов живут на проде (`looplore.app/tests`). Права с партнёром урегулированы (устно, 27.07.2026). **Волна 2 начата 30.07.2026** — батч 1 (`friendship_psychology_v1`, `values_priorities_v1`) задеплоен в прод в тот же день, на `/tests` девять тестов. См. раздел «Волна 2» ниже.
+Статус: запускной набор подтверждён основателем 28.07.2026; с 30.07.2026 тесты живут на проде (`looplore.app/tests`). Права с партнёром урегулированы (устно, 27.07.2026). **Волна 2 идёт с 30.07.2026** — батчи 1–5 в проде (батчи 1–4 задеплоены 30.07, батч 5 — 31.07), в каталоге **17 тестов**. См. раздел «Волна 2» ниже.
 
 Основание: `tools/tests-import/out/` (извлечение Э0) + выборочный просмотр вопросов и профилей. Итоговые цифры аудита пересчитываются командой из `tools/tests-import/README.md`.
 
@@ -104,12 +104,18 @@
 
 Верификация: фикстуры 56/56, tsc чист, чанки 105 и 94 КБ, смоук с целевыми доминантами (Броня цинизма, Внимание вдребезги) на дев-сервере, линт Э8 чистый.
 
-### Второй эшелон — готовы, но не в первую волну (осталось 12)
-`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `procrastination_productivity_style_v1`, `romantic_potential_v1`, `relationship_compatibility_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+### Батч 5 ✅ в проде (задеплоен 31.07.2026 по «газ» основателя)
 
-(Забраны волной 2: батч 1 — `friendship_psychology_v1`, `values_priorities_v1`; батч 2 — `imposter_syndrome`, `social_battery_v1`; батч 3 — `boundaries_people_pleasing`, `fomo_social_comparison_v1`; батч 4 — `burnout_diagnostic_v1`, `digital_detox_test`.)
+**`romantic_potential_v1`** («Твой сценарий любви», 36 q, 3 профиля-уровня) и **`relationship_compatibility_v1`** («Твоя формула совместимости», 24 q, 3 профиля-уровня) — реляционная пара, ядро ниши. Правила у обоих — пороги по среднему всех факторов (75/45), перенос из Dart один в один; у romantic 12 обратных вопросов из 36 — достижимость верхнего профиля подтверждена синтетикой (зеркалятся в 100%). Scale-map: romantic чист, у compatibility 6 фантомов (+5 алиасов: `values_ethics`→`values`, `attachment_security`→`secure_attachment`, `self_sufficiency`→`autonomy_need`, `need_for_stability`→`relationship_security`, `cooperation`→`cooperativeness`; `predictability` в drop — синоним стабильности на том же вопросе, слияние удвоило бы сигнал). Ожидавшаяся `codependency` этим тестам не понадобилась — их веса её не упоминают. Э8: названия профилей «Ровное пламя → Между сценариями → Любовь на ощупь» и «Чистый сигнал → Настройка в процессе → Разные частоты»; в исходнике у средних/нижних профилей проблемы лежали в разделе strengths — разнесены на честные strengths/vulnerabilities; «работа с психологом» из рекомендаций обоих нижних заменена мягким `supportNote`; эмодзи из факторов, markdown/КАПС из описаний. **Пофакторные интерпретации исходника (3 уровня × 3 и × 6 факторов) осознанно не перенесены**: слота в схеме нет (прецедент `suitableRoles`), формульные тексты «низко/средне/высоко» дублировали бы платный LLM-разбор, у которого есть живые проценты. Тип разбора `levels` у обоих, бары платные (уровневый тест — разбивка и есть разбор).
 
-Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. У `relationship_compatibility_v1` и `romantic_potential_v1` по 3 профиля плюс пофакторные интерпретации. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
+Верификация: фикстуры 64/64, tsc чист, чанки 48 и 38 КБ, 17 OG-страниц, смоук трёх профилей на дев-сервере (supportNote рендерится, граница §2 на экране, оба языка). Деплой: пуш в main (f7b2143, CI зелёный, хеш main-чанка сверен), обе функции редеплоены с контентом 17 тестов. Попутная находка: в свежем worktree нет `.env` (git-ignored) — кредитный блок на дев-сервере молчит; лечится копией `.env.production` → `.env.local`.
+
+### Второй эшелон — готовы, но не в первую волну (осталось 10)
+`disc_personality_v1`, `holland_code_v1`, `temperament_profile_test`, `creative_type_v1`, `self_confidence_multiscale_v1`, `procrastination_productivity_style_v1`, `emotional_intelligence`, `motivational_strategies_v1`, `perfectionism_fear_of_error_v1`, `wellbeing_happiness_inventory_v1`
+
+(Забраны волной 2: батч 1 — `friendship_psychology_v1`, `values_priorities_v1`; батч 2 — `imposter_syndrome`, `social_battery_v1`; батч 3 — `boundaries_people_pleasing`, `fomo_social_comparison_v1`; батч 4 — `burnout_diagnostic_v1`, `digital_detox_test`; батч 5 — `romantic_potential_v1`, `relationship_compatibility_v1`.)
+
+Заметки: `motivational_strategies_v1` — 90 вопросов, брать только резаным. Реально пустые по результатам — `perfectionism_fear_of_error_v1`, `cognitive_ability_v1`, `mental_age_lifespan_styles_v1`: там только названия факторов.
 
 ### Не берём (17)
 
