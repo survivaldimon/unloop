@@ -1,5 +1,5 @@
 {
- "$comment": "Реестр сквозных психологических шкал (этап 1 аудита, 03.08.2026). Источник истины для линта направлений весов (L0.5) и словаря портрета. status: canon — живёт; merge — алиас к merge_into (применяется в этапе 2 через scale-map); drop_candidate — кандидат на выпил из сквозного слоя. polarity: positive/negative — валентность конструкта для линта знаков; axis — нейтральная ось, линтом знаков не проверяется. pole — полюс биполярной пары, в портрете схлопывается в пару. Черновик сгенерирован по матрице scale-usage, спорные решения — docs/scale-registry.md.",
+ "$comment": "Реестр сквозных психологических шкал (этап 1 аудита, 03.08.2026). Источник истины для линта направлений весов (L0.5) и словаря портрета. status: canon — живёт; merge — алиас к merge_into (применяется в этапе 2 через scale-map); drop_candidate — кандидат на выпил из сквозного слоя. polarity: positive/negative — валентность конструкта для линта знаков; axis — нейтральная ось, линтом знаков не проверяется. pole — полюс биполярной пары, в портрете схлопывается в пару. Черновик сгенерирован по матрице scale-usage, кластерные решения §5 применены 03.08.2026 по мандату основателя (cluster_decision).",
  "entries": [
   {
    "scale": "abstract_reasoning",
@@ -47,9 +47,11 @@
    "ru": "стремление ставить цели и добиваться результатов",
    "high_means": "нацелен на достижения",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "tests": 7,
-   "items": 38
+   "items": 38,
+   "merge_into": "achievement_motivation",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "achievement_value",
@@ -57,7 +59,7 @@
    "high_means": "успех — важная ценность",
    "polarity": "positive",
    "status": "merge",
-   "merge_into": "achievement_striving",
+   "merge_into": "achievement_motivation",
    "flag": "тот же вопрос values_priorities q9 питает achievement_striving с весом +1.0 — полный дубль",
    "tests": 1,
    "items": 1
@@ -276,9 +278,11 @@
    "ru": "желание заботиться о людях и приносить пользу",
    "high_means": "стремится помогать другим",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "tests": 2,
-   "items": 5
+   "items": 5,
+   "merge_into": "altruism",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "body_image",
@@ -324,9 +328,11 @@
    "ru": "насколько человек остаётся спокойным в напряжённых ситуациях",
    "high_means": "спокоен даже под давлением",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "tests": 12,
-   "items": 27
+   "items": 27,
+   "merge_into": "stress_tolerance",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "catastrophizing",
@@ -432,10 +438,12 @@
    "ru": "умение сохранять спокойствие в стрессе и конфликте",
    "high_means": "спокоен под давлением",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "ipip_big_five: «Я легко впадаю в стресс» с весом +0.5 ПОВЫШАЕТ спокойствие — ошибка знака (рядом «Я расслаблен(а)» тоже с плюсом +0.7)",
    "tests": 11,
-   "items": 28
+   "items": 28,
+   "merge_into": "stress_tolerance",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "confidence_building",
@@ -462,10 +470,12 @@
    "ru": "умение спокойно и конструктивно разрешать ссоры",
    "high_means": "хорошо гасит конфликты",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "digital_detox: «близкие жалуются на телефон» +0.5 повышает навык — ошибка; в friendship_red_flags «мирюсь первым, даже когда прав» (терпимость к неуважению) тоже с плюсом",
    "tests": 8,
-   "items": 17
+   "items": 17,
+   "merge_into": "conflict_management",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "conformity",
@@ -563,10 +573,12 @@
    "ru": "насколько на человека можно положиться",
    "high_means": "держит слово, надёжен",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "в love_languages шкалу повышают вопросы о том, что приятно ПОЛУЧАТЬ от партнёра (q24, q29 +0.6) — это не о собственной надёжности человека",
    "tests": 5,
-   "items": 9
+   "items": 9,
+   "merge_into": "responsibility",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "depression",
@@ -724,10 +736,12 @@
    "ru": "тяга к ярким ощущениям и драйву",
    "high_means": "нужны острые ощущения",
    "polarity": "axis",
-   "status": "canon",
+   "status": "merge",
    "flag": "пересекается с novelty_seeking и stimulation — тройной дубль тяги к острым ощущениям",
    "tests": 3,
-   "items": 9
+   "items": 9,
+   "merge_into": "sensation_seeking",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "expressiveness",
@@ -836,10 +850,12 @@
    "ru": "способность спокойно переносить неудачи и препятствия",
    "high_means": "стойко переносит неудачи",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "digital_detox: «пытался сократить гаджеты, но не смог» +0.6 повышает выдержку — противоречит соседним минусам на похожих вопросах",
    "tests": 5,
-   "items": 15
+   "items": 15,
+   "merge_into": "emotional_resilience",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "gregariousness",
@@ -970,9 +986,11 @@
    "ru": "насколько комфортно человеку эмоциональная близость с людьми",
    "high_means": "легко подпускает близко",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "tests": 7,
-   "items": 36
+   "items": 36,
+   "merge_into": "emotional_intimacy",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "intrinsic_motivation",
@@ -1456,10 +1474,12 @@
    "ru": "насколько спокойно и надёжно человек чувствует себя в отношениях",
    "high_means": "в отношениях спокоен и уверен",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "18 из 31 вопроса — из love_languages_v1: предпочтения («слышать «я люблю тебя»» +0.7) приравнены к ощущению защищённости — желание подтверждений может означать и обратное",
    "tests": 6,
-   "items": 31
+   "items": 31,
+   "merge_into": "secure_attachment",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "reliability_partnership",
@@ -1514,10 +1534,12 @@
    "ru": "готовность рисковать и выходить из зоны комфорта",
    "high_means": "легко идёт на риск",
    "polarity": "axis",
-   "status": "canon",
+   "status": "merge",
    "flag": "всего 6 вопросов, сильно пересекается с novelty_seeking",
    "tests": 4,
-   "items": 6
+   "items": 6,
+   "merge_into": "sensation_seeking",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "rumination",
@@ -1880,10 +1902,12 @@
    "ru": "умение ясно выражать мысли и чувства словами",
    "high_means": "хорошо объясняет и договаривается словами",
    "polarity": "positive",
-   "status": "canon",
+   "status": "merge",
    "flag": "fomo: 8 вопросов про проверку лайков (+0.4…+0.5) повышают навык словесного общения — связи со смыслом нет",
    "tests": 8,
-   "items": 29
+   "items": 29,
+   "merge_into": "communication_quality",
+   "cluster_decision": "03.08 §5"
   },
   {
    "scale": "verbal_intelligence",
