@@ -1,6 +1,6 @@
 {
   "testId": "sixteen_types",
-  "generatedBy": "reference-scoring.mjs",
+  "generatedBy": "generate-fixtures.mjs (TS-движок, канон src/content/tests, ENGINE_VERSION 2)",
   "cases": {
     "all_min": {
       "answers": {
@@ -394,12 +394,12 @@
       "scaleScores": {
         "extraversion": 40,
         "introversion": 60,
-        "sensing": 50,
-        "intuition": 50,
-        "thinking": 50,
-        "feeling": 50,
-        "judging": 50,
-        "perceiving": 50
+        "sensing": 61.4,
+        "intuition": 36.1,
+        "thinking": 45,
+        "feeling": 55,
+        "judging": 47.5,
+        "perceiving": 52.5
       }
     }
   }

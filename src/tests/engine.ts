@@ -26,8 +26,13 @@ import type {
 /**
  * Bumped when weights or profile rules change meaning. Stored on the session
  * row at completion/writeback so stale outcomes can be found and replayed.
+ *
+ * 2 — этап 2 аудита 03.08.2026: вычищенный вес-слой (реестр шкал, знаки,
+ * полюса sixteen_types, перекодировка social_battery) и перекалиброванные
+ * profileSelection всех 19 тестов под утверждённые коридоры. Синхронно с
+ * ENGINE_VERSION в supabase/functions/tests-portrait/index.ts.
  */
-export const ENGINE_VERSION = 1;
+export const ENGINE_VERSION = 2;
 
 function answerRange(question: TestQuestion): { min: number; max: number } {
   let min = Infinity;

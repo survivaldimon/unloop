@@ -50,9 +50,11 @@ const REPORT_MODEL = "claude-sonnet-5";
 /** Gate (§4): the portrait exists from three completed tests up. */
 const PORTRAIT_GATE = 3;
 
-// Mirrors the looplore_test_sessions.engine_version default (migration
-// 20260727130000_psych_tests.sql) — bump both together when scoring changes.
-const ENGINE_VERSION = 1;
+// Synced with src/tests/engine.ts (tests-generate-report imports it from
+// there; this bundle carries its own copy). The DB column default stays 1 on
+// purpose: rows written without an explicit version read as "old" and heal
+// upward on the next paid recompute — never the other way around.
+const ENGINE_VERSION = 2;
 
 type Lang = "en" | "ru";
 

@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build && node tools/generate-test-og.mjs",
     "preview": "vite preview",
     "tests:build": "node tools/tests-import/to-canonical.mjs",
-    "tests:verify": "node tools/tests-import/verify-engine.mjs"
+    "tests:verify": "node tools/tests-import/verify-engine.mjs",
+    "tests:fixtures": "node tools/tests-import/generate-fixtures.mjs"
   },
   "dependencies": {
     "@polar-sh/checkout": "^0.4.0",
