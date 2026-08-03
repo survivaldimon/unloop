@@ -9,5 +9,32 @@
     "q11": {
       "boundary_setting": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): пороги 75/45 → 65/37 — калибровка ПОСЛЕ реверс-фиксов q14/q15/q26 вес-слоя. Симуляция: secure 20.8 / mixed 55.8 / challenges 23.5.",
+    "mode": "rules",
+    "fallback": "profile_romantic_challenges",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            65
+          ]
+        ],
+        "profile": "profile_secure_romantic"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            37
+          ]
+        ],
+        "profile": "profile_mixed_romantic"
+      }
+    ]
   }
 }

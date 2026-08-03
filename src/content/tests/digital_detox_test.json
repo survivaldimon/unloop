@@ -3010,8 +3010,8 @@
         "en": "For you the screen is a tool: pick up, do the thing, put down. Your attention is whole, your sleep is yours, and real people get you without notifications in the middle."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям — ниже 25%: привязанность к телефону, рассеянность, потери сна и продуктивности почти не отозвались.",
-        "en": "Your average across the seven readings is under 25%: phone attachment, scatter, sleep and productivity losses barely registered."
+        "ru": "Среднее по семи показателям — не выше 38%: привязанность к телефону, рассеянность, потери сна и продуктивности почти не отозвались.",
+        "en": "Your average across the seven readings is at or below 38%: phone attachment, scatter, sleep and productivity losses barely registered."
       },
       "strengths": {
         "ru": [
@@ -3070,8 +3070,8 @@
         "en": "Mostly you steer the screen, but in places it steers back: the hand reaches for the phone on its own, evenings run past the plan, mornings start with the feed more often than you'd like."
       },
       "whyThisProfile": {
-        "ru": "Среднее по показателям — между 25 и 45%: контроль на месте, но часть привычек уже работает без твоего участия.",
-        "en": "Your average sits between 25 and 45%: control is intact, but some habits already run without your input."
+        "ru": "Среднее по показателям — между 38 и 50%: контроль на месте, но часть привычек уже работает без твоего участия.",
+        "en": "Your average sits between 38 and 50%: control is intact, but some habits already run without your input."
       },
       "strengths": {
         "ru": [
@@ -3132,8 +3132,8 @@
         "en": "The lead symptom is attachment to the device itself: no phone means anxiety, low battery means near-panic, the check happens before you've decided to check. That's not weak will — interfaces are engineered to make the hand reach. But hands can be retrained."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует привязанность к телефону: дискомфорт без устройства выражен сильнее всех остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with phone attachment dominating: discomfort without the device outweighs every other reading."
+        "ru": "Общий уровень средний (50–68%), а доминирует привязанность к телефону: дискомфорт без устройства выражен сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with phone attachment dominating: discomfort without the device outweighs every other reading."
       },
       "strengths": {
         "ru": [
@@ -3198,8 +3198,8 @@
         "en": "The lead symptom is attention. Long texts won't read, tasks won't hold, every notification pulls you away — and coming back costs more than leaving did. The good news: attention is a muscle, and it rebuilds with training."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует рассеянность: сложность с концентрацией выражена сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with scatter dominating: difficulty concentrating outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует рассеянность: сложность с концентрацией выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with scatter dominating: difficulty concentrating outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3264,8 +3264,8 @@
         "en": "The lead symptom: the screen has stood in for real people. Texting instead of meeting, reactions instead of conversation, hundreds of contacts and a growing loneliness. Online connection resembles the real thing — but it nourishes like a picture of food."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует цена для живого общения: влияние экрана на реальные связи выражено сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with the cost to real life dominating: the screen's impact on live connection outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует цена для живого общения: влияние экрана на реальные связи выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with the cost to real life dominating: the screen's impact on live connection outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3330,8 +3330,8 @@
         "en": "The lead symptom is physical. Sleep is knocked off by screen light, the neck and back hold the phone posture, the eyes run dry, movement keeps shrinking. The bill goes to the body — and it's already sending reminders."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует счёт от тела: физические последствия экрана выражены сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with the body's bill dominating: the physical toll of the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует счёт от тела: физические последствия экрана выражены сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with the body's bill dominating: the physical toll of the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3396,8 +3396,8 @@
         "en": "The lead symptom is time. The day ends, the task isn't done, and the browser history knows where it all went: scrolling, videos on loop, \"five little minutes\" stretched to two hours. Procrastination has found its perfect instrument."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует утечка продуктивности: влияние экрана на дела выражено сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with productivity drain dominating: the screen's impact on getting things done outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует утечка продуктивности: влияние экрана на дела выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with productivity drain dominating: the screen's impact on getting things done outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3462,8 +3462,8 @@
         "en": "The lead symptom: your emotions are plugged into the screen. Mood jumps with the reactions, offline silence makes you anxious, not being able to check the phone makes you angry. Your feelings walk on the notifications' leash — and the leash comes off."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминируют качели настроения: эмоциональная связка с экраном выражена сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with mood swings dominating: the emotional tether to the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминируют качели настроения: эмоциональная связка с экраном выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with mood swings dominating: the emotional tether to the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3528,8 +3528,8 @@
         "en": "The lead symptom: the screen has seeped into every scene of the day — bed, meals, lines, the bathroom, the first minute of morning and the last of night. Each scene alone is a trifle; together they mean life has no screen-free places left."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминируют паттерны использования: где и когда ты с экраном — сильнее всех остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with usage patterns dominating: where and when you're with the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминируют паттерны использования: где и когда ты с экраном — сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with usage patterns dominating: where and when you're with the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -3594,8 +3594,8 @@
         "en": "The screen presses on several fronts at once: attention, time, sleep, mood — with no single loud leader. Which means point fixes won't cut it: the whole relationship with the phone needs a rebuild."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), и повышение размазано по нескольким показателям без явной доминанты.",
-        "en": "Your overall level is moderate (45–65%), with the elevation spread across several readings and no clear dominant."
+        "ru": "Общий уровень средний (50–68%), и повышение размазано по нескольким показателям без явной доминанты.",
+        "en": "Your overall level is moderate (50–68%), with the elevation spread across several readings and no clear dominant."
       },
       "strengths": {
         "ru": [
@@ -3658,8 +3658,8 @@
         "en": "The phone has become the main tenant of your time: it decides when you sleep, whom you talk to and what gets done. The impact shows in every sphere at once, and willpower attempts to \"use it less\" keep collapsing — because an industry is working against you. The measures needed are bigger than settings."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям — между 65 и 80%: высокие значения почти по всем каналам одновременно.",
-        "en": "Your average across the seven readings is between 65 and 80%: high values on nearly every channel at once."
+        "ru": "Среднее по семи показателям — между 68 и 75%: высокие значения почти по всем каналам одновременно.",
+        "en": "Your average across the seven readings is between 68 and 75%: high values on nearly every channel at once."
       },
       "strengths": {
         "ru": [
@@ -3728,8 +3728,8 @@
         "en": "Nearly every answer at maximum: the screen has taken sleep, meals, work, people and mood. This is what a life fully moved onto the screen looks like — and also how a person answers who's used to describing themselves in absolute terms. Either way it's not a verdict — it's the loudest possible version of the signal that it's time."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям выше 80% — верхняя зона шкалы. Все каналы влияния экрана работают одновременно и на максимум.",
-        "en": "Your average across the seven readings is above 80% — the top band of the scale. Every channel of the screen's influence is running at maximum, simultaneously."
+        "ru": "Среднее по семи показателям выше 75% — верхняя зона шкалы. Все каналы влияния экрана работают одновременно и на максимум.",
+        "en": "Your average across the seven readings is above 75% — the top band of the scale. Every channel of the screen's influence is running at maximum, simultaneously."
       },
       "strengths": {
         "ru": [
@@ -3788,7 +3788,7 @@
     }
   },
   "profileSelection": {
-    "$note": "Перенос determineProfile() из digital_detox_data.dart: та же форма, что burnout — полосы (25/45/65/80) + доминанта в средней полосе. profile_problematic — default свитча, фолбэк средней полосы.",
+    "$note": "Этап 2 (03.08.2026): полосы 25/45/65/80 → 38/50/68/75 (healthy ≤25 давал 1.9% при коридоре 12–20). Фокусные: @diff12 ≥ 3 вместо ≥7 — обоснование как у burnout (при ≥7 problematic получал бы вдвое больше коридора, фокусные — вдвое меньше). profile_problematic ожил: 0% → 7.8%. usage_patterns передвинут первым среди фокусных: у него 8 пунктов против 7 у остальных (шаг сетки 3.125 против 3.57, меньше дисперсия — реже топ), тай-брейк в его пользу выравнивает долю; порядок остальных — как в Dart. Симуляция: healthy 17.1 / moderate_use 32 / фокусные 35.3 / problematic 7.8 / severe 5.2 / critical 2.6.",
     "mode": "rules",
     "fallback": "profile_healthy",
     "rules": [
@@ -3797,7 +3797,7 @@
           [
             "@avg",
             "<=",
-            25
+            38
           ]
         ],
         "profile": "profile_healthy"
@@ -3807,7 +3807,7 @@
           [
             "@avg",
             "<=",
-            45
+            50
           ]
         ],
         "profile": "profile_moderate_use"
@@ -3817,97 +3817,12 @@
           [
             "@avg",
             "<=",
-            65
+            68
           ],
           [
-            "dependency_level",
+            "@diff12",
             ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_addiction_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
-          ],
-          [
-            "attention_control",
-            ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_attention_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
-          ],
-          [
-            "social_impact",
-            ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_social_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
-          ],
-          [
-            "physical_health",
-            ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_health_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
-          ],
-          [
-            "productivity_loss",
-            ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_productivity_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
-          ],
-          [
-            "emotional_state",
-            ">=",
-            "@top1"
-          ]
-        ],
-        "profile": "profile_emotional_focus"
-      },
-      {
-        "when": [
-          [
-            "@avg",
-            "<=",
-            65
+            3
           ],
           [
             "usage_patterns",
@@ -3922,7 +3837,127 @@
           [
             "@avg",
             "<=",
-            65
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "dependency_level",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_addiction_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "attention_control",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_attention_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "social_impact",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_social_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "physical_health",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_health_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "productivity_loss",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_productivity_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "emotional_state",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_emotional_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
           ]
         ],
         "profile": "profile_problematic"
@@ -3932,7 +3967,7 @@
           [
             "@avg",
             "<=",
-            80
+            75
           ]
         ],
         "profile": "profile_severe"

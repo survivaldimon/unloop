@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2 батч 4. 12 профилей: полосы + доминирующий симптом. Из описания и названий убрана рамка «зависимость/диагностика» (та же линия, что у fomo: паттерн, не диагноз), бренды (Facebook, Instagram, kSafe, Cold Turkey, Freedom, Digital Minimalism) и «специалист по зависимостям» — вычищены. supportNote на двух верхних уровнях. Восемь вопросов переведены с «вы» на «ты». Пороги и веса не тронуты.",
-
   "title": {
     "ru": "Цифровой детокс",
     "en": "Digital Detox"
@@ -9,38 +8,99 @@
     "ru": "50 вопросов о том, кто у кого в руках — ты у телефона или он у тебя. Внимание, сон, продуктивность, живые люди и настроение против экрана. 12 профилей.",
     "en": "50 questions about who's holding whom — you the phone, or the phone you. Attention, sleep, productivity, real people and mood versus the screen. 12 profiles."
   },
-
   "factorNames": {
-    "dependency_level": { "ru": "Привязанность к телефону", "en": "Phone attachment" },
-    "attention_control": { "ru": "Рассеянное внимание", "en": "Scattered attention" },
-    "social_impact": { "ru": "Цена для живого общения", "en": "Cost to real life" },
-    "physical_health": { "ru": "Счёт от тела", "en": "The body's bill" },
-    "productivity_loss": { "ru": "Утечка продуктивности", "en": "Productivity drain" },
-    "emotional_state": { "ru": "Качели настроения", "en": "Mood swings" },
-    "usage_patterns": { "ru": "Экран везде", "en": "Screens everywhere" }
+    "dependency_level": {
+      "ru": "Привязанность к телефону",
+      "en": "Phone attachment"
+    },
+    "attention_control": {
+      "ru": "Рассеянное внимание",
+      "en": "Scattered attention"
+    },
+    "social_impact": {
+      "ru": "Цена для живого общения",
+      "en": "Cost to real life"
+    },
+    "physical_health": {
+      "ru": "Счёт от тела",
+      "en": "The body's bill"
+    },
+    "productivity_loss": {
+      "ru": "Утечка продуктивности",
+      "en": "Productivity drain"
+    },
+    "emotional_state": {
+      "ru": "Качели настроения",
+      "en": "Mood swings"
+    },
+    "usage_patterns": {
+      "ru": "Экран везде",
+      "en": "Screens everywhere"
+    }
   },
-
   "questions": {
-    "q7": { "text": { "ru": "Сколько часов в день ты проводишь перед экранами — телефон, компьютер, планшет?", "en": "How many hours a day do you spend in front of screens — phone, computer, tablet?" } },
-    "q14": { "text": { "ru": "Как часто ты проверяешь телефон в течение дня?", "en": "How often do you check your phone during the day?" } },
-    "q21": { "text": { "ru": "Сколько времени проходит между «взял телефон в руки» и «убрал его»?", "en": "How much time passes between picking your phone up and putting it down?" } },
-    "q28": { "text": { "ru": "Как быстро после уведомления ты его проверяешь?", "en": "How quickly do you check a notification after it arrives?" } },
-    "q35": { "text": { "ru": "Ты используешь телефон во время еды?", "en": "Do you use your phone while eating?" } },
-    "q42": { "text": { "ru": "Ты берёшь телефон в постель перед сном?", "en": "Do you take your phone to bed before sleep?" } },
-    "q49": { "text": { "ru": "Сколько приложений ты проверяешь в первые полчаса после пробуждения?", "en": "How many apps do you check in the first half hour after waking?" } },
-    "q50": { "text": { "ru": "Как часто ты достаёшь телефон, когда чего-то ждёшь — в очереди, на остановке?", "en": "How often do you pull out your phone while waiting — in a line, at a stop?" } }
+    "q7": {
+      "text": {
+        "ru": "Сколько часов в день ты проводишь перед экранами — телефон, компьютер, планшет?",
+        "en": "How many hours a day do you spend in front of screens — phone, computer, tablet?"
+      }
+    },
+    "q14": {
+      "text": {
+        "ru": "Как часто ты проверяешь телефон в течение дня?",
+        "en": "How often do you check your phone during the day?"
+      }
+    },
+    "q21": {
+      "text": {
+        "ru": "Сколько времени проходит между «взял телефон в руки» и «убрал его»?",
+        "en": "How much time passes between picking your phone up and putting it down?"
+      }
+    },
+    "q28": {
+      "text": {
+        "ru": "Как быстро после уведомления ты его проверяешь?",
+        "en": "How quickly do you check a notification after it arrives?"
+      }
+    },
+    "q35": {
+      "text": {
+        "ru": "Ты используешь телефон во время еды?",
+        "en": "Do you use your phone while eating?"
+      }
+    },
+    "q42": {
+      "text": {
+        "ru": "Ты берёшь телефон в постель перед сном?",
+        "en": "Do you take your phone to bed before sleep?"
+      }
+    },
+    "q49": {
+      "text": {
+        "ru": "Сколько приложений ты проверяешь в первые полчаса после пробуждения?",
+        "en": "How many apps do you check in the first half hour after waking?"
+      }
+    },
+    "q50": {
+      "text": {
+        "ru": "Как часто ты достаёшь телефон, когда чего-то ждёшь — в очереди, на остановке?",
+        "en": "How often do you pull out your phone while waiting — in a line, at a stop?"
+      }
+    }
   },
-
   "profiles": {
     "profile_healthy": {
-      "name": { "ru": "Телефон знает своё место", "en": "The Phone Knows Its Place" },
+      "name": {
+        "ru": "Телефон знает своё место",
+        "en": "The Phone Knows Its Place"
+      },
       "description": {
         "ru": "Экран у тебя — инструмент: взял, сделал, положил. Внимание целое, сон свой, живые люди получают тебя без уведомлений посередине.",
         "en": "For you the screen is a tool: pick up, do the thing, put down. Your attention is whole, your sleep is yours, and real people get you without notifications in the middle."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям — ниже 25%: привязанность к телефону, рассеянность, потери сна и продуктивности почти не отозвались.",
-        "en": "Your average across the seven readings is under 25%: phone attachment, scatter, sleep and productivity losses barely registered."
+        "ru": "Среднее по семи показателям — не выше 38%: привязанность к телефону, рассеянность, потери сна и продуктивности почти не отозвались.",
+        "en": "Your average across the seven readings is at or below 38%: phone attachment, scatter, sleep and productivity losses barely registered."
       },
       "strengths": {
         "ru": [
@@ -87,16 +147,18 @@
         "en": "Owner of your own attention — the most underrated title of the decade. It's yours. Keep it."
       }
     },
-
     "profile_moderate_use": {
-      "name": { "ru": "Лёгкий перебор", "en": "A Bit Much" },
+      "name": {
+        "ru": "Лёгкий перебор",
+        "en": "A Bit Much"
+      },
       "description": {
         "ru": "В целом ты управляешь экраном, но местами он подруливает: рука тянется к телефону сама, вечер уходит чуть дальше плана, утро начинается с ленты чаще, чем хотелось бы.",
         "en": "Mostly you steer the screen, but in places it steers back: the hand reaches for the phone on its own, evenings run past the plan, mornings start with the feed more often than you'd like."
       },
       "whyThisProfile": {
-        "ru": "Среднее по показателям — между 25 и 45%: контроль на месте, но часть привычек уже работает без твоего участия.",
-        "en": "Your average sits between 25 and 45%: control is intact, but some habits already run without your input."
+        "ru": "Среднее по показателям — между 38 и 50%: контроль на месте, но часть привычек уже работает без твоего участия.",
+        "en": "Your average sits between 38 and 50%: control is intact, but some habits already run without your input."
       },
       "strengths": {
         "ru": [
@@ -145,16 +207,18 @@
         "en": "A small tune-up now, and the excess never becomes the system. You're ahead of the problem."
       }
     },
-
     "profile_addiction_focus": {
-      "name": { "ru": "Рука сама тянется", "en": "The Reaching Hand" },
+      "name": {
+        "ru": "Рука сама тянется",
+        "en": "The Reaching Hand"
+      },
       "description": {
         "ru": "Главный симптом — привязанность к самому устройству: без телефона тревожно, при низком заряде — почти паника, проверка происходит раньше, чем ты успел её решить. Это не слабоволие — интерфейсы спроектированы, чтобы рука тянулась. Но руку можно переучить.",
         "en": "The lead symptom is attachment to the device itself: no phone means anxiety, low battery means near-panic, the check happens before you've decided to check. That's not weak will — interfaces are engineered to make the hand reach. But hands can be retrained."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует привязанность к телефону: дискомфорт без устройства выражен сильнее всех остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with phone attachment dominating: discomfort without the device outweighs every other reading."
+        "ru": "Общий уровень средний (50–68%), а доминирует привязанность к телефону: дискомфорт без устройства выражен сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with phone attachment dominating: discomfort without the device outweighs every other reading."
       },
       "strengths": {
         "ru": [
@@ -207,16 +271,18 @@
         "en": "The hand's pull toward the phone was learned, not born. Everything learned can be relearned — especially once you see who was teaching you."
       }
     },
-
     "profile_attention_focus": {
-      "name": { "ru": "Внимание вдребезги", "en": "Shattered Focus" },
+      "name": {
+        "ru": "Внимание вдребезги",
+        "en": "Shattered Focus"
+      },
       "description": {
         "ru": "Главный симптом — внимание. Длинный текст не читается, задача не держится, каждое уведомление уводит — и вернуться стоит дороже, чем уйти. Хорошая новость: внимание — мышца, и она восстанавливается тренировкой.",
         "en": "The lead symptom is attention. Long texts won't read, tasks won't hold, every notification pulls you away — and coming back costs more than leaving did. The good news: attention is a muscle, and it rebuilds with training."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует рассеянность: сложность с концентрацией выражена сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with scatter dominating: difficulty concentrating outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует рассеянность: сложность с концентрацией выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with scatter dominating: difficulty concentrating outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -269,16 +335,18 @@
         "en": "Your attention wasn't shattered in a day — and it glues back piece by piece too. Every held focus puts a piece back in place."
       }
     },
-
     "profile_social_focus": {
-      "name": { "ru": "Онлайн вместо людей", "en": "Online Instead of People" },
+      "name": {
+        "ru": "Онлайн вместо людей",
+        "en": "Online Instead of People"
+      },
       "description": {
         "ru": "Главный симптом — экран подменил живых людей. Переписка вместо встречи, реакции вместо разговора, сотни контактов и растущее одиночество. Онлайн-связь похожа на настоящую, но насыщает как картинка еды.",
         "en": "The lead symptom: the screen has stood in for real people. Texting instead of meeting, reactions instead of conversation, hundreds of contacts and a growing loneliness. Online connection resembles the real thing — but it nourishes like a picture of food."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует цена для живого общения: влияние экрана на реальные связи выражено сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with the cost to real life dominating: the screen's impact on live connection outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует цена для живого общения: влияние экрана на реальные связи выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with the cost to real life dominating: the screen's impact on live connection outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -331,16 +399,18 @@
         "en": "A real conversation doesn't scale — that's both its price and its worth. Invest in a few live connections, and the feed loses its power on its own."
       }
     },
-
     "profile_health_focus": {
-      "name": { "ru": "Тело платит", "en": "The Body Pays" },
+      "name": {
+        "ru": "Тело платит",
+        "en": "The Body Pays"
+      },
       "description": {
         "ru": "Главный симптом — физический. Сон сбит светом экрана, шея и спина держат позу «в телефон», глаза сохнут, движения всё меньше. Счёт приходит телу — и оно уже присылает напоминания.",
         "en": "The lead symptom is physical. Sleep is knocked off by screen light, the neck and back hold the phone posture, the eyes run dry, movement keeps shrinking. The bill goes to the body — and it's already sending reminders."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует счёт от тела: физические последствия экрана выражены сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with the body's bill dominating: the physical toll of the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует счёт от тела: физические последствия экрана выражены сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with the body's bill dominating: the physical toll of the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -393,16 +463,18 @@
         "en": "The body bills honestly — and repays just as honestly. A couple of weeks of care and it answers with energy."
       }
     },
-
     "profile_productivity_focus": {
-      "name": { "ru": "Часы в никуда", "en": "Hours to Nowhere" },
+      "name": {
+        "ru": "Часы в никуда",
+        "en": "Hours to Nowhere"
+      },
       "description": {
         "ru": "Главный симптом — время. День кончается, задачи нет, а история браузера знает, куда всё ушло: скролл, видео по кругу, «пять минуточек» на два часа. Прокрастинация нашла себе идеальный инструмент.",
         "en": "The lead symptom is time. The day ends, the task isn't done, and the browser history knows where it all went: scrolling, videos on loop, \"five little minutes\" stretched to two hours. Procrastination has found its perfect instrument."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминирует утечка продуктивности: влияние экрана на дела выражено сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with productivity drain dominating: the screen's impact on getting things done outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминирует утечка продуктивности: влияние экрана на дела выражено сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with productivity drain dominating: the screen's impact on getting things done outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -455,16 +527,18 @@
         "en": "Every hour won back from the scroll is an hour for projects, people and sleep. Time won't appear — it can only be reclaimed."
       }
     },
-
     "profile_emotional_focus": {
-      "name": { "ru": "Настроение на зарядке", "en": "Mood on the Charger" },
+      "name": {
+        "ru": "Настроение на зарядке",
+        "en": "Mood on the Charger"
+      },
       "description": {
         "ru": "Главный симптом — эмоции подключены к экрану. Настроение скачет от реакций, тишина без сети тревожит, невозможность проверить телефон злит. Твои чувства ходят на поводке у уведомлений — а поводок можно снять.",
         "en": "The lead symptom: your emotions are plugged into the screen. Mood jumps with the reactions, offline silence makes you anxious, not being able to check the phone makes you angry. Your feelings walk on the notifications' leash — and the leash comes off."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминируют качели настроения: эмоциональная связка с экраном выражена сильнее остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with mood swings dominating: the emotional tether to the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминируют качели настроения: эмоциональная связка с экраном выражена сильнее остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with mood swings dominating: the emotional tether to the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -517,16 +591,18 @@
         "en": "Your emotions belong to you, not to the algorithms that learned to tug them. Unclip the leash and the swings stop on their own."
       }
     },
-
     "profile_usage_focus": {
-      "name": { "ru": "Экран везде", "en": "Screens Everywhere" },
+      "name": {
+        "ru": "Экран везде",
+        "en": "Screens Everywhere"
+      },
       "description": {
         "ru": "Главный симптом — экран проник во все сцены дня: постель, еда, очередь, туалет, первая минута утра и последняя минута вечера. Каждая сцена по отдельности — мелочь; вместе они значат, что у жизни не осталось мест без экрана.",
         "en": "The lead symptom: the screen has seeped into every scene of the day — bed, meals, lines, the bathroom, the first minute of morning and the last of night. Each scene alone is a trifle; together they mean life has no screen-free places left."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), а доминируют паттерны использования: где и когда ты с экраном — сильнее всех остальных показателей.",
-        "en": "Your overall level is moderate (45–65%) with usage patterns dominating: where and when you're with the screen outweighs the other readings."
+        "ru": "Общий уровень средний (50–68%), а доминируют паттерны использования: где и когда ты с экраном — сильнее всех остальных показателей.",
+        "en": "Your overall level is moderate (50–68%) with usage patterns dominating: where and when you're with the screen outweighs the other readings."
       },
       "strengths": {
         "ru": [
@@ -579,16 +655,18 @@
         "en": "Life is made of scenes, and you take them back one at a time. A month from now the screen will hold only the place it's entitled to."
       }
     },
-
     "profile_problematic": {
-      "name": { "ru": "По всем фронтам", "en": "On Every Front" },
+      "name": {
+        "ru": "По всем фронтам",
+        "en": "On Every Front"
+      },
       "description": {
         "ru": "Экран давит сразу по нескольким направлениям: внимание, время, сон, настроение — без одного громкого лидера. Это значит, что точечные меры не сработают: нужна общая перестройка отношений с телефоном.",
         "en": "The screen presses on several fronts at once: attention, time, sleep, mood — with no single loud leader. Which means point fixes won't cut it: the whole relationship with the phone needs a rebuild."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (45–65%), и повышение размазано по нескольким показателям без явной доминанты.",
-        "en": "Your overall level is moderate (45–65%), with the elevation spread across several readings and no clear dominant."
+        "ru": "Общий уровень средний (50–68%), и повышение размазано по нескольким показателям без явной доминанты.",
+        "en": "Your overall level is moderate (50–68%), with the elevation spread across several readings and no clear dominant."
       },
       "strengths": {
         "ru": [
@@ -639,9 +717,11 @@
         "en": "A wide front also means a wide win: every zone you fix improves the others. Start with one — the rest will follow."
       }
     },
-
     "profile_severe": {
-      "name": { "ru": "Телефон главнее", "en": "The Phone Is in Charge" },
+      "name": {
+        "ru": "Телефон главнее",
+        "en": "The Phone Is in Charge"
+      },
       "supportNote": {
         "ru": "Это образовательный тест, не диагноз. Но если экран уже всерьёз теснит сон, работу и живых людей, а самостоятельные попытки срываются раз за разом — разговор с психологом ощутимо ускоряет выход: с компульсивными цифровыми привычками работают предметно и успешно.",
         "en": "This is an educational test, not a diagnosis. But if the screen is seriously crowding out sleep, work and real people, and solo attempts keep collapsing — talking to a therapist speeds up the exit considerably: compulsive digital habits are treated concretely and successfully."
@@ -651,8 +731,8 @@
         "en": "The phone has become the main tenant of your time: it decides when you sleep, whom you talk to and what gets done. The impact shows in every sphere at once, and willpower attempts to \"use it less\" keep collapsing — because an industry is working against you. The measures needed are bigger than settings."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям — между 65 и 80%: высокие значения почти по всем каналам одновременно.",
-        "en": "Your average across the seven readings is between 65 and 80%: high values on nearly every channel at once."
+        "ru": "Среднее по семи показателям — между 68 и 75%: высокие значения почти по всем каналам одновременно.",
+        "en": "Your average across the seven readings is between 68 and 75%: high values on nearly every channel at once."
       },
       "strengths": {
         "ru": [
@@ -705,9 +785,11 @@
         "en": "The phone took the main seat because it was surrendered an inch at a time. It can be taken back the same way — an inch at a time, in your direction."
       }
     },
-
     "profile_critical": {
-      "name": { "ru": "Жизнь на экране", "en": "Life on the Screen" },
+      "name": {
+        "ru": "Жизнь на экране",
+        "en": "Life on the Screen"
+      },
       "supportNote": {
         "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн. Но почти каждый твой ответ — верхняя граница шкалы, и это тяжёлый фон. Если экран идёт в связке с бессонницей, подавленностью или ощущением, что без него ты не существуешь, — поговори со специалистом в ближайшие дни: с этим работают, и работают успешно.",
         "en": "This result is not a diagnosis: the test is educational and measures a pattern. But nearly every answer you gave sits at the top of the scale, and that's a heavy background. If the screen comes bundled with sleeplessness, low mood or the sense that you don't exist without it — talk to a professional within days: this is treatable, and treated successfully."
@@ -717,8 +799,8 @@
         "en": "Nearly every answer at maximum: the screen has taken sleep, meals, work, people and mood. This is what a life fully moved onto the screen looks like — and also how a person answers who's used to describing themselves in absolute terms. Either way it's not a verdict — it's the loudest possible version of the signal that it's time."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи показателям выше 80% — верхняя зона шкалы. Все каналы влияния экрана работают одновременно и на максимум.",
-        "en": "Your average across the seven readings is above 80% — the top band of the scale. Every channel of the screen's influence is running at maximum, simultaneously."
+        "ru": "Среднее по семи показателям выше 75% — верхняя зона шкалы. Все каналы влияния экрана работают одновременно и на максимум.",
+        "en": "Your average across the seven readings is above 75% — the top band of the scale. Every channel of the screen's influence is running at maximum, simultaneously."
       },
       "strengths": {
         "ru": [

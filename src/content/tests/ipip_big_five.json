@@ -3527,8 +3527,8 @@
         "en": "Understanding a thing interests you more than using it. And you go all the way to the bottom."
       },
       "whyThisProfile": {
-        "ru": "Низкая экстраверсия при высокой открытости. Любопытство, направленное внутрь: ты копаешь один и копаешь долго. Практическая сторона при этом остаётся необеспеченной — не потому что не умеешь, а потому что она не интересна.",
-        "en": "Low extraversion with high openness. Curiosity pointed inward: you dig alone and you dig for a long time. The practical side stays unfunded — not because you can't, but because it doesn't interest you."
+        "ru": "Тихий режим при живом любопытстве: экстраверсия низкая, а открытость опыту выше середины. Любопытство, направленное внутрь: ты копаешь один и копаешь долго. Практическая сторона при этом остаётся необеспеченной — не потому что не умеешь, а потому что она не интересна.",
+        "en": "Quiet mode with live curiosity: extraversion low, openness above the middle. Curiosity pointed inward: you dig alone and you dig for a long time. The practical side stays unfunded — not because you can't, but because it doesn't interest you."
       },
       "strengths": {
         "ru": [
@@ -3951,6 +3951,7 @@
     }
   },
   "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): точечная правка единственной ветки вне коридора (2–14%): deep_thinker extraversion<30 → <35, intellect>60 → >56 («Вглубь» 1.3% → 2.4%). Остальные правила не тронуты — тест жил в коридорах и так. Симуляция: 16 профилей 2.4–13.6, balanced 6.3.",
     "mode": "rules",
     "fallback": "profile_balanced",
     "rules": [
@@ -4099,12 +4100,12 @@
           [
             "extraversion",
             "<",
-            30
+            35
           ],
           [
             "intellect",
             ">",
-            60
+            56
           ]
         ],
         "profile": "profile_deep_thinker"
@@ -4147,7 +4148,6 @@
           }
         }
       }
-    ],
-    "$note": "Последнее правило — ветка «по доминирующему фактору», которая в оригинале срабатывает только если лидер выше 65."
+    ]
   }
 }

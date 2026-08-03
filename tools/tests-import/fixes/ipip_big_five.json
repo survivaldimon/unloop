@@ -132,5 +132,205 @@
     "q49": {
       "feeling": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): точечная правка единственной ветки вне коридора (2–14%): deep_thinker extraversion<30 → <35, intellect>60 → >56 («Вглубь» 1.3% → 2.4%). Остальные правила не тронуты — тест жил в коридорах и так. Симуляция: 16 профилей 2.4–13.6, balanced 6.3.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ],
+          [
+            "conscientiousness",
+            ">",
+            60
+          ],
+          [
+            "emotional_stability",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_leader"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ],
+          [
+            "agreeableness",
+            ">",
+            70
+          ]
+        ],
+        "profile": "profile_social_butterfly"
+      },
+      {
+        "when": [
+          [
+            "intellect",
+            ">",
+            70
+          ],
+          [
+            "extraversion",
+            "<",
+            50
+          ]
+        ],
+        "profile": "profile_creative_thinker"
+      },
+      {
+        "when": [
+          [
+            "intellect",
+            ">",
+            70
+          ],
+          [
+            "extraversion",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_innovator"
+      },
+      {
+        "when": [
+          [
+            "conscientiousness",
+            ">",
+            70
+          ],
+          [
+            "agreeableness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_reliable_helper"
+      },
+      {
+        "when": [
+          [
+            "conscientiousness",
+            ">",
+            70
+          ],
+          [
+            "emotional_stability",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_achiever"
+      },
+      {
+        "when": [
+          [
+            "emotional_stability",
+            "<",
+            30
+          ],
+          [
+            "agreeableness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_sensitive_soul"
+      },
+      {
+        "when": [
+          [
+            "emotional_stability",
+            "<",
+            30
+          ],
+          [
+            "extraversion",
+            "<",
+            40
+          ]
+        ],
+        "profile": "profile_introspective"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            30
+          ],
+          [
+            "conscientiousness",
+            ">",
+            60
+          ]
+        ],
+        "profile": "profile_quiet_achiever"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            35
+          ],
+          [
+            "intellect",
+            ">",
+            56
+          ]
+        ],
+        "profile": "profile_deep_thinker"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            ">",
+            70
+          ]
+        ],
+        "profile": "profile_extrovert"
+      },
+      {
+        "when": [
+          [
+            "extraversion",
+            "<",
+            30
+          ]
+        ],
+        "profile": "profile_introvert"
+      },
+      {
+        "when": [
+          [
+            "@top1",
+            ">",
+            65
+          ]
+        ],
+        "profile": {
+          "byTop": {
+            "extraversion": "profile_extrovert",
+            "agreeableness": "profile_peacemaker",
+            "conscientiousness": "profile_achiever",
+            "emotional_stability": "profile_steady",
+            "intellect": "profile_explorer"
+          }
+        }
+      }
+    ]
   }
 }

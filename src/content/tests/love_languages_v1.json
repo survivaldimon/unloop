@@ -2424,9 +2424,126 @@
         "ru": "До тебя доходит почти всё — редкая настройка. Но угадывать тебя человеку всё равно нечем: назови один канал, и станет проще вам обоим.",
         "en": "Almost everything reaches you, which is a rare setting. But nobody can guess you from outside: name one channel, and it gets easier for both of you."
       }
+    },
+    "profile_service_gifts": {
+      "id": "profile_service_gifts",
+      "icon": null,
+      "name": {
+        "ru": "Сделал и принёс",
+        "en": "Done and Delivered"
+      },
+      "description": {
+        "ru": "Слова тебя не убеждают — убеждают поступки, которые можно увидеть и потрогать: починил, привёз, выбрал, принёс. Забота для тебя материальна, и это делает её проверяемой.",
+        "en": "Words don't convince you — visible, touchable acts do: fixed, brought, picked out, delivered. Care, for you, is material — which makes it verifiable."
+      },
+      "whyThisProfile": {
+        "ru": "Забота делом и знаки внимания вышли вровень и выше остальных. Оба канала про одно: любовь должна оставлять след в физическом мире — вещь, результат, решённую проблему.",
+        "en": "Acts of service and tokens came out level and above the rest. Both channels are about one thing: love should leave a trace in the physical world — an object, a result, a solved problem."
+      },
+      "strengths": {
+        "ru": [
+          "Ты замечаешь вложенный труд там, где другие видят «просто вещь»",
+          "Сам заботишься так, что это можно потрогать: делом, помощью, находкой",
+          "Тебя трудно купить словами — это защита от пустых обещаний"
+        ],
+        "en": [
+          "You see the effort invested where others see 'just a thing'",
+          "Your own care is touchable: a deed, a hand, a find",
+          "You're hard to buy with words — which protects you from empty promises"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Красивые слова без дел звучат для тебя как шум — но у многих людей слова и есть искренность",
+          "Когда помощи и знаков нет, ты делаешь вывод «не любит» раньше, чем стоит"
+        ],
+        "en": [
+          "Fine words without deeds sound like noise to you — but for many people words ARE the sincerity",
+          "When help and tokens are absent, you conclude 'they don't care' sooner than you should"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Скажи прямо: до меня доходит сделанное и принесённое, а не сказанное. Это сузит поиск для тех, кто рядом",
+          "Учись засчитывать и нематериальное: у некоторых людей «я слушал тебя час» — это их «починил кран»"
+        ],
+        "en": [
+          "Say it straight: what reaches me is what's done and brought, not what's said. It narrows the search for your people",
+          "Learn to count the immaterial too: for some, 'I listened for an hour' is their version of fixing the tap"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сделай для своего человека одну маленькую вещь руками — и вручи её. Посмотри, как твой родной канал работает в исходящую сторону.",
+        "en": "Make one small thing with your hands for your person — and hand it over. Watch your native channel work in the outgoing direction."
+      },
+      "inspiringConclusion": {
+        "ru": "Твоя любовь оставляет следы, которые можно потрогать. Люди с такими следами не сомневаются, что их любят.",
+        "en": "Your love leaves traces you can touch. People who get those traces don't wonder whether they're loved."
+      }
+    },
+    "profile_touch_gifts": {
+      "id": "profile_touch_gifts",
+      "icon": null,
+      "name": {
+        "ru": "Из рук в руки",
+        "en": "Hand to Hand"
+      },
+      "description": {
+        "ru": "Любовь для тебя проходит через руки: обнять, взять за плечо, вручить выбранную для тебя вещь. Дистанционные форматы — слова, звонки, «думаю о тебе» — доходят слабее, чем одно касание или один свёрток.",
+        "en": "Love reaches you through hands: a hug, a palm on the shoulder, a thing picked out for you and handed over. Remote formats — words, calls, 'thinking of you' — arrive weaker than one touch or one small parcel."
+      },
+      "whyThisProfile": {
+        "ru": "Прикосновения и знаки внимания вышли вровень и выше остальных. Общий знаменатель — физическое присутствие любви: её можно почувствовать кожей или удержать в руках.",
+        "en": "Touch and tokens came out level and above the rest. The common denominator is love's physical presence: something felt on the skin or held in the hands."
+      },
+      "strengths": {
+        "ru": [
+          "Ты делаешь привязанность ощутимой — рядом с тобой она не абстракция",
+          "Помнишь, что кому приятно: и какое объятие, и какая мелочь обрадует",
+          "Твои подарки тёплые в буквальном смысле: выбраны про человека, а не для галочки"
+        ],
+        "en": [
+          "You make attachment tangible — around you it isn't an abstraction",
+          "You remember what lands for whom: which hug and which small thing will please",
+          "Your gifts are warm literally: chosen about the person, not for the checkbox"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Разлука и переписка — твои худшие форматы: этот канал связи просто не твой",
+          "Отстранённость партнёра бьёт вдвойне: нет ни касания, ни знака — и тебе уже «всё ясно»",
+          "Люди с дистантным стилем могут читать твою тактильность как напор"
+        ],
+        "en": [
+          "Distance and texting are your worst formats: that channel just isn't yours",
+          "A partner's reserve hits twice: no touch, no token — and you've already 'got the picture'",
+          "People with a distant style can read your touch as pressure"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "В разлуке договорись о материальных якорях: вещь, которая остаётся с тобой, работает лучше десяти звонков",
+          "Спрашивай про касания прямо — у людей разная тактильная норма, и это не про любовь",
+          "Не меряй чувства других своей линейкой: у кого-то «держать за руку» — это слушать не перебивая"
+        ],
+        "en": [
+          "For time apart, agree on material anchors: a thing that stays with you beats ten calls",
+          "Ask about touch directly — people's baselines differ, and that's not about love",
+          "Don't measure others with your ruler: for some, 'holding hands' is listening without interrupting"
+        ]
+      },
+      "tryToday": {
+        "ru": "Обними своего человека дольше обычного — и оставь ему какую-нибудь мелочь «просто так». Два твоих языка за один вечер.",
+        "en": "Hug your person longer than usual — and leave them some small thing 'just because'. Both your languages in one evening."
+      },
+      "inspiringConclusion": {
+        "ru": "Ты передаёшь любовь из рук в руки — буквально. Это редкий и очень честный способ: его невозможно подделать на словах.",
+        "en": "You pass love hand to hand — literally. It's a rare and honest way: impossible to fake in words."
+      }
     }
   },
   "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): добавлены два недостающих комбо-ключа — service+gifts («Сделал и принёс») и touch+gifts («Из рук в руки»): раньше эти пары проваливались мимо таблицы комбо в фолбэк. balanced теперь только про ровный профиль: @range < 38 (≡ ≤37.5; старое <15 ≡ ≤12.5 на 6-пунктовых факторах почти недостижимо — 9.8% фолбэка были дырами комбо, а не ровностью). Ничьи топ-пары — сортировка ключа по алфавиту (движок). Симуляция: синглы 9.5–10.8, комбо 3.3–5.0, balanced 9.8.",
     "mode": "rules",
     "fallback": "profile_balanced",
     "rules": [
@@ -2435,7 +2552,7 @@
           [
             "@range",
             "<",
-            15
+            38
           ]
         ],
         "profile": "profile_balanced"
@@ -2457,7 +2574,9 @@
             "physical_touch+quality_time": "profile_time_touch",
             "acts_of_service+physical_touch": "profile_service_touch",
             "quality_time+receiving_gifts": "profile_time_gifts",
-            "receiving_gifts+words_of_affirmation": "profile_words_gifts"
+            "receiving_gifts+words_of_affirmation": "profile_words_gifts",
+            "acts_of_service+receiving_gifts": "profile_service_gifts",
+            "physical_touch+receiving_gifts": "profile_touch_gifts"
           }
         }
       },

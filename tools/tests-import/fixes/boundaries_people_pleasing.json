@@ -40,5 +40,47 @@
     "q48": {
       "trust": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): пороги под коридоры (pleaser 25–35, builder 45–60, master 10–18). pleaser ≥60/≥60 → ≥50/≥40: перекос в угождение перестал тонуть в фолбэке (16.2% → 31.9%). master «три ≥65» → «три ≥46»: сетка фактора 3.125 (≥46 ≡ ≥46.9; ≥49 совпадал бы с ≥50), мастер ожил (4.3% → 11.3%). Порядок правил как в Dart: pleaser первым (при одновременном совпадении окон — соглашательство — выигрывает проблемный профиль). builder 79.5% → 56.8%.",
+    "mode": "rules",
+    "fallback": "boundary_builder",
+    "rules": [
+      {
+        "when": [
+          [
+            "people_pleasing",
+            ">=",
+            50
+          ],
+          [
+            "fear_of_rejection",
+            ">=",
+            40
+          ]
+        ],
+        "profile": "people_pleaser"
+      },
+      {
+        "when": [
+          [
+            "assertiveness",
+            ">=",
+            46
+          ],
+          [
+            "self_prioritization",
+            ">=",
+            46
+          ],
+          [
+            "emotional_autonomy",
+            ">=",
+            46
+          ]
+        ],
+        "profile": "boundary_master"
+      }
+    ]
   }
 }

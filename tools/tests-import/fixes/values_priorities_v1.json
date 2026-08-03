@@ -1,0 +1,209 @@
+{
+  "$comment": "Этап 2 (03.08.2026): порядок правил и пороги под коридоры. Обоснование — в $note внутри profileSelection.",
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): порядок правил по рычагу — aligned → burnout_risk → знаю-но-не-делаю → фокусные → misaligned ПОСЛЕДНИМ (раньше misaligned стоял третьим и съедал burnout_risk с фокусными). aligned: @alignment < 28 (стартовое <22 давало 3% при коридоре 8–15 — сетка фактора 12.5 держит средний |разрыв| высоким), гейты ≥45 (было ≥50). burnout_risk: @energy ≥ 62, health_balance_energy < 51 (ожил: 0.1% → 3.4%). values_without_action: @importance ≥ 52 ∧ @energy < 47 — комплемент misaligned-гейта: важное выше середины, энергия туда не идёт. Фокусные: freedom/stability противогейт < 30 (≡ ≤25), relationships/growth 65/50 (было 70/60 — мёртвая зона сетки). misaligned: @energy ≥ 47 ∧ @alignment ≥ 23. Оговорка: при 2 вопросах на фактор шкала квантована шагом 12.5 — коридоры проверены симуляцией с этой сеткой. Симуляция: aligned 13.4 / misaligned 23 / without_action 11.3 / burnout_risk 3.4 / фокусные 7.6+6.6+8.8+7.3 / balanced 18.6.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "derived": {
+      "@importance": {
+        "avg": [
+          "security_importance",
+          "freedom_importance",
+          "achievement_importance",
+          "creativity_importance",
+          "relationships_importance",
+          "growth_importance",
+          "influence_importance",
+          "comfort_importance",
+          "contribution_importance",
+          "health_balance_importance"
+        ]
+      },
+      "@energy": {
+        "avg": [
+          "security_energy",
+          "freedom_energy",
+          "achievement_energy",
+          "creativity_energy",
+          "relationships_energy",
+          "growth_energy",
+          "influence_energy",
+          "comfort_energy",
+          "contribution_energy",
+          "health_balance_energy"
+        ]
+      },
+      "@alignment": {
+        "avgAbsDiff": [
+          [
+            "security_importance",
+            "security_energy"
+          ],
+          [
+            "freedom_importance",
+            "freedom_energy"
+          ],
+          [
+            "achievement_importance",
+            "achievement_energy"
+          ],
+          [
+            "creativity_importance",
+            "creativity_energy"
+          ],
+          [
+            "relationships_importance",
+            "relationships_energy"
+          ],
+          [
+            "growth_importance",
+            "growth_energy"
+          ],
+          [
+            "influence_importance",
+            "influence_energy"
+          ],
+          [
+            "comfort_importance",
+            "comfort_energy"
+          ],
+          [
+            "contribution_importance",
+            "contribution_energy"
+          ],
+          [
+            "health_balance_importance",
+            "health_balance_energy"
+          ]
+        ]
+      }
+    },
+    "rules": [
+      {
+        "when": [
+          [
+            "@alignment",
+            "<",
+            28
+          ],
+          [
+            "@importance",
+            ">=",
+            45
+          ],
+          [
+            "@energy",
+            ">=",
+            45
+          ]
+        ],
+        "profile": "profile_aligned"
+      },
+      {
+        "when": [
+          [
+            "@energy",
+            ">=",
+            62
+          ],
+          [
+            "health_balance_energy",
+            "<",
+            51
+          ]
+        ],
+        "profile": "profile_burnout_risk"
+      },
+      {
+        "when": [
+          [
+            "@importance",
+            ">=",
+            52
+          ],
+          [
+            "@energy",
+            "<",
+            47
+          ]
+        ],
+        "profile": "profile_values_without_action"
+      },
+      {
+        "when": [
+          [
+            "freedom_importance",
+            ">=",
+            70
+          ],
+          [
+            "security_importance",
+            "<",
+            30
+          ]
+        ],
+        "profile": "profile_freedom_seeker"
+      },
+      {
+        "when": [
+          [
+            "security_importance",
+            ">=",
+            70
+          ],
+          [
+            "freedom_importance",
+            "<",
+            30
+          ]
+        ],
+        "profile": "profile_stability_seeker"
+      },
+      {
+        "when": [
+          [
+            "relationships_importance",
+            ">=",
+            65
+          ],
+          [
+            "relationships_energy",
+            ">=",
+            50
+          ]
+        ],
+        "profile": "profile_relationships_focused"
+      },
+      {
+        "when": [
+          [
+            "growth_importance",
+            ">=",
+            65
+          ],
+          [
+            "growth_energy",
+            ">=",
+            50
+          ]
+        ],
+        "profile": "profile_growth_oriented"
+      },
+      {
+        "when": [
+          [
+            "@energy",
+            ">=",
+            47
+          ],
+          [
+            "@alignment",
+            ">=",
+            23
+          ]
+        ],
+        "profile": "profile_energy_misaligned"
+      }
+    ]
+  }
+}

@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2. Тест недооценён исходником: 13 типов с живой типологией, но подача была учебником («Практикуйте эмоциональную открытость») и с эмодзи в факторах. Переписано: названия типов из ярлыков в короткие образы, whyThisProfile написан с нуля под правила выбора (в исходнике его не было), suitableRoles исходника вплетены в описания. Механика и веса не тронуты.",
-
   "title": {
     "ru": "Какой ты друг",
     "en": "What Kind of Friend You Are"
@@ -9,26 +8,45 @@
     "ru": "24 вопроса о том, как ты дружишь: близость, доверие, границы, поддержка. На выходе — один из 13 типов, от Тёплого эмпата до Наблюдателя.",
     "en": "24 questions about how you do friendship: closeness, trust, boundaries, support. You land on one of 13 types — from the Warm Empath to the Observer."
   },
-
   "factorNames": {
-    "emotional_closeness": { "ru": "Эмоциональная близость", "en": "Emotional closeness" },
-    "communication_style": { "ru": "Стиль общения", "en": "Communication style" },
-    "trust_and_loyalty": { "ru": "Доверие и надёжность", "en": "Trust and loyalty" },
-    "boundaries_and_space": { "ru": "Границы и пространство", "en": "Boundaries and space" },
-    "supportive_behavior": { "ru": "Поддержка", "en": "Support" },
-    "friendship_expectations": { "ru": "Ожидания от дружбы", "en": "Expectations" }
+    "emotional_closeness": {
+      "ru": "Эмоциональная близость",
+      "en": "Emotional closeness"
+    },
+    "communication_style": {
+      "ru": "Стиль общения",
+      "en": "Communication style"
+    },
+    "trust_and_loyalty": {
+      "ru": "Доверие и надёжность",
+      "en": "Trust and loyalty"
+    },
+    "boundaries_and_space": {
+      "ru": "Границы и пространство",
+      "en": "Boundaries and space"
+    },
+    "supportive_behavior": {
+      "ru": "Поддержка",
+      "en": "Support"
+    },
+    "friendship_expectations": {
+      "ru": "Ожидания от дружбы",
+      "en": "Expectations"
+    }
   },
-
   "profiles": {
     "warm_empathic_friend": {
-      "name": { "ru": "Тёплый эмпат", "en": "The Warm Empath" },
+      "name": {
+        "ru": "Тёплый эмпат",
+        "en": "The Warm Empath"
+      },
       "description": {
         "ru": "Рядом с тобой безопасно. Ты слушаешь не для того, чтобы ответить, а чтобы понять — и друзья это чувствуют. К тебе приходят с тем, что не расскажешь остальным.",
         "en": "People feel safe around you. You listen to understand, not to reply — and your friends can tell. They bring you the things they can't tell anyone else."
       },
       "whyThisProfile": {
-        "ru": "В твоих ответах два фактора в верхней зоне сразу: эмоциональная близость и поддержка — обе выше 70%. Тебе легко открываться самому и держать пространство для чужих чувств; эта пара и определяет тип.",
-        "en": "Two factors in your answers sit in the top zone at once: emotional closeness and support, both above 70%. Opening up comes easily to you, and so does holding space for other people's feelings — that pair defines the type."
+        "ru": "В твоих ответах два фактора в верхней зоне сразу: эмоциональная близость и поддержка — обе выше 68%. Тебе легко открываться самому и держать пространство для чужих чувств; эта пара и определяет тип.",
+        "en": "Two factors in your answers sit in the top zone at once: emotional closeness and support, both above 68%. Opening up comes easily to you, and so does holding space for other people's feelings — that pair defines the type."
       },
       "strengths": {
         "ru": [
@@ -79,16 +97,18 @@
         "en": "Making people feel safe around you is a skill money can't buy. Just remember: you're entitled to a place like that too."
       }
     },
-
     "reliable_stable_friend": {
-      "name": { "ru": "Опора", "en": "The Rock" },
+      "name": {
+        "ru": "Опора",
+        "en": "The Rock"
+      },
       "description": {
         "ru": "Ты тот, кто приезжает, когда обещал, и помнит, о чём договаривались. Твоя дружба не самая громкая, но на неё можно поставить.",
         "en": "You're the one who shows up when you said you would and remembers what was agreed. Your friendship isn't the loudest in the room — but it's the one people can bet on."
       },
       "whyThisProfile": {
-        "ru": "Доверие и надёжность у тебя выше 70%, при этом эмоциональная близость заметно ниже. Ты держишь слово лучше, чем открываешь чувства, — это и есть формула типа.",
-        "en": "Your trust and loyalty score is above 70% while emotional closeness sits noticeably lower. You keep your word better than you open up — that's the formula of this type."
+        "ru": "Доверие и надёжность у тебя от 75% и выше, при этом эмоциональная близость до этой планки не дотянула. Ты держишь слово лучше, чем открываешь чувства, — это и есть формула типа.",
+        "en": "Your trust and loyalty score is at 75% or above while emotional closeness stays under that bar. You keep your word better than you open up — that's the formula of this type."
       },
       "strengths": {
         "ru": [
@@ -139,16 +159,18 @@
         "en": "Friendships stand on people like you. Add a little openness to that foundation and watch people move closer."
       }
     },
-
     "communication_bridge": {
-      "name": { "ru": "Мост", "en": "The Bridge" },
+      "name": {
+        "ru": "Мост",
+        "en": "The Bridge"
+      },
       "description": {
         "ru": "Ты умеешь переводить с человеческого на человеческий: гасить конфликты, слышать обе стороны, соединять людей, которые сами бы не договорились.",
         "en": "You translate human to human: defusing conflicts, hearing both sides, connecting people who'd never have worked it out on their own."
       },
       "whyThisProfile": {
-        "ru": "Стиль общения — твой самый сильный фактор, выше 75% и выше всех остальных. Разговор для тебя не фон дружбы, а её главный инструмент.",
-        "en": "Communication style is your strongest factor — above 75% and above everything else. For you, conversation isn't the background of friendship; it's its main tool."
+        "ru": "Стиль общения — твой самый сильный фактор: выше 68% и выше всех остальных. Разговор для тебя не фон дружбы, а её главный инструмент.",
+        "en": "Communication style is your strongest factor — above 68% and above everything else. For you, conversation isn't the background of friendship; it's its main tool."
       },
       "strengths": {
         "ru": [
@@ -199,16 +221,18 @@
         "en": "You connect people — that's a rare talent. Don't forget to plug yourself into that network too."
       }
     },
-
     "motivator_inspirer": {
-      "name": { "ru": "Искра", "en": "The Spark" },
+      "name": {
+        "ru": "Искра",
+        "en": "The Spark"
+      },
       "description": {
         "ru": "С тобой у друзей появляются планы, билеты и новые увлечения. Ты приносишь в дружбу энергию движения — рядом с тобой не отсидишься.",
         "en": "Around you, friends end up with plans, tickets and new obsessions. You bring momentum into friendship — no one gets to sit still near you."
       },
       "whyThisProfile": {
-        "ru": "Высокие ожидания от дружбы (выше 70%) вместе с высокой поддержкой: ты не просто ждёшь от дружбы много — ты сам в неё много вкладываешь, заряжая и подталкивая.",
-        "en": "High expectations of friendship (above 70%) paired with high support: you don't just expect a lot from friendship — you pour a lot in, charging people up and nudging them forward."
+        "ru": "Высокие ожидания от дружбы (выше 68%) вместе с заметной поддержкой (выше 62%), причём поддержка сильнее твоего стиля общения: ты не просто ждёшь от дружбы много — ты сам в неё много вкладываешь, заряжая и подталкивая.",
+        "en": "High expectations of friendship (above 68%) paired with visible support (above 62%), and the support outweighs your communication style: you don't just expect a lot from friendship — you pour a lot in, charging people up and nudging them forward."
       },
       "strengths": {
         "ru": [
@@ -259,16 +283,18 @@
         "en": "Your energy is what people love you for. Learn to stay for the quiet scenes too, and you'll be a friend for all seasons."
       }
     },
-
     "philosophical_deep_friend": {
-      "name": { "ru": "Философ", "en": "The Philosopher" },
+      "name": {
+        "ru": "Философ",
+        "en": "The Philosopher"
+      },
       "description": {
         "ru": "Смолл-ток — не твоё. Тебе нужны разговоры, после которых что-то меняется. Друзей у тебя немного, но каждый выбран всерьёз.",
         "en": "Small talk isn't your thing. You want the conversations that change something. You don't have many friends — but every one of them was chosen deliberately."
       },
       "whyThisProfile": {
-        "ru": "Редкое сочетание: эмоциональная близость и границы одновременно выше 70%. Ты подпускаешь глубоко, но бережёшь пространство — и своё, и чужое.",
-        "en": "A rare combination: emotional closeness and boundaries both above 70%. You let people in deep, yet guard the space — yours and theirs."
+        "ru": "Редкое сочетание: эмоциональная близость и границы одновременно выше 68%. Ты подпускаешь глубоко, но бережёшь пространство — и своё, и чужое.",
+        "en": "A rare combination: emotional closeness and boundaries both above 68%. You let people in deep, yet guard the space — yours and theirs."
       },
       "strengths": {
         "ru": [
@@ -319,16 +345,18 @@
         "en": "Depth is how you love. Sometimes it hides inside lightness too — allow yourself both registers."
       }
     },
-
     "independent_free_friend": {
-      "name": { "ru": "Вольный", "en": "The Free Agent" },
+      "name": {
+        "ru": "Вольный",
+        "en": "The Free Agent"
+      },
       "description": {
         "ru": "Твоя дружба не требует ежедневных отчётов. Можно не видеться месяц — и встретиться так, будто расстались вчера. Свобода для тебя не против близости, а её условие.",
         "en": "Your friendship doesn't demand daily check-ins. You can go a month without meeting and pick up like it was yesterday. For you, freedom isn't the opposite of closeness — it's the condition for it."
       },
       "whyThisProfile": {
-        "ru": "Границы и пространство выше 70%, а ожидания от дружбы — ниже 50%: ты не требуешь от друзей многого и не даёшь требовать от себя. Дистанция для тебя — форма уважения.",
-        "en": "Boundaries and space above 70%, expectations below 50%: you don't demand much from friends and don't let them demand it of you. Distance, for you, is a form of respect."
+        "ru": "Границы и пространство выше 68%, а ожидания от дружбы — ниже 50%: ты не требуешь от друзей многого и не даёшь требовать от себя. Дистанция для тебя — форма уважения.",
+        "en": "Boundaries and space above 68%, expectations below 50%: you don't demand much from friends and don't let them demand it of you. Distance, for you, is a form of respect."
       },
       "strengths": {
         "ru": [
@@ -379,9 +407,11 @@
         "en": "Few people truly respect others' freedom — for you it's built in. Add a little visible warmth and your friendship becomes untouchable."
       }
     },
-
     "adventure_partner": {
-      "name": { "ru": "Напарник", "en": "The Adventure Partner" },
+      "name": {
+        "ru": "Напарник",
+        "en": "The Adventure Partner"
+      },
       "description": {
         "ru": "Твоя дружба живёт в действии: поход, спортзал, поездка без плана. Ты ближе всего к людям, когда вы что-то делаете вместе, а не когда сидите и разговариваете.",
         "en": "Your friendship lives in motion: a hike, the gym, a trip with no plan. You're closest to people when you're doing something together — not when you're sitting and talking."
@@ -439,16 +469,18 @@
         "en": "You give friends the stories they'll tell for years. Add a couple of real conversations, and those stories get deeper."
       }
     },
-
     "caring_guardian": {
-      "name": { "ru": "Хранитель", "en": "The Guardian" },
+      "name": {
+        "ru": "Хранитель",
+        "en": "The Guardian"
+      },
       "description": {
         "ru": "Ты замечаешь, что другу плохо, раньше всех — и уже везёшь суп. Забота у тебя на автопилоте; вопрос в том, остаётся ли что-то тебе самому.",
         "en": "You notice a friend is struggling before anyone else — and you're already bringing soup. Caring is your autopilot; the question is what's left for you."
       },
       "whyThisProfile": {
-        "ru": "Поддержка у тебя выше 80% — это почти потолок шкалы — при высокой эмоциональной близости. Ты вкладываешься в друзей больше, чем почти кто-либо, проходящий этот тест.",
-        "en": "Your support score is above 80% — near the ceiling of the scale — alongside high emotional closeness. You invest in friends more than almost anyone who takes this test."
+        "ru": "Поддержка у тебя от 75% и выше — верхняя часть шкалы — при близости не ниже середины. Ты вкладываешься в друзей больше, чем почти кто-либо, проходящий этот тест.",
+        "en": "Your support score is at 75% or above — the top stretch of the scale — with closeness no lower than the middle. You invest in friends more than almost anyone who takes this test."
       },
       "strengths": {
         "ru": [
@@ -499,16 +531,18 @@
         "en": "You care the way few people can. Point a tenth of it at yourself, and there'll be enough of you for everyone — you included."
       }
     },
-
     "intuitive_feel_reader": {
-      "name": { "ru": "Радар", "en": "The Radar" },
+      "name": {
+        "ru": "Радар",
+        "en": "The Radar"
+      },
       "description": {
         "ru": "Ты считываешь настроение друга по паузе в переписке. Тебе не нужно рассказывать — ты уже понял. Вопрос только в том, что делать с этим объёмом сигнала.",
         "en": "You read a friend's mood from a pause in the chat. No one needs to tell you — you already know. The only question is what to do with all that signal."
       },
       "whyThisProfile": {
-        "ru": "Поддержка и стиль общения одновременно выше 70%: ты не только чувствуешь чужое состояние, но и умеешь про него говорить. Эта пара факторов и есть «радар».",
-        "en": "Support and communication style both above 70%: you don't just sense what someone's feeling — you know how to talk about it. That pair of factors is the radar."
+        "ru": "Поддержка и стиль общения одновременно выше 68%: ты не только чувствуешь чужое состояние, но и умеешь про него говорить. Эта пара факторов и есть «радар».",
+        "en": "Support and communication style both above 68%: you don't just sense what someone's feeling — you know how to talk about it. That pair of factors is the radar."
       },
       "strengths": {
         "ru": [
@@ -559,16 +593,18 @@
         "en": "Your sensitivity is rare optics. Take care of the instrument — it works best when it gets time to recharge."
       }
     },
-
     "social_circle_builder": {
-      "name": { "ru": "Собиратель круга", "en": "The Circle Builder" },
+      "name": {
+        "ru": "Собиратель круга",
+        "en": "The Circle Builder"
+      },
       "description": {
         "ru": "Ты знакомишь людей, собираешь компании и помнишь про все дни рождения. Половина дружб в твоём окружении существует потому, что ты их когда-то соединил.",
         "en": "You introduce people, gather the group and remember every birthday. Half the friendships around you exist because you once connected them."
       },
       "whyThisProfile": {
-        "ru": "Высокие ожидания от дружбы (выше 70%) вместе с сильным стилем общения: тебе важно, чтобы круг жил, и у тебя есть коммуникативный мотор, чтобы его крутить.",
-        "en": "High expectations of friendship (above 70%) paired with strong communication: you need the circle to be alive, and you've got the communicative engine to keep it spinning."
+        "ru": "Высокие ожидания от дружбы (выше 68%) вместе с сильным стилем общения (выше 62%): тебе важно, чтобы круг жил, и у тебя есть коммуникативный мотор, чтобы его крутить.",
+        "en": "High expectations of friendship (above 68%) paired with strong communication (above 62%): you need the circle to be alive, and you've got the communicative engine to keep it spinning."
       },
       "strengths": {
         "ru": [
@@ -619,16 +655,18 @@
         "en": "You build worlds where people find each other. Make sure one of those worlds has a comfortable chair for you."
       }
     },
-
     "calm_observer": {
-      "name": { "ru": "Наблюдатель", "en": "The Observer" },
+      "name": {
+        "ru": "Наблюдатель",
+        "en": "The Observer"
+      },
       "description": {
         "ru": "Ты не пишешь первым и не тащишь всех на квесты — но ты рядом, стабильно и без драм. Твоё присутствие тихое, и те, кто его распробовал, ценят его дороже громких.",
         "en": "You don't text first and you don't drag everyone to events — but you're there, steady and drama-free. Your presence is quiet, and those who've tasted it value it above the loud kind."
       },
       "whyThisProfile": {
-        "ru": "Границы и пространство у тебя выше 65% при сдержанном стиле общения (ниже 60%): ты присутствуешь в дружбе наблюдением и постоянством, а не потоком слов.",
-        "en": "Boundaries and space above 65% with a reserved communication style (below 60%): you inhabit friendship through observation and constancy, not a stream of words."
+        "ru": "Границы и пространство у тебя выше 62% при сдержанном стиле общения (ниже 56%): ты присутствуешь в дружбе наблюдением и постоянством, а не потоком слов.",
+        "en": "Boundaries and space above 62% with a reserved communication style (below 56%): you inhabit friendship through observation and constancy, not a stream of words."
       },
       "strengths": {
         "ru": [
@@ -679,16 +717,18 @@
         "en": "Your calm presence anchors more people than you know — even if no one has said it. Become a little more visible, and you'll hear it."
       }
     },
-
     "emotional_dramatic_friend": {
-      "name": { "ru": "Фейерверк", "en": "The Firework" },
+      "name": {
+        "ru": "Фейерверк",
+        "en": "The Firework"
+      },
       "description": {
         "ru": "С тобой дружба — на полной громкости: восторг, обида, примирение и снова восторг. Ты не умеешь наполовину, и в этом твоя сила и твой счёт за неё.",
         "en": "Friendship with you plays at full volume: delight, hurt, making up, delight again. You don't do things by halves — that's your power, and the bill for it."
       },
       "whyThisProfile": {
-        "ru": "Эмоциональная близость и ожидания от дружбы одновременно выше 70%: ты вкладываешь в дружбу сильные чувства и ждёшь такой же отдачи. Отсюда яркость — и перепады.",
-        "en": "Emotional closeness and expectations both above 70%: you pour strong feelings into friendship and expect the same charge back. Hence the brightness — and the swings."
+        "ru": "Эмоциональная близость и ожидания от дружбы одновременно выше 68%: ты вкладываешь в дружбу сильные чувства и ждёшь такой же отдачи. Отсюда яркость — и перепады.",
+        "en": "Emotional closeness and expectations both above 68%: you pour strong feelings into friendship and expect the same charge back. Hence the brightness — and the swings."
       },
       "strengths": {
         "ru": [
@@ -739,16 +779,18 @@
         "en": "Your sincerity is a rarity no amount of composure can replace. Add a little quiet to it, and you become irreplaceable."
       }
     },
-
     "profile_mixed": {
-      "name": { "ru": "Универсал", "en": "The All-Rounder" },
+      "name": {
+        "ru": "Универсал",
+        "en": "The All-Rounder"
+      },
       "description": {
         "ru": "У тебя нет одного доминирующего стиля: с философом ты глубокий, с компанией — заводной, с тем, кому плохо, — опора. Ты подстраиваешься под человека, а не под шаблон.",
         "en": "You have no single dominant style: deep with the philosopher, lively with the group, solid for whoever's struggling. You adapt to the person, not to a template."
       },
       "whyThisProfile": {
-        "ru": "Между твоим самым сильным и вторым фактором меньше 10% разрыва — ни одна грань не перевешивает. Это не «невнятный результат», а ровный профиль без перекосов.",
-        "en": "The gap between your strongest factor and the runner-up is under 10% — no single side outweighs the rest. That's not a fuzzy result; it's an even profile with no tilt."
+        "ru": "Твои ответы не сложились ни в одну из двенадцати формул типов: профиль либо ровный, либо сочетает несколько граней так, что ни одна пара не перевешивает. Это не «невнятный результат», а смешанный тип — черты нескольких типов сразу.",
+        "en": "Your answers didn't land in any of the twelve type formulas: the profile is either even, or it combines several sides with no pair outweighing the rest. That's not a fuzzy result — it's a mixed type, with traits of several types at once."
       },
       "strengths": {
         "ru": [

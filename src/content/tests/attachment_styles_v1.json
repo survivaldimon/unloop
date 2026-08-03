@@ -3549,8 +3549,8 @@
         "en": "Closeness doesn't frighten you and distance doesn't break you. You can do both — which is rarer than it sounds."
       },
       "whyThisProfile": {
-        "ru": "Надёжная шкала выше 70%, а тревожная, избегающая и тревожно-избегающая — ниже 30% каждая. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
-        "en": "Your secure scale is above 70% and the anxious, avoidant and fearful-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
+        "ru": "Надёжная шкала — твоя самая высокая: выше 55% и с отрывом от второй хотя бы в 5 пунктов. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
+        "en": "Your secure scale is your highest: above 55% and ahead of the runner-up by at least 5 points. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
       },
       "strengths": {
         "ru": [
@@ -3611,8 +3611,8 @@
         "en": "When someone steps back, you go after them. Not out of neediness — because the distance registers as the line going dead."
       },
       "whyThisProfile": {
-        "ru": "Тревожная шкала выше 60% и выше остальных. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
-        "en": "Your anxious scale is above 60% and above the others. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
+        "ru": "Тревожная шкала выше 60% и впереди других небезопасных стилей. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
+        "en": "Your anxious scale is above 60% and ahead of the other insecure styles. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
       },
       "strengths": {
         "ru": [
@@ -3675,8 +3675,8 @@
         "en": "You're fine until someone gets too close. Then it gets crowded, and you step back without explaining."
       },
       "whyThisProfile": {
-        "ru": "Избегающая шкала выше 60% и выше остальных. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
-        "en": "Your avoidant scale is above 60% and above the others. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
+        "ru": "Избегающая шкала выше 60% и впереди других небезопасных стилей. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
+        "en": "Your avoidant scale is above 60% and ahead of the other insecure styles. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
       },
       "strengths": {
         "ru": [
@@ -3739,8 +3739,8 @@
         "en": "You reach for someone and recoil from the same person. Both reactions are yours, both are real, and they arrive almost together."
       },
       "whyThisProfile": {
-        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
-        "en": "Your fearful-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the fearful-avoidant type. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
+        "ru": "Тревожно-избегающая шкала выше 73% и выше всех остальных — либо тревожная и избегающая обе выше 60%. В теории привязанности это тревожно-избегающий тип. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
+        "en": "Your fearful-avoidant scale is above 73% and above all the others, or the anxious and avoidant ones are both above 60%. Attachment theory calls this the fearful-avoidant type. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
       },
       "strengths": {
         "ru": [
@@ -3859,6 +3859,7 @@
     }
   },
   "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): перекалибровка под коридоры docs/tests-target-distributions.md. secure — относительное правило (топ-фактор, >55, отрыв ≥5) вместо «>70 и все три <30»: самый желанный результат перестал быть недостижимым (0.9% → 18.9%). fearful-доминанта требует >73 и первенства над всеми тремя стилями (было >60 без единого сравнения — fearful получал каждый четвёртый); порог выше соседних осознанно: коридор fearful 10–18% против 15–25% у остальных, ярлык с supportNote зарезервирован под выраженный паттерн, сетка фактора 1.67 (>73 ≡ ≥73.3). Комбинированный путь (anxious и avoidant оба >60) — классическое определение боязливо-избегающего, симметричен одиночным порогам. Симуляция: secure 18.9 / anxious 21.4 / avoidant 21.7 / fearful 17.9 / mixed 20.2.",
     "mode": "rules",
     "fallback": "mixed",
     "rules": [
@@ -3866,23 +3867,18 @@
         "when": [
           [
             "secure",
+            ">=",
+            "@top1"
+          ],
+          [
+            "secure",
             ">",
-            70
+            55
           ],
           [
-            "anxious",
-            "<",
-            30
-          ],
-          [
-            "avoidant",
-            "<",
-            30
-          ],
-          [
-            "fearful",
-            "<",
-            30
+            "@diff12",
+            ">=",
+            5
           ]
         ],
         "profile": "secure"
@@ -3932,7 +3928,22 @@
           [
             "fearful",
             ">",
-            60
+            73
+          ],
+          [
+            "fearful",
+            ">",
+            "secure"
+          ],
+          [
+            "fearful",
+            ">",
+            "anxious"
+          ],
+          [
+            "fearful",
+            ">",
+            "avoidant"
           ]
         ],
         "profile": "fearful"
@@ -3942,12 +3953,12 @@
           [
             "anxious",
             ">",
-            50
+            60
           ],
           [
             "avoidant",
             ">",
-            50
+            60
           ]
         ],
         "profile": "fearful"

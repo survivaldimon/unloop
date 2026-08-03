@@ -123,5 +123,112 @@
     "q15": {
       "social_support_seeking": -0.6
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): перекалибровка под коридоры docs/tests-target-distributions.md. secure — относительное правило (топ-фактор, >55, отрыв ≥5) вместо «>70 и все три <30»: самый желанный результат перестал быть недостижимым (0.9% → 18.9%). fearful-доминанта требует >73 и первенства над всеми тремя стилями (было >60 без единого сравнения — fearful получал каждый четвёртый); порог выше соседних осознанно: коридор fearful 10–18% против 15–25% у остальных, ярлык с supportNote зарезервирован под выраженный паттерн, сетка фактора 1.67 (>73 ≡ ≥73.3). Комбинированный путь (anxious и avoidant оба >60) — классическое определение боязливо-избегающего, симметричен одиночным порогам. Симуляция: secure 18.9 / anxious 21.4 / avoidant 21.7 / fearful 17.9 / mixed 20.2.",
+    "mode": "rules",
+    "fallback": "mixed",
+    "rules": [
+      {
+        "when": [
+          [
+            "secure",
+            ">=",
+            "@top1"
+          ],
+          [
+            "secure",
+            ">",
+            55
+          ],
+          [
+            "@diff12",
+            ">=",
+            5
+          ]
+        ],
+        "profile": "secure"
+      },
+      {
+        "when": [
+          [
+            "anxious",
+            ">",
+            60
+          ],
+          [
+            "anxious",
+            ">",
+            "avoidant"
+          ],
+          [
+            "anxious",
+            ">",
+            "fearful"
+          ]
+        ],
+        "profile": "anxious"
+      },
+      {
+        "when": [
+          [
+            "avoidant",
+            ">",
+            60
+          ],
+          [
+            "avoidant",
+            ">",
+            "anxious"
+          ],
+          [
+            "avoidant",
+            ">",
+            "fearful"
+          ]
+        ],
+        "profile": "avoidant"
+      },
+      {
+        "when": [
+          [
+            "fearful",
+            ">",
+            73
+          ],
+          [
+            "fearful",
+            ">",
+            "secure"
+          ],
+          [
+            "fearful",
+            ">",
+            "anxious"
+          ],
+          [
+            "fearful",
+            ">",
+            "avoidant"
+          ]
+        ],
+        "profile": "fearful"
+      },
+      {
+        "when": [
+          [
+            "anxious",
+            ">",
+            60
+          ],
+          [
+            "avoidant",
+            ">",
+            60
+          ]
+        ],
+        "profile": "fearful"
+      }
+    ]
   }
 }

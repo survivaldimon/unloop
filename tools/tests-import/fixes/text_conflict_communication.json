@@ -1,0 +1,49 @@
+{
+  "$comment": "Этап 2 (03.08.2026): правило именных стилей флагмана 60% → 45/35+15 (решение 2.3A, скоринговая часть). Обоснование — в $note внутри profileSelection.",
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): именной стиль требовал ≥60% выборов (12 ответов из 20 в один стиль — фолбэк у 59.8%). Теперь: top1 ≥ 45 → именной; иначе top1 ≥ 35 ∧ @diff12 ≥ 15 → именной; иначе mixed. Рычаг предлагал diff12 ≥ 10, но на сетке 5 п.п. (20 вопросов) это выталкивало каждый стиль за коридор 12–22 — 15 = отрыв в три ответа. Ничьи наверху — ранг Object.entries (порядок factorIds: avoidance первый). Симуляция: ghoster 21 / exploder 19.7 / avenger 20.7 / assertive 19.9 / mixed 18.6.",
+    "mode": "rules",
+    "fallback": "the_mixed",
+    "rules": [
+      {
+        "when": [
+          [
+            "@top1",
+            ">=",
+            45
+          ]
+        ],
+        "profile": {
+          "byTop": {
+            "avoidance": "the_ghoster",
+            "aggression": "the_exploder",
+            "passive_revenge": "the_passive_avenger",
+            "assertiveness": "the_assertive"
+          }
+        }
+      },
+      {
+        "when": [
+          [
+            "@top1",
+            ">=",
+            35
+          ],
+          [
+            "@diff12",
+            ">=",
+            15
+          ]
+        ],
+        "profile": {
+          "byTop": {
+            "avoidance": "the_ghoster",
+            "aggression": "the_exploder",
+            "passive_revenge": "the_passive_avenger",
+            "assertiveness": "the_assertive"
+          }
+        }
+      }
+    ]
+  }
+}

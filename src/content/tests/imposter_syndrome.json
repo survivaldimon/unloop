@@ -2455,8 +2455,8 @@
         "en": "You put your wins on your own account — and that's accuracy, not arrogance. You see both your strengths and your gaps, and you're not waiting for someone to \"expose a fraud\" that doesn't exist."
       },
       "whyThisProfile": {
-        "ru": "По всем шести механизмам самозванца твои ответы в нижней зоне: страх разоблачения, обесценивание, внешняя атрибуция — всё почти на нуле. Средний балл ниже 21%.",
-        "en": "Across all six impostor mechanisms your answers sit in the low zone: fear of exposure, devaluation, external attribution — all near the floor. Your average is under 21%."
+        "ru": "По всем шести механизмам самозванца твои ответы в нижней зоне: страх разоблачения, обесценивание, внешняя атрибуция — всё почти на нуле. Средний балл ниже 37%.",
+        "en": "Across all six impostor mechanisms your answers sit in the low zone: fear of exposure, devaluation, external attribution — all near the floor. Your average is under 37%."
       },
       "strengths": {
         "ru": [
@@ -2517,8 +2517,8 @@
         "en": "Most of the time you know your worth, but now and then a voice cuts in: \"lucky\", \"it just lined up\", \"they'll notice any minute\". It's quiet and doesn't wreck anything — it just steals the pleasure of a win from time to time."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам — между 21 и 40%: сомнения появляются эпизодами, но ни один механизм не работает постоянно.",
-        "en": "Your average across the six mechanisms lands between 21 and 40%: the doubts come in episodes, but no mechanism runs constantly."
+        "ru": "Средний балл по шести механизмам — между 37 и 50%: сомнения появляются эпизодами, но ни один механизм не работает постоянно.",
+        "en": "Your average across the six mechanisms lands between 37 and 50%: the doubts come in episodes, but no mechanism runs constantly."
       },
       "strengths": {
         "ru": [
@@ -2581,8 +2581,8 @@
         "en": "The doubt has gone from visitor to housemate: you regularly discount what you've done, fear falling short of expectations, and pass on some opportunities before the starting line. From the outside everything looks fine — the bill is paid by you alone."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по механизмам — между 41 и 60%: это уже не эпизоды, а устойчивый фон. Обычно его держат один-два механизма из шести — у каждого свой почерк.",
-        "en": "Your average across the mechanisms is between 41 and 60%: no longer episodes but a steady background. Usually one or two of the six mechanisms hold it up — each with its own signature."
+        "ru": "Средний балл по механизмам — между 50 и 61%: это уже не эпизоды, а устойчивый фон. Обычно его держат один-два механизма из шести — у каждого свой почерк.",
+        "en": "Your average across the mechanisms is between 50 and 61%: no longer episodes but a steady background. Usually one or two of the six mechanisms hold it up — each with its own signature."
       },
       "strengths": {
         "ru": [
@@ -2649,8 +2649,8 @@
         "en": "The pattern isn't commenting anymore — it's driving. Fear of exposure decides what you take on, overcompensation decides how much you work, devaluation decides how you feel afterwards. Opportunities pass by while fatigue piles up: you pay a double price — for the work, and for the fear."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам — между 61 и 80%. На этом уровне паттерн влияет на решения: что взять, куда не пойти, сколько переработать.",
-        "en": "Your average across the six mechanisms is between 61 and 80%. At this level the pattern shapes decisions: what to take, where not to go, how much to overwork."
+        "ru": "Средний балл по шести механизмам — между 61 и 72%. На этом уровне паттерн влияет на решения: что взять, куда не пойти, сколько переработать.",
+        "en": "Your average across the six mechanisms is between 61 and 72%. At this level the pattern shapes decisions: what to take, where not to go, how much to overwork."
       },
       "strengths": {
         "ru": [
@@ -2721,8 +2721,8 @@
         "en": "In almost every answer you picked the harshest wording about yourself. That's what the pattern looks like at full occupation: the fear doesn't let go, the wins don't get claimed, the challenges get bypassed, and working yourself down never buys the feeling of belonging. One more thing needs saying: sometimes answers like these come not from the heaviest pattern but from a habit of describing yourself in the most merciless words available — that habit is part of the picture too."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам выше 81% — верхняя зона шкалы. Все механизмы работают одновременно и на полную.",
-        "en": "Your average across the six mechanisms is above 81% — the top band of the scale. Every mechanism is running at once, at full strength."
+        "ru": "Средний балл по шести механизмам выше 72% — верхняя зона шкалы. Все механизмы работают одновременно и на полную.",
+        "en": "Your average across the six mechanisms is above 72% — the top band of the scale. Every mechanism is running at once, at full strength."
       },
       "strengths": {
         "ru": [
@@ -2781,7 +2781,7 @@
     }
   },
   "profileSelection": {
-    "$note": "Перенос determineProfile() из imposter_syndrome_data.dart: пороги по среднему всех шести факторов, как toxic_patterns.",
+    "$note": "Этап 2 (03.08.2026): полосы 21/41/61/81 → 37/50/61/72 по перцентилям (рычаг предлагал ~31/49/66/83; при 81 severe был мёртв — 0.6%). Симуляция: minimal 16.8 / mild 33.3 / moderate 29.5 / high 15.8 / severe 4.6.",
     "mode": "rules",
     "fallback": "profile_minimal",
     "rules": [
@@ -2790,7 +2790,7 @@
           [
             "@avg",
             ">=",
-            81
+            72
           ]
         ],
         "profile": "profile_severe"
@@ -2810,7 +2810,7 @@
           [
             "@avg",
             ">=",
-            41
+            50
           ]
         ],
         "profile": "profile_moderate"
@@ -2820,7 +2820,7 @@
           [
             "@avg",
             ">=",
-            21
+            37
           ]
         ],
         "profile": "profile_mild"

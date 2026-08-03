@@ -1,0 +1,269 @@
+{
+  "$comment": "Этап 2 (03.08.2026): перекалибровка полос + подпрофили средней полосы (решение 2.5B). Обоснование порогов — в $note внутри profileSelection; три новых профиля — в profilesAdd.",
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 75/60/40/25 → 63/52/41/29 по перцентилям (рычаг ~68/54/36/23; при 68 eq_master не добирал коридор 8–15). Средняя полоса разделена (решение 2.5B): ровный профиль (@range < 65 — на семи независимых факторах симуляции размах топ-минус-низ почти всегда >50, «ровность» калибрована коридором «чистый developing ≤10%») остаётся «Разговорником», выраженный лидер уходит в один из трёх новых byTop-подпрофилей: восприятие/понимание → listener, управление собой/использование/мотивация → voice, эмпатия/соцнавыки → dialogue. Ничьи byTop — ранг Object.entries, т.е. порядок factorIds. Симуляция: master 14.5 / intelligent 29.2 / developing 6.1 / подпрофили 8.3+11.3+7.4=27 / low 19 / very_low 4.1.",
+    "mode": "rules",
+    "fallback": "profile_very_low_eq",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            63
+          ]
+        ],
+        "profile": "profile_eq_master"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ]
+        ],
+        "profile": "profile_emotionally_intelligent"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            41
+          ],
+          [
+            "@range",
+            "<",
+            65
+          ]
+        ],
+        "profile": "profile_developing_eq"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            41
+          ]
+        ],
+        "profile": {
+          "byTop": {
+            "emotional_perception": "profile_developing_listener",
+            "emotional_understanding": "profile_developing_listener",
+            "self_management": "profile_developing_voice",
+            "emotional_facilitation": "profile_developing_voice",
+            "motivation": "profile_developing_voice",
+            "empathy": "profile_developing_dialogue",
+            "social_skills": "profile_developing_dialogue"
+          }
+        }
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            29
+          ]
+        ],
+        "profile": "profile_low_eq"
+      }
+    ]
+  },
+  "profilesAdd": {
+    "profile_developing_listener": {
+      "id": "profile_developing_listener",
+      "icon": null,
+      "name": {
+        "ru": "Понимаешь на слух",
+        "en": "Good Ear"
+      },
+      "description": {
+        "ru": "Общий уровень у тебя средний, но профиль не ровный: сильнее всего — способность замечать и понимать чувства. Ты раньше других видишь, что человек расстроен, и обычно верно угадываешь почему. Слабое место — что с этим делать: понимание есть, а управление и разговор отстают.",
+        "en": "Your overall level is middling, but the profile isn't flat: your strongest side is noticing and understanding feelings. You see that someone's upset before others do, and you usually guess why correctly. The weak spot is what happens next: the understanding is there, the handling and the conversation lag behind."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он в средней полосе (от 41 до 52 из 100) при заметном разбросе между шкалами, и на вершине — восприятие или понимание эмоций. Поэтому вместо общего «средне» тест называет твою сильную сторону.",
+        "en": "The algorithm averages your seven scales. Yours sits in the middle band (41 to 52 out of 100) with a visible spread between scales, and perception or understanding of emotions is on top. So instead of a generic 'average' the test names your strong side."
+      },
+      "strengths": {
+        "ru": [
+          "Замечаешь сдвиги настроения раньше, чем их называют",
+          "Отличаешь усталость от обиды и злость от страха",
+          "Люди чувствуют, что их видят, — рядом с тобой не надо притворяться",
+          "Хорошо читаешь подтекст разговора"
+        ],
+        "en": [
+          "You notice mood shifts before anyone names them",
+          "You can tell tiredness from resentment and anger from fear",
+          "People feel seen around you — no need to pretend",
+          "You read the subtext of a conversation well"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Видеть чувство и справиться с ним — разные навыки: свои эмоции всё ещё накрывают",
+          "Понимание чужого состояния не всегда превращается в нужные слова",
+          "Чужие эмоции легко утаскивают за собой — граница между «замечаю» и «заражаюсь» тонкая"
+        ],
+        "en": [
+          "Seeing a feeling and handling it are different skills: your own emotions still swamp you",
+          "Understanding someone's state doesn't always turn into the right words",
+          "Other people's emotions pull you along — the line between noticing and catching them is thin"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Доводи замеченное до действия: увидел чувство — назови его вслух или спроси о нём",
+          "Тренируй выход, а не вход: что я сделаю с тем, что понял?",
+          "Когда накрывает своё — используй тот же навык на себе: назови чувство так же точно, как называешь чужие",
+          "Разбирай задним числом не людей, а свои реакции на них"
+        ],
+        "en": [
+          "Take what you notice all the way to action: saw a feeling — name it out loud or ask about it",
+          "Train the output, not the input: what will I do with what I understood?",
+          "When your own feelings hit, turn the same skill inward: name yours as precisely as you name other people's",
+          "Debrief your reactions to people, not just the people"
+        ]
+      },
+      "tryToday": {
+        "ru": "Сегодня, когда заметишь чьё-то чувство, сделай следующий шаг: скажи об этом или спроси. Не оставляй наблюдение внутри.",
+        "en": "Today, when you notice someone's feeling, take the next step: say it or ask about it. Don't leave the observation inside."
+      },
+      "inspiringConclusion": {
+        "ru": "Слух у тебя уже есть — остаётся поставить голос. Это быстрее, чем учить язык с нуля.",
+        "en": "You've already got the ear — now train the voice. That's faster than learning the language from scratch."
+      }
+    },
+    "profile_developing_voice": {
+      "id": "profile_developing_voice",
+      "icon": null,
+      "name": {
+        "ru": "Поставленный голос",
+        "en": "Steady Voice"
+      },
+      "description": {
+        "ru": "Общий уровень средний, но опора заметная: ты умеешь держать себя и направлять. Под нагрузкой не разваливаешься, начатое доводишь, эмоции редко управляют твоими решениями. Слабее другое — тонкое чтение: оттенки чувств, своих и чужих, проходят мимо, пока ты сосредоточен на деле.",
+        "en": "Your overall level is middling, but there's a visible anchor: you hold yourself steady and keep yourself moving. You don't fall apart under pressure, you finish what you start, and emotions rarely run your decisions. The weaker side is fine reading: shades of feeling — yours and other people's — slip past while you're focused on the task."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он в средней полосе (от 41 до 52 из 100) при заметном разбросе, и на вершине — управление собой, использование эмоций или мотивация. Тест называет сильную сторону, а не общее «средне».",
+        "en": "The algorithm averages your seven scales. Yours sits in the middle band (41 to 52 out of 100) with a visible spread, and self-management, putting emotions to work, or motivation is on top. The test names the strong side, not a generic 'average'."
+      },
+      "strengths": {
+        "ru": [
+          "Держишь себя в руках там, где других уносит",
+          "Умеешь превратить раздражение в топливо для дела",
+          "На тебя можно опереться в кризис — паника не твой жанр",
+          "Не бросаешь начатое из-за настроения"
+        ],
+        "en": [
+          "You hold steady where others get swept away",
+          "You can turn irritation into fuel for the task",
+          "People can lean on you in a crisis — panic isn't your genre",
+          "You don't drop things because of a mood"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "«Держать себя» иногда означает «не слышать себя»: накопленное прорывается внезапно",
+          "Тихие сигналы других людей теряются за задачей",
+          "Спокойный тон читается как равнодушие, даже когда внутри не так"
+        ],
+        "en": [
+          "'Holding steady' sometimes means 'not hearing yourself': what piles up breaks out suddenly",
+          "Other people's quiet signals get lost behind the task",
+          "A calm tone reads as indifference, even when that's not what's inside"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Раз в день проверяй, что именно ты сейчас «держишь»: назови чувство, которое контролируешь",
+          "В разговорах спрашивай о чувствах прямо — вопросы работают не хуже интуиции",
+          "Планируй не только дела, но и разрядку: контроль без выпуска копит счёт",
+          "Скажи близким, что спокойствие — не безразличие; им это не очевидно"
+        ],
+        "en": [
+          "Once a day, check what exactly you're 'holding': name the feeling you're controlling",
+          "Ask about feelings directly in conversations — questions work no worse than intuition",
+          "Schedule the release, not just the tasks: control without an outlet runs a tab",
+          "Tell the people close to you that calm isn't indifference; it isn't obvious to them"
+        ]
+      },
+      "tryToday": {
+        "ru": "Три раза за день остановись и спроси: что я сейчас чувствую — не делаю, а чувствую? Назови одним точным словом.",
+        "en": "Three times today, stop and ask: what am I feeling right now — feeling, not doing? Name it in one precise word."
+      },
+      "inspiringConclusion": {
+        "ru": "Голос уже поставлен — осталось выучить слова. Слышать себя и других учатся, и с твоей дисциплиной это вопрос практики, а не таланта.",
+        "en": "The voice is trained — now learn the vocabulary. Hearing yourself and others is learnable, and with your discipline it's practice, not talent."
+      }
+    },
+    "profile_developing_dialogue": {
+      "id": "profile_developing_dialogue",
+      "icon": null,
+      "name": {
+        "ru": "Живой диалог",
+        "en": "Fluent in Company"
+      },
+      "description": {
+        "ru": "Общий уровень средний, но с людьми у тебя получается лучше всего: ты чувствуешь собеседника, попадаешь в тон, умеешь разрядить и поддержать. Слабее — наедине с собой: свои чувства ты разбираешь хуже, чем чужие, и под нагрузкой это заметно.",
+        "en": "Your overall level is middling, but people are where you work best: you feel the other person, hit the right tone, know how to defuse and support. The weaker side is you alone with yourself: you sort out your own feelings worse than other people's, and under pressure it shows."
+      },
+      "whyThisProfile": {
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он в средней полосе (от 41 до 52 из 100) при заметном разбросе, и на вершине — эмпатия или социальные навыки. Тест называет сильную сторону, а не общее «средне».",
+        "en": "The algorithm averages your seven scales. Yours sits in the middle band (41 to 52 out of 100) with a visible spread, and empathy or social skills is on top. The test names the strong side, not a generic 'average'."
+      },
+      "strengths": {
+        "ru": [
+          "Настраиваешься на собеседника быстро и без усилия",
+          "Умеешь сказать трудное так, что тебя слышат",
+          "В компании от тебя теплеет — это навык, а не случайность",
+          "Конфликты рядом с тобой чаще гаснут, чем разгораются"
+        ],
+        "en": [
+          "You tune into people quickly and without strain",
+          "You can say a hard thing so it actually lands",
+          "Rooms warm up around you — that's a skill, not luck",
+          "Conflicts near you die down more often than they flare"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Чужое считываешь легко, своё — со скрипом: вопрос «а ты-то как?» ставит в тупик",
+          "Наедине с собой сложнее, чем на людях, — тишина выматывает",
+          "Настроившись на всех, забываешь, где твоя собственная волна"
+        ],
+        "en": [
+          "You read others with ease and yourself with a creak: the question 'and how are YOU?' stalls you",
+          "Being alone is harder than being with people — silence drains you",
+          "Tuned to everyone, you lose track of your own frequency"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Практикуй пять минут тишины с вопросом «что я чувствую?» — без телефона и собеседников",
+          "Переводи навык внутрь: опиши своё состояние так, как описал бы чужое",
+          "Проверяй, чьё чувство несёшь: твоё или подхваченное в разговоре",
+          "Разреши себе не быть поддержкой, когда сам на нуле, — и скажи об этом словами"
+        ],
+        "en": [
+          "Practice five minutes of silence with the question 'what am I feeling?' — no phone, no company",
+          "Turn the skill inward: describe your state the way you'd describe someone else's",
+          "Check whose feeling you're carrying: yours or one picked up in conversation",
+          "Let yourself not be the support when you're at zero — and say so in words"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вечером опиши свой день так, как описал бы день друга: что человек чувствовал, где устал, что его задело. Про себя — в третьем лице.",
+        "en": "Tonight, describe your day the way you'd describe a friend's: what the person felt, where they got tired, what stung them. About yourself — in the third person."
+      },
+      "inspiringConclusion": {
+        "ru": "С людьми ты уже говоришь свободно — остался один собеседник. Научись слушать себя так же, как слушаешь других, и язык станет родным.",
+        "en": "You're already fluent with people — one conversation partner left. Learn to listen to yourself the way you listen to others, and the language becomes native."
+      }
+    }
+  }
+}

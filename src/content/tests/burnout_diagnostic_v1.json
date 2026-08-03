@@ -3392,8 +3392,8 @@
         "en": "Work takes energy from you — and gives it back. Stress happens but doesn't accumulate: the boundaries hold, sleep works, and on Monday you're not counting days to Friday."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи компонентам выгорания в твоих ответах — ниже 25%: истощение, цинизм, туман и телесные сигналы почти не отозвались.",
-        "en": "Your average across the seven burnout components is under 25%: exhaustion, cynicism, fog and body signals barely registered."
+        "ru": "Среднее по семи компонентам выгорания в твоих ответах — не выше 37%: истощение, цинизм, туман и телесные сигналы почти не отозвались.",
+        "en": "Your average across the seven burnout components is at or below 37%: exhaustion, cynicism, fog and body signals barely registered."
       },
       "strengths": {
         "ru": [
@@ -3454,8 +3454,8 @@
         "en": "No fire yet, but you can smell the smoke: Friday fatigue runs deeper than it used to, enthusiasm dips in places, sleep occasionally stutters. It's a normal response to load — and the best possible moment to act."
       },
       "whyThisProfile": {
-        "ru": "Среднее по компонентам — между 25 и 40%: часть показателей приподнята, но ни один не горит. Стадия, на которой восстановление стоит дешевле всего.",
-        "en": "Your average across the components is between 25 and 40%: some readings are elevated, none are burning. The stage where recovery is at its cheapest."
+        "ru": "Среднее по компонентам — между 37 и 48%: часть показателей приподнята, но ни один не горит. Стадия, на которой восстановление стоит дешевле всего.",
+        "en": "Your average across the components is between 37 and 48%: some readings are elevated, none are burning. The stage where recovery is at its cheapest."
       },
       "strengths": {
         "ru": [
@@ -3520,8 +3520,8 @@
         "en": "The lead symptom: the emotions have run out. You wake up already tired, people take effort, and what used to move you now lands on numbness. The tank doesn't refill overnight — and that's not laziness, it's depletion."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень выгорания у тебя средний (40–60%), а самый высокий компонент — эмоциональное истощение. Так чаще всего выгорают те, кто много отдаёт людям.",
-        "en": "Your overall burnout level is moderate (40–60%), and your highest component is emotional exhaustion. This is how people who give a lot to others most often burn."
+        "ru": "Общий уровень выгорания у тебя средний (48–63%), а самый высокий компонент — эмоциональное истощение. Так чаще всего выгорают те, кто много отдаёт людям.",
+        "en": "Your overall burnout level is moderate (48–63%), and your highest component is emotional exhaustion. This is how people who give a lot to others most often burn."
       },
       "strengths": {
         "ru": [
@@ -3586,8 +3586,8 @@
         "en": "The lead symptom: detachment. People at work have turned into \"tasks\" and \"cases\", sarcasm has become your second language, and you don't care where you used to care. It's armor: it protects you from overload — and it cuts you off from what you started for."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминирует деперсонализация — защитная реакция психики на эмоциональную перегрузку. Броня выросла не на пустом месте.",
-        "en": "Your overall level is moderate (40–60%) with depersonalization dominating — the psyche's defensive response to emotional overload. The armor didn't grow out of nothing."
+        "ru": "Общий уровень средний (48–63%), а доминирует деперсонализация — защитная реакция психики на эмоциональную перегрузку. Броня выросла не на пустом месте.",
+        "en": "Your overall level is moderate (48–63%) with depersonalization dominating — the psyche's defensive response to emotional overload. The armor didn't grow out of nothing."
       },
       "strengths": {
         "ru": [
@@ -3652,8 +3652,8 @@
         "en": "The lead symptom: feeling professionally inadequate. It seems you've slipped: decisions come hard, your results look smaller than everyone's, and the inner examiner fails you on everything. Important: at this stage, perception is usually more distorted than reality."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминирует ощущение сниженной эффективности. Выгорание умеет подделывать почерк некомпетентности — усталый профессионал выглядит для себя как плохой.",
-        "en": "Your overall level is moderate (40–60%) with reduced efficacy dominating. Burnout is good at forging incompetence's handwriting — a tired professional looks, to himself, like a bad one."
+        "ru": "Общий уровень средний (48–63%), а доминирует ощущение сниженной эффективности. Выгорание умеет подделывать почерк некомпетентности — усталый профессионал выглядит для себя как плохой.",
+        "en": "Your overall level is moderate (48–63%) with reduced efficacy dominating. Burnout is good at forging incompetence's handwriting — a tired professional looks, to himself, like a bad one."
       },
       "strengths": {
         "ru": [
@@ -3718,8 +3718,8 @@
         "en": "The lead symptom is physical. The mind still keeps a straight face while the body is already invoicing: fatigue sleep won't clear, neck and back pain, one cold after another. The body always learns about burnout first — it just speaks a different language."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминируют физические симптомы: твой основной канал сигнала — соматика, не эмоции.",
-        "en": "Your overall level is moderate (40–60%) with physical symptoms dominating: your main signal channel is the body, not the emotions."
+        "ru": "Общий уровень средний (48–63%), а доминируют физические симптомы: твой основной канал сигнала — соматика, не эмоции.",
+        "en": "Your overall level is moderate (48–63%) with physical symptoms dominating: your main signal channel is the body, not the emotions."
       },
       "strengths": {
         "ru": [
@@ -3788,8 +3788,8 @@
         "en": "The lead symptom is cognitive. Concentration tears, simple decisions take effort, words and tasks fall out of memory. You haven't \"gotten dumber\" — this is a brain long denied recovery, saving energy on everything at once."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминируют когнитивные нарушения: высшие функции — внимание, память, решения — сдают при хроническом стрессе первыми.",
-        "en": "Your overall level is moderate (40–60%) with cognitive impairment dominating: the higher functions — attention, memory, decisions — are the first to give under chronic stress."
+        "ru": "Общий уровень средний (48–63%), а доминируют когнитивные нарушения: высшие функции — внимание, память, решения — сдают при хроническом стрессе первыми.",
+        "en": "Your overall level is moderate (48–63%) with cognitive impairment dominating: the higher functions — attention, memory, decisions — are the first to give under chronic stress."
       },
       "strengths": {
         "ru": [
@@ -3854,8 +3854,8 @@
         "en": "The lead symptom: meaning has left the chat. Work runs on autopilot, the question \"what for\" finds no answer, and the thought of quitting has gone from occasional to ambient. This is burnout's existential edge — and the honestest one: it asks about what matters."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминирует потеря мотивации и смысла. Когда работа перестаёт отвечать на «зачем», энергия не приходит даже после отдыха.",
-        "en": "Your overall level is moderate (40–60%) with loss of motivation and meaning dominating. When work stops answering \"what for\", energy doesn't come back even after rest."
+        "ru": "Общий уровень средний (48–63%), а доминирует потеря мотивации и смысла. Когда работа перестаёт отвечать на «зачем», энергия не приходит даже после отдыха.",
+        "en": "Your overall level is moderate (48–63%) with loss of motivation and meaning dominating. When work stops answering \"what for\", energy doesn't come back even after rest."
       },
       "strengths": {
         "ru": [
@@ -3920,8 +3920,8 @@
         "en": "The main factor isn't in you — it's around you: overtime, weekend work, missing resources and support. Anyone burns out in that environment, and your symptoms are a normal response to an abnormal load."
       },
       "whyThisProfile": {
-        "ru": "Общий уровень средний (40–60%), а доминирует фактор рабочей среды: часы, выходные, ресурсы и поддержка. Тест видит перегруз снаружи раньше, чем поломку внутри.",
-        "en": "Your overall level is moderate (40–60%) with the work-environment factor dominating: hours, weekends, resources, support. The test sees the external overload before any internal breakage."
+        "ru": "Общий уровень средний (48–63%), а доминирует фактор рабочей среды: часы, выходные, ресурсы и поддержка. Тест видит перегруз снаружи раньше, чем поломку внутри.",
+        "en": "Your overall level is moderate (48–63%) with the work-environment factor dominating: hours, weekends, resources, support. The test sees the external overload before any internal breakage."
       },
       "strengths": {
         "ru": [
@@ -3986,8 +3986,8 @@
         "en": "Mid-level burnout with no single loud symptom: everything smolders a little — fatigue, skepticism, scattered focus, the body. An even smolder is trickier than a flare: it's easier not to notice."
       },
       "whyThisProfile": {
-        "ru": "Среднее по компонентам — в средней полосе (40–60%), и ни один фактор не вырывается вперёд: нагрузка распределилась по всем каналам сразу.",
-        "en": "Your average sits in the middle band (40–60%) and no factor breaks away: the load has spread across all channels at once."
+        "ru": "Среднее по компонентам — в средней полосе (48–63%), и ни один фактор не вырывается вперёд: нагрузка распределилась по всем каналам сразу.",
+        "en": "Your average sits in the middle band (48–63%) and no factor breaks away: the load has spread across all channels at once."
       },
       "strengths": {
         "ru": [
@@ -4052,8 +4052,8 @@
         "en": "The burnout runs deep: exhaustion has gone chronic, the cynicism and self-doubt constant, the body signaling in earnest. This state won't clear with one vacation on its own — but it does clear, once you treat it as the main project."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи компонентам — между 60 и 75%: высокие значения почти по всем каналам сразу. Это уже не перегруженный месяц, а перегруженный способ жить.",
-        "en": "Your average across the seven components is between 60 and 75%: high readings on nearly every channel at once. This isn't an overloaded month anymore — it's an overloaded way of living."
+        "ru": "Среднее по семи компонентам — между 63 и 72%: высокие значения почти по всем каналам сразу. Это уже не перегруженный месяц, а перегруженный способ жить.",
+        "en": "Your average across the seven components is between 63 and 72%: high readings on nearly every channel at once. This isn't an overloaded month anymore — it's an overloaded way of living."
       },
       "strengths": {
         "ru": [
@@ -4122,8 +4122,8 @@
         "en": "Almost every answer sits at the top: exhaustion, detachment, fog, the body, meaning. This is what it looks like when the resource isn't just at zero — it's negative, and the work continues on credit borrowed from health. Enduring further isn't a strategy: at this depth the state doesn't turn around on its own."
       },
       "whyThisProfile": {
-        "ru": "Среднее по семи компонентам — выше 75%, верхняя зона шкалы. Все каналы выгорания работают одновременно и на максимуме.",
-        "en": "Your average across the seven components is above 75% — the top band of the scale. Every burnout channel is running at maximum, simultaneously."
+        "ru": "Среднее по семи компонентам — выше 72%, верхняя зона шкалы. Все каналы выгорания работают одновременно и на максимуме.",
+        "en": "Your average across the seven components is above 72% — the top band of the scale. Every burnout channel is running at maximum, simultaneously."
       },
       "strengths": {
         "ru": [
@@ -4182,7 +4182,7 @@
     }
   },
   "profileSelection": {
-    "$note": "Перенос determineProfile() из burnout_diagnostic_data.dart: полосы по среднему семи факторов, в средней полосе (40–60) — ветка по доминирующему фактору. Порядок правил повторяет порядок обхода факторов в Dart — ничьи решаются так же. profile_moderate — default свитча (недостижим и в оригинале), здесь — фолбэк средней полосы.",
+    "$note": "Этап 2 (03.08.2026): полосы 25/40/60/75 → 37/48/63/72. Фокусные ветки: @diff12 ≥ 3 вместо стартового ≥7 — при семи независимых факторах P(diff12≥7 | средняя полоса) ≈ 53%, «Тление» получало бы ~19% (коридор 5–10), а сумма фокусных ~22% (коридор 28–38); порог 3 ≈ один шаг сетки фактора (3.125–3.57), т.е. «лидер впереди хотя бы на один ответ», moderate = честная ничья наверху. profile_moderate ожил: 0% → 8.1%. Порядок фокусных — порядок обхода факторов Dart (тай-брейк тот же). Симуляция: minimal 15.3 / mild 30 / фокусные 32.6 / moderate 8.1 / severe 10.2 / critical 3.9.",
     "mode": "rules",
     "fallback": "profile_minimal",
     "rules": [
@@ -4191,7 +4191,7 @@
           [
             "@avg",
             "<=",
-            25
+            37
           ]
         ],
         "profile": "profile_minimal"
@@ -4201,7 +4201,7 @@
           [
             "@avg",
             "<=",
-            40
+            48
           ]
         ],
         "profile": "profile_mild"
@@ -4211,7 +4211,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "emotional_exhaustion",
@@ -4226,7 +4231,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "depersonalization",
@@ -4241,7 +4251,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "reduced_efficacy",
@@ -4256,7 +4271,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "physical_symptoms",
@@ -4271,7 +4291,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "cognitive_impairment",
@@ -4286,7 +4311,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "motivation_loss",
@@ -4301,7 +4331,12 @@
           [
             "@avg",
             "<=",
-            60
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
           ],
           [
             "work_environment",
@@ -4316,7 +4351,7 @@
           [
             "@avg",
             "<=",
-            60
+            63
           ]
         ],
         "profile": "profile_moderate"
@@ -4326,7 +4361,7 @@
           [
             "@avg",
             "<=",
-            75
+            72
           ]
         ],
         "profile": "profile_severe"

@@ -1,0 +1,200 @@
+{
+  "$comment": "Этап 2 (03.08.2026): пересборка лестницы профилей под коридоры. Обоснование — в $note внутри profileSelection.",
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): правило «@diff12 < 10 → mixed» удалено (фолбэк и так mixed — в конце лестницы оно ничего не добавляет), 65.6% Универсала распущены по именным. Лестница из 12 окон на сетке фактора 6.25 (4 пункта × шаг 25/4), редкие профили выше по списку — при пересечении окон приоритет у того, кто без этого не выживает (rare-first). motivator_inspirer ожил (0% → 10.1%): окно FE≥68.75 ∧ SB≥62.5 ∧ SB>CS стоит ПЕРЕД adventure_partner, который раньше поглощал его целиком. communication_bridge сохранил условие CS ≥ @top1; ничьи наверху теперь возможны и решаются рангом Object.entries (порядок factorIds). Симуляция: mixed 23.2, именные 2.1–10.2, сумма именных 77.",
+    "mode": "rules",
+    "fallback": "profile_mixed",
+    "rules": [
+      {
+        "when": [
+          [
+            "friendship_expectations",
+            ">=",
+            68.75
+          ],
+          [
+            "supportive_behavior",
+            ">=",
+            62.5
+          ],
+          [
+            "supportive_behavior",
+            ">",
+            "communication_style"
+          ]
+        ],
+        "profile": "motivator_inspirer"
+      },
+      {
+        "when": [
+          [
+            "emotional_closeness",
+            ">=",
+            68.75
+          ],
+          [
+            "supportive_behavior",
+            ">=",
+            68.75
+          ]
+        ],
+        "profile": "warm_empathic_friend"
+      },
+      {
+        "when": [
+          [
+            "supportive_behavior",
+            ">=",
+            68.75
+          ],
+          [
+            "communication_style",
+            ">=",
+            68.75
+          ]
+        ],
+        "profile": "intuitive_feel_reader"
+      },
+      {
+        "when": [
+          [
+            "supportive_behavior",
+            ">=",
+            75
+          ],
+          [
+            "emotional_closeness",
+            ">=",
+            50
+          ]
+        ],
+        "profile": "caring_guardian"
+      },
+      {
+        "when": [
+          [
+            "emotional_closeness",
+            ">=",
+            68.75
+          ],
+          [
+            "boundaries_and_space",
+            ">=",
+            68.75
+          ]
+        ],
+        "profile": "philosophical_deep_friend"
+      },
+      {
+        "when": [
+          [
+            "emotional_closeness",
+            ">=",
+            68.75
+          ],
+          [
+            "friendship_expectations",
+            ">=",
+            68.75
+          ]
+        ],
+        "profile": "emotional_dramatic_friend"
+      },
+      {
+        "when": [
+          [
+            "friendship_expectations",
+            ">=",
+            68.75
+          ],
+          [
+            "communication_style",
+            ">=",
+            62.5
+          ]
+        ],
+        "profile": "social_circle_builder"
+      },
+      {
+        "when": [
+          [
+            "friendship_expectations",
+            ">=",
+            62.5
+          ],
+          [
+            "supportive_behavior",
+            ">=",
+            56.25
+          ],
+          [
+            "emotional_closeness",
+            "<",
+            68.75
+          ]
+        ],
+        "profile": "adventure_partner"
+      },
+      {
+        "when": [
+          [
+            "communication_style",
+            ">=",
+            68.75
+          ],
+          [
+            "communication_style",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "communication_bridge"
+      },
+      {
+        "when": [
+          [
+            "trust_and_loyalty",
+            ">=",
+            75
+          ],
+          [
+            "emotional_closeness",
+            "<",
+            75
+          ]
+        ],
+        "profile": "reliable_stable_friend"
+      },
+      {
+        "when": [
+          [
+            "boundaries_and_space",
+            ">=",
+            68.75
+          ],
+          [
+            "friendship_expectations",
+            "<",
+            50
+          ]
+        ],
+        "profile": "independent_free_friend"
+      },
+      {
+        "when": [
+          [
+            "boundaries_and_space",
+            ">=",
+            62.5
+          ],
+          [
+            "communication_style",
+            "<",
+            56.25
+          ]
+        ],
+        "profile": "calm_observer"
+      }
+    ]
+  }
+}

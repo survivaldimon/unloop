@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2. Механика теста — самая интересная на полке: 10 ценностей, каждая измерена дважды (важность и реально вкладываемая энергия), профиль строится на разрыве между ними. Переписано: голос с «вы» на «ты», выброшены англицизмы («accountability partner», «не aligned»), капс и клинические советы у риска выгорания заменены на supportNote. whyThisProfile был в исходнике — переписан человеческим языком без процентов-порогов. Веса и пороги не тронуты.",
-
   "title": {
     "ru": "Куда уходит твоя энергия",
     "en": "Where Your Energy Goes"
@@ -9,33 +8,94 @@
     "ru": "40 вопросов о десяти сферах жизни, каждая измерена дважды: насколько она важна тебе — и сколько сил ты в неё реально вкладываешь. Разрыв между этими двумя списками и есть главный результат.",
     "en": "40 questions across ten areas of life, each measured twice: how much it matters to you — and how much energy you actually put in. The gap between those two lists is the real result."
   },
-
   "factorNames": {
-    "security_importance": { "ru": "Безопасность: важность", "en": "Security: importance" },
-    "security_energy": { "ru": "Безопасность: вложение", "en": "Security: invested" },
-    "freedom_importance": { "ru": "Свобода: важность", "en": "Freedom: importance" },
-    "freedom_energy": { "ru": "Свобода: вложение", "en": "Freedom: invested" },
-    "achievement_importance": { "ru": "Достижения: важность", "en": "Achievement: importance" },
-    "achievement_energy": { "ru": "Достижения: вложение", "en": "Achievement: invested" },
-    "creativity_importance": { "ru": "Творчество: важность", "en": "Creativity: importance" },
-    "creativity_energy": { "ru": "Творчество: вложение", "en": "Creativity: invested" },
-    "relationships_importance": { "ru": "Отношения: важность", "en": "Relationships: importance" },
-    "relationships_energy": { "ru": "Отношения: вложение", "en": "Relationships: invested" },
-    "growth_importance": { "ru": "Развитие: важность", "en": "Growth: importance" },
-    "growth_energy": { "ru": "Развитие: вложение", "en": "Growth: invested" },
-    "influence_importance": { "ru": "Влияние: важность", "en": "Influence: importance" },
-    "influence_energy": { "ru": "Влияние: вложение", "en": "Influence: invested" },
-    "comfort_importance": { "ru": "Комфорт: важность", "en": "Comfort: importance" },
-    "comfort_energy": { "ru": "Комфорт: вложение", "en": "Comfort: invested" },
-    "contribution_importance": { "ru": "Польза другим: важность", "en": "Contribution: importance" },
-    "contribution_energy": { "ru": "Польза другим: вложение", "en": "Contribution: invested" },
-    "health_balance_importance": { "ru": "Здоровье и баланс: важность", "en": "Health and balance: importance" },
-    "health_balance_energy": { "ru": "Здоровье и баланс: вложение", "en": "Health and balance: invested" }
+    "security_importance": {
+      "ru": "Безопасность: важность",
+      "en": "Security: importance"
+    },
+    "security_energy": {
+      "ru": "Безопасность: вложение",
+      "en": "Security: invested"
+    },
+    "freedom_importance": {
+      "ru": "Свобода: важность",
+      "en": "Freedom: importance"
+    },
+    "freedom_energy": {
+      "ru": "Свобода: вложение",
+      "en": "Freedom: invested"
+    },
+    "achievement_importance": {
+      "ru": "Достижения: важность",
+      "en": "Achievement: importance"
+    },
+    "achievement_energy": {
+      "ru": "Достижения: вложение",
+      "en": "Achievement: invested"
+    },
+    "creativity_importance": {
+      "ru": "Творчество: важность",
+      "en": "Creativity: importance"
+    },
+    "creativity_energy": {
+      "ru": "Творчество: вложение",
+      "en": "Creativity: invested"
+    },
+    "relationships_importance": {
+      "ru": "Отношения: важность",
+      "en": "Relationships: importance"
+    },
+    "relationships_energy": {
+      "ru": "Отношения: вложение",
+      "en": "Relationships: invested"
+    },
+    "growth_importance": {
+      "ru": "Развитие: важность",
+      "en": "Growth: importance"
+    },
+    "growth_energy": {
+      "ru": "Развитие: вложение",
+      "en": "Growth: invested"
+    },
+    "influence_importance": {
+      "ru": "Влияние: важность",
+      "en": "Influence: importance"
+    },
+    "influence_energy": {
+      "ru": "Влияние: вложение",
+      "en": "Influence: invested"
+    },
+    "comfort_importance": {
+      "ru": "Комфорт: важность",
+      "en": "Comfort: importance"
+    },
+    "comfort_energy": {
+      "ru": "Комфорт: вложение",
+      "en": "Comfort: invested"
+    },
+    "contribution_importance": {
+      "ru": "Польза другим: важность",
+      "en": "Contribution: importance"
+    },
+    "contribution_energy": {
+      "ru": "Польза другим: вложение",
+      "en": "Contribution: invested"
+    },
+    "health_balance_importance": {
+      "ru": "Здоровье и баланс: важность",
+      "en": "Health and balance: importance"
+    },
+    "health_balance_energy": {
+      "ru": "Здоровье и баланс: вложение",
+      "en": "Health and balance: invested"
+    }
   },
-
   "profiles": {
     "profile_aligned": {
-      "name": { "ru": "В согласии с собой", "en": "In Alignment" },
+      "name": {
+        "ru": "В согласии с собой",
+        "en": "In Alignment"
+      },
       "description": {
         "ru": "То, что ты называешь важным, и то, на что уходят твои силы, — почти один и тот же список. Такое совпадение встречается реже, чем кажется.",
         "en": "The things you call important and the things your energy actually goes to are nearly the same list. That match is rarer than it sounds."
@@ -91,16 +151,18 @@
         "en": "Living in step with your own list is a rare skill. Just don't turn it into a museum — keep rebuilding it."
       }
     },
-
     "profile_values_without_action": {
-      "name": { "ru": "Знаю, но не делаю", "en": "Knowing Without Doing" },
+      "name": {
+        "ru": "Знаю, но не делаю",
+        "en": "Knowing Without Doing"
+      },
       "description": {
         "ru": "Ты хорошо понимаешь, что для тебя важно. Но в повседневности эти сферы почти не получают твоих сил — список ценностей живёт отдельно от расписания.",
         "en": "You understand perfectly well what matters to you. But day to day, those areas barely get your energy — the list of values lives separately from the schedule."
       },
       "whyThisProfile": {
-        "ru": "По важности твои ценности набрали высокие баллы, а по реальному вложению сил — низкие. Тест ловит именно этот перекос: понимание есть, действия отстают.",
-        "en": "Your values scored high on importance and low on actual invested energy. That's exactly the tilt this test catches: the understanding is there, the action lags."
+        "ru": "По важности твои ценности стоят выше середины, а по реальному вложению сил — низко. Тест ловит именно этот перекос: понимание есть, действия отстают.",
+        "en": "Your values stand above the middle on importance and low on actually invested energy. That's exactly the tilt this test catches: the understanding is there, the action lags."
       },
       "strengths": {
         "ru": [
@@ -153,9 +215,11 @@
         "en": "The gap between values and actions isn't a verdict — it's a map, and the destination is already marked."
       }
     },
-
     "profile_energy_misaligned": {
-      "name": { "ru": "Занят не тем", "en": "Busy With the Wrong Things" },
+      "name": {
+        "ru": "Занят не тем",
+        "en": "Busy With the Wrong Things"
+      },
       "description": {
         "ru": "Энергии ты тратишь много — но заметная её часть уходит в сферы, которые тебе не особенно важны. Дел полно, а ощущения смысла нет.",
         "en": "You spend plenty of energy — but a real share of it goes to areas that don't matter much to you. The days are full; the sense of meaning isn't."
@@ -213,9 +277,11 @@
         "en": "Your energy is capital. The question isn't how much you have — it's what it's working for."
       }
     },
-
     "profile_burnout_risk": {
-      "name": { "ru": "На износ", "en": "Running on Empty" },
+      "name": {
+        "ru": "На износ",
+        "en": "Running on Empty"
+      },
       "description": {
         "ru": "Ты вкладываешься почти во всё — кроме собственного восстановления. Сферы «здоровье и баланс» в твоих ответах почти пусто, и на длинной дистанции этот счёт придёт.",
         "en": "You invest in almost everything — except your own recovery. The \"health and balance\" area is nearly empty in your answers, and over the long run that bill arrives."
@@ -225,8 +291,8 @@
         "en": "This test is educational and doesn't diagnose anything. But if the exhaustion has become constant — doesn't lift after a weekend, disrupts sleep or joy — that's a reason to talk to a doctor or therapist rather than wait for your body to stop you itself."
       },
       "whyThisProfile": {
-        "ru": "Общее вложение энергии у тебя очень высокое, а вложение в здоровье и баланс — низкое. Именно эта пара сигналов и определяет профиль: расход без восстановления.",
-        "en": "Your overall energy investment is very high while your investment in health and balance is low. That exact pair of signals defines the profile: spending without recovery."
+        "ru": "Общее вложение энергии у тебя высокое, а вложение в здоровье и баланс — низкое. Именно эта пара сигналов и определяет профиль: расход без восстановления.",
+        "en": "Your overall energy investment is high while your investment in health and balance is low. That exact pair of signals defines the profile: spending without recovery."
       },
       "strengths": {
         "ru": [
@@ -275,9 +341,11 @@
         "en": "Taking care of yourself isn't selfish — it's the infrastructure of everything you do. You can't pour from an empty jug."
       }
     },
-
     "profile_freedom_seeker": {
-      "name": { "ru": "Свобода дороже", "en": "Freedom First" },
+      "name": {
+        "ru": "Свобода дороже",
+        "en": "Freedom First"
+      },
       "description": {
         "ru": "Право самому выбирать — как жить, где работать, когда вставать — для тебя весит больше, чем гарантии. Стабильностью ты готов платить, и платишь.",
         "en": "The right to choose for yourself — how to live, where to work, when to wake — outweighs guarantees for you. You're willing to pay in stability, and you do."
@@ -335,9 +403,11 @@
         "en": "Freedom is a responsibility you chose yourself. Give it a bit of backup and it will carry you further."
       }
     },
-
     "profile_stability_seeker": {
-      "name": { "ru": "Почва под ногами", "en": "Solid Ground" },
+      "name": {
+        "ru": "Почва под ногами",
+        "en": "Solid Ground"
+      },
       "description": {
         "ru": "Тебе важно знать, что будет завтра: устойчивый доход, свой угол, предсказуемые люди. Определённость для тебя не скука, а фундамент, на котором строится остальное.",
         "en": "You need to know what tomorrow holds: steady income, a place of your own, predictable people. Certainty isn't boredom to you — it's the foundation everything else is built on."
@@ -395,16 +465,18 @@
         "en": "Building solid things is a strength. Add a little flexibility and nothing will shake you at all."
       }
     },
-
     "profile_relationships_focused": {
-      "name": { "ru": "Люди прежде всего", "en": "People First" },
+      "name": {
+        "ru": "Люди прежде всего",
+        "en": "People First"
+      },
       "description": {
         "ru": "Близкие связи — не одна из сфер твоей жизни, а её ось. Ты не только называешь отношения главным — ты реально вкладываешь в людей время и силы.",
         "en": "Close connection isn't one area of your life — it's the axis. You don't just call relationships central; you actually put your time and energy into people."
       },
       "whyThisProfile": {
-        "ru": "Отношения в твоих ответах высоки по обоим измерениям сразу: и по важности, и по реальному вложению энергии. Это не декларация, а подтверждённый делом приоритет.",
-        "en": "Relationships score high on both of your readings at once: importance and actually invested energy. That's not a declaration — it's a priority backed by action."
+        "ru": "Отношения в твоих ответах — среди самого важного, и энергия туда реально идёт. Это не декларация, а подтверждённый делом приоритет.",
+        "en": "Relationships rank among what matters most in your answers, and energy actually flows there. That's not a declaration — it's a priority backed by action."
       },
       "strengths": {
         "ru": [
@@ -455,16 +527,18 @@
         "en": "Investing in people is the most underrated form of wealth. Just don't drop yourself off the list of people you care for."
       }
     },
-
     "profile_growth_oriented": {
-      "name": { "ru": "Режим роста", "en": "Growth Mode" },
+      "name": {
+        "ru": "Режим роста",
+        "en": "Growth Mode"
+      },
       "description": {
         "ru": "Учиться — твоё естественное состояние: курсы, книги, новые навыки. Развитие у тебя не в планах, а в расписании, и это видно по обоим измерениям теста.",
         "en": "Learning is your natural state: courses, books, new skills. Growth isn't in your plans — it's in your schedule, and both readings of this test show it."
       },
       "whyThisProfile": {
-        "ru": "Развитие и обучение высоки у тебя и по важности, и по реально вложенной энергии. Ты из тех, у кого «хочу разобраться» превращается в открытый учебник в тот же вечер.",
-        "en": "Growth and learning score high for you on both importance and invested energy. You're the kind whose \"I want to figure this out\" turns into an open textbook the same evening."
+        "ru": "Развитие и обучение — среди самого важного в твоих ответах, и энергия туда реально идёт. Ты из тех, у кого «хочу разобраться» превращается в открытый учебник в тот же вечер.",
+        "en": "Growth and learning rank among what matters most in your answers, and energy actually flows there. You're the kind whose \"I want to figure this out\" turns into an open textbook the same evening."
       },
       "strengths": {
         "ru": [
@@ -517,16 +591,18 @@
         "en": "Your hunger to learn is a superpower. Point it from collecting toward creating and watch the difference."
       }
     },
-
     "profile_balanced": {
-      "name": { "ru": "Без перекосов", "en": "Even Keel" },
+      "name": {
+        "ru": "Без перекосов",
+        "en": "Even Keel"
+      },
       "description": {
         "ru": "Ни одна сфера не перетягивает твою жизнь на себя: важность и силы распределены ровно. Это может быть осознанным балансом — а может значить, что главное ещё не выбрано.",
         "en": "No single area pulls your life toward itself: importance and energy are spread evenly. That may be deliberate balance — or a sign the main thing hasn't been chosen yet."
       },
       "whyThisProfile": {
-        "ru": "В твоих ответах нет ярко выраженных пиков: ни одна ценность не оторвалась от остальных ни по важности, ни по вложению. Тест показывает ровный ландшафт — без вершин и провалов.",
-        "en": "Your answers show no sharp peaks: no value breaks away from the rest on either importance or investment. The test sees an even landscape — no summits, no craters."
+        "ru": "Твои ответы не сложились ни в один из выраженных паттернов теста: без большого расхождения важности и энергии, без контраста свободы и стабильности, без явного перекоса в отдельную сферу. Ровный ландшафт — или мягкие перекосы, не дотянувшие ни до одной формулы.",
+        "en": "Your answers didn't fall into any of the test's pronounced patterns: no large gap between importance and energy, no freedom-versus-stability contrast, no clear tilt into a single sphere. An even landscape — or soft tilts that didn't reach any formula."
       },
       "strengths": {
         "ru": [

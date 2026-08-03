@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2 батч 3. Три профиля-уровня навыка границ. Из заголовка убран англицизм People-Pleasing (в RU), эмодзи из названий профилей, «работа с психологом» из рекомендаций удобного заменена на supportNote-мягкую строку и поведенческие ходы. Пороги (60/60 у угодника, 65×3 у мастера) и веса не тронуты.",
-
   "title": {
     "ru": "Личные границы и угождение",
     "en": "Boundaries and People-Pleasing"
@@ -9,19 +8,38 @@
     "ru": "48 вопросов о том, кому достаётся твоё «да»: тебе или всем остальным. Шесть механизмов — от ассертивности до страха отвержения.",
     "en": "48 questions about who gets your \"yes\" — you, or everyone else. Six mechanisms, from assertiveness to the fear of rejection."
   },
-
   "factorNames": {
-    "assertiveness": { "ru": "Ассертивность", "en": "Assertiveness" },
-    "self_prioritization": { "ru": "Приоритет себя", "en": "Putting yourself first" },
-    "emotional_autonomy": { "ru": "Эмоциональная автономия", "en": "Emotional autonomy" },
-    "people_pleasing": { "ru": "Угождение", "en": "People-pleasing" },
-    "fear_of_rejection": { "ru": "Страх отвержения", "en": "Fear of rejection" },
-    "boundary_clarity": { "ru": "Ясность границ", "en": "Boundary clarity" }
+    "assertiveness": {
+      "ru": "Ассертивность",
+      "en": "Assertiveness"
+    },
+    "self_prioritization": {
+      "ru": "Приоритет себя",
+      "en": "Putting yourself first"
+    },
+    "emotional_autonomy": {
+      "ru": "Эмоциональная автономия",
+      "en": "Emotional autonomy"
+    },
+    "people_pleasing": {
+      "ru": "Угождение",
+      "en": "People-pleasing"
+    },
+    "fear_of_rejection": {
+      "ru": "Страх отвержения",
+      "en": "Fear of rejection"
+    },
+    "boundary_clarity": {
+      "ru": "Ясность границ",
+      "en": "Boundary clarity"
+    }
   },
-
   "profiles": {
     "people_pleaser": {
-      "name": { "ru": "Удобный", "en": "The Convenient One" },
+      "name": {
+        "ru": "Удобный",
+        "en": "The Convenient One"
+      },
       "supportNote": {
         "ru": "Это образовательный тест, не диагноз. Но если привычка угождать выросла из отношений, где отказ был небезопасен, и до сих пор управляет твоей жизнью — разбирать её с психологом легче и быстрее, чем в одиночку. Это рабочая, хорошо изученная тема.",
         "en": "This is an educational test, not a diagnosis. But if the pleasing habit grew out of relationships where saying no wasn't safe, and it still runs your life — untangling it with a therapist is easier and faster than doing it alone. It's a well-understood, workable pattern."
@@ -31,8 +49,8 @@
         "en": "Your \"yes\" answers before you've had time to think. Other people's comfort comes first in the schedule, refusing feels like risking the relationship — and you pay with yourself for everyone else's peace."
       },
       "whyThisProfile": {
-        "ru": "Два механизма в твоих ответах высокие одновременно: угождение и страх отвержения — оба выше 60%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
-        "en": "Two mechanisms run high in your answers at once: people-pleasing and fear of rejection, both above 60%. That pair is the profile's formula — not kindness itself, but kindness under fear."
+        "ru": "Два механизма в твоих ответах высокие одновременно: угождение — выше 50%, страх отвержения — выше 40%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
+        "en": "Two mechanisms run high in your answers at once: people-pleasing above 50% and fear of rejection above 40%. That pair is the profile's formula — not kindness itself, but kindness under fear."
       },
       "strengths": {
         "ru": [
@@ -89,16 +107,18 @@
         "en": "Your worth isn't measured by how much you give away. The people who truly value you will stay after your \"no\" — and the ones who leave were never holding on to you."
       }
     },
-
     "boundary_builder": {
-      "name": { "ru": "Строитель границ", "en": "The Boundary Builder" },
+      "name": {
+        "ru": "Строитель границ",
+        "en": "The Boundary Builder"
+      },
       "description": {
         "ru": "Ты уже знаешь, где проходят твои границы, и иногда успешно их держишь. Но не везде и не со всеми: с чужими получается, с близкими — через раз, и после отказа ещё звенит вина.",
         "en": "You already know where your boundaries run, and sometimes you hold them. But not everywhere and not with everyone: it works with strangers, every other time with the people close to you — and guilt still rings after a refusal."
       },
       "whyThisProfile": {
-        "ru": "Твои ответы не попадают ни в формулу удобного (угождение и страх отвержения выше 60%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия выше 65%). Ты посередине — там, где навык уже строится, но ещё не достроен.",
-        "en": "Your answers fit neither the Convenient One's formula (pleasing and rejection fear above 60%) nor the Keeper's (assertiveness, self-priority and autonomy above 65%). You're in the middle — where the skill is under construction but not finished."
+        "ru": "Твои ответы не попадают ни в формулу удобного (угождение выше 50% при страхе отвержения выше 40%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия — все три выше 46%). Это не обязательно середина: чаще это смешанная картина, где в одних местах граница уже стоит, а в других её ещё придётся строить.",
+        "en": "Your answers fit neither the Convenient One's formula (pleasing above 50% with rejection fear above 40%) nor the Keeper's (assertiveness, self-priority and autonomy all above 46%). That isn't necessarily the middle: more often it's a mixed picture — the boundary already stands in some places and still has to be built in others."
       },
       "strengths": {
         "ru": [
@@ -153,16 +173,18 @@
         "en": "Boundaries are a muscle, and yours is already growing. Every \"no\" you hold makes the next one cheaper."
       }
     },
-
     "boundary_master": {
-      "name": { "ru": "Хозяин границ", "en": "The Boundary Keeper" },
+      "name": {
+        "ru": "Хозяин границ",
+        "en": "The Boundary Keeper"
+      },
       "description": {
         "ru": "Ты говоришь «нет» без вины и «да» без страха. Свои потребности ты называешь прямо, чужое настроение не управляет твоим, и люди рядом с тобой знают, где проходят линии. Это выстроено, а не досталось даром.",
         "en": "You say no without guilt and yes without fear. You name your needs directly, other people's moods don't steer yours, and everyone around you knows where the lines run. This was built, not given."
       },
       "whyThisProfile": {
-        "ru": "Три механизма высокие одновременно: ассертивность, приоритет себя и эмоциональная автономия — все выше 65%. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
-        "en": "Three mechanisms run high at once: assertiveness, self-priority and emotional autonomy — all above 65%. That combination is almost never innate; it's the result of work done."
+        "ru": "Все три опоры стоят одновременно: ассертивность, приоритет себя и эмоциональная автономия — ни одна не опустилась ниже 46%. Дело не в рекордах по каждой, а в том, что ни одна не провалена: граница держится на самой слабой из трёх. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
+        "en": "All three supports stand at once: assertiveness, self-priority and emotional autonomy — none of them dips below 46%. It's not about records on each; it's that none has collapsed: a boundary holds at the weakest of the three. That combination is almost never innate; it's the result of work done."
       },
       "strengths": {
         "ru": [

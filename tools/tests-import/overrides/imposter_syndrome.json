@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2 батч 2. Уровневый тест (5 степеней по среднему шести факторов). Исходник ставил диагнозы по нарастающей: на high — «⚠️ настоятельно рекомендуется психотерапевт», на severe — «🚨 НЕОБХОДИМА помощь, консультация психиатра, это излечимое состояние». Переписано по линии severe_toxicity из Э8: паттерн и его цена вместо диагноза, спокойный supportNote на двух верхних уровнях. Атрибуция исследований (Кланс/Аймс, «до 70% людей») убрана из описания — научной валидности не заявляем. Пустые vulnerabilities у минимального уровня заполнены. Пороги и веса не тронуты.",
-
   "title": {
     "ru": "Синдром самозванца",
     "en": "Impostor Syndrome"
@@ -9,26 +8,45 @@
     "ru": "42 вопроса о том, кому ты приписываешь свои успехи — себе или везению, и чего тебе стоит держать планку. Шесть механизмов, от страха разоблачения до гиперкомпенсации.",
     "en": "42 questions about who gets the credit for your wins — you or luck — and what holding the bar costs you. Six mechanisms, from fear of exposure to overcompensation."
   },
-
   "factorNames": {
-    "fear_of_exposure": { "ru": "Страх разоблачения", "en": "Fear of exposure" },
-    "achievement_devaluation": { "ru": "Обесценивание успехов", "en": "Devaluing your wins" },
-    "perfectionism": { "ru": "Перфекционизм", "en": "Perfectionism" },
-    "challenge_avoidance": { "ru": "Избегание вызовов", "en": "Avoiding challenges" },
-    "external_attribution": { "ru": "Успех — это не я", "en": "Crediting everything but yourself" },
-    "overcompensation": { "ru": "Гиперкомпенсация", "en": "Overcompensation" }
+    "fear_of_exposure": {
+      "ru": "Страх разоблачения",
+      "en": "Fear of exposure"
+    },
+    "achievement_devaluation": {
+      "ru": "Обесценивание успехов",
+      "en": "Devaluing your wins"
+    },
+    "perfectionism": {
+      "ru": "Перфекционизм",
+      "en": "Perfectionism"
+    },
+    "challenge_avoidance": {
+      "ru": "Избегание вызовов",
+      "en": "Avoiding challenges"
+    },
+    "external_attribution": {
+      "ru": "Успех — это не я",
+      "en": "Crediting everything but yourself"
+    },
+    "overcompensation": {
+      "ru": "Гиперкомпенсация",
+      "en": "Overcompensation"
+    }
   },
-
   "profiles": {
     "profile_minimal": {
-      "name": { "ru": "Заслуженно твоё", "en": "Rightfully Yours" },
+      "name": {
+        "ru": "Заслуженно твоё",
+        "en": "Rightfully Yours"
+      },
       "description": {
         "ru": "Свои успехи ты записываешь на свой счёт — и это не самоуверенность, а точность. Ты видишь и сильные стороны, и слабые, и не ждёшь, что кто-то вот-вот «раскроет обман», которого нет.",
         "en": "You put your wins on your own account — and that's accuracy, not arrogance. You see both your strengths and your gaps, and you're not waiting for someone to \"expose a fraud\" that doesn't exist."
       },
       "whyThisProfile": {
-        "ru": "По всем шести механизмам самозванца твои ответы в нижней зоне: страх разоблачения, обесценивание, внешняя атрибуция — всё почти на нуле. Средний балл ниже 21%.",
-        "en": "Across all six impostor mechanisms your answers sit in the low zone: fear of exposure, devaluation, external attribution — all near the floor. Your average is under 21%."
+        "ru": "По всем шести механизмам самозванца твои ответы в нижней зоне: страх разоблачения, обесценивание, внешняя атрибуция — всё почти на нуле. Средний балл ниже 37%.",
+        "en": "Across all six impostor mechanisms your answers sit in the low zone: fear of exposure, devaluation, external attribution — all near the floor. Your average is under 37%."
       },
       "strengths": {
         "ru": [
@@ -77,16 +95,18 @@
         "en": "A calm \"I did that\" is a rare setting. Keep it — and lend it to people whose setting is off."
       }
     },
-
     "profile_mild": {
-      "name": { "ru": "Шёпот сомнения", "en": "The Whisper" },
+      "name": {
+        "ru": "Шёпот сомнения",
+        "en": "The Whisper"
+      },
       "description": {
         "ru": "Чаще всего ты знаешь себе цену, но иногда включается голос: «повезло», «просто совпало», «сейчас заметят». Он тихий и жизни не ломает — просто время от времени крадёт удовольствие от побед.",
         "en": "Most of the time you know your worth, but now and then a voice cuts in: \"lucky\", \"it just lined up\", \"they'll notice any minute\". It's quiet and doesn't wreck anything — it just steals the pleasure of a win from time to time."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам — между 21 и 40%: сомнения появляются эпизодами, но ни один механизм не работает постоянно.",
-        "en": "Your average across the six mechanisms lands between 21 and 40%: the doubts come in episodes, but no mechanism runs constantly."
+        "ru": "Средний балл по шести механизмам — между 37 и 50%: сомнения появляются эпизодами, но ни один механизм не работает постоянно.",
+        "en": "Your average across the six mechanisms lands between 37 and 50%: the doubts come in episodes, but no mechanism runs constantly."
       },
       "strengths": {
         "ru": [
@@ -137,16 +157,18 @@
         "en": "Doubt in small doses means you care. Just don't give it the microphone at your own victories."
       }
     },
-
     "profile_moderate": {
-      "name": { "ru": "Голос в голове", "en": "The Voice" },
+      "name": {
+        "ru": "Голос в голове",
+        "en": "The Voice"
+      },
       "description": {
         "ru": "Сомнение из гостя превратилось в соседа: ты регулярно обесцениваешь сделанное, боишься не оправдать ожиданий и часть возможностей пропускаешь ещё до старта. Снаружи всё выглядит нормально — счёт оплачиваешь ты один.",
         "en": "The doubt has gone from visitor to housemate: you regularly discount what you've done, fear falling short of expectations, and pass on some opportunities before the starting line. From the outside everything looks fine — the bill is paid by you alone."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по механизмам — между 41 и 60%: это уже не эпизоды, а устойчивый фон. Обычно его держат один-два механизма из шести — у каждого свой почерк.",
-        "en": "Your average across the mechanisms is between 41 and 60%: no longer episodes but a steady background. Usually one or two of the six mechanisms hold it up — each with its own signature."
+        "ru": "Средний балл по механизмам — между 50 и 61%: это уже не эпизоды, а устойчивый фон. Обычно его держат один-два механизма из шести — у каждого свой почерк.",
+        "en": "Your average across the mechanisms is between 50 and 61%: no longer episodes but a steady background. Usually one or two of the six mechanisms hold it up — each with its own signature."
       },
       "strengths": {
         "ru": [
@@ -201,9 +223,11 @@
         "en": "The voice speaks with confidence, but it holds zero evidence. You hold plenty. Collect it."
       }
     },
-
     "profile_high": {
-      "name": { "ru": "Самозванец за рулём", "en": "The Impostor at the Wheel" },
+      "name": {
+        "ru": "Самозванец за рулём",
+        "en": "The Impostor at the Wheel"
+      },
       "supportNote": {
         "ru": "Это образовательный тест, а не диагноз. Но если страх и самообесценивание — твой постоянный фон и они всерьёз влияют на работу, сон или отношения, разговор с психологом — это не капитуляция, а нормальный следующий шаг. С этим паттерном хорошо умеют работать.",
         "en": "This is an educational test, not a diagnosis. But if fear and self-discounting are your constant background and they seriously affect your work, sleep or relationships, talking to a therapist isn't surrender — it's a reasonable next step. This pattern responds well to that work."
@@ -213,8 +237,8 @@
         "en": "The pattern isn't commenting anymore — it's driving. Fear of exposure decides what you take on, overcompensation decides how much you work, devaluation decides how you feel afterwards. Opportunities pass by while fatigue piles up: you pay a double price — for the work, and for the fear."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам — между 61 и 80%. На этом уровне паттерн влияет на решения: что взять, куда не пойти, сколько переработать.",
-        "en": "Your average across the six mechanisms is between 61 and 80%. At this level the pattern shapes decisions: what to take, where not to go, how much to overwork."
+        "ru": "Средний балл по шести механизмам — между 61 и 72%. На этом уровне паттерн влияет на решения: что взять, куда не пойти, сколько переработать.",
+        "en": "Your average across the six mechanisms is between 61 and 72%. At this level the pattern shapes decisions: what to take, where not to go, how much to overwork."
       },
       "strengths": {
         "ru": [
@@ -269,9 +293,11 @@
         "en": "You've spent years sitting an interview that ended long ago. It ended — you got the job."
       }
     },
-
     "profile_severe": {
-      "name": { "ru": "В тени самозванца", "en": "In the Impostor's Shadow" },
+      "name": {
+        "ru": "В тени самозванца",
+        "en": "In the Impostor's Shadow"
+      },
       "supportNote": {
         "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн, а не расстройство. Но такой уровень постоянного страха и самообесценивания — тяжёлая ноша, и нести её в одиночку не обязательно. Разговор с психологом или психотерапевтом — самый прямой путь; если фон совсем тёмный и задевает сон, еду или желание жить — не откладывай его.",
         "en": "This result is not a diagnosis: the test is educational and measures a pattern, not a disorder. But this level of constant fear and self-erasure is a heavy load, and you don't have to carry it alone. Talking to a therapist is the most direct route — and if the background gets very dark and touches your sleep, appetite or will to live, don't postpone that conversation."
@@ -281,8 +307,8 @@
         "en": "In almost every answer you picked the harshest wording about yourself. That's what the pattern looks like at full occupation: the fear doesn't let go, the wins don't get claimed, the challenges get bypassed, and working yourself down never buys the feeling of belonging. One more thing needs saying: sometimes answers like these come not from the heaviest pattern but from a habit of describing yourself in the most merciless words available — that habit is part of the picture too."
       },
       "whyThisProfile": {
-        "ru": "Средний балл по шести механизмам выше 81% — верхняя зона шкалы. Все механизмы работают одновременно и на полную.",
-        "en": "Your average across the six mechanisms is above 81% — the top band of the scale. Every mechanism is running at once, at full strength."
+        "ru": "Средний балл по шести механизмам выше 72% — верхняя зона шкалы. Все механизмы работают одновременно и на полную.",
+        "en": "Your average across the six mechanisms is above 72% — the top band of the scale. Every mechanism is running at once, at full strength."
       },
       "strengths": {
         "ru": [

@@ -92,5 +92,192 @@
     "q38": {
       "vitality": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): пересборка правил на derived-оси @introversion — среднее четырёх осевых факторов (depletion_rate, recharge_method, solitude_need, interaction_preference) после перекодировки 2.2A; старое @avg шести факторов подмешивало тревожность и гибкость в «заряд батареи». Полосы: ≤39 — экстравертная (внутри social_recharger/group_lover по МИНИМАЛЬНОМУ осевому фактору — канал, который держит человека в общении; иначе extrovert), ≥61 — интровертная (solitude_seeker/quick_drainer по максимальному; иначе introvert), ≥76 — deep_introvert. В средней полосе: social_anxiety ≥ 79 → social_anxious, capacity_flexibility ≥ 78 → adaptive (пороги высокие, потому что латентные черты симуляции равномерны — это ~топ-20% фактора), дальше амбиверты (≤46 / ≥54), фолбэк balanced. Принадлежность полосе задаётся порядком правил; ничьи минимума/максимума решает порядок фокусных правил. Симуляция: extrovert 10.8 / recharger 6.7 / group_lover 6.7 / ambivert_social 9.9 / anxious 10.3 / adaptive 9.2 / balanced 13.3 / ambivert_introvert 9.3 / solitude 4.0 / drainer 5.4 / introvert 10 / deep 4.4.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "derived": {
+      "@introversion": {
+        "avg": [
+          "depletion_rate",
+          "recharge_method",
+          "solitude_need",
+          "interaction_preference"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "when": [
+          [
+            "@introversion",
+            "<=",
+            39
+          ],
+          [
+            "recharge_method",
+            "<=",
+            "depletion_rate"
+          ],
+          [
+            "recharge_method",
+            "<=",
+            "solitude_need"
+          ],
+          [
+            "recharge_method",
+            "<=",
+            "interaction_preference"
+          ]
+        ],
+        "profile": "profile_social_recharger"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            "<=",
+            39
+          ],
+          [
+            "interaction_preference",
+            "<=",
+            "depletion_rate"
+          ],
+          [
+            "interaction_preference",
+            "<=",
+            "solitude_need"
+          ],
+          [
+            "interaction_preference",
+            "<=",
+            "recharge_method"
+          ]
+        ],
+        "profile": "profile_group_lover"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            "<=",
+            39
+          ]
+        ],
+        "profile": "profile_extrovert"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            ">=",
+            76
+          ]
+        ],
+        "profile": "profile_deep_introvert"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            ">=",
+            61
+          ],
+          [
+            "solitude_need",
+            ">=",
+            "depletion_rate"
+          ],
+          [
+            "solitude_need",
+            ">=",
+            "recharge_method"
+          ],
+          [
+            "solitude_need",
+            ">=",
+            "interaction_preference"
+          ]
+        ],
+        "profile": "profile_solitude_seeker"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            ">=",
+            61
+          ],
+          [
+            "depletion_rate",
+            ">=",
+            "solitude_need"
+          ],
+          [
+            "depletion_rate",
+            ">=",
+            "recharge_method"
+          ],
+          [
+            "depletion_rate",
+            ">=",
+            "interaction_preference"
+          ]
+        ],
+        "profile": "profile_quick_drainer"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            ">=",
+            61
+          ]
+        ],
+        "profile": "profile_introvert"
+      },
+      {
+        "when": [
+          [
+            "social_anxiety",
+            ">=",
+            79
+          ]
+        ],
+        "profile": "profile_social_anxious"
+      },
+      {
+        "when": [
+          [
+            "capacity_flexibility",
+            ">=",
+            78
+          ]
+        ],
+        "profile": "profile_adaptive"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            "<=",
+            46
+          ]
+        ],
+        "profile": "profile_ambivert_social"
+      },
+      {
+        "when": [
+          [
+            "@introversion",
+            ">=",
+            54
+          ]
+        ],
+        "profile": "profile_ambivert_introvert"
+      }
+    ]
   }
 }

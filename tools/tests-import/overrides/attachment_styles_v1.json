@@ -1,30 +1,45 @@
 {
   "$comment": "Э8, последний тест набора. Именно здесь лежал образец регистра, ради которого этап и затевался: «Практикуйте упражнение: когда возникает тревога, подождите 24 часа». Плюс у дезорганизованного профиля — «КРИТИЧЕСКИ ВАЖНО» капсом и список EMDR / схема-терапия / DBT: TIPP. Клинические протоколы мы не назначаем, поэтому вместо списка — supportNote с одним внятным шагом. Канонические термины теории привязанности сохранены, но переехали из названий профилей в whyThisProfile: название на экране должно цеплять, а поисковый и общий словарь остаётся в тексте. Подписи факторов укорочены — в столбце результата «Безопасный стиль привязанности» четыре раза подряд не читается.",
-
-  "title": { "ru": "Стили привязанности", "en": "Attachment Styles" },
+  "title": {
+    "ru": "Стили привязанности",
+    "en": "Attachment Styles"
+  },
   "description": {
     "ru": "60 вопросов о том, что с тобой происходит, когда человек подходит близко — или отходит. Рамка, которой объясняют половину всего, что случается в отношениях.",
     "en": "60 questions about what happens to you when someone comes close — or steps back. The frame that explains half of what happens in relationships."
   },
-
   "factorNames": {
-    "secure": { "ru": "Надёжный", "en": "Secure" },
-    "anxious": { "ru": "Тревожный", "en": "Anxious" },
-    "avoidant": { "ru": "Избегающий", "en": "Avoidant" },
-    "fearful": { "ru": "Тревожно-избегающий", "en": "Fearful-avoidant" }
+    "secure": {
+      "ru": "Надёжный",
+      "en": "Secure"
+    },
+    "anxious": {
+      "ru": "Тревожный",
+      "en": "Anxious"
+    },
+    "avoidant": {
+      "ru": "Избегающий",
+      "en": "Avoidant"
+    },
+    "fearful": {
+      "ru": "Тревожно-избегающий",
+      "en": "Fearful-avoidant"
+    }
   },
-
   "profiles": {
     "secure": {
       "icon": null,
-      "name": { "ru": "Спокойно вблизи", "en": "Close Without Alarm" },
+      "name": {
+        "ru": "Спокойно вблизи",
+        "en": "Close Without Alarm"
+      },
       "description": {
         "ru": "Близость тебя не пугает, расстояние не рушит. Ты умеешь и то, и другое — и это встречается реже, чем кажется.",
         "en": "Closeness doesn't frighten you and distance doesn't break you. You can do both — which is rarer than it sounds."
       },
       "whyThisProfile": {
-        "ru": "Надёжная шкала выше 70%, а тревожная, избегающая и тревожно-избегающая — ниже 30% каждая. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
-        "en": "Your secure scale is above 70% and the anxious, avoidant and fearful-avoidant ones are each below 30%. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
+        "ru": "Надёжная шкала — твоя самая высокая: выше 55% и с отрывом от второй хотя бы в 5 пунктов. В теории привязанности это называют надёжным типом. Означает он не отсутствие проблем, а то, что близкий человек не воспринимается как угроза: ни когда подходит, ни когда отходит.",
+        "en": "Your secure scale is your highest: above 55% and ahead of the runner-up by at least 5 points. Attachment theory calls this the secure type. It doesn't mean no problems — it means another person doesn't register as a threat, either when they come close or when they step back."
       },
       "strengths": {
         "ru": [
@@ -73,17 +88,19 @@
         "en": "You can be close without losing yourself. The most useful thing you can do with that is stop telling other people it's simple."
       }
     },
-
     "anxious": {
       "icon": null,
-      "name": { "ru": "Ближе, ещё ближе", "en": "Closer, Closer" },
+      "name": {
+        "ru": "Ближе, ещё ближе",
+        "en": "Closer, Closer"
+      },
       "description": {
         "ru": "Когда человек отходит, ты идёшь за ним. Не от навязчивости — от того, что дистанция ощущается как обрыв связи.",
         "en": "When someone steps back, you go after them. Not out of neediness — because the distance registers as the line going dead."
       },
       "whyThisProfile": {
-        "ru": "Тревожная шкала выше 60% и выше остальных. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
-        "en": "Your anxious scale is above 60% and above the others. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
+        "ru": "Тревожная шкала выше 60% и впереди других небезопасных стилей. В теории привязанности это тревожный тип. Механика простая: близость для тебя равна безопасности, поэтому любое её уменьшение включает сигнал — и включает раньше, чем появляются основания.",
+        "en": "Your anxious scale is above 60% and ahead of the other insecure styles. Attachment theory calls this the anxious type. The mechanics are simple: closeness equals safety for you, so any reduction in it trips the alarm — and it trips before there's any evidence."
       },
       "strengths": {
         "ru": [
@@ -134,17 +151,19 @@
         "en": "Your sensitivity is real and it isn't a fault. The only fault is the calibration — and calibration gets changed, faster than it looks from here."
       }
     },
-
     "avoidant": {
       "icon": null,
-      "name": { "ru": "На расстоянии руки", "en": "Arm's Length" },
+      "name": {
+        "ru": "На расстоянии руки",
+        "en": "Arm's Length"
+      },
       "description": {
         "ru": "Тебе хорошо, пока человек не подошёл слишком близко. Тогда становится тесно — и ты отходишь, не объясняя.",
         "en": "You're fine until someone gets too close. Then it gets crowded, and you step back without explaining."
       },
       "whyThisProfile": {
-        "ru": "Избегающая шкала выше 60% и выше остальных. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
-        "en": "Your avoidant scale is above 60% and above the others. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
+        "ru": "Избегающая шкала выше 60% и впереди других небезопасных стилей. В теории привязанности это избегающий тип. Логика такая: близость когда-то стоила дорого, и самостоятельность оказалась надёжнее. Она правда надёжнее — просто у неё есть цена, которую платят годами и незаметно.",
+        "en": "Your avoidant scale is above 60% and ahead of the other insecure styles. Attachment theory calls this the avoidant type. The logic runs like this: closeness cost a lot once, and self-reliance turned out to be safer. It genuinely is safer — it just has a price, paid over years and quietly."
       },
       "strengths": {
         "ru": [
@@ -195,17 +214,19 @@
         "en": "Your self-reliance is real and there's no reason to give it up. It just needs room beside it for somebody else."
       }
     },
-
     "fearful": {
       "icon": null,
-      "name": { "ru": "И хочется, и страшно", "en": "Wanting and Afraid" },
+      "name": {
+        "ru": "И хочется, и страшно",
+        "en": "Wanting and Afraid"
+      },
       "description": {
         "ru": "Ты тянешься к человеку и от него же отшатываешься. Обе реакции твои, обе настоящие, и приходят они почти одновременно.",
         "en": "You reach for someone and recoil from the same person. Both reactions are yours, both are real, and they arrive almost together."
       },
       "whyThisProfile": {
-        "ru": "Тревожно-избегающая шкала выше 60% — либо тревожная и избегающая обе выше 50%. В теории привязанности это тревожно-избегающий тип. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
-        "en": "Your fearful-avoidant scale is above 60%, or the anxious and avoidant ones are both above 50%. Attachment theory calls this the fearful-avoidant type. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
+        "ru": "Тревожно-избегающая шкала выше 73% и выше всех остальных — либо тревожная и избегающая обе выше 60%. В теории привязанности это тревожно-избегающий тип. Внутри у него не одна стратегия, а две противоположные: подойти, чтобы не потерять, и отойти, чтобы не ранили. Обе включаются на один и тот же сигнал.",
+        "en": "Your fearful-avoidant scale is above 73% and above all the others, or the anxious and avoidant ones are both above 60%. Attachment theory calls this the fearful-avoidant type. Inside it there isn't one strategy but two opposing ones: move closer so you don't lose them, move away so you don't get hurt. The same signal triggers both."
       },
       "supportNote": {
         "ru": "Это образовательный тест по 60 самоотчётным ответам, а не диагноз. Он описывает паттерн, а не тебя.\n\nИз четырёх типов этот чаще прочих связан с тяжёлым ранним опытом, и разбирается он не в одиночку — это единственное практическое отличие от остальных трёх. Психолог, работающий с привязанностью, здесь не крайняя мера, а обычный инструмент.\n\nЕсли тебе сейчас небезопасно рядом с кем-то или тяжело настолько, что это мешает жить, — обратись в местную службу психологической помощи, не откладывая.",
@@ -262,10 +283,12 @@
         "en": "Two strategies live in you, and both were needed once. You don't have to choose between them — they get taken apart, and this is the one task of the four not worth doing alone."
       }
     },
-
     "mixed": {
       "icon": null,
-      "name": { "ru": "Всё сразу", "en": "All of It at Once" },
+      "name": {
+        "ru": "Всё сразу",
+        "en": "All of It at Once"
+      },
       "description": {
         "ru": "Ни один тип не выходит вперёд. С разными людьми ты разный — и это скорее про людей, чем про тебя.",
         "en": "No single type comes out ahead. You're different with different people — and that says more about them than about you."

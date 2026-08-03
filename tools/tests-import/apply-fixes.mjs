@@ -16,7 +16,8 @@
  *     удаляются целиком — состояние не должно красить тип (решение 03.08).
  *  3. fixes/<test_id>.json — точечные правки: poles (полюс вопроса в bipolar),
  *     isReversed, weights (значение или null = удалить), profileSelection
- *     (полная замена), profilesAdd (новые профили с текстами).
+ *     (полная замена), profilesAdd (новые профили с текстами; upsert — фикс
+ *     владеет этими id, id оригинальных профилей здесь запрещены ревью).
  *
  * ИНВАРИАНТ КОНВЕЙЕРА: src/content/tests/*.json — источник истины для
  * скоринговых данных живых тестов. Полная регенерация из экстракции tests_app
@@ -121,8 +122,9 @@ for (const file of files) {
       }
     }
     if (fix.profileSelection) test.profileSelection = fix.profileSelection;
+    // upsert: этими id владеет fixes-слой — так прогон остаётся идемпотентным
+    // и правка текста в фиксе доезжает без полной регенерации из импорта
     for (const [pid, profile] of Object.entries(fix.profilesAdd ?? {})) {
-      if (test.profiles[pid]) { errors.push(`${test.id}: profilesAdd.${pid} — уже существует`); continue; }
       test.profiles[pid] = profile;
     }
   }

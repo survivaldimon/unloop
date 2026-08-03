@@ -82,5 +82,196 @@
     "q24": {
       "relatedness_need": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 25/45/65/80 → 38/50/68/75 (healthy ≤25 давал 1.9% при коридоре 12–20). Фокусные: @diff12 ≥ 3 вместо ≥7 — обоснование как у burnout (при ≥7 problematic получал бы вдвое больше коридора, фокусные — вдвое меньше). profile_problematic ожил: 0% → 7.8%. usage_patterns передвинут первым среди фокусных: у него 8 пунктов против 7 у остальных (шаг сетки 3.125 против 3.57, меньше дисперсия — реже топ), тай-брейк в его пользу выравнивает долю; порядок остальных — как в Dart. Симуляция: healthy 17.1 / moderate_use 32 / фокусные 35.3 / problematic 7.8 / severe 5.2 / critical 2.6.",
+    "mode": "rules",
+    "fallback": "profile_healthy",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            38
+          ]
+        ],
+        "profile": "profile_healthy"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            50
+          ]
+        ],
+        "profile": "profile_moderate_use"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "usage_patterns",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_usage_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "dependency_level",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_addiction_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "attention_control",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_attention_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "social_impact",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_social_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "physical_health",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_health_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "productivity_loss",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_productivity_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "emotional_state",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_emotional_focus"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            68
+          ]
+        ],
+        "profile": "profile_problematic"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            75
+          ]
+        ],
+        "profile": "profile_severe"
+      },
+      {
+        "when": [],
+        "profile": "profile_critical"
+      }
+    ]
   }
 }

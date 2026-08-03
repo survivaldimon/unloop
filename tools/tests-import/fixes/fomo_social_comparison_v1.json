@@ -225,5 +225,52 @@
       "emotional_intelligence": null,
       "social_support_seeking": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 21/41/61/81 → 37/51/62/73 по перцентилям (рычаг предлагал ~32/51/69/85; при 85 danger оставался бы мёртвым). Симуляция: excellent 16.4 / good 36.7 / warning 29.1 / critical 13.7 / danger 4.0.",
+    "mode": "rules",
+    "fallback": "profile_excellent",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            73
+          ]
+        ],
+        "profile": "profile_danger"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            62
+          ]
+        ],
+        "profile": "profile_critical"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            51
+          ]
+        ],
+        "profile": "profile_warning"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            37
+          ]
+        ],
+        "profile": "profile_good"
+      }
+    ]
   }
 }

@@ -19,8 +19,8 @@
         "en": "Emotion is your native tongue. You read it at a glance in yourself and in others, you see where a feeling comes from and where it will turn, and you don't suppress it — you use it: as a signal, as fuel, as a way to get closer. People around you feel understood, and that is rare."
       },
       "whyThisProfile": {
-        "ru": "Алгоритм считает средний уровень по семи шкалам теста — от восприятия эмоций до мотивации. У тебя он выше 75 из 100: почти во всех сферах ты отвечал в сторону точного распознавания, понимания и спокойного управления чувствами.",
-        "en": "The algorithm averages your seven scales — from perceiving emotions to motivation. Yours is above 75 out of 100: across nearly every area you answered toward accurate reading, understanding and calm handling of feelings."
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста — от восприятия эмоций до мотивации. У тебя он не ниже 63 из 100: почти во всех сферах ты отвечал в сторону точного распознавания, понимания и спокойного управления чувствами.",
+        "en": "The algorithm averages your seven scales — from perceiving emotions to motivation. Yours is at 63 out of 100 or above: across nearly every area you answered toward accurate reading, understanding and calm handling of feelings."
       },
       "strengths": {
         "ru": [
@@ -85,8 +85,8 @@
         "en": "You speak the language of emotion well. You understand your feelings and other people's, in most situations you run your reactions rather than the other way around, and people find you easy to be with. Under stress or in layered, messy situations the fluency can slip — but the foundation is solidly yours."
       },
       "whyThisProfile": {
-        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 60 и 75 из 100 — уверенный результат по большинству сфер, без провалов, но с запасом для роста в отдельных местах.",
-        "en": "The algorithm averages your seven scales. Yours sits between 60 and 75 out of 100 — a confident score across most areas, no failures, with room to grow in a few spots."
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 52 и 63 из 100 — уверенный результат по большинству сфер, без провалов, но с запасом для роста в отдельных местах.",
+        "en": "The algorithm averages your seven scales. Yours sits between 52 and 63 out of 100 — a confident score across most areas, no failures, with room to grow in a few spots."
       },
       "strengths": {
         "ru": [
@@ -151,8 +151,8 @@
         "en": "You know the language of emotion at phrasebook level: you recognise the basic feelings and handle simple situations, but fluency isn't there yet. Subtle shades slip past, complex states blur together, and under pressure emotions sometimes grab the wheel. This isn't a ceiling — it's the middle of the road."
       },
       "whyThisProfile": {
-        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 40 и 60 из 100 — средний диапазон: база есть, свободного владения пока нет.",
-        "en": "The algorithm averages your seven scales. Yours sits between 40 and 60 out of 100 — the middle range: the base is there, the fluency isn't yet."
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он в средней полосе (от 41 до 52 из 100), и ни одна шкала не вырывается далеко вперёд: ровная середина. База есть, свободного владения пока нет.",
+        "en": "The algorithm averages your seven scales. Yours sits in the middle band (41 to 52 out of 100) with no scale racing far ahead: an even middle. The base is there, the fluency isn't yet."
       },
       "strengths": {
         "ru": [
@@ -217,8 +217,8 @@
         "en": "The language of emotion still sounds foreign to you: the words are familiar, the meaning slips away. It's hard to tell what you're feeling and what's going on with other people, so communication and relationships take more effort than they should. The good news: it's grammar, and grammar can be learned."
       },
       "whyThisProfile": {
-        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 25 и 40 из 100: в большинстве сфер ты отвечал в сторону трудностей с распознаванием и управлением эмоциями.",
-        "en": "The algorithm averages your seven scales. Yours sits between 25 and 40 out of 100: across most areas you answered toward difficulty reading and handling emotions."
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он между 29 и 41 из 100: в большинстве сфер ты отвечал в сторону трудностей с распознаванием и управлением эмоциями.",
+        "en": "The algorithm averages your seven scales. Yours sits between 29 and 41 out of 100: across most areas you answered toward difficulty reading and handling emotions."
       },
       "strengths": {
         "ru": [
@@ -285,8 +285,8 @@
         "en": "Right now the emotional world is a language you have no dictionary for: feelings happen, but recognising, understanding and naming them barely works — in yourself or in others. That makes relationships, work and daily life noticeably harder than they need to be. What matters: this is not a verdict or a character trait — it's a skill at zero, and moving up from zero is possible."
       },
       "whyThisProfile": {
-        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он ниже 25 из 100: почти во всех сферах ты отвечал в сторону серьёзных трудностей с эмоциями.",
-        "en": "The algorithm averages your seven scales. Yours is below 25 out of 100: across nearly every area you answered toward serious difficulty with emotions."
+        "ru": "Алгоритм считает средний уровень по семи шкалам теста. У тебя он ниже 29 из 100: почти во всех сферах ты отвечал в сторону серьёзных трудностей с эмоциями.",
+        "en": "The algorithm averages your seven scales. Yours is below 29 out of 100: across nearly every area you answered toward serious difficulty with emotions."
       },
       "strengths": {
         "ru": [

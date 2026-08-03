@@ -27,5 +27,196 @@
     "q46": {
       "prudence": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 25/40/60/75 → 37/48/63/72. Фокусные ветки: @diff12 ≥ 3 вместо стартового ≥7 — при семи независимых факторах P(diff12≥7 | средняя полоса) ≈ 53%, «Тление» получало бы ~19% (коридор 5–10), а сумма фокусных ~22% (коридор 28–38); порог 3 ≈ один шаг сетки фактора (3.125–3.57), т.е. «лидер впереди хотя бы на один ответ», moderate = честная ничья наверху. profile_moderate ожил: 0% → 8.1%. Порядок фокусных — порядок обхода факторов Dart (тай-брейк тот же). Симуляция: minimal 15.3 / mild 30 / фокусные 32.6 / moderate 8.1 / severe 10.2 / critical 3.9.",
+    "mode": "rules",
+    "fallback": "profile_minimal",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            37
+          ]
+        ],
+        "profile": "profile_minimal"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            48
+          ]
+        ],
+        "profile": "profile_mild"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "emotional_exhaustion",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_emotional_exhaustion"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "depersonalization",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_cynicism"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "reduced_efficacy",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_inefficacy"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "physical_symptoms",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_somatic"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "cognitive_impairment",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_cognitive"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "motivation_loss",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_demotivation"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ],
+          [
+            "@diff12",
+            ">=",
+            3
+          ],
+          [
+            "work_environment",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_work_overload"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            63
+          ]
+        ],
+        "profile": "profile_moderate"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            "<=",
+            72
+          ]
+        ],
+        "profile": "profile_severe"
+      },
+      {
+        "when": [],
+        "profile": "profile_critical"
+      }
+    ]
   }
 }

@@ -4,5 +4,32 @@
     "q15": {
       "anxiety": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): пороги 75/45 → 64/42 (рычаг ~68/40; финал по коридорам perfect 10–18 / good 45–60 / needs 20–30). Симуляция: 14.8 / 56.4 / 28.9.",
+    "mode": "rules",
+    "fallback": "profile_needs_alignment",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            64
+          ]
+        ],
+        "profile": "profile_perfect_match"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            42
+          ]
+        ],
+        "profile": "profile_good_potential"
+      }
+    ]
   }
 }

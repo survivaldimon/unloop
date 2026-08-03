@@ -1,0 +1,94 @@
+{
+  "$comment": "Утверждённые коридоры docs/tests-target-distributions.md (03.08.2026), машинная форма. profiles: id -> [lo, hi] в процентах персонной симуляции audit2. groups: суммарные коридоры по наборам профилей.",
+  "attachment_styles_v1": {
+    "profiles": { "secure": [15, 25], "anxious": [15, 25], "avoidant": [15, 25], "fearful": [10, 18], "mixed": [15, 25] }
+  },
+  "sixteen_types": {
+    "each": [3, 12], "cap": 14
+  },
+  "ipip_big_five": {
+    "profiles": { "profile_balanced": [2, 12] },
+    "each": [2, 14]
+  },
+  "emotional_intelligence": {
+    "profiles": { "profile_eq_master": [8, 15], "profile_emotionally_intelligent": [20, 30], "profile_developing_eq": [0, 10], "profile_low_eq": [12, 20], "profile_very_low_eq": [3, 7] },
+    "groups": [{ "name": "byTop-подпрофили середины", "profiles": ["profile_developing_listener", "profile_developing_voice", "profile_developing_dialogue"], "range": [18, 28] }]
+  },
+  "self_confidence_multiscale_v1": {
+    "profiles": {
+      "profile_high_confidence": [6, 12], "profile_confident": [10, 18], "profile_balanced": [5, 10],
+      "profile_self_believer": [3, 8], "profile_social_confident": [3, 8], "profile_self_accepting": [3, 8], "profile_resilient": [3, 8],
+      "profile_doubter": [5, 10], "profile_shy": [5, 10], "profile_self_critical": [5, 10], "profile_cautious": [5, 10],
+      "profile_developing": [5, 12], "profile_low_confidence": [8, 15], "profile_struggling": [3, 7]
+    }
+  },
+  "toxic_patterns": {
+    "profiles": { "healthy_relationships": [15, 25], "mild_toxicity": [30, 40], "moderate_toxicity": [25, 33], "high_toxicity": [8, 14], "severe_toxicity": [2, 5] }
+  },
+  "friendship_red_flags_v1": {
+    "profiles": { "profile_low_risk": [15, 25], "profile_moderate_risk": [35, 45], "profile_elevated_risk": [22, 32], "profile_high_risk": [5, 10] }
+  },
+  "boundaries_people_pleasing": {
+    "profiles": { "people_pleaser": [25, 35], "boundary_builder": [45, 60], "boundary_master": [10, 18] }
+  },
+  "imposter_syndrome": {
+    "profiles": { "profile_minimal": [12, 20], "profile_mild": [30, 40], "profile_moderate": [22, 32], "profile_high": [10, 16], "profile_severe": [2, 5] }
+  },
+  "fomo_social_comparison_v1": {
+    "profiles": { "profile_excellent": [12, 20], "profile_good": [30, 40], "profile_warning": [22, 32], "profile_critical": [8, 14], "profile_danger": [2, 5] }
+  },
+  "burnout_diagnostic_v1": {
+    "profiles": {
+      "profile_minimal": [10, 18], "profile_mild": [22, 32], "profile_moderate": [5, 10], "profile_severe": [6, 12], "profile_critical": [2, 5],
+      "profile_emotional_exhaustion": [4, 9], "profile_cynicism": [4, 9], "profile_inefficacy": [4, 9], "profile_somatic": [4, 9], "profile_cognitive": [4, 9], "profile_demotivation": [4, 9], "profile_work_overload": [4, 9]
+    },
+    "groups": [{ "name": "семь фокусных", "profiles": ["profile_emotional_exhaustion", "profile_cynicism", "profile_inefficacy", "profile_somatic", "profile_cognitive", "profile_demotivation", "profile_work_overload"], "range": [28, 38] }]
+  },
+  "digital_detox_test": {
+    "profiles": {
+      "profile_healthy": [12, 20], "profile_moderate_use": [25, 35], "profile_problematic": [5, 10], "profile_severe": [5, 10], "profile_critical": [1, 4],
+      "profile_addiction_focus": [4, 9], "profile_attention_focus": [4, 9], "profile_social_focus": [4, 9], "profile_health_focus": [4, 9], "profile_productivity_focus": [4, 9], "profile_emotional_focus": [4, 9], "profile_usage_focus": [4, 9]
+    },
+    "groups": [{ "name": "семь фокусных", "profiles": ["profile_addiction_focus", "profile_attention_focus", "profile_social_focus", "profile_health_focus", "profile_productivity_focus", "profile_emotional_focus", "profile_usage_focus"], "range": [28, 38] }]
+  },
+  "social_battery_v1": {
+    "profiles": {
+      "profile_extrovert": [8, 14], "profile_introvert": [8, 14], "profile_deep_introvert": [3, 7], "profile_balanced": [0, 18],
+      "profile_ambivert_social": [6, 12], "profile_ambivert_introvert": [6, 12], "profile_social_anxious": [6, 12], "profile_adaptive": [4, 10],
+      "profile_social_recharger": [3, 8], "profile_group_lover": [3, 8], "profile_solitude_seeker": [3, 8], "profile_quick_drainer": [3, 8]
+    }
+  },
+  "values_priorities_v1": {
+    "profiles": {
+      "profile_aligned": [8, 15], "profile_energy_misaligned": [18, 28], "profile_values_without_action": [6, 12], "profile_burnout_risk": [2, 6],
+      "profile_freedom_seeker": [5, 10], "profile_stability_seeker": [5, 10], "profile_relationships_focused": [5, 10], "profile_growth_oriented": [5, 10],
+      "profile_balanced": [0, 20]
+    }
+  },
+  "friendship_psychology_v1": {
+    "profiles": {
+      "profile_mixed": [0, 25], "motivator_inspirer": [1, 12],
+      "warm_empathic_friend": [2, 12], "reliable_stable_friend": [2, 12], "communication_bridge": [2, 12], "philosophical_deep_friend": [2, 12],
+      "independent_free_friend": [2, 12], "adventure_partner": [2, 12], "caring_guardian": [2, 12], "intuitive_feel_reader": [2, 12],
+      "social_circle_builder": [2, 12], "calm_observer": [2, 12], "emotional_dramatic_friend": [2, 12]
+    },
+    "groups": [{ "name": "сумма именных", "profiles": ["warm_empathic_friend", "reliable_stable_friend", "communication_bridge", "motivator_inspirer", "philosophical_deep_friend", "independent_free_friend", "adventure_partner", "caring_guardian", "intuitive_feel_reader", "social_circle_builder", "calm_observer", "emotional_dramatic_friend"], "range": [70, 100] }]
+  },
+  "love_languages_v1": {
+    "profiles": {
+      "profile_words": [8, 14], "profile_time": [8, 14], "profile_gifts": [8, 14], "profile_service": [8, 14], "profile_touch": [8, 14],
+      "profile_words_time": [3, 8], "profile_words_service": [3, 8], "profile_words_touch": [3, 8], "profile_time_service": [3, 8], "profile_time_touch": [3, 8],
+      "profile_service_touch": [3, 8], "profile_time_gifts": [3, 8], "profile_words_gifts": [3, 8], "profile_service_gifts": [3, 8], "profile_touch_gifts": [3, 8],
+      "profile_balanced": [5, 10]
+    }
+  },
+  "relationship_compatibility_v1": {
+    "profiles": { "profile_perfect_match": [10, 18], "profile_good_potential": [45, 60], "profile_needs_alignment": [20, 30] }
+  },
+  "romantic_potential_v1": {
+    "profiles": { "profile_secure_romantic": [15, 25], "profile_mixed_romantic": [45, 58], "profile_romantic_challenges": [15, 25] }
+  },
+  "text_conflict_communication": {
+    "profiles": { "the_ghoster": [12, 22], "the_exploder": [12, 22], "the_passive_avenger": [12, 22], "the_assertive": [12, 22], "the_mixed": [12, 22] }
+  }
+}

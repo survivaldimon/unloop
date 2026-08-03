@@ -4,5 +4,267 @@
     "q4": {
       "impulsiveness": null
     }
+  },
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 80/60/40/20 → 69/52/34/24. Доминантные ветки: @range > 20 → ≥ 53 — рычаг предлагал ≥15, но на четырёх независимых факторах размах ≥15 почти у всех (confident получал бы <2% при коридоре 10–18); 53 отделяет действительно перекошенные профили. Новое правило balanced — средняя полоса при @range < 44 (стартовое «@range < 12» дало бы 0.5% при коридоре 5–10: у симуляции размах редко <12; профиль ожил: 0% → 7.2%). Слабейшие ветки: гейт < 35 → < 16 (≡ ≤15.6 на сетке 3.125), иначе они съедали developing. Тай-брейки — порядок правил, как в Dart. Симуляция: high 10.6 / confident 10.8 / balanced 7.2 / доминанты 6.3+6.1+5.2+5.7 / слабейшие 6.3+6.6+6.2+5.8 / developing 7.3 / low 11.6 / struggling 4.6.",
+    "mode": "rules",
+    "fallback": "profile_struggling",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            69
+          ]
+        ],
+        "profile": "profile_high_confidence"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ],
+          [
+            "@range",
+            ">=",
+            53
+          ],
+          [
+            "general_self_belief",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_self_believer"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ],
+          [
+            "@range",
+            ">=",
+            53
+          ],
+          [
+            "social_assertiveness",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_social_confident"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ],
+          [
+            "@range",
+            ">=",
+            53
+          ],
+          [
+            "self_acceptance",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_self_accepting"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ],
+          [
+            "@range",
+            ">=",
+            53
+          ],
+          [
+            "initiative_resilience",
+            ">=",
+            "@top1"
+          ]
+        ],
+        "profile": "profile_resilient"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            52
+          ]
+        ],
+        "profile": "profile_confident"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ],
+          [
+            "@range",
+            "<",
+            44
+          ]
+        ],
+        "profile": "profile_balanced"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ],
+          [
+            "general_self_belief",
+            "<",
+            16
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "self_acceptance"
+          ],
+          [
+            "general_self_belief",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_doubter"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ],
+          [
+            "social_assertiveness",
+            "<",
+            16
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "self_acceptance"
+          ],
+          [
+            "social_assertiveness",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_shy"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ],
+          [
+            "self_acceptance",
+            "<",
+            16
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "self_acceptance",
+            "<=",
+            "initiative_resilience"
+          ]
+        ],
+        "profile": "profile_self_critical"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ],
+          [
+            "initiative_resilience",
+            "<",
+            16
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "general_self_belief"
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "social_assertiveness"
+          ],
+          [
+            "initiative_resilience",
+            "<=",
+            "self_acceptance"
+          ]
+        ],
+        "profile": "profile_cautious"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            34
+          ]
+        ],
+        "profile": "profile_developing"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            24
+          ]
+        ],
+        "profile": "profile_low_confidence"
+      }
+    ]
   }
 }

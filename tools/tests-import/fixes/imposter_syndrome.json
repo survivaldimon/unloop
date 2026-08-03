@@ -1,0 +1,50 @@
+{
+  "$comment": "Этап 2 (03.08.2026): перекалибровка полос под коридоры. Обоснование — в $note внутри profileSelection.",
+  "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 21/41/61/81 → 37/50/61/72 по перцентилям (рычаг предлагал ~31/49/66/83; при 81 severe был мёртв — 0.6%). Симуляция: minimal 16.8 / mild 33.3 / moderate 29.5 / high 15.8 / severe 4.6.",
+    "mode": "rules",
+    "fallback": "profile_minimal",
+    "rules": [
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            72
+          ]
+        ],
+        "profile": "profile_severe"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            61
+          ]
+        ],
+        "profile": "profile_high"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            50
+          ]
+        ],
+        "profile": "profile_moderate"
+      },
+      {
+        "when": [
+          [
+            "@avg",
+            ">=",
+            37
+          ]
+        ],
+        "profile": "profile_mild"
+      }
+    ]
+  }
+}

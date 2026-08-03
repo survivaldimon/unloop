@@ -1,6 +1,5 @@
 {
   "$comment": "Э8, волна 2 батч 3. Уровневый тест (пороги 21/41/61/81 по среднему шести факторов). Самый тяжёлый исходник после severe_toxicity: на верхних уровнях — «клиническая зависимость», «психиатр НА СЕГОДНЯ», антидепрессанты, стационар, 12 шагов, кризисный телефон, плюс бренды (Instagram, TikTok, Freedom, Cold Turkey, книги Ньюпорта/Курпатова/Eyal) и эмодзи в каждой строке. Переписано целиком: паттерн и его цена вместо диагноза, спокойный supportNote на двух верхних уровнях (без телефонов), названия уровней — арка ленты. Пороги и веса не тронуты.",
-
   "title": {
     "ru": "FOMO и чужая идеальная жизнь",
     "en": "FOMO and Everyone Else's Perfect Life"
@@ -9,26 +8,45 @@
     "ru": "48 вопросов о том, что с тобой делает лента: страх упустить, сравнение с чужими хайлайтами, зависимость от реакций. Пять уровней — от «лента как инструмент» до «жизнь внутри ленты».",
     "en": "48 questions about what the feed does to you: the fear of missing out, comparing yourself to other people's highlights, depending on reactions. Five levels — from \"the feed is a tool\" to \"living inside the feed\"."
   },
-
   "factorNames": {
-    "fomo": { "ru": "Страх упустить", "en": "Fear of missing out" },
-    "social_comparison": { "ru": "Сравнение с другими", "en": "Comparing yourself" },
-    "validation_seeking": { "ru": "Зависимость от реакций", "en": "Needing the reactions" },
-    "envy_discontent": { "ru": "Зависть к чужой жизни", "en": "Envy of other lives" },
-    "compulsive_checking": { "ru": "Компульсивный скролл", "en": "Compulsive scrolling" },
-    "self_worth_dependency": { "ru": "Самооценка из ленты", "en": "Self-worth from the feed" }
+    "fomo": {
+      "ru": "Страх упустить",
+      "en": "Fear of missing out"
+    },
+    "social_comparison": {
+      "ru": "Сравнение с другими",
+      "en": "Comparing yourself"
+    },
+    "validation_seeking": {
+      "ru": "Зависимость от реакций",
+      "en": "Needing the reactions"
+    },
+    "envy_discontent": {
+      "ru": "Зависть к чужой жизни",
+      "en": "Envy of other lives"
+    },
+    "compulsive_checking": {
+      "ru": "Компульсивный скролл",
+      "en": "Compulsive scrolling"
+    },
+    "self_worth_dependency": {
+      "ru": "Самооценка из ленты",
+      "en": "Self-worth from the feed"
+    }
   },
-
   "profiles": {
     "profile_excellent": {
-      "name": { "ru": "Лента — инструмент", "en": "The Feed Is a Tool" },
+      "name": {
+        "ru": "Лента — инструмент",
+        "en": "The Feed Is a Tool"
+      },
       "description": {
         "ru": "Соцсети у тебя на своём месте: ты ими пользуешься, а не они тобой. Чужие сторис не портят тебе вечер, лайки не решают, каким было твоё утро, а телефон откладывается без ломки.",
         "en": "Social media sits where it belongs in your life: you use it, it doesn't use you. Other people's stories don't ruin your evening, likes don't decide how your morning went, and the phone goes down without withdrawal."
       },
       "whyThisProfile": {
-        "ru": "Все шесть механизмов в твоих ответах — в нижней зоне, среднее до 21%: страх упустить, сравнение, зависимость от реакций и компульсивный скролл почти не отозвались.",
-        "en": "All six mechanisms sit in the low zone of your answers, averaging under 21%: fear of missing out, comparison, needing reactions and compulsive scrolling barely registered."
+        "ru": "Все шесть механизмов в твоих ответах — в нижней зоне, среднее до 37%: страх упустить, сравнение, зависимость от реакций и компульсивный скролл почти не отозвались.",
+        "en": "All six mechanisms sit in the low zone of your answers, averaging under 37%: fear of missing out, comparison, needing reactions and compulsive scrolling barely registered."
       },
       "strengths": {
         "ru": [
@@ -77,16 +95,18 @@
         "en": "You live in the feed era and remain your own person — that's rare. Your worth isn't measured in reactions, and you already know it."
       }
     },
-
     "profile_good": {
-      "name": { "ru": "Лёгкий крючок", "en": "A Light Hook" },
+      "name": {
+        "ru": "Лёгкий крючок",
+        "en": "A Light Hook"
+      },
       "description": {
         "ru": "В целом лента тебе подчиняется, но крючок уже заброшен: иногда ты ловишь себя на сравнении, проверяешь реакции чаще, чем хотел бы, и залипаешь дольше, чем планировал. Пока это эпизоды — самое время не дать им стать фоном.",
         "en": "Mostly the feed obeys you, but the hook is in the water: sometimes you catch yourself comparing, you check reactions more often than you'd like, and you scroll longer than you planned. For now these are episodes — the right time to keep them from becoming the background."
       },
       "whyThisProfile": {
-        "ru": "Среднее по шести механизмам — между 21 и 40%: здоровые привычки перемешаны с эпизодами сравнения, проверки реакций и страха упустить.",
-        "en": "Your average across the six mechanisms lands between 21 and 40%: healthy habits mixed with episodes of comparing, checking reactions and fearing you'll miss out."
+        "ru": "Среднее по шести механизмам — между 37 и 51%: здоровые привычки перемешаны с эпизодами сравнения, проверки реакций и страха упустить.",
+        "en": "Your average across the six mechanisms lands between 37 and 51%: healthy habits mixed with episodes of comparing, checking reactions and fearing you'll miss out."
       },
       "strengths": {
         "ru": [
@@ -141,16 +161,18 @@
         "en": "The feed is engineered to hold you — and for now, you're holding it. A couple of small rules today saves a big cleanup later."
       }
     },
-
     "profile_warning": {
-      "name": { "ru": "Скролл берёт своё", "en": "The Scroll Takes Its Cut" },
+      "name": {
+        "ru": "Скролл берёт своё",
+        "en": "The Scroll Takes Its Cut"
+      },
       "description": {
         "ru": "Лента уже влияет на твою жизнь: сравнение с чужими кадрами стало привычкой, реакции под постом решают больше, чем хотелось бы, а телефон проверяется сам. Это ещё не потеря управления — но комиссия, которую скролл снимает с твоего настроения и времени, растёт каждый месяц.",
         "en": "The feed already shapes your life: comparing yourself to other people's frames has become a habit, the reactions under a post decide more than you'd like, and the phone checks itself. It's not lost control yet — but the commission the scroll charges on your mood and time grows every month."
       },
       "whyThisProfile": {
-        "ru": "Среднее по механизмам — между 41 и 60%: сравнение, зависимость от реакций, страх упустить и компульсивная проверка выражены и работают регулярно, а не эпизодами.",
-        "en": "Your average across the mechanisms is between 41 and 60%: comparison, needing reactions, fear of missing out and compulsive checking are pronounced and run regularly, not in episodes."
+        "ru": "Среднее по механизмам — между 51 и 62%: сравнение, зависимость от реакций, страх упустить и компульсивная проверка выражены и работают регулярно, а не эпизодами.",
+        "en": "Your average across the mechanisms is between 51 and 62%: comparison, needing reactions, fear of missing out and compulsive checking are pronounced and run regularly, not in episodes."
       },
       "strengths": {
         "ru": [
@@ -207,9 +229,11 @@
         "en": "You're at a fork, and both roads are still open. The algorithm is strong, but it lacks the one thing that matters — the right to decide for you."
       }
     },
-
     "profile_critical": {
-      "name": { "ru": "Лента рулит", "en": "The Feed Is Driving" },
+      "name": {
+        "ru": "Лента рулит",
+        "en": "The Feed Is Driving"
+      },
       "supportNote": {
         "ru": "Это образовательный тест, не диагноз. Но если лента съедает часы каждый день, а настроение и сон всерьёз просели — разговор с психологом заметно ускорит выход: компульсивный скролл и самооценка, привязанная к реакциям, — рабочие, хорошо изученные темы.",
         "en": "This is an educational test, not a diagnosis. But if the feed eats hours daily and your mood and sleep have genuinely sagged, talking to a therapist will speed up the way out: compulsive scrolling and reaction-tied self-worth are workable, well-studied territory."
@@ -219,8 +243,8 @@
         "en": "The feed holds the wheel: it decides when you check the phone, who you compare yourself to and how you feel afterwards. Hours go to it daily, your self-worth is tied to reactions, other people's frames reliably bruise yours. Control can be taken back — but no longer with a couple of settings."
       },
       "whyThisProfile": {
-        "ru": "Среднее по шести механизмам — между 61 и 80%: почти все они работают одновременно и сильно. На этом уровне лента влияет уже не на настроение, а на устройство дня.",
-        "en": "Your average across the six mechanisms is between 61 and 80%: nearly all of them run strong and simultaneously. At this level the feed shapes not your mood but the structure of your day."
+        "ru": "Среднее по шести механизмам — между 62 и 73%: почти все они работают одновременно и сильно. На этом уровне лента влияет уже не на настроение, а на устройство дня.",
+        "en": "Your average across the six mechanisms is between 62 and 73%: nearly all of them run strong and simultaneously. At this level the feed shapes not your mood but the structure of your day."
       },
       "strengths": {
         "ru": [
@@ -275,9 +299,11 @@
         "en": "The feed is exactly as strong as the hours you hand it. Every hour you take back is subtracted from its power and added to yours."
       }
     },
-
     "profile_danger": {
-      "name": { "ru": "Жизнь на ленте", "en": "Living Inside the Feed" },
+      "name": {
+        "ru": "Жизнь на ленте",
+        "en": "Living Inside the Feed"
+      },
       "supportNote": {
         "ru": "Этот результат — не диагноз: тест образовательный и измеряет паттерн. Но почти в каждом ответе ты выбрал самый тяжёлый вариант, и такой фон — большая нагрузка. Если скролл идёт рядом с ненавистью к себе, бессонницей или ощущением, что просвета нет, — поговори со специалистом, не откладывая: это самый короткий путь, и по нему выходили многие.",
         "en": "This result is not a diagnosis: the test is educational and measures a pattern. But you picked the heaviest option on nearly every answer, and that background is a serious load. If the scrolling comes with self-hatred, sleeplessness or the sense that there's no way out — talk to a professional without postponing it: that's the shortest road, and many have walked it out."
@@ -287,8 +313,8 @@
         "en": "You picked the harshest wording on nearly every answer: the feed decides how you sleep, what you feel and what you're worth. Real life gets the remainder — and there's almost none left. One more thing needs saying: sometimes answers like these come not from the pattern itself but from a habit of describing yourself in absolute terms. Either way it's a reason to take yourself seriously — not a verdict."
       },
       "whyThisProfile": {
-        "ru": "Среднее по шести механизмам выше 81% — верхняя зона шкалы. Все механизмы: страх упустить, сравнение, зависимость от реакций, зависть, компульсивный скролл и самооценка из ленты — на максимуме одновременно.",
-        "en": "Your average across the six mechanisms is above 81% — the top band of the scale. Every mechanism — fear of missing out, comparison, needing reactions, envy, compulsive scrolling and feed-based self-worth — is at maximum simultaneously."
+        "ru": "Среднее по шести механизмам выше 73% — верхняя зона шкалы. Все механизмы: страх упустить, сравнение, зависимость от реакций, зависть, компульсивный скролл и самооценка из ленты — на максимуме одновременно.",
+        "en": "Your average across the six mechanisms is above 73% — the top band of the scale. Every mechanism — fear of missing out, comparison, needing reactions, envy, compulsive scrolling and feed-based self-worth — is at maximum simultaneously."
       },
       "strengths": {
         "ru": [

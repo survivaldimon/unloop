@@ -59,8 +59,8 @@
         "en": "People don't drain you — they are your power outlet. You leave a party more charged than you arrived, and silence starts ringing in your ears pretty fast."
       },
       "whyThisProfile": {
-        "ru": "Твой средний уровень «разряда от людей» — ниже 25%: почти ни один вопрос про усталость от общения не отозвался. Это самая экстравертная зона шкалы.",
-        "en": "Your average \"drained by people\" level is under 25%: almost none of the social-fatigue questions landed. That's the most extraverted band of the scale."
+        "ru": "Ось интроверсии — среднее четырёх факторов батареи: скорости разряда, зарядки в одиночестве, потребности в тишине и тяги к тишине. У тебя она в нижней зоне, до 39%: расход от людей маленький по всем каналам сразу. Это самая экстравертная полоса шкалы.",
+        "en": "The introversion axis is the average of the four battery factors: drain rate, recharge in solitude, need for quiet and pull toward quiet. Yours sits in the low band, up to 39%: the cost of people is small on every channel at once. That's the most extraverted band of the scale."
       },
       "strengths": {
         "ru": [
@@ -121,8 +121,8 @@
         "en": "It's not solitude that restores you — it's the right people. An evening with your people recharges you better than an evening of silence — but only if they're genuinely yours."
       },
       "whyThisProfile": {
-        "ru": "Общий разряд у тебя невысокий (до 40%), а самый заметный фактор — способ восстановления: тест видит, что заряжает тебя контакт, а не уединение.",
-        "en": "Your overall drain is low (under 40%), and your standout factor is the recharge method: the test sees that contact, not seclusion, is what refills you."
+        "ru": "Ось интроверсии в нижней зоне (до 39%), а самый экстравертный из четырёх осевых факторов — способ восстановления: тебя заряжает контакт, а не уединение.",
+        "en": "Your introversion axis is in the low band (up to 39%), and the most extraverted of the four axis factors is the recharge method: contact, not seclusion, is what refills you."
       },
       "strengths": {
         "ru": [
@@ -183,8 +183,8 @@
         "en": "You're more at ease in a group than one-on-one: group dynamics carry you rather than scare you. On a team you're in your element — it gets harder where it's just the two of you and silence."
       },
       "whyThisProfile": {
-        "ru": "Общий разряд низкий (до 40%), а ведущий фактор — предпочтение формата: тест видит тягу к групповому общению над камерным.",
-        "en": "Overall drain is low (under 40%) and the leading factor is format preference: the test sees group settings winning over intimate ones."
+        "ru": "Ось интроверсии в нижней зоне (до 39%), а самый экстравертный осевой фактор — формат общения: тяга к группе и движухе сильнее, чем к камерным разговорам.",
+        "en": "Your introversion axis is in the low band (up to 39%), and the most extraverted axis factor is the format: the pull toward groups and buzz beats intimate one-on-ones."
       },
       "strengths": {
         "ru": [
@@ -245,8 +245,8 @@
         "en": "You're an ambivert leaning social: people mostly charge you, but you do have a working \"enough\" button. The only question is whether you hear it in time."
       },
       "whyThisProfile": {
-        "ru": "Общий разряд — в нижней трети шкалы (до 40%), но без единого доминирующего фактора: баланс с креном к экстраверсии.",
-        "en": "Your overall drain sits in the lower third (under 40%) with no single dominant factor: balance with a tilt toward extraversion."
+        "ru": "Ось интроверсии чуть ниже середины (39–46%), тревожность и гибкость без пиков: баланс с креном к экстраверсии.",
+        "en": "Your introversion axis sits just under the middle (39–46%), with no spikes in tension or flexibility: balance tilted toward extraversion."
       },
       "strengths": {
         "ru": [
@@ -305,8 +305,8 @@
         "en": "Your battery runs in multiple modes: a conference, a quiet evening, a team week, a solo one — you switch without grinding. That flexibility is rare, and it has its price."
       },
       "whyThisProfile": {
-        "ru": "Средний разряд у тебя в средней зоне, а самый сильный фактор — гибкость батареи, выше 60%: тест видит человека, который подстраивает режим под ситуацию.",
-        "en": "Your average drain is mid-band, and your strongest factor is battery flexibility, above 60%: the test sees someone who tunes the mode to the situation."
+        "ru": "Ось интроверсии в средней полосе, а гибкость батареи — в верхней части шкалы (от 78%): ты подстраиваешь режим под ситуацию, и именно это главный контур профиля.",
+        "en": "Your introversion axis is mid-band while battery flexibility sits in the top stretch of the scale (78% and up): you tune the mode to the situation, and that's the defining circuit of this profile."
       },
       "strengths": {
         "ru": [
@@ -369,8 +369,8 @@
         "en": "It's not the socializing that drains your battery — it's the tension around it: \"how will it go\" before, self-monitoring during, replaying every word after. The current flows, but with static — and the static burns more energy than the contact itself."
       },
       "whyThisProfile": {
-        "ru": "Средний разряд у тебя в средней зоне, но фактор напряжения в общении — самый высокий и выше 60%: батарею съедает не количество людей, а тревога рядом с ними.",
-        "en": "Your average drain is mid-band, but the social-tension factor is your highest and above 60%: it's not the number of people that eats the battery — it's the anxiety around them."
+        "ru": "Ось интроверсии в средней полосе, а напряжение в общении — в верхней части шкалы (от 79%): батарею съедает не количество людей, а тревога рядом с ними.",
+        "en": "Your introversion axis is mid-band while social tension sits in the top stretch of the scale (79% and up): it's not the number of people that eats the battery — it's the anxiety around them."
       },
       "strengths": {
         "ru": [
@@ -433,8 +433,8 @@
         "en": "Your battery has no tilt: company is good, quiet is good, and moving between them takes no effort. That's not \"neither here nor there\" — it's a working equilibrium."
       },
       "whyThisProfile": {
-        "ru": "Средний разряд — в середине шкалы, и ни один фактор не вырывается вперёд: тест видит ровный профиль по всем шести измерениям.",
-        "en": "Your average drain sits mid-scale and no factor breaks away: the test sees an even profile across all six dimensions."
+        "ru": "Ось интроверсии в середине шкалы (46–54%), тревожность и гибкость без пиков: ровный заряд без крена в какую-либо сторону.",
+        "en": "Your introversion axis sits mid-scale (46–54%), with no spikes in tension or flexibility: an even charge with no tilt either way."
       },
       "strengths": {
         "ru": [
@@ -493,8 +493,8 @@
         "en": "Your outlet is solitude. Not because people are bad — because your recovery runs on quiet: an hour alone gives back more than an evening of company ever could."
       },
       "whyThisProfile": {
-        "ru": "Разряд у тебя заметный (выше среднего), и главный фактор — потребность в тишине: она обгоняет все остальные шкалы профиля.",
-        "en": "Your drain is noticeable (above mid-scale), and the lead factor is the need for quiet: it outruns every other scale in your profile."
+        "ru": "Ось интроверсии в верхней полосе (от 61%), и главный осевой фактор — потребность в тишине: она обгоняет остальные три.",
+        "en": "Your introversion axis is in the upper band (61% and up), and the lead axis factor is the need for quiet: it outruns the other three."
       },
       "strengths": {
         "ru": [
@@ -555,8 +555,8 @@
         "en": "Your battery is honest but small: an hour or so of live interaction and the indicator starts blinking. That's not a defect — it's the design, and it works fine if you plan your charge the way people plan a road trip."
       },
       "whyThisProfile": {
-        "ru": "Главный фактор твоего профиля — скорость разряда: она выше всех остальных шкал и выше среднего. Утомляет не тревога и не формат, а сама длительность контакта.",
-        "en": "The lead factor in your profile is drain rate: higher than all your other scales and above the average. It's not anxiety or format that tires you — it's the sheer duration of contact."
+        "ru": "Ось интроверсии в верхней полосе (от 61%), и главный осевой фактор — скорость разряда: утомляет сама длительность контакта, а не тревога и не формат.",
+        "en": "Your introversion axis is in the upper band (61% and up), and the lead axis factor is drain rate: it's the sheer duration of contact that tires you — not anxiety, not format."
       },
       "strengths": {
         "ru": [
@@ -619,8 +619,8 @@
         "en": "You're an ambivert leaning quiet: you can socialize and even enjoy it, but by default you'll pick the evening at home. The social skills are all there — the only question is the price you pay for running them."
       },
       "whyThisProfile": {
-        "ru": "Средний разряд — в верхней середине шкалы (до 75%), без одного доминирующего фактора: баланс с креном к интроверсии.",
-        "en": "Your average drain sits in the upper middle (under 75%) with no single dominant factor: balance tilted toward introversion."
+        "ru": "Ось интроверсии чуть выше середины (54–61%), тревожность и гибкость без пиков: баланс с креном к интроверсии.",
+        "en": "Your introversion axis sits just above the middle (54–61%), with no spikes in tension or flexibility: balance tilted toward introversion."
       },
       "strengths": {
         "ru": [
@@ -681,8 +681,8 @@
         "en": "Socializing is expense, silence is income — that's your economy, with no exemptions for \"good company\". You can shine in a room, but the bill for the evening always arrives."
       },
       "whyThisProfile": {
-        "ru": "Среднее по твоим ответам — в верхней зоне шкалы (до 85%): заряд уходит быстро, тишина нужна регулярно. Классический интровертный контур без крайности.",
-        "en": "Your answers average in the upper band of the scale (under 85%): the charge drains fast and quiet is a regular need. The classic introvert circuit, short of the extreme."
+        "ru": "Ось интроверсии в верхней полосе (61–76%), а ведёт её не потребность в тишине и не скорость разряда, а сам способ жить: зарядка в одиночестве и тяга к тихим форматам. Классический интровертный контур — интроверсия как предпочтение, а не как усталость.",
+        "en": "Your introversion axis is in the upper band (61–76%), led not by the need for quiet or the drain rate but by the way you live: recharging alone and preferring quiet formats. The classic introvert circuit — introversion as a preference, not as fatigue."
       },
       "strengths": {
         "ru": [
@@ -747,8 +747,8 @@
         "en": "Your battery is more sensitive than most: even pleasant company is a real expense, and recovery takes a lot of silence. That's not damage and not a sentence — it's a design to build your life around, not apologize for."
       },
       "whyThisProfile": {
-        "ru": "Среднее по твоим ответам — выше 85%, самая верхняя зона шкалы: почти каждый вопрос про расход энергии и потребность в восстановлении отозвался на максимум.",
-        "en": "Your answers average above 85% — the very top band of the scale: nearly every question about energy cost and recovery need registered at maximum."
+        "ru": "Ось интроверсии от 76% и выше — самая верхняя зона шкалы: почти каждый ответ про расход энергии и восстановление ушёл в интровертную сторону.",
+        "en": "Your introversion axis is at 76% or above — the very top band of the scale: nearly every answer about energy cost and recovery leaned introvert."
       },
       "strengths": {
         "ru": [

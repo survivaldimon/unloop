@@ -1716,6 +1716,7 @@
     }
   },
   "profileSelection": {
+    "$note": "Этап 2 (03.08.2026): полосы 25/50/75 → 36/55/71. Главное — граница ушла с моды распределения (старый порог 50 делил пик пополам, ретест перескакивал через ярлык; новый 55 стоит на скате). Симуляция: low 18.6 / moderate 42.5 / elevated 29.9 / high 9.1.",
     "mode": "rules",
     "fallback": "profile_low_risk",
     "rules": [
@@ -1724,7 +1725,7 @@
           [
             "@avg",
             ">=",
-            75
+            71
           ]
         ],
         "profile": "profile_high_risk"
@@ -1734,7 +1735,7 @@
           [
             "@avg",
             ">=",
-            50
+            55
           ]
         ],
         "profile": "profile_elevated_risk"
@@ -1744,7 +1745,7 @@
           [
             "@avg",
             ">=",
-            25
+            36
           ]
         ],
         "profile": "profile_moderate_risk"

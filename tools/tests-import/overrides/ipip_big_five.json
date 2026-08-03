@@ -1,24 +1,42 @@
 {
   "$comment": "Э8. Голос всех 16 профилей, эмодзи из названий убраны, обращение переведено на «ты». Упоминание IPIP в описании оставлено намеренно: это общественное достояние и единственный настоящий инструмент в наборе — он и держит доверие ко всей полке. Фактор intellect переименован в «Открытость»: в литературе по Большой пятёрке это стандартное имя того же фактора и читается понятнее, чем «Интеллект/Воображение» в столбце результата. Названия профилей сверены с именами паттернов квиза и с профилями остальных тестов набора — совпадений нет.",
-
-  "title": { "ru": "Большая пятёрка", "en": "The Big Five" },
+  "title": {
+    "ru": "Большая пятёрка",
+    "en": "The Big Five"
+  },
   "description": {
     "ru": "50 утверждений о том, как ты обычно себя ведёшь. Пять черт, которыми психология описывает личность последние сорок лет. Набор пунктов — IPIP, общественное достояние.",
     "en": "50 statements about how you usually behave. The five traits psychology has used to describe personality for the past forty years. The item pool is IPIP, public domain."
   },
-
   "factorNames": {
-    "extraversion": { "ru": "Экстраверсия", "en": "Extraversion" },
-    "agreeableness": { "ru": "Доброжелательность", "en": "Agreeableness" },
-    "conscientiousness": { "ru": "Добросовестность", "en": "Conscientiousness" },
-    "emotional_stability": { "ru": "Эмоциональная устойчивость", "en": "Emotional stability" },
-    "intellect": { "ru": "Открытость", "en": "Openness" }
+    "extraversion": {
+      "ru": "Экстраверсия",
+      "en": "Extraversion"
+    },
+    "agreeableness": {
+      "ru": "Доброжелательность",
+      "en": "Agreeableness"
+    },
+    "conscientiousness": {
+      "ru": "Добросовестность",
+      "en": "Conscientiousness"
+    },
+    "emotional_stability": {
+      "ru": "Эмоциональная устойчивость",
+      "en": "Emotional stability"
+    },
+    "intellect": {
+      "ru": "Открытость",
+      "en": "Openness"
+    }
   },
-
   "profiles": {
     "profile_leader": {
       "icon": null,
-      "name": { "ru": "Впереди", "en": "Out Front" },
+      "name": {
+        "ru": "Впереди",
+        "en": "Out Front"
+      },
       "description": {
         "ru": "Ты берёшь на себя, когда остальные ещё осматриваются. И почти не платишь за это нервами — по крайней мере, заметно для других.",
         "en": "You take charge while everyone else is still looking around. And it costs you almost nothing visible — at least nothing anyone else sees."
@@ -74,10 +92,12 @@
         "en": "A lot rests on you, and that's no accident. Just check occasionally whether anyone around you still argues with you out loud."
       }
     },
-
     "profile_social_butterfly": {
       "icon": null,
-      "name": { "ru": "Магнит", "en": "The Magnet" },
+      "name": {
+        "ru": "Магнит",
+        "en": "The Magnet"
+      },
       "description": {
         "ru": "Люди тянутся к тебе быстро и остаются надолго. Тебе легко там, где большинству нужно усилие.",
         "en": "People come to you fast and stay a long time. What takes most people effort comes easily to you."
@@ -133,10 +153,12 @@
         "en": "What others work at comes easily to you. Just watch that the ease doesn't harden into an obligation to be liked."
       }
     },
-
     "profile_creative_thinker": {
       "icon": null,
-      "name": { "ru": "Тихая мастерская", "en": "The Workshop" },
+      "name": {
+        "ru": "Тихая мастерская",
+        "en": "The Workshop"
+      },
       "description": {
         "ru": "Внутри у тебя происходит гораздо больше, чем снаружи. И почти всё интересное случается там.",
         "en": "Far more goes on inside you than outside. And nearly all the interesting parts happen in there."
@@ -192,10 +214,12 @@
         "en": "There's a workshop running inside you that almost nobody outside knows about. Open the door: the unfinished reaches people better than the polished."
       }
     },
-
     "profile_innovator": {
       "icon": null,
-      "name": { "ru": "Идея вслух", "en": "Ideas Out Loud" },
+      "name": {
+        "ru": "Идея вслух",
+        "en": "Ideas Out Loud"
+      },
       "description": {
         "ru": "Ты не только придумываешь — ты умеешь этим заразить. Редко кто держит обе половины сразу.",
         "en": "You don't just have the idea — you can get people infected with it. Not many people hold both halves."
@@ -251,10 +275,12 @@
         "en": "You're better at inventing and infecting than almost anyone. One thing left: staying in the room after it stops being interesting."
       }
     },
-
     "profile_reliable_helper": {
       "icon": null,
-      "name": { "ru": "Опора", "en": "The Backstop" },
+      "name": {
+        "ru": "Опора",
+        "en": "The Backstop"
+      },
       "description": {
         "ru": "Ты делаешь и помнишь. Поэтому на тебя рассчитывают все — включая тех, кто не спросил.",
         "en": "You do things and you remember things. So everyone counts on you — including the people who never asked."
@@ -310,10 +336,12 @@
         "en": "You carry more than shows from outside. Let someone carry you — people have usually been waiting longer than you'd think."
       }
     },
-
     "profile_achiever": {
       "icon": null,
-      "name": { "ru": "Доводит до конца", "en": "Finishes It" },
+      "name": {
+        "ru": "Доводит до конца",
+        "en": "Finishes It"
+      },
       "description": {
         "ru": "Ты ставишь цель и доходишь. Вопрос не в том, дойдёшь ли, а в том, во что тебе это обойдётся.",
         "en": "You set a target and you get there. The question was never whether — it's what it costs you."
@@ -369,10 +397,12 @@
         "en": "You'll get there — that was never the question. The question is who's still around at the finish, and that gets planned too."
       }
     },
-
     "profile_sensitive_soul": {
       "icon": null,
-      "name": { "ru": "Всё насквозь", "en": "Everything Gets Through" },
+      "name": {
+        "ru": "Всё насквозь",
+        "en": "Everything Gets Through"
+      },
       "description": {
         "ru": "Ты чувствуешь чужое почти как своё. Это делает тебя редким собеседником — и очень дорого тебе обходится.",
         "en": "You feel other people's states almost as your own. It makes you a rare person to talk to, and it costs you a great deal."
@@ -428,10 +458,12 @@
         "en": "Your sensitivity isn't the thing that needs fixing. The missing filter is — and that's a different problem, and a solvable one."
       }
     },
-
     "profile_introspective": {
       "icon": null,
-      "name": { "ru": "Внутрь", "en": "Inward" },
+      "name": {
+        "ru": "Внутрь",
+        "en": "Inward"
+      },
       "description": {
         "ru": "Ты знаешь о себе больше, чем большинство узнаёт за жизнь. Иногда это знание работает, иногда просто крутится.",
         "en": "You know more about yourself than most people learn in a lifetime. Sometimes that knowledge works; sometimes it just spins."
@@ -487,10 +519,12 @@
         "en": "You've understood yourself more deeply than most. What's left is moving some of it outside: in there, it has already done everything it can."
       }
     },
-
     "profile_quiet_achiever": {
       "icon": null,
-      "name": { "ru": "Тихо и до конца", "en": "Quietly Done" },
+      "name": {
+        "ru": "Тихо и до конца",
+        "en": "Quietly Done"
+      },
       "description": {
         "ru": "Ты делаешь работу и не рассказываешь о ней. Поэтому её замечают позже, чем стоило бы.",
         "en": "You do the work and don't talk about it. So it gets noticed later than it should."
@@ -546,17 +580,19 @@
         "en": "Your work speaks for itself — but only to whoever has seen it. Your one job on the outside is making sure they do."
       }
     },
-
     "profile_deep_thinker": {
       "icon": null,
-      "name": { "ru": "Вглубь", "en": "All the Way Down" },
+      "name": {
+        "ru": "Вглубь",
+        "en": "All the Way Down"
+      },
       "description": {
         "ru": "Тебе интереснее понять вещь, чем ей воспользоваться. И ты идёшь до самого дна.",
         "en": "Understanding a thing interests you more than using it. And you go all the way to the bottom."
       },
       "whyThisProfile": {
-        "ru": "Низкая экстраверсия при высокой открытости. Любопытство, направленное внутрь: ты копаешь один и копаешь долго. Практическая сторона при этом остаётся необеспеченной — не потому что не умеешь, а потому что она не интересна.",
-        "en": "Low extraversion with high openness. Curiosity pointed inward: you dig alone and you dig for a long time. The practical side stays unfunded — not because you can't, but because it doesn't interest you."
+        "ru": "Тихий режим при живом любопытстве: экстраверсия низкая, а открытость опыту выше середины. Любопытство, направленное внутрь: ты копаешь один и копаешь долго. Практическая сторона при этом остаётся необеспеченной — не потому что не умеешь, а потому что она не интересна.",
+        "en": "Quiet mode with live curiosity: extraversion low, openness above the middle. Curiosity pointed inward: you dig alone and you dig for a long time. The practical side stays unfunded — not because you can't, but because it doesn't interest you."
       },
       "strengths": {
         "ru": [
@@ -605,10 +641,12 @@
         "en": "You see deeper than almost any situation requires. That's a resource — it just needs an exit, or it stays a private matter."
       }
     },
-
     "profile_extrovert": {
       "icon": null,
-      "name": { "ru": "От людей", "en": "Charged by People" },
+      "name": {
+        "ru": "От людей",
+        "en": "Charged by People"
+      },
       "description": {
         "ru": "Ты заряжаешься там, где другие тратятся. Пустой вечер для тебя не отдых, а разрядка батареи.",
         "en": "You charge up where other people spend down. An empty evening isn't rest for you — it's the battery draining."
@@ -664,10 +702,12 @@
         "en": "People genuinely charge you, and that needs no fixing. Just learn to sit through an hour without them — everything you never get to in the noise is waiting there."
       }
     },
-
     "profile_introvert": {
       "icon": null,
-      "name": { "ru": "В тишине", "en": "Recharged Alone" },
+      "name": {
+        "ru": "В тишине",
+        "en": "Recharged Alone"
+      },
       "description": {
         "ru": "Ты восстанавливаешься в одиночестве и выбираешь немногих. Это не застенчивость, это устройство батареи.",
         "en": "You recover alone and you choose few people. That isn't shyness — it's how the battery works."
@@ -723,10 +763,12 @@
         "en": "You genuinely need the quiet, and explaining that shouldn't feel like an apology. Just watch that the rest doesn't turn into absence."
       }
     },
-
     "profile_peacemaker": {
       "icon": null,
-      "name": { "ru": "Держит мир", "en": "Keeps the Peace" },
+      "name": {
+        "ru": "Держит мир",
+        "en": "Keeps the Peace"
+      },
       "description": {
         "ru": "Рядом с тобой не ссорятся. Иногда потому, что помирились, а иногда потому, что не сказали.",
         "en": "People don't fight around you. Sometimes because they made up, and sometimes because they didn't say it."
@@ -782,10 +824,12 @@
         "en": "You can hold people together, and that's rare. Just make sure you're among the people being held."
       }
     },
-
     "profile_steady": {
       "icon": null,
-      "name": { "ru": "Ровно", "en": "Level" },
+      "name": {
+        "ru": "Ровно",
+        "en": "Level"
+      },
       "description": {
         "ru": "Тебя трудно раскачать. Поэтому в шторм идут к тебе — и поэтому же не всегда понимают, что внутри.",
         "en": "You're hard to rock. So people come to you in a storm — and so they don't always know what's going on inside."
@@ -841,10 +885,12 @@
         "en": "You hold a lot of people up, deservedly. Just remember that level on the outside doesn't mean there's nothing worth asking about inside."
       }
     },
-
     "profile_explorer": {
       "icon": null,
-      "name": { "ru": "Что там дальше", "en": "What's Next" },
+      "name": {
+        "ru": "Что там дальше",
+        "en": "What's Next"
+      },
       "description": {
         "ru": "Новое тебя включает, повторяющееся — гасит. Ты видел больше, чем твои ровесники, и закончил меньше.",
         "en": "New things switch you on and repetition switches you off. You've seen more than your peers and finished less."
@@ -900,10 +946,12 @@
         "en": "Your curiosity is real, and it has already given you more than caution gives anyone. What's left is walking through the boring stretch once and seeing what's on the other side."
       }
     },
-
     "profile_balanced": {
       "icon": null,
-      "name": { "ru": "Без перекосов", "en": "No Strong Edges" },
+      "name": {
+        "ru": "Без перекосов",
+        "en": "No Strong Edges"
+      },
       "description": {
         "ru": "Ни одна черта у тебя не выбивается. Это делает тебя удобным почти везде — и трудноузнаваемым.",
         "en": "No trait sticks out. That makes you workable almost anywhere, and hard to recognize."
