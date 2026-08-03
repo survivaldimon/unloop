@@ -1,0 +1,127 @@
+{
+  "$comment": "Этап 2 аудита (03.08.2026): направленный фикс весов по A-списку линта (57 позиций, адъюдикация построчно). 49 флипов — пункт утверждает проблему, позитивная шкала должна падать («Мне сложно доверять» → trust −0.8); 5 удалений — связь пункта со шкалой мутная в обе стороны (q35 близость/приоритеты, q39 дистанция≠границы, q8/q40 «осознанность» из двуствольной формулировки, q16 поддержка из одиночества); autonomy_wellbeing переведена в axis реестром (независимость избегающего — честный сигнал). MBTI-примеси этого теста чистятся отдельным полюснымворклистом.",
+  "weights": {
+    "q2": {
+      "self_esteem": -0.6
+    },
+    "q10": {
+      "self_esteem": -0.8
+    },
+    "q18": {
+      "self_esteem": -0.8
+    },
+    "q34": {
+      "conflict_management": -0.5
+    },
+    "q58": {
+      "trust": -0.6
+    },
+    "q3": {
+      "emotional_openness": -0.6,
+      "emotional_intimacy": -0.8
+    },
+    "q7": {
+      "trust_in_relationships": -0.8,
+      "trust": -0.8,
+      "vulnerability_sharing": -0.6
+    },
+    "q11": {
+      "emotional_intimacy": -0.9
+    },
+    "q23": {
+      "social_support_seeking": -0.6,
+      "vulnerability_sharing": -0.7
+    },
+    "q27": {
+      "emotional_openness": -0.8,
+      "vulnerability_sharing": -0.7
+    },
+    "q31": {
+      "emotional_openness": -0.9,
+      "vulnerability_sharing": -0.9,
+      "emotional_intimacy": -0.7
+    },
+    "q35": {
+      "emotional_intimacy": null
+    },
+    "q39": {
+      "emotional_openness": -0.7,
+      "boundary_setting": null,
+      "emotional_intimacy": -0.8
+    },
+    "q43": {
+      "vulnerability_sharing": -0.7,
+      "emotional_intimacy": -0.9
+    },
+    "q47": {
+      "social_support_seeking": -0.6,
+      "vulnerability_sharing": -0.7
+    },
+    "q51": {
+      "emotional_intimacy": -0.6
+    },
+    "q55": {
+      "stress_tolerance": -0.6,
+      "emotional_intimacy": -0.7
+    },
+    "q59": {
+      "social_support_seeking": -0.6
+    },
+    "q4": {
+      "trust_in_relationships": -0.6
+    },
+    "q8": {
+      "self_awareness": null,
+      "emotional_intimacy": -0.8
+    },
+    "q12": {
+      "emotional_intimacy": -0.7
+    },
+    "q16": {
+      "trust_in_relationships": -0.9,
+      "social_support_seeking": null
+    },
+    "q20": {
+      "emotional_intimacy": -0.8
+    },
+    "q24": {
+      "self_esteem": -1,
+      "self_acceptance": -0.6
+    },
+    "q28": {
+      "self_esteem": -0.8
+    },
+    "q32": {
+      "trust_in_relationships": -0.9
+    },
+    "q36": {
+      "vulnerability_sharing": -0.9,
+      "emotional_intimacy": -0.9
+    },
+    "q40": {
+      "trust_in_relationships": -1,
+      "self_awareness": null,
+      "emotional_intimacy": -0.7
+    },
+    "q44": {
+      "trust_in_relationships": -0.9
+    },
+    "q48": {
+      "trust_in_relationships": -1
+    },
+    "q52": {
+      "emotional_intimacy": -0.8
+    },
+    "q56": {
+      "mood_stability": -0.6,
+      "emotional_intimacy": -0.7
+    },
+    "q60": {
+      "self_esteem": -1,
+      "self_acceptance": -0.7
+    },
+    "q15": {
+      "social_support_seeking": -0.6
+    }
+  }
+}

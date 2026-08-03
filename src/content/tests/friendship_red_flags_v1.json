@@ -1278,8 +1278,7 @@
       "autonomy_need": -0.8,
       "assertiveness": -0.8,
       "self_esteem": -0.7,
-      "compliance": 0.8,
-      "altruism": 0.6
+      "compliance": 0.8
     },
     "q9": {
       "boundary_setting": -1,
@@ -1353,7 +1352,6 @@
       "social_perception": -1,
       "critical_thinking": -0.9,
       "self_awareness": -0.8,
-      "trust": 0.6,
       "anxiety": 0.6,
       "harm_avoidance": -0.7
     },
@@ -1388,9 +1386,7 @@
       "assertiveness": -0.9,
       "self_esteem": -0.8,
       "compliance": 0.9,
-      "fear_of_abandonment": 0.8,
-      "altruism": 0.5,
-      "conflict_management": 0.6
+      "fear_of_abandonment": 0.8
     },
     "q15": {
       "boundary_setting": -1,
@@ -1462,8 +1458,7 @@
       "novelty_seeking": 0.8,
       "emotional_reactivity": 0.8,
       "harm_avoidance": -0.9,
-      "social_perception": -0.7,
-      "altruism": 0.6
+      "social_perception": -0.7
     }
   },
   "profiles": {

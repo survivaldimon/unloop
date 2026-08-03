@@ -1,0 +1,18 @@
+{
+  "$comment": "Этап 2 (03.08.2026): 5 удалений — жертвенность/миротворчество из терпимости к неуважению кормили altruism и conflict_management, наивная надежда — trust (harm_avoidance-позиции сняты переводом шкалы в ось: тяга к драме ↓ha, спокойствие ↑ha — семантика согласованная).",
+  "weights": {
+    "q5": {
+      "altruism": null
+    },
+    "q11": {
+      "altruism": null,
+      "conflict_management": null
+    },
+    "q18": {
+      "trust": null
+    },
+    "q24": {
+      "altruism": null
+    }
+  }
+}

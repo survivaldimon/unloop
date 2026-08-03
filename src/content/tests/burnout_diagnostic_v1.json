@@ -2880,7 +2880,6 @@
       "emotional_resilience": -0.9,
       "stress_tolerance": -0.8,
       "anxiety": 0.7,
-      "prudence": 0.6,
       "self_compassion": -0.5,
       "environmental_mastery": -0.5
     },
@@ -3068,7 +3067,6 @@
       "stress_tolerance": -0.9,
       "depression": 0.7,
       "emotional_resilience": -0.7,
-      "prudence": 0.6,
       "anxiety": 0.6,
       "self_compassion": -0.5,
       "achievement_motivation": -0.5
@@ -3081,7 +3079,6 @@
       "depression": 0.7,
       "rumination": 0.7,
       "emotional_resilience": -0.6,
-      "prudence": 0.6,
       "boundary_setting": -0.5
     },
     "q18": {
@@ -3089,9 +3086,7 @@
       "stress_tolerance": -0.9,
       "anxiety": 0.8,
       "vitality": -0.7,
-      "prudence": 0.6,
       "self_compassion": -0.6,
-      "body_image": 0.5,
       "emotional_resilience": -0.5,
       "boundary_setting": -0.4
     },
@@ -3099,7 +3094,6 @@
       "vulnerability": 1.3,
       "stress_tolerance": -1,
       "vitality": -0.8,
-      "prudence": 0.7,
       "emotional_resilience": -0.7,
       "self_compassion": -0.6,
       "anxiety": 0.6,
@@ -3112,7 +3106,6 @@
       "stress_tolerance": -0.9,
       "vitality": -0.7,
       "emotional_reactivity": 0.7,
-      "prudence": 0.6,
       "depression": 0.6,
       "self_compassion": -0.5,
       "emotional_resilience": -0.5
@@ -3124,16 +3117,13 @@
       "stress_tolerance": -0.8,
       "vitality": -0.7,
       "self_compassion": -0.6,
-      "prudence": 0.6,
-      "emotional_reactivity": 0.5,
-      "body_image": 0.5
+      "emotional_reactivity": 0.5
     },
     "q46": {
       "vulnerability": 1.4,
       "anxiety": 1.1,
       "stress_tolerance": -1,
       "vitality": -0.8,
-      "prudence": 0.8,
       "emotional_resilience": -0.7,
       "self_compassion": -0.6,
       "depression": 0.6,

@@ -2575,13 +2575,11 @@
       "self_esteem": 0.9,
       "boundary_setting": 0.9,
       "assertiveness": 0.8,
-      "altruism": -0.8,
       "people_pleasing": -0.8
     },
     "q10": {
       "self_care": -1,
       "people_pleasing": 1,
-      "altruism": 0.9,
       "codependency": 0.8,
       "self_victimization": 0.8
     },
@@ -2608,7 +2606,6 @@
     "q14": {
       "self_care": -0.9,
       "people_pleasing": 1,
-      "responsibility": 0.9,
       "codependency": 0.9,
       "boundary_setting": -0.9,
       "self_compassion": -0.7
@@ -2625,8 +2622,7 @@
       "people_pleasing": 0.9,
       "boundary_setting": -0.9,
       "organization": -0.7,
-      "assertiveness": -0.7,
-      "responsibility": 0.8
+      "assertiveness": -0.7
     },
     "q17": {
       "autonomy_wellbeing": 1,
@@ -2702,7 +2698,6 @@
     "q25": {
       "people_pleasing": 1,
       "reward_dependence": 0.9,
-      "responsibility": 0.8,
       "authenticity": -0.8,
       "self_care": -0.8,
       "autonomy_need": -0.7
@@ -2720,7 +2715,6 @@
       "people_pleasing": 1,
       "authenticity": -1,
       "reward_dependence": 0.9,
-      "adaptability_leadership": 0.6,
       "autonomy_need": -0.8,
       "compliance": 1
     },
@@ -2733,16 +2727,13 @@
     },
     "q29": {
       "people_pleasing": 0.9,
-      "responsibility": 1,
       "codependency": 0.9,
       "boundary_setting": -0.9,
-      "autonomy_wellbeing": -0.8,
-      "support_giving": 0.8
+      "autonomy_wellbeing": -0.8
     },
     "q30": {
       "people_pleasing": 0.9,
       "self_compassion": -1,
-      "responsibility": 0.9,
       "compliance": 0.8,
       "self_esteem": -0.8,
       "assertiveness": -0.7,
@@ -2751,9 +2742,7 @@
     "q31": {
       "people_pleasing": 1,
       "anxiety": 0.9,
-      "support_giving": 0.9,
       "codependency": 0.8,
-      "responsibility": 0.8,
       "self_care": -0.8,
       "boundary_setting": -0.8
     },
@@ -2851,7 +2840,6 @@
     },
     "q44": {
       "boundary_setting": -1,
-      "responsibility": 0.9,
       "codependency": 0.9,
       "self_awareness": -0.8
     },
@@ -2865,9 +2853,7 @@
     },
     "q46": {
       "boundary_setting": -1,
-      "responsibility": 1,
       "codependency": 0.9,
-      "support_giving": 0.9,
       "self_awareness": -0.8
     },
     "q47": {
@@ -2880,7 +2866,6 @@
       "boundary_setting": -0.9,
       "compliance": 1,
       "vulnerability": 0.9,
-      "trust": 0.8,
       "self_awareness": -0.8,
       "assertiveness": -0.7
     }

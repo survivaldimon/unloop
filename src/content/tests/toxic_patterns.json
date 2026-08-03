@@ -2497,19 +2497,19 @@
   ],
   "weights": {
     "q1": {
-      "anger": -0.9,
+      "anger": 0.9,
       "emotional_openness": -0.85,
       "assertiveness": -0.7,
       "avoidant_coping": 0.6
     },
     "q2": {
-      "anger": -0.8,
+      "anger": 0.8,
       "emotional_openness": -0.85,
       "straightforwardness": -0.9,
       "assertiveness": -0.7
     },
     "q3": {
-      "anger": -0.8,
+      "anger": 0.8,
       "assertiveness": -0.75,
       "avoidant_coping": 0.7,
       "responsibility": -0.8
@@ -2520,7 +2520,7 @@
       "communication_quality": -0.85
     },
     "q5": {
-      "anger": -0.8,
+      "anger": 0.8,
       "assertiveness": -0.8,
       "manipulation": 0.85,
       "responsibility": -0.9
@@ -2532,14 +2532,14 @@
       "communication_quality": -0.85
     },
     "q7": {
-      "anger": -0.8,
+      "anger": 0.8,
       "emotional_openness": -0.75,
       "assertiveness": -0.7
     },
     "q8": {
       "straightforwardness": -0.9,
       "emotional_openness": -0.8,
-      "anger": -0.75,
+      "anger": 0.75,
       "empathy": -0.6
     },
     "q9": {

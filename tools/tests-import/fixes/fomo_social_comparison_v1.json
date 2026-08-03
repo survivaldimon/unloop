@@ -1,0 +1,229 @@
+{
+  "$comment": "Этап 2 аудита (03.08.2026): удалены 15 «вклеенных хвостов» (120 весов) — одинаковые наборы позитивных шкал, приклеенные ко всем 8 вопросам блока (глубже FOMO → выше EQ/доверие/близость, см. docs/tests-content-review.md группа Б §5). Флип не применялся: равномерные блоки — артефакт генерации, а не разметка. Добавлена заглавная шкала social_comparison (+0.8) на блок сравнения q9–q16 — тест впервые кормит собственный конструкт.",
+  "weights": {
+    "q1": {
+      "emotional_intelligence": null
+    },
+    "q2": {
+      "emotional_intelligence": null
+    },
+    "q3": {
+      "emotional_intelligence": null
+    },
+    "q4": {
+      "emotional_intelligence": null
+    },
+    "q5": {
+      "emotional_intelligence": null
+    },
+    "q6": {
+      "emotional_intelligence": null
+    },
+    "q7": {
+      "emotional_intelligence": null
+    },
+    "q8": {
+      "emotional_intelligence": null
+    },
+    "q9": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q10": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q11": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q12": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q13": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q14": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q15": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q16": {
+      "cognitive_reappraisal": null,
+      "environmental_mastery": null,
+      "social_boldness": null,
+      "social_confidence": null,
+      "social_perception": null,
+      "social_comparison": 0.8
+    },
+    "q17": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q18": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q19": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q20": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q21": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q22": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q23": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q24": {
+      "communication_quality": null,
+      "trust_in_relationships": null
+    },
+    "q25": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q26": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q27": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q28": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q29": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q30": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q31": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q32": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "emotional_openness": null
+    },
+    "q33": {
+      "social_support_seeking": null
+    },
+    "q34": {
+      "social_support_seeking": null
+    },
+    "q35": {
+      "social_support_seeking": null
+    },
+    "q36": {
+      "social_support_seeking": null
+    },
+    "q37": {
+      "social_support_seeking": null
+    },
+    "q38": {
+      "social_support_seeking": null
+    },
+    "q39": {
+      "social_support_seeking": null
+    },
+    "q40": {
+      "social_support_seeking": null
+    },
+    "q41": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q42": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q43": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q44": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q45": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q46": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q47": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    },
+    "q48": {
+      "cognitive_reappraisal": null,
+      "emotional_intelligence": null,
+      "social_support_seeking": null
+    }
+  }
+}

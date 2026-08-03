@@ -1,0 +1,44 @@
+{
+  "$comment": "Этап 2 (03.08.2026): 15 удалений класса «созависимость кормит добродетели» — гиперобязательность/извинения без вины/предугадывание желаний повышали responsibility, support_giving, altruism, adaptability_leadership, а слепота к манипуляции — trust (A-список линта, адъюдикация построчно; q9 altruism −0.8 удалён зеркально: здоровый баланс — не анти-альтруизм).",
+  "weights": {
+    "q9": {
+      "altruism": null
+    },
+    "q10": {
+      "altruism": null
+    },
+    "q14": {
+      "responsibility": null
+    },
+    "q16": {
+      "responsibility": null
+    },
+    "q25": {
+      "responsibility": null
+    },
+    "q27": {
+      "adaptability_leadership": null
+    },
+    "q29": {
+      "responsibility": null,
+      "support_giving": null
+    },
+    "q30": {
+      "responsibility": null
+    },
+    "q31": {
+      "support_giving": null,
+      "responsibility": null
+    },
+    "q44": {
+      "responsibility": null
+    },
+    "q46": {
+      "responsibility": null,
+      "support_giving": null
+    },
+    "q48": {
+      "trust": null
+    }
+  }
+}

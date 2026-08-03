@@ -1,0 +1,31 @@
+{
+  "$comment": "Этап 2 (03.08.2026): 10 удалений — телесные симптомы выгорания повышали prudence («осторожность») и body_image (A-список; минусовые prudence q7/q49 — осмысленные, остаются).",
+  "weights": {
+    "q4": {
+      "prudence": null
+    },
+    "q11": {
+      "prudence": null
+    },
+    "q18": {
+      "prudence": null,
+      "body_image": null
+    },
+    "q25": {
+      "prudence": null
+    },
+    "q32": {
+      "prudence": null
+    },
+    "q39": {
+      "prudence": null,
+      "body_image": null
+    },
+    "q43": {
+      "prudence": null
+    },
+    "q46": {
+      "prudence": null
+    }
+  }
+}

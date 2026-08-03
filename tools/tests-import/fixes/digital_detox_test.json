@@ -1,0 +1,25 @@
+{
+  "$comment": "Этап 2 аудита (03.08.2026): A-список линта, 37 позиций построчно. 9 флипов — прямые инверсии (q5/q37 «отвлекаюсь» ронял attention_control вверх, q15 «пытался и не смог» повышал самодисциплину, q10 «близкие жалуются» повышал качество отношений, q23 «забываю прочитанное» повышал память). 28 удалений — классы: «признал вред → +self_awareness/prudence/self_compassion» (q19/q32/q39/q46/q48 и родня — осознанность из жалобы не сигнал), «часы за экраном → организованность» (q7 — наказывает офисную работу), «боль → body_image» (q18/q46), мусорные хвосты vitality/values (q8/q31/q49/q50), «предпочитаю написать → уверенность» (q17).",
+  "weights": {
+    "q2": { "impulsiveness": -0.7 },
+    "q5": { "attention_control": -1 },
+    "q7": { "organization": null, "self_discipline": null },
+    "q8": { "vitality": null },
+    "q10": { "positive_relations": -1, "conflict_management": null },
+    "q15": { "self_discipline": -1, "persistence": null, "emotional_resilience": null, "achievement_motivation": null },
+    "q17": { "social_confidence": null },
+    "q18": { "body_image": null },
+    "q19": { "self_awareness": null, "emotional_resilience": null },
+    "q21": { "self_discipline": -1, "attention_control": -0.6 },
+    "q23": { "attention_control": -1, "working_memory": -0.9, "processing_speed": null, "cognitive_flexibility": null, "self_awareness": null },
+    "q25": { "prudence": null },
+    "q31": { "values": null },
+    "q32": { "self_awareness": null, "prudence": null, "self_compassion": null },
+    "q37": { "attention_control": -1 },
+    "q39": { "self_awareness": null, "prudence": null },
+    "q46": { "body_image": null, "self_awareness": null, "prudence": null, "self_compassion": null },
+    "q48": { "self_awareness": null },
+    "q49": { "vitality": null },
+    "q50": { "vitality": null }
+  }
+}

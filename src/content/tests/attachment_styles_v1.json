@@ -3249,7 +3249,7 @@
       "anxiety": 0.7,
       "vulnerability": 0.7,
       "rumination": 0.6,
-      "self_esteem": 0.6
+      "self_esteem": -0.6
     },
     "q6": {
       "anxious_attachment": 1,
@@ -3261,7 +3261,7 @@
     "q10": {
       "anxious_attachment": 1,
       "self_consciousness": 0.9,
-      "self_esteem": 0.8,
+      "self_esteem": -0.8,
       "fear_of_abandonment": 0.7,
       "anxiety": 0.7,
       "vulnerability": 0.6
@@ -3277,7 +3277,7 @@
     "q18": {
       "anxious_attachment": 0.9,
       "self_consciousness": 0.8,
-      "self_esteem": 0.8,
+      "self_esteem": -0.8,
       "fear_of_abandonment": 0.7,
       "rumination": 0.6,
       "vulnerability": 0.6
@@ -3309,7 +3309,7 @@
       "self_consciousness": 0.9,
       "fear_of_abandonment": 0.8,
       "impulsiveness": 0.6,
-      "conflict_management": 0.5
+      "conflict_management": -0.5
     },
     "q38": {
       "anxious_attachment": 1,
@@ -3351,32 +3351,32 @@
       "self_consciousness": 0.9,
       "fear_of_abandonment": 0.8,
       "emotional_reactivity": 0.7,
-      "trust": 0.6
+      "trust": -0.6
     },
     "q3": {
       "avoidant_attachment": 1,
       "autonomy_need": 0.7,
-      "emotional_openness": 0.6,
+      "emotional_openness": -0.6,
       "introversion": 0.7,
-      "emotional_intimacy": 0.8
+      "emotional_intimacy": -0.8
     },
     "q7": {
       "avoidant_attachment": 0.9,
-      "trust_in_relationships": 0.8,
-      "trust": 0.8,
-      "vulnerability_sharing": 0.6
+      "trust_in_relationships": -0.8,
+      "trust": -0.8,
+      "vulnerability_sharing": -0.6
     },
     "q11": {
       "avoidant_attachment": 1,
       "anxiety": 0.6,
       "autonomy_need": 0.7,
-      "emotional_intimacy": 0.9
+      "emotional_intimacy": -0.9
     },
     "q15": {
       "avoidant_attachment": 0.9,
       "autonomy_need": 1,
       "autonomy_wellbeing": 0.8,
-      "social_support_seeking": 0.6
+      "social_support_seeking": -0.6
     },
     "q19": {
       "avoidant_attachment": 0.9,
@@ -3387,45 +3387,43 @@
     "q23": {
       "avoidant_attachment": 0.9,
       "autonomy_need": 0.7,
-      "social_support_seeking": 0.6,
-      "vulnerability_sharing": 0.7
+      "social_support_seeking": -0.6,
+      "vulnerability_sharing": -0.7
     },
     "q27": {
       "avoidant_attachment": 0.9,
-      "emotional_openness": 0.8,
-      "vulnerability_sharing": 0.7,
+      "emotional_openness": -0.8,
+      "vulnerability_sharing": -0.7,
       "expressiveness": 0.7,
       "thinking": 0.8
     },
     "q31": {
       "avoidant_attachment": 1,
-      "emotional_openness": 0.9,
-      "vulnerability_sharing": 0.9,
-      "emotional_intimacy": 0.7
+      "emotional_openness": -0.9,
+      "vulnerability_sharing": -0.9,
+      "emotional_intimacy": -0.7
     },
     "q35": {
       "avoidant_attachment": 0.9,
-      "autonomy_need": 0.7,
-      "emotional_intimacy": 0.6
+      "autonomy_need": 0.7
     },
     "q39": {
       "avoidant_attachment": 1,
-      "emotional_openness": 0.7,
-      "boundary_setting": 0.6,
+      "emotional_openness": -0.7,
       "introversion": 0.8,
-      "emotional_intimacy": 0.8
+      "emotional_intimacy": -0.8
     },
     "q43": {
       "avoidant_attachment": 1,
       "anxiety": 0.6,
-      "vulnerability_sharing": 0.7,
-      "emotional_intimacy": 0.9
+      "vulnerability_sharing": -0.7,
+      "emotional_intimacy": -0.9
     },
     "q47": {
       "avoidant_attachment": 0.9,
       "autonomy_need": 0.9,
-      "social_support_seeking": 0.6,
-      "vulnerability_sharing": 0.7,
+      "social_support_seeking": -0.6,
+      "vulnerability_sharing": -0.7,
       "thinking": 0.7
     },
     "q51": {
@@ -3433,99 +3431,96 @@
       "autonomy_need": 1,
       "autonomy_wellbeing": 0.9,
       "self_direction": 0.7,
-      "emotional_intimacy": 0.6
+      "emotional_intimacy": -0.6
     },
     "q55": {
       "avoidant_attachment": 0.9,
-      "stress_tolerance": 0.6,
+      "stress_tolerance": -0.6,
       "emotional_reactivity": 0.6,
-      "emotional_intimacy": 0.7
+      "emotional_intimacy": -0.7
     },
     "q59": {
       "avoidant_attachment": 0.9,
       "autonomy_need": 0.9,
-      "social_support_seeking": 0.6
+      "social_support_seeking": -0.6
     },
     "q4": {
       "anxious_attachment": 0.7,
       "avoidant_attachment": 0.7,
       "fear_of_abandonment": 0.8,
       "vulnerability": 0.8,
-      "trust_in_relationships": 0.6
+      "trust_in_relationships": -0.6
     },
     "q8": {
       "anxious_attachment": 0.7,
       "avoidant_attachment": 0.7,
       "anxiety": 0.7,
-      "self_awareness": 0.6,
-      "emotional_intimacy": 0.8
+      "emotional_intimacy": -0.8
     },
     "q12": {
       "anxious_attachment": 0.8,
       "avoidant_attachment": 0.8,
       "fear_of_abandonment": 0.9,
       "anxiety": 0.7,
-      "emotional_intimacy": 0.7
+      "emotional_intimacy": -0.7
     },
     "q16": {
-      "trust_in_relationships": 0.9,
+      "trust_in_relationships": -0.9,
       "anxious_attachment": 0.7,
       "avoidant_attachment": 0.6,
-      "fear_of_abandonment": 0.6,
-      "social_support_seeking": 0.5
+      "fear_of_abandonment": 0.6
     },
     "q20": {
       "avoidant_attachment": 0.8,
       "anxious_attachment": 0.6,
       "anxiety": 0.7,
       "impulsiveness": 0.5,
-      "emotional_intimacy": 0.8
+      "emotional_intimacy": -0.8
     },
     "q24": {
-      "self_esteem": 1,
+      "self_esteem": -1,
       "self_consciousness": 0.9,
       "anxious_attachment": 0.8,
       "vulnerability": 0.7,
-      "self_acceptance": 0.6
+      "self_acceptance": -0.6
     },
     "q28": {
       "fear_of_abandonment": 0.9,
       "anxious_attachment": 0.8,
       "self_consciousness": 0.9,
-      "self_esteem": 0.8,
+      "self_esteem": -0.8,
       "catastrophizing": 0.7,
       "anxiety": 0.8
     },
     "q32": {
       "anxious_attachment": 0.8,
       "avoidant_attachment": 0.7,
-      "trust_in_relationships": 0.9,
+      "trust_in_relationships": -0.9,
       "vulnerability": 0.7,
       "anxiety": 0.9
     },
     "q36": {
-      "vulnerability_sharing": 0.9,
+      "vulnerability_sharing": -0.9,
       "self_consciousness": 0.8,
       "avoidant_attachment": 0.7,
       "anxiety": 0.6,
-      "emotional_intimacy": 0.9
+      "emotional_intimacy": -0.9
     },
     "q40": {
       "anxious_attachment": 0.8,
       "avoidant_attachment": 0.7,
-      "trust_in_relationships": 1,
-      "self_awareness": 0.6,
-      "emotional_intimacy": 0.7
+      "trust_in_relationships": -1,
+      "emotional_intimacy": -0.7
     },
     "q44": {
       "avoidant_attachment": 0.8,
-      "trust_in_relationships": 0.9,
+      "trust_in_relationships": -0.9,
       "vulnerability": 0.8,
       "anxiety": 0.6,
       "harm_avoidance": 0.7
     },
     "q48": {
-      "trust_in_relationships": 1,
+      "trust_in_relationships": -1,
       "anxious_attachment": 0.7,
       "avoidant_attachment": 0.6,
       "vulnerability": 0.7,
@@ -3536,21 +3531,21 @@
       "vulnerability": 0.7,
       "harm_avoidance": 0.7,
       "anxiety": 0.6,
-      "emotional_intimacy": 0.8
+      "emotional_intimacy": -0.8
     },
     "q56": {
       "anxious_attachment": 0.8,
       "avoidant_attachment": 0.8,
       "fear_of_abandonment": 0.7,
-      "mood_stability": 0.6,
-      "emotional_intimacy": 0.7
+      "mood_stability": -0.6,
+      "emotional_intimacy": -0.7
     },
     "q60": {
-      "self_esteem": 1,
+      "self_esteem": -1,
       "self_consciousness": 1,
       "anxious_attachment": 0.9,
       "vulnerability": 0.8,
-      "self_acceptance": 0.7
+      "self_acceptance": -0.7
     }
   },
   "profiles": {
