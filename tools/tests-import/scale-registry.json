@@ -1,0 +1,1977 @@
+{
+ "$comment": "Реестр сквозных психологических шкал (этап 1 аудита, 03.08.2026). Источник истины для линта направлений весов (L0.5) и словаря портрета. status: canon — живёт; merge — алиас к merge_into (применяется в этапе 2 через scale-map); drop_candidate — кандидат на выпил из сквозного слоя. polarity: positive/negative — валентность конструкта для линта знаков; axis — нейтральная ось, линтом знаков не проверяется. pole — полюс биполярной пары, в портрете схлопывается в пару. Черновик сгенерирован по матрице scale-usage, спорные решения — docs/scale-registry.md.",
+ "entries": [
+  {
+   "scale": "abstract_reasoning",
+   "ru": "лёгкость в понимании сложных отвлечённых идей",
+   "high_means": "легко понимает сложные идеи",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "1 тест, 3 вопроса; смешаны способность («трудно понимать») и интерес («неинтересны»)",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "acceptance",
+   "ru": "умение принимать себя и других такими, как есть",
+   "high_means": "принимает людей без переделывания",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "self_acceptance",
+   "flag": "смешивает принятие себя и принятие партнёра; вопросы о себе прямо дублируют шкалу self_acceptance (self_confidence q3 кормит обе), партнёрская часть при слиянии потеряет нюанс",
+   "tests": 4,
+   "items": 8
+  },
+  {
+   "scale": "accountability",
+   "ru": "готовность отвечать за свои действия",
+   "high_means": "берёт ответственность на себя",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "всего 2 вопроса на весь сквозной слой",
+   "tests": 2,
+   "items": 2
+  },
+  {
+   "scale": "achievement_motivation",
+   "ru": "желание добиваться целей и заметных результатов",
+   "high_means": "сильная тяга к достижениям",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "36 из 55 вопросов — из теста выгорания (шкала по факту меряет обратное выгорание, а не мотивацию); в love_languages похвала партнёра (+0.7) кормит мотивацию достижений — дрейф",
+   "tests": 7,
+   "items": 55
+  },
+  {
+   "scale": "achievement_striving",
+   "ru": "стремление ставить цели и добиваться результатов",
+   "high_means": "нацелен на достижения",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 7,
+   "items": 38
+  },
+  {
+   "scale": "achievement_value",
+   "ru": "насколько человеку важны успех и заметные результаты",
+   "high_means": "успех — важная ценность",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "achievement_striving",
+   "flag": "тот же вопрос values_priorities q9 питает achievement_striving с весом +1.0 — полный дубль",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "actions",
+   "ru": "живёт активной жизнью и занятиями вне экранов",
+   "high_means": "имеет живые офлайн-занятия",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "смысл неясен по примерам: id непрозрачный, 3 вопроса в одном тесте про досуг без гаджетов",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "active_listening",
+   "ru": "умение слушать собеседника не отвлекаясь",
+   "high_means": "внимательно слушает людей",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "узкий поднавык communication_quality на 5 вопросах; в love_languages шкалу повышают слушание ПАРТНЁРОМ (+1) и его подарки (+0.6) — не навык респондента",
+   "tests": 3,
+   "items": 5
+  },
+  {
+   "scale": "activity",
+   "ru": "энергичность и готовность действовать",
+   "high_means": "деятельный, полон энергии",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в relationship_compatibility шкалу повышает ожидание инициативы ОТ партнёра (+0.6), а не собственная активность; вопросы разнородны (ассертивность, энергия от общения, мотивация)",
+   "tests": 8,
+   "items": 19
+  },
+  {
+   "scale": "adaptability_leadership",
+   "ru": "гибкость: способность перестраиваться в новых условиях",
+   "high_means": "быстро перестраивается и восстанавливается",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в одном id склеены два конструкта (гибкость и лидерство), лидерских вопросов в данных нет; в boundaries подстройка под чужие ожидания (+0.6) — people-pleasing засчитан как адаптивность",
+   "tests": 5,
+   "items": 12
+  },
+  {
+   "scale": "aesthetics",
+   "ru": "внимание к красоте, творчеству и миру вокруг",
+   "high_means": "замечает и ценит красоту",
+   "polarity": "axis",
+   "status": "drop_candidate",
+   "flag": "примеров мало и смысл неясен: телефон за едой (−0.5) и ценность творчества (+0.8) — разные вещи; всего 3 вопроса",
+   "tests": 2,
+   "items": 3
+  },
+  {
+   "scale": "affection_expression",
+   "ru": "насколько человек открыто проявляет тепло и любовь",
+   "high_means": "открыто проявляет тепло",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo зависть (8 вопросов, +0.5) повышает выражение тепла — ошибка; в love_languages получение знаков любви (20 вопросов) выдано за их выражение",
+   "tests": 4,
+   "items": 31
+  },
+  {
+   "scale": "affiliation_motivation",
+   "ru": "желание быть среди людей и принадлежать кругу",
+   "high_means": "тянется быть среди людей",
+   "polarity": "axis",
+   "status": "merge",
+   "merge_into": "relatedness_need",
+   "flag": "всего 3 вопроса; в digital_detox знаки соседних вопросов противоположны (+0.7 за одиночество онлайн, −0.6 за меньше встреч)",
+   "tests": 2,
+   "items": 3
+  },
+  {
+   "scale": "altruism",
+   "ru": "готовность помогать и заботиться о других",
+   "high_means": "охотно помогает другим",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в ipip близкие по смыслу вопросы с противоположными знаками: «Я мало беспокоюсь о других» +0.5 и «Меня не интересуют проблемы других» -0.8 — у первого ошибка знака; в boundaries и friendship_red_flags самопожертвование и прогиб под других повышают шкалу (смешение с people-pleasing); в love_languages плюс за помощь ОТ партнёра, а не отдачу",
+   "tests": 11,
+   "items": 33
+  },
+  {
+   "scale": "ambition",
+   "ru": "желание двигаться вперёд и добиваться большего",
+   "high_means": "целится высоко",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "achievement_motivation",
+   "flag": "5 вопросов, почти все дублируют achievement_motivation (values q9/q11 и self_confidence q21 кормят обе шкалы с теми же знаками)",
+   "tests": 4,
+   "items": 5
+  },
+  {
+   "scale": "analytical_thinking",
+   "ru": "склонность раскладывать происходящее по полочкам",
+   "high_means": "анализирует, а не гадает",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "единственный вопрос — про красные флаги дружбы, к анализу почти не относится",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "anger",
+   "ru": "как часто человек злится и раздражается",
+   "high_means": "часто злится и раздражается",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "противоречие между тестами: в toxic_patterns все 6 вопросов о пассивной агрессии ПОНИЖАЮТ гнев (q1 «говорю всё нормально, когда злюсь» −0.9), а в text_conflict тот же стиль passive_revenge повышает (+0.6)",
+   "tests": 7,
+   "items": 17
+  },
+  {
+   "scale": "anxiety",
+   "ru": "насколько человек склонен тревожиться и беспокоиться",
+   "high_means": "много тревоги и беспокойства",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "в burnout_diagnostic_v1 38 вопросов про истощение качают тревожность — смешение тревоги с выгоранием",
+   "tests": 15,
+   "items": 136
+  },
+  {
+   "scale": "anxious_attachment",
+   "ru": "страх быть брошенным и цепляние за близких",
+   "high_means": "сильно боится потерять близких",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 7,
+   "items": 50
+  },
+  {
+   "scale": "artistic_appreciation",
+   "ru": "чуткость к красоте и творчеству",
+   "high_means": "ценит красоту и творчество",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "creativity",
+   "flag": "по вопросам это воображение и творчество, а не любовь к прекрасному — имя не соответствует содержимому",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "assertiveness",
+   "ru": "умение прямо говорить о своих потребностях и несогласии",
+   "high_means": "открыто отстаивает себя",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в social_battery_v1 вопросы про энергию от общения (экстраверсия) с плюсом качают ассертивность — дрейф смысла",
+   "tests": 14,
+   "items": 89
+  },
+  {
+   "scale": "attention_control",
+   "ru": "умение держать фокус и не отвлекаться",
+   "high_means": "легко удерживает внимание",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages плюс (+0.9) за то, что телефон откладывает ПАРТНЁР — вопрос не про респондента",
+   "tests": 6,
+   "items": 37
+  },
+  {
+   "scale": "authenticity",
+   "ru": "способность быть собой, а не подстраиваться под других",
+   "high_means": "живёт в согласии с собой",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 7,
+   "items": 26
+  },
+  {
+   "scale": "autonomy_need",
+   "ru": "насколько человеку важны личное пространство и независимость",
+   "high_means": "сильная потребность в независимости",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "смешение смыслов: потребность в пространстве, способность к самостоятельности и ценность свободы живут в одной шкале",
+   "tests": 11,
+   "items": 71
+  },
+  {
+   "scale": "autonomy_wellbeing",
+   "ru": "опора на себя, независимость от чужого одобрения",
+   "high_means": "устойчив без чужого одобрения",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 5,
+   "items": 39
+  },
+  {
+   "scale": "avoidant_attachment",
+   "ru": "привычка держать дистанцию в близких отношениях",
+   "high_means": "избегает эмоциональной близости",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "в fomo шкалу повышают вопросы о зависимости от лайков (q17, q18 +0.7) — это тревожный поиск подтверждения, а не избегание близости; путаница тревожного и избегающего типов",
+   "tests": 5,
+   "items": 42
+  },
+  {
+   "scale": "avoidant_coping",
+   "ru": "привычка уходить от проблем и трудных разговоров",
+   "high_means": "избегает проблем вместо решения",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 10,
+   "items": 41
+  },
+  {
+   "scale": "benevolence",
+   "ru": "желание заботиться о людях и приносить пользу",
+   "high_means": "стремится помогать другим",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "body_image",
+   "ru": "как человек относится к своему телу и внешности",
+   "high_means": "принимает своё тело",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "шкала означает разное в разных тестах: в fomo/self_confidence сравнения внешности дают минус (высокое = принятие тела), а в burnout/digital_detox телесные боли и осанка дают плюс (+0.5…+1.0)",
+   "tests": 4,
+   "items": 9
+  },
+  {
+   "scale": "boundary_setting",
+   "ru": "умение говорить «нет» и защищать свои интересы",
+   "high_means": "уверенно отстаивает личные границы",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "противоречие между тестами: в burnout_diagnostic усталость понижает шкалу (−0.4…−0.5), а в social_battery_v1 схожая усталость от общения повышает (+0.5) — утомляемость приравнена к умению ставить границы",
+   "tests": 9,
+   "items": 78
+  },
+  {
+   "scale": "burnout",
+   "ru": "истощение от жизни на износ без восстановления",
+   "high_means": "выгорел, истощён",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "флагманский тест выгорания (burnout_diagnostic_v1) эту шкалу вообще не кормит — она живёт на 4 вопросах в boundaries и values; тема уже покрыта другими шкалами",
+   "tests": 2,
+   "items": 4
+  },
+  {
+   "scale": "callousness",
+   "ru": "холодность и безразличие к чувствам других",
+   "high_means": "холоден и жёсток с людьми",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 2,
+   "items": 12
+  },
+  {
+   "scale": "calmness",
+   "ru": "насколько человек остаётся спокойным в напряжённых ситуациях",
+   "high_means": "спокоен даже под давлением",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 12,
+   "items": 27
+  },
+  {
+   "scale": "catastrophizing",
+   "ru": "привычка раздувать проблемы до катастрофы",
+   "high_means": "видит катастрофу в мелочах",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 4,
+   "items": 10
+  },
+  {
+   "scale": "charisma",
+   "ru": "умение притягивать и располагать к себе людей",
+   "high_means": "притягивает людей",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "единственный вопрос — про доброжелательность («помогаю людям чувствовать себя комфортно»), это не харизма",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "codependency",
+   "ru": "растворяется в чужих нуждах, забывая о своих",
+   "high_means": "жертвует собой ради других",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 1,
+   "items": 8
+  },
+  {
+   "scale": "cognitive_flexibility",
+   "ru": "умение перестраиваться и находить новые подходы",
+   "high_means": "легко перестраивается",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в social_battery_v1 переменчивость социальной потребности (8 вопросов) выдаётся за когнитивную гибкость",
+   "tests": 8,
+   "items": 27
+  },
+  {
+   "scale": "cognitive_reappraisal",
+   "ru": "умение по-новому взглянуть на неудачи и переживания",
+   "high_means": "переосмысливает трудности спокойно",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "fomo: 16 из 20 вопросов — болезненные сравнения себя с другими с плюсом (+0.5) — по смыслу это противоположность переосмысления; шкалу реально держат только вопросы self_confidence",
+   "tests": 4,
+   "items": 20
+  },
+  {
+   "scale": "commitment",
+   "ru": "готовность вкладываться в отношения надолго",
+   "high_means": "настроен на долгий союз",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages шкалу повышают предпочтения в получении знаков внимания (свидания +0.9, подарки +0.5) — связь с приверженностью слабая",
+   "tests": 7,
+   "items": 22
+  },
+  {
+   "scale": "communication_quality",
+   "ru": "умение открыто и спокойно разговаривать",
+   "high_means": "ясно и открыто общается",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison погоня за лайками весит плюс (+0.6) на качество общения — ошибка направления; в love_languages шкалу повышает то, как слушает ПАРТНЁР, а не сам человек",
+   "tests": 8,
+   "items": 28
+  },
+  {
+   "scale": "compassion",
+   "ru": "сочувствие к переживаниям других людей",
+   "high_means": "глубоко сопереживает людям",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "empathy",
+   "flag": "в ipip «Я мало беспокоюсь о других» весит +0.9, а «Я оскорбляю людей» -0.8 — знаки на близких по смыслу вопросах противоположны, у первого ошибка",
+   "tests": 7,
+   "items": 26
+  },
+  {
+   "scale": "competence",
+   "ru": "ощущение, что справляешься с делами и делаешь их хорошо",
+   "high_means": "чувствует себя умелым и эффективным",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "похожие вопросы о перфекционизме с разными знаками: «стремлюсь к совершенству» +0.9 (emotional_intelligence q64), «трачу непропорционально много времени на детали ради безупречности» −0.6 (imposter q19) — граница спорная",
+   "tests": 8,
+   "items": 29
+  },
+  {
+   "scale": "compliance",
+   "ru": "склонность уступать другим в ущерб себе",
+   "high_means": "уступает, не умеет отказывать",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "в разных тестах означает разное: в boundaries и friendship_red_flags — неумение отказать (проблема), а в friendship_psychology q14 «уважаю границы других» +0.6 — вежливая кооперация (добродетель)",
+   "tests": 6,
+   "items": 27
+  },
+  {
+   "scale": "composure",
+   "ru": "умение сохранять спокойствие в стрессе и конфликте",
+   "high_means": "спокоен под давлением",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ipip_big_five: «Я легко впадаю в стресс» с весом +0.5 ПОВЫШАЕТ спокойствие — ошибка знака (рядом «Я расслаблен(а)» тоже с плюсом +0.7)",
+   "tests": 11,
+   "items": 28
+  },
+  {
+   "scale": "confidence_building",
+   "ru": "уверенность в собственных решениях",
+   "high_means": "доверяет своим решениям",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "один вопрос; дублирует decisiveness и self_esteem — тот же вопрос «доверяю своим решениям» весит и в decisiveness",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "conflict_management",
+   "ru": "умение спокойно и конструктивно решать конфликты",
+   "high_means": "конструктивен в конфликтах",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "attachment q34 «часто провоцирую ссоры, чтобы проверить любовь» +0.5 — согласие ПОВЫШАЕТ умение управлять конфликтами, явная ошибка знака",
+   "tests": 6,
+   "items": 11
+  },
+  {
+   "scale": "conflict_resolution",
+   "ru": "умение спокойно и конструктивно разрешать ссоры",
+   "high_means": "хорошо гасит конфликты",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "digital_detox: «близкие жалуются на телефон» +0.5 повышает навык — ошибка; в friendship_red_flags «мирюсь первым, даже когда прав» (терпимость к неуважению) тоже с плюсом",
+   "tests": 8,
+   "items": 17
+  },
+  {
+   "scale": "conformity",
+   "ru": "склонность подстраиваться под ожидания и мнения других",
+   "high_means": "подстраивается под других",
+   "polarity": "negative",
+   "status": "merge",
+   "merge_into": "compliance",
+   "flag": "по смыслу и источникам почти дублирует compliance (те же вопросы boundaries и self_confidence про подстройку и отстаивание мнения)",
+   "tests": 4,
+   "items": 7
+  },
+  {
+   "scale": "conscientiousness",
+   "ru": "ответственность и добросовестность в обязательствах",
+   "high_means": "надёжный и обязательный",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "шкала не подключена к фактору conscientiousness в ipip_big_five, а питается вопросами про совместимость ценностей пары («наши ценности — ключ совместимости» +0.7), которые к добросовестности не относятся",
+   "tests": 3,
+   "items": 10
+  },
+  {
+   "scale": "cooperativeness",
+   "ru": "готовность сотрудничать и искать компромиссы",
+   "high_means": "легко ладит в команде",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages плюс (+0.8) за помощь ОТ партнёра — получение, а не собственная кооперативность; всего 9 вопросов на 6 тестов, слой тонкий",
+   "tests": 6,
+   "items": 9
+  },
+  {
+   "scale": "creativity",
+   "ru": "склонность творить и придумывать своё",
+   "high_means": "любит творить и придумывать",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "всего 5 вопросов при четырёх шкалах-дублях творческого домена рядом",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "critical_thinking",
+   "ru": "трезвый взгляд без розовых очков и самообмана",
+   "high_means": "смотрит трезво, замечает подвох",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "собрана из разнородных вопросов (принятие себя, красные флаги дружбы, внимание к деталям) — конструкт шаткий",
+   "tests": 4,
+   "items": 10
+  },
+  {
+   "scale": "curiosity",
+   "ru": "живой интерес к новому вокруг",
+   "high_means": "открыт новому опыту",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "intellectual_curiosity",
+   "flag": "дублирует intellectual_curiosity; часть вопросов про общительность («энергия от разговоров с новыми людьми» +0.5), а не любознательность",
+   "tests": 3,
+   "items": 6
+  },
+  {
+   "scale": "decisiveness",
+   "ru": "лёгкость и уверенность в принятии решений",
+   "high_means": "решает быстро и уверенно",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 3,
+   "items": 7
+  },
+  {
+   "scale": "delegation",
+   "ru": "готовность передавать задачи другим, а не тянуть всё самому",
+   "high_means": "легко делегирует",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "один вопрос в одном тесте",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "deliberation",
+   "ru": "привычка подумать, прежде чем действовать",
+   "high_means": "действует обдуманно",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "конструкт размыт: обдуманность повышают предпочтение переписки звонкам (social_battery q23 +0.5), установки о любви (romantic q20 +1) и ценность стабильности (values q1 +0.8) — это про другое",
+   "tests": 7,
+   "items": 24
+  },
+  {
+   "scale": "dependability",
+   "ru": "насколько на человека можно положиться",
+   "high_means": "держит слово, надёжен",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages шкалу повышают вопросы о том, что приятно ПОЛУЧАТЬ от партнёра (q24, q29 +0.6) — это не о собственной надёжности человека",
+   "tests": 5,
+   "items": 9
+  },
+  {
+   "scale": "depression",
+   "ru": "подавленность и упадок сил",
+   "high_means": "сильная подавленность",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "31 из 46 вопросов — из теста выгорания: шкала депрессии почти целиком питается рабочим истощением одного теста",
+   "tests": 4,
+   "items": 46
+  },
+  {
+   "scale": "diligence",
+   "ru": "старательность и упорство в делах",
+   "high_means": "работает усердно, доводит до конца",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "self_discipline",
+   "flag": "в love_languages плюс (+0.7) за внимательность ПАРТНЁРА (помнит даты, дарит подарки), а не усердие респондента",
+   "tests": 5,
+   "items": 17
+  },
+  {
+   "scale": "divergent_thinking",
+   "ru": "умение придумывать идеи и нестандартные решения",
+   "high_means": "богатое воображение, много идей",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "4 из 5 вопросов — из одного теста (ipip, фактор intellect); сквозной слой держится на одном источнике",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "dominance",
+   "ru": "стремление влиять, вести и контролировать ситуацию",
+   "high_means": "берёт власть и инициативу",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "два разных смысла: лидерское влияние (values, EQ) и манипулятивный контроль из toxic_patterns (12 из 24 вопросов — игнор и молчанка с плюсом)",
+   "tests": 6,
+   "items": 24
+  },
+  {
+   "scale": "drive_for_excellence",
+   "ru": "стремление делать всё на высшем уровне",
+   "high_means": "тянется к максимуму качества",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "единственный вопрос — про настойчивость, а не про стремление к совершенству",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "dutifulness",
+   "ru": "надёжно выполняет обещания и доводит дела до конца",
+   "high_means": "ответственный и обязательный",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "self_discipline",
+   "tests": 5,
+   "items": 8
+  },
+  {
+   "scale": "emotion_focused_coping",
+   "ru": "склонность переживать трудности чувствами, а не решать их",
+   "high_means": "уходит в эмоции при стрессе",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "смысл неясен по примерам: шкалу повышают и зависть (+0.7), и неспособность справиться с эмоциями (+0.6), и эмоциональная стабильность (+0.6) — противоречие; 8 из 11 вопросов дублируют envy-блок fomo",
+   "tests": 4,
+   "items": 11
+  },
+  {
+   "scale": "emotional_intelligence",
+   "ru": "понимание своих и чужих эмоций",
+   "high_means": "хорошо понимает и направляет эмоции",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison все 16 вопросов дистресса весят плюс («все вокруг живут интереснее, чем я» +0.5 повышает EQ) — явная ошибка направления",
+   "tests": 9,
+   "items": 41
+  },
+  {
+   "scale": "emotional_intimacy",
+   "ru": "способность создавать тёплую душевную близость с людьми",
+   "high_means": "глубокая близость с людьми",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison_v1 зависть (8 вопросов, +0.6) ПОВЫШАЕТ близость — тот же ошибочный паттерн, что в emotional_openness",
+   "tests": 8,
+   "items": 35
+  },
+  {
+   "scale": "emotional_openness",
+   "ru": "готовность делиться чувствами и говорить о переживаниях",
+   "high_means": "легко делится чувствами",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison_v1 зависть («чужой успех вызывает злость» +0.6, 8 вопросов) ПОВЫШАЕТ открытость — похоже на ошибку знака/маппинга",
+   "tests": 9,
+   "items": 39
+  },
+  {
+   "scale": "emotional_reactivity",
+   "ru": "насколько быстро и сильно человек вспыхивает эмоционально",
+   "high_means": "бурные эмоциональные реакции",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "в social_battery_v1 переменчивость потребности в общении считается реактивностью, в romantic_potential — взгляды на страсть; дрейф смысла",
+   "tests": 12,
+   "items": 63
+  },
+  {
+   "scale": "emotional_resilience",
+   "ru": "способность выдерживать стресс и быстро приходить в себя",
+   "high_means": "устойчив к стрессу, быстро восстанавливается",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в digital_detox_test похожие вопросы о зависимости имеют противоположные знаки: q15 «пытался сократить гаджеты, но не смог» +0.5, а q43 «трудно провести день без телефона» −0.7",
+   "tests": 13,
+   "items": 122
+  },
+  {
+   "scale": "empathy",
+   "ru": "насколько человек чувствует и понимает эмоции других людей",
+   "high_means": "хорошо понимает чувства окружающих",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ipip_big_five: «Я мало беспокоюсь о других» имеет вес +1.0 — согласие с равнодушием повышает эмпатию и противоречит «Я интересуюсь людьми» +0.9 в том же тесте; знак должен быть минус",
+   "tests": 15,
+   "items": 90
+  },
+  {
+   "scale": "entitlement",
+   "ru": "ожидание, что другие ему должны",
+   "high_means": "считает, что все должны",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "1 тест, 2 вопроса — слишком узко для сквозного слоя",
+   "tests": 1,
+   "items": 2
+  },
+  {
+   "scale": "environmental_mastery",
+   "ru": "ощущение, что управляешь своей жизнью",
+   "high_means": "чувствует контроль над жизнью",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison все 8 вопросов дистресса от сравнения себя с другими весят плюс (+0.6) — ошибка направления, та же системная проблема fomo-теста, что у EQ и social_boldness",
+   "tests": 4,
+   "items": 16
+  },
+  {
+   "scale": "excitement_seeking",
+   "ru": "тяга к ярким ощущениям и драйву",
+   "high_means": "нужны острые ощущения",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "пересекается с novelty_seeking и stimulation — тройной дубль тяги к острым ощущениям",
+   "tests": 3,
+   "items": 9
+  },
+  {
+   "scale": "expressiveness",
+   "ru": "насколько легко человек выражает чувства и мысли вслух",
+   "high_means": "открыто выражает эмоции и мнения",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "ошибки знака: attachment q27 «выражение эмоций даётся мне с трудом» +0.7 и ipip q6 «я мало разговариваю» +0.8 — согласие с закрытостью ПОВЫШАЕТ выразительность",
+   "tests": 8,
+   "items": 19
+  },
+  {
+   "scale": "extraversion",
+   "ru": "тяга к общению и энергия от людей",
+   "high_means": "общительный, заряжается от людей",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "все 81 вес положительные — интровертные формулировки нигде не понижают шкалу; примешаны нерелевантные вопросы: «Я мало беспокоюсь о других» +0.4, «отвлекаюсь на уведомления» +0.2, FOMO-тревога +0.5",
+   "pole": "E (пара с introversion)",
+   "tests": 13,
+   "items": 81
+  },
+  {
+   "scale": "fantasy",
+   "ru": "богатое воображение и склонность мечтать",
+   "high_means": "живёт с ярким воображением",
+   "polarity": "axis",
+   "status": "merge",
+   "merge_into": "openness",
+   "tests": 3,
+   "items": 7
+  },
+  {
+   "scale": "fear_of_abandonment",
+   "ru": "страх, что близкие люди бросят или отвергнут",
+   "high_means": "сильно боится быть покинутым",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "digital_detox: тревога о севшей батарее (+0.7) и дне без телефона (+0.5) засчитаны как страх покинутости — сомнительная связь",
+   "tests": 7,
+   "items": 59
+  },
+  {
+   "scale": "fear_of_failure",
+   "ru": "страх провала, который мешает браться за новое",
+   "high_means": "сильный страх неудачи",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "живёт только в imposter_syndrome — сквозного покрытия нет",
+   "tests": 1,
+   "items": 8
+  },
+  {
+   "scale": "feeling",
+   "ru": "склонность опираться на чувства, а не на логику",
+   "high_means": "решает сердцем, бережёт отношения",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "шкала навешана на любые «чувственные» вопросы 15 тестов с плюсом (выгорание «эмоционально опустошён» +0.3, FOMO +0.7, тревога без телефона +0.3) — конструкт размыт; в sixteen_types вопрос про справедливость решения (полюс мышления) весит +1 на feeling — направление полюса сомнительно",
+   "pole": "F (пара с thinking)",
+   "tests": 15,
+   "items": 150
+  },
+  {
+   "scale": "feelings",
+   "ru": "открытость собственным чувствам и впечатлениям",
+   "high_means": "живо переживает эмоции",
+   "polarity": "axis",
+   "status": "drop_candidate",
+   "flag": "id почти совпадает со шкалой feeling — высокий риск путаницы; примеры разнородны (воображение, мягкосердечие, открытость отношениям) — смысл неясен по примерам",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "flexibility_creative",
+   "ru": "гибкость и изобретательность в подходах к делам",
+   "high_means": "находчивый и творческий",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "creativity",
+   "flag": "в digital_detox «вечер без гаджетов» и офлайн-хобби качают творческую гибкость — слабая связь",
+   "tests": 2,
+   "items": 6
+  },
+  {
+   "scale": "fluency",
+   "ru": "лёгкость, с которой приходят новые идеи",
+   "high_means": "легко генерирует идеи",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "forgiveness",
+   "ru": "готовность прощать и не копить обиды",
+   "high_means": "легко прощает",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "всего 4 косвенных вопроса — смысл восстанавливается с натяжкой",
+   "tests": 3,
+   "items": 4
+  },
+  {
+   "scale": "frustration_tolerance",
+   "ru": "способность спокойно переносить неудачи и препятствия",
+   "high_means": "стойко переносит неудачи",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "digital_detox: «пытался сократить гаджеты, но не смог» +0.6 повышает выдержку — противоречит соседним минусам на похожих вопросах",
+   "tests": 5,
+   "items": 15
+  },
+  {
+   "scale": "gregariousness",
+   "ru": "насколько человек любит компании и общение",
+   "high_means": "тянется к людям и компаниям",
+   "polarity": "axis",
+   "status": "merge",
+   "merge_into": "extraversion",
+   "flag": "зеркальный дубль introversion — ось общительности задвоена в сквозном слое",
+   "tests": 6,
+   "items": 36
+  },
+  {
+   "scale": "growth_mindset",
+   "ru": "вера, что можно расти и учиться на ошибках",
+   "high_means": "верит в развитие, любит вызовы",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 4,
+   "items": 11
+  },
+  {
+   "scale": "happiness",
+   "ru": "общее ощущение радости и довольства жизнью",
+   "high_means": "чувствует себя счастливым",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 4,
+   "items": 7
+  },
+  {
+   "scale": "harm_avoidance",
+   "ru": "избегает рисков, конфликтов и нового из страха",
+   "high_means": "избегает риска и неприятного",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 5,
+   "items": 13
+  },
+  {
+   "scale": "health_consciousness",
+   "ru": "насколько человек бережёт здоровье и заботится о себе",
+   "high_means": "заботится о здоровье",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 2,
+   "items": 5
+  },
+  {
+   "scale": "hedonism",
+   "ru": "стремление к удовольствию и комфорту в жизни",
+   "high_means": "ставит удовольствие высоко",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "imposter: «остаюсь в зоне комфорта, чтобы не рисковать провалом» +0.8 — мотив страха выдан за любовь к удовольствию",
+   "tests": 3,
+   "items": 6
+  },
+  {
+   "scale": "ideas",
+   "ru": "интерес к идеям и абстрактным темам",
+   "high_means": "тянется к сложным идеям",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "intellectual_curiosity",
+   "flag": "дублирует intellectual_curiosity: те же вопросы ipip с теми же направлениями",
+   "tests": 2,
+   "items": 7
+  },
+  {
+   "scale": "identity_clarity",
+   "ru": "ясное понимание, кто ты и что тебе важно",
+   "high_means": "чётко понимает себя",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 3,
+   "items": 10
+  },
+  {
+   "scale": "impulsiveness",
+   "ru": "насколько человек действует по первому порыву, не сдерживаясь",
+   "high_means": "часто действует не подумав",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 12,
+   "items": 62
+  },
+  {
+   "scale": "impulsivity_behavior",
+   "ru": "действия на автомате, без контроля своих порывов",
+   "high_means": "плохо сдерживает порывы",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "живёт только в одном тесте (fomo); все 8 вопросов — компульсивная проверка соцсетей, зеркалит self_discipline с обратным знаком на тех же вопросах",
+   "tests": 1,
+   "items": 8
+  },
+  {
+   "scale": "impulsivity_dark",
+   "ru": "навязчивые действия, которые трудно сдержать",
+   "high_means": "плохо сдерживает импульсы",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "живёт в одном тесте; название про «тёмную» импульсивность, а все вопросы — про компульсивную проверку телефона",
+   "tests": 1,
+   "items": 8
+  },
+  {
+   "scale": "inspirational_motivation",
+   "ru": "умение вдохновлять и заряжать других людей",
+   "high_means": "вдохновляет окружающих",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "intellectual_curiosity",
+   "ru": "интерес к знаниям, идеям и новому",
+   "high_means": "любит узнавать и размышлять",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 6,
+   "items": 17
+  },
+  {
+   "scale": "intimacy_comfort",
+   "ru": "насколько комфортно человеку эмоциональная близость с людьми",
+   "high_means": "легко подпускает близко",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 7,
+   "items": 36
+  },
+  {
+   "scale": "intrinsic_motivation",
+   "ru": "делает дела из собственного интереса, а не по принуждению",
+   "high_means": "живой внутренний интерес к делу",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ipip q1 «я — душа компании» +0.4 — общительность кормит внутреннюю мотивацию, не по теме; 18 из 23 вопросов — из теста выгорания",
+   "tests": 5,
+   "items": 23
+  },
+  {
+   "scale": "introversion",
+   "ru": "насколько человеку комфортнее в одиночестве, чем среди людей",
+   "high_means": "предпочитает уединение общению",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "много нетематических доноров: истощение от работы (burnout), одиночество из соцсетей (fomo), контроль внимания (digital_detox) — шум в оси",
+   "pole": "I (пара с extraversion)",
+   "tests": 13,
+   "items": 76
+  },
+  {
+   "scale": "intuition",
+   "ru": "склонность опираться на идеи и общую картину, а не факты",
+   "high_means": "мыслит идеями и возможностями",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "направление противоречит смыслу: в sixteen_types вопросы сенсорного полюса («Мне интереснее реальные примеры, чем теории», «Я больше доверяю опыту, чем догадкам») дают +1 к intuition — полюса перепутаны; ipip «Мне трудно понимать абстрактные идеи» +0.4 тоже повышает шкалу",
+   "pole": "N (пара с sensing)",
+   "tests": 11,
+   "items": 45
+  },
+  {
+   "scale": "jealousy",
+   "ru": "склонность ревновать и завидовать чужой жизни",
+   "high_means": "часто ревнует и завидует",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "смешаны два смысла: ревность в паре и зависть к чужой жизни в соцсетях (21 из 26 вопросов — из fomo)",
+   "tests": 5,
+   "items": 26
+  },
+  {
+   "scale": "judging",
+   "ru": "любит план, порядок и определённость вместо спонтанности",
+   "high_means": "предпочитает всё планировать заранее",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "в sixteen_types и ipip это предпочтение плана, но в burnout/digital_detox/fomo/attachment шкалу повышают выгорание (+0.2), зависимость от телефона (+0.2) и страх пропустить (+0.6) — с плановостью не связано, шкала означает разное в разных тестах",
+   "pole": "J (пара с perceiving)",
+   "tests": 13,
+   "items": 76
+  },
+  {
+   "scale": "learning_ability",
+   "ru": "насколько легко человек осваивает новое",
+   "high_means": "быстро учится новому",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ipip: «Мне трудно понимать абстрактные идеи» с весом +0.4 — согласие с трудностью повышает обучаемость; знак должен быть минус",
+   "tests": 3,
+   "items": 8
+  },
+  {
+   "scale": "life_satisfaction",
+   "ru": "насколько человек доволен своей жизнью",
+   "high_means": "доволен своей жизнью",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 8,
+   "items": 44
+  },
+  {
+   "scale": "liveliness",
+   "ru": "живость и разговорчивость в компании",
+   "high_means": "оживлённый и разговорчивый",
+   "polarity": "axis",
+   "status": "merge",
+   "merge_into": "extraversion",
+   "flag": "живёт в одном тесте и дублирует extraversion; «Я мало разговариваю» весит +0.4 — молчаливость повышает живость, ошибка знака",
+   "tests": 1,
+   "items": 6
+  },
+  {
+   "scale": "loyalty",
+   "ru": "верность людям и своим обещаниям",
+   "high_means": "надёжный и верный",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "commitment",
+   "flag": "почти дублирует commitment — общие вопросы («нравится идея стабильных отношений» весит в обеих); в love_languages плюс за то, что партнёр хранит подарки — не про верность респондента",
+   "tests": 4,
+   "items": 6
+  },
+  {
+   "scale": "manipulation",
+   "ru": "добивается своего скрытыми приёмами и давлением",
+   "high_means": "часто манипулирует людьми",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 2,
+   "items": 21
+  },
+  {
+   "scale": "maturity",
+   "ru": "взрослое отношение к себе и отношениям",
+   "high_means": "ведёт себя зрело",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 4,
+   "items": 16
+  },
+  {
+   "scale": "meaning_purpose",
+   "ru": "ощущение, что в жизни и работе есть смысл",
+   "high_means": "видит смысл в своём деле",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "11 из 13 вопросов — из burnout про работу: смысл жизни сужен до профэффективности",
+   "tests": 3,
+   "items": 13
+  },
+  {
+   "scale": "mentoring",
+   "ru": "склонность помогать другим расти и развиваться",
+   "high_means": "помогает другим расти",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "единственный вопрос — вера в «развивающую любовь» (romantic q28), к менторству прямого отношения не имеет",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "mindfulness_coping",
+   "ru": "умение замечать своё состояние и справляться со стрессом",
+   "high_means": "действует осознанно, не на автопилоте",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 2,
+   "items": 10
+  },
+  {
+   "scale": "modesty",
+   "ru": "склонность держаться скромно и не выпячивать себя",
+   "high_means": "скромный, избегает внимания",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "смысл размыт (скромность vs соцтревожность vs неумение сказать нет), а «беру телефон в туалет» +0.3 — явный мусор",
+   "tests": 6,
+   "items": 7
+  },
+  {
+   "scale": "mood_stability",
+   "ru": "насколько ровное и устойчивое у человека настроение",
+   "high_means": "настроение ровное, без резких перепадов",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "attachment_styles_v1: «Я колеблюсь между желанием быть близким и желанием убежать» имеет +0.6 — согласие с качелями повышает устойчивость настроения; знак должен быть минус",
+   "tests": 10,
+   "items": 44
+  },
+  {
+   "scale": "narcissism",
+   "ru": "зацикленность на себе и жажда внимания",
+   "high_means": "требует внимания и восхищения",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "вопросы — про зависимость самооценки от лайков и драму ради внимания; это поиск подтверждения и демонстративность, а не нарциссизм — название сильнее данных",
+   "tests": 2,
+   "items": 7
+  },
+  {
+   "scale": "negotiation",
+   "ru": "умение помогать людям договариваться и находить компромиссы",
+   "high_means": "хорошо договаривается",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "conflict_management",
+   "flag": "3 вопроса в одном тесте, дублируют conflict_management (EQ q52 кормит обе шкалы почти с тем же весом)",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "neuroticism",
+   "ru": "склонность тяжело переживать неудачи и критиковать себя",
+   "high_means": "тяжело переживает промахи",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "2 вопроса в одном тесте, оба по смыслу дублируют вопросы rumination (в т.ч. тот же q7 «ругаю себя за промахи»)",
+   "tests": 1,
+   "items": 2
+  },
+  {
+   "scale": "nonverbal_communication",
+   "ru": "общение без слов — мимика, жесты, интонации",
+   "high_means": "выразителен без слов",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "смысл неясен по примерам: 8 из 9 вопросов — проверка лайков (+0.4), девятый — закатывание глаз (+0.7); к невербальному общению не относятся",
+   "tests": 2,
+   "items": 9
+  },
+  {
+   "scale": "novelty_seeking",
+   "ru": "тяга к новому и непривычному опыту",
+   "high_means": "ищет новизну и перемены",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "почти половина вопросов — тяга к драме и слепота к красным флагам (friendship_red_flags), а не любовь к новизне",
+   "tests": 5,
+   "items": 11
+  },
+  {
+   "scale": "openness",
+   "ru": "открытость новым идеям, впечатлениям и опыту",
+   "high_means": "открыт новому",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "домен раздроблен: рядом живут fantasy, creativity, originality, artistic_appreciation, flexibility_creative при всего 8 вопросах у самой шкалы",
+   "tests": 4,
+   "items": 8
+  },
+  {
+   "scale": "optimism",
+   "ru": "склонность верить в хорошее и сохранять позитивный настрой",
+   "high_means": "верит в хорошее",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "живёт только в одном тесте (emotional_intelligence), для сквозного слоя источник единственный",
+   "tests": 1,
+   "items": 7
+  },
+  {
+   "scale": "order",
+   "ru": "любовь к порядку и аккуратности в вещах и делах",
+   "high_means": "во всём поддерживает порядок",
+   "polarity": "axis",
+   "status": "canon",
+   "tests": 2,
+   "items": 6
+  },
+  {
+   "scale": "organization",
+   "ru": "порядок в делах и вещах",
+   "high_means": "собранный, всё по полочкам",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в ipip «Я оставляю свои вещи где попало» весит +0.9 — согласие с беспорядком повышает организованность, ошибка знака; в burnout вопрос про число рабочих часов (-0.8) к организованности не относится",
+   "tests": 6,
+   "items": 25
+  },
+  {
+   "scale": "originality",
+   "ru": "склонность к собственным нестандартным идеям",
+   "high_means": "полон своих идей",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "creativity",
+   "flag": "живёт только в ipip_big_five на вопросах про воображение",
+   "tests": 1,
+   "items": 4
+  },
+  {
+   "scale": "panic_tendency",
+   "ru": "склонность впадать в панику в напряжённые моменты",
+   "high_means": "легко впадает в панику",
+   "polarity": "negative",
+   "status": "merge",
+   "merge_into": "anxiety",
+   "flag": "по одному вопросу в каждом из 5 тестов, все — обычные вопросы о тревоге и страхе; отдельная шкала не нужна",
+   "tests": 5,
+   "items": 5
+  },
+  {
+   "scale": "passion_vitality",
+   "ru": "тяга к страсти и ярким чувствам в любви",
+   "high_means": "хочет страсти и ярких эмоций",
+   "polarity": "axis",
+   "status": "drop_candidate",
+   "flag": "смысл размыт: смесь предпочтений в языках любви (поцелуи, свидания) и веры в страстную любовь; романтические вопросы дублируют sensation_seeking (q14, q15 кормят обе шкалы)",
+   "tests": 2,
+   "items": 6
+  },
+  {
+   "scale": "patience",
+   "ru": "умение ждать и слушать, не раздражаясь",
+   "high_means": "терпеливый, умеет ждать",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "17 из 20 вопросов — телефонные привычки из digital_detox: шкала фактически меряет цифровую импульсивность, а не терпение",
+   "tests": 4,
+   "items": 20
+  },
+  {
+   "scale": "people_pleasing",
+   "ru": "привычка угождать другим в ущерб себе",
+   "high_means": "постоянно угождает другим",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 1,
+   "items": 24
+  },
+  {
+   "scale": "perceiving",
+   "ru": "любит гибкость и спонтанность, держит варианты открытыми",
+   "high_means": "действует по ситуации, без жёстких планов",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "направление противоречит смыслу: в sixteen_types вопросы полюса плановости («Я чувствую тревогу, если всё неопределённо», «Мне комфортно, когда есть расписание») дают +1 к perceiving; в burnout/digital_detox/fomo шкалу повышают выгорание и компульсивные проверки телефона",
+   "pole": "P (пара с judging)",
+   "tests": 10,
+   "items": 77
+  },
+  {
+   "scale": "perfectionism",
+   "ru": "склонность требовать от себя идеальности во всём",
+   "high_means": "завышенные требования к себе",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "в fomo вопросы про лайки и сравнение внешности с плюсом — слабая связь с перфекционизмом",
+   "tests": 7,
+   "items": 20
+  },
+  {
+   "scale": "persistence",
+   "ru": "умение не бросать начатое при трудностях",
+   "high_means": "доводит начатое до конца",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "digital_detox q15 «пытался сократить гаджеты, но не смог» +0.8 — согласие с провалом самоконтроля повышает настойчивость; тот же вопрос уже с ошибкой в emotional_resilience",
+   "tests": 6,
+   "items": 17
+  },
+  {
+   "scale": "personal_growth",
+   "ru": "стремление расти и развиваться",
+   "high_means": "активно развивается",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 2,
+   "items": 6
+  },
+  {
+   "scale": "persuasion",
+   "ru": "умение убеждать и вдохновлять людей",
+   "high_means": "легко влияет на мнения",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "tests": 1,
+   "items": 2
+  },
+  {
+   "scale": "physical_intimacy",
+   "ru": "насколько важны прикосновения, нежность и страсть",
+   "high_means": "очень ценит физическую близость",
+   "polarity": "axis",
+   "status": "canon",
+   "tests": 3,
+   "items": 13
+  },
+  {
+   "scale": "playfulness",
+   "ru": "лёгкость, игривость и умение радоваться вместе",
+   "high_means": "любит лёгкость и игру",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "смысл неясен по примерам: вопросы про совместное время и подарки, к игривости прямого отношения не имеют",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "politeness",
+   "ru": "вежливость и уважение к людям в общении",
+   "high_means": "вежлив и уважителен",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 5,
+   "items": 13
+  },
+  {
+   "scale": "positive_emotions",
+   "ru": "как часто человек испытывает радость и хорошее настроение",
+   "high_means": "часто в хорошем настроении",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages_v1 и relationship_compatibility_v1 шкалу кормят вопросы о предпочтениях в романтике (что приятно получать от партнёра), а не о частоте позитивных эмоций — смысловой дрейф",
+   "tests": 11,
+   "items": 38
+  },
+  {
+   "scale": "positive_relations",
+   "ru": "тёплые и близкие отношения с людьми",
+   "high_means": "есть тёплые близкие связи",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в digital_detox «Близкие жалуются, что я слишком много в телефоне» весит +1 — жалобы близких повышают качество отношений, явная ошибка знака (тот же вопрос в communication_quality весит -0.7)",
+   "tests": 5,
+   "items": 9
+  },
+  {
+   "scale": "power_motivation",
+   "ru": "насколько важно влиять на людей и события",
+   "high_means": "стремится влиять и управлять",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "смешаны здоровое стремление влиять (values, +1.0) и токсичный контроль молчанием (toxic_patterns, +0.7) — разные вещи под одной шкалой",
+   "tests": 3,
+   "items": 6
+  },
+  {
+   "scale": "problem_focused_coping",
+   "ru": "привычка решать проблемы делом и своими силами",
+   "high_means": "решает проблемы сам",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "всего 2 вопроса, и они про разное: attachment q59 «проще справляться в одиночку, чем просить поддержки» — избегающая самоизоляция (в тесте привязанности это маркер проблемы), а self_confidence q25 — здоровая опора на себя",
+   "tests": 2,
+   "items": 2
+  },
+  {
+   "scale": "problem_solving",
+   "ru": "умение находить решения в сложных ситуациях",
+   "high_means": "хорошо решает проблемы",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "всего 5 вопросов; love_languages-вопрос про поведение партнёра («делает что-то практичное» +0.7) не про собственный навык",
+   "tests": 4,
+   "items": 5
+  },
+  {
+   "scale": "processing_speed",
+   "ru": "как быстро человек соображает и схватывает новое",
+   "high_means": "быстро соображает",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "digital q23 «забываю, что только что читал» +0.6 — согласие с проблемой повышает скорость мышления (в burnout похожий q33 даёт −1); та же битая привязка q23, что в working_memory и self_awareness",
+   "tests": 3,
+   "items": 5
+  },
+  {
+   "scale": "procrastination",
+   "ru": "привычка откладывать важные дела на потом",
+   "high_means": "постоянно откладывает дела",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 5,
+   "items": 10
+  },
+  {
+   "scale": "prudence",
+   "ru": "осторожность и забота о своей безопасности и здоровье",
+   "high_means": "осторожен, думает о последствиях",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в burnout симптомы усталости ПОВЫШАЮТ благоразумие (q43 «разбит даже после сна» +0.6, q4 +0.6, 8 из 11 с плюсом), а в digital_detox аналогичный вред здоровью понижает (q4 −0.7) — противоречие, смысл шкалы в burnout неясен",
+   "tests": 4,
+   "items": 26
+  },
+  {
+   "scale": "punctuality",
+   "ru": "следование расписанию и договорённостям по времени",
+   "high_means": "живёт по расписанию",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "relatedness_need",
+   "ru": "насколько человеку важно чувствовать связь и принадлежность",
+   "high_means": "сильная потребность в близости",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "8 из 12 вопросов — FOMO-тревога: потребность в близости смешана со страхом упустить",
+   "tests": 4,
+   "items": 12
+  },
+  {
+   "scale": "relationship_security",
+   "ru": "насколько спокойно и надёжно человек чувствует себя в отношениях",
+   "high_means": "в отношениях спокоен и уверен",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "18 из 31 вопроса — из love_languages_v1: предпочтения («слышать «я люблю тебя»» +0.7) приравнены к ощущению защищённости — желание подтверждений может означать и обратное",
+   "tests": 6,
+   "items": 31
+  },
+  {
+   "scale": "reliability_partnership",
+   "ru": "насколько близка модель стабильных, надёжных отношений-партнёрства",
+   "high_means": "ценит надёжность и партнёрство",
+   "polarity": "axis",
+   "status": "canon",
+   "tests": 3,
+   "items": 6
+  },
+  {
+   "scale": "resilience_meta",
+   "ru": "способность выдерживать неудачи и быстро восстанавливаться",
+   "high_means": "быстро приходит в себя",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "emotional_resilience",
+   "tests": 3,
+   "items": 16
+  },
+  {
+   "scale": "respect",
+   "ru": "насколько уважительно человек относится к чувствам других",
+   "high_means": "уважает чувства и достижения других",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "живёт только в toxic_patterns и меряется исключительно отсутствием обесценивания — позитивных вопросов нет",
+   "tests": 1,
+   "items": 8
+  },
+  {
+   "scale": "responsibility",
+   "ru": "насколько человек надёжен и держит слово",
+   "high_means": "надёжный, доводит дела до конца",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в boundaries_people_pleasing гиперобязательность («обязан помогать всем» +0.9) выдана за ответственность; в love_languages поступки партнёра (+0.7) качают ответственность самого человека",
+   "tests": 10,
+   "items": 33
+  },
+  {
+   "scale": "reward_dependence",
+   "ru": "зависимость от похвалы и чужого одобрения",
+   "high_means": "сильно нуждается в одобрении",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 3,
+   "items": 23
+  },
+  {
+   "scale": "risk_taking",
+   "ru": "готовность рисковать и выходить из зоны комфорта",
+   "high_means": "легко идёт на риск",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "всего 6 вопросов, сильно пересекается с novelty_seeking",
+   "tests": 4,
+   "items": 6
+  },
+  {
+   "scale": "rumination",
+   "ru": "склонность подолгу прокручивать в голове неприятные мысли",
+   "high_means": "застревает в тяжёлых мыслях",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 8,
+   "items": 26
+  },
+  {
+   "scale": "secure_attachment",
+   "ru": "насколько спокойно и надёжно человек чувствует себя в близких отношениях",
+   "high_means": "спокоен и надёжен в близости",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 5,
+   "items": 30
+  },
+  {
+   "scale": "security_value",
+   "ru": "насколько важны стабильность и предсказуемость",
+   "high_means": "очень ценит стабильность",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "в digital_detox тревога из-за севшей батареи (+0.4) засчитана как ценность безопасности — это тревожный симптом, а не ценность",
+   "tests": 4,
+   "items": 8
+  },
+  {
+   "scale": "self_acceptance",
+   "ru": "насколько человек принимает себя со своими недостатками",
+   "high_means": "принимает себя без самоедства",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в social_battery_v1 все 6 вопросов с плюсом: «даже приятное общение истощает мою энергию» (q43 +0.5) повышает самопринятие — направление сомнительное, утомляемость не равна принятию себя",
+   "tests": 9,
+   "items": 44
+  },
+  {
+   "scale": "self_awareness",
+   "ru": "насколько человек понимает свои чувства и состояния",
+   "high_means": "хорошо понимает свои чувства",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "противоречивые знаки в digital_detox: q16 «автоматически открываю приложения» −0.8, но q23 «забываю, что только что читал» +0.4 (оба — бездумность); в social_battery_v1 осознанность повышают любые жалобы на утомляемость от общения (17 из 18 с плюсом)",
+   "tests": 8,
+   "items": 70
+  },
+  {
+   "scale": "self_care",
+   "ru": "забота о своём отдыхе, здоровье и потребностях",
+   "high_means": "регулярно заботится о себе",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 4,
+   "items": 23
+  },
+  {
+   "scale": "self_compassion",
+   "ru": "бережное отношение к себе без самоедства",
+   "high_means": "добр к себе при неудачах",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "часть вопросов — телесные симптомы и усталость (болят глаза -0.5, нужда в восстановлении +0.3) — связь с отношением к себе косвенная",
+   "tests": 8,
+   "items": 54
+  },
+  {
+   "scale": "self_consciousness",
+   "ru": "насколько человек стесняется и боится, как его оценят",
+   "high_means": "сильно зажат, боится чужой оценки",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 14,
+   "items": 72
+  },
+  {
+   "scale": "self_direction",
+   "ru": "насколько человеку важно решать самому и жить по-своему",
+   "high_means": "ценит независимость и свободу",
+   "polarity": "axis",
+   "status": "canon",
+   "tests": 6,
+   "items": 17
+  },
+  {
+   "scale": "self_discipline",
+   "ru": "умение управлять собой и доводить дела до конца",
+   "high_means": "собран, доводит дела до конца",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в ipip самодисциплину повышает вопрос про словарный запас (q5, фактор intellect, +0.3) — не по теме",
+   "tests": 10,
+   "items": 73
+  },
+  {
+   "scale": "self_efficacy",
+   "ru": "вера, что справишься с задачами и трудностями",
+   "high_means": "уверен в своих силах",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 11,
+   "items": 100
+  },
+  {
+   "scale": "self_esteem",
+   "ru": "насколько человек ценит и принимает себя",
+   "high_means": "уверенно и хорошо относится к себе",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages и relationship_compatibility шкалу повышают предпочтения («приятно, когда партнёр гордится мной» +0.8, «важно быть услышанным» +0.5) — связь с самооценкой слабая",
+   "tests": 14,
+   "items": 131
+  },
+  {
+   "scale": "self_monitoring",
+   "ru": "выстраивание своего образа ради чужого одобрения",
+   "high_means": "тщательно управляет впечатлением",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "один вопрос в одном тесте; классический self-monitoring — нейтральная черта, здесь сведён к постингу ради лайков",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "self_victimization",
+   "ru": "ощущение себя жертвой людей и обстоятельств",
+   "high_means": "видит себя жертвой",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "склеены два разных смысла: позиция жертвы (обвиняет других, toxic_patterns) и самопожертвование ради других (boundaries) — похоже, сведено по слову «жертва»",
+   "tests": 2,
+   "items": 10
+  },
+  {
+   "scale": "sensation_seeking",
+   "ru": "тяга к острым ощущениям, страстям и драме",
+   "high_means": "любит накал и остроту",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "в данных это почти целиком тяга к драме в дружбе (red flags) и вера в страстную любовь — окрашено проблемнее, чем нейтральное название черты",
+   "tests": 3,
+   "items": 14
+  },
+  {
+   "scale": "sensing",
+   "ru": "опирается на факты, детали и конкретный опыт",
+   "high_means": "доверяет фактам и конкретике",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "в burnout/digital_detox/fomo шкалу повышают телесная усталость и привычки с телефоном — к предпочтению фактов отношения не имеют; в sixteen_types противоположный полюс intuition растёт от таких же по смыслу вопросов, дихотомия сломана",
+   "pole": "S (пара с intuition)",
+   "tests": 8,
+   "items": 46
+  },
+  {
+   "scale": "shared_goals",
+   "ru": "желание общих целей и пути с партнёром",
+   "high_means": "хочет общего пути",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "commitment",
+   "flag": "вопросы пересекаются с commitment («нравится идея стабильных отношений» весит в обеих шкалах)",
+   "tests": 2,
+   "items": 4
+  },
+  {
+   "scale": "social_boldness",
+   "ru": "смелость проявлять себя среди людей",
+   "high_means": "не робеет в обществе",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison все 8 вопросов сравнения себя с другими весят плюс («чувствую, что ничего не добился» +0.6 повышает смелость) — ошибка направления",
+   "tests": 8,
+   "items": 35
+  },
+  {
+   "scale": "social_comparison",
+   "ru": "привычка сравнивать себя с другими не в свою пользу",
+   "high_means": "постоянно сравнивает себя с другими",
+   "polarity": "negative",
+   "status": "drop_candidate",
+   "flag": "в fomo_social_comparison_v1 есть одноимённый фактор с массой вопросов, но они к шкале не привязаны — шкала осталась с 1 вопросом из imposter_syndrome",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "social_confidence",
+   "ru": "насколько уверенно человек чувствует себя среди людей",
+   "high_means": "легко и уверенно общается",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "знаки перепутаны: в fomo все 8 вопросов о неуверенности и сравнении себя («чувствую, что сам ничего не добился» +0.8) повышают уверенность; ipip «Я мало разговариваю» +0.6; digital_detox «предпочитаю написать, а не встретиться» +0.6",
+   "tests": 9,
+   "items": 37
+  },
+  {
+   "scale": "social_perception",
+   "ru": "насколько хорошо человек считывает состояния и настроения других",
+   "high_means": "хорошо читает людей",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison_v1 сравнение себя с другими (8 вопросов, +) качает «чтение людей» — дрейф смысла",
+   "tests": 8,
+   "items": 46
+  },
+  {
+   "scale": "social_support_seeking",
+   "ru": "склонность искать поддержку и компанию в трудные моменты",
+   "high_means": "ищет помощь у людей",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "attachment: «Я предпочитаю не зависеть от других» +0.6 повышает поиск поддержки — противоречит «могу попросить о помощи» +1.0 в том же тесте; fomo: 16 из 26 вопросов — компульсивные проверки соцсетей, к поиску поддержки не относятся",
+   "tests": 4,
+   "items": 26
+  },
+  {
+   "scale": "spontaneity",
+   "ru": "лёгкость на подъём и любовь к незапланированному",
+   "high_means": "действует легко и без плана",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "в love_languages любовь ПОЛУЧАТЬ сюрпризы от партнёра качает собственную спонтанность — подмена субъекта",
+   "tests": 5,
+   "items": 9
+  },
+  {
+   "scale": "stimulation",
+   "ru": "потребность в страсти и ярких переживаниях",
+   "high_means": "хочет страсти и интенсивности",
+   "polarity": "axis",
+   "status": "drop_candidate",
+   "flag": "1 тест, 2 вопроса; дублирует excitement_seeking",
+   "tests": 1,
+   "items": 2
+  },
+  {
+   "scale": "straightforwardness",
+   "ru": "говорит прямо и открыто, без намёков и уловок",
+   "high_means": "выражается прямо и честно",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ipip: «Я оскорбляю людей» с весом +0.5 повышает прямоту — грубость приравнена к прямолинейности",
+   "tests": 6,
+   "items": 12
+  },
+  {
+   "scale": "strategic_thinking",
+   "ru": "умение продумывать шаги наперёд",
+   "high_means": "думает наперёд",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "единственный вопрос — про пользу эмоций для задач, к стратегии отношения не имеет",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "stress_tolerance",
+   "ru": "способность спокойно выдерживать стресс и нагрузки",
+   "high_means": "сохраняет спокойствие под давлением",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в attachment_styles «чувствую себя подавленным, когда партнёр эмоционально требователен» весит +0.6 — согласие с подавленностью повышает стрессоустойчивость, похоже на ошибку знака",
+   "tests": 12,
+   "items": 80
+  },
+  {
+   "scale": "support_giving",
+   "ru": "сколько поддержки человек даёт близким",
+   "high_means": "активно поддерживает близких",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в love_languages и relationship_compatibility шкалу повышает ПОЛУЧЕНИЕ поддержки («важно чувствовать поддержку от партнёра» +0.7, «партнёр поддерживает меня словами» +0.9), а не её оказание; в boundaries people-pleasing («предугадываю желания других» +0.9) засчитан как поддержка",
+   "tests": 10,
+   "items": 38
+  },
+  {
+   "scale": "team_building",
+   "ru": "умение работать в команде",
+   "high_means": "командный игрок",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "один вопрос в одном тесте",
+   "tests": 1,
+   "items": 1
+  },
+  {
+   "scale": "tender_mindedness",
+   "ru": "мягкость и сочувствие к другим людям",
+   "high_means": "мягкий и сострадательный",
+   "polarity": "positive",
+   "status": "merge",
+   "merge_into": "empathy",
+   "flag": "в love_languages «партнёр делает массаж/готовит еду» качают мягкосердечие — слабая связь",
+   "tests": 6,
+   "items": 13
+  },
+  {
+   "scale": "thinking",
+   "ru": "склонность решать головой и логикой, а не чувствами",
+   "high_means": "опирается на логику",
+   "polarity": "axis",
+   "status": "canon",
+   "flag": "MBTI-полюс логики качается цинизмом из burnout («мне всё равно» +0.5) и грубостью из ipip («Я оскорбляю людей» +0.3) — предпочтение смешано с чёрствостью",
+   "pole": "T (пара с feeling)",
+   "tests": 10,
+   "items": 48
+  },
+  {
+   "scale": "trust",
+   "ru": "насколько человек в целом верит людям и полагается на них",
+   "high_means": "легко доверяет людям",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ошибки направления: в attachment_styles_v1 недоверие и ревность ПОВЫШАЮТ доверие (q7 «сложно полностью доверять» +0.8, q58 ревность +0.6), хотя те же по смыслу вопросы в romantic_potential_v1 (q3 −1.2) и friendship_psychology_v1 (q9 −0.9) понижают; в ipip q2 «я мало беспокоюсь о других» тоже +0.5",
+   "tests": 15,
+   "items": 28
+  },
+  {
+   "scale": "trust_in_relationships",
+   "ru": "насколько человек доверяет близким и партнёру",
+   "high_means": "легко доверяет близким",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в fomo_social_comparison_v1 погоня за лайками (8 вопросов, +0.7) повышает доверие — похоже на ошибку маппинга",
+   "tests": 7,
+   "items": 47
+  },
+  {
+   "scale": "type_a_behavior",
+   "ru": "привычка работать на износ без отдыха",
+   "high_means": "загоняет себя работой",
+   "polarity": "negative",
+   "status": "canon",
+   "tests": 3,
+   "items": 7
+  },
+  {
+   "scale": "universalism",
+   "ru": "важность пользы для других и общества",
+   "high_means": "ценит вклад в общее благо",
+   "polarity": "axis",
+   "status": "drop_candidate",
+   "tests": 1,
+   "items": 2
+  },
+  {
+   "scale": "values",
+   "ru": "насколько человеку важны ценности и совпадение по ним",
+   "high_means": "живёт с опорой на ценности",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "слишком общее имя, смысл разъезжается: анти-цинизм в burnout vs совпадение ценностей с партнёром в compatibility; «меньше личных встреч» +0.4 — сомнительный знак",
+   "tests": 3,
+   "items": 21
+  },
+  {
+   "scale": "verbal_communication",
+   "ru": "умение ясно выражать мысли и чувства словами",
+   "high_means": "хорошо объясняет и договаривается словами",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "fomo: 8 вопросов про проверку лайков (+0.4…+0.5) повышают навык словесного общения — связи со смыслом нет",
+   "tests": 8,
+   "items": 29
+  },
+  {
+   "scale": "verbal_intelligence",
+   "ru": "самооценка словарного запаса и сообразительности",
+   "high_means": "считает себя сообразительным",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "живёт в одном тесте; самооценка словарного запаса — не измерение способностей",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "vitality",
+   "ru": "запас жизненных сил и энергии в повседневной жизни",
+   "high_means": "полон сил и энергии",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "digital_detox: «проверяю телефон в первые 5 минут после пробуждения» даёт +0.3 к энергии, а похожий вопрос про телефон на прогулках даёт −0.4 — знаки на похожих вопросах противоположны",
+   "tests": 5,
+   "items": 63
+  },
+  {
+   "scale": "vulnerability",
+   "ru": "насколько человека легко ранить и выбить из равновесия",
+   "high_means": "легко ранить, остро реагирует",
+   "polarity": "negative",
+   "status": "canon",
+   "flag": "шкала-свалка: её повышает почти любой негатив из 12 тестов — от выгорания и FOMO до фантомных вибраций телефона; знаки согласованы, но конструкт размывается",
+   "tests": 12,
+   "items": 92
+  },
+  {
+   "scale": "vulnerability_sharing",
+   "ru": "готовность открываться, делиться чувствами и просить помощи",
+   "high_means": "легко открывается близким",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 7,
+   "items": 19
+  },
+  {
+   "scale": "warmth",
+   "ru": "теплота и дружелюбие в общении",
+   "high_means": "тёплый и дружелюбный с людьми",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "в ipip «Я мало разговариваю» весит +0.5 — молчаливость повышает теплоту, ошибка знака; интроверсия трактуется как холодность (восстановление в одиночестве -0.5)",
+   "tests": 10,
+   "items": 61
+  },
+  {
+   "scale": "wisdom",
+   "ru": "зрелый и трезвый взгляд на жизнь и отношения",
+   "high_means": "судит зрело и трезво",
+   "polarity": "positive",
+   "status": "drop_candidate",
+   "flag": "3 вопроса об установках о любви в одном тесте (romantic_potential) — «мудрость» из этого не выводится, название сильно шире данных",
+   "tests": 1,
+   "items": 3
+  },
+  {
+   "scale": "work_life_balance",
+   "ru": "баланс между работой и личной жизнью",
+   "high_means": "работа не съедает жизнь",
+   "polarity": "positive",
+   "status": "canon",
+   "tests": 3,
+   "items": 13
+  },
+  {
+   "scale": "working_memory",
+   "ru": "насколько хорошо человек держит в голове текущую информацию",
+   "high_means": "хорошо помнит текущие детали",
+   "polarity": "positive",
+   "status": "canon",
+   "flag": "ошибки знака на 2 из 6 вопросов: digital q23 «забываю, что только что читал» +0.9 и ipip q28 «забываю класть вещи на место» +0.6 — согласие с забывчивостью ПОВЫШАЕТ память, при этом тот же смысл в burnout q26 со знаком −1",
+   "tests": 3,
+   "items": 6
+  },
+  {
+   "scale": "worry_tendency",
+   "ru": "как часто человек тревожится и беспокоится по разным поводам",
+   "high_means": "много тревожится",
+   "polarity": "negative",
+   "status": "merge",
+   "merge_into": "anxiety",
+   "tests": 7,
+   "items": 25
+  }
+ ]
+}
