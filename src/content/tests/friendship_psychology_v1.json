@@ -1277,25 +1277,20 @@
       "trust_in_relationships": 0.8,
       "emotional_openness": 0.9,
       "vulnerability_sharing": 0.7,
-      "warmth": 0.6,
-      "feeling": 0.3,
-      "extraversion": 0.3
+      "warmth": 0.6
     },
     "q4": {
       "emotional_openness": 0.9,
       "trust_in_relationships": 0.8,
       "emotional_intimacy": 0.7,
       "support_giving": 0.5,
-      "warmth": 0.6,
-      "extraversion": 0.4,
-      "feeling": 0.3
+      "warmth": 0.6
     },
     "q7": {
       "emotional_intimacy": -0.9,
       "trust_in_relationships": -0.8,
       "emotional_openness": -0.8,
       "avoidant_attachment": 0.7,
-      "introversion": 0.4,
       "vulnerability": 0.5
     },
     "q10": {
@@ -1303,22 +1298,19 @@
       "warmth": 0.8,
       "support_giving": 0.7,
       "empathy": 0.7,
-      "emotional_openness": 0.6,
-      "feeling": 0.4
+      "emotional_openness": 0.6
     },
     "q2": {
       "communication_quality": 0.9,
       "assertiveness": 0.8,
       "social_confidence": 0.7,
       "straightforwardness": 0.7,
-      "self_consciousness": -0.5,
-      "extraversion": 0.4
+      "self_consciousness": -0.5
     },
     "q5": {
       "communication_quality": 0.8,
       "emotional_resilience": 0.7,
       "assertiveness": 0.6,
-      "thinking": 0.3,
       "conflict_management": 0.9,
       "stress_tolerance": 0.8
     },
@@ -1328,28 +1320,24 @@
       "social_confidence": -0.7,
       "self_consciousness": 0.7,
       "vulnerability_sharing": -0.6,
-      "anxiety": 0.5,
-      "introversion": 0.4
+      "anxiety": 0.5
     },
     "q11": {
       "empathy": 0.9,
       "communication_quality": 0.8,
       "warmth": 0.6,
-      "patience": 0.6,
-      "feeling": 0.4
+      "patience": 0.6
     },
     "q3": {
       "responsibility": 0.8,
       "commitment": 0.7,
       "conscientiousness": 0.6,
-      "judging": 0.3,
       "self_discipline": 0.8
     },
     "q6": {
       "trust": 0.9,
       "trust_in_relationships": 0.9,
       "commitment": 0.6,
-      "feeling": 0.3,
       "secure_attachment": 0.5
     },
     "q9": {
@@ -1370,90 +1358,77 @@
     "q13": {
       "autonomy_need": 0.9,
       "assertiveness": 0.6,
-      "self_consciousness": 0.4,
-      "introversion": 0.4
+      "self_consciousness": 0.4
     },
     "q14": {
       "politeness": 0.8,
       "compliance": 0.6,
       "empathy": 0.7,
       "conscientiousness": 0.5,
-      "modesty": 0.5,
-      "feeling": 0.3
+      "modesty": 0.5
     },
     "q15": {
       "assertiveness": -0.9,
       "social_confidence": -0.7,
       "self_consciousness": 0.7,
       "compliance": 0.6,
-      "anxiety": 0.5,
-      "introversion": 0.4
+      "anxiety": 0.5
     },
     "q16": {
       "autonomy_need": 0.8,
       "emotional_resilience": 0.6,
       "secure_attachment": 0.6,
-      "deliberation": 0.5,
-      "thinking": 0.3
+      "deliberation": 0.5
     },
     "q17": {
       "support_giving": 0.9,
       "altruism": 0.9,
       "empathy": 0.8,
-      "warmth": 0.7,
-      "feeling": 0.4
+      "warmth": 0.7
     },
     "q18": {
       "support_giving": 0.9,
       "altruism": 0.8,
       "empathy": 0.7,
       "warmth": 0.5,
-      "feeling": 0.3,
       "responsibility": 0.6
     },
     "q19": {
       "support_giving": -0.9,
       "altruism": -0.8,
       "activity": -0.5,
-      "social_confidence": -0.4,
-      "introversion": 0.4
+      "social_confidence": -0.4
     },
     "q20": {
       "empathy": 0.9,
       "support_giving": 0.8,
       "emotional_openness": 0.6,
-      "warmth": 0.6,
-      "intuition": 0.5,
-      "feeling": 0.4
+      "warmth": 0.6
     },
     "q21": {
       "support_giving": 0.7,
       "trust_in_relationships": 0.7,
       "emotional_intimacy": 0.6,
-      "anxious_attachment": 0.4,
-      "feeling": 0.3
+      "anxious_attachment": 0.4
     },
     "q22": {
       "autonomy_need": 0.7,
       "assertiveness": 0.5,
       "commitment": 0.5,
       "conscientiousness": 0.4,
-      "judging": 0.3,
       "achievement_motivation": 0.6
     },
     "q23": {
       "anxious_attachment": 0.7,
       "autonomy_need": -0.6,
       "secure_attachment": -0.5,
-      "fear_of_abandonment": 0.5,
-      "extraversion": 0.4
+      "fear_of_abandonment": 0.5
     },
     "q24": {
       "secure_attachment": 0.7,
       "autonomy_need": 0.6,
       "emotional_resilience": 0.5,
-      "trust_in_relationships": 0.5,
-      "perceiving": 0.3
+      "trust_in_relationships": 0.5
     }
   },
   "profiles": {

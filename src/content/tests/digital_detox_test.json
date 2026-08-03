@@ -2742,15 +2742,13 @@
       "positive_relations": -0.9,
       "warmth": -0.6,
       "depression": 0.6,
-      "vulnerability_sharing": -0.5,
-      "relatedness_need": 0.7
+      "vulnerability_sharing": -0.5
     },
     "q31": {
       "positive_relations": -0.8,
       "organization": -0.7,
       "warmth": -0.6,
-      "self_discipline": -0.5,
-      "relatedness_need": -0.6
+      "self_discipline": -0.5
     },
     "q38": {
       "intrinsic_motivation": 0.7,

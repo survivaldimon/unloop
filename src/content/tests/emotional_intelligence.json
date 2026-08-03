@@ -3843,8 +3843,7 @@
     },
     "q51": {
       "warmth": 0.9,
-      "adaptability_leadership": 0.8,
-      "extraversion": 0.8
+      "adaptability_leadership": 0.8
     },
     "q52": {
       "conflict_management": -1,
@@ -3870,8 +3869,7 @@
     },
     "q57": {
       "positive_emotions": 0.9,
-      "warmth": 0.9,
-      "extraversion": 0.7
+      "warmth": 0.9
     },
     "q58": {
       "commitment": -0.9,

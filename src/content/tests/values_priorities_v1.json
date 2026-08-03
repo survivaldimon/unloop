@@ -2166,7 +2166,6 @@
       "conscientiousness": 0.7,
       "deliberation": 0.8,
       "responsibility": 0.7,
-      "judging": 0.7,
       "sensation_seeking": -0.9
     },
     "q2": {
@@ -2174,8 +2173,7 @@
       "prudence": 0.9,
       "deliberation": 0.8,
       "organization": 0.7,
-      "conscientiousness": 0.7,
-      "judging": 0.8
+      "conscientiousness": 0.7
     },
     "q3": {
       "security_value": -1,
@@ -2184,7 +2182,6 @@
       "impulsiveness": 0.6,
       "prudence": -0.8,
       "deliberation": -0.7,
-      "perceiving": 0.7,
       "sensation_seeking": 0.9
     },
     "q4": {
@@ -2192,24 +2189,21 @@
       "prudence": -0.9,
       "deliberation": -0.8,
       "conscientiousness": -0.7,
-      "responsibility": -0.7,
-      "perceiving": 0.6
+      "responsibility": -0.7
     },
     "q5": {
       "autonomy_need": 1,
       "self_direction": 0.9,
       "autonomy_wellbeing": 0.8,
       "assertiveness": 0.7,
-      "compliance": -0.7,
-      "perceiving": 0.8
+      "compliance": -0.7
     },
     "q6": {
       "autonomy_need": 1,
       "self_direction": 0.9,
       "cognitive_flexibility": 0.8,
       "adaptability_leadership": 0.7,
-      "autonomy_wellbeing": 0.8,
-      "perceiving": 0.9
+      "autonomy_wellbeing": 0.8
     },
     "q7": {
       "autonomy_need": -1,
@@ -2224,8 +2218,7 @@
     },
     "q9": {
       "achievement_motivation": 1,
-      "competence": 0.8,
-      "intuition": 0.6
+      "competence": 0.8
     },
     "q10": {
       "achievement_motivation": 0.9,
@@ -2245,19 +2238,16 @@
     },
     "q13": {
       "creativity": 1,
-      "openness": 0.9,
-      "intuition": 0.9
+      "openness": 0.9
     },
     "q14": {
       "creativity": 1,
       "openness": 0.8,
-      "expressiveness": 0.9,
-      "intuition": 0.8
+      "expressiveness": 0.9
     },
     "q15": {
       "creativity": -1,
       "openness": -0.8,
-      "sensing": 0.7,
       "compliance": 0.7
     },
     "q16": {
@@ -2269,22 +2259,17 @@
       "emotional_intimacy": 1,
       "relatedness_need": 0.9,
       "warmth": 0.8,
-      "trust_in_relationships": 0.8,
-      "extraversion": 0.6,
-      "feeling": 0.8
+      "trust_in_relationships": 0.8
     },
     "q18": {
       "emotional_intimacy": 1,
       "support_giving": 0.9,
       "warmth": 0.8,
-      "commitment": 0.8,
-      "feeling": 0.7,
-      "extraversion": 0.5
+      "commitment": 0.8
     },
     "q19": {
       "emotional_intimacy": -1,
       "relatedness_need": -0.9,
-      "introversion": 0.7,
       "autonomy_need": 0.6
     },
     "q20": {
@@ -2298,16 +2283,14 @@
       "growth_mindset": 1,
       "learning_ability": 0.9,
       "intellectual_curiosity": 0.9,
-      "openness": 0.8,
-      "intuition": 0.8
+      "openness": 0.8
     },
     "q22": {
       "personal_growth": 1,
       "growth_mindset": 0.9,
       "learning_ability": 0.9,
       "intellectual_curiosity": 0.9,
-      "self_discipline": 0.7,
-      "intuition": 0.7
+      "self_discipline": 0.7
     },
     "q23": {
       "personal_growth": -1,
@@ -2367,13 +2350,11 @@
     },
     "q33": {
       "altruism": 1,
-      "empathy": 0.8,
-      "feeling": 0.9
+      "empathy": 0.8
     },
     "q34": {
       "altruism": 1,
       "support_giving": 0.8,
-      "feeling": 0.8,
       "empathy": 0.8
     },
     "q35": {

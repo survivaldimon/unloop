@@ -2634,9 +2634,9 @@
       "communication_quality": 0.4
     },
     "q6": {
-      "expressiveness": 0.8,
-      "social_confidence": 0.6,
-      "warmth": 0.5,
+      "expressiveness": -0.8,
+      "social_confidence": -0.6,
+      "warmth": -0.5,
       "self_consciousness": 0.3,
       "extraversion": -1,
       "introversion": 0.4

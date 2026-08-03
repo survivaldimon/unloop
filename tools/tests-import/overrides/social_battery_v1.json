@@ -1,6 +1,5 @@
 {
-  "$comment": "Э8, волна 2 батч 2. Исходник по аудиту чист (0 фантомных шкал) и с whyThisProfile, но голос на «вы», названия-ярлыки, англицизмы (networking), «Диагностика» в заголовке (диагностику не заявляем) и назначения терапевта у тревожного профиля. Переписано: заголовок и типы в метафоре батареи, «ты»-голос, supportNote у тревожного контура вместо «работайте с терапевтом», два вопроса с «вы» переведены на «ты» без смены смысла. Веса и пороги не тронуты.",
-
+  "$comment": "Э8, волна 2 батч 2. Исходник по аудиту чист (0 фантомных шкал) и с whyThisProfile, но голос на «вы», названия-ярлыки, англицизмы (networking), «Диагностика» в заголовке (диагностику не заявляем) и назначения терапевта у тревожного профиля. Переписано: заголовок и типы в метафоре батареи, «ты»-голос, supportNote у тревожного контура вместо «работайте с терапевтом», два вопроса с «вы» переведены на «ты» без смены смысла. Веса и пороги не тронуты. 03.08 (этап 2): подписи recharge_method и interaction_preference перевёрнуты вслед за перекодировкой ключёвки (fixes) — теперь высокое значение = интровертная сторона.",
   "title": {
     "ru": "Социальная батарея",
     "en": "Social Battery"
@@ -9,16 +8,32 @@
     "ru": "48 вопросов о том, как быстро садится твой заряд от людей, чем ты его восстанавливаешь и сколько тишины тебе положено по конструкции. 12 типов — от вечного заряда до глубокого интроверта.",
     "en": "48 questions about how fast people drain your charge, what recharges it, and how much silence your design requires. 12 types — from the ever-charged to the deep introvert."
   },
-
   "factorNames": {
-    "depletion_rate": { "ru": "Скорость разряда", "en": "Drain rate" },
-    "recharge_method": { "ru": "Зарядка от людей", "en": "Recharged by people" },
-    "social_anxiety": { "ru": "Напряжение в общении", "en": "Social tension" },
-    "solitude_need": { "ru": "Потребность в тишине", "en": "Need for quiet" },
-    "interaction_preference": { "ru": "Тяга к компаниям", "en": "Pull toward groups" },
-    "capacity_flexibility": { "ru": "Гибкость батареи", "en": "Battery flexibility" }
+    "depletion_rate": {
+      "ru": "Скорость разряда",
+      "en": "Drain rate"
+    },
+    "recharge_method": {
+      "ru": "Зарядка в одиночестве",
+      "en": "Recharged by solitude"
+    },
+    "social_anxiety": {
+      "ru": "Напряжение в общении",
+      "en": "Social tension"
+    },
+    "solitude_need": {
+      "ru": "Потребность в тишине",
+      "en": "Need for quiet"
+    },
+    "interaction_preference": {
+      "ru": "Тяга к тишине",
+      "en": "Pull toward quiet"
+    },
+    "capacity_flexibility": {
+      "ru": "Гибкость батареи",
+      "en": "Battery flexibility"
+    }
   },
-
   "questions": {
     "q13": {
       "text": {
@@ -33,10 +48,12 @@
       }
     }
   },
-
   "profiles": {
     "profile_extrovert": {
-      "name": { "ru": "Вечный заряд", "en": "The Ever-Charged" },
+      "name": {
+        "ru": "Вечный заряд",
+        "en": "The Ever-Charged"
+      },
       "description": {
         "ru": "Люди тебя не разряжают — они и есть твоя розетка. После вечеринки ты бодрее, чем до неё, а тишина довольно быстро начинает звенеть.",
         "en": "People don't drain you — they are your power outlet. You leave a party more charged than you arrived, and silence starts ringing in your ears pretty fast."
@@ -94,9 +111,11 @@
         "en": "Your energy is a rare resource — people gravitate to it. Learn silence too, and you're untouchable."
       }
     },
-
     "profile_social_recharger": {
-      "name": { "ru": "Заряжаюсь от своих", "en": "Charged by Your People" },
+      "name": {
+        "ru": "Заряжаюсь от своих",
+        "en": "Charged by Your People"
+      },
       "description": {
         "ru": "Тебя восстанавливает не одиночество, а правильные люди. Вечер с близкими возвращает силы лучше, чем вечер в тишине, — но только если люди действительно свои.",
         "en": "It's not solitude that restores you — it's the right people. An evening with your people recharges you better than an evening of silence — but only if they're genuinely yours."
@@ -154,9 +173,11 @@
         "en": "The right people are your power grid. Build it as deliberately as others build habits."
       }
     },
-
     "profile_group_lover": {
-      "name": { "ru": "Командный игрок", "en": "The Team Player" },
+      "name": {
+        "ru": "Командный игрок",
+        "en": "The Team Player"
+      },
       "description": {
         "ru": "Тебе легче в компании, чем один на один: групповая динамика тебя несёт, а не пугает. В команде ты на своём месте — сложнее там, где за столом двое и тишина.",
         "en": "You're more at ease in a group than one-on-one: group dynamics carry you rather than scare you. On a team you're in your element — it gets harder where it's just the two of you and silence."
@@ -214,9 +235,11 @@
         "en": "The team is your element. Add a couple of two-person conversations and you'll have both breadth and depth."
       }
     },
-
     "profile_ambivert_social": {
-      "name": { "ru": "Амбиверт на громкой", "en": "Ambivert, Volume Up" },
+      "name": {
+        "ru": "Амбиверт на громкой",
+        "en": "Ambivert, Volume Up"
+      },
       "description": {
         "ru": "Ты амбиверт с уклоном в общение: люди тебя скорее заряжают, но кнопка «хватит» у тебя тоже есть, и она рабочая. Вопрос лишь в том, слышишь ли ты её вовремя.",
         "en": "You're an ambivert leaning social: people mostly charge you, but you do have a working \"enough\" button. The only question is whether you hear it in time."
@@ -272,9 +295,11 @@
         "en": "You've got the rare full kit: an engine and brakes. Use both pedals."
       }
     },
-
     "profile_adaptive": {
-      "name": { "ru": "Переключатель", "en": "The Switch" },
+      "name": {
+        "ru": "Переключатель",
+        "en": "The Switch"
+      },
       "description": {
         "ru": "Твоя батарея умеет работать в разных режимах: конференция, тихий вечер, командная неделя, одиночная — ты перестраиваешься без скрипа. Это редкая гибкость, и у неё есть своя цена.",
         "en": "Your battery runs in multiple modes: a conference, a quiet evening, a team week, a solo one — you switch without grinding. That flexibility is rare, and it has its price."
@@ -330,9 +355,11 @@
         "en": "Few people can switch like you. Just make sure one of the modes is still your own."
       }
     },
-
     "profile_social_anxious": {
-      "name": { "ru": "Ток с помехами", "en": "Static in the Line" },
+      "name": {
+        "ru": "Ток с помехами",
+        "en": "Static in the Line"
+      },
       "supportNote": {
         "ru": "Это образовательный тест, не диагноз. Но если напряжение перед общением и после него — постоянный фон, который сужает твою жизнь, разговор с психологом — нормальный и очень действенный шаг: с этим паттерном работают хорошо и предметно.",
         "en": "This is an educational test, not a diagnosis. But if tension before and after socializing is a constant background that keeps narrowing your life, talking to a therapist is a normal and genuinely effective step — this pattern responds well to that work."
@@ -396,9 +423,11 @@
         "en": "The static isn't your personality — it's background noise that training turns down. Under it runs the same current as everyone's, often cleaner."
       }
     },
-
     "profile_balanced": {
-      "name": { "ru": "Ровный заряд", "en": "Steady Charge" },
+      "name": {
+        "ru": "Ровный заряд",
+        "en": "Steady Charge"
+      },
       "description": {
         "ru": "Твоя батарея без перекосов: общение в радость, тишина в радость, и переход между ними не требует усилий. Это не «ни то ни сё», а рабочее равновесие.",
         "en": "Your battery has no tilt: company is good, quiet is good, and moving between them takes no effort. That's not \"neither here nor there\" — it's a working equilibrium."
@@ -454,9 +483,11 @@
         "en": "A steady charge isn't a lack of character — it's rare stability. Use it as an advantage, not a backdrop."
       }
     },
-
     "profile_solitude_seeker": {
-      "name": { "ru": "Зарядка в тишине", "en": "Charges in Silence" },
+      "name": {
+        "ru": "Зарядка в тишине",
+        "en": "Charges in Silence"
+      },
       "description": {
         "ru": "Твоя розетка — одиночество. Не потому, что люди плохие, а потому, что восстановление у тебя устроено через тишину: час наедине с собой возвращает больше, чем вечер поддержки.",
         "en": "Your outlet is solitude. Not because people are bad — because your recovery runs on quiet: an hour alone gives back more than an evening of company ever could."
@@ -514,9 +545,11 @@
         "en": "Silence is your source, and that's legitimate. Just step out of it toward people before they stop waiting."
       }
     },
-
     "profile_quick_drainer": {
-      "name": { "ru": "Короткий заряд", "en": "Short Battery" },
+      "name": {
+        "ru": "Короткий заряд",
+        "en": "Short Battery"
+      },
       "description": {
         "ru": "Твоя батарея честная, но маленькая: час-полтора живого общения — и индикатор мигает. Это не дефект, а конструкция, и с ней можно жить отлично — если планировать заряд, как планируют дальнюю поездку.",
         "en": "Your battery is honest but small: an hour or so of live interaction and the indicator starts blinking. That's not a defect — it's the design, and it works fine if you plan your charge the way people plan a road trip."
@@ -576,9 +609,11 @@
         "en": "A small battery, smartly managed, outlasts a big drained one. Manage it — and it covers everything that matters."
       }
     },
-
     "profile_ambivert_introvert": {
-      "name": { "ru": "Амбиверт на тихой", "en": "Ambivert, Volume Down" },
+      "name": {
+        "ru": "Амбиверт на тихой",
+        "en": "Ambivert, Volume Down"
+      },
       "description": {
         "ru": "Ты амбиверт с уклоном в тишину: общаться умеешь и любишь, но по умолчанию выберешь вечер дома. Социальные навыки на месте — вопрос только в цене, которую ты платишь за их использование.",
         "en": "You're an ambivert leaning quiet: you can socialize and even enjoy it, but by default you'll pick the evening at home. The social skills are all there — the only question is the price you pay for running them."
@@ -636,9 +671,11 @@
         "en": "The quiet tilt gives you depth. Just step into the light now and then — some of your people are out there too."
       }
     },
-
     "profile_introvert": {
-      "name": { "ru": "Классический интроверт", "en": "The Classic Introvert" },
+      "name": {
+        "ru": "Классический интроверт",
+        "en": "The Classic Introvert"
+      },
       "description": {
         "ru": "Общение — расход, тишина — доход: у тебя это устроено ровно так, без исключений на «хорошую компанию». Ты можешь блистать на людях, но счёт за вечер приходит всегда.",
         "en": "Socializing is expense, silence is income — that's your economy, with no exemptions for \"good company\". You can shine in a room, but the bill for the evening always arrives."
@@ -700,9 +737,11 @@
         "en": "Introversion isn't standby mode — it's a different way of running at full power. The world turned its volume up; you don't have to."
       }
     },
-
     "profile_deep_introvert": {
-      "name": { "ru": "Глубокий интроверт", "en": "The Deep Introvert" },
+      "name": {
+        "ru": "Глубокий интроверт",
+        "en": "The Deep Introvert"
+      },
       "description": {
         "ru": "Твоя батарея чувствительнее большинства: даже приятное общение — заметный расход, а тишины для восстановления нужно много. Это не поломка и не приговор — это конструкция, под которую нужно строить жизнь, а не извиняться за неё.",
         "en": "Your battery is more sensitive than most: even pleasant company is a real expense, and recovery takes a lot of silence. That's not damage and not a sentence — it's a design to build your life around, not apologize for."

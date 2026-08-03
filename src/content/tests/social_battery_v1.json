@@ -25,8 +25,8 @@
       "en": "Drain rate"
     },
     "recharge_method": {
-      "ru": "Зарядка от людей",
-      "en": "Recharged by people"
+      "ru": "Зарядка в одиночестве",
+      "en": "Recharged by solitude"
     },
     "social_anxiety": {
       "ru": "Напряжение в общении",
@@ -37,8 +37,8 @@
       "en": "Need for quiet"
     },
     "interaction_preference": {
-      "ru": "Тяга к компаниям",
-      "en": "Pull toward groups"
+      "ru": "Тяга к тишине",
+      "en": "Pull toward quiet"
     },
     "capacity_flexibility": {
       "ru": "Гибкость батареи",
@@ -104,7 +104,7 @@
         "en": "I best recharge energy when I spend time alone"
       },
       "factorId": "recharge_method",
-      "isReversed": true,
+      "isReversed": false,
       "answers": [
         {
           "id": "a1",
@@ -257,7 +257,7 @@
         "en": "I prefer deep one-on-one conversations over group discussions"
       },
       "factorId": "interaction_preference",
-      "isReversed": true,
+      "isReversed": false,
       "answers": [
         {
           "id": "a1",
@@ -410,7 +410,7 @@
         "en": "After a stressful day I want to meet friends to relax"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -563,7 +563,7 @@
         "en": "I enjoy light small talk and superficial interaction"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -716,7 +716,7 @@
         "en": "When I feel down, I seek company of people"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -869,7 +869,7 @@
         "en": "Large groups (10+ people) are more comfortable for me than intimate conversations"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1022,7 +1022,7 @@
         "en": "I recharge faster in company than alone"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1175,7 +1175,7 @@
         "en": "I prefer text messages to live communication or phone calls"
       },
       "factorId": "interaction_preference",
-      "isReversed": true,
+      "isReversed": false,
       "answers": [
         {
           "id": "a1",
@@ -1328,7 +1328,7 @@
         "en": "When I'm alone for a long time, I feel lonely and seek interaction"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1481,7 +1481,7 @@
         "en": "I enjoy spontaneous meetings and unexpected social situations"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1634,7 +1634,7 @@
         "en": "I feel energized by conversations with new people"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1787,7 +1787,7 @@
         "en": "I enjoy party activities and crowd energy"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1940,7 +1940,7 @@
         "en": "Silence and solitude tire me more than social interaction"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -2093,7 +2093,7 @@
         "en": "I easily start conversations with strangers"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -2246,7 +2246,7 @@
         "en": "I feel mood lift after time spent with people"
       },
       "factorId": "recharge_method",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -2399,7 +2399,7 @@
         "en": "I'm more comfortable in noisy environments (cafes, bars) than quiet places"
       },
       "factorId": "interaction_preference",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -2512,7 +2512,6 @@
       "emotional_resilience": -0.6,
       "vulnerability": 0.6,
       "anxiety": 0.5,
-      "boundary_setting": 0.5,
       "self_awareness": 0.3
     },
     "q13": {
@@ -2528,7 +2527,6 @@
       "vitality": -0.8,
       "emotional_resilience": -0.6,
       "stress_tolerance": -0.5,
-      "boundary_setting": 0.5,
       "autonomy_need": 0.5,
       "self_compassion": 0.3
     },
@@ -2538,8 +2536,7 @@
       "stress_tolerance": -0.7,
       "anxiety": 0.6,
       "emotional_resilience": -0.6,
-      "vulnerability": 0.5,
-      "boundary_setting": -0.3
+      "vulnerability": 0.5
     },
     "q31": {
       "introversion": 0.9,
@@ -2547,7 +2544,6 @@
       "stress_tolerance": -0.7,
       "emotional_resilience": -0.6,
       "autonomy_need": 0.6,
-      "boundary_setting": 0.6,
       "self_compassion": 0.3
     },
     "q37": {
@@ -2558,8 +2554,7 @@
       "anxiety": 0.6,
       "vulnerability": 0.6,
       "autonomy_need": 0.5,
-      "self_awareness": 0.3,
-      "boundary_setting": 0.3
+      "self_awareness": 0.3
     },
     "q43": {
       "introversion": 1,
@@ -2593,7 +2588,6 @@
     },
     "q20": {
       "extraversion": 1,
-      "vitality": 0.8,
       "warmth": 0.6,
       "positive_emotions": 0.6,
       "activity": 0.5,
@@ -2609,7 +2603,6 @@
     },
     "q32": {
       "extraversion": 1,
-      "vitality": 0.9,
       "novelty_seeking": 0.8,
       "warmth": 0.6,
       "assertiveness": 0.6,
@@ -2618,7 +2611,6 @@
     },
     "q38": {
       "extraversion": 1,
-      "vitality": -0.7,
       "warmth": 0.7,
       "activity": 0.6,
       "anxiety": 0.5,
@@ -2626,7 +2618,6 @@
     },
     "q44": {
       "extraversion": 0.9,
-      "vitality": 0.8,
       "positive_emotions": 0.8,
       "warmth": 0.7,
       "emotional_resilience": 0.5,
@@ -2705,14 +2696,12 @@
       "introversion": 0.9,
       "self_awareness": 0.6,
       "boundary_setting": 0.6,
-      "emotional_resilience": 0.5,
       "self_acceptance": 0.3
     },
     "q10": {
       "autonomy_need": 1,
       "introversion": 0.9,
       "vitality": -0.7,
-      "emotional_resilience": -0.6,
       "stress_tolerance": -0.5,
       "boundary_setting": 0.6,
       "self_awareness": 0.3
@@ -2722,7 +2711,6 @@
       "anxiety": 0.9,
       "autonomy_need": 0.8,
       "stress_tolerance": -0.7,
-      "emotional_resilience": -0.6,
       "vitality": -0.6,
       "vulnerability": 0.6,
       "boundary_setting": 0.3
@@ -2740,17 +2728,14 @@
       "introversion": 0.9,
       "self_awareness": 0.7,
       "boundary_setting": 0.6,
-      "emotional_resilience": 0.5,
       "self_acceptance": 0.3
     },
     "q34": {
       "introversion": 0.9,
       "autonomy_need": 0.9,
-      "emotional_resilience": 0.7,
       "anxiety": -0.6,
       "self_acceptance": 0.6,
-      "extraversion": -0.5,
-      "stress_tolerance": 0.3
+      "extraversion": -0.5
     },
     "q40": {
       "boundary_setting": 1,
@@ -2758,15 +2743,13 @@
       "assertiveness": 0.7,
       "introversion": 0.7,
       "self_awareness": 0.6,
-      "self_acceptance": 0.5,
-      "emotional_resilience": 0.3
+      "self_acceptance": 0.5
     },
     "q46": {
       "autonomy_need": 0.9,
       "introversion": 0.9,
       "boundary_setting": 0.8,
       "self_awareness": 0.7,
-      "emotional_resilience": 0.6,
       "vitality": -0.5,
       "judging": 0.3
     },
@@ -2835,7 +2818,6 @@
     },
     "q6": {
       "cognitive_flexibility": 0.9,
-      "self_awareness": 0.9,
       "emotional_reactivity": 0.6,
       "adaptability_leadership": 0.6,
       "mood_stability": -0.5,
@@ -2844,7 +2826,6 @@
     "q12": {
       "cognitive_flexibility": 1,
       "mood_stability": -0.8,
-      "self_awareness": 0.7,
       "emotional_reactivity": 0.6,
       "adaptability_leadership": 0.6,
       "perceiving": 0.3
@@ -2852,7 +2833,6 @@
     "q18": {
       "social_perception": 1,
       "empathy": 0.9,
-      "self_awareness": 0.7,
       "cognitive_flexibility": 0.6,
       "emotional_intelligence": 0.6,
       "intuition": 0.3
@@ -2861,7 +2841,6 @@
       "cognitive_flexibility": 0.9,
       "mood_stability": -0.8,
       "vitality": -0.6,
-      "self_awareness": 0.6,
       "emotional_reactivity": 0.5,
       "perceiving": 0.3
     },
@@ -2871,14 +2850,12 @@
       "warmth": 0.7,
       "trust": 0.6,
       "cognitive_flexibility": 0.6,
-      "self_awareness": 0.5,
       "intuition": 0.3
     },
     "q36": {
       "mood_stability": -1,
       "cognitive_flexibility": 0.9,
       "emotional_reactivity": 0.7,
-      "self_awareness": -0.5,
       "vitality": -0.5,
       "perceiving": 0.3
     },
@@ -2887,7 +2864,6 @@
       "cognitive_flexibility": 1,
       "self_discipline": 0.8,
       "emotional_intelligence": 0.7,
-      "self_awareness": 0.7,
       "emotional_resilience": 0.6,
       "perceiving": 0.3
     },
@@ -2897,7 +2873,6 @@
       "warmth": 0.8,
       "trust": 0.7,
       "cognitive_flexibility": 0.6,
-      "self_awareness": 0.6,
       "intuition": 0.3
     }
   },

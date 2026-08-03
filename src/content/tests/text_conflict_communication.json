@@ -1121,7 +1121,6 @@
       "anger": 0.9,
       "impulsiveness": 0.7,
       "empathy": -0.6,
-      "thinking": 0.6,
       "stress_tolerance": -0.8,
       "emotional_resilience": -0.7,
       "conflict_management": -0.7
@@ -1144,7 +1143,6 @@
       "empathy": 0.6,
       "social_boldness": 0.7,
       "boundary_setting": 0.9,
-      "feeling": 0.6,
       "anxiety": -0.5,
       "avoidant_coping": -0.9,
       "straightforwardness": 0.8,

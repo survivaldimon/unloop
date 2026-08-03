@@ -1573,223 +1573,29 @@
     }
   ],
   "weights": {
-    "q1": {
-      "affection_expression": 0.9,
-      "positive_emotions": 0.7,
-      "warmth": 0.6,
-      "emotional_openness": 0.5,
-      "extraversion": 0.3,
-      "feeling": 0.3,
-      "communication_quality": 1
-    },
-    "q6": {
-      "affection_expression": 1,
-      "emotional_intimacy": 0.8,
-      "trust_in_relationships": 0.6,
-      "feeling": 0.4,
-      "communication_quality": 1,
-      "secure_attachment": 0.7
-    },
-    "q11": {
-      "affection_expression": 0.9,
-      "emotional_openness": 0.6,
-      "positive_emotions": 0.5,
-      "feeling": 0.3,
-      "communication_quality": 0.9,
-      "secure_attachment": 0.6
-    },
-    "q16": {
-      "self_esteem": 0.8,
-      "achievement_motivation": 0.7,
-      "affection_expression": 0.7,
-      "support_giving": 0.6,
-      "feeling": 0.3,
-      "communication_quality": 1
-    },
-    "q21": {
-      "social_confidence": 0.7,
-      "self_esteem": 0.7,
-      "affection_expression": 0.6,
-      "extraversion": 0.4,
-      "feeling": 0.3,
-      "communication_quality": 1,
-      "secure_attachment": 0.5
-    },
-    "q26": {
-      "support_giving": 0.9,
-      "emotional_intelligence": 0.7,
-      "empathy": 0.7,
-      "trust_in_relationships": 0.6,
-      "feeling": 0.4,
-      "communication_quality": 1
-    },
     "q2": {
-      "relatedness_need": 0.8,
-      "emotional_intimacy": 0.7,
-      "affection_expression": 0.6,
-      "feeling": 0.3,
-      "secure_attachment": 1
-    },
-    "q7": {
-      "communication_quality": 0.9,
-      "emotional_intelligence": 0.7,
-      "trust_in_relationships": 0.6,
-      "feeling": 0.3,
-      "emotional_intimacy": 0.7
-    },
-    "q12": {
-      "positive_emotions": 0.6,
-      "extraversion": 0.3,
-      "commitment": 0.9,
-      "emotional_intimacy": 0.8,
-      "secure_attachment": 0.6
-    },
-    "q17": {
-      "commitment": 0.9,
-      "affection_expression": 0.6,
-      "feeling": 0.3,
-      "judging": 0.2,
-      "secure_attachment": 1,
-      "emotional_intimacy": 0.7
-    },
-    "q22": {
-      "attention_control": 0.9,
-      "communication_quality": 0.6,
-      "trust_in_relationships": 0.6,
-      "feeling": 0.3,
-      "secure_attachment": 0.9,
-      "emotional_intimacy": 0.7
-    },
-    "q27": {
-      "communication_quality": 1,
-      "emotional_intimacy": 0.9,
-      "vulnerability_sharing": 0.8,
-      "intellectual_curiosity": 0.6,
-      "emotional_intelligence": 0.6,
-      "feeling": 0.4,
-      "intuition": 0.3
-    },
-    "q3": {
-      "affection_expression": 0.9,
-      "positive_emotions": 0.6,
-      "empathy": 0.6,
-      "spontaneity": 0.5,
-      "secure_attachment": 0.7
-    },
-    "q8": {
-      "empathy": 0.9,
-      "affection_expression": 0.8,
-      "commitment": 0.5,
-      "self_discipline": 0.7,
-      "secure_attachment": 0.6
-    },
-    "q13": {
-      "empathy": 1,
-      "affection_expression": 0.8,
-      "emotional_intelligence": 0.6,
-      "secure_attachment": 0.6
-    },
-    "q18": {
-      "spontaneity": 0.9,
-      "affection_expression": 0.9,
-      "positive_emotions": 0.5,
-      "secure_attachment": 0.6
-    },
-    "q23": {
-      "commitment": 0.8,
-      "emotional_intimacy": 0.7,
-      "affection_expression": 0.5,
-      "secure_attachment": 0.9
-    },
-    "q28": {
-      "empathy": 1,
-      "affection_expression": 0.8,
-      "emotional_intelligence": 0.7,
-      "secure_attachment": 0.6
-    },
-    "q4": {
-      "support_giving": 1,
-      "cooperativeness": 0.8,
-      "altruism": 0.8,
-      "feeling": 0.2,
-      "empathy": 0.6,
-      "secure_attachment": 0.5
-    },
-    "q9": {
-      "support_giving": 1,
-      "empathy": 0.8,
-      "emotional_intelligence": 0.7,
-      "altruism": 0.7,
-      "feeling": 0.3
-    },
-    "q14": {
-      "support_giving": 1,
-      "altruism": 0.9,
-      "empathy": 0.7,
-      "emotional_intelligence": 0.6,
-      "secure_attachment": 0.6
-    },
-    "q19": {
-      "support_giving": 0.9,
-      "affection_expression": 0.6,
-      "empathy": 0.6,
-      "warmth": 0.5
+      "relatedness_need": 0.8
     },
     "q24": {
-      "support_giving": 1,
-      "problem_solving": 0.7,
-      "reliability_partnership": 0.7,
-      "cooperativeness": 0.6,
-      "responsibility": 0.6
-    },
-    "q29": {
-      "empathy": 1,
-      "support_giving": 0.9,
-      "emotional_intelligence": 0.7,
-      "responsibility": 0.7
+      "reliability_partnership": 0.7
     },
     "q5": {
-      "physical_intimacy": 1,
-      "affection_expression": 0.9,
-      "warmth": 0.6,
-      "feeling": 0.3,
-      "emotional_intimacy": 0.7,
-      "secure_attachment": 0.5
+      "physical_intimacy": 1
     },
     "q10": {
-      "physical_intimacy": 1,
-      "affection_expression": 0.8,
-      "social_confidence": 0.6,
-      "commitment": 0.5,
-      "extraversion": 0.3,
-      "secure_attachment": 0.7
+      "physical_intimacy": 1
     },
     "q15": {
-      "physical_intimacy": 1,
-      "support_giving": 0.9,
-      "empathy": 0.7,
-      "emotional_intelligence": 0.6,
-      "affection_expression": 0.6,
-      "feeling": 0.3
+      "physical_intimacy": 1
     },
     "q20": {
-      "physical_intimacy": 1,
-      "support_giving": 0.8,
-      "affection_expression": 0.7,
-      "empathy": 0.5
+      "physical_intimacy": 1
     },
     "q25": {
-      "physical_intimacy": 1,
-      "affection_expression": 0.6,
-      "warmth": 0.5,
-      "emotional_intimacy": 0.8,
-      "secure_attachment": 0.6
+      "physical_intimacy": 1
     },
     "q30": {
-      "physical_intimacy": 1,
-      "spontaneity": 0.9,
-      "affection_expression": 0.9,
-      "feeling": 0.3
+      "physical_intimacy": 1
     }
   },
   "profiles": {

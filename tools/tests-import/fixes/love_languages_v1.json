@@ -1,0 +1,215 @@
+{
+  "$comment": "Этап 2 (03.08.2026): сквозной слой черт срезан целиком (155 весов) — тест меряет ПРЕДПОЧТЕНИЯ в получении любви, а веса приписывали респонденту черты из чужого поведения («партнёр слушает» → моя эмпатия +1, «партнёр помогает» → мой альтруизм; docs/tests-content-review.md группа Г §8). Оставлены только осевые предпочтения: physical_intimacy (блок прикосновений), reliability_partnership, relatedness_need. Вклад теста в портрет — иерархия каналов через факторные проценты, не выдуманные черты.",
+  "weights": {
+    "q1": {
+      "affection_expression": null,
+      "positive_emotions": null,
+      "warmth": null,
+      "emotional_openness": null,
+      "extraversion": null,
+      "feeling": null,
+      "communication_quality": null
+    },
+    "q6": {
+      "affection_expression": null,
+      "emotional_intimacy": null,
+      "trust_in_relationships": null,
+      "feeling": null,
+      "communication_quality": null,
+      "secure_attachment": null
+    },
+    "q11": {
+      "affection_expression": null,
+      "emotional_openness": null,
+      "positive_emotions": null,
+      "feeling": null,
+      "communication_quality": null,
+      "secure_attachment": null
+    },
+    "q16": {
+      "self_esteem": null,
+      "achievement_motivation": null,
+      "affection_expression": null,
+      "support_giving": null,
+      "feeling": null,
+      "communication_quality": null
+    },
+    "q21": {
+      "social_confidence": null,
+      "self_esteem": null,
+      "affection_expression": null,
+      "extraversion": null,
+      "feeling": null,
+      "communication_quality": null,
+      "secure_attachment": null
+    },
+    "q26": {
+      "support_giving": null,
+      "emotional_intelligence": null,
+      "empathy": null,
+      "trust_in_relationships": null,
+      "feeling": null,
+      "communication_quality": null
+    },
+    "q2": {
+      "emotional_intimacy": null,
+      "affection_expression": null,
+      "feeling": null,
+      "secure_attachment": null
+    },
+    "q7": {
+      "communication_quality": null,
+      "emotional_intelligence": null,
+      "trust_in_relationships": null,
+      "feeling": null,
+      "emotional_intimacy": null
+    },
+    "q12": {
+      "positive_emotions": null,
+      "extraversion": null,
+      "commitment": null,
+      "emotional_intimacy": null,
+      "secure_attachment": null
+    },
+    "q17": {
+      "commitment": null,
+      "affection_expression": null,
+      "feeling": null,
+      "judging": null,
+      "secure_attachment": null,
+      "emotional_intimacy": null
+    },
+    "q22": {
+      "attention_control": null,
+      "communication_quality": null,
+      "trust_in_relationships": null,
+      "feeling": null,
+      "secure_attachment": null,
+      "emotional_intimacy": null
+    },
+    "q27": {
+      "communication_quality": null,
+      "emotional_intimacy": null,
+      "vulnerability_sharing": null,
+      "intellectual_curiosity": null,
+      "emotional_intelligence": null,
+      "feeling": null,
+      "intuition": null
+    },
+    "q3": {
+      "affection_expression": null,
+      "positive_emotions": null,
+      "empathy": null,
+      "spontaneity": null,
+      "secure_attachment": null
+    },
+    "q8": {
+      "empathy": null,
+      "affection_expression": null,
+      "commitment": null,
+      "self_discipline": null,
+      "secure_attachment": null
+    },
+    "q13": {
+      "empathy": null,
+      "affection_expression": null,
+      "emotional_intelligence": null,
+      "secure_attachment": null
+    },
+    "q18": {
+      "spontaneity": null,
+      "affection_expression": null,
+      "positive_emotions": null,
+      "secure_attachment": null
+    },
+    "q23": {
+      "commitment": null,
+      "emotional_intimacy": null,
+      "affection_expression": null,
+      "secure_attachment": null
+    },
+    "q28": {
+      "empathy": null,
+      "affection_expression": null,
+      "emotional_intelligence": null,
+      "secure_attachment": null
+    },
+    "q4": {
+      "support_giving": null,
+      "cooperativeness": null,
+      "altruism": null,
+      "feeling": null,
+      "empathy": null,
+      "secure_attachment": null
+    },
+    "q9": {
+      "support_giving": null,
+      "empathy": null,
+      "emotional_intelligence": null,
+      "altruism": null,
+      "feeling": null
+    },
+    "q14": {
+      "support_giving": null,
+      "altruism": null,
+      "empathy": null,
+      "emotional_intelligence": null,
+      "secure_attachment": null
+    },
+    "q19": {
+      "support_giving": null,
+      "affection_expression": null,
+      "empathy": null,
+      "warmth": null
+    },
+    "q24": {
+      "support_giving": null,
+      "problem_solving": null,
+      "cooperativeness": null,
+      "responsibility": null
+    },
+    "q29": {
+      "empathy": null,
+      "support_giving": null,
+      "emotional_intelligence": null,
+      "responsibility": null
+    },
+    "q5": {
+      "affection_expression": null,
+      "warmth": null,
+      "feeling": null,
+      "emotional_intimacy": null,
+      "secure_attachment": null
+    },
+    "q10": {
+      "affection_expression": null,
+      "social_confidence": null,
+      "commitment": null,
+      "extraversion": null,
+      "secure_attachment": null
+    },
+    "q15": {
+      "support_giving": null,
+      "empathy": null,
+      "emotional_intelligence": null,
+      "affection_expression": null,
+      "feeling": null
+    },
+    "q20": {
+      "support_giving": null,
+      "affection_expression": null,
+      "empathy": null
+    },
+    "q25": {
+      "affection_expression": null,
+      "warmth": null,
+      "emotional_intimacy": null,
+      "secure_attachment": null
+    },
+    "q30": {
+      "spontaneity": null,
+      "affection_expression": null,
+      "feeling": null
+    }
+  }
+}

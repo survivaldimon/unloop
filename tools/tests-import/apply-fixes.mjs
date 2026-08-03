@@ -39,11 +39,15 @@ const DROP = new Set(registry.entries.filter((e) => e.status === "drop_candidate
 const CANON = new Set(registry.entries.filter((e) => e.status === "canon").map((e) => e.scale));
 const POLE_SCALES = new Set(registry.entries.filter((e) => e.pole).map((e) => e.scale));
 
-/** Тесты состояния: полюсные веса вычищаются целиком. */
-const STRIP_POLES = new Set([
-  "toxic_patterns", "friendship_red_flags_v1", "imposter_syndrome", "fomo_social_comparison_v1",
-  "burnout_diagnostic_v1", "digital_detox_test", "boundaries_people_pleasing",
-]);
+/**
+ * Полюсные веса типа личности оставлены только тестам с прямым поведенческим
+ * сигналом: sixteen_types (все оси), ipip_big_five (E/I с фактора экстраверсии,
+ * проставлен фиксом), social_battery_v1 (E/I его пунктов). У остальных
+ * шестнадцати стереотипные примеси («уязвимость → F», «обещание → J»)
+ * вычищаются целиком — решение 03.08: тип кормит осмысленный сигнал, не декор.
+ */
+const POLE_KEEPERS = new Set(["sixteen_types", "ipip_big_five", "social_battery_v1"]);
+const STRIP_POLES = { has: (id) => !POLE_KEEPERS.has(id) };
 
 function transformWeightMap(map, { stripPoles }) {
   let changed = false;

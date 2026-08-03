@@ -1,0 +1,96 @@
+{
+  "$comment": "Этап 2 (03.08.2026). (1) Перекодировка recharge_method и interaction_preference в интровертную сторону (решение 2.2A): у всех 16 пунктов инвертирован isReversed — @avg шести факторов становится осью интроверсии, полосы профилей заработают (подписи факторов перевёрнуты в overrides). Веса не тронуты — их направление живёт в знаке. (2) B-чистка мутных связок: утомляемость от общения перестала кормить emotional_resilience (7 пунктов solitude_need), барнум-пункты гибкости — self_awareness (8), депletion — boundary_setting (5), recharge — vitality (4), q34 stress_tolerance 0.3 — шум; конфликт q16(+)/q34(−) по anxiety оставлен: оба веса семантически верны, принятое исключение линта B.",
+  "isReversed": {
+    "q2": false,
+    "q8": true,
+    "q14": true,
+    "q20": true,
+    "q26": true,
+    "q32": true,
+    "q38": true,
+    "q44": true,
+    "q5": false,
+    "q11": true,
+    "q17": true,
+    "q23": false,
+    "q29": true,
+    "q35": true,
+    "q41": true,
+    "q47": true
+  },
+  "weights": {
+    "q4": {
+      "emotional_resilience": null
+    },
+    "q28": {
+      "emotional_resilience": null
+    },
+    "q34": {
+      "emotional_resilience": null,
+      "stress_tolerance": null
+    },
+    "q40": {
+      "emotional_resilience": null
+    },
+    "q46": {
+      "emotional_resilience": null
+    },
+    "q10": {
+      "emotional_resilience": null
+    },
+    "q16": {
+      "emotional_resilience": null
+    },
+    "q6": {
+      "self_awareness": null
+    },
+    "q12": {
+      "self_awareness": null
+    },
+    "q18": {
+      "self_awareness": null
+    },
+    "q24": {
+      "self_awareness": null
+    },
+    "q30": {
+      "self_awareness": null
+    },
+    "q36": {
+      "self_awareness": null
+    },
+    "q42": {
+      "self_awareness": null
+    },
+    "q48": {
+      "self_awareness": null
+    },
+    "q7": {
+      "boundary_setting": null
+    },
+    "q19": {
+      "boundary_setting": null
+    },
+    "q31": {
+      "boundary_setting": null
+    },
+    "q37": {
+      "boundary_setting": null
+    },
+    "q25": {
+      "boundary_setting": null
+    },
+    "q20": {
+      "vitality": null
+    },
+    "q32": {
+      "vitality": null
+    },
+    "q44": {
+      "vitality": null
+    },
+    "q38": {
+      "vitality": null
+    }
+  }
+}

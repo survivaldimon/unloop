@@ -1676,7 +1676,6 @@
       "competence": 0.8,
       "environmental_mastery": 0.7,
       "growth_mindset": 0.5,
-      "sensing": 0.3,
       "emotional_resilience": 0.6
     },
     "q5": {
@@ -1686,8 +1685,6 @@
       "cognitive_flexibility": 0.6,
       "stress_tolerance": 0.5,
       "positive_emotions": 0.6,
-      "intuition": 0.4,
-      "perceiving": 0.3,
       "emotional_resilience": 0.7
     },
     "q9": {
@@ -1696,25 +1693,21 @@
       "autonomy_need": 0.8,
       "self_direction": 0.7,
       "identity_clarity": 0.6,
-      "authenticity": 0.6,
-      "thinking": 0.4
+      "authenticity": 0.6
     },
     "q13": {
       "self_efficacy": 0.9,
       "responsibility": 0.9,
       "self_discipline": 0.8,
       "persistence": 0.8,
-      "commitment": 0.7,
-      "judging": 0.5
+      "commitment": 0.7
     },
     "q17": {
       "self_efficacy": 0.9,
       "stress_tolerance": 0.8,
       "decisiveness": 0.8,
       "emotional_resilience": 0.7,
-      "adaptability_leadership": 0.6,
-      "thinking": 0.4,
-      "perceiving": 0.4
+      "adaptability_leadership": 0.6
     },
     "q21": {
       "self_efficacy": 0.9,
@@ -1722,9 +1715,7 @@
       "meaning_purpose": 0.7,
       "persistence": 0.6,
       "growth_mindset": 0.7,
-      "life_satisfaction": 0.5,
-      "intuition": 0.4,
-      "judging": 0.4
+      "life_satisfaction": 0.5
     },
     "q25": {
       "self_efficacy": 1,
@@ -1732,8 +1723,6 @@
       "environmental_mastery": 0.7,
       "self_direction": 0.6,
       "competence": 0.7,
-      "introversion": 0.3,
-      "sensing": 0.3,
       "emotional_resilience": 0.8
     },
     "q29": {
@@ -1743,16 +1732,13 @@
       "autonomy_need": 0.7,
       "decisiveness": 0.6,
       "self_direction": 0.6,
-      "competence": 0.7,
-      "extraversion": 0.4,
-      "judging": 0.4
+      "competence": 0.7
     },
     "q2": {
       "assertiveness": 0.9,
       "social_boldness": 0.9,
       "social_confidence": 0.8,
-      "warmth": 0.6,
-      "extraversion": 0.7
+      "warmth": 0.6
     },
     "q6": {
       "assertiveness": -0.9,
@@ -1760,17 +1746,13 @@
       "social_boldness": -0.7,
       "dominance": -0.6,
       "compliance": 0.6,
-      "vulnerability": 0.5,
-      "introversion": 0.5,
-      "feeling": 0.4
+      "vulnerability": 0.5
     },
     "q10": {
       "social_confidence": -1,
       "social_boldness": -0.8,
       "self_consciousness": 0.8,
-      "anxiety": 0.6,
-      "introversion": 0.7,
-      "extraversion": -0.7
+      "anxiety": 0.6
     },
     "q14": {
       "assertiveness": 0.7,
@@ -1778,9 +1760,7 @@
       "trust": 0.7,
       "relatedness_need": 0.6,
       "vulnerability_sharing": 0.8,
-      "social_confidence": 0.6,
-      "extraversion": 0.5,
-      "feeling": 0.5
+      "social_confidence": 0.6
     },
     "q18": {
       "assertiveness": -0.9,
@@ -1788,8 +1768,7 @@
       "autonomy_need": -0.7,
       "compliance": 0.7,
       "self_direction": -0.6,
-      "modesty": 0.5,
-      "feeling": 0.5
+      "modesty": 0.5
     },
     "q22": {
       "assertiveness": 1,
@@ -1798,8 +1777,6 @@
       "self_direction": 0.8,
       "authenticity": 0.7,
       "social_confidence": 0.7,
-      "extraversion": 0.6,
-      "thinking": 0.5,
       "compliance": -0.6
     },
     "q26": {
@@ -1807,8 +1784,7 @@
       "social_confidence": 0.9,
       "assertiveness": 0.7,
       "expressiveness": 0.8,
-      "self_consciousness": -0.6,
-      "extraversion": 0.8
+      "self_consciousness": -0.6
     },
     "q30": {
       "assertiveness": -0.9,
@@ -1816,27 +1792,21 @@
       "social_confidence": -0.7,
       "conflict_management": -0.6,
       "avoidant_coping": 0.6,
-      "compliance": 0.5,
-      "introversion": 0.5,
-      "feeling": 0.4
+      "compliance": 0.5
     },
     "q3": {
       "self_acceptance": 1,
       "self_compassion": 0.9,
       "self_esteem": 0.8,
       "emotional_resilience": 0.6,
-      "identity_clarity": 0.5,
-      "feeling": 0.5,
-      "perceiving": 0.3
+      "identity_clarity": 0.5
     },
     "q7": {
       "self_compassion": -0.9,
       "self_acceptance": -0.8,
       "rumination": 0.8,
       "self_esteem": -0.7,
-      "perfectionism": 0.6,
-      "judging": 0.4,
-      "introversion": 0.3
+      "perfectionism": 0.6
     },
     "q11": {
       "self_acceptance": -0.9,
@@ -1844,17 +1814,14 @@
       "self_consciousness": 0.7,
       "modesty": 0.5,
       "vulnerability": 0.5,
-      "authenticity": -0.5,
-      "introversion": 0.5
+      "authenticity": -0.5
     },
     "q15": {
       "self_acceptance": 1,
       "self_compassion": 0.9,
       "perfectionism": -0.7,
       "growth_mindset": 0.6,
-      "emotional_resilience": 0.5,
-      "perceiving": 0.5,
-      "feeling": 0.4
+      "emotional_resilience": 0.5
     },
     "q19": {
       "self_acceptance": -1,
@@ -1862,9 +1829,7 @@
       "body_image": -0.7,
       "self_consciousness": 0.8,
       "perfectionism": 0.6,
-      "vulnerability": 0.7,
-      "sensing": 0.4,
-      "judging": 0.4
+      "vulnerability": 0.7
     },
     "q23": {
       "self_acceptance": 0.9,
@@ -1872,8 +1837,7 @@
       "self_esteem": 0.8,
       "self_compassion": 0.7,
       "identity_clarity": 0.6,
-      "cognitive_reappraisal": 0.6,
-      "thinking": 0.5
+      "cognitive_reappraisal": 0.6
     },
     "q27": {
       "self_compassion": 1,
@@ -1881,7 +1845,6 @@
       "self_esteem": 0.7,
       "emotional_resilience": 0.5,
       "life_satisfaction": 0.5,
-      "feeling": 0.6,
       "empathy": 0.5
     },
     "q31": {
@@ -1890,30 +1853,25 @@
       "emotional_resilience": 0.8,
       "self_compassion": 0.7,
       "identity_clarity": 0.6,
-      "thinking": 0.4,
       "stress_tolerance": 0.5
     },
     "q4": {
       "decisiveness": 0.9,
       "activity": 0.8,
       "procrastination": -0.8,
-      "self_efficacy": 0.7,
-      "judging": 0.6,
-      "extraversion": 0.4
+      "self_efficacy": 0.7
     },
     "q8": {
       "persistence": -0.8,
       "emotional_resilience": -0.7,
       "harm_avoidance": 0.6,
       "rumination": 0.6,
-      "stress_tolerance": -0.6,
-      "introversion": 0.4
+      "stress_tolerance": -0.6
     },
     "q12": {
       "persistence": 1,
       "self_efficacy": 0.7,
       "growth_mindset": 0.6,
-      "judging": 0.5,
       "emotional_resilience": 0.9,
       "achievement_motivation": 0.7
     },
@@ -1923,8 +1881,6 @@
       "harm_avoidance": 0.7,
       "avoidant_coping": 0.6,
       "anxiety": 0.6,
-      "sensing": 0.4,
-      "judging": 0.3,
       "sensation_seeking": -0.7
     },
     "q20": {
@@ -1932,8 +1888,6 @@
       "cognitive_reappraisal": 0.8,
       "learning_ability": 0.6,
       "positive_emotions": 0.5,
-      "intuition": 0.5,
-      "perceiving": 0.5,
       "emotional_resilience": 0.8,
       "self_acceptance": 0.6
     },
@@ -1943,15 +1897,12 @@
       "self_consciousness": 0.8,
       "social_confidence": -0.7,
       "avoidant_coping": 0.6,
-      "anxiety": 0.5,
-      "introversion": 0.6
+      "anxiety": 0.5
     },
     "q28": {
       "emotional_resilience": -0.8,
       "rumination": 0.9,
       "stress_tolerance": -0.6,
-      "introversion": 0.4,
-      "feeling": 0.4,
       "self_acceptance": -0.6
     },
     "q32": {
@@ -1960,8 +1911,6 @@
       "adaptability_leadership": 0.7,
       "divergent_thinking": 0.6,
       "self_efficacy": 0.7,
-      "intuition": 0.6,
-      "perceiving": 0.6,
       "emotional_resilience": 0.8
     }
   },

@@ -1277,43 +1277,37 @@
       "emotional_intimacy": 0.9,
       "support_giving": 0.7,
       "warmth": 0.6,
-      "empathy": 0.5,
-      "feeling": 0.3
+      "empathy": 0.5
     },
     "q4": {
       "trust_in_relationships": 0.8,
       "warmth": 0.8,
       "emotional_intimacy": 0.7,
       "secure_attachment": 0.6,
-      "feeling": 0.3,
       "openness": 0.4
     },
     "q7": {
       "empathy": 0.9,
       "emotional_intimacy": 0.8,
       "trust_in_relationships": 0.7,
-      "warmth": 0.5,
-      "feeling": 0.3
+      "warmth": 0.5
     },
     "q10": {
       "support_giving": 0.9,
       "empathy": 0.8,
       "warmth": 0.7,
-      "emotional_intimacy": 0.6,
-      "feeling": 0.3
+      "emotional_intimacy": 0.6
     },
     "q2": {
       "communication_quality": 0.9,
       "assertiveness": 0.8,
       "social_confidence": 0.6,
-      "self_consciousness": -0.5,
-      "extraversion": 0.4
+      "self_consciousness": -0.5
     },
     "q5": {
       "communication_quality": 0.9,
       "assertiveness": 0.6,
       "emotional_resilience": 0.5,
-      "feeling": 0.3,
       "conflict_management": 0.8
     },
     "q8": {
@@ -1321,8 +1315,7 @@
       "assertiveness": -0.8,
       "social_confidence": -0.6,
       "self_consciousness": 0.6,
-      "anxiety": 0.5,
-      "introversion": 0.4
+      "anxiety": 0.5
     },
     "q11": {
       "communication_quality": 0.9,
@@ -1336,29 +1329,25 @@
       "commitment": 0.8,
       "conscientiousness": 0.7,
       "values": 0.9,
-      "trust_in_relationships": 0.6,
-      "judging": 0.4
+      "trust_in_relationships": 0.6
     },
     "q6": {
       "commitment": 0.9,
       "values": 0.8,
       "conscientiousness": 0.7,
-      "prudence": 0.6,
-      "judging": 0.4
+      "prudence": 0.6
     },
     "q9": {
       "commitment": 0.9,
       "values": 0.8,
       "trust_in_relationships": 0.7,
-      "conscientiousness": 0.5,
-      "judging": 0.3
+      "conscientiousness": 0.5
     },
     "q12": {
       "values": 0.9,
       "commitment": 0.8,
       "conscientiousness": 0.6,
-      "trust": 0.5,
-      "judging": 0.3
+      "trust": 0.5
     },
     "q13": {
       "commitment": 0.7,
@@ -1368,20 +1357,17 @@
     },
     "q14": {
       "autonomy_need": 0.9,
-      "introversion": 0.5,
       "secure_attachment": 0.4
     },
     "q15": {
       "security_value": 0.8,
-      "judging": 0.5,
       "secure_attachment": 0.9
     },
     "q16": {
       "physical_intimacy": 0.8,
       "emotional_intimacy": 0.7,
       "expressiveness": 0.7,
-      "positive_emotions": 0.6,
-      "feeling": 0.4
+      "positive_emotions": 0.6
     },
     "q17": {
       "conflict_management": 0.9,
@@ -1393,8 +1379,7 @@
       "conflict_management": -0.8,
       "avoidant_coping": 0.9,
       "assertiveness": -0.6,
-      "anxiety": 0.5,
-      "introversion": 0.4
+      "anxiety": 0.5
     },
     "q19": {
       "assertiveness": 0.8,
@@ -1413,31 +1398,27 @@
       "physical_intimacy": 0.9,
       "warmth": 0.7,
       "emotional_intimacy": 0.5,
-      "expressiveness": 0.5,
-      "feeling": 0.3
+      "expressiveness": 0.5
     },
     "q22": {
       "emotional_intimacy": 0.9,
       "physical_intimacy": 0.7,
       "warmth": 0.6,
       "positive_emotions": 0.6,
-      "expressiveness": 0.5,
-      "feeling": 0.4
+      "expressiveness": 0.5
     },
     "q23": {
       "emotional_intimacy": 0.8,
       "physical_intimacy": 0.7,
       "commitment": 0.6,
       "positive_emotions": 0.6,
-      "expressiveness": 0.5,
-      "feeling": 0.4
+      "expressiveness": 0.5
     },
     "q24": {
       "physical_intimacy": 0.9,
       "emotional_intimacy": 0.8,
       "warmth": 0.8,
-      "trust_in_relationships": 0.5,
-      "feeling": 0.3
+      "trust_in_relationships": 0.5
     }
   },
   "profiles": {

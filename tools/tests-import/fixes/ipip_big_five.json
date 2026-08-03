@@ -1,41 +1,136 @@
 {
-  "$comment": "Этап 2 аудита (03.08.2026). Три группы правок: (1) близнецовые флипы на реверсах — q2 «мало беспокоюсь о других» ронял эмпатию ВВЕРХ при верном близнеце q22, q8 «вещи где попало» повышал организованность, q10/q28 аналогично; (2) полюсный вклад теста сведён к домен-чистой связи: E/I кормится ТОЛЬКО фактором экстраверсии (прямые +1, реверсы −1 — заодно чинит коллизию слияния gregariousness/liveliness, оставившую штамп +0.4 на интровертных реверсах), feeling-штамп 0.2/0.4 удалён отовсюду (включая оба полюса грусти ES-фактора — бессмыслица), extraversion-штамп вне E-фактора удалён; (3) perfectionism: q13 «внимание на детали» и q33 «люблю порядок» — добросовестность, не перфекционизм (удалены), q48 «требователен в работе» оставлен (perfectionism в реестре переведён в ось); q12 «оскорбляю людей» → straightforwardness удалён (грубость ≠ прямота).",
+  "$comment": "Этап 2 аудита (03.08.2026). Три группы правок: (1) близнецовые флипы на реверсах — q2 «мало беспокоюсь о других» ронял эмпатию ВВЕРХ при верном близнеце q22, q8 «вещи где попало» повышал организованность, q10/q28 аналогично; (2) полюсный вклад теста сведён к домен-чистой связи: E/I кормится ТОЛЬКО фактором экстраверсии (прямые +1, реверсы −1 — заодно чинит коллизию слияния gregariousness/liveliness, оставившую штамп +0.4 на интровертных реверсах), feeling-штамп 0.2/0.4 удалён отовсюду (включая оба полюса грусти ES-фактора — бессмыслица), extraversion-штамп вне E-фактора удалён; (3) perfectionism: q13 «внимание на детали» и q33 «люблю порядок» — добросовестность, не перфекционизм (удалены), q48 «требователен в работе» оставлен (perfectionism в реестре переведён в ось); q12 «оскорбляю людей» → straightforwardness удалён (грубость ≠ прямота). B-остаток: q6 «Я мало разговариваю» — expressiveness/social_confidence/warmth флипнуты в минус по верным близнецам q26/q46.",
   "weights": {
-    "q2": { "empathy": -1, "emotional_intelligence": -0.6, "trust": -0.5, "altruism": -0.5, "feeling": null, "extraversion": null },
-    "q8": { "organization": -0.9, "self_discipline": -0.6, "responsibility": -0.4 },
-    "q10": { "cognitive_flexibility": -0.6, "learning_ability": -0.4 },
-    "q28": { "working_memory": -0.6 },
-    "q12": { "straightforwardness": null, "feeling": null, "extraversion": null },
-    "q13": { "perfectionism": null },
-    "q33": { "perfectionism": null },
-    "q1": { "feeling": null, "extraversion": 1 },
-    "q11": { "feeling": null, "extraversion": 1 },
-    "q21": { "feeling": null, "extraversion": 1 },
-    "q31": { "feeling": null, "extraversion": 1 },
-    "q41": { "extraversion": 1 },
-    "q6": { "extraversion": -1 },
-    "q16": { "extraversion": -1 },
-    "q26": { "extraversion": -1 },
-    "q36": { "extraversion": -1 },
-    "q46": { "feeling": null, "extraversion": -1 },
-    "q3": { "extraversion": null },
-    "q7": { "feeling": null, "extraversion": null },
-    "q22": { "feeling": null, "extraversion": null },
-    "q32": { "feeling": null, "extraversion": null },
-    "q42": { "feeling": null, "extraversion": null },
-    "q47": { "feeling": null, "extraversion": null },
-    "q17": { "feeling": null },
-    "q27": { "feeling": null },
-    "q37": { "feeling": null },
-    "q4": { "feeling": null },
-    "q9": { "feeling": null },
-    "q14": { "feeling": null },
-    "q19": { "feeling": null },
-    "q24": { "feeling": null },
-    "q29": { "feeling": null },
-    "q34": { "feeling": null },
-    "q39": { "feeling": null },
-    "q44": { "feeling": null },
-    "q49": { "feeling": null }
+    "q2": {
+      "empathy": -1,
+      "emotional_intelligence": -0.6,
+      "trust": -0.5,
+      "altruism": -0.5,
+      "feeling": null,
+      "extraversion": null
+    },
+    "q8": {
+      "organization": -0.9,
+      "self_discipline": -0.6,
+      "responsibility": -0.4
+    },
+    "q10": {
+      "cognitive_flexibility": -0.6,
+      "learning_ability": -0.4
+    },
+    "q28": {
+      "working_memory": -0.6
+    },
+    "q12": {
+      "straightforwardness": null,
+      "feeling": null,
+      "extraversion": null
+    },
+    "q13": {
+      "perfectionism": null
+    },
+    "q33": {
+      "perfectionism": null
+    },
+    "q1": {
+      "feeling": null,
+      "extraversion": 1
+    },
+    "q11": {
+      "feeling": null,
+      "extraversion": 1
+    },
+    "q21": {
+      "feeling": null,
+      "extraversion": 1
+    },
+    "q31": {
+      "feeling": null,
+      "extraversion": 1
+    },
+    "q41": {
+      "extraversion": 1
+    },
+    "q6": {
+      "extraversion": -1,
+      "expressiveness": -0.8,
+      "social_confidence": -0.6,
+      "warmth": -0.5
+    },
+    "q16": {
+      "extraversion": -1
+    },
+    "q26": {
+      "extraversion": -1
+    },
+    "q36": {
+      "extraversion": -1
+    },
+    "q46": {
+      "feeling": null,
+      "extraversion": -1
+    },
+    "q3": {
+      "extraversion": null
+    },
+    "q7": {
+      "feeling": null,
+      "extraversion": null
+    },
+    "q22": {
+      "feeling": null,
+      "extraversion": null
+    },
+    "q32": {
+      "feeling": null,
+      "extraversion": null
+    },
+    "q42": {
+      "feeling": null,
+      "extraversion": null
+    },
+    "q47": {
+      "feeling": null,
+      "extraversion": null
+    },
+    "q17": {
+      "feeling": null
+    },
+    "q27": {
+      "feeling": null
+    },
+    "q37": {
+      "feeling": null
+    },
+    "q4": {
+      "feeling": null
+    },
+    "q9": {
+      "feeling": null
+    },
+    "q14": {
+      "feeling": null
+    },
+    "q19": {
+      "feeling": null
+    },
+    "q24": {
+      "feeling": null
+    },
+    "q29": {
+      "feeling": null
+    },
+    "q34": {
+      "feeling": null
+    },
+    "q39": {
+      "feeling": null
+    },
+    "q44": {
+      "feeling": null
+    },
+    "q49": {
+      "feeling": null
+    }
   }
 }

@@ -1874,8 +1874,7 @@
       "expressiveness": 1,
       "vulnerability_sharing": 0.9,
       "affection_expression": 0.8,
-      "social_confidence": 0.6,
-      "extraversion": 0.5
+      "social_confidence": 0.6
     },
     "q2": {
       "emotional_intimacy": 1.2,
@@ -1896,7 +1895,6 @@
       "emotional_openness": 1.2,
       "novelty_seeking": 0.8,
       "spontaneity": 0.5,
-      "extraversion": 0.4,
       "sensation_seeking": 0.6
     },
     "q5": {
@@ -1911,8 +1909,7 @@
       "communication_quality": -1,
       "vulnerability_sharing": -0.9,
       "avoidant_coping": 0.8,
-      "avoidant_attachment": 0.7,
-      "introversion": 0.5
+      "avoidant_attachment": 0.7
     },
     "q7": {
       "emotional_resilience": 1.2,
@@ -1964,7 +1961,6 @@
     "q14": {
       "sensation_seeking": 0.5,
       "impulsiveness": 0.4,
-      "feeling": 0.3,
       "openness": 0.6
     },
     "q15": {
