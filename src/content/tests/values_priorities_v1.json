@@ -2161,13 +2161,13 @@
     "q1": {
       "security_value": 1,
       "prudence": 0.8,
-      "risk_taking": -0.9,
       "spontaneity": -0.6,
       "novelty_seeking": -0.7,
       "conscientiousness": 0.7,
       "deliberation": 0.8,
       "responsibility": 0.7,
-      "judging": 0.7
+      "judging": 0.7,
+      "sensation_seeking": -0.9
     },
     "q2": {
       "security_value": 1,
@@ -2179,13 +2179,13 @@
     },
     "q3": {
       "security_value": -1,
-      "risk_taking": 0.9,
       "novelty_seeking": 0.8,
       "spontaneity": 0.7,
       "impulsiveness": 0.6,
       "prudence": -0.8,
       "deliberation": -0.7,
-      "perceiving": 0.7
+      "perceiving": 0.7,
+      "sensation_seeking": 0.9
     },
     "q4": {
       "security_value": -1,
@@ -2201,7 +2201,6 @@
       "autonomy_wellbeing": 0.8,
       "assertiveness": 0.7,
       "compliance": -0.7,
-      "conformity": -0.8,
       "perceiving": 0.8
     },
     "q6": {
@@ -2215,7 +2214,6 @@
     "q7": {
       "autonomy_need": -1,
       "compliance": 0.8,
-      "conformity": 0.8,
       "assertiveness": -0.8
     },
     "q8": {
@@ -2225,28 +2223,20 @@
       "vitality": -0.6
     },
     "q9": {
-      "achievement_striving": 1,
       "achievement_motivation": 1,
-      "achievement_value": 0.9,
       "competence": 0.8,
-      "ambition": 0.9,
       "intuition": 0.6
     },
     "q10": {
-      "achievement_striving": 1,
       "achievement_motivation": 0.9,
       "persistence": 0.9,
-      "self_discipline": 0.8,
-      "diligence": 0.8
+      "self_discipline": 0.8
     },
     "q11": {
-      "achievement_striving": -1,
       "achievement_motivation": -1,
-      "ambition": -0.9,
       "life_satisfaction": 0.6
     },
     "q12": {
-      "achievement_striving": -1,
       "persistence": -0.9,
       "self_discipline": -0.8,
       "achievement_motivation": -0.9,
@@ -2255,36 +2245,28 @@
     },
     "q13": {
       "creativity": 1,
-      "artistic_appreciation": 0.9,
       "openness": 0.9,
-      "fantasy": 0.9,
-      "aesthetics": 0.8,
       "intuition": 0.9
     },
     "q14": {
       "creativity": 1,
-      "artistic_appreciation": 0.9,
       "openness": 0.8,
-      "fantasy": 0.8,
       "expressiveness": 0.9,
       "intuition": 0.8
     },
     "q15": {
       "creativity": -1,
       "openness": -0.8,
-      "fantasy": -0.8,
-      "conformity": 0.7,
-      "sensing": 0.7
+      "sensing": 0.7,
+      "compliance": 0.7
     },
     "q16": {
       "creativity": -1,
       "expressiveness": -0.9,
-      "artistic_appreciation": -0.8,
       "life_satisfaction": -0.5
     },
     "q17": {
       "emotional_intimacy": 1,
-      "intimacy_comfort": 0.9,
       "relatedness_need": 0.9,
       "warmth": 0.8,
       "trust_in_relationships": 0.8,
@@ -2317,7 +2299,6 @@
       "learning_ability": 0.9,
       "intellectual_curiosity": 0.9,
       "openness": 0.8,
-      "ideas": 0.8,
       "intuition": 0.8
     },
     "q22": {
@@ -2326,15 +2307,14 @@
       "learning_ability": 0.9,
       "intellectual_curiosity": 0.9,
       "self_discipline": 0.7,
-      "diligence": 0.7,
       "intuition": 0.7
     },
     "q23": {
       "personal_growth": -1,
       "growth_mindset": -1,
       "intellectual_curiosity": -0.9,
-      "achievement_striving": -0.8,
-      "life_satisfaction": 0.6
+      "life_satisfaction": 0.6,
+      "achievement_motivation": -0.8
     },
     "q24": {
       "personal_growth": -1,
@@ -2383,32 +2363,25 @@
       "hedonism": -0.9,
       "work_life_balance": -1,
       "self_care": -0.9,
-      "burnout": 0.7,
       "type_a_behavior": 0.8
     },
     "q33": {
       "altruism": 1,
-      "benevolence": 1,
-      "compassion": 0.9,
-      "universalism": 0.8,
       "empathy": 0.8,
       "feeling": 0.9
     },
     "q34": {
       "altruism": 1,
-      "benevolence": 0.9,
-      "compassion": 0.8,
       "support_giving": 0.8,
-      "feeling": 0.8
+      "feeling": 0.8,
+      "empathy": 0.8
     },
     "q35": {
       "altruism": -1,
-      "benevolence": -1,
       "self_direction": 0.7
     },
     "q36": {
       "altruism": -1,
-      "universalism": -0.8,
       "self_direction": 0.7
     },
     "q37": {
@@ -2429,13 +2402,12 @@
       "work_life_balance": -1,
       "self_care": -0.9,
       "type_a_behavior": 0.8,
-      "achievement_striving": 0.6
+      "achievement_motivation": 0.6
     },
     "q40": {
       "health_consciousness": -1,
       "work_life_balance": -1,
       "self_care": -1,
-      "burnout": 1,
       "stress_tolerance": -0.9,
       "vitality": -0.9
     }

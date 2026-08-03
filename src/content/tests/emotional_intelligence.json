@@ -3696,22 +3696,19 @@
       "intellectual_curiosity": 0.6
     },
     "q21": {
-      "composure": 1,
-      "calmness": 1,
       "stress_tolerance": 1,
       "mood_stability": 0.9,
       "self_discipline": 0.9
     },
     "q22": {
       "self_discipline": -1,
-      "composure": -0.9,
       "impulsiveness": 0.8,
-      "mood_stability": -0.8
+      "mood_stability": -0.8,
+      "stress_tolerance": -0.9
     },
     "q23": {
       "emotional_resilience": 1,
       "optimism": 0.8,
-      "frustration_tolerance": 0.9,
       "adaptability_leadership": 0.7
     },
     "q24": {
@@ -3723,9 +3720,9 @@
     "q25": {
       "self_discipline": -1,
       "mood_stability": -1,
-      "composure": -0.9,
       "impulsiveness": 0.9,
-      "emotional_reactivity": 0.8
+      "emotional_reactivity": 0.8,
+      "stress_tolerance": -0.9
     },
     "q26": {
       "stress_tolerance": 1,
@@ -3736,14 +3733,14 @@
     "q27": {
       "optimism": 1,
       "emotional_resilience": 1,
-      "calmness": 0.8
+      "stress_tolerance": 0.8
     },
     "q28": {
       "impulsiveness": 1,
       "self_discipline": -1,
       "deliberation": -0.9,
-      "composure": -0.8,
-      "mood_stability": -0.7
+      "mood_stability": -0.7,
+      "stress_tolerance": -0.8
     },
     "q29": {
       "cognitive_flexibility": 1,
@@ -3753,10 +3750,10 @@
       "adaptability_leadership": 0.8
     },
     "q30": {
-      "composure": 1,
       "self_discipline": 1,
       "conflict_management": 0.9,
-      "mood_stability": 0.9
+      "mood_stability": 0.9,
+      "stress_tolerance": 1
     },
     "q31": {
       "creativity": 0.9,
@@ -3764,9 +3761,9 @@
     },
     "q32": {
       "mood_stability": -0.9,
-      "composure": -0.7,
       "self_discipline": -0.7,
-      "deliberation": -0.6
+      "deliberation": -0.6,
+      "stress_tolerance": -0.7
     },
     "q33": {
       "optimism": 0.9,
@@ -3774,8 +3771,7 @@
       "positive_emotions": 0.7
     },
     "q34": {
-      "self_awareness": 0.9,
-      "strategic_thinking": 0.7
+      "self_awareness": 0.9
     },
     "q35": {
       "mood_stability": -0.9,
@@ -3807,8 +3803,6 @@
     },
     "q41": {
       "empathy": 1,
-      "compassion": 1,
-      "tender_mindedness": 0.9,
       "altruism": 0.8
     },
     "q42": {
@@ -3816,23 +3810,17 @@
       "social_perception": -0.7
     },
     "q43": {
-      "empathy": 1,
-      "compassion": 1,
-      "tender_mindedness": 1
+      "empathy": 1
     },
     "q44": {
       "empathy": 1
     },
     "q45": {
       "empathy": -1,
-      "compassion": -1,
-      "altruism": -0.9,
-      "tender_mindedness": -0.9
+      "altruism": -0.9
     },
     "q46": {
       "empathy": 0.9,
-      "compassion": 0.9,
-      "active_listening": 1,
       "support_giving": 1
     },
     "q47": {
@@ -3841,8 +3829,7 @@
       "support_giving": 0.8
     },
     "q48": {
-      "empathy": -1,
-      "compassion": -0.8
+      "empathy": -1
     },
     "q49": {
       "empathy": 1,
@@ -3856,53 +3843,46 @@
     },
     "q51": {
       "warmth": 0.9,
-      "gregariousness": 0.8,
-      "adaptability_leadership": 0.8
+      "adaptability_leadership": 0.8,
+      "extraversion": 0.8
     },
     "q52": {
       "conflict_management": -1,
       "assertiveness": -0.6,
-      "negotiation": -0.9,
       "dominance": -0.6
     },
     "q53": {
       "dominance": 1,
-      "persuasion": 1,
-      "assertiveness": 0.8,
-      "inspirational_motivation": 1
+      "assertiveness": 0.8
     },
     "q54": {
-      "team_building": 1,
       "cooperativeness": 1,
       "adaptability_leadership": 0.7,
       "trust": 0.7
     },
     "q55": {
-      "persuasion": -1,
       "assertiveness": -0.9,
       "dominance": -0.8
     },
     "q56": {
       "conflict_management": 1,
-      "negotiation": 1,
       "cooperativeness": 0.9
     },
     "q57": {
       "positive_emotions": 0.9,
       "warmth": 0.9,
-      "gregariousness": 0.7
+      "extraversion": 0.7
     },
     "q58": {
       "commitment": -0.9,
       "trust": -0.8,
-      "emotional_intimacy": -0.8,
-      "loyalty": -0.9
+      "emotional_intimacy": -0.8
     },
     "q59": {
       "assertiveness": 0.8,
-      "negotiation": 0.9,
       "straightforwardness": 0.7,
-      "support_giving": 0.7
+      "support_giving": 0.7,
+      "conflict_management": 0.9
     },
     "q60": {
       "adaptability_leadership": 1,
@@ -3917,25 +3897,20 @@
     "q62": {
       "achievement_motivation": -1,
       "self_discipline": -1,
-      "persistence": -0.9,
-      "achievement_striving": -1,
-      "dutifulness": -0.7
+      "persistence": -0.9
     },
     "q63": {
       "emotional_resilience": 1
     },
     "q64": {
-      "achievement_striving": 1,
       "perfectionism": 0.8,
       "competence": 0.9,
-      "achievement_motivation": 0.9,
-      "ambition": 0.8
+      "achievement_motivation": 0.9
     },
     "q65": {
       "persistence": -1,
       "self_discipline": -0.9,
-      "dutifulness": -0.8,
-      "achievement_striving": -0.9
+      "achievement_motivation": -0.9
     },
     "q66": {
       "activity": 0.8,
@@ -3944,13 +3919,11 @@
     "q67": {
       "persistence": 1,
       "achievement_motivation": 1,
-      "achievement_striving": 1,
       "self_discipline": 0.9
     },
     "q68": {
       "emotional_resilience": -1,
       "optimism": -0.8,
-      "frustration_tolerance": -0.9,
       "vulnerability": 0.8
     },
     "q69": {

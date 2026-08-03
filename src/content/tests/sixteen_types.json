@@ -4198,13 +4198,13 @@
       "sensing": 1
     },
     "q22": {
-      "intuition": 1
+      "sensing": 1
     },
     "q23": {
       "sensing": 1
     },
     "q24": {
-      "intuition": 1
+      "sensing": 1
     },
     "q25": {
       "sensing": 1
@@ -4213,16 +4213,16 @@
       "intuition": 1
     },
     "q27": {
-      "sensing": 1
+      "intuition": 1
     },
     "q28": {
       "intuition": 1
     },
     "q29": {
-      "sensing": 1
+      "intuition": 1
     },
     "q30": {
-      "intuition": 1
+      "sensing": 1
     },
     "q31": {
       "sensing": 1
@@ -4231,10 +4231,10 @@
       "intuition": 1
     },
     "q33": {
-      "sensing": 1
+      "intuition": 1
     },
     "q34": {
-      "intuition": 1
+      "sensing": 1
     },
     "q35": {
       "sensing": 1
@@ -4243,22 +4243,22 @@
       "intuition": 1
     },
     "q37": {
-      "sensing": 1
+      "intuition": 1
     },
     "q38": {
       "sensing": 1
     },
     "q39": {
-      "sensing": 1
+      "intuition": 1
     },
     "q40": {
-      "intuition": 1
+      "sensing": 1
     },
     "q41": {
       "thinking": 1
     },
     "q42": {
-      "feeling": 1
+      "thinking": 1
     },
     "q43": {
       "thinking": 1
@@ -4267,7 +4267,7 @@
       "feeling": 1
     },
     "q45": {
-      "thinking": 1
+      "feeling": 1
     },
     "q46": {
       "feeling": 1
@@ -4309,31 +4309,31 @@
       "feeling": 1
     },
     "q59": {
-      "thinking": 1
+      "feeling": 1
     },
     "q60": {
-      "feeling": 1
+      "thinking": 1
     },
     "q61": {
       "judging": 1
     },
     "q62": {
-      "perceiving": 1
+      "judging": 1
     },
     "q63": {
       "judging": 1
     },
     "q64": {
-      "perceiving": 1
+      "judging": 1
     },
     "q65": {
-      "judging": 1
+      "perceiving": 1
     },
     "q66": {
       "perceiving": 1
     },
     "q67": {
-      "judging": 1
+      "perceiving": 1
     },
     "q68": {
       "perceiving": 1

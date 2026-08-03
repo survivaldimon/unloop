@@ -1675,20 +1675,20 @@
       "self_esteem": 0.9,
       "competence": 0.8,
       "environmental_mastery": 0.7,
-      "resilience_meta": 0.6,
       "growth_mindset": 0.5,
-      "sensing": 0.3
+      "sensing": 0.3,
+      "emotional_resilience": 0.6
     },
     "q5": {
       "self_efficacy": 1,
       "problem_solving": 0.8,
       "competence": 0.7,
-      "resilience_meta": 0.7,
       "cognitive_flexibility": 0.6,
       "stress_tolerance": 0.5,
       "positive_emotions": 0.6,
       "intuition": 0.4,
-      "perceiving": 0.3
+      "perceiving": 0.3,
+      "emotional_resilience": 0.7
     },
     "q9": {
       "self_efficacy": 0.9,
@@ -1697,7 +1697,6 @@
       "self_direction": 0.7,
       "identity_clarity": 0.6,
       "authenticity": 0.6,
-      "confidence_building": 0.7,
       "thinking": 0.4
     },
     "q13": {
@@ -1706,16 +1705,12 @@
       "self_discipline": 0.8,
       "persistence": 0.8,
       "commitment": 0.7,
-      "dutifulness": 0.6,
-      "accountability": 0.7,
       "judging": 0.5
     },
     "q17": {
       "self_efficacy": 0.9,
       "stress_tolerance": 0.8,
       "decisiveness": 0.8,
-      "composure": 0.7,
-      "calmness": 0.6,
       "emotional_resilience": 0.7,
       "adaptability_leadership": 0.6,
       "thinking": 0.4,
@@ -1725,7 +1720,6 @@
       "self_efficacy": 0.9,
       "achievement_motivation": 0.8,
       "meaning_purpose": 0.7,
-      "ambition": 0.7,
       "persistence": 0.6,
       "growth_mindset": 0.7,
       "life_satisfaction": 0.5,
@@ -1735,13 +1729,12 @@
     "q25": {
       "self_efficacy": 1,
       "autonomy_need": 0.8,
-      "resilience_meta": 0.8,
       "environmental_mastery": 0.7,
-      "problem_focused_coping": 0.6,
       "self_direction": 0.6,
       "competence": 0.7,
       "introversion": 0.3,
-      "sensing": 0.3
+      "sensing": 0.3,
+      "emotional_resilience": 0.8
     },
     "q29": {
       "self_efficacy": 1,
@@ -1759,7 +1752,6 @@
       "social_boldness": 0.9,
       "social_confidence": 0.8,
       "warmth": 0.6,
-      "gregariousness": 0.7,
       "extraversion": 0.7
     },
     "q6": {
@@ -1775,10 +1767,10 @@
     "q10": {
       "social_confidence": -1,
       "social_boldness": -0.8,
-      "gregariousness": -0.7,
       "self_consciousness": 0.8,
       "anxiety": 0.6,
-      "introversion": 0.7
+      "introversion": 0.7,
+      "extraversion": -0.7
     },
     "q14": {
       "assertiveness": 0.7,
@@ -1806,9 +1798,9 @@
       "self_direction": 0.8,
       "authenticity": 0.7,
       "social_confidence": 0.7,
-      "conformity": -0.6,
       "extraversion": 0.6,
-      "thinking": 0.5
+      "thinking": 0.5,
+      "compliance": -0.6
     },
     "q26": {
       "social_boldness": 1,
@@ -1833,7 +1825,6 @@
       "self_compassion": 0.9,
       "self_esteem": 0.8,
       "emotional_resilience": 0.6,
-      "acceptance": 0.7,
       "identity_clarity": 0.5,
       "feeling": 0.5,
       "perceiving": 0.3
@@ -1844,7 +1835,6 @@
       "rumination": 0.8,
       "self_esteem": -0.7,
       "perfectionism": 0.6,
-      "neuroticism": 0.5,
       "judging": 0.4,
       "introversion": 0.3
     },
@@ -1861,7 +1851,6 @@
       "self_acceptance": 1,
       "self_compassion": 0.9,
       "perfectionism": -0.7,
-      "acceptance": 0.7,
       "growth_mindset": 0.6,
       "emotional_resilience": 0.5,
       "perceiving": 0.5,
@@ -1890,10 +1879,10 @@
       "self_compassion": 1,
       "self_acceptance": 0.9,
       "self_esteem": 0.7,
-      "tender_mindedness": 0.5,
       "emotional_resilience": 0.5,
       "life_satisfaction": 0.5,
-      "feeling": 0.6
+      "feeling": 0.6,
+      "empathy": 0.5
     },
     "q31": {
       "self_acceptance": 0.9,
@@ -1901,8 +1890,8 @@
       "emotional_resilience": 0.8,
       "self_compassion": 0.7,
       "identity_clarity": 0.6,
-      "composure": 0.5,
-      "thinking": 0.4
+      "thinking": 0.4,
+      "stress_tolerance": 0.5
     },
     "q4": {
       "decisiveness": 0.9,
@@ -1914,7 +1903,6 @@
       "extraversion": 0.4
     },
     "q8": {
-      "resilience_meta": -0.9,
       "persistence": -0.8,
       "emotional_resilience": -0.7,
       "harm_avoidance": 0.6,
@@ -1924,32 +1912,31 @@
     },
     "q12": {
       "persistence": 1,
-      "resilience_meta": 0.9,
       "self_efficacy": 0.7,
-      "achievement_striving": 0.7,
       "growth_mindset": 0.6,
-      "drive_for_excellence": 0.6,
-      "judging": 0.5
+      "judging": 0.5,
+      "emotional_resilience": 0.9,
+      "achievement_motivation": 0.7
     },
     "q16": {
       "self_efficacy": -0.9,
-      "risk_taking": -0.7,
       "novelty_seeking": -0.6,
       "harm_avoidance": 0.7,
       "avoidant_coping": 0.6,
       "anxiety": 0.6,
       "sensing": 0.4,
-      "judging": 0.3
+      "judging": 0.3,
+      "sensation_seeking": -0.7
     },
     "q20": {
       "growth_mindset": 1,
-      "resilience_meta": 0.8,
       "cognitive_reappraisal": 0.8,
       "learning_ability": 0.6,
-      "acceptance": 0.6,
       "positive_emotions": 0.5,
       "intuition": 0.5,
-      "perceiving": 0.5
+      "perceiving": 0.5,
+      "emotional_resilience": 0.8,
+      "self_acceptance": 0.6
     },
     "q24": {
       "social_boldness": -0.8,
@@ -1961,24 +1948,22 @@
       "introversion": 0.6
     },
     "q28": {
-      "resilience_meta": -0.9,
       "emotional_resilience": -0.8,
       "rumination": 0.9,
       "stress_tolerance": -0.6,
-      "acceptance": -0.6,
-      "neuroticism": 0.6,
       "introversion": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "self_acceptance": -0.6
     },
     "q32": {
       "cognitive_flexibility": 1,
       "problem_solving": 0.9,
-      "resilience_meta": 0.8,
       "adaptability_leadership": 0.7,
       "divergent_thinking": 0.6,
       "self_efficacy": 0.7,
       "intuition": 0.6,
-      "perceiving": 0.6
+      "perceiving": 0.6,
+      "emotional_resilience": 0.8
     }
   },
   "profiles": {

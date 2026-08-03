@@ -1270,9 +1270,7 @@
       "self_esteem": -0.7,
       "fear_of_abandonment": 0.8,
       "compliance": 0.7,
-      "stress_tolerance": -0.6,
-      "feeling": 0.5,
-      "perceiving": 0.3
+      "stress_tolerance": -0.6
     },
     "q5": {
       "boundary_setting": -1,
@@ -1281,9 +1279,7 @@
       "assertiveness": -0.8,
       "self_esteem": -0.7,
       "compliance": 0.8,
-      "altruism": 0.6,
-      "feeling": 0.6,
-      "extraversion": 0.5
+      "altruism": 0.6
     },
     "q9": {
       "boundary_setting": -1,
@@ -1292,9 +1288,7 @@
       "vulnerability_sharing": -0.6,
       "self_consciousness": 0.7,
       "anxiety": 0.6,
-      "fear_of_abandonment": 0.7,
-      "feeling": 0.5,
-      "introversion": 0.3
+      "fear_of_abandonment": 0.7
     },
     "q13": {
       "boundary_setting": 1,
@@ -1303,10 +1297,7 @@
       "autonomy_need": 0.8,
       "self_esteem": 0.7,
       "emotional_openness": 0.7,
-      "authenticity": 0.7,
-      "thinking": 0.6,
-      "judging": 0.5,
-      "introversion": 0.5
+      "authenticity": 0.7
     },
     "q17": {
       "boundary_setting": -1,
@@ -1315,9 +1306,7 @@
       "anxiety": 0.8,
       "self_consciousness": 0.7,
       "fear_of_abandonment": 0.7,
-      "compliance": 0.7,
-      "feeling": 0.6,
-      "extraversion": 0.5
+      "compliance": 0.7
     },
     "q21": {
       "boundary_setting": 1,
@@ -1325,10 +1314,7 @@
       "self_esteem": 0.8,
       "self_efficacy": 0.8,
       "social_perception": 0.7,
-      "self_awareness": 0.7,
-      "thinking": 0.7,
-      "judging": 0.6,
-      "sensing": 0.5
+      "self_awareness": 0.7
     },
     "q2": {
       "social_perception": -1,
@@ -1337,9 +1323,7 @@
       "self_esteem": -0.8,
       "boundary_setting": -0.7,
       "self_consciousness": 0.7,
-      "anxious_attachment": 0.6,
-      "feeling": 0.6,
-      "introversion": 0.4
+      "anxious_attachment": 0.6
     },
     "q6": {
       "social_perception": -0.9,
@@ -1347,20 +1331,14 @@
       "critical_thinking": -0.8,
       "novelty_seeking": 0.7,
       "impulsiveness": 0.6,
-      "harm_avoidance": -0.8,
-      "intuition": 0.5,
-      "perceiving": 0.4
+      "harm_avoidance": -0.8
     },
     "q10": {
       "social_perception": 1,
       "self_awareness": 0.9,
       "critical_thinking": 0.8,
       "self_esteem": 0.7,
-      "boundary_setting": 0.7,
-      "analytical_thinking": 0.6,
-      "sensing": 0.6,
-      "thinking": 0.5,
-      "judging": 0.5
+      "boundary_setting": 0.7
     },
     "q14": {
       "social_perception": -1,
@@ -1369,9 +1347,7 @@
       "boundary_setting": -0.8,
       "anxious_attachment": 0.8,
       "fear_of_abandonment": 0.7,
-      "self_esteem": -0.7,
-      "feeling": 0.7,
-      "intuition": 0.4
+      "self_esteem": -0.7
     },
     "q18": {
       "social_perception": -1,
@@ -1379,9 +1355,7 @@
       "self_awareness": -0.8,
       "trust": 0.6,
       "anxiety": 0.6,
-      "harm_avoidance": -0.7,
-      "feeling": 0.5,
-      "intuition": 0.4
+      "harm_avoidance": -0.7
     },
     "q22": {
       "social_perception": 1,
@@ -1389,10 +1363,7 @@
       "attention_control": 0.8,
       "emotional_intelligence": 0.8,
       "empathy": 0.7,
-      "social_confidence": 0.6,
-      "sensing": 0.7,
-      "feeling": 0.6,
-      "extraversion": 0.4
+      "social_confidence": 0.6
     },
     "q3": {
       "boundary_setting": -1,
@@ -1401,9 +1372,7 @@
       "self_efficacy": -0.8,
       "compliance": 0.8,
       "fear_of_abandonment": 0.8,
-      "avoidant_coping": 0.7,
-      "feeling": 0.7,
-      "perceiving": 0.4
+      "avoidant_coping": 0.7
     },
     "q7": {
       "boundary_setting": -1,
@@ -1412,20 +1381,16 @@
       "self_compassion": -0.8,
       "compliance": 0.7,
       "fear_of_abandonment": 0.8,
-      "social_perception": -0.7,
-      "feeling": 0.6,
-      "perceiving": 0.3
+      "social_perception": -0.7
     },
     "q11": {
       "boundary_setting": -0.9,
       "assertiveness": -0.9,
       "self_esteem": -0.8,
-      "conflict_resolution": 0.6,
       "compliance": 0.9,
       "fear_of_abandonment": 0.8,
       "altruism": 0.5,
-      "feeling": 0.7,
-      "extraversion": 0.4
+      "conflict_management": 0.6
     },
     "q15": {
       "boundary_setting": -1,
@@ -1434,9 +1399,7 @@
       "self_compassion": -0.8,
       "social_perception": -0.8,
       "fear_of_abandonment": 0.9,
-      "compliance": 0.8,
-      "feeling": 0.6,
-      "perceiving": 0.3
+      "compliance": 0.8
     },
     "q19": {
       "boundary_setting": 1,
@@ -1445,10 +1408,7 @@
       "self_compassion": 0.8,
       "self_efficacy": 0.8,
       "social_perception": 0.7,
-      "critical_thinking": 0.7,
-      "thinking": 0.7,
-      "judging": 0.6,
-      "sensing": 0.4
+      "critical_thinking": 0.7
     },
     "q23": {
       "boundary_setting": -1,
@@ -1457,65 +1417,45 @@
       "fear_of_abandonment": 1,
       "self_compassion": -0.9,
       "anxious_attachment": 0.9,
-      "compliance": 0.8,
-      "feeling": 0.8,
-      "extraversion": 0.7
+      "compliance": 0.8
     },
     "q4": {
       "sensation_seeking": 0.9,
       "novelty_seeking": 0.8,
-      "excitement_seeking": 0.9,
       "emotional_reactivity": 0.7,
       "impulsiveness": 0.7,
       "harm_avoidance": -0.8,
-      "calmness": -0.7,
-      "intuition": 0.5,
-      "perceiving": 0.6,
-      "extraversion": 0.4
+      "stress_tolerance": -0.7
     },
     "q8": {
       "sensation_seeking": 0.8,
       "emotional_reactivity": 0.9,
       "conflict_management": -0.8,
-      "emotion_focused_coping": 0.7,
       "impulsiveness": 0.7,
-      "mood_stability": -0.8,
-      "extraversion": 0.5,
-      "perceiving": 0.5,
-      "feeling": 0.4
+      "mood_stability": -0.8
     },
     "q12": {
       "sensation_seeking": 1,
-      "excitement_seeking": 0.9,
       "emotional_reactivity": 0.9,
       "novelty_seeking": 0.8,
       "impulsiveness": 0.7,
       "mood_stability": -0.8,
-      "calmness": -0.8,
-      "perceiving": 0.7,
-      "extraversion": 0.6,
-      "intuition": 0.4
+      "stress_tolerance": -0.8
     },
     "q16": {
-      "calmness": 1,
       "mood_stability": 0.9,
       "emotional_resilience": 0.8,
       "conflict_management": 0.8,
       "sensation_seeking": -0.9,
       "harm_avoidance": 0.7,
-      "sensing": 0.6,
-      "judging": 0.7,
-      "thinking": 0.4
+      "stress_tolerance": 1
     },
     "q20": {
       "sensation_seeking": 0.9,
-      "excitement_seeking": 0.8,
       "novelty_seeking": 0.7,
       "emotional_reactivity": 0.7,
       "empathy": -0.6,
-      "intellectual_curiosity": -0.6,
-      "extraversion": 0.7,
-      "perceiving": 0.5
+      "intellectual_curiosity": -0.6
     },
     "q24": {
       "sensation_seeking": 0.8,
@@ -1523,10 +1463,7 @@
       "emotional_reactivity": 0.8,
       "harm_avoidance": -0.9,
       "social_perception": -0.7,
-      "altruism": 0.6,
-      "intuition": 0.7,
-      "perceiving": 0.6,
-      "feeling": 0.5
+      "altruism": 0.6
     }
   },
   "profiles": {

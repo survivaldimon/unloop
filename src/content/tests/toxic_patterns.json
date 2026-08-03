@@ -2510,31 +2510,30 @@
     },
     "q3": {
       "anger": -0.8,
-      "dependability": -0.8,
       "assertiveness": -0.75,
-      "avoidant_coping": 0.7
+      "avoidant_coping": 0.7,
+      "responsibility": -0.8
     },
     "q4": {
-      "verbal_communication": -0.85,
       "emotional_openness": -0.8,
-      "manipulation": 0.6
+      "manipulation": 0.6,
+      "communication_quality": -0.85
     },
     "q5": {
-      "dependability": -0.9,
       "anger": -0.8,
       "assertiveness": -0.8,
-      "manipulation": 0.85
+      "manipulation": 0.85,
+      "responsibility": -0.9
     },
     "q6": {
-      "verbal_communication": -0.85,
       "emotional_openness": -0.8,
       "assertiveness": -0.75,
-      "dominance": 0.6
+      "dominance": 0.6,
+      "communication_quality": -0.85
     },
     "q7": {
       "anger": -0.8,
       "emotional_openness": -0.75,
-      "nonverbal_communication": 0.7,
       "assertiveness": -0.7
     },
     "q8": {
@@ -2545,14 +2544,14 @@
     },
     "q9": {
       "avoidant_coping": 0.9,
-      "verbal_communication": -0.8,
-      "dominance": 0.7
+      "dominance": 0.7,
+      "communication_quality": -0.8
     },
     "q10": {
       "avoidant_coping": 0.9,
-      "conflict_resolution": -0.85,
-      "verbal_communication": -0.8,
-      "dominance": 0.7
+      "dominance": 0.7,
+      "conflict_management": -0.85,
+      "communication_quality": -0.8
     },
     "q11": {
       "avoidant_coping": 0.85,
@@ -2563,8 +2562,8 @@
     "q12": {
       "avoidant_coping": 0.9,
       "dominance": 0.85,
-      "conflict_resolution": -0.8,
-      "compliance": -0.7
+      "compliance": -0.7,
+      "conflict_management": -0.8
     },
     "q13": {
       "avoidant_coping": 0.95,
@@ -2574,9 +2573,9 @@
     },
     "q14": {
       "avoidant_coping": 0.85,
-      "conflict_resolution": -0.9,
-      "verbal_communication": -0.85,
-      "dominance": 0.75
+      "dominance": 0.75,
+      "conflict_management": -0.9,
+      "communication_quality": -0.85
     },
     "q15": {
       "dominance": 0.9,
@@ -2624,7 +2623,7 @@
       "manipulation": 0.85,
       "emotional_reactivity": 0.8,
       "impulsiveness": 0.75,
-      "relationship_security": -0.7
+      "secure_attachment": -0.7
     },
     "q23": {
       "catastrophizing": 0.9,
@@ -2701,7 +2700,6 @@
     },
     "q36": {
       "responsibility": -0.95,
-      "accountability": -0.9,
       "self_victimization": 0.8,
       "maturity": -0.75
     },
@@ -2710,7 +2708,6 @@
       "responsibility": -0.85
     },
     "q38": {
-      "entitlement": 0.9,
       "self_victimization": 0.85,
       "self_efficacy": -0.8,
       "manipulation": 0.7
@@ -2723,8 +2720,7 @@
     },
     "q40": {
       "manipulation": 0.95,
-      "self_victimization": 0.8,
-      "entitlement": 0.75
+      "self_victimization": 0.8
     },
     "q41": {
       "manipulation": 0.95,

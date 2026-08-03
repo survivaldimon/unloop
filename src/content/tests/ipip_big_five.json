@@ -2594,11 +2594,9 @@
   ],
   "weights": {
     "q1": {
-      "gregariousness": 1,
       "warmth": 0.8,
       "positive_emotions": 0.8,
       "social_confidence": 0.7,
-      "liveliness": 0.7,
       "social_boldness": 0.6,
       "expressiveness": 0.5,
       "intrinsic_motivation": 0.4,
@@ -2607,8 +2605,6 @@
     },
     "q2": {
       "empathy": 1,
-      "compassion": 0.9,
-      "tender_mindedness": 0.8,
       "emotional_intelligence": 0.6,
       "trust": 0.5,
       "altruism": 0.5,
@@ -2621,7 +2617,6 @@
       "organization": 1,
       "responsibility": 0.8,
       "self_discipline": 0.7,
-      "achievement_striving": 0.6,
       "deliberation": 0.6,
       "competence": 0.5,
       "achievement_motivation": 0.4,
@@ -2632,27 +2627,21 @@
       "stress_tolerance": -1,
       "anxiety": 0.9,
       "emotional_resilience": -0.8,
-      "calmness": -0.8,
       "emotional_reactivity": 0.7,
       "vulnerability": 0.6,
-      "composure": 0.5,
       "feeling": 0.4
     },
     "q5": {
-      "verbal_intelligence": 1,
       "intellectual_curiosity": 0.7,
       "learning_ability": 0.6,
-      "ideas": 0.5,
-      "verbal_communication": 0.4,
       "self_discipline": 0.3,
-      "intuition": 0.3
+      "intuition": 0.3,
+      "communication_quality": 0.4
     },
     "q6": {
-      "gregariousness": -0.9,
       "expressiveness": 0.8,
       "social_confidence": 0.6,
       "warmth": 0.5,
-      "liveliness": 0.4,
       "self_consciousness": 0.3,
       "extraversion": 0.4,
       "introversion": 0.4
@@ -2661,11 +2650,11 @@
       "empathy": 0.9,
       "social_perception": 0.8,
       "emotional_intelligence": 0.7,
-      "curiosity": 0.6,
       "warmth": 0.5,
       "trust": 0.4,
       "extraversion": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "intellectual_curiosity": 0.6
     },
     "q8": {
       "order": -1,
@@ -2676,19 +2665,15 @@
       "perceiving": 0.3
     },
     "q9": {
-      "calmness": 1,
       "stress_tolerance": 0.9,
       "emotional_resilience": 0.8,
-      "composure": 0.7,
       "anxiety": -0.6,
       "mood_stability": 0.5,
       "feeling": 0.4
     },
     "q10": {
-      "abstract_reasoning": -1,
       "intellectual_curiosity": -0.7,
       "cognitive_flexibility": 0.6,
-      "ideas": -0.5,
       "learning_ability": 0.4,
       "intuition": 0.4,
       "sensing": 0.4
@@ -2697,7 +2682,6 @@
       "social_confidence": 1,
       "warmth": 0.8,
       "social_boldness": 0.7,
-      "gregariousness": 0.6,
       "self_consciousness": -0.5,
       "positive_emotions": 0.4,
       "extraversion": 0.4,
@@ -2706,7 +2690,6 @@
     "q12": {
       "politeness": -1,
       "empathy": -0.9,
-      "compassion": -0.8,
       "callousness": 0.7,
       "straightforwardness": 0.5,
       "anger": 0.4,
@@ -2718,43 +2701,33 @@
     "q13": {
       "competence": 1,
       "perfectionism": 0.8,
-      "diligence": 0.7,
       "attention_control": 0.7,
-      "dutifulness": 0.5,
       "critical_thinking": 0.4,
-      "sensing": 0.4
+      "sensing": 0.4,
+      "self_discipline": 0.7
     },
     "q14": {
-      "worry_tendency": 1,
       "anxiety": 0.9,
       "rumination": 0.8,
-      "calmness": -0.7,
       "stress_tolerance": -0.6,
       "catastrophizing": 0.5,
       "feeling": 0.4
     },
     "q15": {
-      "fantasy": 1,
-      "originality": 0.8,
       "divergent_thinking": 0.7,
-      "flexibility_creative": 0.7,
-      "feelings": 0.5,
-      "artistic_appreciation": 0.4,
-      "intuition": 0.4
+      "intuition": 0.4,
+      "openness": 1,
+      "creativity": 0.8
     },
     "q16": {
       "dominance": -1,
       "assertiveness": -0.9,
       "social_boldness": -0.8,
-      "gregariousness": -0.6,
-      "liveliness": -0.5,
       "self_consciousness": 0.4,
       "extraversion": 0.4
     },
     "q17": {
       "empathy": 1,
-      "compassion": 0.9,
-      "tender_mindedness": 0.8,
       "emotional_intelligence": 0.7,
       "social_perception": 0.6,
       "warmth": 0.5,
@@ -2778,8 +2751,6 @@
     },
     "q20": {
       "intellectual_curiosity": -1,
-      "ideas": 0.9,
-      "abstract_reasoning": -0.7,
       "cognitive_flexibility": -0.5,
       "learning_ability": -0.4,
       "intuition": 0.4,
@@ -2788,17 +2759,14 @@
     "q21": {
       "assertiveness": 1,
       "social_boldness": 0.9,
-      "gregariousness": 0.8,
       "warmth": 0.6,
       "social_confidence": 0.6,
       "expressiveness": 0.5,
-      "liveliness": 0.4,
       "extraversion": 0.4,
       "feeling": 0.2
     },
     "q22": {
       "empathy": -1,
-      "compassion": -0.9,
       "altruism": -0.8,
       "social_perception": -0.6,
       "callousness": 0.5,
@@ -2809,7 +2777,6 @@
     "q23": {
       "self_discipline": 1,
       "responsibility": 0.8,
-      "dutifulness": 0.7,
       "achievement_motivation": 0.5,
       "deliberation": 0.4
     },
@@ -2817,35 +2784,26 @@
       "emotional_reactivity": 1,
       "vulnerability": 0.9,
       "stress_tolerance": -0.8,
-      "composure": -0.7,
       "emotional_resilience": -0.6,
-      "frustration_tolerance": -0.5,
       "feeling": 0.4
     },
     "q25": {
-      "originality": 1,
       "divergent_thinking": 0.8,
-      "ideas": 0.8,
       "self_efficacy": 0.6,
       "intellectual_curiosity": 0.5,
-      "flexibility_creative": 0.5,
-      "intuition": 0.3
+      "intuition": 0.3,
+      "creativity": 1
     },
     "q26": {
       "expressiveness": -1,
-      "gregariousness": -0.7,
       "warmth": -0.6,
-      "liveliness": -0.5,
       "self_consciousness": 0.4,
       "extraversion": 0.4,
       "introversion": 0.4
     },
     "q27": {
-      "tender_mindedness": 1,
-      "compassion": 0.9,
       "empathy": 0.8,
       "emotional_intelligence": 0.6,
-      "feelings": 0.5,
       "altruism": 0.4,
       "feeling": 0.4
     },
@@ -2860,37 +2818,30 @@
     "q29": {
       "emotional_reactivity": 1,
       "anger": 0.8,
-      "composure": -0.8,
-      "frustration_tolerance": -0.7,
       "emotional_resilience": -0.6,
-      "calmness": -0.6,
       "impulsiveness": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "stress_tolerance": -0.8
     },
     "q30": {
-      "fantasy": -1,
-      "flexibility_creative": -0.8,
       "divergent_thinking": -0.7,
-      "originality": -0.6,
-      "artistic_appreciation": -0.4,
       "intuition": 0.4,
-      "sensing": 0.4
+      "sensing": 0.4,
+      "openness": -1,
+      "creativity": -0.8
     },
     "q31": {
-      "gregariousness": 1,
       "warmth": 0.8,
-      "liveliness": 0.7,
       "social_confidence": 0.6,
-      "curiosity": 0.5,
-      "affiliation_motivation": 0.4,
       "extraversion": 0.4,
-      "feeling": 0.2
+      "feeling": 0.2,
+      "intellectual_curiosity": 0.5,
+      "relatedness_need": 0.4
     },
     "q32": {
       "empathy": -1,
       "social_perception": -0.8,
       "altruism": -0.7,
-      "compassion": -0.6,
       "emotional_intelligence": -0.5,
       "callousness": 0.4,
       "extraversion": 0.4,
@@ -2908,17 +2859,15 @@
       "mood_stability": -1,
       "emotional_reactivity": 0.9,
       "emotional_resilience": -0.7,
-      "composure": -0.6,
       "impulsiveness": 0.5,
       "depression": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "stress_tolerance": -0.6
     },
     "q35": {
       "processing_speed": 1,
       "learning_ability": 0.8,
       "cognitive_flexibility": 0.7,
-      "verbal_intelligence": 0.6,
-      "abstract_reasoning": 0.5,
       "self_efficacy": 0.4
     },
     "q36": {
@@ -2933,35 +2882,31 @@
     "q37": {
       "altruism": 1,
       "support_giving": 0.9,
-      "compassion": 0.7,
       "cooperativeness": 0.6,
       "warmth": 0.5,
       "self_discipline": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "empathy": 0.7
     },
     "q38": {
-      "dutifulness": -1,
       "responsibility": -0.9,
       "self_discipline": -0.8,
-      "achievement_motivation": -0.6,
-      "achievement_striving": -0.5
+      "achievement_motivation": -0.6
     },
     "q39": {
       "mood_stability": -1,
       "emotional_reactivity": 0.9,
       "emotional_resilience": -0.8,
       "impulsiveness": 0.6,
-      "composure": -0.6,
       "depression": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "stress_tolerance": -0.6
     },
     "q40": {
-      "verbal_intelligence": 1,
-      "verbal_communication": 0.7,
       "intellectual_curiosity": 0.5,
-      "ideas": 0.5,
       "self_efficacy": 0.4,
-      "intuition": 0.3
+      "intuition": 0.3,
+      "communication_quality": 0.7
     },
     "q41": {
       "social_boldness": 1,
@@ -2976,9 +2921,6 @@
       "empathy": 1,
       "emotional_intelligence": 0.9,
       "social_perception": 0.8,
-      "compassion": 0.7,
-      "tender_mindedness": 0.6,
-      "feelings": 0.5,
       "extraversion": 0.4,
       "feeling": 0.4
     },
@@ -2986,34 +2928,31 @@
       "organization": 1,
       "self_discipline": 0.8,
       "deliberation": 0.7,
-      "punctuality": 0.7,
       "responsibility": 0.5,
       "order": 0.4,
       "judging": 0.4
     },
     "q44": {
       "anger": 1,
-      "frustration_tolerance": -0.9,
       "emotional_reactivity": 0.8,
-      "composure": -0.7,
       "impulsiveness": 0.5,
       "politeness": -0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "emotional_resilience": -0.9,
+      "stress_tolerance": -0.7
     },
     "q45": {
       "self_awareness": 1,
       "cognitive_reappraisal": 0.7,
       "intellectual_curiosity": 0.6,
-      "feelings": 0.6,
       "critical_thinking": 0.5,
-      "calmness": 0.4,
-      "introversion": 0.3
+      "introversion": 0.3,
+      "stress_tolerance": 0.4
     },
     "q46": {
       "warmth": -1,
       "self_consciousness": 0.9,
       "social_confidence": -0.8,
-      "gregariousness": -0.6,
       "expressiveness": -0.5,
       "social_boldness": -0.4,
       "extraversion": 0.4,
@@ -3022,21 +2961,20 @@
     },
     "q47": {
       "warmth": 1,
-      "charisma": 0.9,
       "emotional_intelligence": 0.8,
       "social_perception": 0.7,
-      "compassion": 0.6,
       "social_confidence": 0.5,
       "extraversion": 0.4,
-      "feeling": 0.4
+      "feeling": 0.4,
+      "empathy": 0.6
     },
     "q48": {
       "perfectionism": 1,
-      "diligence": 0.9,
       "competence": 0.8,
-      "achievement_striving": 0.7,
       "attention_control": 0.6,
-      "responsibility": 0.5
+      "responsibility": 0.5,
+      "self_discipline": 0.9,
+      "achievement_motivation": 0.7
     },
     "q49": {
       "depression": 1,
@@ -3048,13 +2986,10 @@
       "feeling": 0.4
     },
     "q50": {
-      "originality": 1,
       "divergent_thinking": 0.9,
-      "fluency": 0.8,
-      "ideas": 0.7,
       "intellectual_curiosity": 0.6,
-      "flexibility_creative": 0.6,
-      "intuition": 0.3
+      "intuition": 0.3,
+      "creativity": 1
     }
   },
   "profiles": {

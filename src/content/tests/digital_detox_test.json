@@ -2606,13 +2606,10 @@
     "q1": {
       "anxiety": 1,
       "impulsiveness": 0.8,
-      "frustration_tolerance": -0.7,
       "stress_tolerance": -0.6,
       "emotional_reactivity": 0.6,
-      "worry_tendency": 0.5,
       "self_discipline": -0.4,
-      "feeling": 0.3,
-      "judging": 0.2
+      "emotional_resilience": -0.7
     },
     "q8": {
       "impulsiveness": 1,
@@ -2621,40 +2618,31 @@
       "deliberation": -0.6,
       "patience": -0.5,
       "autonomy_need": -0.4,
-      "vitality": 0.3,
-      "perceiving": 0.3
+      "vitality": 0.3
     },
     "q15": {
       "self_discipline": 1,
       "persistence": 0.8,
       "impulsiveness": 0.7,
-      "frustration_tolerance": 0.6,
-      "achievement_striving": 0.6,
       "emotional_resilience": 0.5,
       "autonomy_need": -0.4,
-      "judging": 0.3
+      "achievement_motivation": 0.6
     },
     "q22": {
       "anxiety": 1,
       "vulnerability": 0.9,
       "fear_of_abandonment": 0.7,
-      "worry_tendency": 0.7,
       "stress_tolerance": -0.6,
       "emotional_reactivity": 0.5,
-      "security_value": 0.4,
-      "feeling": 0.4,
-      "judging": 0.2
+      "security_value": 0.4
     },
     "q29": {
       "anxiety": 1,
       "rumination": 0.8,
       "attention_control": -0.7,
       "stress_tolerance": -0.6,
-      "worry_tendency": 0.6,
       "impulsiveness": 0.5,
-      "vulnerability": 0.4,
-      "intuition": 0.3,
-      "feeling": 0.2
+      "vulnerability": 0.4
     },
     "q36": {
       "impulsiveness": 1,
@@ -2663,8 +2651,7 @@
       "boundary_setting": -0.7,
       "patience": -0.5,
       "autonomy_need": -0.4,
-      "modesty": 0.3,
-      "perceiving": 0.3
+      "modesty": 0.3
     },
     "q43": {
       "anxiety": 1,
@@ -2673,20 +2660,15 @@
       "emotional_resilience": -0.7,
       "autonomy_need": -0.6,
       "stress_tolerance": -0.6,
-      "fear_of_abandonment": 0.5,
-      "feeling": 0.4,
-      "judging": 0.2
+      "fear_of_abandonment": 0.5
     },
     "q2": {
       "attention_control": 1,
       "patience": 0.8,
       "self_discipline": 0.7,
       "impulsiveness": 0.7,
-      "diligence": 0.6,
       "intellectual_curiosity": 0.5,
-      "cognitive_flexibility": 0.4,
-      "judging": 0.4,
-      "thinking": 0.2
+      "cognitive_flexibility": 0.4
     },
     "q9": {
       "attention_control": 1,
@@ -2694,10 +2676,7 @@
       "self_discipline": 0.8,
       "impulsiveness": -0.7,
       "patience": 0.6,
-      "achievement_striving": 0.5,
-      "diligence": 0.5,
-      "judging": 0.4,
-      "introversion": 0.2
+      "achievement_motivation": 0.5
     },
     "q16": {
       "impulsiveness": 1,
@@ -2706,9 +2685,7 @@
       "deliberation": -0.7,
       "mindfulness_coping": -0.6,
       "self_discipline": -0.6,
-      "rumination": 0.4,
-      "perceiving": 0.4,
-      "sensing": 0.2
+      "rumination": 0.4
     },
     "q23": {
       "attention_control": 1,
@@ -2717,20 +2694,15 @@
       "processing_speed": 0.6,
       "cognitive_flexibility": 0.5,
       "rumination": 0.5,
-      "self_awareness": 0.4,
-      "perceiving": 0.3,
-      "intuition": 0.2
+      "self_awareness": 0.4
     },
     "q30": {
       "attention_control": 1,
       "self_discipline": 0.9,
       "politeness": 0.7,
       "impulsiveness": -0.7,
-      "active_listening": 0.6,
       "social_perception": 0.6,
-      "patience": 0.5,
-      "judging": 0.4,
-      "feeling": 0.2
+      "patience": 0.5
     },
     "q37": {
       "attention_control": 1,
@@ -2738,32 +2710,24 @@
       "self_discipline": -0.8,
       "persistence": -0.7,
       "patience": -0.6,
-      "achievement_striving": -0.5,
-      "frustration_tolerance": -0.4,
-      "perceiving": 0.4,
-      "extraversion": 0.2
+      "achievement_motivation": -0.5,
+      "emotional_resilience": -0.4
     },
     "q44": {
       "self_discipline": 1,
       "autonomy_need": 0.8,
       "intrinsic_motivation": 0.7,
       "impulsiveness": -0.7,
-      "flexibility_creative": 0.6,
       "attention_control": 0.6,
-      "actions": 0.5,
-      "judging": 0.4,
-      "introversion": 0.2
+      "creativity": 0.6
     },
     "q3": {
       "politeness": -1,
-      "active_listening": -0.9,
       "communication_quality": -0.8,
       "attention_control": -0.7,
       "empathy": -0.6,
       "positive_relations": -0.6,
-      "impulsiveness": 0.5,
-      "thinking": 0.3,
-      "perceiving": 0.2
+      "impulsiveness": 0.5
     },
     "q10": {
       "positive_relations": 1,
@@ -2771,63 +2735,47 @@
       "communication_quality": -0.7,
       "boundary_setting": -0.7,
       "empathy": -0.6,
-      "conflict_resolution": 0.5,
       "self_awareness": -0.5,
-      "thinking": 0.3,
-      "perceiving": 0.2
+      "conflict_management": 0.5
     },
     "q17": {
-      "gregariousness": -1,
       "warmth": -0.8,
-      "intimacy_comfort": -0.7,
       "social_confidence": 0.6,
-      "verbal_communication": -0.6,
       "avoidant_attachment": 0.5,
       "self_consciousness": 0.5,
-      "introversion": 0.4,
-      "thinking": 0.2
+      "emotional_intimacy": -0.7,
+      "communication_quality": -0.6
     },
     "q24": {
       "emotional_intimacy": -1,
       "positive_relations": -0.9,
-      "affiliation_motivation": 0.7,
       "warmth": -0.6,
       "depression": 0.6,
       "vulnerability_sharing": -0.5,
-      "feeling": 0.4,
-      "introversion": 0.2
+      "relatedness_need": 0.7
     },
     "q31": {
-      "gregariousness": -1,
       "positive_relations": -0.8,
       "organization": -0.7,
-      "affiliation_motivation": -0.6,
       "warmth": -0.6,
       "self_discipline": -0.5,
       "values": 0.4,
-      "introversion": 0.3
+      "relatedness_need": -0.6
     },
     "q38": {
-      "actions": 1,
-      "curiosity": 0.8,
       "intrinsic_motivation": 0.7,
-      "flexibility_creative": 0.7,
       "autonomy_need": 0.6,
       "life_satisfaction": 0.6,
       "self_direction": 0.5,
       "intellectual_curiosity": 0.4,
-      "perceiving": 0.2
+      "creativity": 0.7
     },
     "q45": {
       "mindfulness_coping": -1,
-      "aesthetics": -0.8,
-      "curiosity": -0.7,
       "attention_control": -0.6,
       "intellectual_curiosity": -0.6,
       "impulsiveness": 0.5,
-      "vitality": -0.4,
-      "sensing": 0.3,
-      "perceiving": 0.2
+      "vitality": -0.4
     },
     "q4": {
       "vulnerability": 1,
@@ -2836,8 +2784,7 @@
       "stress_tolerance": -0.5,
       "self_compassion": -0.5,
       "boundary_setting": -0.4,
-      "patience": -0.3,
-      "sensing": 0.3
+      "patience": -0.3
     },
     "q11": {
       "vulnerability": 1,
@@ -2846,8 +2793,7 @@
       "impulsiveness": 0.6,
       "deliberation": -0.5,
       "vitality": -0.5,
-      "patience": -0.4,
-      "perceiving": 0.3
+      "patience": -0.4
     },
     "q18": {
       "vulnerability": 1,
@@ -2856,8 +2802,7 @@
       "body_image": 0.6,
       "self_compassion": -0.5,
       "patience": -0.4,
-      "stress_tolerance": -0.4,
-      "sensing": 0.3
+      "stress_tolerance": -0.4
     },
     "q25": {
       "vitality": -1,
@@ -2866,8 +2811,7 @@
       "self_discipline": -0.6,
       "stress_tolerance": -0.6,
       "emotional_resilience": -0.5,
-      "environmental_mastery": -0.4,
-      "sensing": 0.3
+      "environmental_mastery": -0.4
     },
     "q32": {
       "vulnerability": 1,
@@ -2876,9 +2820,7 @@
       "self_discipline": -0.7,
       "vitality": -0.6,
       "emotional_resilience": -0.5,
-      "self_compassion": 0.4,
-      "sensing": 0.3,
-      "thinking": 0.2
+      "self_compassion": 0.4
     },
     "q39": {
       "vulnerability": 1,
@@ -2887,8 +2829,7 @@
       "self_discipline": -0.6,
       "stress_tolerance": -0.6,
       "self_compassion": -0.5,
-      "boundary_setting": -0.4,
-      "sensing": 0.3
+      "boundary_setting": -0.4
     },
     "q46": {
       "body_image": 1,
@@ -2897,39 +2838,32 @@
       "vulnerability": 0.7,
       "self_discipline": -0.6,
       "self_compassion": 0.5,
-      "patience": -0.4,
-      "sensing": 0.4
+      "patience": -0.4
     },
     "q5": {
       "attention_control": 1,
       "self_discipline": -0.9,
-      "achievement_striving": -0.7,
       "persistence": -0.7,
       "impulsiveness": 0.6,
       "organization": -0.6,
-      "diligence": -0.5,
-      "perceiving": 0.4
+      "achievement_motivation": -0.7
     },
     "q12": {
       "procrastination": 1,
       "self_discipline": -0.9,
       "organization": -0.8,
-      "achievement_striving": -0.7,
       "impulsiveness": 0.7,
       "hedonism": 0.6,
       "deliberation": -0.5,
-      "perceiving": 0.5,
-      "feeling": 0.2
+      "achievement_motivation": -0.7
     },
     "q19": {
       "self_awareness": 1,
-      "achievement_striving": -0.8,
       "organization": -0.7,
-      "diligence": -0.7,
       "self_discipline": -0.6,
       "competence": -0.6,
-      "frustration_tolerance": 0.4,
-      "thinking": 0.3
+      "achievement_motivation": -0.8,
+      "emotional_resilience": 0.4
     },
     "q26": {
       "organization": -1,
@@ -2938,28 +2872,22 @@
       "impulsiveness": 0.7,
       "deliberation": -0.6,
       "patience": -0.5,
-      "procrastination": 0.5,
-      "perceiving": 0.4
+      "procrastination": 0.5
     },
     "q33": {
-      "achievement_striving": -1,
       "responsibility": -0.9,
       "organization": -0.8,
       "self_discipline": -0.8,
-      "dutifulness": -0.7,
       "competence": -0.6,
       "procrastination": 0.6,
-      "judging": 0.4
+      "achievement_motivation": -1
     },
     "q40": {
-      "achievement_striving": 1,
       "competence": 0.8,
       "self_discipline": 0.7,
       "organization": 0.7,
       "self_efficacy": 0.6,
-      "diligence": 0.6,
-      "judging": 0.4,
-      "thinking": 0.2
+      "achievement_motivation": 1
     },
     "q47": {
       "impulsiveness": 1,
@@ -2967,30 +2895,24 @@
       "self_discipline": -0.8,
       "self_awareness": -0.7,
       "organization": -0.6,
-      "achievement_striving": -0.6,
       "deliberation": -0.5,
-      "perceiving": 0.4
+      "achievement_motivation": -0.6
     },
     "q6": {
       "anxiety": 1,
       "fear_of_abandonment": 0.8,
       "self_esteem": -0.8,
-      "worry_tendency": 0.7,
       "anxious_attachment": 0.7,
-      "vulnerability": 0.5,
-      "feeling": 0.4,
-      "judging": 0.2
+      "vulnerability": 0.5
     },
     "q13": {
       "anger": 1,
-      "frustration_tolerance": -0.9,
       "emotional_reactivity": 0.8,
-      "composure": -0.7,
       "impulsiveness": 0.6,
       "empathy": -0.6,
       "patience": -0.5,
-      "feeling": 0.3,
-      "perceiving": 0.2
+      "emotional_resilience": -0.9,
+      "stress_tolerance": -0.7
     },
     "q20": {
       "self_esteem": -1,
@@ -2999,9 +2921,7 @@
       "self_acceptance": -0.7,
       "life_satisfaction": -0.7,
       "rumination": 0.6,
-      "vulnerability": 0.5,
-      "feeling": 0.4,
-      "intuition": 0.2
+      "vulnerability": 0.5
     },
     "q27": {
       "anxiety": 1,
@@ -3009,10 +2929,7 @@
       "fear_of_abandonment": 0.7,
       "stress_tolerance": -0.6,
       "emotional_resilience": -0.6,
-      "autonomy_need": -0.5,
-      "worry_tendency": 0.5,
-      "feeling": 0.4,
-      "judging": 0.2
+      "autonomy_need": -0.5
     },
     "q34": {
       "jealousy": 1,
@@ -3020,20 +2937,15 @@
       "life_satisfaction": -0.8,
       "depression": 0.7,
       "self_acceptance": -0.7,
-      "rumination": 0.6,
-      "acceptance": -0.5,
-      "feeling": 0.4
+      "rumination": 0.6
     },
     "q41": {
       "anxiety": 1,
       "fear_of_abandonment": 0.8,
-      "worry_tendency": 0.8,
       "vulnerability": 0.7,
       "self_discipline": -0.6,
       "impulsiveness": 0.6,
-      "stress_tolerance": -0.5,
-      "feeling": 0.4,
-      "judging": 0.3
+      "stress_tolerance": -0.5
     },
     "q48": {
       "depression": 1,
@@ -3042,19 +2954,15 @@
       "vulnerability": 0.7,
       "life_satisfaction": -0.6,
       "rumination": 0.6,
-      "self_esteem": -0.5,
-      "feeling": 0.4,
-      "introversion": 0.2
+      "self_esteem": -0.5
     },
     "q7": {
       "organization": 1,
       "self_discipline": 0.8,
       "prudence": -0.6,
       "boundary_setting": -0.6,
-      "achievement_striving": -0.5,
       "vitality": -0.4,
-      "actions": -0.4,
-      "perceiving": 0.3
+      "achievement_motivation": -0.5
     },
     "q14": {
       "impulsiveness": 1,
@@ -3063,9 +2971,7 @@
       "anxiety": 0.7,
       "patience": -0.6,
       "rumination": 0.5,
-      "mindfulness_coping": -0.4,
-      "perceiving": 0.4,
-      "extraversion": 0.2
+      "mindfulness_coping": -0.4
     },
     "q21": {
       "self_discipline": 1,
@@ -3074,8 +2980,7 @@
       "attention_control": 0.6,
       "patience": -0.5,
       "self_awareness": -0.5,
-      "procrastination": 0.4,
-      "perceiving": 0.4
+      "procrastination": 0.4
     },
     "q28": {
       "impulsiveness": 1,
@@ -3083,21 +2988,16 @@
       "self_discipline": -0.7,
       "anxiety": 0.7,
       "attention_control": -0.6,
-      "frustration_tolerance": -0.5,
       "deliberation": -0.4,
-      "perceiving": 0.4,
-      "extraversion": 0.2
+      "emotional_resilience": -0.5
     },
     "q35": {
       "mindfulness_coping": -1,
       "boundary_setting": -0.8,
       "self_discipline": -0.7,
       "impulsiveness": 0.6,
-      "aesthetics": -0.5,
       "prudence": -0.5,
-      "politeness": -0.4,
-      "perceiving": 0.3,
-      "sensing": 0.2
+      "politeness": -0.4
     },
     "q42": {
       "boundary_setting": -1,
@@ -3106,8 +3006,7 @@
       "impulsiveness": 0.6,
       "deliberation": -0.5,
       "vulnerability": 0.5,
-      "patience": -0.4,
-      "perceiving": 0.3
+      "patience": -0.4
     },
     "q49": {
       "impulsiveness": 1,
@@ -3116,20 +3015,16 @@
       "autonomy_need": -0.6,
       "deliberation": -0.5,
       "vitality": 0.4,
-      "mindfulness_coping": -0.4,
-      "perceiving": 0.4,
-      "extraversion": 0.2
+      "mindfulness_coping": -0.4
     },
     "q50": {
       "patience": -1,
       "impulsiveness": 0.9,
       "mindfulness_coping": -0.7,
       "self_discipline": -0.6,
-      "curiosity": -0.5,
       "attention_control": -0.5,
       "vitality": 0.4,
-      "perceiving": 0.4,
-      "sensing": 0.2
+      "intellectual_curiosity": -0.5
     }
   },
   "profiles": {

@@ -1292,7 +1292,6 @@
       "empathy": 0.9,
       "emotional_intimacy": 0.8,
       "trust_in_relationships": 0.7,
-      "intimacy_comfort": 0.6,
       "warmth": 0.5,
       "feeling": 0.3
     },
@@ -1306,23 +1305,20 @@
     "q2": {
       "communication_quality": 0.9,
       "assertiveness": 0.8,
-      "verbal_communication": 0.7,
       "social_confidence": 0.6,
       "self_consciousness": -0.5,
       "extraversion": 0.4
     },
     "q5": {
       "communication_quality": 0.9,
-      "conflict_resolution": 0.8,
-      "verbal_communication": 0.7,
       "assertiveness": 0.6,
       "emotional_resilience": 0.5,
-      "feeling": 0.3
+      "feeling": 0.3,
+      "conflict_management": 0.8
     },
     "q8": {
       "communication_quality": -0.9,
       "assertiveness": -0.8,
-      "verbal_communication": -0.7,
       "social_confidence": -0.6,
       "self_consciousness": 0.6,
       "anxiety": 0.5,
@@ -1333,8 +1329,8 @@
       "empathy": 0.7,
       "patience": 0.8,
       "impulsiveness": -0.6,
-      "composure": 0.6,
-      "conflict_resolution": 0.5
+      "stress_tolerance": 0.6,
+      "conflict_management": 0.5
     },
     "q3": {
       "commitment": 0.8,
@@ -1376,10 +1372,10 @@
       "secure_attachment": 0.4
     },
     "q15": {
-      "relationship_security": 0.9,
       "security_value": 0.8,
       "judging": 0.5,
-      "anxiety": 0.3
+      "anxiety": 0.3,
+      "secure_attachment": 0.9
     },
     "q16": {
       "physical_intimacy": 0.8,
@@ -1389,15 +1385,12 @@
       "feeling": 0.4
     },
     "q17": {
-      "conflict_resolution": 0.9,
       "conflict_management": 0.9,
-      "composure": 0.8,
       "cooperativeness": 0.7,
       "emotional_resilience": 0.6,
-      "calmness": 0.5
+      "stress_tolerance": 0.8
     },
     "q18": {
-      "conflict_resolution": -0.8,
       "conflict_management": -0.8,
       "avoidant_coping": 0.9,
       "assertiveness": -0.6,
@@ -1407,21 +1400,18 @@
     "q19": {
       "assertiveness": 0.8,
       "communication_quality": 0.7,
-      "conflict_resolution": 0.6,
       "self_esteem": 0.5,
-      "verbal_communication": 0.6
+      "conflict_management": 0.6
     },
     "q20": {
-      "conflict_resolution": -0.7,
-      "composure": -0.8,
       "impulsiveness": 0.8,
       "emotional_reactivity": 0.7,
       "anger": 0.6,
-      "calmness": -0.6
+      "conflict_management": -0.7,
+      "stress_tolerance": -0.8
     },
     "q21": {
       "physical_intimacy": 0.9,
-      "intimacy_comfort": 0.8,
       "warmth": 0.7,
       "emotional_intimacy": 0.5,
       "expressiveness": 0.5,
@@ -1447,7 +1437,6 @@
       "physical_intimacy": 0.9,
       "emotional_intimacy": 0.8,
       "warmth": 0.8,
-      "intimacy_comfort": 0.7,
       "trust_in_relationships": 0.5,
       "feeling": 0.3
     }

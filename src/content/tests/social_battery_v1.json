@@ -2502,8 +2502,8 @@
       "emotional_resilience": -0.6,
       "anxiety": 0.5,
       "vulnerability": 0.5,
-      "gregariousness": -0.4,
-      "introversion": 0.8
+      "introversion": 0.8,
+      "extraversion": -0.4
     },
     "q7": {
       "introversion": 1,
@@ -2573,13 +2573,12 @@
     "q2": {
       "introversion": 0.9,
       "autonomy_need": 0.7,
-      "gregariousness": -0.6,
       "warmth": -0.5,
-      "self_awareness": 0.3
+      "self_awareness": 0.3,
+      "extraversion": -0.6
     },
     "q8": {
       "extraversion": 0.9,
-      "gregariousness": 0.8,
       "warmth": 0.7,
       "social_support_seeking": 0.6,
       "stress_tolerance": 0.5,
@@ -2588,7 +2587,6 @@
     "q14": {
       "extraversion": 0.9,
       "social_support_seeking": 1,
-      "gregariousness": 0.7,
       "warmth": 0.6,
       "emotional_resilience": 0.5,
       "trust": 0.3
@@ -2596,7 +2594,6 @@
     "q20": {
       "extraversion": 1,
       "vitality": 0.8,
-      "gregariousness": 0.7,
       "warmth": 0.6,
       "positive_emotions": 0.6,
       "activity": 0.5,
@@ -2604,7 +2601,6 @@
     },
     "q26": {
       "extraversion": 0.9,
-      "gregariousness": 0.8,
       "warmth": 0.7,
       "social_support_seeking": 0.6,
       "anxiety": 0.5,
@@ -2615,15 +2611,13 @@
       "extraversion": 1,
       "vitality": 0.9,
       "novelty_seeking": 0.8,
-      "gregariousness": 0.7,
       "warmth": 0.6,
       "assertiveness": 0.6,
-      "curiosity": 0.5,
-      "activity": 0.3
+      "activity": 0.3,
+      "intellectual_curiosity": 0.5
     },
     "q38": {
       "extraversion": 1,
-      "gregariousness": 0.9,
       "vitality": -0.7,
       "warmth": 0.7,
       "activity": 0.6,
@@ -2634,7 +2628,6 @@
       "extraversion": 0.9,
       "vitality": 0.8,
       "positive_emotions": 0.8,
-      "gregariousness": 0.7,
       "warmth": 0.7,
       "emotional_resilience": 0.5,
       "happiness": 0.3
@@ -2642,7 +2635,6 @@
     "q3": {
       "anxiety": 1,
       "self_consciousness": 1,
-      "worry_tendency": 0.8,
       "vulnerability": 0.6,
       "self_esteem": -0.6,
       "stress_tolerance": -0.5,
@@ -2651,8 +2643,6 @@
     },
     "q9": {
       "anxiety": 1,
-      "worry_tendency": 0.9,
-      "panic_tendency": 0.7,
       "self_consciousness": 0.7,
       "vulnerability": 0.6,
       "stress_tolerance": -0.6,
@@ -2662,7 +2652,6 @@
     "q15": {
       "anxiety": 1,
       "self_consciousness": 0.9,
-      "worry_tendency": 0.8,
       "vulnerability": 0.7,
       "self_esteem": -0.6,
       "perfectionism": 0.6,
@@ -2671,7 +2660,6 @@
     "q21": {
       "rumination": 1,
       "anxiety": 0.9,
-      "worry_tendency": 0.9,
       "self_consciousness": 0.8,
       "vulnerability": 0.6,
       "stress_tolerance": -0.5,
@@ -2682,7 +2670,6 @@
       "anxiety": 1,
       "self_consciousness": 0.9,
       "vulnerability": 0.8,
-      "worry_tendency": 0.7,
       "self_esteem": -0.6,
       "modesty": 0.6,
       "stress_tolerance": -0.5,
@@ -2693,25 +2680,21 @@
       "avoidant_coping": 1,
       "stress_tolerance": -0.8,
       "vulnerability": 0.7,
-      "worry_tendency": 0.7,
       "self_consciousness": 0.6,
       "emotional_resilience": -0.5,
-      "gregariousness": -0.3
+      "extraversion": -0.3
     },
     "q39": {
       "anxiety": 0.9,
       "stress_tolerance": -0.8,
       "vulnerability": 0.8,
       "self_consciousness": 0.8,
-      "calmness": -0.7,
       "emotional_resilience": -0.6,
-      "composure": -0.6,
       "introversion": 0.3
     },
     "q45": {
       "anxiety": 1,
       "rumination": 0.9,
-      "worry_tendency": 0.8,
       "self_consciousness": 0.8,
       "vulnerability": 0.7,
       "self_esteem": -0.7,
@@ -2747,10 +2730,10 @@
     "q22": {
       "introversion": 1,
       "autonomy_need": 0.9,
-      "gregariousness": -0.7,
       "warmth": -0.6,
       "self_awareness": 0.6,
-      "self_acceptance": 0.3
+      "self_acceptance": 0.3,
+      "extraversion": -0.7
     },
     "q28": {
       "autonomy_need": 1,
@@ -2766,8 +2749,8 @@
       "emotional_resilience": 0.7,
       "anxiety": -0.6,
       "self_acceptance": 0.6,
-      "gregariousness": -0.5,
-      "calmness": 0.3
+      "extraversion": -0.5,
+      "stress_tolerance": 0.3
     },
     "q40": {
       "boundary_setting": 1,
@@ -2790,15 +2773,14 @@
     "q5": {
       "introversion": 0.8,
       "warmth": 0.7,
-      "gregariousness": -0.7,
       "empathy": 0.6,
       "trust": 0.5,
       "intuition": 0.3,
-      "feeling": 0.3
+      "feeling": 0.3,
+      "extraversion": -0.7
     },
     "q11": {
       "extraversion": 0.8,
-      "gregariousness": 0.8,
       "warmth": 0.6,
       "positive_emotions": 0.6,
       "assertiveness": 0.5,
@@ -2806,7 +2788,6 @@
     },
     "q17": {
       "extraversion": 0.9,
-      "gregariousness": 1,
       "assertiveness": 0.7,
       "warmth": 0.6,
       "activity": 0.6,
@@ -2815,15 +2796,14 @@
     "q23": {
       "introversion": 0.8,
       "anxiety": 0.6,
-      "gregariousness": -0.6,
       "autonomy_need": 0.5,
       "deliberation": 0.5,
-      "self_consciousness": 0.3
+      "self_consciousness": 0.3,
+      "extraversion": -0.6
     },
     "q29": {
       "extraversion": 0.9,
       "spontaneity": 0.9,
-      "gregariousness": 0.7,
       "novelty_seeking": 0.7,
       "assertiveness": 0.6,
       "activity": 0.5,
@@ -2831,18 +2811,16 @@
     },
     "q35": {
       "extraversion": 1,
-      "gregariousness": 1,
       "vitality": 0.8,
-      "excitement_seeking": 0.7,
       "warmth": 0.7,
       "positive_emotions": 0.7,
       "activity": 0.6,
-      "assertiveness": 0.3
+      "assertiveness": 0.3,
+      "sensation_seeking": 0.7
     },
     "q41": {
       "extraversion": 0.9,
       "assertiveness": 1,
-      "gregariousness": 0.9,
       "warmth": 0.7,
       "anxiety": -0.7,
       "self_consciousness": -0.6,
@@ -2851,9 +2829,7 @@
     "q47": {
       "extraversion": 0.9,
       "sensation_seeking": 0.9,
-      "gregariousness": 0.7,
       "vitality": 0.6,
-      "excitement_seeking": 0.6,
       "activity": 0.5,
       "assertiveness": 0.3
     },

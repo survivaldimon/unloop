@@ -1,0 +1,23 @@
+{
+  "$comment": "Этап 2 аудита (03.08.2026): полюса 18 вопросов были проставлены чётностью номера, а не смыслом (docs/tests-content-review.md §2.3). Переразметка сверена построчно по всем 80 вопросам: S/N — 10 правок (после: sensing 11, intuition 9 — дисбаланс гасится нормализацией движка), T/F — 4 (после: 10/10), J/P — 4 (после: 10/10), E/I чист. Меняет буквы кода у прошедших — идёт в релиз ENGINE_VERSION=2.",
+  "poles": {
+    "q22": "sensing",
+    "q24": "sensing",
+    "q27": "intuition",
+    "q29": "intuition",
+    "q30": "sensing",
+    "q33": "intuition",
+    "q34": "sensing",
+    "q37": "intuition",
+    "q39": "intuition",
+    "q40": "sensing",
+    "q42": "thinking",
+    "q45": "feeling",
+    "q59": "feeling",
+    "q60": "thinking",
+    "q62": "judging",
+    "q64": "judging",
+    "q65": "perceiving",
+    "q67": "perceiving"
+  }
+}

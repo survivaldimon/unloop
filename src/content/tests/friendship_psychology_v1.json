@@ -1295,7 +1295,6 @@
       "trust_in_relationships": -0.8,
       "emotional_openness": -0.8,
       "avoidant_attachment": 0.7,
-      "intimacy_comfort": -0.7,
       "introversion": 0.4,
       "vulnerability": 0.5
     },
@@ -1316,13 +1315,12 @@
       "extraversion": 0.4
     },
     "q5": {
-      "conflict_resolution": 0.9,
       "communication_quality": 0.8,
-      "composure": 0.8,
       "emotional_resilience": 0.7,
       "assertiveness": 0.6,
-      "calmness": 0.6,
-      "thinking": 0.3
+      "thinking": 0.3,
+      "conflict_management": 0.9,
+      "stress_tolerance": 0.8
     },
     "q8": {
       "communication_quality": -0.9,
@@ -1336,27 +1334,23 @@
     "q11": {
       "empathy": 0.9,
       "communication_quality": 0.8,
-      "compassion": 0.7,
       "warmth": 0.6,
       "patience": 0.6,
       "feeling": 0.4
     },
     "q3": {
-      "loyalty": 0.9,
-      "dependability": 0.9,
-      "dutifulness": 0.8,
       "responsibility": 0.8,
       "commitment": 0.7,
       "conscientiousness": 0.6,
-      "judging": 0.3
+      "judging": 0.3,
+      "self_discipline": 0.8
     },
     "q6": {
       "trust": 0.9,
       "trust_in_relationships": 0.9,
-      "loyalty": 0.7,
       "commitment": 0.6,
-      "relationship_security": 0.5,
-      "feeling": 0.3
+      "feeling": 0.3,
+      "secure_attachment": 0.5
     },
     "q9": {
       "trust": -0.9,
@@ -1368,11 +1362,10 @@
     },
     "q12": {
       "trust_in_relationships": 0.9,
-      "dependability": 0.8,
-      "loyalty": 0.8,
       "support_giving": 0.7,
       "secure_attachment": 0.6,
-      "relationship_security": 0.5
+      "responsibility": 0.8,
+      "commitment": 0.8
     },
     "q13": {
       "autonomy_need": 0.9,
@@ -1384,7 +1377,6 @@
       "politeness": 0.8,
       "compliance": 0.6,
       "empathy": 0.7,
-      "tender_mindedness": 0.6,
       "conscientiousness": 0.5,
       "modesty": 0.5,
       "feeling": 0.3
@@ -1409,16 +1401,15 @@
       "altruism": 0.9,
       "empathy": 0.8,
       "warmth": 0.7,
-      "compassion": 0.6,
       "feeling": 0.4
     },
     "q18": {
       "support_giving": 0.9,
       "altruism": 0.8,
       "empathy": 0.7,
-      "dependability": 0.6,
       "warmth": 0.5,
-      "feeling": 0.3
+      "feeling": 0.3,
+      "responsibility": 0.6
     },
     "q19": {
       "support_giving": -0.9,
@@ -1432,7 +1423,6 @@
       "support_giving": 0.8,
       "emotional_openness": 0.6,
       "warmth": 0.6,
-      "compassion": 0.7,
       "intuition": 0.5,
       "feeling": 0.4
     },
@@ -1445,11 +1435,11 @@
     },
     "q22": {
       "autonomy_need": 0.7,
-      "achievement_striving": 0.6,
       "assertiveness": 0.5,
       "commitment": 0.5,
       "conscientiousness": 0.4,
-      "judging": 0.3
+      "judging": 0.3,
+      "achievement_motivation": 0.6
     },
     "q23": {
       "anxious_attachment": 0.7,
@@ -1463,7 +1453,6 @@
       "autonomy_need": 0.6,
       "emotional_resilience": 0.5,
       "trust_in_relationships": 0.5,
-      "relationship_security": 0.4,
       "perceiving": 0.3
     }
   },

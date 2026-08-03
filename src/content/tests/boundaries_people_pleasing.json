@@ -2502,10 +2502,10 @@
       "expressiveness": 0.9,
       "emotional_openness": 0.8,
       "straightforwardness": 0.8,
-      "verbal_communication": 0.8,
       "social_boldness": 0.7,
       "activity": 0.9,
-      "compliance": -0.8
+      "compliance": -0.8,
+      "communication_quality": 0.8
     },
     "q2": {
       "assertiveness": -0.9,
@@ -2522,9 +2522,9 @@
       "social_boldness": 0.9,
       "persistence": 0.9,
       "conflict_management": 0.8,
-      "resilience_meta": 0.7,
       "avoidant_coping": -0.9,
-      "compliance": -0.8
+      "compliance": -0.8,
+      "emotional_resilience": 0.7
     },
     "q4": {
       "assertiveness": -1,
@@ -2602,7 +2602,6 @@
       "self_care": 1,
       "self_awareness": 0.9,
       "boundary_setting": 0.9,
-      "burnout": -0.8,
       "type_a_behavior": -0.8,
       "people_pleasing": -0.7
     },
@@ -2618,8 +2617,8 @@
       "self_care": 1,
       "autonomy_need": 1,
       "authenticity": 0.9,
-      "conformity": -0.9,
-      "people_pleasing": -0.8
+      "people_pleasing": -0.8,
+      "compliance": -0.9
     },
     "q16": {
       "self_care": -1,
@@ -2632,12 +2631,12 @@
     "q17": {
       "autonomy_wellbeing": 1,
       "emotional_resilience": 0.9,
-      "calmness": 0.9,
       "mood_stability": 0.9,
       "self_efficacy": 0.8,
       "autonomy_need": 0.8,
       "reward_dependence": -0.9,
-      "anxiety": -0.7
+      "anxiety": -0.7,
+      "stress_tolerance": 0.9
     },
     "q18": {
       "autonomy_wellbeing": -0.9,
@@ -2652,9 +2651,9 @@
       "mood_stability": 1,
       "autonomy_need": 0.9,
       "self_efficacy": 0.9,
-      "resilience_meta": 0.8,
       "reward_dependence": -1,
-      "vulnerability": -0.7
+      "vulnerability": -0.7,
+      "emotional_resilience": 0.8
     },
     "q20": {
       "autonomy_wellbeing": -0.9,
@@ -2686,11 +2685,11 @@
       "autonomy_wellbeing": 1,
       "self_efficacy": 1,
       "autonomy_need": 0.9,
-      "resilience_meta": 0.9,
       "mood_stability": 0.9,
       "assertiveness": 0.8,
       "reward_dependence": -0.9,
-      "self_esteem": 0.8
+      "self_esteem": 0.8,
+      "emotional_resilience": 0.9
     },
     "q24": {
       "autonomy_wellbeing": -1,
@@ -2698,7 +2697,7 @@
       "mood_stability": -0.9,
       "vulnerability": 0.9,
       "emotional_reactivity": 0.8,
-      "resilience_meta": -0.8
+      "emotional_resilience": -0.8
     },
     "q25": {
       "people_pleasing": 1,
@@ -2719,11 +2718,11 @@
     },
     "q27": {
       "people_pleasing": 1,
-      "conformity": 1,
       "authenticity": -1,
       "reward_dependence": 0.9,
       "adaptability_leadership": 0.6,
-      "autonomy_need": -0.8
+      "autonomy_need": -0.8,
+      "compliance": 1
     },
     "q28": {
       "people_pleasing": 1,
@@ -2827,7 +2826,6 @@
     },
     "q40": {
       "fear_of_abandonment": 1,
-      "panic_tendency": 0.9,
       "anxiety": 0.9,
       "emotional_resilience": -0.9,
       "conflict_management": -0.9,
@@ -2860,10 +2858,10 @@
     "q45": {
       "boundary_setting": 1,
       "assertiveness": 0.9,
-      "verbal_communication": 0.9,
       "expressiveness": 0.9,
       "self_efficacy": 0.8,
-      "straightforwardness": 0.8
+      "straightforwardness": 0.8,
+      "communication_quality": 0.9
     },
     "q46": {
       "boundary_setting": -1,
@@ -2876,8 +2874,7 @@
       "boundary_setting": 1,
       "self_awareness": 1,
       "emotional_intelligence": 0.9,
-      "self_care": 0.9,
-      "burnout": -0.8
+      "self_care": 0.9
     },
     "q48": {
       "boundary_setting": -0.9,

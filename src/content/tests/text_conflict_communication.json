@@ -1120,11 +1120,11 @@
     "aggression": {
       "anger": 0.9,
       "impulsiveness": 0.7,
-      "composure": -0.8,
-      "frustration_tolerance": -0.7,
       "empathy": -0.6,
-      "conflict_resolution": -0.7,
-      "thinking": 0.6
+      "thinking": 0.6,
+      "stress_tolerance": -0.8,
+      "emotional_resilience": -0.7,
+      "conflict_management": -0.7
     },
     "passive_revenge": {
       "straightforwardness": -0.9,
@@ -1132,24 +1132,24 @@
       "manipulation": 0.7,
       "assertiveness": -0.8,
       "emotional_openness": -0.8,
-      "conflict_resolution": -0.6,
       "anger": 0.6,
-      "trust": -0.5
+      "trust": -0.5,
+      "conflict_management": -0.6
     },
     "assertiveness": {
       "assertiveness": 0.9,
       "emotional_openness": 0.8,
       "expressiveness": 0.8,
-      "conflict_resolution": 0.9,
       "self_esteem": 0.7,
-      "composure": 0.7,
       "empathy": 0.6,
       "social_boldness": 0.7,
       "boundary_setting": 0.9,
       "feeling": 0.6,
       "anxiety": -0.5,
       "avoidant_coping": -0.9,
-      "straightforwardness": 0.8
+      "straightforwardness": 0.8,
+      "conflict_management": 0.9,
+      "stress_tolerance": 0.7
     }
   },
   "profiles": {

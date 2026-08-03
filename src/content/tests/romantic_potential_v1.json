@@ -701,7 +701,7 @@
         "en": "I believe that true love is always irrational."
       },
       "factorId": "love_attitudes",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -752,7 +752,7 @@
         "en": "Love should be passionate, otherwise it's not love."
       },
       "factorId": "love_attitudes",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1313,7 +1313,7 @@
         "en": "For me, love is a story of passion and emotional intensity."
       },
       "factorId": "love_stories",
-      "isReversed": false,
+      "isReversed": true,
       "answers": [
         {
           "id": "a1",
@@ -1880,7 +1880,6 @@
     "q2": {
       "emotional_intimacy": 1.2,
       "secure_attachment": 1,
-      "intimacy_comfort": 0.9,
       "fear_of_abandonment": -0.8,
       "emotional_resilience": 0.7,
       "self_esteem": 0.5
@@ -1895,19 +1894,17 @@
     },
     "q4": {
       "emotional_openness": 1.2,
-      "feelings": 1,
       "novelty_seeking": 0.8,
-      "risk_taking": 0.6,
       "spontaneity": 0.5,
-      "extraversion": 0.4
+      "extraversion": 0.4,
+      "sensation_seeking": 0.6
     },
     "q5": {
       "communication_quality": 1.2,
       "assertiveness": 1,
-      "verbal_communication": 0.8,
-      "conflict_resolution": 0.7,
       "emotional_intelligence": 0.6,
-      "composure": 0.5
+      "conflict_management": 0.7,
+      "stress_tolerance": 0.5
     },
     "q6": {
       "emotional_openness": -1.2,
@@ -1921,8 +1918,6 @@
       "emotional_resilience": 1.2,
       "mood_stability": 1,
       "stress_tolerance": 0.9,
-      "composure": 0.8,
-      "emotion_focused_coping": 0.6,
       "maturity": 0.5
     },
     "q8": {
@@ -1937,8 +1932,6 @@
       "support_giving": 1.2,
       "empathy": 1,
       "affection_expression": 0.9,
-      "tender_mindedness": 0.8,
-      "compassion": 0.7,
       "altruism": 0.5
     },
     "q10": {
@@ -1946,11 +1939,9 @@
       "self_efficacy": 1,
       "self_esteem": 0.9,
       "secure_attachment": 0.8,
-      "relationship_security": 0.7,
       "competence": 0.5
     },
     "q11": {
-      "intimacy_comfort": -1.2,
       "emotional_intimacy": -1,
       "vulnerability_sharing": -0.9,
       "avoidant_attachment": 0.9,
@@ -1960,10 +1951,8 @@
     "q12": {
       "commitment": 1.2,
       "reliability_partnership": 1,
-      "loyalty": 0.9,
-      "relationship_security": 0.8,
-      "shared_goals": 0.6,
-      "security_value": 0.5
+      "security_value": 0.5,
+      "secure_attachment": 0.8
     },
     "q13": {
       "trust_in_relationships": 1.2,
@@ -1974,76 +1963,67 @@
       "maturity": 0.5
     },
     "q14": {
-      "passion_vitality": 0.9,
-      "excitement_seeking": 0.7,
-      "fantasy": 0.6,
       "sensation_seeking": 0.5,
       "impulsiveness": 0.4,
-      "feeling": 0.3
+      "feeling": 0.3,
+      "openness": 0.6
     },
     "q15": {
-      "passion_vitality": 1,
       "physical_intimacy": 0.8,
-      "excitement_seeking": 0.7,
       "sensation_seeking": 0.6,
-      "emotional_reactivity": 0.5,
-      "stimulation": 0.4
+      "emotional_reactivity": 0.5
     },
     "q16": {
       "commitment": 1.2,
       "responsibility": 1,
       "persistence": 0.9,
       "deliberation": 0.7,
-      "maturity": 0.6,
-      "wisdom": 0.5
+      "maturity": 0.6
     },
     "q17": {
       "persistence": -0.9,
       "commitment": -0.8,
       "responsibility": -0.7,
-      "fantasy": 0.7,
       "spontaneity": 0.5,
-      "impulsiveness": 0.4
+      "impulsiveness": 0.4,
+      "openness": 0.7
     },
     "q18": {
       "emotional_resilience": -0.7,
       "mood_stability": -0.6,
       "emotional_reactivity": 0.8,
       "sensation_seeking": 0.7,
-      "anxious_attachment": 0.6,
-      "passion_vitality": 0.5
+      "anxious_attachment": 0.6
     },
     "q19": {
       "self_awareness": 1,
       "critical_thinking": 0.9,
-      "acceptance": 0.8,
       "maturity": 0.7,
       "cognitive_reappraisal": 0.6,
-      "wisdom": 0.5
+      "self_acceptance": 0.8
     },
     "q20": {
       "emotional_intelligence": 1.2,
       "deliberation": 1,
-      "composure": 0.8,
       "emotional_resilience": 0.7,
       "maturity": 0.6,
-      "wisdom": 0.5
+      "stress_tolerance": 0.8
     },
     "q21": {
       "emotional_resilience": -0.9,
       "mood_stability": -0.8,
-      "calmness": -0.7,
       "emotional_reactivity": 0.8,
       "sensation_seeking": 0.7,
-      "anxious_attachment": 0.6
+      "anxious_attachment": 0.6,
+      "stress_tolerance": -0.7
     },
     "q22": {
       "authenticity": 1.2,
       "autonomy_wellbeing": 1,
       "self_acceptance": 0.9,
       "emotional_openness": 0.8,
-      "intimacy_comfort": 0.7,
-      "secure_attachment": 0.6
+      "secure_attachment": 0.6,
+      "emotional_intimacy": 0.7
     },
     "q23": {
       "autonomy_need": -1,
@@ -2063,43 +2043,35 @@
     },
     "q25": {
       "reliability_partnership": 1.2,
-      "shared_goals": 1,
       "cooperativeness": 0.9,
       "commitment": 0.8,
       "trust_in_relationships": 0.7,
-      "benevolence": 0.5
+      "altruism": 0.5
     },
     "q26": {
-      "passion_vitality": 1.2,
-      "excitement_seeking": 0.9,
       "sensation_seeking": 0.8,
       "emotional_reactivity": 0.7,
-      "physical_intimacy": 0.6,
-      "stimulation": 0.5
+      "physical_intimacy": 0.6
     },
     "q27": {
       "support_giving": 1.2,
-      "tender_mindedness": 1,
-      "compassion": 0.9,
       "empathy": 0.8,
-      "altruism": 0.7,
-      "benevolence": 0.6
+      "altruism": 0.7
     },
     "q28": {
       "personal_growth": 1.2,
       "growth_mindset": 1,
-      "shared_goals": 0.9,
       "support_giving": 0.8,
-      "mentoring": 0.6,
-      "maturity": 0.5
+      "maturity": 0.5,
+      "commitment": 0.9
     },
     "q29": {
-      "calmness": -1,
       "mood_stability": -0.9,
-      "relationship_security": -0.8,
       "emotional_reactivity": 0.9,
       "sensation_seeking": 0.7,
-      "anxious_attachment": 0.6
+      "anxious_attachment": 0.6,
+      "stress_tolerance": -1,
+      "secure_attachment": -0.8
     },
     "q30": {
       "autonomy_need": 1.2,
@@ -2118,20 +2090,18 @@
       "jealousy": 0.6
     },
     "q32": {
-      "relationship_security": 1.2,
-      "calmness": 1,
       "reliability_partnership": 0.9,
       "secure_attachment": 0.8,
-      "dependability": 0.7,
-      "security_value": 0.6
+      "security_value": 0.6,
+      "stress_tolerance": 1,
+      "responsibility": 0.7
     },
     "q33": {
-      "calmness": -0.9,
       "mood_stability": -0.8,
       "emotional_resilience": -0.7,
       "sensation_seeking": 0.9,
-      "excitement_seeking": 0.8,
-      "emotional_reactivity": 0.7
+      "emotional_reactivity": 0.7,
+      "stress_tolerance": -0.9
     },
     "q34": {
       "autonomy_wellbeing": 1.2,
