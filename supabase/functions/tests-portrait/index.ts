@@ -17,8 +17,12 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
-import { normalizeScaleTotals, scoreTest } from "../../../src/tests/engine.ts";
-import type { PsychTest, ScaleTotals, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
+// The LLM feed is built by a pure function in _shared so the L3 robot can
+// test the exact aggregates the model sees (docs/tests-spec-and-robot.md).
+import { buildPortraitInput } from "../_shared/portrait-input.ts";
+import type { Lang } from "../_shared/report-payload.ts";
+import { scoreTest } from "../../../src/tests/engine.ts";
+import type { PsychTest, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
 import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
 import burnoutDiagnostic from "../../../src/content/tests/burnout_diagnostic_v1.json" with { type: "json" };
@@ -55,8 +59,6 @@ const PORTRAIT_GATE = 3;
 // purpose: rows written without an explicit version read as "old" and heal
 // upward on the next paid recompute — never the other way around.
 const ENGINE_VERSION = 2;
-
-type Lang = "en" | "ru";
 
 // All seven launch tests ride statically in the bundle (~660 KB together —
 // comfortably inside limits, §6), unlike the SPA where each is its own chunk.
@@ -352,85 +354,19 @@ Deno.serve(async (req: Request) => {
       recomputed.push({ session, outcome });
     }
 
-    // Sum the recomputed sufficient statistics across tests, normalize ONCE —
-    // the same arithmetic as looplore_test_scale_profile, but over verified
-    // numbers (§6). Per-test normalized values are kept alongside so the
-    // prompt can show how one scale reads in different tests.
-    const combinedTotals: ScaleTotals = {};
-    const perTestScores = new Map<string, Record<string, number>>();
-    for (const { session, outcome } of recomputed) {
-      for (const [scale, [weighted, maxWeighted]] of Object.entries(outcome.scaleTotals)) {
-        const prev = combinedTotals[scale] ?? [0, 0];
-        combinedTotals[scale] = [prev[0] + weighted, prev[1] + maxWeighted];
-        let byTest = perTestScores.get(scale);
-        if (!byTest) {
-          byTest = {};
-          perTestScores.set(scale, byTest);
-        }
-        byTest[session.test_id] = outcome.scaleScores[scale] ?? 0;
-      }
-    }
-    const combinedScores = normalizeScaleTotals(combinedTotals);
-
-    // Prompt aggregates (§4): per-test profile + factor percentages + type
-    // code, cross-test scales with per-test values (scales living in 2+ tests
-    // are the portrait's core), a few loud single-test scales, and the untaken
-    // tests for the closing bridge. Raw answers stay out — 15K+ tokens of
-    // noise the recomputation has already digested.
-    const titleOf = (testId: string) => TESTS[testId].title[lang];
-
-    const testsPayload = recomputed.map(({ session, outcome }) => {
-      const test = TESTS[session.test_id];
-      const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
-      return {
-        test: test.title[lang],
-        profile: profile?.name[lang] ?? null,
-        profile_id: outcome.profileId,
-        ...(outcome.typeCode ? { type_code: outcome.typeCode } : {}),
-        factor_percentages: Object.fromEntries(
-          Object.entries(outcome.factorPercentages).map(([id, pct]) => [
-            test.factorNames[id]?.[lang] ?? id,
-            pct,
-          ]),
-        ),
-        taken_on: session.completed_at.slice(0, 10),
-      };
+    // Everything the model sees is assembled by the pure builder in _shared —
+    // the L3 robot tests that exact function on fixture sessions.
+    const portraitInput = buildPortraitInput({
+      sessions: recomputed.map(({ session, outcome }) => ({
+        testId: session.test_id,
+        completedAt: session.completed_at,
+        answers: session.answers,
+        outcome,
+      })),
+      tests: TESTS,
+      catalogue: CATALOGUE,
+      lang,
     });
-
-    const sharedScales = [...perTestScores.entries()]
-      .filter(([, byTest]) => Object.keys(byTest).length >= 2)
-      .map(([scale, byTest]) => ({
-        scale,
-        score: combinedScores[scale] ?? 0,
-        by_test: Object.fromEntries(
-          Object.entries(byTest).map(([testId, value]) => [titleOf(testId), value]),
-        ),
-      }))
-      .sort((a, b) => Math.abs(b.score - 50) - Math.abs(a.score - 50))
-      .slice(0, 18);
-
-    const singles = [...perTestScores.entries()]
-      .filter(([, byTest]) => Object.keys(byTest).length === 1)
-      .map(([scale, byTest]) => ({
-        scale,
-        score: combinedScores[scale] ?? 0,
-        test: titleOf(Object.keys(byTest)[0]),
-      }))
-      .sort((a, b) => b.score - a.score);
-    // Top and bottom four, deduped when fewer than eight singles exist.
-    const notableSingles = [
-      ...new Map([...singles.slice(0, 4), ...singles.slice(-4)].map((s) => [s.scale, s])).values(),
-    ];
-
-    const takenIds = new Set(recomputed.map(({ session }) => session.test_id));
-    const testsNotTaken = CATALOGUE.filter((t) => !takenIds.has(t.id)).map((t) => t.title[lang]);
-
-    const portraitInput = {
-      tests_taken: testsPayload,
-      cross_test_scales: sharedScales,
-      notable_single_test_scales: notableSingles,
-      tests_not_taken: testsNotTaken,
-    };
 
     // Spend after the cache miss, before generation. The idempotency key makes
     // client retries, a crash between spend and cache write, and the second
