@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "tests:build": "node tools/tests-import/to-canonical.mjs",
     "tests:verify": "node tools/tests-import/verify-engine.mjs",
-    "tests:fixtures": "node tools/tests-import/generate-fixtures.mjs"
+    "tests:fixtures": "node tools/tests-import/generate-fixtures.mjs",
+    "tests:feeds": "node tools/tests-audit/feed-snapshot.mjs",
+    "tests:feed-invariants": "node tools/tests-audit/feed-invariants.mjs",
+    "tests:portrait-sim": "node tools/tests-audit/portrait-feed.mjs"
   },
   "dependencies": {
     "@polar-sh/checkout": "^0.4.0",
