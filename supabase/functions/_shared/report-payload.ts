@@ -64,7 +64,13 @@ export interface AnswerLine {
   measures?: string;
   /** Answer-factor: the style this pick voted for. */
   voted_for?: string;
-  /** Likert/bipolar answers at the edge of the scale — quote material (§2). */
+  /**
+   * Answers at the edge of the scale — quote material (§2). Directional BY
+   * FACTOR, not by raw score: "max" is the extreme that pushes the measured
+   * factor UP. On reverse-keyed items the raw maximum is the factor minimum,
+   * so the marker is mirrored — «Я легко говорю нет» answered "always" must
+   * reach the model as min boundary trouble, not max (аудит §4, 157 реверсов).
+   */
   quote_candidate?: "max" | "min";
 }
 
@@ -97,22 +103,32 @@ export function expandAnswers(test: PsychTest, answers: TestAnswers, lang: Lang)
         if (a.score < min) min = a.score;
         if (a.score > max) max = a.score;
       }
-      if (max > min && chosen.score === max) line.quote_candidate = "max";
-      else if (max > min && chosen.score === min) line.quote_candidate = "min";
+      // Mirror on reverse-keyed items — but only where the engine itself
+      // reverses (questions with a factor). Factorless questions (bipolar
+      // poles) are read raw by the weights, so their raw extreme stands.
+      const mirror = question.isReversed && question.factorId !== null;
+      if (max > min && chosen.score === max) line.quote_candidate = mirror ? "min" : "max";
+      else if (max > min && chosen.score === min) line.quote_candidate = mirror ? "max" : "min";
     }
     lines.push(line);
   }
   return lines;
 }
 
-/** Top-8 highest and bottom-4 lowest scales — the rest is noise (§2). */
+/**
+ * Top-8 highest and bottom-4 lowest scales — the rest is noise (§2). Up to 12
+ * scales the split would mislead (at 8 the old slice(8).slice(-4) sent an
+ * empty "lowest", and a scale at 20 sat under "highest"), so the whole ordered
+ * list goes instead.
+ */
 export function scaleDigest(scaleScores: Record<string, number>) {
   const entries = Object.entries(scaleScores)
     .sort((a, b) => b[1] - a[1])
     .map(([scale, score]) => ({ scale, score }));
+  if (entries.length <= 12) return { all: entries };
   return {
     highest: entries.slice(0, 8),
-    lowest: entries.slice(8).slice(-4),
+    lowest: entries.slice(-4),
   };
 }
 
@@ -156,21 +172,28 @@ export function buildPayload(
   /** The full catalogue, for the "where to look next" chapter's material. */
   allTests: PsychTest[],
 ) {
-  const factors = Object.entries(outcome.factorPercentages)
-    .sort((a, b) => b[1] - a[1])
-    .map(([id, percent]) => ({
-      id,
-      name: test.factorNames[id]?.[lang] ?? id,
-      percent,
-    }));
+  // Bipolar tests never send factors or absolute pole scores: their factor
+  // percentages are structural zeros ({EI:0…} — the model read them as
+  // "extreme introversion"), and a pole means nothing by modulus — the pair
+  // balances already carry everything readable (аудит §2/§4).
+  const bipolar = test.scoring === "bipolar";
+  const factors = bipolar
+    ? null
+    : Object.entries(outcome.factorPercentages)
+        .sort((a, b) => b[1] - a[1])
+        .map(([id, percent]) => ({
+          id,
+          name: test.factorNames[id]?.[lang] ?? id,
+          percent,
+        }));
   const balances = pairBalances(test, outcome);
 
   return {
     test: { id: test.id, title: test.title[lang] },
     profile: profileSkeleton(profile, lang),
     ...(outcome.typeCode ? { type_code: outcome.typeCode, pair_balances: balances } : {}),
-    factor_percentages: factors,
-    scale_scores_0_100: scaleDigest(outcome.scaleScores),
+    ...(factors ? { factor_percentages: factors } : {}),
+    ...(bipolar ? {} : { scale_scores_0_100: scaleDigest(outcome.scaleScores) }),
     answered: `${outcome.answered} of ${test.questions.length}`,
     their_answers: expandAnswers(test, answers, lang),
     other_tests: allTests

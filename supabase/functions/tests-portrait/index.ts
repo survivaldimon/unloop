@@ -21,7 +21,7 @@ import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 // test the exact aggregates the model sees (docs/tests-spec-and-robot.md).
 import { buildPortraitInput } from "../_shared/portrait-input.ts";
 import type { Lang } from "../_shared/report-payload.ts";
-import { scoreTest } from "../../../src/tests/engine.ts";
+import { ENGINE_VERSION, scoreTest } from "../../../src/tests/engine.ts";
 import type { PsychTest, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
 import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
@@ -53,12 +53,6 @@ const REPORT_MODEL = "claude-sonnet-5";
 
 /** Gate (§4): the portrait exists from three completed tests up. */
 const PORTRAIT_GATE = 3;
-
-// Synced with src/tests/engine.ts (tests-generate-report imports it from
-// there; this bundle carries its own copy). The DB column default stays 1 on
-// purpose: rows written without an explicit version read as "old" and heal
-// upward on the next paid recompute — never the other way around.
-const ENGINE_VERSION = 2;
 
 // All seven launch tests ride statically in the bundle (~660 KB together —
 // comfortably inside limits, §6), unlike the SPA where each is its own chunk.
@@ -135,9 +129,9 @@ const PORTRAIT_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const SYSTEM_BASE = `You write "The Composite Portrait" — the flagship six-chapter report of Looplore, a pop-psychology self-reflection product (entertainment and self-knowledge, not therapy). The reader has completed several of Looplore's psychological tests. You are given aggregates only: each test's resulting profile with its factor percentages, and the cross-test scale layer — the 0-100 score each psychological scale earned across ALL tests taken, with per-test values where a scale lives in two or more tests.
+const SYSTEM_BASE = `You write "The Composite Portrait" — the flagship six-chapter report of Looplore, a pop-psychology self-reflection product (entertainment and self-knowledge, not therapy). The reader has completed several of Looplore's psychological tests. You are given aggregates only: each test's resulting profile (with one line of what that profile means) and its factor percentages, and the cross-test scale layer — the 0-100 score each psychological scale earned across ALL tests taken, with per-test values where a scale lives in two or more tests.
 
-This is the one report no single test could produce: its material is the intersections. Build the portrait primarily from cross_test_scales — especially collisions: a high scale against a low one, or the same scale reading differently in different tests. A contradiction named precisely is worth more than three smooth generalizations.
+This is the one report no single test could produce: its material is the intersections. cross_test_scales.contested are the scales whose readings DISAGREE most between tests (spread = highest minus lowest per-test value) — this is the portrait's raw material: the same trait switching on in one context and off in another. cross_test_scales.strongest are the scales furthest from the 50 midline across everything — the throughline material. type_axes give each personality axis as a balance inside its pair (e.g. extraversion 62 / introversion 38), overall and per test: read the tilt and how tests disagree about it, never one pole alone. Build the portrait primarily from these — especially collisions: a high scale against a low one, or the same scale reading differently in different tests. A contradiction named precisely is worth more than three smooth generalizations.
 
 Rules: never invent facts beyond the data given; you have no raw answers, so never quote or paraphrase "what they answered". Refer to tests by the human names given in the data, never by ids. Scale and factor ids are readable English (self_esteem, empathy) — render them as natural words of the output language, never print snake_case. Use numbers sparingly, as evidence, not decoration. No clinical jargon, no diagnosis, no therapy-speak, no toxic positivity; if the data points somewhere heavy, say it plainly and kindly — behavior and its price, not a verdict.
 
@@ -296,13 +290,22 @@ Deno.serve(async (req: Request) => {
     // Cache: looplore_portraits, created by the А1 tests-monetization
     // migration (unique on user_id + set_hash). A cached language is already
     // paid for — serve it without touching the ledger or the session rows.
+    // The row is only trusted at the current ENGINE_VERSION: after a weights
+    // recalibration a stale portrait reads old arithmetic, so it regenerates
+    // instead — for free, because the spend key (user + set_hash) is
+    // unchanged and the duplicate spend returns ok without a new debit.
+    // (The DB column default stays 1 on purpose: rows written without an
+    // explicit version read as "old" and heal on the next paid operation.)
     const { data: cacheRow } = await admin
       .from("looplore_portraits")
-      .select("report, created_at")
+      .select("report, created_at, engine_version")
       .eq("user_id", userId)
       .eq("set_hash", setHash)
       .maybeSingle();
-    const cachedPortrait = (cacheRow?.report as Record<string, unknown> | null)?.[lang];
+    const cacheFresh = cacheRow?.engine_version === ENGINE_VERSION;
+    const cachedPortrait = cacheFresh
+      ? (cacheRow?.report as Record<string, unknown> | null)?.[lang]
+      : undefined;
     if (isCompletePortrait(cachedPortrait)) {
       return json({
         portrait: cachedPortrait,
@@ -414,8 +417,13 @@ Deno.serve(async (req: Request) => {
 
     // Both languages of one composition live in one row. The spend already
     // landed — a failed cache write must not eat the portrait; the next call
-    // simply regenerates for free on the duplicate key.
-    const mergedReport = { ...((cacheRow?.report as Record<string, unknown>) ?? {}), [lang]: portrait };
+    // simply regenerates for free on the duplicate key. A stale-version row
+    // never donates its other language: after a recalibration both languages
+    // must come from the new arithmetic.
+    const mergedReport = {
+      ...(cacheFresh ? ((cacheRow?.report as Record<string, unknown>) ?? {}) : {}),
+      [lang]: portrait,
+    };
     const { error: saveError } = await admin
       .from("looplore_portraits")
       .upsert(
