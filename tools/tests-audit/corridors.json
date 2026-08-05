@@ -29,7 +29,11 @@
     "profiles": { "profile_low_risk": [15, 25], "profile_moderate_risk": [35, 45], "profile_elevated_risk": [22, 32], "profile_high_risk": [5, 10] }
   },
   "boundaries_people_pleasing": {
-    "profiles": { "people_pleaser": [25, 35], "boundary_builder": [45, 60], "boundary_master": [10, 18] }
+    "profiles": {
+      "people_pleaser": [20, 30], "boundary_master": [10, 18],
+      "approval_radar": [5, 12], "quiet_line": [5, 12], "me_last": [5, 12], "boundary_fog": [5, 12],
+      "boundary_builder": [10, 20]
+    }
   },
   "imposter_syndrome": {
     "profiles": { "profile_minimal": [12, 20], "profile_mild": [30, 40], "profile_moderate": [22, 32], "profile_high": [10, 16], "profile_severe": [2, 5] }

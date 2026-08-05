@@ -2883,8 +2883,8 @@
         "en": "Your \"yes\" answers before you've had time to think. Other people's comfort comes first in the schedule, refusing feels like risking the relationship — and you pay with yourself for everyone else's peace."
       },
       "whyThisProfile": {
-        "ru": "Два механизма в твоих ответах высокие одновременно: угождение — выше 50%, страх отвержения — выше 40%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
-        "en": "Two mechanisms run high in your answers at once: people-pleasing above 50% and fear of rejection above 40%. That pair is the profile's formula — not kindness itself, but kindness under fear."
+        "ru": "Два механизма в твоих ответах высокие одновременно: угождение — выше 52%, страх отвержения — выше 42%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
+        "en": "Two mechanisms run high in your answers at once: people-pleasing above 52% and fear of rejection above 42%. That pair is the profile's formula — not kindness itself, but kindness under fear."
       },
       "strengths": {
         "ru": [
@@ -2957,8 +2957,8 @@
         "en": "You already know where your boundaries run, and sometimes you hold them. But not everywhere and not with everyone: it works with strangers, every other time with the people close to you — and guilt still rings after a refusal."
       },
       "whyThisProfile": {
-        "ru": "Твои ответы не попадают ни в формулу удобного (угождение выше 50% при страхе отвержения выше 40%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия — все три выше 46%). Это не обязательно середина: чаще это смешанная картина, где в одних местах граница уже стоит, а в других её ещё придётся строить.",
-        "en": "Your answers fit neither the Convenient One's formula (pleasing above 50% with rejection fear above 40%) nor the Keeper's (assertiveness, self-priority and autonomy all above 46%). That isn't necessarily the middle: more often it's a mixed picture — the boundary already stands in some places and still has to be built in others."
+        "ru": "Твои ответы не совпали ни с одним из шести именных профилей: нет пары «угождение + страх» Удобного, нет четырёх стоящих разом опор Хозяина, и ни одна опора не просела настолько ниже остальных, чтобы назвать её главным механизмом — как у Радара, Тихой границы, «Себя — потом» или Тумана. Это самая смешанная картина теста: граница уже строится, просто стройка идёт по всем участкам сразу — где-то стены стоят, где-то ещё котлован.",
+        "en": "Your answers matched none of the six named profiles: no \"pleasing + fear\" pair of the Convenient One, no four supports standing at once like the Keeper's, and no single support sagging far enough below the rest to be named the leading mechanism — the way it is for the Radar, the Quiet Line, Me Last or the Fog. It's the most mixed picture this test can draw: the boundary is being built, just on every section at once — walls up in some places, foundations still open in others."
       },
       "strengths": {
         "ru": [
@@ -3025,8 +3025,8 @@
         "en": "You say no without guilt and yes without fear. You name your needs directly, other people's moods don't steer yours, and everyone around you knows where the lines run. This was built, not given."
       },
       "whyThisProfile": {
-        "ru": "Все три опоры стоят одновременно: ассертивность, приоритет себя и эмоциональная автономия — ни одна не опустилась ниже 46%. Дело не в рекордах по каждой, а в том, что ни одна не провалена: граница держится на самой слабой из трёх. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
-        "en": "All three supports stand at once: assertiveness, self-priority and emotional autonomy — none of them dips below 46%. It's not about records on each; it's that none has collapsed: a boundary holds at the weakest of the three. That combination is almost never innate; it's the result of work done."
+        "ru": "Все четыре опоры стоят одновременно: ассертивность, приоритет себя, эмоциональная автономия и ясность границ — в среднем не ниже 52%, и ни одна не провалена ниже 37%. Дело не в рекордах по каждой: граница держится на самой слабой опоре, а у тебя не провалена ни одна — включая умение видеть, где проходит твоя линия. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
+        "en": "All four supports stand at once: assertiveness, self-priority, emotional autonomy and boundary clarity — averaging no lower than 52%, with none collapsed below 37%. It's not about records on each: a boundary holds at its weakest support, and none of yours has given way — including the ability to see where your line runs. That combination is almost never innate; it's the result of work done."
       },
       "strengths": {
         "ru": [
@@ -3082,24 +3082,312 @@
         "ru": "Границы — не стены, а двери: ты решаешь, когда они открыты. Следи только, чтобы они не заржавели закрытыми.",
         "en": "Boundaries aren't walls — they're doors: you decide when they open. Just don't let them rust shut."
       }
+    },
+    "approval_radar": {
+      "id": "approval_radar",
+      "icon": null,
+      "name": {
+        "ru": "Радар одобрения",
+        "en": "The Approval Radar"
+      },
+      "description": {
+        "ru": "Твоя антенна не выключается: как посмотрели, что ответили, не остыл ли тон. Ты можешь отказывать и держать границы — но любая напряжённость в отношениях включает тревогу, и покой возвращается только вместе с чужим одобрением.",
+        "en": "Your antenna never switches off: how they looked at you, what they replied, whether the tone has cooled. You can refuse and hold a line — but any tension in a relationship sets off the alarm, and calm only returns together with someone's approval."
+      },
+      "whyThisProfile": {
+        "ru": "Ведущий механизм в твоих ответах — зависимость от чужой реакции: либо страх отвержения поднялся к самому верху шкалы (от 91%), либо эмоциональная автономия — самая просевшая из четырёх опор границы (ниже 18% и слабее остальных). Дело не в том, что ты делаешь, а в том, кто выдаёт тебе право на спокойствие.",
+        "en": "The leading mechanism in your answers is dependence on other people's reactions: either fear of rejection climbed to the very top of the scale (91%+), or emotional autonomy is the weakest of your four boundary supports (below 18% and lower than the rest). It's not about what you do — it's about who hands you the right to feel at ease."
+      },
+      "strengths": {
+        "ru": [
+          "Ты считываешь состояние людей раньше слов — и точно",
+          "Ты редко ранишь кого-то неосторожной фразой",
+          "Охлаждение в отношениях ты замечаешь первым — радар настоящий, и он точный",
+          "Ты умеешь беречь отношения и вкладываться в них"
+        ],
+        "en": [
+          "You read people's states before words — accurately",
+          "You rarely wound anyone with a careless phrase",
+          "You're the first to notice a relationship cooling — the radar is real, and it's precise",
+          "You know how to protect relationships and invest in them"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Цена постоянного мониторинга — фоновая тревога, которая не заканчивается",
+          "Молчание читается как приговор: нет ответа — и голова дописывает худший сценарий",
+          "Решения принимает не твоё «хочу», а чужое «одобряю»",
+          "Недорешённый конфликт — бессонная ночь",
+          "Самооценка, арендованная у чужого настроения, шатается от каждого хмурого взгляда"
+        ],
+        "en": [
+          "The price of constant monitoring is background anxiety that never quite ends",
+          "Silence reads as a verdict: no reply — and the mind writes the worst script",
+          "Decisions get made by someone else's \"approved\", not your own \"I want\"",
+          "An unfinished conflict means a sleepless night",
+          "Self-worth rented from other people's moods shakes at every frown"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Проверяй факты, а не сигналы: спроси прямо вместо перечитывания тона сообщения",
+          "Дозируй проверки: одно «у нас всё в порядке?» вместо пяти",
+          "Тренируй «неотвеченное сообщение — не отвержение»: ставь таймер, прежде чем реагировать",
+          "Возвращай своему голосу первое слово: сначала назови себе своё мнение, потом собирай чужие",
+          "Лови катастрофизацию за руку: что худшее реально случится — и как ты с этим справишься?"
+        ],
+        "en": [
+          "Check facts, not signals: ask directly instead of re-reading the tone of a message",
+          "Ration the check-ins: one \"are we okay?\" instead of five",
+          "Train \"an unanswered message is not rejection\": set a timer before you react",
+          "Give your own voice the first word: name your opinion to yourself before collecting others'",
+          "Catch catastrophizing red-handed: what's the worst that will actually happen — and how would you cope?"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поймай сегодня один момент, когда захочется спросить «ты не обиделся?» — и вместо этого подожди час. Заметь: мир не рухнул.",
+        "en": "Catch one moment today when you want to ask \"are you mad at me?\" — and wait an hour instead. Notice: the world doesn't collapse."
+      },
+      "inspiringConclusion": {
+        "ru": "Твой радар — настоящий дар: мало кто видит людей так точно. Осталось научиться выключать его на ночь — связь, которая держится только на постоянной проверке, не единственный доступный тебе вид связи.",
+        "en": "Your radar is a real gift — few people see others this precisely. All that's left is learning to switch it off at night: a bond that survives only on constant checking isn't the only kind of bond available to you."
+      },
+      "supportNote": {
+        "ru": "Это образовательный тест, не диагноз. Но если страх отвержения родом из отношений, где любовь можно было потерять за одну ошибку, и он до сих пор дежурит в каждом разговоре — с психологом эта тревога разбирается быстрее и бережнее, чем в одиночку. Это одна из самых изученных тем в терапии.",
+        "en": "This is an educational test, not a diagnosis. But if the fear of rejection comes from relationships where love could be lost over one mistake, and it still stands guard in every conversation — working through that anxiety with a therapist is faster and gentler than doing it alone. It's one of the best-studied themes in therapy."
+      }
+    },
+    "quiet_line": {
+      "id": "quiet_line",
+      "icon": null,
+      "name": {
+        "ru": "Тихая граница",
+        "en": "The Quiet Line"
+      },
+      "description": {
+        "ru": "Ты знаешь, где проходит твоя граница, и чувствуешь момент, когда через неё переступают. Но вслух это почти никогда не звучит: несогласие остаётся в голове, «нет» превращается в «ну ладно», и люди даже не узнают, что сделали тебе неудобно.",
+        "en": "You know where your line runs, and you feel the moment someone steps over it. Out loud, though, it almost never sounds: disagreement stays in your head, \"no\" turns into \"fine\", and people never learn they've made you uncomfortable."
+      },
+      "whyThisProfile": {
+        "ru": "Из четырёх опор границы в твоих ответах заметнее всего просела ассертивность — ниже 21% и слабее остальных. Видеть границу и сказать о ней — разные навыки: второй пока отстаёт, а именно он решает, узнает ли кто-нибудь, где твоя линия.",
+        "en": "Of the four supports a boundary stands on, assertiveness sagged the most in your answers — below 21% and weaker than the rest. Seeing a line and saying it out loud are different skills: the second one is lagging, and it's the one that decides whether anyone learns where your line is."
+      },
+      "strengths": {
+        "ru": [
+          "Ты знаешь, чего хочешь и чего не хочешь, — многим до этого далеко",
+          "Бережность: ты не превращаешь несогласие в войну",
+          "Самонаблюдение: ты замечаешь свои реакции, даже когда молчишь о них",
+          "Когда ты всё-таки говоришь, это звучит взвешенно — и тебя слышат"
+        ],
+        "en": [
+          "You know what you want and what you don't — many people never get that far",
+          "Gentleness: you don't turn disagreement into war",
+          "Self-observation: you notice your reactions even when you keep them quiet",
+          "When you do speak up, it sounds considered — and people listen"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Молчание читается как согласие — и просьбы растут",
+          "Невысказанное не растворяется: копится в обиду или взрывается не вовремя",
+          "Люди искренне не в курсе, что переступают твою линию, — ты им не говорил",
+          "Каждое проглоченное «нет» превращается в злость на себя"
+        ],
+        "en": [
+          "Silence reads as consent — so the requests keep growing",
+          "What goes unsaid doesn't dissolve: it stockpiles into resentment or blows up at the wrong moment",
+          "People genuinely don't know they're crossing your line — you never told them",
+          "Every swallowed \"no\" turns into anger at yourself"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Скрипты снижают цену слов: заготовь две фразы — «мне это не подходит» и «давай сделаем иначе»",
+          "Начни с письменных границ: «нет» в переписке стоит дешевле, чем вслух",
+          "Громкость не обязательна: тихое «мне так некомфортно» — уже граница",
+          "Озвучивай одну границу в день в самом безопасном месте",
+          "Не заменяй отказ исчезновением: прямое «нет» честнее тихого отстранения"
+        ],
+        "en": [
+          "Scripts lower the price of speaking: prepare two phrases — \"that doesn't work for me\" and \"let's do it differently\"",
+          "Start with written boundaries: saying no in a message costs less than in person",
+          "Volume is optional: a quiet \"I'm not comfortable with this\" is already a boundary",
+          "Voice one boundary a day in the safest place you have",
+          "Don't swap refusal for disappearance: a direct \"no\" is more honest than quiet withdrawal"
+        ]
+      },
+      "tryToday": {
+        "ru": "Скажи сегодня вслух одну вещь, которую обычно оставляешь в голове: «мне так неудобно». Одна фраза, самое безопасное место.",
+        "en": "Say out loud, once today, something you'd normally keep in your head: \"this doesn't suit me.\" One phrase, the safest place you can find."
+      },
+      "inspiringConclusion": {
+        "ru": "Граница у тебя уже есть — осталось дать ей голос. Это навык произношения, а не строительства: строить ты умеешь.",
+        "en": "The boundary is already there — it just needs a voice. That's a skill of speaking, not of building: the building you already know how to do."
+      }
+    },
+    "me_last": {
+      "id": "me_last",
+      "icon": null,
+      "name": {
+        "ru": "Себя — потом",
+        "en": "Me Last"
+      },
+      "description": {
+        "ru": "В твоей очереди приоритетов ты стоишь последним. Чужая просьба важнее своих планов, чужая усталость уважительнее своей, а «потом займусь собой» стало постоянным адресом. Это не страх — это привычка, в которой тебя самого просто не видно.",
+        "en": "In your queue of priorities you stand last. Someone's request outranks your plans, someone's tiredness is more legitimate than your own, and \"I'll get to myself later\" has become a permanent address. It isn't fear — it's a habit in which you've simply gone missing."
+      },
+      "whyThisProfile": {
+        "ru": "Из четырёх опор границы сильнее всего просел приоритет себя — ниже 21% и слабее остальных. Ты можешь уметь отказывать и не зависеть от чужого мнения, но свои потребности системно уезжают в конец очереди — и именно это звено сейчас определяет твою картину границ.",
+        "en": "Of the four supports a boundary stands on, putting yourself first sagged the most — below 21% and weaker than the rest. You may be able to refuse and stay independent of other people's opinions, but your own needs are systematically sent to the back of the queue — and right now that link shapes your whole picture of boundaries."
+      },
+      "strengths": {
+        "ru": [
+          "На тебя правда можно положиться — это редкость и ценность",
+          "Ты видишь, кому нужна помощь, раньше, чем попросят",
+          "Выносливость: ты несёшь много и долго",
+          "Щедрость без калькулятора"
+        ],
+        "en": [
+          "People can genuinely rely on you — that's rare and valuable",
+          "You see who needs help before they ask",
+          "Endurance: you carry a lot, and you carry it long",
+          "Generosity without a calculator"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Бак не бездонный — усталость приходит без предупреждения",
+          "К твоей безотказности привыкают, как к погоде: её перестают замечать и начинают ожидать",
+          "Нетренированные желания атрофируются: вопрос «а чего хочу я?» ставит в тупик",
+          "Помощь из пустого бака — кредит под залог собственного здоровья"
+        ],
+        "en": [
+          "The tank isn't bottomless — exhaustion arrives without warning",
+          "People get used to your reliability like weather: it stops being noticed and starts being expected",
+          "Untrained wishes atrophy: \"what do I actually want?\" becomes a stumper",
+          "Helping from an empty tank is a loan taken out against your own health"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Планируй себя как встречу: время на себя попадает в календарь раньше чужих просьб",
+          "Правило кислородной маски: сначала свою — это не эгоизм, а то, что делает помощь долгоиграющей",
+          "Выучи ранние сигналы своей усталости — до красной зоны, а не после",
+          "Раз в день делай один выбор из «хочу», а не из «надо»",
+          "Проверяй мотив каждого «да»: я даю из избытка или из привычки?"
+        ],
+        "en": [
+          "Schedule yourself like a meeting: time for you goes into the calendar before other people's requests",
+          "Oxygen-mask rule: yours first — it isn't selfishness, it's what makes helping sustainable",
+          "Learn your body's early signals of running low — before the red zone, not after",
+          "Make one choice a day out of \"I want\", not \"I should\"",
+          "Check the motive behind each yes: am I giving from surplus or from habit?"
+        ]
+      },
+      "tryToday": {
+        "ru": "Поставь сегодня в календарь 30 минут на себя — как встречу, которую нельзя отменить. И не отменяй.",
+        "en": "Put 30 minutes for yourself in today's calendar — as a meeting that can't be cancelled. Then don't cancel it."
+      },
+      "inspiringConclusion": {
+        "ru": "Забота — твой талант. Направь её долю на единственного человека, которого, кроме тебя, точно никто не спасёт, — и всем вокруг достанется не меньше, а больше.",
+        "en": "Caring is your talent. Aim a share of it at the one person only you can look after — and everyone around you will end up getting more, not less."
+      }
+    },
+    "boundary_fog": {
+      "id": "boundary_fog",
+      "icon": null,
+      "name": {
+        "ru": "Туман",
+        "en": "The Fog"
+      },
+      "description": {
+        "ru": "Ты не то чтобы не защищаешь свои границы — их трудно защищать, когда не видно, где они. Дискомфорт приходит без объяснения, чужие проблемы незаметно становятся твоими, а понять, что тебя продавили, получается только задним числом.",
+        "en": "It's not that you fail to defend your boundaries — they're hard to defend when you can't see where they are. Discomfort arrives unexplained, other people's problems quietly become yours, and you only work out that you were pushed — a day later."
+      },
+      "whyThisProfile": {
+        "ru": "Из четырёх опор границы заметнее всего просела ясность границ — ниже 21% и слабее остальных. Прежде чем границу отстаивать, её надо увидеть: сейчас именно эта карта у тебя в тумане, и остальные навыки не могут работать вслепую.",
+        "en": "Of the four supports a boundary stands on, boundary clarity sagged the most — below 21% and weaker than the rest. Before a line can be held it has to be seen: right now that map is in fog, and the other skills can't work blind."
+      },
+      "strengths": {
+        "ru": [
+          "Открытость: ты не живёшь за заборами",
+          "Гибкость: с тобой легко договариваться",
+          "Сигнал дискомфорта приходит — пусть и без подписи; это сырьё для ясности",
+          "Готовность разбираться: ты здесь — и это уже шаг"
+        ],
+        "en": [
+          "Openness: you don't live behind fences",
+          "Flexibility: you're easy to find agreements with",
+          "The discomfort signal does arrive — unsigned, but it arrives; that's the raw material of clarity",
+          "Willingness to figure it out: you're here, and that's already a step"
+        ]
+      },
+      "vulnerabilities": {
+        "ru": [
+          "Поздние сигналы: «это было слишком» приходит через день после момента",
+          "Манипуляцию видно только из будущего, когда она уже сработала",
+          "Чужая ответственность прилипает незаметно",
+          "Без собственной карты живёшь по чужим"
+        ],
+        "en": [
+          "Late signals: \"that was too much\" arrives a day after the moment",
+          "Manipulation is only visible from the future, when it has already worked",
+          "Other people's responsibilities stick to you unnoticed",
+          "Without a map of your own you end up living by everyone else's"
+        ]
+      },
+      "recommendations": {
+        "ru": [
+          "Веди дневник дискомфорта: записывай, после чего стало не по себе",
+          "Освой базовую разметку: моё время, моё тело, мои деньги, мои решения — четыре линии для начала карты",
+          "Носи с собой вопрос-компас: я этого хочу — или это просто случилось со мной?",
+          "Попроси близкого человека показывать моменты, где он видит твои уступки",
+          "Изучи два-три типовых приёма манипуляции — узнавание тренируется"
+        ],
+        "en": [
+          "Keep a discomfort diary: note what happened right before you felt off",
+          "Practice basic surveying: my time, my body, my money, my decisions — four lines to start the map",
+          "Carry a compass question: do I want this, or did it just happen to me?",
+          "Ask someone you trust to point out the moments they see you conceding",
+          "Study two or three standard manipulation moves — recognition is trainable"
+        ]
+      },
+      "tryToday": {
+        "ru": "Вечером запиши один момент дня, где было «как-то не так». Ничего не решай — просто найди, что именно случилось. Это первая точка на твоей карте.",
+        "en": "Tonight, write down one moment of the day that felt \"somehow off\". Don't decide anything — just find what exactly happened. That's the first point on your map."
+      },
+      "inspiringConclusion": {
+        "ru": "Границы не строят в тумане — сначала включают свет. Каждый замеченный момент «не так» — ещё метр видимости, и карта соберётся быстрее, чем кажется.",
+        "en": "Nobody builds boundaries in fog — first you switch on the light. Every \"off\" moment you catch adds a metre of visibility, and the map comes together faster than it seems."
+      }
     }
   },
   "profileSelection": {
-    "$note": "Этап 2 (03.08.2026): пороги под коридоры (pleaser 25–35, builder 45–60, master 10–18). pleaser ≥60/≥60 → ≥50/≥40: перекос в угождение перестал тонуть в фолбэке (16.2% → 31.9%). master «три ≥65» → «три ≥46»: сетка фактора 3.125 (≥46 ≡ ≥46.9; ≥49 совпадал бы с ≥50), мастер ожил (4.3% → 11.3%). Порядок правил как в Dart: pleaser первым (при одновременном совпадении окон — соглашательство — выигрывает проблемный профиль). builder 79.5% → 56.8%.",
+    "$note": "Этап 4 (05.08.2026), типология v2 (вопрос №8 коридор-дока) по решениям основателя: гибрид «полюса + механизмы середины», 7 профилей. Порядок правил: проблемный полюс первым (паттерн Dart сохранён — при пересечении окон выигрывает Удобный), мастер вторым, затем механизмы, фолбэк — только ровные профили. Механизмы середины — «слабейшее звено» из четырёх опор (ассертивность, приоритет себя, автономия, ясность): фактор слабее всех остальных И ниже порога. Радар одобрения достижим двумя путями: экстремальный страх отвержения (≥91, эфф. ≥93.8 на сетке 3.125) вне формулы Удобного или автономия — слабейшая опора ниже 18 (эфф. ≤15.6). Ясность границ включена в селектор (гейт мастера + ветка «Туман») — 8 вопросов q41–q48 впервые влияют на результат. Мастер: средняя четырёх опор (@pillars) ≥52 И ни одна не провалена ниже 37 (эфф. ≥37.5) — «все опоры стоят»; «отвечал всюду средне» (все факторы 50) в мастера не проходит по @pillars-гейту и уходит в фолбэк. Пороги откалиброваны grid-search'ем по персонной симуляции audit2 (4000 персон, seed 777) под коридоры v2 corridors.json: Удобный ≥52/≥42 (эфф. 53.1/43.8) → 28.6% [20–30]; мастер → 11.8% [10–18]; радар → 10.7% [5–12]; туман <21 (эфф. ≤18.8) → 11.2% [5–12]; тихая <21 → 9.9% [5–12]; себя-потом <21 → 9.8% [5–12]; фолбэк → 17.9% [10–20]; минимальный запас до края коридора 0.8 п.п. Пороги туман/тихая/себя-потом единые (<21); автономия глубже (<18), т.к. у радара второй вход через страх. Ничьи weakest-link решает порядок правил: ясность → ассертивность → приоритет себя → автономия (фундамент раньше навыков; автономия последней — у неё есть второй вход). Ср. старое v1: 3 профиля, фолбэк 56.8%.",
     "mode": "rules",
     "fallback": "boundary_builder",
+    "derived": {
+      "@pillars": {
+        "avg": [
+          "assertiveness",
+          "self_prioritization",
+          "emotional_autonomy",
+          "boundary_clarity"
+        ]
+      }
+    },
     "rules": [
       {
         "when": [
           [
             "people_pleasing",
             ">=",
-            50
+            52
           ],
           [
             "fear_of_rejection",
             ">=",
-            40
+            42
           ]
         ],
         "profile": "people_pleaser"
@@ -3107,22 +3395,142 @@
       {
         "when": [
           [
+            "@pillars",
+            ">=",
+            52
+          ],
+          [
             "assertiveness",
             ">=",
-            46
+            37
           ],
           [
             "self_prioritization",
             ">=",
-            46
+            37
           ],
           [
             "emotional_autonomy",
             ">=",
-            46
+            37
+          ],
+          [
+            "boundary_clarity",
+            ">=",
+            37
           ]
         ],
         "profile": "boundary_master"
+      },
+      {
+        "when": [
+          [
+            "fear_of_rejection",
+            ">=",
+            91
+          ]
+        ],
+        "profile": "approval_radar"
+      },
+      {
+        "when": [
+          [
+            "boundary_clarity",
+            "<",
+            21
+          ],
+          [
+            "boundary_clarity",
+            "<=",
+            "assertiveness"
+          ],
+          [
+            "boundary_clarity",
+            "<=",
+            "self_prioritization"
+          ],
+          [
+            "boundary_clarity",
+            "<=",
+            "emotional_autonomy"
+          ]
+        ],
+        "profile": "boundary_fog"
+      },
+      {
+        "when": [
+          [
+            "assertiveness",
+            "<",
+            21
+          ],
+          [
+            "assertiveness",
+            "<=",
+            "self_prioritization"
+          ],
+          [
+            "assertiveness",
+            "<=",
+            "emotional_autonomy"
+          ],
+          [
+            "assertiveness",
+            "<=",
+            "boundary_clarity"
+          ]
+        ],
+        "profile": "quiet_line"
+      },
+      {
+        "when": [
+          [
+            "self_prioritization",
+            "<",
+            21
+          ],
+          [
+            "self_prioritization",
+            "<=",
+            "assertiveness"
+          ],
+          [
+            "self_prioritization",
+            "<=",
+            "emotional_autonomy"
+          ],
+          [
+            "self_prioritization",
+            "<=",
+            "boundary_clarity"
+          ]
+        ],
+        "profile": "me_last"
+      },
+      {
+        "when": [
+          [
+            "emotional_autonomy",
+            "<",
+            18
+          ],
+          [
+            "emotional_autonomy",
+            "<=",
+            "assertiveness"
+          ],
+          [
+            "emotional_autonomy",
+            "<=",
+            "self_prioritization"
+          ],
+          [
+            "emotional_autonomy",
+            "<=",
+            "boundary_clarity"
+          ]
+        ],
+        "profile": "approval_radar"
       }
     ]
   }
