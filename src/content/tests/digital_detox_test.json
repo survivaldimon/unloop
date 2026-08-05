@@ -360,8 +360,8 @@
     {
       "id": "q7",
       "text": {
-        "ru": "Сколько часов в день ты проводишь перед экранами — телефон, компьютер, планшет?",
-        "en": "How many hours a day do you spend in front of screens — phone, computer, tablet?"
+        "ru": "Сколько часов в день ты проводишь перед экранами не по работе и не по учёбе — телефон, компьютер, планшет?",
+        "en": "How many hours a day do you spend on screens outside of work and study — phone, computer, tablet?"
       },
       "factorId": "usage_patterns",
       "isReversed": false,
@@ -369,40 +369,40 @@
         {
           "id": "a1",
           "text": {
-            "ru": "Менее 2 часов",
-            "en": "Less than 2 hours"
+            "ru": "Менее часа",
+            "en": "Less than an hour"
           },
           "score": 1
         },
         {
           "id": "a2",
           "text": {
-            "ru": "2-4 часа",
-            "en": "2-4 hours"
+            "ru": "1-2 часа",
+            "en": "1-2 hours"
           },
           "score": 2
         },
         {
           "id": "a3",
           "text": {
-            "ru": "4-6 часов",
-            "en": "4-6 hours"
+            "ru": "3-4 часа",
+            "en": "3-4 hours"
           },
           "score": 3
         },
         {
           "id": "a4",
           "text": {
-            "ru": "6-8 часов",
-            "en": "6-8 hours"
+            "ru": "5-6 часов",
+            "en": "5-6 hours"
           },
           "score": 4
         },
         {
           "id": "a5",
           "text": {
-            "ru": "Более 8 часов",
-            "en": "More than 8 hours"
+            "ru": "Более 6 часов",
+            "en": "More than 6 hours"
           },
           "score": 5
         }
@@ -742,16 +742,16 @@
         {
           "id": "a3",
           "text": {
-            "ru": "50-100 раз",
-            "en": "50-100 times"
+            "ru": "51-100 раз",
+            "en": "51-100 times"
           },
           "score": 3
         },
         {
           "id": "a4",
           "text": {
-            "ru": "100-150 раз",
-            "en": "100-150 times"
+            "ru": "101-150 раз",
+            "en": "101-150 times"
           },
           "score": 4
         },
@@ -1083,32 +1083,32 @@
         {
           "id": "a1",
           "text": {
-            "ru": "1-5 минут",
-            "en": "1-5 minutes"
+            "ru": "До 5 минут",
+            "en": "Up to 5 minutes"
           },
           "score": 1
         },
         {
           "id": "a2",
           "text": {
-            "ru": "5-15 минут",
-            "en": "5-15 minutes"
+            "ru": "6-15 минут",
+            "en": "6-15 minutes"
           },
           "score": 2
         },
         {
           "id": "a3",
           "text": {
-            "ru": "15-30 минут",
-            "en": "15-30 minutes"
+            "ru": "16-30 минут",
+            "en": "16-30 minutes"
           },
           "score": 3
         },
         {
           "id": "a4",
           "text": {
-            "ru": "30-60 минут",
-            "en": "30-60 minutes"
+            "ru": "31-60 минут",
+            "en": "31-60 minutes"
           },
           "score": 4
         },
