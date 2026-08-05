@@ -88,8 +88,8 @@
         {
           "id": "1d",
           "text": {
-            "ru": "«Понимаю, что бывают обстоятельства. Но меня расстраивает, что это уже третий раз. Я планирую свой день и чувствую, что моё время не ценят. Давай договоримся заранее предупреждать, если не уверен?»",
-            "en": "'I understand circumstances happen. But I'm upset this is third time. I plan my day and feel my time isn't valued. Let's agree to warn in advance if uncertain?'"
+            "ru": "«Бывает. Но это третий раз, и мне обидно — я планировал день. Предупреждай раньше, ок?»",
+            "en": "'Okay, but that's the third time and it stings — I'd planned my day. Warn me earlier next time?'"
           },
           "score": 3
         }
@@ -300,8 +300,8 @@
         {
           "id": "5d",
           "text": {
-            "ru": "«Привет! Я понимаю, что тебе бывает тяжело, и я хочу поддержать. Но ночные сообщения нарушают мой сон, и мне нужна граница. Можем договориться писать после 8 утра, если не срочно? В реально критических случаях — звони»",
-            "en": "'Hi! I understand it's hard for you sometimes, and I want to support. But night messages disrupt my sleep, and I need boundary. Can we agree to text after 8am if not urgent? In really critical cases — call'"
+            "ru": "«Я хочу помогать, но ночью я сплю. Давай после 8 утра, а если совсем беда — звони.»",
+            "en": "'I've got you, but at night I sleep. Text me after 8am — if it's a real emergency, call.'"
           },
           "score": 3
         }
@@ -512,8 +512,8 @@
         {
           "id": "9d",
           "text": {
-            "ru": "«Мам, я понимаю твоё беспокойство, и я люблю тебя. Но мне нужна граница. Я взрослый и часто бываю занят. Давай я буду писать раз в день, что всё ок? В экстренной ситуации звони»",
-            "en": "'Mom, I understand your worry, and I love you. But I need boundary. I'm adult and often busy. How about I text once a day that I'm ok? In emergency — call'"
+            "ru": "«Мам, я живой, просто занят. Давай так: я пишу раз в день, что всё ок, а если срочно — звони.»",
+            "en": "'Mom, I'm alive, just busy. Deal: I text once a day that I'm okay, and if it's urgent — call.'"
           },
           "score": 3
         }
@@ -671,8 +671,8 @@
         {
           "id": "12d",
           "text": {
-            "ru": "«Мне нужно поговорить о нашей переписке. Постоянные вопросы 'где ты' давят на меня. Я понимаю что ты беспокоишься, но мне нужно пространство. Давай договоримся о комфортной частоте связи для нас обоих?»",
-            "en": "'I need to talk about our texting. Constant 'where are you' questions pressure me. I understand you worry, but I need space. Let's agree on comfortable contact frequency for both of us?'"
+            "ru": "«Меня напрягает, когда ты пишешь каждые 15 минут. Я не пропадаю — давай спишемся вечером?»",
+            "en": "'It gets to me when you text every 15 minutes. I'm not vanishing — let's talk tonight?'"
           },
           "score": 3
         }
@@ -724,8 +724,8 @@
         {
           "id": "13d",
           "text": {
-            "ru": "«Знаю, что ты хотел поделиться новостью, но мне сейчас больно это слышать. Давай не будем обсуждать моего бывшего? Ценю твою заботу, но это не помогает»",
-            "en": "'I know you wanted to share news, but it's painful for me to hear now. Let's not discuss my ex? I appreciate your care, but it doesn't help'"
+            "ru": "«Слушай, мне пока больно про него слышать. Давай без новостей о бывшем, ок?»",
+            "en": "'Honestly, that still stings. Can we skip the ex updates for now?'"
           },
           "score": 3
         }
@@ -830,8 +830,8 @@
         {
           "id": "15d",
           "text": {
-            "ru": "«Эй, сегодня мой день рождения 😊 Я понимаю, что все забывчивы иногда. Но мне было бы приятно, если бы ты помнил — это важно для меня»",
-            "en": "'Hey, it's my birthday today 😊 I understand everyone is forgetful sometimes. But I'd appreciate if you remembered — it's important to me'"
+            "ru": "«Эй, у меня сегодня днюха 😊 Обидно, что забыл — для меня это важно.»",
+            "en": "'Hey, it's my birthday today 😊 Stings that you forgot — it matters to me.'"
           },
           "score": 3
         }
@@ -883,8 +883,8 @@
         {
           "id": "16d",
           "text": {
-            "ru": "«Мне важно решить этот вопрос, потому что он влияет на наши отношения. Понимаю, что сейчас тяжело, но избегание не решит проблему. Может возьмём паузу и вернёмся к разговору завтра?»",
-            "en": "'It's important to me to resolve this because it affects our relationship. I understand it's hard now, but avoidance won't solve problem. Maybe take break and return to conversation tomorrow?'"
+            "ru": "«Мне важно это дорешать. Давай выдохнем и вернёмся завтра — но не бросим так.»",
+            "en": "'I still need us to finish this. Let's breathe and come back tomorrow — just not drop it.'"
           },
           "score": 3
         }
