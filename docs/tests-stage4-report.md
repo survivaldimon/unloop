@@ -68,7 +68,7 @@ A→B→C→D + два координаторских коммита. **Ждёт
 | `npm run tests:feed-invariants` | 17 270 проверок, all PASS; фид разбора ~5.4K токенов, портрета ~7.0K — в бюджетах |
 | `npm run build` | зелёный (tsc + vite, 177 модулей + OG-страницы 19 тестов) |
 | esbuild-бандлы обеих функций | собираются (`--bundle --format=esm --platform=neutral --external:npm:*`) |
-| CI на ветке `stage4/integration` | запушено, включая новые блокирующие шаги D — статус см. в Actions (фиксация в этом доке — после прогона) |
+| CI на ветке `stage4/integration` | зелёный (run 31083784968): npm ci → build → tests:verify → **tests:audit → tests:lint → tests:feed-invariants** — новые блокирующие шаги D отработали на CI до мержа |
 
 ## Чек-лист деплоя (строго после «го»)
 
