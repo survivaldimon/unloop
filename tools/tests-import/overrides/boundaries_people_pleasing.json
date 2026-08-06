@@ -1,5 +1,5 @@
 {
-  "$comment": "Э8, волна 2 батч 3. Три профиля-уровня навыка границ. Из заголовка убран англицизм People-Pleasing (в RU), эмодзи из названий профилей, «работа с психологом» из рекомендаций удобного заменена на supportNote-мягкую строку и поведенческие ходы. Пороги (60/60 у угодника, 65×3 у мастера) и веса не тронуты.",
+  "$comment": "Э8, волна 2 батч 3. Три профиля-уровня навыка границ. Из заголовка убран англицизм People-Pleasing (в RU), эмодзи из названий профилей, «работа с психологом» из рекомендаций удобного заменена на supportNote-мягкую строку и поведенческие ходы. Этап 4 (05.08.2026, типология v2): WHY трёх профилей переписаны под правила v2 — Удобный 52/42, Хозяин «четыре опоры: средняя ≥52, каждая ≥37», Строитель — фолбэк против шести именных профилей; синхронно с fixes/profileSelection (тексты четырёх новых профилей живут в fixes → profilesAdd).",
   "title": {
     "ru": "Личные границы и угождение",
     "en": "Boundaries and People-Pleasing"
@@ -49,8 +49,8 @@
         "en": "Your \"yes\" answers before you've had time to think. Other people's comfort comes first in the schedule, refusing feels like risking the relationship — and you pay with yourself for everyone else's peace."
       },
       "whyThisProfile": {
-        "ru": "Два механизма в твоих ответах высокие одновременно: угождение — выше 50%, страх отвержения — выше 40%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
-        "en": "Two mechanisms run high in your answers at once: people-pleasing above 50% and fear of rejection above 40%. That pair is the profile's formula — not kindness itself, but kindness under fear."
+        "ru": "Два механизма в твоих ответах высокие одновременно: угождение — выше 52%, страх отвержения — выше 42%. Эта пара и есть формула профиля: не доброта сама по себе, а доброта под страхом.",
+        "en": "Two mechanisms run high in your answers at once: people-pleasing above 52% and fear of rejection above 42%. That pair is the profile's formula — not kindness itself, but kindness under fear."
       },
       "strengths": {
         "ru": [
@@ -117,8 +117,8 @@
         "en": "You already know where your boundaries run, and sometimes you hold them. But not everywhere and not with everyone: it works with strangers, every other time with the people close to you — and guilt still rings after a refusal."
       },
       "whyThisProfile": {
-        "ru": "Твои ответы не попадают ни в формулу удобного (угождение выше 50% при страхе отвержения выше 40%), ни в формулу хозяина границ (ассертивность, приоритет себя и автономия — все три выше 46%). Это не обязательно середина: чаще это смешанная картина, где в одних местах граница уже стоит, а в других её ещё придётся строить.",
-        "en": "Your answers fit neither the Convenient One's formula (pleasing above 50% with rejection fear above 40%) nor the Keeper's (assertiveness, self-priority and autonomy all above 46%). That isn't necessarily the middle: more often it's a mixed picture — the boundary already stands in some places and still has to be built in others."
+        "ru": "Твои ответы не совпали ни с одним из шести именных профилей: нет пары «угождение + страх» Удобного, нет четырёх стоящих разом опор Хозяина, и ни одна опора не просела настолько ниже остальных, чтобы назвать её главным механизмом — как у Радара, Тихой границы, «Себя — потом» или Тумана. Это самая смешанная картина теста: граница уже строится, просто стройка идёт по всем участкам сразу — где-то стены стоят, где-то ещё котлован.",
+        "en": "Your answers matched none of the six named profiles: no \"pleasing + fear\" pair of the Convenient One, no four supports standing at once like the Keeper's, and no single support sagging far enough below the rest to be named the leading mechanism — the way it is for the Radar, the Quiet Line, Me Last or the Fog. It's the most mixed picture this test can draw: the boundary is being built, just on every section at once — walls up in some places, foundations still open in others."
       },
       "strengths": {
         "ru": [
@@ -183,8 +183,8 @@
         "en": "You say no without guilt and yes without fear. You name your needs directly, other people's moods don't steer yours, and everyone around you knows where the lines run. This was built, not given."
       },
       "whyThisProfile": {
-        "ru": "Все три опоры стоят одновременно: ассертивность, приоритет себя и эмоциональная автономия — ни одна не опустилась ниже 46%. Дело не в рекордах по каждой, а в том, что ни одна не провалена: граница держится на самой слабой из трёх. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
-        "en": "All three supports stand at once: assertiveness, self-priority and emotional autonomy — none of them dips below 46%. It's not about records on each; it's that none has collapsed: a boundary holds at the weakest of the three. That combination is almost never innate; it's the result of work done."
+        "ru": "Все четыре опоры стоят одновременно: ассертивность, приоритет себя, эмоциональная автономия и ясность границ — в среднем не ниже 52%, и ни одна не провалена ниже 37%. Дело не в рекордах по каждой: граница держится на самой слабой опоре, а у тебя не провалена ни одна — включая умение видеть, где проходит твоя линия. Такое сочетание почти никогда не бывает врождённым — это результат проделанной работы.",
+        "en": "All four supports stand at once: assertiveness, self-priority, emotional autonomy and boundary clarity — averaging no lower than 52%, with none collapsed below 37%. It's not about records on each: a boundary holds at its weakest support, and none of yours has given way — including the ability to see where your line runs. That combination is almost never innate; it's the result of work done."
       },
       "strengths": {
         "ru": [
