@@ -3,7 +3,8 @@ import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
 import { testsCopy } from "../copy";
-import type { PsychTest, TestAnswers, TestQuestion } from "../types";
+import { displayAnswers } from "../shuffle";
+import type { PsychTest, TestAnswer, TestAnswers, TestQuestion } from "../types";
 
 export default function TestRunner({
   test,
@@ -94,6 +95,7 @@ export default function TestRunner({
       <QuestionCard
         key={`${question.id}-${lang}`}
         question={question}
+        answers={displayAnswers(test, question, getTestSessionId(test.id))}
         lang={lang}
         selected={answers[question.id]}
         onSelect={select}
@@ -104,11 +106,14 @@ export default function TestRunner({
 
 function QuestionCard({
   question,
+  answers,
   lang,
   selected,
   onSelect,
 }: {
   question: TestQuestion;
+  /** Already in display order — scenario tests arrive shuffled per session. */
+  answers: TestAnswer[];
   lang: "en" | "ru";
   selected: string | undefined;
   onSelect: (answerId: string) => void;
@@ -141,7 +146,7 @@ function QuestionCard({
       </h2>
 
       <div className="flex flex-col gap-3">
-        {question.answers.map((answer, i) => (
+        {answers.map((answer, i) => (
           <button
             key={answer.id}
             className={`btn-option rise rise-${Math.min(i + 1, 4)} ${
