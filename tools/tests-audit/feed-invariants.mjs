@@ -48,6 +48,39 @@ function assertThat(ok, invariant, example) {
 // branches on an empty list (retake bridge) — so [] must keep flowing.
 const MAY_BE_EMPTY = new Set(["tests_not_taken"]);
 
+/**
+ * Independent re-derivation of the straight-line verdict from the raw test
+ * JSON (этап 4): thresholds are hardcoded on purpose — importing them from
+ * _shared/response-quality.ts would prove nothing if they drift. Approved
+ * 05.08.2026: modal ≥ 0.9 ∨ variance ≤ 0.01 ∨ extremes ≥ 0.95 over valid
+ * answers; answer_factor tests judge by modal position only.
+ */
+function deriveStraightLine(test, answers) {
+  const positions = [];
+  const norm = [];
+  let extremes = 0;
+  for (const q of test.questions) {
+    const idx = q.answers.findIndex((a) => a.id === answers[q.id]);
+    if (idx < 0) continue;
+    positions.push(idx);
+    if (test.scoring === "answer_factor") continue;
+    const scores = q.answers.map((a) => a.score);
+    const min = Math.min(...scores);
+    const max = Math.max(...scores);
+    if (max <= min) continue;
+    const s = q.answers[idx].score;
+    norm.push((s - min) / (max - min));
+    if (s === min || s === max) extremes++;
+  }
+  const counts = new Map();
+  for (const p of positions) counts.set(p, (counts.get(p) ?? 0) + 1);
+  if (positions.length > 0 && Math.max(...counts.values()) / positions.length >= 0.9) return true;
+  if (norm.length === 0) return false;
+  const mean = norm.reduce((s, v) => s + v, 0) / norm.length;
+  const variance = norm.reduce((s, v) => s + (v - mean) ** 2, 0) / norm.length;
+  return variance <= 0.01 || extremes / norm.length >= 0.95;
+}
+
 function assertNoEmptySections(obj, path, ctx) {
   for (const [key, value] of Object.entries(obj)) {
     const p = `${path}.${key}`;
@@ -115,6 +148,14 @@ for (const [testId, cases] of Object.entries(fixtures)) {
           );
         }
       }
+
+      // Straight-line sessions carry the feed mark — and only they do.
+      const expectFlag = deriveStraightLine(test, c.answers);
+      assertThat(
+        ("response_quality" in payload) === expectFlag,
+        "straight-line-marked",
+        `${ctx}: mark ${"response_quality" in payload ? "present" : "absent"}, derivation says ${expectFlag}`,
+      );
 
       // Structure: nothing the prompt names may arrive empty.
       assertNoEmptySections(payload, "payload", ctx);
@@ -219,6 +260,21 @@ for (const [name, sessions] of Object.entries(comps)) {
       }
     }
 
+    // Straight-line sessions are marked in tests_taken — and only they are.
+    for (const { testId, answers } of sessions) {
+      const entry = input.tests_taken.find((t) => titleToId.get(t.test) === testId);
+      if (!entry) {
+        assertThat(false, "straight-line-marked", `${ctx}: no tests_taken entry for ${testId}`);
+        continue;
+      }
+      const expectFlag = deriveStraightLine(tests[testId], answers);
+      assertThat(
+        ("response_quality" in entry) === expectFlag,
+        "straight-line-marked",
+        `${ctx}: ${testId} mark ${"response_quality" in entry ? "present" : "absent"}, derivation says ${expectFlag}`,
+      );
+    }
+
     // Bipolar tests in tests_taken: balances, never zero-factors or raw ids.
     for (const t of input.tests_taken) {
       const testId = titleToId.get(t.test);
@@ -250,6 +306,26 @@ for (const [name, sessions] of Object.entries(comps)) {
     maxPortraitTokens = Math.max(maxPortraitTokens, tokens);
     assertThat(tokens <= TOKEN_BUDGET_PORTRAIT, "portrait-token-budget", `${ctx}: ~${Math.round(tokens)} tokens`);
   }
+}
+
+// ── engine honesty (этап 4) ────────────────────────────────────────────────
+// `answered` counts only answerIds that exist in their question: garbage ids
+// must not inflate "answered X of Y" or clear the paid completeness gate.
+{
+  const test = tests["attachment_styles_v1"];
+  const garbage = Object.fromEntries(test.questions.map((q) => [q.id, "no_such_answer"]));
+  assertThat(
+    feeds.scoreTest(test, garbage).answered === 0,
+    "answered-honest",
+    `all-garbage ids counted: answered=${feeds.scoreTest(test, garbage).answered}`,
+  );
+  const oneBad = { ...fixtures["attachment_styles_v1"].all_max.answers };
+  oneBad[test.questions[0].id] = "no_such_answer";
+  assertThat(
+    feeds.scoreTest(test, oneBad).answered === test.questions.length - 1,
+    "answered-honest",
+    "one garbage id must reduce the count by exactly one",
+  );
 }
 
 // ── verdict ────────────────────────────────────────────────────────────────

@@ -10,6 +10,8 @@
     "tests:build": "node tools/tests-import/to-canonical.mjs",
     "tests:verify": "node tools/tests-import/verify-engine.mjs",
     "tests:fixtures": "node tools/tests-import/generate-fixtures.mjs",
+    "tests:audit": "node tools/tests-audit/audit.mjs --l0",
+    "tests:lint": "node tools/tests-audit/lint-weights.mjs",
     "tests:feeds": "node tools/tests-audit/feed-snapshot.mjs",
     "tests:feed-invariants": "node tools/tests-audit/feed-invariants.mjs",
     "tests:portrait-sim": "node tools/tests-audit/portrait-feed.mjs"

@@ -9,6 +9,7 @@ import {
   type Lang,
   type ReportKind,
 } from "../_shared/report-payload.ts";
+import { analyzeResponsePattern, minAnsweredRequired } from "../_shared/response-quality.ts";
 import { ENGINE_VERSION, scoreTest } from "../../../src/tests/engine.ts";
 import type { Localized, PsychTest, TestAnswers } from "../../../src/tests/types.ts";
 
@@ -161,7 +162,7 @@ const SYSTEM_BASE = `You write the five chapters of a paid personal report for L
 
 Voice: warm but unsentimental, precise, a little literary. Second person. No clinical jargon, no diagnosis, no therapy-speak, no toxic positivity. Sound like a perceptive friend who happens to know the theory behind the test. Never invent facts about the reader beyond the data provided. Plain text inside chapters — no markdown, no headings (chapter titles are added by the product).
 
-You are given the reader's recomputed numbers, their answers quoted verbatim, and the static profile texts (strengths, vulnerabilities, recommendations and so on). The static texts are a skeleton, not the content: never retell them — sharpen them into this person's numbers and answers. Weave short verbatim quotes of their answers into sentences (in quotation marks) where they prove a point; answers marked quote_candidate are the strongest material (max = the extreme answer that pushes the measured factor up, min = the extreme that pulls it down). The factor mix is personal — a blend the static profile has never seen; contradictions between their high and low scales are exactly what they paid to have read. If the profile carries a support note, the product shows it separately and unconditionally — never repeat it, never contradict its register.
+You are given the reader's recomputed numbers, their answers quoted verbatim, and the static profile texts (strengths, vulnerabilities, recommendations and so on). The static texts are a skeleton, not the content: never retell them — sharpen them into this person's numbers and answers. Weave short verbatim quotes of their answers into sentences (in quotation marks) where they prove a point; answers marked quote_candidate are the strongest material (max = the extreme answer that pushes the measured factor up, min = the extreme that pulls it down). The factor mix is personal — a blend the static profile has never seen; contradictions between their high and low scales are exactly what they paid to have read. If the data carries a response_quality warning, the answer pattern looks mechanical: soften certainty, lean on the profile skeleton rather than single answers, and you may gently note the result could reflect a hurried run — never accuse. If the profile carries a support note, the product shows it separately and unconditionally — never repeat it, never contradict its register.
 
 Chapters 2-5:
 - outside ("How it looks from the outside"): how this exact pattern is experienced by the people around them — early appeal, growing strain, the misread. The most quotable chapter.
@@ -266,6 +267,37 @@ Deno.serve(async (req: Request) => {
     const answers = (row.answers ?? {}) as TestAnswers;
     const recomputed = scoreTest(test, answers);
     if (recomputed.answered === 0) return json({ error: "no_answers" }, 409);
+
+    // Completeness gate (этап 4, решение 05.08): a paid report needs ≥80% of
+    // the test honestly answered. The UI cannot produce a partial session —
+    // this closes the bare-API path BEFORE any writeback or spend. `answered`
+    // counts only answerIds that exist in their question (engine.ts), so
+    // garbage ids cannot clear the gate.
+    const required = minAnsweredRequired(test);
+    if (recomputed.answered < required) {
+      return json(
+        { error: "incomplete_answers", answered: recomputed.answered, required },
+        409,
+      );
+    }
+
+    // Straight-line detector (решение 05.08: mark the feed + log, never block
+    // the purchase). buildPayload adds the model-facing warning on its own;
+    // this log is the L5-drift signal.
+    const pattern = analyzeResponsePattern(test, answers);
+    if (pattern.straightLine) {
+      console.log(
+        "response_quality_flag",
+        JSON.stringify({
+          session_id: sessionId,
+          test_id: test.id,
+          reasons: pattern.reasons,
+          modal_share: pattern.modalShare,
+          score_variance: pattern.scoreVariance,
+          extreme_share: pattern.extremeShare,
+        }),
+      );
+    }
 
     // Divergence from what the client saved is either engine drift after a
     // weights change (expected, healed by the writeback below) or a forged

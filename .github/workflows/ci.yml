@@ -26,3 +26,10 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run tests:verify
+      # Блокирующий набор робота (этап 4, 05.08.2026): L0 структура тестов
+      # против audit-baseline.json, L0.5 линт весов (классы A/B/E) против
+      # lint-baseline.json, L3 — инварианты обоих LLM-фидов на golden-фикстурах
+      # (esbuild компилирует настоящие билдеры из supabase/functions/_shared).
+      - run: npm run tests:audit
+      - run: npm run tests:lint
+      - run: npm run tests:feed-invariants

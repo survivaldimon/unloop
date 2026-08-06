@@ -11,6 +11,7 @@ import type {
   TestOutcome,
   TestProfileContent,
 } from "../../../src/tests/types.ts";
+import { analyzeResponsePattern, RESPONSE_QUALITY_WARNING } from "./response-quality.ts";
 
 export type Lang = "en" | "ru";
 
@@ -187,6 +188,9 @@ export function buildPayload(
           percent,
         }));
   const balances = pairBalances(test, outcome);
+  // Straight-line sessions are still sold (решение 05.08), but the model must
+  // know the numbers are low-signal — the warning rides only when flagged.
+  const pattern = analyzeResponsePattern(test, answers);
 
   return {
     test: { id: test.id, title: test.title[lang] },
@@ -194,6 +198,7 @@ export function buildPayload(
     ...(outcome.typeCode ? { type_code: outcome.typeCode, pair_balances: balances } : {}),
     ...(factors ? { factor_percentages: factors } : {}),
     ...(bipolar ? {} : { scale_scores_0_100: scaleDigest(outcome.scaleScores) }),
+    ...(pattern.straightLine ? { response_quality: RESPONSE_QUALITY_WARNING } : {}),
     answered: `${outcome.answered} of ${test.questions.length}`,
     their_answers: expandAnswers(test, answers, lang),
     other_tests: allTests

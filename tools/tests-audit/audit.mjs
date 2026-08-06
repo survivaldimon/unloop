@@ -1,10 +1,15 @@
 /**
  * Structural audit of all 19 test JSONs — seed of the future robot-tester.
  * Deterministic checks + Monte Carlo profile-reachability simulation.
+ *
+ * Blocking since этап 4 (05.08.2026): problems not covered by
+ * audit-baseline.json exit ≠ 0. `--l0` skips the slow Monte Carlo part —
+ * that's the CI mode (`npm run tests:audit`); the full run stays for humans.
  */
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+const L0_ONLY = process.argv.includes("--l0");
 const DIR = join(import.meta.dirname, "../../src/content/tests");
 const files = readdirSync(DIR).filter((f) => f.endsWith(".json") && f !== "index.json");
 const catalogue = JSON.parse(readFileSync(join(DIR, "index.json"), "utf8"));
@@ -287,6 +292,15 @@ for (const test of tests) {
   }
 
   // ─────────────── Monte Carlo + structured probes: profile reachability ──
+  if (L0_ONLY) {
+    info.scaleIds = [...info.scaleIds].sort();
+    report.tests[test.id] = info;
+    for (const s of info.scaleIds) {
+      report.scales[s] = report.scales[s] ?? [];
+      report.scales[s].push(test.id);
+    }
+    continue;
+  }
   const rand = rng(1907);
   const hits = {}; let fallbackHits = 0; let nullProfiles = 0;
   const N = 40000;
@@ -351,7 +365,9 @@ report.scaleSummary = {
   sharedList: Object.fromEntries(shared.sort((a, b) => b[1].length - a[1].length).map(([s, t]) => [s, t.length])),
 };
 
-writeFileSync(join(process.env.AUDIT_OUT ?? join(import.meta.dirname, "out"), "audit-report.json"), JSON.stringify(report, (k, v) => v instanceof Set ? [...v] : v, 2));
+const outDir = process.env.AUDIT_OUT ?? join(import.meta.dirname, "out");
+mkdirSync(outDir, { recursive: true });
+writeFileSync(join(outDir, "audit-report.json"), JSON.stringify(report, (k, v) => v instanceof Set ? [...v] : v, 2));
 
 // console digest
 console.log("=== PER-TEST DIGEST ===");
@@ -360,8 +376,10 @@ for (const [id, t] of Object.entries(report.tests)) {
   console.log(`  answer scales: ${JSON.stringify(t.answerScales)}`);
   if (t.scoring === "likert") console.log(`  q per factor: ${JSON.stringify(t.factorQuestionCounts)}`);
   console.log(`  scales carried: ${t.scaleIds.length}`);
-  console.log(`  sim: fallback=${t.simulation.fallbackSharePct}% null=${t.simulation.nullProfiles} unreached=${JSON.stringify(t.simulation.unreachedProfiles)}`);
-  console.log(`  profile spread: ${JSON.stringify(t.simulation.profileHits)}`);
+  if (t.simulation) {
+    console.log(`  sim: fallback=${t.simulation.fallbackSharePct}% null=${t.simulation.nullProfiles} unreached=${JSON.stringify(t.simulation.unreachedProfiles)}`);
+    console.log(`  profile spread: ${JSON.stringify(t.simulation.profileHits)}`);
+  }
 }
 console.log("\n=== SCALE LAYER ===");
 console.log(`total=${report.scaleSummary.totalScales} shared(>=2 tests)=${report.scaleSummary.sharedScales} single=${report.scaleSummary.singleTestScales}`);
@@ -374,3 +392,23 @@ for (const [k, list] of Object.entries(byKind)) {
   for (const item of list.slice(0, 15)) console.log("  " + item);
   if (list.length > 15) console.log(`  ... +${list.length - 15} more`);
 }
+
+// ── baseline gate (этап 4): the audit is blocking — a problem is either
+// fixed or explicitly accepted in audit-baseline.json, never silently new.
+const baseline = JSON.parse(readFileSync(join(import.meta.dirname, "audit-baseline.json"), "utf8"));
+const problemKey = (p) => `${p.kind}|${p.test}|${p.detail}`;
+const accepted = new Set(baseline.accepted.map(problemKey));
+const fresh = report.problems.filter((p) => !accepted.has(problemKey(p)));
+const currentKeys = new Set(report.problems.map(problemKey));
+const stale = [...accepted].filter((k) => !currentKeys.has(k));
+
+if (stale.length) {
+  console.log(`\nbaseline: ${stale.length} stale entr${stale.length === 1 ? "y" : "ies"} (fixed? prune audit-baseline.json):`);
+  for (const k of stale) console.log("  " + k);
+}
+if (fresh.length) {
+  console.log(`\nFAIL: ${fresh.length} problem(s) not covered by audit-baseline.json:`);
+  for (const p of fresh) console.log(`  ${problemKey(p)}`);
+  process.exit(1);
+}
+console.log(`\nOK: no problems outside the baseline (${accepted.size} accepted).`);
