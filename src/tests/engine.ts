@@ -29,10 +29,13 @@ import type {
  *
  * 2 — этап 2 аудита 03.08.2026: вычищенный вес-слой (реестр шкал, знаки,
  * полюса sixteen_types, перекодировка social_battery) и перекалиброванные
- * profileSelection всех 19 тестов под утверждённые коридоры. Синхронно с
- * ENGINE_VERSION в supabase/functions/tests-portrait/index.ts.
+ * profileSelection всех 19 тестов под утверждённые коридоры.
+ * 3 — этап 4 аудита 06.08.2026: типология v2 границ — 7 профилей (поток A) и
+ * выгорание по среднему шести симптомных факторов с предохранителем среды
+ * (поток B): те же ответы могут дать другой профиль. Обе edge-функции
+ * импортируют константу отсюда (унификация этапа 3), синхронных копий нет.
  */
-export const ENGINE_VERSION = 2;
+export const ENGINE_VERSION = 3;
 
 function answerRange(question: TestQuestion): { min: number; max: number } {
   let min = Infinity;

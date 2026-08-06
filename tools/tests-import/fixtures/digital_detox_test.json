@@ -1,6 +1,6 @@
 {
   "testId": "digital_detox_test",
-  "generatedBy": "generate-fixtures.mjs (TS-движок, канон src/content/tests, ENGINE_VERSION 2)",
+  "generatedBy": "generate-fixtures.mjs (TS-движок, канон src/content/tests, ENGINE_VERSION 3)",
   "cases": {
     "all_min": {
       "answers": {

@@ -82,7 +82,7 @@ for (const file of files) {
   }
   fs.writeFileSync(
     path.join(FIXTURES, `${test.id}.json`),
-    JSON.stringify({ testId: test.id, generatedBy: "generate-fixtures.mjs (TS-движок, канон src/content/tests, ENGINE_VERSION 2)", cases }, null, 2) + "\n",
+    JSON.stringify({ testId: test.id, generatedBy: "generate-fixtures.mjs (TS-движок, канон src/content/tests, ENGINE_VERSION 3)", cases }, null, 2) + "\n",
   );
   written++;
   console.log(`${test.id}: ${Object.keys(cases).length} кейса`);
