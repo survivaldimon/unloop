@@ -16,9 +16,10 @@
  * Направления ФАКТОРОВ — ручная таблица ниже (это семантика тестов, из данных
  * не выводится). Ось/непонятное = 'axis', линтом знаков не проверяется.
  *
- * Выход: сводка в консоль + out/lint-report.json. Код выхода 0 — линт лишь
- * отчитывается, пока веса не починены (этап 2); после починки перевести в
- * блокирующий режим сравнением с baseline.
+ * Выход: сводка в консоль + out/lint-report.json. С этапа 4 (05.08.2026) линт
+ * БЛОКИРУЮЩИЙ по классам A/B/E: находка либо чинится, либо явно принимается в
+ * lint-baseline.json — иначе exit ≠ 0. C/D остаются отчётными (структурные
+ * паттерны by design: полюсные веса sixteen_types равномерны по построению).
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
@@ -168,3 +169,30 @@ console.log(`D. Ноль отрицательных весов: ${report.D_zero_
 console.log(`E. Полюсные примеси в тестах состояния: ${report.E_pole_admixture.reduce((s, t) => s + t.count, 0)} весов в ${report.E_pole_admixture.length} тестах`);
 for (const t of report.E_pole_admixture) console.log(`   ${t.test}: ${t.count}`);
 console.log(`\nПолный отчёт: tools/tests-audit/out/lint-report.json`);
+
+// ── baseline gate (этап 4): классы A/B/E блокируют. Ключи включают вес/списки
+// вопросов — изменение принятого места ломает ключ и требует пере-ревью.
+const baseline = JSON.parse(readFileSync(join(import.meta.dirname, "lint-baseline.json"), "utf8"));
+const violationKeys = [
+  ...report.A_sign_vs_keying.map((e) => `A|${e.test}|${e.q ?? e.via}|${e.scale}|${e.weight}`),
+  ...report.B_intra_factor.map(
+    (e) =>
+      `B|${e.test}|${e.factor}|${e.reversed}|${e.scale}|plus:${[...e.plus].sort().join(",")}|minus:${[...e.minus].sort().join(",")}`,
+  ),
+  ...report.E_pole_admixture.flatMap((t) => t.hits.map((h) => `E|${t.test}|${h.q}|${h.scale}|${h.weight}`)),
+];
+const accepted = new Set(baseline.accepted);
+const fresh = violationKeys.filter((k) => !accepted.has(k));
+const current = new Set(violationKeys);
+const stale = [...accepted].filter((k) => !current.has(k));
+
+if (stale.length) {
+  console.log(`\nbaseline: ${stale.length} устаревших записей (починено? вычистить lint-baseline.json):`);
+  for (const k of stale) console.log("  " + k);
+}
+if (fresh.length) {
+  console.log(`\nFAIL: ${fresh.length} находок A/B/E вне lint-baseline.json:`);
+  for (const k of fresh) console.log("  " + k);
+  process.exit(1);
+}
+console.log(`\nOK: классы A/B/E чисты вне baseline (${accepted.size} принятых).`);

@@ -14,6 +14,7 @@
 import { normalizeScaleTotals } from "../../../src/tests/engine.ts";
 import type { PsychTest, ScaleTotals, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import { pairBalances, type Lang } from "./report-payload.ts";
+import { analyzeResponsePattern, RESPONSE_QUALITY_WARNING } from "./response-quality.ts";
 
 /** One participating session, already re-scored from its raw answers (§6). */
 export interface PortraitSession {
@@ -123,14 +124,18 @@ export function buildPortraitInput({ sessions, tests, catalogue, lang }: Portrai
   // Per-test profile with one line of meaning; bipolar tests send their pair
   // balances instead of factor percentages — their factors are structural
   // zeros with raw EI/SN ids, which the model read as data (аудит §2).
-  const testsPayload = sessions.map(({ testId, completedAt, outcome }) => {
+  const testsPayload = sessions.map(({ testId, completedAt, answers, outcome }) => {
     const test = tests[testId];
     const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
     const summary = profile ? profileSummary(profile.description[lang]) : null;
+    // A straight-line session still joins the composition (решение 05.08), but
+    // its entry carries the warning so the model weighs that test lightly.
+    const pattern = analyzeResponsePattern(test, answers);
     return {
       test: test.title[lang],
       profile: profile?.name[lang] ?? null,
       ...(summary ? { profile_summary: summary } : {}),
+      ...(pattern.straightLine ? { response_quality: RESPONSE_QUALITY_WARNING } : {}),
       ...(outcome.typeCode ? { type_code: outcome.typeCode } : {}),
       ...(test.scoring === "bipolar"
         ? { pair_balances: pairBalances(test, outcome) }

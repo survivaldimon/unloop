@@ -21,6 +21,7 @@ import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 // test the exact aggregates the model sees (docs/tests-spec-and-robot.md).
 import { buildPortraitInput } from "../_shared/portrait-input.ts";
 import type { Lang } from "../_shared/report-payload.ts";
+import { analyzeResponsePattern, minAnsweredRequired } from "../_shared/response-quality.ts";
 import { ENGINE_VERSION, scoreTest } from "../../../src/tests/engine.ts";
 import type { PsychTest, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
@@ -133,7 +134,7 @@ const SYSTEM_BASE = `You write "The Composite Portrait" — the flagship six-cha
 
 This is the one report no single test could produce: its material is the intersections. cross_test_scales.contested are the scales whose readings DISAGREE most between tests (spread = highest minus lowest per-test value) — this is the portrait's raw material: the same trait switching on in one context and off in another. cross_test_scales.strongest are the scales furthest from the 50 midline across everything — the throughline material. type_axes give each personality axis as a balance inside its pair (e.g. extraversion 62 / introversion 38), overall and per test: read the tilt and how tests disagree about it, never one pole alone. Build the portrait primarily from these — especially collisions: a high scale against a low one, or the same scale reading differently in different tests. A contradiction named precisely is worth more than three smooth generalizations.
 
-Rules: never invent facts beyond the data given; you have no raw answers, so never quote or paraphrase "what they answered". Refer to tests by the human names given in the data, never by ids. Scale and factor ids are readable English (self_esteem, empathy) — render them as natural words of the output language, never print snake_case. Use numbers sparingly, as evidence, not decoration. No clinical jargon, no diagnosis, no therapy-speak, no toxic positivity; if the data points somewhere heavy, say it plainly and kindly — behavior and its price, not a verdict.
+Rules: never invent facts beyond the data given; you have no raw answers, so never quote or paraphrase "what they answered". A test entry carrying a response_quality warning was answered in a suspiciously uniform pattern: weigh that test lightly and avoid building throughlines or contradictions primarily on it. Refer to tests by the human names given in the data, never by ids. Scale and factor ids are readable English (self_esteem, empathy) — render them as natural words of the output language, never print snake_case. Use numbers sparingly, as evidence, not decoration. No clinical jargon, no diagnosis, no therapy-speak, no toxic positivity; if the data points somewhere heavy, say it plainly and kindly — behavior and its price, not a verdict.
 
 Voice: warm but unsentimental, precise, a little literary — a perceptive friend who has read all their results side by side. Second person throughout. ~800-1000 words across the six chapters. Plain text only: paragraphs separated by blank lines, no markdown, no headings inside chapters (the app renders chapter titles itself). Never mention being an AI.`;
 
@@ -258,8 +259,11 @@ Deno.serve(async (req: Request) => {
     const latest = new Map<string, SessionRow>();
     for (const row of rows ?? []) {
       // Only sessions the engine can honestly re-score count toward the
-      // portrait: a known test and a non-empty answer map. Anything else is
-      // unusable for a paid recomputation (§6) — skipped, never trusted.
+      // portrait: a known test, a non-empty answer map and — этап 4, решение
+      // 05.08 — at least 80% of the test honestly answered (same gate as the
+      // paid report; answerIds the question never had do not count). Anything
+      // below is unusable for a paid recomputation (§6) — skipped, with the
+      // usual fallback to an older complete session of the same test.
       if (latest.has(row.test_id) || !(row.test_id in TESTS)) continue;
       if (
         !row.answers ||
@@ -267,6 +271,10 @@ Deno.serve(async (req: Request) => {
         Array.isArray(row.answers) ||
         Object.keys(row.answers).length === 0
       ) {
+        continue;
+      }
+      const test = TESTS[row.test_id];
+      if (analyzeResponsePattern(test, row.answers as TestAnswers).answered < minAnsweredRequired(test)) {
         continue;
       }
       latest.set(row.test_id, row as SessionRow);
@@ -323,6 +331,24 @@ Deno.serve(async (req: Request) => {
     const recomputed: Array<{ session: SessionRow; outcome: TestOutcome }> = [];
     for (const session of sessions) {
       const outcome = scoreTest(TESTS[session.test_id], session.answers);
+
+      // Straight-line detector (решение 05.08): the session still joins the
+      // composition, buildPortraitInput marks its entry for the model — this
+      // log is the L5-drift signal.
+      const pattern = analyzeResponsePattern(TESTS[session.test_id], session.answers);
+      if (pattern.straightLine) {
+        console.log(
+          "response_quality_flag",
+          JSON.stringify({
+            session_id: session.id,
+            test_id: session.test_id,
+            reasons: pattern.reasons,
+            modal_share: pattern.modalShare,
+            score_variance: pattern.scoreVariance,
+            extreme_share: pattern.extremeShare,
+          }),
+        );
+      }
 
       if (session.outcome && outcomeDiverges(session.outcome, outcome)) {
         // §6 wants divergence visible; the function log is where server-side

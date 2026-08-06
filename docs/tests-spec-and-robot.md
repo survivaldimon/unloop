@@ -8,6 +8,14 @@
 вынесены в `supabase/functions/_shared/`, снапшоты и инварианты фидов живут в
 `tools/tests-audit/` (`feed-snapshot.mjs`, `feed-invariants.mjs`, README там же);
 из «Порядка работ» закрыты вынос из Р1 и Р4 целиком.
+Обновление 05.08.2026 (этап 4, поток D, ветка `stage4/hygiene`): **Р1 закрыт
+целиком** — L0 (`npm run tests:audit`) и L0.5 (`npm run tests:lint`, классы
+A/B/E) блокирующие с baseline-файлами и стоят в CI вместе с `tests:verify` и
+`tests:feed-invariants`; случай «частичные ответы» из L1 зафиксирован
+продуктово (порог 80% до спенда, мусорные answerId не считаются); детектор
+straight-line из L5-плана реализован детерминированно
+(`supabase/functions/_shared/response-quality.ts`) и помечает сессии в обоих
+фидах — L5-SQL остаётся будущим шагом. Отчёт: `docs/stage4/hygiene.md`.
 
 Что уже существует и на чём строим:
 

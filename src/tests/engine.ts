@@ -284,7 +284,10 @@ export function scoreTest(test: PsychTest, answers: TestAnswers): TestOutcome {
 
   return {
     testId: test.id,
-    answered: test.questions.filter((q) => answers[q.id] !== undefined).length,
+    // A question counts as answered only when the stored answerId exists in it:
+    // an id the question never had contributes nothing to any score, so it must
+    // not inflate "answered X of Y" (or clear the paid completeness gate).
+    answered: test.questions.filter((q) => q.answers.some((a) => a.id === answers[q.id])).length,
     factorPercentages,
     scaleTotals,
     scaleScores,

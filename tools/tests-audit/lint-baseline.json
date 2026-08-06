@@ -1,0 +1,6 @@
+{
+  "$comment": "Принятые исключения блокирующих классов A/B/E линта весов (lint-weights.mjs, блокирующий с этапа 4, 05.08.2026). Формат ключа: A|test|question|scale|weight, B|test|factor|reversed|scale|plus:q…|minus:q…, E|test|question|scale|weight. Единственное исключение — B у social_battery q16/q34 (anxiety на solitude_need в обе стороны): оба веса семантически верны, зафиксировано фиксом этапа 2 (docs/tests-stage2-report.md). Изменение принятого места меняет ключ и требует пере-ревью.",
+  "accepted": [
+    "B|social_battery_v1|solitude_need|false|anxiety|plus:q16|minus:q34"
+  ]
+}
