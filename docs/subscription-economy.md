@@ -1,7 +1,10 @@
 # Подписка «Looplore+» — спецификация v1
 
-Статус: **все развилки закрыты основателем 06.08.2026** (16 решений, §2). Спека готова к реализации,
-код/миграции/деплой — только после отдельного «го» (approval-first).
+Статус: **все развилки закрыты основателем 06.08.2026** (16 решений, §2); «газ» на реализацию
+получен 07.08.2026. **Код построен 07.08.2026 (этапы 0–6 из §14, ветка
+claude/subscription-service-economics-43f11f): миграции, вебхук, чекаут, гейты в 5 функциях,
+фронт (пейволлы/каталог/кабинет), «Динамика», D fast-follow, Terms.** Не выполнено: sandbox
+E2E (нужен POLAR_ACCESS_TOKEN), прод-миграции/деплой/Vault/Polar-продукты — по отдельному «го».
 Заменяет собой задачу `docs/subscription-task.md` (там осталась историческая фиксация развилок).
 
 Основание: `docs/credits-economy.md` (кредитный рельс, live), `docs/tests-monetization.md` (Э7, live),
@@ -280,6 +283,21 @@ Meta CAPI: Purchase на trial ($2.99) и на конверсию в полны�
 | 6. Легал+аналитика+смоук | Terms, события, sandbox-E2E: trial→paid→renewal→cancel, квоты, grandfathering | ~1 день |
 | **Итого** | | **~7–8 дней** |
 
-Деплой-чеклист (набросок, финализируется при «го»): миграция → функции (вебхук первым) →
-Polar prod-продукты + id в Vault → фронт → смоук на проде (trial своей картой $2.99,
-included-разбор, квота-инкремент, отмена в portal) → включение рекламы Э9.
+Деплой-чеклист (прод-шаги — только с отдельного «го»):
+
+1. Sandbox: `POLAR_ACCESS_TOKEN=… node scripts/polar-subscription-setup.mjs` → 2 recurring
+   продукта с trial 3д; в sandbox-дашборде включить subscription.* события на вебхук-эндпоинте;
+   E2E: trial→active→(renewal)→cancel, included-спенды, квоты, grandfathering кредитов.
+2. Прод-миграции: `20260807120000_subscriptions.sql`, `20260807140000_daily_loop.sql`.
+3. Функции: `unloop-polar-webhook` (первым, --no-verify-jwt как раньше),
+   `subscription-polar-checkout`, `daily-insight` (новые), обновлённые `tests-generate-report`,
+   `tests-portrait`, `unloop-generate-report`, `photoread-report`, `looplore-chat`.
+4. Polar prod: setup-скрипт с POLAR_ENV=production → id в Vault (`POLAR_SUB_MONTHLY_ID`,
+   `POLAR_SUB_YEARLY_ID`); в прод-дашборде Polar добавить subscription.created/updated/active/
+   canceled/uncanceled/past_due/revoked на эндпоинт 8e0e2ef8-…; Vault `SUBSCRIPTIONS_ENABLED=true`.
+5. Фронт: `VITE_SUBSCRIPTIONS_ENABLED=true` → build+deploy (флаги парой, как у кредитов).
+6. Прод-смоук: trial своей картой ($0, карта обязательна), included-разбор теста,
+   квота-инкремент в кабинете, daily claim +10, отмена в портале Polar.
+7. Откат: Vault `SUBSCRIPTIONS_ENABLED=false` + фронт-флаг false (redeploy) — кредитный
+   рельс не затронут; активные подписки продолжают вебхучиться в entitlement-таблицу.
+8. Включение рекламы Э9.
