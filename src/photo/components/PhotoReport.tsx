@@ -1,6 +1,10 @@
 import LegalLinks from "../../components/LegalLinks";
 import LogoMark from "../../components/LogoMark";
-import { useLang } from "../../i18n";
+import ShareResultCard from "../../components/ShareResultCard";
+import { useLang, type Lang } from "../../i18n";
+import { track } from "../../lib/analytics";
+import { stripEm } from "../../lib/cardKit";
+import type { CardSpec } from "../../lib/resultCard";
 import { readingNo } from "../../lib/visual";
 import { getPhotoCopy } from "../copy";
 import BigFiveScales from "./BigFiveScales";
@@ -249,6 +253,43 @@ function ReportBody({
   );
 }
 
+const PHOTO_URL = "https://looplore.app/photo/?utm_source=share&utm_medium=photo_read";
+
+/** The photo funnel's own brass, matching its "case file" folio. */
+const PHOTO_ACCENT = { base: "#c89a4e", bright: "#e0b869" };
+
+/**
+ * The card for a finished read: the leading archetype as the identity, the five
+ * scales as its proof, and no photograph anywhere on it — a read can be about
+ * another person, and their face is not ours to make shareable.
+ */
+function photoCardSpec(report: PhotoReportData, lang: Lang): CardSpec | null {
+  const ui = getPhotoCopy(lang);
+  const lead = report.profile.archetypes[0];
+  if (!lead) return null;
+
+  const rows = (Object.keys(ui.report.bigFive) as (keyof typeof ui.report.bigFive)[])
+    .filter((key) => report.big_five[key])
+    .map((key) => ({
+      label: ui.report.bigFive[key].name,
+      value: report.big_five[key].score,
+    }));
+
+  return {
+    lang,
+    overline: ui.share.overline,
+    name: stripEm(lead.label),
+    line: stripEm(lead.why),
+    accent: PHOTO_ACCENT,
+    instrument:
+      rows.length > 0
+        ? { kind: "bars", rows }
+        : { kind: "seal", monogram: stripEm(lead.label).charAt(0).toUpperCase() },
+    cta: ui.share.cardCta,
+    storyCta: ui.share.storyCta,
+  };
+}
+
 export default function PhotoReport({
   report,
   loading,
@@ -274,8 +315,12 @@ export default function PhotoReport({
   /** Credit-mode follow-up chat, injected by PhotoApp after the read. */
   chat?: React.ReactNode;
 }) {
-  const PHOTO_COPY = getPhotoCopy(useLang());
+  const lang = useLang();
+  const PHOTO_COPY = getPhotoCopy(lang);
   const ui = PHOTO_COPY.report;
+  // Legacy reads predate the profile/big-five shape the card is built from.
+  const cardSpec =
+    report && !loading && !isLegacyReport(report) ? photoCardSpec(report, lang) : null;
 
   return (
     <div className="flex flex-col py-4">
@@ -330,6 +375,21 @@ export default function PhotoReport({
       {chat}
 
       <div className="mt-10 flex flex-col items-center gap-4">
+        {cardSpec && (
+          <ShareResultCard
+            spec={cardSpec}
+            fileSlug="photo-read"
+            labels={{
+              card: PHOTO_COPY.share.card,
+              story: PHOTO_COPY.share.story,
+              sendLink: PHOTO_COPY.share.sendLink,
+              saved: PHOTO_COPY.share.saved,
+              linkCopied: PHOTO_COPY.share.linkCopied,
+            }}
+            link={{ text: PHOTO_COPY.share.cardCta, url: PHOTO_URL }}
+            onShared={(format, method) => track("photo_share", { sid: sessionId, format, method })}
+          />
+        )}
         <button className="btn-ghost" onClick={onRestart}>
           {ui.retake}
         </button>

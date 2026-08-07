@@ -1,9 +1,12 @@
 import { useState } from "react";
+import ShareResultCard, { type ShareFormat } from "../../components/ShareResultCard";
 import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
+import { buildBreakdown } from "../breakdown";
 import { testsCopy } from "../copy";
 import { showsFreeBreakdown } from "../freeTier";
+import { buildTestCardSpec, buildTestShareUrl } from "../shareSpec";
 import type { PsychTest, TestOutcome } from "../types";
 
 /**
@@ -33,36 +36,36 @@ export default function TestResult({
   cooldownNote?: string | null;
 }) {
   const lang = useLang();
-  const ui = testsCopy(lang).result;
+  const copy = testsCopy(lang);
+  const ui = copy.result;
   const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
   const [shareToast, setShareToast] = useState<string | null>(null);
 
   const breakdown = showsFreeBreakdown(test.id) ? buildBreakdown(test, outcome, lang) : [];
 
-  // The link invites taking the test, not viewing this result — and never
-  // carries the session UUID: owning that UUID grants write access to the row.
-  // The path form resolves to the per-test OG page, so the unfurl names the test.
-  const shareUrl =
-    `https://looplore.app/tests/${test.id}/` +
-    `?utm_source=share&utm_medium=test_result&utm_campaign=${test.id}`;
+  const shareUrl = buildTestShareUrl(test.id);
+  const profileName = profile
+    ? `${profile.name[lang]}${outcome.typeCode ? ` (${outcome.typeCode})` : ""}`
+    : null;
+  const shareText = ui.shareText({ title: test.title[lang], profile: profileName });
+  const cardSpec = buildTestCardSpec(test, outcome, lang);
 
-  const onShare = async () => {
-    const profileName = profile
-      ? `${profile.name[lang]}${outcome.typeCode ? ` (${outcome.typeCode})` : ""}`
-      : null;
-    const text = ui.shareText({ title: test.title[lang], profile: profileName });
-    // Tracked per delivered share, not per click: a cancelled sheet is not a share.
-    const trackShare = (method: "share_sheet" | "clipboard") =>
-      track("test_share", {
-        test_id: test.id,
-        test_session_id: getTestSessionId(test.id),
-        profile_id: outcome.profileId ?? "none",
-        method,
-      });
+  // Tracked per delivered share, not per click: a cancelled sheet is not a share.
+  const trackShare = (format: ShareFormat, method: string) =>
+    track("test_share", {
+      test_id: test.id,
+      test_session_id: getTestSessionId(test.id),
+      profile_id: outcome.profileId ?? "none",
+      format,
+      method,
+    });
+
+  // Only reachable when the result has no named profile and therefore no card.
+  const onShareLink = async () => {
     if (typeof navigator.share === "function") {
       try {
-        await navigator.share({ text, url: shareUrl });
-        trackShare("share_sheet");
+        await navigator.share({ text: shareText, url: shareUrl });
+        trackShare("link", "share_sheet");
         return;
       } catch (e) {
         if ((e as DOMException)?.name === "AbortError") return;
@@ -70,8 +73,8 @@ export default function TestResult({
       }
     }
     try {
-      await navigator.clipboard.writeText(`${text} ${shareUrl}`);
-      trackShare("clipboard");
+      await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+      trackShare("link", "clipboard");
       setShareToast(ui.shareCopied);
       window.setTimeout(() => setShareToast(null), 4000);
     } catch {
@@ -147,9 +150,25 @@ export default function TestResult({
       {report && <div className="mt-9">{report}</div>}
 
       <div className="mt-9 flex flex-col gap-3">
-        <button className="btn-ghost" onClick={() => void onShare()}>
-          <span aria-hidden="true">↗</span> {ui.share}
-        </button>
+        {cardSpec ? (
+          <ShareResultCard
+            spec={cardSpec}
+            fileSlug={test.id}
+            labels={{
+              card: copy.share.card,
+              story: copy.share.story,
+              sendLink: copy.share.sendLink,
+              saved: copy.share.saved,
+              linkCopied: copy.share.linkCopied,
+            }}
+            link={{ text: shareText, url: shareUrl }}
+            onShared={trackShare}
+          />
+        ) : (
+          <button className="btn-ghost" onClick={() => void onShareLink()}>
+            <span aria-hidden="true">↗</span> {ui.share}
+          </button>
+        )}
         {shareToast && <p className="text-center text-xs text-mist">{shareToast}</p>}
         <button className="btn-ghost" onClick={onCatalogue}>
           {ui.toCatalogue}
@@ -165,44 +184,6 @@ export default function TestResult({
       <p className="mt-6 text-center text-[12px] leading-relaxed text-mist/60">{ui.disclaimer}</p>
     </div>
   );
-}
-
-interface BreakdownRow {
-  id: string;
-  label: string;
-  value: number;
-}
-
-/**
- * A bipolar test scores poles, not factors — its factorIds are never touched by
- * a question, so showing them would be four honest-looking zeros. Show the
- * balance inside each pair instead: that is the whole content of the result.
- */
-function buildBreakdown(test: PsychTest, outcome: TestOutcome, lang: "en" | "ru"): BreakdownRow[] {
-  const selection = test.profileSelection;
-  if (selection.mode === "bipolar") {
-    return selection.dimensions.map(({ poles, letters }) => {
-      const a = outcome.scaleScores[poles[0]] ?? 0;
-      const b = outcome.scaleScores[poles[1]] ?? 0;
-      const total = a + b;
-      return {
-        id: poles.join("-"),
-        label: `${poleLabel(test, poles[0], letters[0], lang)} ↔ ${poleLabel(test, poles[1], letters[1], lang)}`,
-        value: total > 0 ? Math.round((a / total) * 1000) / 10 : 50,
-      };
-    });
-  }
-  return Object.entries(outcome.factorPercentages)
-    .sort((a, b) => b[1] - a[1])
-    .map(([id, value]) => ({
-      id,
-      label: test.factorNames[id]?.[lang] ?? id.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase()),
-      value,
-    }));
-}
-
-function poleLabel(test: PsychTest, pole: string, letter: string, lang: "en" | "ru"): string {
-  return test.factorNames[pole]?.[lang] ?? `${letter}`;
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

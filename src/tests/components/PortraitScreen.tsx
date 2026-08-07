@@ -1,9 +1,13 @@
 import { useEffect } from "react";
+import ShareResultCard from "../../components/ShareResultCard";
 import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { PORTRAIT_GATE, type ReportChapter } from "../../lib/tests";
+import { accentFor } from "../shareSpec";
 import { testsCopy } from "../copy";
 import ReportChapters from "./ReportChapters";
+
+const PORTRAIT_URL = "https://looplore.app/tests/?utm_source=share&utm_medium=portrait";
 
 export type PortraitStage = "teaser" | "gate" | "loading" | "ready" | "error";
 
@@ -45,7 +49,8 @@ export default function PortraitScreen({
   backLabel: string;
 }) {
   const lang = useLang();
-  const ui = testsCopy(lang).portrait;
+  const copy = testsCopy(lang);
+  const ui = copy.portrait;
 
   useEffect(() => {
     if (stage === "teaser" || stage === "gate") {
@@ -109,6 +114,41 @@ export default function PortraitScreen({
               answersFrom: ui.generatedOn,
               tryToday: testsCopy(lang).report.tryToday,
             }}
+          />
+        </div>
+      )}
+
+      {/* The card is a collection flex — "one read across seven tests" — so it
+          only appears once the portrait actually exists to be proud of. */}
+      {stage === "ready" && completed > 0 && (
+        <div className="mt-9">
+          <ShareResultCard
+            spec={{
+              lang,
+              overline: ui.screenKicker,
+              name: copy.share.portrait.name,
+              line: copy.share.portrait.line,
+              accent: accentFor("portrait"),
+              instrument: {
+                kind: "count",
+                total: completed,
+                caption: copy.share.portrait.caption,
+              },
+              cta: copy.share.cardCta,
+              storyCta: copy.share.storyCta,
+            }}
+            fileSlug="portrait"
+            labels={{
+              card: copy.share.card,
+              story: copy.share.story,
+              sendLink: copy.share.sendLink,
+              saved: copy.share.saved,
+              linkCopied: copy.share.linkCopied,
+            }}
+            link={{ text: ui.cardTitle, url: PORTRAIT_URL }}
+            onShared={(format, method) =>
+              track("portrait_share", { completed_tests: completed, format, method })
+            }
           />
         </div>
       )}
