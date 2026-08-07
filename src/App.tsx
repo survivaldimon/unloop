@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Landing from "./components/Landing";
 import Quiz from "./components/Quiz";
 import Analyzing from "./components/Analyzing";
@@ -81,6 +81,13 @@ export default function App() {
   const [topUpCost, setTopUpCost] = useState<number | null>(null);
   const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
+  /**
+   * A ?s= link whose session already belongs to an account: the id waits here
+   * while the visitor proves it is theirs, and the sign-in retries the restore.
+   */
+  const lockedLink = useRef<string | null>(null);
+  const [linkLocked, setLinkLocked] = useState(false);
+  const [lockedNotice, setLockedNotice] = useState<"sent" | "wrong" | "error" | null>(null);
 
   const result = useMemo(
     () =>
@@ -161,7 +168,9 @@ export default function App() {
   const checkUnlocked = async (): Promise<boolean> => {
     if (!creditsEnabled) return Boolean(await fetchPaidAt());
     const state = await fetchSessionState("quiz", getSessionId());
-    if (state?.linked) setMyBalance(state.balance);
+    // Only the owner gets a number back — never blank the chip with someone
+    // else's "no balance to show".
+    if (state?.linked && state.balance !== null) setMyBalance(state.balance);
     return stateUnlocks(state, CREDIT_COSTS.report_quiz);
   };
 
@@ -175,16 +184,28 @@ export default function App() {
     return Boolean(state && (state.legacyPaid || state.spent));
   };
 
-  // Email deep link (?s=<session id>): adopt the session and restore the funnel
-  // from the server — the mail app or another device has no localStorage state.
-  useEffect(() => {
-    const s = new URLSearchParams(window.location.search).get("s");
-    if (!s || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return;
-    // Settle on the funnel's own path: old emails carry /?s=, and a reload of
-    // the bare root would land on the tests catalogue, not this quiz.
-    window.history.replaceState(null, "", "/loop/");
-    void adoptSession(s).then((restored) => {
+  /**
+   * Restore from a ?s= deep link. A session an account already claimed answers
+   * "locked": the link is no longer proof of ownership, so the funnel routes
+   * through the email step — a magic link comes back here signed in and the
+   * sign-in listener replays this restore.
+   */
+  const restoreFromLink = useCallback(
+    async (id: string, afterSignIn = false) => {
+      const restored = await adoptSession(id);
       if (!restored) return;
+      if (restored.kind === "locked") {
+        lockedLink.current = id;
+        setLinkLocked(true);
+        // Signed in and still locked: the session belongs to another account,
+        // and saying so beats bouncing the visitor around the email step.
+        if (afterSignIn) setLockedNotice("wrong");
+        setStep("email");
+        return;
+      }
+      lockedLink.current = null;
+      setLinkLocked(false);
+      setLockedNotice(null);
       refreshSessionContext();
       setAnswers(restored.answers);
       const paid = Boolean(restored.paidAt);
@@ -198,24 +219,64 @@ export default function App() {
           setLlmLoading(false);
         });
       }
-    });
+    },
+    [lang],
+  );
+
+  // Email deep link (?s=<session id>): adopt the session and restore the funnel
+  // from the server — the mail app or another device has no localStorage state.
+  useEffect(() => {
+    const s = new URLSearchParams(window.location.search).get("s");
+    if (!s || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return;
+    // Settle on the funnel's own path: old emails carry /?s=, and a reload of
+    // the bare root would land on the tests catalogue, not this quiz.
+    window.history.replaceState(null, "", "/loop/");
+    void restoreFromLink(s);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (result?.pattern) setAnalyticsContext({ pattern: result.pattern });
-  }, [result?.pattern]);
+  // Signing in is exactly what a locked link was waiting for — replay it.
+  useEffect(
+    () =>
+      onCreditsSignIn(() => {
+        const id = lockedLink.current;
+        if (id) void restoreFromLink(id, true);
+      }),
+    [restoreFromLink],
+  );
 
   const finishQuiz = (final: Answers) => {
     const finalResult = score(final, lang);
     setAnswers(final);
     setStep("analyzing");
-    track("quiz_complete", { pattern: finalResult.pattern });
+    // No pattern property (here or on teaser_view/report_view/share): the
+    // attachment-style label is a psychological result, and Privacy scopes
+    // analytics to funnel steps, pages and device info. The events themselves
+    // stay — outcomes are joined on our side via session_db_id (S3 §13).
+    track("quiz_complete");
     void saveSession({ answers: final, result: finalResult, stage: "completed" });
   };
 
   const submitEmail = (value: string) => {
     setEmail(value);
+    // Restoring a locked link: there is nothing to show yet, so stay here with
+    // the "check your inbox" line until the magic link signs them in.
+    if (linkLocked) {
+      const id = lockedLink.current;
+      identifyEmail(value);
+      setLockedNotice(null);
+      void ensureAccount(value).then((status) => {
+        // "ready" means a session exists right now (a fresh silent account, or
+        // one this browser already held) — retry at once. The magic-link case
+        // is covered by the sign-in listener instead.
+        if (status === "ready") {
+          if (id) void restoreFromLink(id, true);
+          return;
+        }
+        setLockedNotice(status === "pending" || status === "cooldown" ? "sent" : "error");
+      });
+      return;
+    }
     setStep("teaser");
     track("email_submitted");
     identifyEmail(value);
@@ -516,9 +577,33 @@ export default function App() {
           <EmailCapture
             onSubmit={submitEmail}
             onSkip={() => {
+              if (linkLocked) {
+                // Nothing to fall back to — this device never took the quiz.
+                lockedLink.current = null;
+                setLinkLocked(false);
+                setLockedNotice(null);
+                restart();
+                return;
+              }
               track("email_skipped");
               setStep("teaser");
             }}
+            {...(linkLocked
+              ? {
+                  title: UI[lang].email.lockedTitle,
+                  body: UI[lang].email.lockedBody,
+                  submitLabel: UI[lang].email.lockedSubmit,
+                  skipLabel: UI[lang].email.lockedSkip,
+                  notice:
+                    lockedNotice === "sent"
+                      ? UI[lang].email.lockedSent
+                      : lockedNotice === "wrong"
+                        ? UI[lang].email.lockedWrong
+                        : lockedNotice === "error"
+                          ? UI[lang].email.lockedError
+                          : null,
+                }
+              : {})}
           />
         )}
         {step === "teaser" && result && (

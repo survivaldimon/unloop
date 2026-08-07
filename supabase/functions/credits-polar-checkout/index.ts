@@ -28,6 +28,16 @@ const EMBED_ORIGINS = new Set([
 ]);
 const LOCALHOST_RE = /^http:\/\/localhost(:\d+)?$/;
 
+// Whatever arrives here becomes Polar's customer_email — the address that gets
+// the receipt and the one the webhook falls back to when attaching credits to
+// an account. Same shape credits-auth already enforces, so an arbitrary string
+// never leaves our side (аудит 07.08.2026 §2.3).
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const cleanEmail = (value: unknown): string | null => {
+  const email = typeof value === "string" ? value.trim() : "";
+  return email.length <= 254 && EMAIL_RE.test(email) ? email : null;
+};
+
 const secretCache = new Map<string, string>();
 
 async function getSecret(
@@ -64,7 +74,7 @@ Deno.serve(async (req: Request) => {
       return json({ error: "bad_request" }, 400);
     }
     const pack = CREDIT_PACKS[packId];
-    const email = typeof body?.email === "string" && body.email ? body.email : null;
+    const email = cleanEmail(body?.email);
 
     const origin = req.headers.get("origin");
     const embedOrigin =

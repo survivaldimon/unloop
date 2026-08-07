@@ -175,7 +175,9 @@ export default function PhotoApp() {
   const checkUnlocked = async (): Promise<boolean> => {
     if (!creditsEnabled) return Boolean(await fetchPhotoPaidAt());
     const state = await fetchSessionState("photoread", getPhotoSessionId());
-    if (state?.linked) setMyBalance(state.balance);
+    // Only the owner gets a number back — never blank the chip with someone
+    // else's "no balance to show".
+    if (state?.linked && state.balance !== null) setMyBalance(state.balance);
     return stateUnlocks(state, CREDIT_COSTS.report_photo);
   };
 

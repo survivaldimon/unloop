@@ -56,7 +56,6 @@ export default function TestResult({
       track("test_share", {
         test_id: test.id,
         test_session_id: getTestSessionId(test.id),
-        profile_id: outcome.profileId ?? "none",
         method,
       });
     if (typeof navigator.share === "function") {

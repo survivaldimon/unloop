@@ -124,8 +124,8 @@ export default function Report({
   const accent = PATTERN_ACCENT[result.pattern];
 
   useEffect(() => {
-    track("report_view", { pattern: result.pattern });
-  }, [result.pattern]);
+    track("report_view");
+  }, []);
 
   const personalFallback = ui.fallback({
     patternName: pattern.name,

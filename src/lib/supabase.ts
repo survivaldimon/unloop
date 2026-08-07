@@ -26,22 +26,28 @@ export function resetSessionId(): void {
   localStorage.removeItem("unloop_session_id");
 }
 
+export type AdoptedSession =
+  | { kind: "ok"; answers: Answers; paidAt: string | null }
+  /** Claimed by an account: the link alone stopped being enough to read it. */
+  | { kind: "locked" };
+
 /**
  * Restores a session opened from an email deep link (?s=<id>): adopts the id on
  * this device and returns its server-side state. Possession of the session UUID
- * is the capability — the RPC exposes only answers and paid_at.
+ * is the capability — but only while the session is still anonymous. Once an
+ * account claims it, the RPC answers "locked" and the funnel asks for the email
+ * instead (migration 20260807160000_session_read_privacy.sql).
  */
-export async function adoptSession(
-  id: string,
-): Promise<{ answers: Answers; paidAt: string | null } | null> {
+export async function adoptSession(id: string): Promise<AdoptedSession | null> {
   if (!supabase) return null;
   try {
     const { data, error } = await supabase.rpc("unloop_get_session", { p_session_id: id });
     if (error || !data || typeof data !== "object") return null;
+    if ((data as { locked?: boolean }).locked) return { kind: "locked" };
     const answers = (data as { answers?: Answers }).answers;
     if (!answers || typeof answers !== "object" || Object.keys(answers).length === 0) return null;
     localStorage.setItem("unloop_session_id", id);
-    return { answers, paidAt: (data as { paid_at?: string | null }).paid_at ?? null };
+    return { kind: "ok", answers, paidAt: (data as { paid_at?: string | null }).paid_at ?? null };
   } catch {
     return null;
   }

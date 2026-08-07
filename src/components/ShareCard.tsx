@@ -63,7 +63,7 @@ export default function ShareCard({
     try {
       const blob = await getBlob();
       const method = await shareCardBlob(blob, `looplore-${patternId}.png`);
-      track("share", { method, pattern: patternId });
+      track("share", { method });
       if (method === "download") {
         try {
           await navigator.clipboard.writeText("https://looplore.app/");

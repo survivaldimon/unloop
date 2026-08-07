@@ -57,17 +57,17 @@ function forwardToMeta(
       metaTrackCustom("QuizStart");
       break;
     case "quiz_complete":
-      metaTrackCustom(
-        "QuizComplete",
-        typeof props?.pattern === "string" ? { pattern: props.pattern } : undefined,
-      );
+      // No pattern parameter: the attachment-style label is a psychological
+      // result, and Privacy promises Meta only campaign tags, cookies and the
+      // hashed purchase email (S3 §13, 07.08.2026). The milestone still fires.
+      metaTrackCustom("QuizComplete");
       break;
     case "email_submitted":
       metaTrack("Lead");
       break;
     case "teaser_view":
       metaTrack("ViewContent", {
-        content_name: typeof props?.pattern === "string" ? props.pattern : "teaser",
+        content_name: "report_teaser",
         content_category: "report_teaser",
       });
       break;
@@ -217,8 +217,17 @@ export function refreshSessionContext(): void {
   }
 }
 
-/** Super-props (lang, pattern) merged into every subsequent event. */
-export function setAnalyticsContext(props: { lang?: string; pattern?: string }): void {
+/**
+ * Super-props merged into every subsequent event.
+ *
+ * `pattern` used to live here, which put the visitor's attachment-style label
+ * on every event a person-profile carries. Privacy scopes analytics to "funnel
+ * steps, pages, device and browser info", so the psychological result is out —
+ * founder's decision 07.08.2026, S3 §13: bring the flows under the promise,
+ * not the promise under the flows. The join key to the DB (`session_db_id`)
+ * still lets the funnel be analysed against outcomes on our own side.
+ */
+export function setAnalyticsContext(props: { lang?: string }): void {
   if (!enabled) return;
   try {
     posthog.register(props);
@@ -227,13 +236,20 @@ export function setAnalyticsContext(props: { lang?: string; pattern?: string }):
   }
 }
 
-/** Ties the anonymous funnel to a lead once the email is known. */
+/**
+ * Ties the anonymous funnel to a lead once the email is known.
+ *
+ * The address itself goes only where Privacy says it goes: the result email,
+ * and Meta as a SHA-256 hash for ad matching. PostHog gets the pseudonymous
+ * session id as the distinct id and no email property — the identify call is
+ * what promotes this visitor to a person profile, not what names them.
+ */
 export function identifyEmail(email: string): void {
   // Meta advanced matching: hashed email raises ad-attribution match quality.
   metaIdentify(email);
   if (!enabled) return;
   try {
-    posthog.identify(getSessionId(), { email });
+    posthog.identify(getSessionId());
   } catch {
     // non-fatal
   }

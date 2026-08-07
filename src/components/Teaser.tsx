@@ -70,8 +70,8 @@ export default function Teaser({
   });
 
   useEffect(() => {
-    track("teaser_view", { pattern: result.pattern });
-  }, [result.pattern]);
+    track("teaser_view");
+  }, []);
 
   // A user quote for the pull-quote — one that the insight bands don't already use.
   const usedSlots = new Set(

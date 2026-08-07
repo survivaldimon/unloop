@@ -171,7 +171,14 @@ export interface SessionCreditState {
   legacyPaid: boolean;
   linked: boolean;
   spent: boolean;
-  balance: number;
+  /**
+   * Owner-only, so a leaked ?s=/?p= link no longer reports how much money sits
+   * on the account behind it: null whenever the caller isn't signed in as the
+   * session's owner (migration 20260807160000_session_read_privacy.sql).
+   */
+  balance: number | null;
+  /** Server's one-bit verdict that the owner can afford this funnel's read. */
+  covered: boolean;
 }
 
 /** Post-checkout polling + paywall state, keyed by the session UUID. */
@@ -192,18 +199,25 @@ export async function fetchSessionState(
       legacyPaid: Boolean(row.legacy_paid),
       linked: Boolean(row.linked),
       spent: Boolean(row.spent),
-      balance: typeof row.balance === "number" ? row.balance : 0,
+      balance: typeof row.balance === "number" ? row.balance : null,
+      covered: Boolean(row.covered),
     };
   } catch {
     return null;
   }
 }
 
-/** True when the session's report can open without further payment. */
+/**
+ * True when the session's report can open without further payment. The exact
+ * balance is used whenever the server hands it over (the owner is asking);
+ * otherwise the server's own verdict stands in — a buyer who paid without ever
+ * signing in still gets their read opened by the post-checkout poll.
+ */
 export function stateUnlocks(state: SessionCreditState | null, cost: number): boolean {
-  return Boolean(
-    state && (state.legacyPaid || state.spent || (state.linked && state.balance >= cost)),
-  );
+  if (!state) return false;
+  if (state.legacyPaid || state.spent) return true;
+  if (!state.linked) return false;
+  return state.balance !== null ? state.balance >= cost : state.covered;
 }
 
 /**

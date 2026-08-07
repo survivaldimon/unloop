@@ -184,14 +184,16 @@ async function sendMetaPurchase(
     const testCode = await getSecret(admin, "META_TEST_EVENT_CODE");
     if (testCode) body.test_event_code = testCode;
 
-    const res = await fetch(
-      `${META_GRAPH}/${pixelId}/events?access_token=${encodeURIComponent(token)}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      },
-    );
+    // The CAPI token travels in the body, not the query string: Graph accepts
+    // both, and a URL parameter is the one that ends up copied into request
+    // logs, error traces and metrics (аудит 07.08.2026 §2.3).
+    body.access_token = token;
+
+    const res = await fetch(`${META_GRAPH}/${pixelId}/events`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
     if (!res.ok) {
       console.error("meta capi purchase failed", res.status, await res.text());
     }
@@ -206,14 +208,18 @@ async function sendMetaPurchase(
  * idempotent and (in credit mode) debits the session owner exactly once.
  */
 function materializePhotoReport(sessionId: string): void {
-  const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  // Service-role, not anon: this is the webhook calling itself on behalf of a
+  // confirmed payment, and an internal hop should not present as a public
+  // client (аудит 07.08.2026 §3.3) — it also survives an anon-key rotation
+  // and any future anon-level throttling.
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
   const materialize = fetch(
     `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
     {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${anonKey}`,
-        apikey: anonKey,
+        Authorization: `Bearer ${key}`,
+        apikey: key,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ session_id: sessionId }),
