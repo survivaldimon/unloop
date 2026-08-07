@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -476,17 +477,33 @@ Deno.serve(async (req: Request) => {
     if (await getCreditsEnabled(admin)) {
       if (!row.paid_at) {
         if (!row.user_id) return json({ error: "payment_required" }, 402);
-        const spend = await admin.rpc("credits_spend", {
-          p_user_id: row.user_id,
-          p_amount: CREDIT_COSTS.report_photo,
-          p_kind: "spend_photo",
-          p_key: `report:${sessionId.toLowerCase()}`,
-          p_ref: sessionId.toLowerCase(),
-          p_meta: null,
-        });
-        if (spend.error || spend.data?.ok !== true) {
-          const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
-          return json({ error: "payment_required", balance }, 402);
+        // Looplore+ includes 4 photo reads per rolling 30 days (vision calls
+        // are the priciest LLM line — the quota keeps it bounded). Over quota
+        // the normal credit price applies, no hard wall.
+        const sub = await getSubState(admin, row.user_id);
+        if (canInclude(sub, "included_photo")) {
+          const inc = await includedSpend(
+            admin,
+            row.user_id,
+            "included_photo",
+            `report:${sessionId.toLowerCase()}`,
+            sessionId.toLowerCase(),
+            null,
+          );
+          if (!inc.ok) return json({ error: "internal" }, 500);
+        } else {
+          const spend = await admin.rpc("credits_spend", {
+            p_user_id: row.user_id,
+            p_amount: CREDIT_COSTS.report_photo,
+            p_kind: "spend_photo",
+            p_key: `report:${sessionId.toLowerCase()}`,
+            p_ref: sessionId.toLowerCase(),
+            p_meta: null,
+          });
+          if (spend.error || spend.data?.ok !== true) {
+            const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+            return json({ error: "payment_required", balance }, 402);
+          }
         }
       }
     } else if ((await getRequirePayment(admin)) && !row.paid_at) {

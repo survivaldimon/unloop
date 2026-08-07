@@ -7,6 +7,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 // The seven test content files ride into the bundle (≈660KB, the size
 // docs/tests-monetization.md §6 accepts) so titles, factor labels and profile
@@ -247,22 +248,52 @@ Deno.serve(async (req: Request) => {
     // moment they buy any pack (webhook links user_id) — until then: 402.
     if (!row.user_id) return json({ error: "payment_required", balance: 0 }, 402);
 
-    const spend = await admin.rpc("credits_spend", {
-      p_user_id: row.user_id,
-      p_amount: CREDIT_COSTS.chat_question,
-      p_kind: "spend_question",
-      p_key: `q:${msgId}`,
-      p_ref: sessionId,
-      p_meta: null,
-    });
-    if (spend.error || spend.data?.ok !== true) {
-      const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
-      return json({ error: "insufficient", balance }, 402);
+    // Looplore+ covers the first N questions per rolling 30 days as zero-delta
+    // included rows (same q:{msg_id} keyspace — a question can never be both
+    // included and debited). Over quota, or no subscription → credit price.
+    const sub = await getSubState(admin, row.user_id);
+    let balance: number | null = null;
+    let duplicate = false;
+    let chargedCredits = 0;
+    if (canInclude(sub, "included_question")) {
+      const inc = await includedSpend(
+        admin,
+        row.user_id,
+        "included_question",
+        `q:${msgId}`,
+        sessionId,
+        null,
+      );
+      // Infra failure must not silently fall through to a debit the
+      // subscriber didn't expect — 500 and let the client retry.
+      if (!inc.ok) return json({ error: "internal" }, 500);
+      duplicate = inc.duplicate;
+      const { data: acc } = await admin
+        .from("looplore_credit_accounts")
+        .select("balance")
+        .eq("user_id", row.user_id)
+        .maybeSingle();
+      balance = typeof acc?.balance === "number" ? acc.balance : null;
+    } else {
+      const spend = await admin.rpc("credits_spend", {
+        p_user_id: row.user_id,
+        p_amount: CREDIT_COSTS.chat_question,
+        p_kind: "spend_question",
+        p_key: `q:${msgId}`,
+        p_ref: sessionId,
+        p_meta: null,
+      });
+      if (spend.error || spend.data?.ok !== true) {
+        const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+        return json({ error: "insufficient", balance }, 402);
+      }
+      balance = typeof spend.data?.balance === "number" ? spend.data.balance : null;
+      duplicate = spend.data?.duplicate === true;
+      chargedCredits = CREDIT_COSTS.chat_question;
     }
-    const balance = typeof spend.data?.balance === "number" ? spend.data.balance : null;
 
     // A retry of an already-answered question returns the stored answer free.
-    if (spend.data?.duplicate === true) {
+    if (duplicate) {
       const { data: prior } = await admin
         .from("looplore_chat_messages")
         .select("answer")
@@ -339,7 +370,9 @@ Deno.serve(async (req: Request) => {
       user_id: row.user_id,
       question,
       answer,
-      credits: CREDIT_COSTS.chat_question,
+      // 0 when the question was included in Looplore+ — the row is honest
+      // about what was actually charged.
+      credits: chargedCredits,
     });
     if (saveError) console.error("looplore-chat save", saveError);
 

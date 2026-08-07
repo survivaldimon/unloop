@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -195,17 +196,32 @@ Deno.serve(async (req: Request) => {
         if (!existing?.user_id) {
           return json({ error: "payment_required" }, 402);
         }
-        const spend = await admin.rpc("credits_spend", {
-          p_user_id: existing.user_id,
-          p_amount: CREDIT_COSTS.report_quiz,
-          p_kind: "spend_report",
-          p_key: `report:${session_id}`,
-          p_ref: session_id,
-          p_meta: null,
-        });
-        if (spend.error || spend.data?.ok !== true) {
-          const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
-          return json({ error: "payment_required", balance }, 402);
+        // Looplore+ includes the quiz report (same content class as a test
+        // report) — zero-delta included row under the same idempotency key.
+        const sub = await getSubState(admin, existing.user_id);
+        if (canInclude(sub, "included_report")) {
+          const inc = await includedSpend(
+            admin,
+            existing.user_id,
+            "included_report",
+            `report:${session_id}`,
+            session_id,
+            null,
+          );
+          if (!inc.ok) return json({ error: "internal" }, 500);
+        } else {
+          const spend = await admin.rpc("credits_spend", {
+            p_user_id: existing.user_id,
+            p_amount: CREDIT_COSTS.report_quiz,
+            p_kind: "spend_report",
+            p_key: `report:${session_id}`,
+            p_ref: session_id,
+            p_meta: null,
+          });
+          if (spend.error || spend.data?.ok !== true) {
+            const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+            return json({ error: "payment_required", balance }, 402);
+          }
         }
       }
     } else if ((await getRequirePayment(admin)) && !existing?.paid_at) {

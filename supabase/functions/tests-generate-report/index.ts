@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 // The LLM payload is built by pure functions in _shared so the L3 robot can
 // test the exact feed the model sees (docs/tests-spec-and-robot.md).
 import {
@@ -364,18 +365,32 @@ Deno.serve(async (req: Request) => {
     }
 
     // One spend covers both languages (the key carries no lang) and every
-    // retry — same idempotency contract as the quiz report.
-    const spend = await admin.rpc("credits_spend", {
-      p_user_id: row.user_id,
-      p_amount: CREDIT_COSTS.report_test,
-      p_kind: "spend_test_report",
-      p_key: `treport:${sessionId}`,
-      p_ref: sessionId,
-      p_meta: { test_id: test.id },
-    });
-    if (spend.error || spend.data?.ok !== true) {
-      const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
-      return json({ error: "payment_required", balance }, 402);
+    // retry — same idempotency contract as the quiz report. Looplore+ covers
+    // test reports unconditionally: same key, zero-delta included row.
+    const sub = await getSubState(admin, row.user_id);
+    if (canInclude(sub, "included_test_report")) {
+      const inc = await includedSpend(
+        admin,
+        row.user_id,
+        "included_test_report",
+        `treport:${sessionId}`,
+        sessionId,
+        { test_id: test.id },
+      );
+      if (!inc.ok) return json({ error: "internal" }, 500);
+    } else {
+      const spend = await admin.rpc("credits_spend", {
+        p_user_id: row.user_id,
+        p_amount: CREDIT_COSTS.report_test,
+        p_kind: "spend_test_report",
+        p_key: `treport:${sessionId}`,
+        p_ref: sessionId,
+        p_meta: { test_id: test.id },
+      });
+      if (spend.error || spend.data?.ok !== true) {
+        const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+        return json({ error: "payment_required", balance }, 402);
+      }
     }
 
     const apiKey = await getApiKey(admin);

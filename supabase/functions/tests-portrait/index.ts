@@ -17,6 +17,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 // The LLM feed is built by a pure function in _shared so the L3 robot can
 // test the exact aggregates the model sees (docs/tests-spec-and-robot.md).
 import { buildPortraitInput } from "../_shared/portrait-input.ts";
@@ -400,17 +401,32 @@ Deno.serve(async (req: Request) => {
     // Spend after the cache miss, before generation. The idempotency key makes
     // client retries, a crash between spend and cache write, and the second
     // language all free (duplicate spends return ok without a new debit).
-    const spend = await admin.rpc("credits_spend", {
-      p_user_id: userId,
-      p_amount: CREDIT_COSTS.portrait,
-      p_kind: "spend_portrait",
-      p_key: `portrait:${userId}:${setHash}`,
-      p_ref: setHash,
-      p_meta: null,
-    });
-    if (spend.error || spend.data?.ok !== true) {
-      const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
-      return json({ error: "payment_required", balance }, 402);
+    // Looplore+ includes the portrait and its updates: every new set_hash is a
+    // fresh zero-delta included row, the cache still dedupes repeats.
+    const sub = await getSubState(admin, userId);
+    if (canInclude(sub, "included_portrait")) {
+      const inc = await includedSpend(
+        admin,
+        userId,
+        "included_portrait",
+        `portrait:${userId}:${setHash}`,
+        setHash,
+        null,
+      );
+      if (!inc.ok) return json({ error: "internal" }, 500);
+    } else {
+      const spend = await admin.rpc("credits_spend", {
+        p_user_id: userId,
+        p_amount: CREDIT_COSTS.portrait,
+        p_kind: "spend_portrait",
+        p_key: `portrait:${userId}:${setHash}`,
+        p_ref: setHash,
+        p_meta: null,
+      });
+      if (spend.error || spend.data?.ok !== true) {
+        const balance = typeof spend.data?.balance === "number" ? spend.data.balance : 0;
+        return json({ error: "payment_required", balance }, 402);
+      }
     }
 
     const apiKey = await getSecret(admin, "ANTHROPIC_API_KEY");
