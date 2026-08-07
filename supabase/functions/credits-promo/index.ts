@@ -70,13 +70,25 @@ Deno.serve(async (req: Request) => {
       console.error("credits-promo rpc", redeemed.error);
       return json({ error: "internal" }, 500);
     }
-    const result = redeemed.data as { ok?: boolean; error?: string; credits?: number; balance?: number };
+    const result = redeemed.data as {
+      ok?: boolean;
+      error?: string;
+      credits?: number;
+      balance?: number;
+      /** The code was somebody's personal invite code (docs/referrals-compare.md §6). */
+      referral?: boolean;
+    };
     if (result?.ok !== true) {
       // 200 with a reason: these are all answers to a legitimate question, and
       // the client shows a different line for each.
       return json({ error: result?.error ?? "not_found" });
     }
-    return json({ ok: true, credits: result.credits ?? 0, balance: result.balance ?? null });
+    return json({
+      ok: true,
+      credits: result.credits ?? 0,
+      balance: result.balance ?? null,
+      referral: result.referral === true,
+    });
   } catch (err) {
     console.error("credits-promo error", err);
     return json({ error: "internal" }, 500);

@@ -45,6 +45,17 @@ import { CREDITS_COPY } from "../lib/creditsCopy";
 // the read still opens it — the same degradation the other funnels have.
 import { openCheckout, preloadCheckout } from "../lib/payments";
 import {
+  REFERRAL,
+  acceptCompare,
+  capturePendingCompare,
+  clearPendingCompare,
+  peekCompare,
+  pendingCompare,
+  referralsEnabled,
+  settleReferralRewards,
+  type PendingCompare,
+} from "../lib/referrals";
+import {
   PORTRAIT_COST,
   PORTRAIT_GATE,
   TEST_REPORT_COST,
@@ -67,6 +78,10 @@ import {
   saveTestAnswers,
   type ReportChapter,
 } from "../lib/tests";
+import CompareCard from "./components/CompareCard";
+import CompareIntro from "./components/CompareIntro";
+import CompareJoin from "./components/CompareJoin";
+import { rewardMessage } from "./components/CompareView";
 import TestCatalogue from "./components/TestCatalogue";
 import PortraitCard from "./components/PortraitCard";
 import PortraitScreen, { type PortraitStage } from "./components/PortraitScreen";
@@ -83,6 +98,8 @@ import type { PsychTest, TestAnswers, TestOutcome } from "./types";
 
 type Step =
   | { name: "catalogue" }
+  /** An invite link landed on a test this device hasn't taken: consent first. */
+  | { name: "compareIntro"; test: PsychTest }
   | { name: "running"; test: PsychTest }
   | { name: "result"; test: PsychTest; outcome: TestOutcome }
   | { name: "portrait" };
@@ -193,6 +210,19 @@ export default function TestsApp() {
   const [retakeNote, setRetakeNote] = useState<string | null>(null);
   const retakeArmed = useRef(false);
 
+  // ---- compare loop (docs/referrals-compare.md) ---------------------------
+  /** An invite waiting to be used; the ref is what callbacks read. */
+  const [pending, setPending] = useState<PendingCompare | null>(null);
+  const pendingRef = useRef<PendingCompare | null>(null);
+  /** Bumped after a join so the card re-reads its comparisons. */
+  const [compareVersion, setCompareVersion] = useState(0);
+  const [compareNote, setCompareNote] = useState<string | null>(null);
+
+  const applyPending = useCallback((value: PendingCompare | null) => {
+    pendingRef.current = value;
+    setPending(value);
+  }, []);
+
   // ---- portrait -----------------------------------------------------------
   const [portraitView, setPortraitView] = useState<PortraitView>("teaser");
   const [portraitChapters, setPortraitChapters] = useState<ReportChapter[]>([]);
@@ -226,7 +256,10 @@ export default function TestsApp() {
   }, []);
 
   const open = useCallback(
-    async (testId: string, { push = true }: { push?: boolean } = {}) => {
+    async (
+      testId: string,
+      { push = true, invite }: { push?: boolean; invite?: PendingCompare | null } = {},
+    ) => {
       setLoading(true);
       try {
         const test = await loadTest(testId);
@@ -238,6 +271,14 @@ export default function TestsApp() {
         const saved = readAnswers(testId);
         if (test.questions.every((q) => saved[q.id])) {
           setStep({ name: "result", test, outcome: scoreTest(test, saved) });
+          return;
+        }
+        // An unused invite for this test: the consent screen comes before the
+        // first question, because that is where the answer to "what gets
+        // shared" belongs (docs/referrals-compare.md §4).
+        const waiting = invite ?? pendingRef.current;
+        if (waiting && (waiting.testId ?? testId) === testId) {
+          setStep({ name: "compareIntro", test });
           return;
         }
         track("test_start", { test_id: testId, test_session_id: getTestSessionId(testId) });
@@ -299,11 +340,32 @@ export default function TestsApp() {
   useEffect(() => {
     const id = testIdFromUrl();
     const ts = sessionIdFromUrl();
+    // ?cmp=<code> is parked (and stripped from the URL) before anything else
+    // decides what to render — the invite changes what this visit is about.
+    const captured = capturePendingCompare(id);
+    const invite = captured ?? pendingCompare();
+    if (invite) applyPending(invite);
+    // The denominator of the K-factor: a link that got opened.
+    if (captured) track("compare_invite_open", { test_id: captured.testId ?? "unknown" });
+
     // The catalogue-view event fires only when the catalogue is what the person
     // actually sees — a deep link straight into a test skips it.
     if (id && ts) void openFromLink(id, ts);
-    else if (id) void open(id, { push: false });
-    else if (portraitFromUrl()) setStep({ name: "portrait" });
+    else if (id) void open(id, { push: false, invite });
+    else if (invite && !invite.testId) {
+      // A bare ?cmp= link: only the server knows which test it belongs to.
+      void peekCompare(invite.code).then((info) => {
+        if (!info) {
+          clearPendingCompare();
+          applyPending(null);
+          track("tests_catalogue_view");
+          return;
+        }
+        const resolved: PendingCompare = { code: invite.code, testId: info.testId };
+        applyPending(resolved);
+        void open(info.testId, { invite: resolved });
+      });
+    } else if (portraitFromUrl()) setStep({ name: "portrait" });
     else track("tests_catalogue_view");
 
     const onPop = () => {
@@ -317,7 +379,7 @@ export default function TestsApp() {
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
-  }, [open, openFromLink]);
+  }, [applyPending, open, openFromLink]);
 
   useEffect(() => {
     document.title = ui.title;
@@ -345,7 +407,12 @@ export default function TestsApp() {
     () =>
       onCreditsSignIn(() => {
         setAccountNotice(null);
-        void claimTestSessions().then(() => {
+        void claimTestSessions().then(async () => {
+          // A comparison made before this account existed pays out now: the
+          // reward needs an account on BOTH sides, so it often waits here.
+          if (referralsEnabled && (await settleReferralRewards()) > 0) {
+            setCompareVersion((v) => v + 1);
+          }
           refreshBalance();
           refreshCompleted();
         });
@@ -369,6 +436,7 @@ export default function TestsApp() {
     setReportView("teaser");
     setChapters([]);
     setRetakeNote(null);
+    setCompareNote(null);
     retakeArmed.current = false;
     const sessionId = getTestSessionId(currentTestId);
     setAnswersDate((current) => current ?? fmtDate(completedAtOf(currentTestId), lang));
@@ -461,6 +529,11 @@ export default function TestsApp() {
     setAccountNotice(status === "ready" ? null : status);
     if (status === "ready") {
       await claimTestSessions();
+      // Same payout the sign-in listener does, run here too so the credits are
+      // on the balance by the time this screen redraws.
+      if (referralsEnabled && (await settleReferralRewards()) > 0) {
+        setCompareVersion((v) => v + 1);
+      }
       refreshBalance();
       refreshCompleted();
     }
@@ -880,6 +953,22 @@ export default function TestsApp() {
           </>
         )}
 
+        {!loading && step.name === "compareIntro" && (
+          <CompareIntro
+            test={step.test}
+            onStart={() => {
+              track("test_start", {
+                test_id: step.test.id,
+                test_session_id: getTestSessionId(step.test.id),
+                source: "compare_invite",
+              });
+              setStep({ name: "running", test: step.test });
+            }}
+            /* The invite stays parked: looking around first is not a refusal. */
+            onSkip={toCatalogue}
+          />
+        )}
+
         {!loading && step.name === "running" && (
           <TestRunner
             test={step.test}
@@ -905,6 +994,28 @@ export default function TestsApp() {
               void fetchAccount().then((account) => {
                 if (account) void claimTestSessions();
               });
+              // Consent was given on the intro screen, and the attempt the
+              // comparison needs now exists — join without asking twice. An
+              // attempt the server refused to store (cooldown) has nothing to
+              // compare, so it waits for the button on the result screen.
+              const invite = pendingRef.current;
+              if (
+                invite &&
+                completion === "ok" &&
+                (invite.testId ?? step.test.id) === step.test.id
+              ) {
+                void acceptCompare(
+                  invite.code,
+                  getTestSessionId(step.test.id),
+                  step.test.id,
+                ).then((result) => {
+                  if (result.kind !== "ok") return;
+                  applyPending(null);
+                  setCompareNote(rewardMessage(result.reward, lang, REFERRAL.reward));
+                  setCompareVersion((v) => v + 1);
+                  refreshBalance();
+                });
+              }
             }}
             onLeave={toCatalogue}
           />
@@ -912,6 +1023,28 @@ export default function TestsApp() {
 
         {!loading && step.name === "result" && (
           <>
+            {/* The invite this visitor arrived with, on a result that already
+                existed: the reason they are here, so it goes above everything. */}
+            {referralsEnabled &&
+              pending &&
+              !attemptUnsaved &&
+              (pending.testId ?? step.test.id) === step.test.id && (
+                <CompareJoin
+                  test={step.test}
+                  sessionId={getTestSessionId(step.test.id)}
+                  code={pending.code}
+                  onJoined={(note) => {
+                    applyPending(null);
+                    setCompareNote(note);
+                    setCompareVersion((v) => v + 1);
+                    refreshBalance();
+                  }}
+                  onDismiss={() => {
+                    clearPendingCompare();
+                    applyPending(null);
+                  }}
+                />
+              )}
             <TestResult
               test={step.test}
               outcome={step.outcome}
@@ -927,6 +1060,16 @@ export default function TestsApp() {
             {/* Below the monetization block, never competing with the open
                 paywall (§7 rule) — renders only from the second attempt on. */}
             <TestDynamics test={step.test} />
+            {/* Same rule: the viral loop sits under the monetization block, and
+                an attempt the server never stored has nothing to invite over. */}
+            {!attemptUnsaved && (
+              <CompareCard
+                test={step.test}
+                sessionId={getTestSessionId(step.test.id)}
+                refreshKey={compareVersion}
+                note={compareNote}
+              />
+            )}
           </>
         )}
 

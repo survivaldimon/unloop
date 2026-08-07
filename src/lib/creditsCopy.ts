@@ -71,6 +71,8 @@ export interface CreditsCopy {
     expired: string;
     exhausted: string;
     already: string;
+    /** Your own invite code (docs/referrals-compare.md §6) — not a wrong code. */
+    ownCode: string;
     signIn: string;
     failed: string;
     /** No account yet — the field collects the email itself rather than refusing. */
@@ -189,6 +191,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       expired: "This code has expired.",
       exhausted: "This code has been used up.",
       already: "You've already used this code.",
+      ownCode: "That's your own invite code — it's for friends.",
       signIn: "Enter your email first — the credits need an account to land on.",
       failed: "Couldn't check the code. Try again.",
       needEmail: "Credits need an account to land on. Leave your email and the code applies.",
@@ -303,6 +306,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       expired: "Срок кода истёк.",
       exhausted: "Код уже разобрали.",
       already: "Ты уже использовал этот код.",
+      ownCode: "Это твой собственный код-приглашение — он для друзей.",
       signIn: "Сначала оставь email — кредитам нужен аккаунт, куда лечь.",
       failed: "Не получилось проверить код. Попробуй ещё раз.",
       needEmail: "Кредитам нужен аккаунт, куда лечь. Оставь почту — и код применится.",

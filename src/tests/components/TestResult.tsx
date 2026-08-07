@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
+import { buildBreakdown } from "../breakdown";
 import { testsCopy } from "../copy";
 import { showsFreeBreakdown } from "../freeTier";
 import type { PsychTest, TestOutcome } from "../types";
@@ -165,44 +166,6 @@ export default function TestResult({
       <p className="mt-6 text-center text-[12px] leading-relaxed text-mist/60">{ui.disclaimer}</p>
     </div>
   );
-}
-
-interface BreakdownRow {
-  id: string;
-  label: string;
-  value: number;
-}
-
-/**
- * A bipolar test scores poles, not factors — its factorIds are never touched by
- * a question, so showing them would be four honest-looking zeros. Show the
- * balance inside each pair instead: that is the whole content of the result.
- */
-function buildBreakdown(test: PsychTest, outcome: TestOutcome, lang: "en" | "ru"): BreakdownRow[] {
-  const selection = test.profileSelection;
-  if (selection.mode === "bipolar") {
-    return selection.dimensions.map(({ poles, letters }) => {
-      const a = outcome.scaleScores[poles[0]] ?? 0;
-      const b = outcome.scaleScores[poles[1]] ?? 0;
-      const total = a + b;
-      return {
-        id: poles.join("-"),
-        label: `${poleLabel(test, poles[0], letters[0], lang)} ↔ ${poleLabel(test, poles[1], letters[1], lang)}`,
-        value: total > 0 ? Math.round((a / total) * 1000) / 10 : 50,
-      };
-    });
-  }
-  return Object.entries(outcome.factorPercentages)
-    .sort((a, b) => b[1] - a[1])
-    .map(([id, value]) => ({
-      id,
-      label: test.factorNames[id]?.[lang] ?? id.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase()),
-      value,
-    }));
-}
-
-function poleLabel(test: PsychTest, pole: string, letter: string, lang: "en" | "ru"): string {
-  return test.factorNames[pole]?.[lang] ?? `${letter}`;
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

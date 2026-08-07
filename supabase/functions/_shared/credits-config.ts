@@ -145,3 +145,32 @@ export const RETAKE_COOLDOWN_HOURS = 72;
 export function isSubPlanId(v: unknown): v is SubPlanId {
   return v === "monthly" || v === "yearly";
 }
+
+// ---------------------------------------------------------------------------
+// Referral loop (docs/referrals-compare.md)
+// ---------------------------------------------------------------------------
+
+/**
+ * The compare loop and the personal referral code. These numbers are enforced
+ * in SQL (20260807160000_referrals.sql) — looplore_referral_reward holds the
+ * reward and the cap, looplore_referral_my_code the code's budget and life.
+ * They live here so the UI can say out loud what the server will do. Keep the
+ * two copies in sync.
+ *
+ * Why the ceilings matter: a code worth `codeCredits` is codeCredits/95 of a
+ * free read for everyone who ever sees it, and a reward with no cap is a farm.
+ * The pair key (one payout per two accounts, ever) is the first line; `rewardCap
+ * Per30d` is the second.
+ */
+export const REFERRAL = {
+  /** Credits each side earns from a comparison, or from a redeemed code. */
+  reward: 20,
+  /** Rewarded peers per account per rolling 30 days. */
+  rewardCapPer30d: 5,
+  /** What a personal referral code pays the friend who redeems it. */
+  codeCredits: 20,
+  /** Mandatory budget on a published code. */
+  codeMaxRedemptions: 25,
+  /** Mandatory expiry, in days. */
+  codeValidDays: 90,
+} as const;

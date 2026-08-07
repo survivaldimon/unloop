@@ -191,7 +191,17 @@ export type AnalyticsEvent =
   | "sub_checkout_open"
   | "sub_started"
   // Daily loop (stage D): the visit claim and its 7-day streak reward.
-  | "daily_claim";
+  | "daily_claim"
+  // Compare loop and referral codes (docs/referrals-compare.md §5). PostHog
+  // only — a comparison is free, so there is nothing for Meta to optimize on.
+  // The K-factor reads off these four: invites made → links opened → joins,
+  // with the reward's own reason on the join so farming attempts are visible.
+  | "compare_invite_create"
+  | "compare_invite_share"
+  | "compare_invite_open"
+  | "compare_join"
+  | "referral_code_view"
+  | "referral_code_share";
 
 export function track(
   event: AnalyticsEvent,

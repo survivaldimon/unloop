@@ -38,6 +38,8 @@ export default function PromoField({
         return ui.exhausted;
       case "already":
         return ui.already;
+      case "own_code":
+        return ui.ownCode;
       case "sign_in":
         return ui.signIn;
       // A throttled guesser gets the same line as a wrong code: telling them
@@ -55,7 +57,12 @@ export default function PromoField({
     if (r.kind === "ok") {
       setValue("");
       setNeedEmail(false);
-      track("promo_redeem", { credits: r.credits });
+      // source separates a friend's invite code from a campaign code — the two
+      // answer different questions about where growth comes from.
+      track("promo_redeem", {
+        credits: r.credits,
+        source: r.referral ? "referral" : "code",
+      });
       onRedeemed(r.balance);
     }
   };
