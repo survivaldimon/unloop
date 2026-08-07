@@ -11,10 +11,16 @@ import {
   CREDIT_PACKS,
   OFFER_BONUS_RATE,
   OFFER_WINDOW_MINUTES,
+  SUB_PLANS,
+  SUB_QUOTAS,
+  SUB_TRIAL_DAYS,
   isPackId,
+  isSubPlanId,
   packBonus,
   type CreditPack,
   type PackId,
+  type SubPlan,
+  type SubPlanId,
 } from "../../supabase/functions/_shared/credits-config.ts";
 
 export {
@@ -23,10 +29,14 @@ export {
   CREDIT_PACKS,
   OFFER_BONUS_RATE,
   OFFER_WINDOW_MINUTES,
+  SUB_PLANS,
+  SUB_QUOTAS,
+  SUB_TRIAL_DAYS,
   isPackId,
+  isSubPlanId,
   packBonus,
 };
-export type { CreditPack, PackId };
+export type { CreditPack, PackId, SubPlan, SubPlanId };
 
 const FN_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
@@ -382,6 +392,103 @@ export async function redeemPendingPromo(): Promise<PromoResult | null> {
     }
   }
   return result;
+}
+
+// ---------------------------------------------------------------------------
+// Looplore+ subscription (docs/subscription-economy.md)
+// ---------------------------------------------------------------------------
+
+/**
+ * Own client flag, so the subscription can roll back (both flags off) without
+ * touching the credit rail. Server-side twin: SUBSCRIPTIONS_ENABLED in Vault.
+ */
+export const subscriptionsEnabled: boolean =
+  creditsEnabled && import.meta.env.VITE_SUBSCRIPTIONS_ENABLED === "true";
+
+/**
+ * Self-service portal (cancel, change card, invoices): Polar's per-org portal
+ * with email-code auth — no server round-trip needed for v1.
+ */
+export const POLAR_PORTAL_URL = "https://polar.sh/looploreapp/portal";
+
+export interface MySubscription {
+  active: boolean;
+  plan: SubPlanId | null;
+  status: string | null;
+  trial: boolean;
+  cancelAtPeriodEnd: boolean;
+  trialEndsAt: string | null;
+  periodEnd: string | null;
+  photosUsed: number;
+  questionsUsed: number;
+}
+
+const NO_SUB: MySubscription = {
+  active: false,
+  plan: null,
+  status: null,
+  trial: false,
+  cancelAtPeriodEnd: false,
+  trialEndsAt: null,
+  periodEnd: null,
+  photosUsed: 0,
+  questionsUsed: 0,
+};
+
+/** Signed-in user's Looplore+ state; inactive when signed out / flag off. */
+export async function fetchMySubscription(): Promise<MySubscription> {
+  if (!subscriptionsEnabled || !supabase) return NO_SUB;
+  try {
+    const { data: current } = await supabase.auth.getSession();
+    if (!current.session) return NO_SUB;
+    const { data, error } = await supabase.rpc("looplore_my_subscription");
+    if (error || !data || typeof data !== "object") return NO_SUB;
+    const d = data as Record<string, unknown>;
+    if (d.active !== true) return NO_SUB;
+    const num = (v: unknown): number =>
+      typeof v === "number" && Number.isFinite(v) ? v : 0;
+    const str = (v: unknown): string | null =>
+      typeof v === "string" && v ? v : null;
+    return {
+      active: true,
+      plan: d.plan === "yearly" ? "yearly" : "monthly",
+      status: str(d.status),
+      trial: d.trial === true,
+      cancelAtPeriodEnd: d.cancel_at_period_end === true,
+      trialEndsAt: str(d.trial_ends_at),
+      periodEnd: str(d.period_end),
+      photosUsed: num(d.photos_used),
+      questionsUsed: num(d.questions_used),
+    };
+  } catch {
+    return NO_SUB;
+  }
+}
+
+/** UI mirror of the server's canInclude: does the sub cover this action now? */
+export function subCovers(
+  sub: MySubscription | null,
+  action: "report" | "portrait" | "photo" | "question",
+): boolean {
+  if (!sub?.active) return false;
+  if (action === "photo") return sub.photosUsed < SUB_QUOTAS.photos_per_30d;
+  if (action === "question") return sub.questionsUsed < SUB_QUOTAS.questions_per_30d;
+  return true;
+}
+
+/**
+ * Post-checkout: the subscription arrives via the Polar webhook, so poll the
+ * entitlement until it lands (or the timeout passes). Resolves to the final
+ * state either way — callers decide what "not yet" looks like.
+ */
+export async function waitForSubscription(timeoutMs = 30000): Promise<MySubscription> {
+  const deadline = Date.now() + timeoutMs;
+  let last = await fetchMySubscription();
+  while (!last.active && Date.now() < deadline) {
+    await new Promise((r) => setTimeout(r, 2500));
+    last = await fetchMySubscription();
+  }
+  return last;
 }
 
 export interface ChatEntry {

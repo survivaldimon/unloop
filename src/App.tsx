@@ -23,8 +23,10 @@ import {
   onCreditsSignIn,
   redeemPendingPromo,
   stateUnlocks,
+  waitForSubscription,
   type AccountStatus,
   type PackId,
+  type SubPlanId,
 } from "./lib/credits";
 import { openCheckout, paymentsEnabled } from "./lib/payments";
 import {
@@ -374,6 +376,42 @@ export default function App() {
     void linkSession("quiz", getSessionId()).then(unlock);
   };
 
+  /**
+   * Looplore+ from the paywall. The subscription lands via the Polar webhook,
+   * so after checkout we poll the entitlement; once active, the report opens
+   * through the normal generation path (the function records included_report).
+   */
+  const startSubscribe = (plan: SubPlanId) => {
+    track("sub_checkout_open", { plan, funnel: "quiz" });
+    openCheckout({
+      endpoint: "subscription-polar-checkout",
+      plan,
+      funnel: "quiz",
+      sessionId: getSessionId(),
+      email: email || undefined,
+      lang,
+      onPaid: () => {
+        setPayState("confirming");
+        void waitForSubscription().then((sub) => {
+          if (sub.active) {
+            track("sub_started", { plan: sub.plan ?? "monthly", trial: sub.trial });
+            void linkSession("quiz", getSessionId()).then(unlock);
+          } else {
+            setPayState("idle");
+          }
+        });
+      },
+      onClosed: () => {
+        // The overlay may close after a successful setup (lost postMessage) —
+        // re-check quietly, no error state.
+        void waitForSubscription(5000).then((sub) => {
+          if (sub.active) void linkSession("quiz", getSessionId()).then(unlock);
+        });
+      },
+      onError: () => setPayState("error"),
+    }).catch(() => setPayState("error"));
+  };
+
   /** Mid-flow top-up: buy a pack, wait for the webhook grant, resume. */
   const buyTopUp = (packId: PackId) => {
     setTopUpBusy(true);
@@ -495,6 +533,7 @@ export default function App() {
               if (balance !== null) setMyBalance(balance);
               else refreshBalance();
             }}
+            onSubscribe={startSubscribe}
           />
         )}
         {step === "report" && result && unlocked && (

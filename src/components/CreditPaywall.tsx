@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import {
   CREDIT_PACKS,
+  SUB_PLANS,
   packBonus,
+  subscriptionsEnabled,
   touchOffer,
   type AccountStatus,
   type PackId,
+  type SubPlanId,
 } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
 import PromoField from "./PromoField";
@@ -69,6 +72,7 @@ export default function CreditPaywall({
   onSelect,
   onUnlockWithCredits,
   onPromoRedeemed,
+  onSubscribe,
   accountNotice = null,
 }: {
   balance: number | null;
@@ -82,9 +86,15 @@ export default function CreditPaywall({
   onUnlockWithCredits?: () => void;
   /** A promo code landed — the new balance may already cover the read. */
   onPromoRedeemed?: (balance: number | null) => void;
+  /**
+   * Looplore+ card above the packs (spec §5): visible, never preselected —
+   * Starter keeps the default. Omitted (or flag off) → packs-only paywall.
+   */
+  onSubscribe?: (plan: SubPlanId) => void;
 }) {
   const lang = useLang();
   const ui = CREDITS_COPY[lang].paywall;
+  const subUi = CREDITS_COPY[lang].sub;
   const account = CREDITS_COPY[lang].account;
   const accountLine =
     accountNotice === "pending"
@@ -95,10 +105,58 @@ export default function CreditPaywall({
           ? account.linkFailed
           : null;
   const [selected, setSelected] = useState<PackId>("starter");
+  const [subPlan, setSubPlan] = useState<SubPlanId>("monthly");
   const { label: countdown, active: bonusActive } = useBonusCountdown();
   const busy = payState === "opening" || payState === "confirming";
   const busyLabel = payState === "opening" ? ui.opening : ui.confirming;
   const selectedPack = CREDIT_PACKS[selected];
+  const showSub = subscriptionsEnabled && Boolean(onSubscribe);
+
+  // Spec §5: the Looplore+ card sits ABOVE the pack grid, clearly visible but
+  // never preselected — Starter keeps the default (founder's decision #11).
+  const subCard = showSub ? (
+    <div className="mb-2 rounded-[10px] border border-brass/60 bg-brass/5 p-3.5">
+      <div className="flex items-baseline justify-between gap-2">
+        <p className="font-display text-[17px] font-medium italic">{subUi.name}</p>
+        <div className="flex gap-1 text-[11px]">
+          {(["monthly", "yearly"] as SubPlanId[]).map((p) => (
+            <button
+              key={p}
+              type="button"
+              onClick={() => {
+                setSubPlan(p);
+                track("sub_plan_select", { plan: p });
+              }}
+              className={`rounded-full border px-2 py-0.5 transition ${
+                subPlan === p
+                  ? "border-brass text-brass-2"
+                  : "border-paper/15 text-mist hover:border-paper/30"
+              }`}
+            >
+              {p === "monthly"
+                ? subUi.monthlyLabel(formatUsd(SUB_PLANS.monthly.usd))
+                : `${subUi.yearlyLabel(formatUsd(SUB_PLANS.yearly.usd))} ${subUi.yearlySave}`}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="mt-1 text-[12px] leading-snug text-mist">{subUi.cardPitch}</p>
+      <button
+        className="btn-primary mt-2.5 disabled:opacity-60"
+        onClick={() => onSubscribe?.(subPlan)}
+        disabled={busy}
+      >
+        {busy ? busyLabel : subUi.cta}
+      </button>
+      <p className="mt-1.5 text-center text-[11px] text-mist/70">
+        {subUi.trialTerms(
+          subPlan === "monthly"
+            ? subUi.monthlyLabel(formatUsd(SUB_PLANS.monthly.usd))
+            : subUi.yearlyLabel(formatUsd(SUB_PLANS.yearly.usd)),
+        )}
+      </p>
+    </div>
+  ) : null;
 
   // A returning buyer with enough balance (the cross-sell case: "оба разбора")
   // skips the packs entirely — the read opens straight from the balance.
@@ -131,6 +189,7 @@ export default function CreditPaywall({
 
   return (
     <div className="rounded-xl border border-brass/50 p-4">
+      {subCard}
       <button
         type="button"
         onClick={() => pick("starter")}

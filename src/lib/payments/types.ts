@@ -11,8 +11,10 @@ export interface CheckoutOptions {
   endpoint?: string;
   /** Credit pack to buy (credits-polar-checkout only). */
   packId?: string;
-  /** Funnel the purchase belongs to (credits-polar-checkout only). */
-  funnel?: "quiz" | "photoread";
+  /** Looplore+ plan to subscribe to (subscription-polar-checkout only). */
+  plan?: "monthly" | "yearly";
+  /** Funnel the purchase belongs to (credits/subscription checkouts). */
+  funnel?: "quiz" | "photoread" | "tests";
   /**
    * Fires when the provider reports a successful payment client-side.
    * Payment is only *trusted* once the webhook sets paid_at in Supabase —

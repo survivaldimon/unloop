@@ -78,6 +78,40 @@ export interface CreditsCopy {
     emailPlaceholder: string;
     parked: string;
   };
+  /** Looplore+ subscription (docs/subscription-economy.md §5). */
+  sub: {
+    name: string;
+    /** Paywall card above the packs — visible, never preselected. */
+    cardPitch: string;
+    monthlyLabel: (usd: string) => string;
+    yearlyLabel: (usd: string) => string;
+    yearlySave: string;
+    /** Honest trial terms right under the CTA (EU-friendly, no dark patterns). */
+    trialTerms: (usd: string) => string;
+    cta: string;
+    /** Shown on action buttons instead of a price when the sub covers it. */
+    includedBadge: string;
+    /** Post-checkout: waiting for the webhook to activate the subscription. */
+    activating: string;
+    /** Catalogue banner. */
+    bannerTitle: string;
+    bannerSub: string;
+    /** /account/ block. */
+    accTitle: string;
+    accPlanMonthly: string;
+    accPlanYearly: string;
+    accTrial: (date: string) => string;
+    accRenews: (date: string) => string;
+    accEnds: (date: string) => string;
+    accPastDue: string;
+    accQuotaChat: (used: number, limit: number) => string;
+    accQuotaPhoto: (used: number, limit: number) => string;
+    accQuotaNote: string;
+    accManage: string;
+    accManageNote: string;
+    accNone: string;
+    accSubscribe: string;
+  };
 }
 
 export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
@@ -146,6 +180,34 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       needEmail: "Credits need an account to land on. Leave your email and the code applies.",
       emailPlaceholder: "you@example.com",
       parked: "Code saved. Open the sign-in link we emailed you and the credits land.",
+    },
+    sub: {
+      name: "Looplore+",
+      cardPitch: "Every test read, the portrait, photo reads and chat — included",
+      monthlyLabel: (usd) => `${usd}/mo`,
+      yearlyLabel: (usd) => `${usd}/yr`,
+      yearlySave: "−20%",
+      trialTerms: (usd) =>
+        `3 days free, then ${usd} · cancel anytime in your account`,
+      cta: "Try 3 days free",
+      includedBadge: "included in Looplore+",
+      activating: "Payment set up — activating your subscription…",
+      bannerTitle: "Looplore+ — every read included",
+      bannerSub: "All test reads, the evolving portrait, photo reads and chat. 3 days free.",
+      accTitle: "Subscription",
+      accPlanMonthly: "Looplore+ · monthly",
+      accPlanYearly: "Looplore+ · yearly",
+      accTrial: (date) => `Trial until ${date} — then the paid period starts`,
+      accRenews: (date) => `Renews on ${date}`,
+      accEnds: (date) => `Cancelled — works until ${date}`,
+      accPastDue: "Payment didn't go through — update your card to keep access",
+      accQuotaChat: (used, limit) => `Chat questions: ${used} of ${limit} used (30 days)`,
+      accQuotaPhoto: (used, limit) => `Photo reads: ${used} of ${limit} used (30 days)`,
+      accQuotaNote: "Over the included amount, normal credit prices apply.",
+      accManage: "Manage subscription",
+      accManageNote: "Cancel or change your card on the secure Polar portal — sign in there with this email.",
+      accNone: "No subscription — reads are paid per piece from your balance.",
+      accSubscribe: "Try Looplore+ · 3 days free",
     },
   },
   // RU has no plural helper on purpose: every credit amount spelled out in full
@@ -219,6 +281,34 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       needEmail: "Кредитам нужен аккаунт, куда лечь. Оставь почту — и код применится.",
       emailPlaceholder: "you@example.com",
       parked: "Код сохранён. Открой ссылку для входа из письма — кредиты придут.",
+    },
+    sub: {
+      name: "Looplore+",
+      cardPitch: "Все разборы тестов, портрет, фото и чат — включены",
+      monthlyLabel: (usd) => `${usd}/мес`,
+      yearlyLabel: (usd) => `${usd}/год`,
+      yearlySave: "−20%",
+      trialTerms: (usd) =>
+        `3 дня бесплатно, дальше ${usd} · отмена в любой момент в аккаунте`,
+      cta: "Попробовать 3 дня бесплатно",
+      includedBadge: "включено в Looplore+",
+      activating: "Оплата настроена — активируем подписку…",
+      bannerTitle: "Looplore+ — все разборы включены",
+      bannerSub: "Разборы всех тестов, обновляемый портрет, фото-разборы и чат. 3 дня бесплатно.",
+      accTitle: "Подписка",
+      accPlanMonthly: "Looplore+ · на месяц",
+      accPlanYearly: "Looplore+ · на год",
+      accTrial: (date) => `Пробный период до ${date} — дальше начнётся платный`,
+      accRenews: (date) => `Продлится ${date}`,
+      accEnds: (date) => `Отменена — работает до ${date}`,
+      accPastDue: "Оплата не прошла — обнови карту, чтобы сохранить доступ",
+      accQuotaChat: (used, limit) => `Вопросы в чате: ${used} из ${limit} (за 30 дней)`,
+      accQuotaPhoto: (used, limit) => `Фото-разборы: ${used} из ${limit} (за 30 дней)`,
+      accQuotaNote: "Сверх включённого действуют обычные цены в кредитах.",
+      accManage: "Управлять подпиской",
+      accManageNote: "Отмена и смена карты — на защищённом портале Polar; войди там по этому email.",
+      accNone: "Подписки нет — разборы оплачиваются поштучно с баланса.",
+      accSubscribe: "Попробовать Looplore+ · 3 дня бесплатно",
     },
   },
 };

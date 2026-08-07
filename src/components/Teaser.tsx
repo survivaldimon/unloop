@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { fillSlots } from "../content/patterns";
 import { getPattern } from "../content/localized";
-import { CREDIT_COSTS, creditsEnabled, type AccountStatus, type PackId } from "../lib/credits";
+import {
+  CREDIT_COSTS,
+  creditsEnabled,
+  type AccountStatus,
+  type PackId,
+  type SubPlanId,
+} from "../lib/credits";
 import { REPORT_PRICE_USD } from "../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../lib/offer";
 import { paymentsEnabled, paymentsProviderName } from "../lib/payments";
@@ -30,6 +36,7 @@ export default function Teaser({
   accountNotice = null,
   onUnlockWithCredits,
   onPromoRedeemed,
+  onSubscribe,
 }: {
   result: ScoreResult;
   /** Credit mode passes the chosen pack; the legacy paywall passes nothing. */
@@ -43,6 +50,8 @@ export default function Teaser({
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
   onPromoRedeemed?: (balance: number | null) => void;
+  /** Looplore+ card on the paywall (spec §5). */
+  onSubscribe?: (plan: SubPlanId) => void;
 }) {
   const lang = useLang();
   const ui = t(lang).teaser;
@@ -201,6 +210,7 @@ export default function Teaser({
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
             accountNotice={accountNotice}
+            onSubscribe={onSubscribe}
           />
         ) : paymentsEnabled ? (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

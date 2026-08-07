@@ -32,9 +32,13 @@ import {
   fetchMyBalance,
   onCreditsSignIn,
   redeemPendingPromo,
+  subscriptionsEnabled,
+  waitForSubscription,
   type AccountStatus,
   type PackId,
+  type SubPlanId,
 } from "../lib/credits";
+import { CREDITS_COPY } from "../lib/creditsCopy";
 // Payments live behind their own flag; with it off openCheckout rejects and
 // the paywall lands in its error state, while a balance that already covers
 // the read still opens it — the same degradation the other funnels have.
@@ -519,6 +523,39 @@ export default function TestsApp() {
       .catch(() => setPayState("error"));
   };
 
+  /**
+   * Looplore+ from the paywall: after checkout the entitlement lands via the
+   * webhook, so poll it, then run the same unlock the paywall would — the
+   * report/portrait function sees the subscription and records included_*.
+   */
+  const subscribeFromPaywall = (plan: SubPlanId, sessionId: string, onUnlock: () => void) => {
+    if (payState === "opening" || payState === "confirming") return;
+    setPayState("opening");
+    track("sub_checkout_open", { plan, funnel: "tests" });
+    openCheckout({
+      endpoint: "subscription-polar-checkout",
+      plan,
+      funnel: "tests",
+      sessionId,
+      email: email || undefined,
+      lang,
+      onPaid: () => {
+        setPayState("confirming");
+        void waitForSubscription().then((sub) => {
+          setPayState("idle");
+          if (sub.active) {
+            track("sub_started", { plan: sub.plan ?? "monthly", trial: sub.trial, funnel: "tests" });
+            onUnlock();
+          }
+        });
+      },
+      onClosed: () => setPayState("idle"),
+      onError: () => setPayState("error"),
+    })
+      .then(() => setPayState((s) => (s === "opening" ? "idle" : s)))
+      .catch(() => setPayState("error"));
+  };
+
   /** Mid-chat top-up: buy a pack, wait for the grant, close the sheet. */
   const buyTopUp = (packId: PackId, sessionId: string) => {
     if (topUpBusy) return;
@@ -665,6 +702,7 @@ export default function TestsApp() {
         if (value !== null) setBalance(value);
         else refreshBalance();
       }}
+      onSubscribe={(plan) => subscribeFromPaywall(plan, sessionId, onUnlock)}
     />
   );
 
@@ -810,6 +848,21 @@ export default function TestsApp() {
 
         {!loading && step.name === "catalogue" && (
           <>
+            {subscriptionsEnabled && (
+              <button
+                type="button"
+                onClick={() => subscribeFromPaywall("monthly", crypto.randomUUID(), () => {})}
+                disabled={payState === "opening" || payState === "confirming"}
+                className="mb-4 w-full rounded-[10px] border border-brass/60 bg-brass/5 p-3.5 text-left transition hover:border-brass disabled:opacity-60"
+              >
+                <p className="font-display text-[15px] font-medium italic">
+                  {CREDITS_COPY[lang].sub.bannerTitle}
+                </p>
+                <p className="mt-0.5 text-[12px] leading-snug text-mist">
+                  {CREDITS_COPY[lang].sub.bannerSub}
+                </p>
+              </button>
+            )}
             <TestCatalogue onPick={(id) => void open(id)} statusOf={statusOf} />
             {completedTests > 0 && (
               <div className="mt-2">

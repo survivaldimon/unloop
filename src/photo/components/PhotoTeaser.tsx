@@ -9,6 +9,7 @@ import {
   creditsEnabled,
   type AccountStatus,
   type PackId,
+  type SubPlanId,
 } from "../../lib/credits";
 import { REPORT_PRICE_USD } from "../../lib/meta";
 import { COMPARE_PRICE_USD, formatUsd, useOfferCountdown } from "../../lib/offer";
@@ -36,6 +37,7 @@ export default function PhotoTeaser({
   accountNotice = null,
   onUnlockWithCredits,
   onPromoRedeemed,
+  onSubscribe,
 }: {
   teaser: PhotoTeaserData;
   useCase: PhotoUseCase;
@@ -54,6 +56,8 @@ export default function PhotoTeaser({
   onUnlockWithCredits?: () => void;
   /** A promo code landed on the paywall — refresh the balance above it. */
   onPromoRedeemed?: (balance: number | null) => void;
+  /** Looplore+ card on the paywall (spec §5). */
+  onSubscribe?: (plan: SubPlanId) => void;
 }) {
   const PHOTO_COPY = getPhotoCopy(useLang());
   const ui = PHOTO_COPY.teaser;
@@ -180,6 +184,7 @@ export default function PhotoTeaser({
             onUnlockWithCredits={onUnlockWithCredits}
             onPromoRedeemed={onPromoRedeemed}
             accountNotice={accountNotice}
+            onSubscribe={onSubscribe}
           />
         ) : (
           <div className="rounded-xl border border-brass/50 p-4 text-center">

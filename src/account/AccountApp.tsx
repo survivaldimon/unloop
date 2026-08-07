@@ -15,7 +15,18 @@ import {
   type LedgerEntry,
   type PastRead,
 } from "../lib/account";
-import { CREDIT_PACKS, fetchMyBalance, type PackId } from "../lib/credits";
+import {
+  CREDIT_PACKS,
+  POLAR_PORTAL_URL,
+  SUB_QUOTAS,
+  fetchMyBalance,
+  fetchMySubscription,
+  subscriptionsEnabled,
+  waitForSubscription,
+  type MySubscription,
+  type PackId,
+} from "../lib/credits";
+import { CREDITS_COPY } from "../lib/creditsCopy";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
 import { track } from "../lib/analytics";
 import { fetchMySessions, type CompletedTestSession } from "../lib/tests";
@@ -52,6 +63,8 @@ export default function AccountApp() {
   const [ready, setReady] = useState(false);
   const [account, setAccount] = useState<AccountInfo | null>(null);
   const [balance, setBalance] = useState<number | null>(null);
+  const [sub, setSub] = useState<MySubscription | null>(null);
+  const [subBusy, setSubBusy] = useState(false);
   const [ledger, setLedger] = useState<LedgerEntry[]>([]);
   const [reads, setReads] = useState<PastRead[]>([]);
   const [tests, setTests] = useState<CompletedTestSession[]>([]);
@@ -155,16 +168,18 @@ export default function AccountApp() {
     const info = await fetchAccount();
     setAccount(info);
     if (info) {
-      const [b, l, r, t] = await Promise.all([
+      const [b, l, r, t, s] = await Promise.all([
         fetchMyBalance(),
         fetchLedger(),
         fetchReads(),
         fetchMySessions(),
+        fetchMySubscription(),
       ]);
       setBalance(b);
       setLedger(l);
       setReads(r);
       setTests(t);
+      setSub(s);
       void loadTestContent(t);
     }
     setReady(true);
@@ -328,6 +343,87 @@ export default function AccountApp() {
   }
 
   // ---- Signed in --------------------------------------------------------
+  const subUi = CREDITS_COPY[lang].sub;
+
+  /** Subscribe straight from the account (monthly; yearly lives on paywalls). */
+  const subscribeFromAccount = () => {
+    if (subBusy) return;
+    setSubBusy(true);
+    track("sub_checkout_open", { plan: "monthly", funnel: "account" });
+    openCheckout({
+      endpoint: "subscription-polar-checkout",
+      plan: "monthly",
+      sessionId: crypto.randomUUID(),
+      email: account?.email,
+      lang,
+      onPaid: () => {
+        void waitForSubscription().then((s) => {
+          setSubBusy(false);
+          if (s.active) {
+            track("sub_started", { plan: s.plan ?? "monthly", trial: s.trial, funnel: "account" });
+            void load();
+          }
+        });
+      },
+      onClosed: () => setSubBusy(false),
+      onError: () => setSubBusy(false),
+    }).catch(() => setSubBusy(false));
+  };
+
+  const subscriptionBlock = subscriptionsEnabled ? (
+    <section className="mt-8">
+      <p className="font-display text-[16px] font-medium">{subUi.accTitle}</p>
+      <hr className="hairline mt-2 mb-3" />
+      {sub?.active ? (
+        <div className="rounded-xl border border-brass/50 p-4">
+          <p className="font-display text-[16px] font-medium italic">
+            {sub.plan === "yearly" ? subUi.accPlanYearly : subUi.accPlanMonthly}
+          </p>
+          <p className="mt-1 text-[12px] leading-relaxed text-mist">
+            {sub.status === "past_due"
+              ? subUi.accPastDue
+              : sub.trial && sub.trialEndsAt
+                ? subUi.accTrial(fmtDate(sub.trialEndsAt, lang))
+                : sub.cancelAtPeriodEnd && sub.periodEnd
+                  ? subUi.accEnds(fmtDate(sub.periodEnd, lang))
+                  : sub.periodEnd
+                    ? subUi.accRenews(fmtDate(sub.periodEnd, lang))
+                    : null}
+          </p>
+          <div className="mt-2.5 flex flex-col gap-1 text-[12px] text-mist">
+            <span>{subUi.accQuotaChat(sub.questionsUsed, SUB_QUOTAS.questions_per_30d)}</span>
+            <span>{subUi.accQuotaPhoto(sub.photosUsed, SUB_QUOTAS.photos_per_30d)}</span>
+            <span className="text-mist/70">{subUi.accQuotaNote}</span>
+          </div>
+          <a
+            href={POLAR_PORTAL_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-block rounded-lg border border-brass/50 px-3 py-2 text-[13px] text-brass-2 no-underline transition hover:border-brass"
+          >
+            {subUi.accManage}
+          </a>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-mist/70">{subUi.accManageNote}</p>
+        </div>
+      ) : (
+        <div>
+          <p className="text-[13px] leading-relaxed text-mist">{subUi.accNone}</p>
+          <p className="mt-1 text-[12px] text-mist/80">{subUi.cardPitch}</p>
+          {paymentsEnabled && (
+            <button
+              type="button"
+              className="btn-primary mt-3 inline-block disabled:opacity-60"
+              onClick={subscribeFromAccount}
+              disabled={subBusy}
+            >
+              {subBusy ? subUi.activating : subUi.accSubscribe}
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  ) : null;
+
   const passwordBlock = (
     <section className="mt-8">
       <p className="font-display text-[16px] font-medium">
@@ -393,6 +489,8 @@ export default function AccountApp() {
           </a>
         )}
       </section>
+
+      {subscriptionBlock}
 
       {passwordBlock}
 

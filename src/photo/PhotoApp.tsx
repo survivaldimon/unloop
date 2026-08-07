@@ -18,8 +18,10 @@ import {
   onCreditsSignIn,
   redeemPendingPromo,
   stateUnlocks,
+  waitForSubscription,
   type AccountStatus,
   type PackId,
+  type SubPlanId,
 } from "../lib/credits";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
 import { detectLang, persistLang, LangContext, type Lang } from "../i18n";
@@ -413,6 +415,44 @@ export default function PhotoApp() {
     void linkSession("photoread", getPhotoSessionId()).then(unlock);
   };
 
+  /**
+   * Looplore+ from the photo paywall. Once the webhook lands the entitlement,
+   * the read opens through the normal path — photoread-report sees the
+   * subscription and records included_photo (4/30d quota).
+   */
+  const startSubscribe = (plan: SubPlanId) => {
+    if (payState === "opening" || payState === "confirming") return;
+    setPayState("opening");
+    track("sub_checkout_open", { plan, funnel: "photo" });
+    openCheckout({
+      endpoint: "subscription-polar-checkout",
+      plan,
+      funnel: "photoread",
+      sessionId: getPhotoSessionId(),
+      email: email || undefined,
+      lang,
+      onPaid: () => {
+        setPayState("confirming");
+        void waitForSubscription().then((sub) => {
+          if (sub.active) {
+            track("sub_started", { plan: sub.plan ?? "monthly", trial: sub.trial, funnel: "photo" });
+            void linkSession("photoread", getPhotoSessionId()).then(unlock);
+          } else {
+            setPayState("idle");
+          }
+        });
+      },
+      onClosed: () => {
+        void waitForSubscription(5000).then((sub) => {
+          if (sub.active) void linkSession("photoread", getPhotoSessionId()).then(unlock);
+        });
+      },
+      onError: () => setPayState("error"),
+    })
+      .then(() => setPayState((s) => (s === "opening" ? "idle" : s)))
+      .catch(() => setPayState("error"));
+  };
+
   /** Mid-flow top-up: buy a pack, wait for the webhook grant, resume. */
   const buyTopUp = (packId: PackId) => {
     if (topUpBusy) return;
@@ -566,6 +606,7 @@ export default function PhotoApp() {
               if (balance !== null) setMyBalance(balance);
               else refreshBalance();
             }}
+            onSubscribe={startSubscribe}
           />
         )}
         {step === "report" && unlocked && (

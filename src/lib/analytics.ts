@@ -182,7 +182,14 @@ export type AnalyticsEvent =
   // surface it opened on, `to` the section a click chose — together they map
   // which bridges between the funnels actually get walked.
   | "nav_open"
-  | "nav_click";
+  | "nav_click"
+  // Looplore+ subscription (docs/subscription-economy.md §11). PostHog-only:
+  // the Meta Purchase for subscription money comes from the webhook's
+  // Conversions API event on the first PAID order (free-trial starts carry no
+  // value and must not pollute purchase optimization).
+  | "sub_plan_select"
+  | "sub_checkout_open"
+  | "sub_started";
 
 export function track(
   event: AnalyticsEvent,
