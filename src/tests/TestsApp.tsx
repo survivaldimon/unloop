@@ -15,6 +15,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import BalanceChip from "../components/BalanceChip";
 import CreditPaywall from "../components/CreditPaywall";
+import DailyLoop from "../components/DailyLoop";
 import EmailCapture from "../components/EmailCapture";
 import LegalLinks from "../components/LegalLinks";
 import NavMenu from "../components/NavMenu";
@@ -849,6 +850,7 @@ export default function TestsApp() {
 
         {!loading && step.name === "catalogue" && (
           <>
+            <DailyLoop onBalance={refreshBalance} />
             {subscriptionsEnabled && (
               <button
                 type="button"

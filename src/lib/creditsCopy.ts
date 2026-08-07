@@ -115,6 +115,17 @@ export interface CreditsCopy {
     dynTitle: string;
     dynTeaser: (attempts: number) => string;
   };
+  /** Daily loop: claim toast + insight of the day (stage D). */
+  daily: {
+    claimToast: string;
+    streakToast: string;
+    insightTitle: string;
+    insightCta: string;
+    insightLoading: string;
+    insightError: string;
+    insightShort: string;
+    cr: string;
+  };
 }
 
 export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
@@ -214,6 +225,16 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       dynTitle: "Your dynamics",
       dynTeaser: (attempts) =>
         `You've taken this test ${attempts} times — Looplore+ charts how your scores moved between attempts.`,
+    },
+    daily: {
+      claimToast: "+10 credits for stopping by — every day counts",
+      streakToast: "7 days straight — a full read on us: +95 credits",
+      insightTitle: "Insight of the day",
+      insightCta: "Get today's insight",
+      insightLoading: "Reading the day…",
+      insightError: "Didn't come through — try again, a retry is free.",
+      insightShort: "Not enough credits — tomorrow's visit grant covers it.",
+      cr: "cr",
     },
   },
   // RU has no plural helper on purpose: every credit amount spelled out in full
@@ -318,6 +339,16 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       dynTitle: "Твоя динамика",
       dynTeaser: (attempts) =>
         `Ты проходил этот тест ${attempts} раза(-раз) — Looplore+ показывает график, как менялись твои шкалы между попытками.`,
+    },
+    daily: {
+      claimToast: "+10 кредитов за визит — каждый день считается",
+      streakToast: "7 дней подряд — разбор в подарок: +95 кредитов",
+      insightTitle: "Инсайт дня",
+      insightCta: "Получить инсайт",
+      insightLoading: "Читаю день…",
+      insightError: "Не дошло — попробуй ещё раз, повтор бесплатный.",
+      insightShort: "Не хватает кредитов — завтрашний грант за визит покроет.",
+      cr: "кр",
     },
   },
 };

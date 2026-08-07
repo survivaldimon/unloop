@@ -189,7 +189,9 @@ export type AnalyticsEvent =
   // value and must not pollute purchase optimization).
   | "sub_plan_select"
   | "sub_checkout_open"
-  | "sub_started";
+  | "sub_started"
+  // Daily loop (stage D): the visit claim and its 7-day streak reward.
+  | "daily_claim";
 
 export function track(
   event: AnalyticsEvent,
