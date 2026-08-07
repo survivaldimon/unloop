@@ -171,7 +171,59 @@ as $$
 $$;
 
 -- ---------------------------------------------------------------------------
--- 5. Retake cooldown 24h → 72h (subscription spec §2 #8)
+-- 5. "Dynamics" — scale trajectories across retakes (spec §8, v1 perk)
+-- ---------------------------------------------------------------------------
+
+-- All completed attempts of one test for the signed-in user, oldest first,
+-- with the factor percentages the chart draws. Server-gated to Looplore+
+-- (the perk that grows with subscription lifetime): non-subscribers get the
+-- attempt count for an honest teaser, never the data itself.
+create or replace function public.looplore_test_dynamics(p_test_id text)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_count integer;
+  v_rows jsonb;
+begin
+  if auth.uid() is null then
+    return jsonb_build_object('ok', false, 'error', 'sign_in_required');
+  end if;
+
+  select count(*) into v_count
+    from looplore_test_sessions
+   where user_id = auth.uid()
+     and test_id = p_test_id
+     and completed_at is not null;
+
+  if (public.looplore_active_sub(auth.uid())->>'active') <> 'true' then
+    return jsonb_build_object('ok', false, 'error', 'sub_required', 'attempts', v_count);
+  end if;
+
+  select coalesce(jsonb_agg(jsonb_build_object(
+           'id', t.id,
+           'at', t.completed_at,
+           'factors', t.outcome->'factorPercentages'
+         ) order by t.completed_at), '[]'::jsonb)
+    into v_rows
+    from (
+      select id, completed_at, outcome
+        from looplore_test_sessions
+       where user_id = auth.uid()
+         and test_id = p_test_id
+         and completed_at is not null
+       order by completed_at desc
+       limit 24
+    ) t;
+
+  return jsonb_build_object('ok', true, 'attempts', v_count, 'rows', v_rows);
+end;
+$$;
+
+-- ---------------------------------------------------------------------------
+-- 6. Retake cooldown 24h → 72h (subscription spec §2 #8)
 -- ---------------------------------------------------------------------------
 
 -- Founder's fair-use decision for Looplore+: a test can be retaken every N
@@ -239,7 +291,7 @@ end;
 $$;
 
 -- ---------------------------------------------------------------------------
--- 6. Execution grants
+-- 7. Execution grants
 -- ---------------------------------------------------------------------------
 
 revoke all on function public.credits_included(uuid, text, text, text, jsonb) from public, anon, authenticated;
@@ -248,3 +300,4 @@ grant execute on function public.credits_included(uuid, text, text, text, jsonb)
 grant execute on function public.looplore_active_sub(uuid) to service_role;
 
 grant execute on function public.looplore_my_subscription() to authenticated;
+grant execute on function public.looplore_test_dynamics(text) to authenticated;

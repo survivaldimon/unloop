@@ -111,6 +111,9 @@ export interface CreditsCopy {
     accManageNote: string;
     accNone: string;
     accSubscribe: string;
+    /** "Dynamics" — factor trajectories across retakes (Looplore+ perk). */
+    dynTitle: string;
+    dynTeaser: (attempts: number) => string;
   };
 }
 
@@ -208,6 +211,9 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       accManageNote: "Cancel or change your card on the secure Polar portal — sign in there with this email.",
       accNone: "No subscription — reads are paid per piece from your balance.",
       accSubscribe: "Try Looplore+ · 3 days free",
+      dynTitle: "Your dynamics",
+      dynTeaser: (attempts) =>
+        `You've taken this test ${attempts} times — Looplore+ charts how your scores moved between attempts.`,
     },
   },
   // RU has no plural helper on purpose: every credit amount spelled out in full
@@ -309,6 +315,9 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       accManageNote: "Отмена и смена карты — на защищённом портале Polar; войди там по этому email.",
       accNone: "Подписки нет — разборы оплачиваются поштучно с баланса.",
       accSubscribe: "Попробовать Looplore+ · 3 дня бесплатно",
+      dynTitle: "Твоя динамика",
+      dynTeaser: (attempts) =>
+        `Ты проходил этот тест ${attempts} раза(-раз) — Looplore+ показывает график, как менялись твои шкалы между попытками.`,
     },
   },
 };

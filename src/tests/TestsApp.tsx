@@ -72,6 +72,7 @@ import PortraitScreen, { type PortraitStage } from "./components/PortraitScreen"
 import ReportChapters from "./components/ReportChapters";
 import ReportTeaser from "./components/ReportTeaser";
 import SaveResultsCard from "./components/SaveResultsCard";
+import TestDynamics from "./components/TestDynamics";
 import TestResult from "./components/TestResult";
 import TestRunner from "./components/TestRunner";
 import { testsCopy } from "./copy";
@@ -921,6 +922,9 @@ export default function TestsApp() {
             {/* One email form per screen: once the purchase flow asks for the
                 address itself, the save card would be the same question twice. */}
             {reportView === "teaser" && <SaveResultsCard />}
+            {/* Below the monetization block, never competing with the open
+                paywall (§7 rule) — renders only from the second attempt on. */}
+            <TestDynamics test={step.test} />
           </>
         )}
 
