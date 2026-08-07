@@ -91,3 +91,57 @@ export function packBonus(pack: CreditPack): number {
 export function isPackId(v: unknown): v is PackId {
   return v === "mini" || v === "starter" || v === "big" || v === "bigplus";
 }
+
+// ---------------------------------------------------------------------------
+// Looplore+ subscription (docs/subscription-economy.md)
+// ---------------------------------------------------------------------------
+
+export type SubPlanId = "monthly" | "yearly";
+
+export interface SubPlan {
+  id: SubPlanId;
+  usd: number;
+  /** Env/Vault secret name holding this plan's Polar product id. */
+  productSecret: string;
+}
+
+/** Yearly = −20% honest permanent price, not a timer deal. */
+export const SUB_PLANS: Record<SubPlanId, SubPlan> = {
+  monthly: {
+    id: "monthly",
+    usd: 9.9,
+    productSecret: "POLAR_SUB_MONTHLY_ID",
+  },
+  yearly: {
+    id: "yearly",
+    usd: 94.99,
+    productSecret: "POLAR_SUB_YEARLY_ID",
+  },
+} as const;
+
+/** Free trial with a card on file; configured on the Polar products. */
+export const SUB_TRIAL_DAYS = 3;
+
+/**
+ * What a subscription includes. Reports and the portrait are unlimited (the
+ * catalogue is finite — the retake cooldown is the fair-use cap); chat and
+ * photo are the two open-ended LLM cost lines, so they carry quotas, counted
+ * over a ROLLING 30-day window of included_* ledger rows (a yearly plan has a
+ * 12-month billing period but monthly quotas). Over quota → normal credit
+ * prices apply, no hard wall.
+ */
+export const SUB_QUOTAS = {
+  photos_per_30d: 4,
+  questions_per_30d: 50,
+} as const;
+
+/**
+ * A test can be retaken every 72h (founder's fair-use decision for Looplore+,
+ * one rule for everybody). Mirrors interval '72 hours' inside
+ * looplore_test_session_complete — keep in sync.
+ */
+export const RETAKE_COOLDOWN_HOURS = 72;
+
+export function isSubPlanId(v: unknown): v is SubPlanId {
+  return v === "monthly" || v === "yearly";
+}

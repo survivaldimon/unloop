@@ -368,6 +368,71 @@ async function handleRefund(
   return { ok: true, reversed: reverse, balance: adjusted.data?.balance ?? null };
 }
 
+/**
+ * Looplore+ lifecycle (docs/subscription-economy.md §9): every subscription.*
+ * event carries the full Polar subscription object — we upsert the latest
+ * payload per provider_sub_id and looplore_subscriptions becomes the
+ * entitlement source of truth. Events are rare (create, renew, cancel), so
+ * last-write-wins is the accepted trade-off; no credits are ever granted here
+ * (hybrid C works through zero-delta included_* rows at spend time).
+ */
+const SUB_EVENTS = new Set([
+  "subscription.created",
+  "subscription.updated",
+  "subscription.active",
+  "subscription.canceled",
+  "subscription.uncanceled",
+  "subscription.past_due",
+  "subscription.revoked",
+]);
+
+async function handleSubscription(
+  admin: ReturnType<typeof createClient>,
+  sub: Record<string, unknown> & {
+    customer?: { email?: unknown };
+    metadata?: Record<string, unknown>;
+  },
+): Promise<Record<string, unknown>> {
+  const subId = typeof sub.id === "string" ? sub.id : null;
+  const status = typeof sub.status === "string" ? sub.status : null;
+  if (!subId || !status) return { ok: false, reason: "missing_sub_fields" };
+
+  const metadata = (sub.metadata ?? {}) as Record<string, unknown>;
+  const userId = await resolveCreditsUser(admin, metadata, sub);
+  if (!userId) {
+    // Polar always collects an email; landing here means even createUser
+    // failed on it — a retry won't invent an owner.
+    console.error("subscription without resolvable user", subId);
+    return { ok: false, reason: "unresolvable_user" };
+  }
+
+  const str = (v: unknown): string | null =>
+    typeof v === "string" && v ? v : null;
+  const row = {
+    provider_sub_id: subId,
+    user_id: userId,
+    product_id: str(sub.product_id),
+    plan: sub.recurring_interval === "year" ? "yearly" : "monthly",
+    status,
+    cancel_at_period_end: sub.cancel_at_period_end === true,
+    trial_ends_at: str(sub.trial_end),
+    current_period_start: str(sub.current_period_start),
+    current_period_end: str(sub.current_period_end),
+    started_at: str(sub.started_at),
+    ended_at: str(sub.ended_at),
+    updated_at: new Date().toISOString(),
+  };
+  const { error } = await admin
+    .from("looplore_subscriptions")
+    .upsert(row, { onConflict: "provider_sub_id" });
+  if (error) {
+    // 500 → Polar retries; upsert makes retries safe.
+    console.error("subscription upsert failed", subId, error);
+    throw error;
+  }
+  return { ok: true, sub_id: subId, status };
+}
+
 Deno.serve(async (req: Request) => {
   const json = (body: unknown, status = 200) =>
     new Response(JSON.stringify(body), {
@@ -400,8 +465,15 @@ Deno.serve(async (req: Request) => {
     const event = JSON.parse(rawBody);
 
     // Refund of a credit pack → take the credits back before anything else.
+    // (A refunded subscription order finds no credit grants and no-ops here;
+    // access ends via subscription.revoked, not via the refund.)
     if (event?.type === "order.refunded") {
       return json(await handleRefund(admin, event.data ?? {}));
+    }
+
+    // Looplore+ lifecycle → entitlement table.
+    if (typeof event?.type === "string" && SUB_EVENTS.has(event.type)) {
+      return json(await handleSubscription(admin, event.data ?? {}));
     }
 
     if (event?.type !== "order.paid") {
@@ -410,6 +482,35 @@ Deno.serve(async (req: Request) => {
 
     const order = event.data ?? {};
     const metadata = (order?.metadata ?? {}) as Record<string, unknown>;
+
+    // --- Looplore+ orders (subscription-polar-checkout stamps the kind) -----
+    // Status/entitlement is driven ONLY by subscription.* events; the order is
+    // just the money signal for Meta. Must return before the legacy branch:
+    // subscription metadata may carry a funnel session_id, and falling through
+    // would stamp paid_at on that session.
+    if (metadata.kind === "subscription") {
+      const amount = order?.total_amount;
+      if (typeof amount === "number" && amount > 0) {
+        const orderId =
+          (typeof order.id === "string" && order.id) || crypto.randomUUID();
+        const sid =
+          typeof metadata.session_id === "string" && UUID_RE.test(metadata.session_id)
+            ? metadata.session_id.toLowerCase()
+            : null;
+        await sendMetaPurchase(admin, {
+          sessionId: sid ?? orderId,
+          email:
+            typeof order?.customer?.email === "string" && order.customer.email
+              ? order.customer.email
+              : null,
+          order,
+          paidAt: order.created_at ?? new Date().toISOString(),
+          eventId: `purchase_${orderId}`,
+        });
+      }
+      // $0 orders (trial start) are not purchases — PostHog covers trial starts.
+      return json({ ok: true, subscription_order: true });
+    }
 
     // --- Credit packs (credits-polar-checkout stamps kind="credits") --------
     if (metadata.kind === "credits") {
