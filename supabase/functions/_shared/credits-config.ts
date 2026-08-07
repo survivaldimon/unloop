@@ -152,7 +152,7 @@ export function isSubPlanId(v: unknown): v is SubPlanId {
 
 /**
  * The compare loop and the personal referral code. These numbers are enforced
- * in SQL (20260807160000_referrals.sql) — looplore_referral_reward holds the
+ * in SQL (20260807190000_referrals.sql) — looplore_referral_reward holds the
  * reward and the cap, looplore_referral_my_code the code's budget and life.
  * They live here so the UI can say out loud what the server will do. Keep the
  * two copies in sync.
