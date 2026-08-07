@@ -283,21 +283,29 @@ Meta CAPI: Purchase на trial ($2.99) и на конверсию в полны�
 | 6. Легал+аналитика+смоук | Terms, события, sandbox-E2E: trial→paid→renewal→cancel, квоты, grandfathering | ~1 день |
 | **Итого** | | **~7–8 дней** |
 
-Деплой-чеклист (прод-шаги — только с отдельного «го»):
+Деплой-чеклист (обновлён 07.08.2026 после подготовки прод-Polar; оставшиеся шаги — только
+с отдельного «го»):
 
-1. Sandbox: `POLAR_ACCESS_TOKEN=… node scripts/polar-subscription-setup.mjs` → 2 recurring
-   продукта с trial 3д; в sandbox-дашборде включить subscription.* события на вебхук-эндпоинте;
-   E2E: trial→active→(renewal)→cancel, included-спенды, квоты, grandfathering кредитов.
-2. Прод-миграции: `20260807120000_subscriptions.sql`, `20260807140000_daily_loop.sql`.
-3. Функции: `unloop-polar-webhook` (первым, --no-verify-jwt как раньше),
+0. **СДЕЛАНО 07.08** («у тебя есть все токены»): sandbox-организации/токена не существует —
+   подготовка выполнена сразу в прод-Polar инертными шагами. Продукты созданы:
+   `Looplore+ Monthly` $9.90 → 79a6a260-e668-4b20-800a-e34bb4983828, `Looplore+ Yearly`
+   $94.99 → cfa955ed-a14a-4562-93a8-d5f5d95acb58 (оба recurring, trial_interval=day×3 —
+   подтверждено чтением продукта: **recurring и trial аккаунту доступны**). Вебхук-эндпоинт
+   8e0e2ef8-… подписан на order.paid/refunded + все 7 subscription.* (текущий прод-вебхук
+   отвечает на них `ignored` → 200, безопасно). Vault: `POLAR_SUB_MONTHLY_ID`,
+   `POLAR_SUB_YEARLY_ID`, `SUBSCRIPTIONS_ENABLED='false'` (выключено до «го»).
+1. Прод-миграции: `20260807120000_subscriptions.sql`, `20260807140000_daily_loop.sql`.
+2. Функции: `unloop-polar-webhook` (первым, --no-verify-jwt как раньше),
    `subscription-polar-checkout`, `daily-insight` (новые), обновлённые `tests-generate-report`,
    `tests-portrait`, `unloop-generate-report`, `photoread-report`, `looplore-chat`.
-4. Polar prod: setup-скрипт с POLAR_ENV=production → id в Vault (`POLAR_SUB_MONTHLY_ID`,
-   `POLAR_SUB_YEARLY_ID`); в прод-дашборде Polar добавить subscription.created/updated/active/
-   canceled/uncanceled/past_due/revoked на эндпоинт 8e0e2ef8-…; Vault `SUBSCRIPTIONS_ENABLED=true`.
-5. Фронт: `VITE_SUBSCRIPTIONS_ENABLED=true` → build+deploy (флаги парой, как у кредитов).
-6. Прод-смоук: trial своей картой ($0, карта обязательна), included-разбор теста,
-   квота-инкремент в кабинете, daily claim +10, отмена в портале Polar.
-7. Откат: Vault `SUBSCRIPTIONS_ENABLED=false` + фронт-флаг false (redeploy) — кредитный
+3. E2E на проде без карты (паттерн кредитного запуска): подписанные синтетические
+   `subscription.created/canceled` в вебхук → entitlement-строка, included-разбор, квоты,
+   `credits_daily_claim`; тестовые данные вычистить.
+4. Включение: Vault `SUBSCRIPTIONS_ENABLED=true` + фронт `VITE_SUBSCRIPTIONS_ENABLED=true`
+   → build+deploy (флаги парой, как у кредитов).
+5. Прод-смоук основателя: trial своей картой ($0, карта обязательна), included-разбор теста,
+   квота-инкремент в кабинете, daily claim +10, отмена в портале Polar
+   (polar.sh/looploreapp/portal).
+6. Откат: Vault `SUBSCRIPTIONS_ENABLED=false` + фронт-флаг false (redeploy) — кредитный
    рельс не затронут; активные подписки продолжают вебхучиться в entitlement-таблицу.
-8. Включение рекламы Э9.
+7. Включение рекламы Э9.
