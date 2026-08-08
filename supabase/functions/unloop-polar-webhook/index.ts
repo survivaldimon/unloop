@@ -201,6 +201,29 @@ async function sendMetaPurchase(
 }
 
 /**
+ * Record who paid with this checkout, so credits-auth can hand that buyer a
+ * session without an inbox round-trip (docs/credits-economy.md §7). Written
+ * only once the money is real, from inside the signed webhook — the checkout id
+ * is otherwise known only to the browser that opened it, which is what makes it
+ * usable as proof of purchase.
+ *
+ * Never fatal: failing to write it costs the buyer a magic-link click, not
+ * their credits.
+ */
+async function recordCheckoutClaim(
+  admin: ReturnType<typeof createClient>,
+  order: Record<string, unknown>,
+  userId: string,
+): Promise<void> {
+  const checkoutId = typeof order.checkout_id === "string" ? order.checkout_id : null;
+  if (!checkoutId) return;
+  const { error } = await admin
+    .from("looplore_checkout_claims")
+    .upsert({ checkout_id: checkoutId, user_id: userId }, { onConflict: "checkout_id" });
+  if (error) console.error("checkout claim failed", checkoutId, error);
+}
+
+/**
  * Fire photoread-report in the background so a buyer who closed the tab still
  * gets the finished read via the ?p= email link; the report function is
  * idempotent and (in credit mode) debits the session owner exactly once.
@@ -370,11 +393,16 @@ async function handleRefund(
 
 /**
  * Looplore+ lifecycle (docs/subscription-economy.md §9): every subscription.*
- * event carries the full Polar subscription object — we upsert the latest
- * payload per provider_sub_id and looplore_subscriptions becomes the
- * entitlement source of truth. Events are rare (create, renew, cancel), so
- * last-write-wins is the accepted trade-off; no credits are ever granted here
- * (hybrid C works through zero-delta included_* rows at spend time).
+ * event carries the full Polar subscription object — we upsert it per
+ * provider_sub_id and looplore_subscriptions becomes the entitlement source of
+ * truth. No credits are ever granted here (hybrid C works through zero-delta
+ * included_* rows at spend time).
+ *
+ * The upsert is VERSIONED on the event's own modified_at, not on arrival order.
+ * Plain last-write-wins meant a subscription.updated:active that arrived (or
+ * was replayed) after subscription.canceled reinstated a canceled subscription,
+ * and looplore_active_sub started answering `active` again — money is covered
+ * by ledger idempotency, entitlement was not (audit-2026-08-07 §2.2).
  */
 const SUB_EVENTS = new Set([
   "subscription.created",
@@ -408,27 +436,35 @@ async function handleSubscription(
 
   const str = (v: unknown): string | null =>
     typeof v === "string" && v ? v : null;
-  const row = {
-    provider_sub_id: subId,
-    user_id: userId,
-    product_id: str(sub.product_id),
-    plan: sub.recurring_interval === "year" ? "yearly" : "monthly",
-    status,
-    cancel_at_period_end: sub.cancel_at_period_end === true,
-    trial_ends_at: str(sub.trial_end),
-    current_period_start: str(sub.current_period_start),
-    current_period_end: str(sub.current_period_end),
-    started_at: str(sub.started_at),
-    ended_at: str(sub.ended_at),
-    updated_at: new Date().toISOString(),
-  };
-  const { error } = await admin
-    .from("looplore_subscriptions")
-    .upsert(row, { onConflict: "provider_sub_id" });
+
+  // The event's own clock decides which write wins. Falling back to now() only
+  // when Polar sends neither timestamp degrades to the old last-write-wins for
+  // that one event rather than dropping it.
+  const eventAt = str(sub.modified_at) ?? str(sub.created_at) ?? new Date().toISOString();
+
+  const { data, error } = await admin.rpc("looplore_subscription_upsert", {
+    p_provider_sub_id: subId,
+    p_user_id: userId,
+    p_product_id: str(sub.product_id),
+    p_plan: sub.recurring_interval === "year" ? "yearly" : "monthly",
+    p_status: status,
+    p_cancel_at_period_end: sub.cancel_at_period_end === true,
+    p_trial_ends_at: str(sub.trial_end),
+    p_current_period_start: str(sub.current_period_start),
+    p_current_period_end: str(sub.current_period_end),
+    p_started_at: str(sub.started_at),
+    p_ended_at: str(sub.ended_at),
+    p_event_at: eventAt,
+  });
   if (error) {
-    // 500 → Polar retries; upsert makes retries safe.
+    // 500 → Polar retries; the upsert makes retries safe.
     console.error("subscription upsert failed", subId, error);
     throw error;
+  }
+  if ((data as Record<string, unknown> | null)?.applied !== true) {
+    // The stored row already reflects something newer. Nothing to retry —
+    // acknowledging is the correct answer for a stale or replayed event.
+    return { ok: true, sub_id: subId, status, stale: true };
   }
   return { ok: true, sub_id: subId, status };
 }
@@ -444,12 +480,15 @@ Deno.serve(async (req: Request) => {
     return json({ error: "method_not_allowed" }, 405);
   }
 
-  try {
-    const admin = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    );
+  // Set once the delivery is ours to process, so the catch below can hand the
+  // claim back and let Polar's retry run instead of hitting a false duplicate.
+  let claimedId = "";
+  const admin = createClient(
+    Deno.env.get("SUPABASE_URL")!,
+    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+  );
 
+  try {
     const secret = await getSecret(admin, "POLAR_WEBHOOK_SECRET");
     if (!secret) {
       console.error("POLAR_WEBHOOK_SECRET is not configured");
@@ -460,6 +499,22 @@ Deno.serve(async (req: Request) => {
     const valid = await verifySignature(rawBody, req.headers, secret);
     if (!valid) {
       return json({ error: "invalid_signature" }, 401);
+    }
+
+    // Replay protection, AFTER the signature: claiming on an unverified id
+    // would let anyone pre-claim a webhook-id and starve a real delivery.
+    const webhookId = req.headers.get("webhook-id") ?? "";
+    const claim = await admin.rpc("looplore_webhook_claim", { p_webhook_id: webhookId });
+    if (claim.error) {
+      // Dedup is a hardening layer; the signature is the authorization gate and
+      // it already passed. Refusing every delivery because the claim table is
+      // unreachable would stop real subscriptions and grants — far worse than
+      // the replay this protects against. Degrade loudly and process.
+      console.error("webhook claim failed — processing without dedup", claim.error);
+    } else if (claim.data === false) {
+      return json({ ok: true, duplicate: true });
+    } else {
+      claimedId = webhookId;
     }
 
     const event = JSON.parse(rawBody);
@@ -489,6 +544,13 @@ Deno.serve(async (req: Request) => {
     // subscription metadata may carry a funnel session_id, and falling through
     // would stamp paid_at on that session.
     if (metadata.kind === "subscription") {
+      // A first-time subscriber has no account until this resolves one, and no
+      // ledger row ever — so the claim is their only route back to a session.
+      // Runs for $0 trial orders too: that is exactly when they have no credits
+      // to prove anything with.
+      const subscriber = await resolveCreditsUser(admin, metadata, order);
+      if (subscriber) await recordCheckoutClaim(admin, order, subscriber);
+
       const amount = order?.total_amount;
       if (typeof amount === "number" && amount > 0) {
         const orderId =
@@ -542,9 +604,13 @@ Deno.serve(async (req: Request) => {
           ? Math.max(0, Math.min(Math.round(metadata.bonus), pack.credits))
           : 0;
 
+      // Lets credits-auth hand this buyer a session (credits-economy.md §7).
+      await recordCheckoutClaim(admin, order, userId);
+
       const grantMeta = {
         pack: pack.id,
         order_id: orderId,
+        checkout_id: typeof order.checkout_id === "string" ? order.checkout_id : null,
         amount: order.total_amount ?? null,
         currency: order.currency ?? null,
       };
@@ -557,9 +623,10 @@ Deno.serve(async (req: Request) => {
         p_meta: grantMeta,
       });
       if (granted.error || granted.data?.ok !== true) {
-        // 500 → Polar retries; the idempotency key makes retries safe.
+        // Throw rather than return 500: the catch releases the replay claim, so
+        // Polar's retry runs at once. The idempotency key makes retries safe.
         console.error("credits grant failed", orderId, granted.error ?? granted.data);
-        return json({ error: "grant_failed" }, 500);
+        throw new Error("grant_failed");
       }
       if (bonus > 0) {
         const bonusGrant = await admin.rpc("credits_grant", {
@@ -683,6 +750,15 @@ Deno.serve(async (req: Request) => {
     return json({ ok: true });
   } catch (err) {
     console.error("unloop-polar-webhook error", err);
+    // This delivery did not complete, so it must not look like a handled one:
+    // give the claim back and Polar's retry gets to run immediately. (A hard
+    // crash skips this — the claim then expires on its own, see the RPC.)
+    if (claimedId) {
+      const released = await admin.rpc("looplore_webhook_release", {
+        p_webhook_id: claimedId,
+      });
+      if (released.error) console.error("webhook release failed", claimedId, released.error);
+    }
     return json({ error: "internal" }, 500);
   }
 });

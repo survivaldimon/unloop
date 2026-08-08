@@ -10,6 +10,7 @@ import {
   CREDIT_COSTS,
   CREDIT_PACKS,
   capturePromoFromUrl,
+  claimPurchaseSession,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
@@ -317,6 +318,10 @@ export default function PhotoApp() {
     setPayState("confirming");
     const startedAt = Date.now();
     const tick = async () => {
+      // The buyer may have arrived here signed out — the email step no longer
+      // hands out sessions. Their completed checkout mints one, so the balance
+      // chip and the account page work the moment the read unlocks.
+      await claimPurchaseSession();
       if (await checkUnlocked()) {
         unlockPaid(packId);
         return;

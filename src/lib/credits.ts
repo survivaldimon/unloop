@@ -5,6 +5,7 @@
  * matching server-side CREDITS_ENABLED switch — flip both together.
  */
 import { supabase } from "./supabase";
+import { getLastCheckoutId } from "./payments/lastCheckout";
 import {
   CREDIT_COSTS,
   CREDIT_GRANTS,
@@ -54,10 +55,16 @@ export type Funnel = "quiz" | "photoread" | "tests";
 export type AccountStatus = "ready" | "pending" | "cooldown" | "failed" | "off";
 
 /**
- * Silent account at the email step. New email → server returns a magic
- * token_hash we exchange for a session with zero friction; known email → a
- * real magic-link email goes out and the funnel continues anonymously
- * (purchases still attach through the webhook's session/email resolution).
+ * Account at the email step. The server makes sure one exists for this address
+ * (carrying the app_metadata flag that keeps the shared CRM out of it) and we
+ * send a real magic link to it; the funnel continues anonymously until the
+ * visitor proves the address is theirs. Purchases still attach through the
+ * webhook's session/email resolution, and a buyer gets their session back
+ * without leaving the page — see claimPurchaseSession.
+ *
+ * No session is ever handed out here. It used to be, for addresses that had
+ * never been seen, which let an attacker park on someone else's email before
+ * they signed up (audit-2026-08-07 §2.2).
  */
 export async function ensureAccount(email: string): Promise<AccountStatus> {
   if (!creditsEnabled || !supabase) return "off";
@@ -69,20 +76,11 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
     // Throttled: no account, no email, and nothing to wait for. Buying still
     // works — the webhook attaches credits by the order's email either way.
     if (status === "throttled") return "failed";
-    if (status === "new") {
-      const tokenHash = (res.data as { token_hash?: string }).token_hash;
-      if (typeof tokenHash === "string" && tokenHash) {
-        const verified = await supabase.auth.verifyOtp({
-          type: "email",
-          token_hash: tokenHash,
-        });
-        if (!verified.error) return "ready";
-      }
-      // The account exists and holds its signup grant, but this visitor never
-      // got a session and no email was sent — promising one would be a lie.
-      return "failed";
-    }
-    if (status === "existing") {
+    // "new" is the pre-fix server's answer, and it carries a token_hash for an
+    // address nobody has proved they own. Deliberately ignored and handled as
+    // "existing": whichever order the function and this bundle get deployed in,
+    // the client never trades an unverified address for a session.
+    if (status === "existing" || status === "new") {
       // Send the link back to the page the visitor is on: without an explicit
       // redirect GoTrue builds it from the project's Site URL, which belongs to
       // the CRM sharing this Supabase project. If the target is not on the
@@ -114,6 +112,41 @@ export async function ensureAccount(email: string): Promise<AccountStatus> {
     return "off";
   } catch {
     return "failed";
+  }
+}
+
+/**
+ * Turn a completed checkout into a session, for the buyer who never had one.
+ *
+ * Since the email step stopped handing out sessions, a first-time buyer would
+ * otherwise finish paying and see nothing: every balance read needs a session,
+ * so they would have to go to their inbox before they could use what they just
+ * bought. Payment is the ownership proof that replaces the magic-link click —
+ * the server checks the checkout id against the ledger row its SIGNED webhook
+ * wrote, so this cannot mint a session for an account nobody paid into.
+ *
+ * Safe to call on every poll tick: it returns immediately once a session
+ * exists, and "the webhook has not landed yet" is just false.
+ */
+export async function claimPurchaseSession(): Promise<boolean> {
+  if (!creditsEnabled || !supabase) return false;
+  try {
+    const { data: current } = await supabase.auth.getSession();
+    if (current.session?.user) return true;
+    const checkoutId = getLastCheckoutId();
+    if (!checkoutId) return false;
+    const res = await supabase.functions.invoke("credits-auth", {
+      body: { intent: "post_purchase", checkout_id: checkoutId },
+    });
+    const tokenHash = (res.data as { token_hash?: string } | null)?.token_hash;
+    if (typeof tokenHash !== "string" || !tokenHash) return false;
+    const verified = await supabase.auth.verifyOtp({
+      type: "email",
+      token_hash: tokenHash,
+    });
+    return !verified.error;
+  } catch {
+    return false;
   }
 }
 
@@ -483,9 +516,14 @@ export function subCovers(
  */
 export async function waitForSubscription(timeoutMs = 30000): Promise<MySubscription> {
   const deadline = Date.now() + timeoutMs;
+  // A first-time subscriber has no session yet — the email step stopped handing
+  // them out — and every read below is keyed on auth.uid(). Their completed
+  // checkout is what mints it, so try that on each pass until the webhook lands.
+  await claimPurchaseSession();
   let last = await fetchMySubscription();
   while (!last.active && Date.now() < deadline) {
     await new Promise((r) => setTimeout(r, 2500));
+    await claimPurchaseSession();
     last = await fetchMySubscription();
   }
   return last;

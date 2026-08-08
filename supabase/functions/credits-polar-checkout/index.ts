@@ -12,6 +12,7 @@ import {
   isPackId,
   packBonus,
 } from "../_shared/credits-config.ts";
+import { clientIp as readClientIp } from "../_shared/client-ip.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -75,8 +76,9 @@ Deno.serve(async (req: Request) => {
     const fbp = fbCookie(body?.fbp);
     const fbc = fbCookie(body?.fbc);
     const clientUa = (req.headers.get("user-agent") ?? "").slice(0, 256) || null;
-    const clientIp =
-      (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || null;
+    // Rightmost X-Forwarded-For hop: the leftmost is caller-supplied, and a
+    // forged address here would poison Meta's attribution for this purchase.
+    const clientIp = readClientIp(req) || null;
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,

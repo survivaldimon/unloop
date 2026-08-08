@@ -481,6 +481,7 @@ Deno.serve(async (req: Request) => {
         // are the priciest LLM line — the quota keeps it bounded). Over quota
         // the normal credit price applies, no hard wall.
         const sub = await getSubState(admin, row.user_id);
+        let covered = false;
         if (canInclude(sub, "included_photo")) {
           const inc = await includedSpend(
             admin,
@@ -490,8 +491,12 @@ Deno.serve(async (req: Request) => {
             sessionId.toLowerCase(),
             null,
           );
-          if (!inc.ok) return json({ error: "internal" }, 500);
-        } else {
+          // Over quota is the RPC's authoritative answer (canInclude read usage
+          // before this request ran) → credit price. Anything else is infra.
+          if (!inc.ok && !inc.overQuota) return json({ error: "internal" }, 500);
+          covered = inc.ok;
+        }
+        if (!covered) {
           const spend = await admin.rpc("credits_spend", {
             p_user_id: row.user_id,
             p_amount: CREDIT_COSTS.report_photo,

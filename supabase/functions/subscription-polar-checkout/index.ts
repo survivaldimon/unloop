@@ -8,6 +8,7 @@
 // per-checkout — every checkout of these products starts with the trial.
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { SUB_PLANS, isSubPlanId } from "../_shared/credits-config.ts";
+import { clientIp as readClientIp } from "../_shared/client-ip.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -78,7 +79,7 @@ Deno.serve(async (req: Request) => {
     const fbc = fbCookie(body?.fbc);
     const clientUa = (req.headers.get("user-agent") ?? "").slice(0, 256) || null;
     const clientIp =
-      (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || null;
+      readClientIp(req) || null;
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,

@@ -5,6 +5,7 @@
  */
 import { supabase } from "../supabase";
 import { getFbc, getFbp } from "../attribution";
+import { setLastCheckoutId } from "./lastCheckout";
 import type { CheckoutOptions, PaymentProvider } from "./types";
 
 async function openCheckout(opts: CheckoutOptions): Promise<void> {
@@ -27,6 +28,10 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
   if (error || typeof data?.url !== "string") {
     throw new Error("polar checkout session failed");
   }
+
+  // Kept for the post-payment session claim: a first-time buyer has no account
+  // yet, and this id is what proves the purchase was theirs (see lastCheckout).
+  setLastCheckoutId(typeof data.id === "string" ? data.id : null);
 
   // Lazy chunk: the embed code is only fetched when a checkout actually opens.
   const { PolarEmbedCheckout } = await import("@polar-sh/checkout/embed");

@@ -255,6 +255,7 @@ Deno.serve(async (req: Request) => {
     let balance: number | null = null;
     let duplicate = false;
     let chargedCredits = 0;
+    let covered = false;
     if (canInclude(sub, "included_question")) {
       const inc = await includedSpend(
         admin,
@@ -265,16 +266,22 @@ Deno.serve(async (req: Request) => {
         null,
       );
       // Infra failure must not silently fall through to a debit the
-      // subscriber didn't expect — 500 and let the client retry.
-      if (!inc.ok) return json({ error: "internal" }, 500);
-      duplicate = inc.duplicate;
-      const { data: acc } = await admin
-        .from("looplore_credit_accounts")
-        .select("balance")
-        .eq("user_id", row.user_id)
-        .maybeSingle();
-      balance = typeof acc?.balance === "number" ? acc.balance : null;
-    } else {
+      // subscriber didn't expect — 500 and let the client retry. Running out
+      // of quota inside the RPC is a different answer: the authoritative one,
+      // since canInclude read usage before this request did its work.
+      if (!inc.ok && !inc.overQuota) return json({ error: "internal" }, 500);
+      covered = inc.ok;
+      if (covered) {
+        duplicate = inc.duplicate;
+        const { data: acc } = await admin
+          .from("looplore_credit_accounts")
+          .select("balance")
+          .eq("user_id", row.user_id)
+          .maybeSingle();
+        balance = typeof acc?.balance === "number" ? acc.balance : null;
+      }
+    }
+    if (!covered) {
       const spend = await admin.rpc("credits_spend", {
         p_user_id: row.user_id,
         p_amount: CREDIT_COSTS.chat_question,

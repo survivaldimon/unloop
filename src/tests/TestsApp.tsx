@@ -28,6 +28,7 @@ import {
   CREDIT_COSTS,
   CREDIT_PACKS,
   capturePromoFromUrl,
+  claimPurchaseSession,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
@@ -471,6 +472,10 @@ export default function TestsApp() {
   const awaitTopUp = (before: number, done: () => void) => {
     const startedAt = Date.now();
     const tick = async () => {
+      // A first-time buyer reaches here signed out (the email step no longer
+      // hands out sessions), and fetchMyBalance needs one. The checkout they
+      // just completed is the proof that mints it.
+      await claimPurchaseSession();
       const value = await fetchMyBalance();
       if (value !== null && value > before) {
         setBalance(value);
