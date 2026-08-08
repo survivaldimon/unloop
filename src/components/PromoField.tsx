@@ -31,7 +31,9 @@ export default function PromoField({
   const message = (r: PromoResult): string => {
     switch (r.kind) {
       case "ok":
-        return ui.ok(r.credits);
+        // A gifted month pays out in access, not credits — same box, different
+        // good news (docs/gifts.md §5).
+        return (r.subDays ?? 0) > 0 ? ui.okGiftSub(r.subDays ?? 0) : ui.ok(r.credits);
       case "expired":
         return ui.expired;
       case "exhausted":
@@ -40,6 +42,14 @@ export default function PromoField({
         return ui.already;
       case "sign_in":
         return ui.signIn;
+      case "not_paid":
+        return ui.notPaid;
+      case "revoked":
+        return ui.revoked;
+      case "taken":
+        return ui.taken;
+      case "own_gift":
+        return ui.ownGift;
       // A throttled guesser gets the same line as a wrong code: telling them
       // they hit a limit tells them the limit exists.
       case "throttled":
@@ -55,7 +65,11 @@ export default function PromoField({
     if (r.kind === "ok") {
       setValue("");
       setNeedEmail(false);
-      track("promo_redeem", { credits: r.credits });
+      track(r.gift ? "gift_redeem" : "promo_redeem", {
+        credits: r.credits,
+        sub_days: r.subDays ?? 0,
+        source: "code_field",
+      });
       onRedeemed(r.balance);
     }
   };

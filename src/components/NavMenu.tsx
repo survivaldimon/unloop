@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { track } from "../lib/analytics";
+import { giftsEnabled } from "../lib/gifts";
 import { t, useLang } from "../i18n";
 
 /**
@@ -20,13 +21,15 @@ export default function NavMenu() {
   const params = new URLSearchParams(window.location.search);
   const surface = path.startsWith("/account")
     ? "account"
-    : path.startsWith("/loop") || params.has("s")
-      ? "quiz"
-      : path.startsWith("/photo") || params.has("p")
-        ? "photo"
-        : params.get("view") === "portrait"
-          ? "portrait"
-          : "tests";
+    : path.startsWith("/gift")
+      ? "gift"
+      : path.startsWith("/loop") || params.has("s")
+        ? "quiz"
+        : path.startsWith("/photo") || params.has("p")
+          ? "photo"
+          : params.get("view") === "portrait"
+            ? "portrait"
+            : "tests";
 
   useEffect(() => {
     if (!open) return;
@@ -44,13 +47,16 @@ export default function NavMenu() {
     };
   }, [open]);
 
+  // Gifting is the one item behind a flag: it must vanish entirely when the
+  // rail is off, not sit there leading to a page that says "not yet".
   const items = [
     { id: "tests", href: "/", label: ui.tests },
     { id: "quiz", href: "/loop/", label: ui.quiz },
     { id: "photo", href: "/photo/", label: ui.photo },
     { id: "portrait", href: "/?view=portrait", label: ui.portrait },
+    ...(giftsEnabled ? [{ id: "gift", href: "/gift/", label: ui.gift }] : []),
     { id: "account", href: "/account/", label: ui.account },
-  ] as const;
+  ];
 
   const toggle = () => {
     if (!open) track("nav_open", { from: surface });

@@ -1,11 +1,15 @@
-// Redeem a promo code for credits (docs/credits-economy.md §5).
+// Redeem a code (docs/credits-economy.md §5, docs/gifts.md §5).
 //
-// A promo code pays out of our own pocket, not out of a checkout, so unlike
-// every other way credits appear there is no Polar order behind it. That makes
-// the identity check the whole of the security: the credits go to the SIGNED-IN
-// account and nowhere else — never to an email or a session id someone typed.
-// Everything else (budget, expiry, one-per-account, guess throttling) lives in
-// the credits_redeem_promo RPC so it happens inside one transaction.
+// Two rails issue codes — hand-made promo codes and bought gifts — and the
+// person holding one should not have to know which. credits_redeem_code
+// dispatches on the code itself; everything else (budget, expiry,
+// one-per-account, guess throttling, and for gifts the recipient rule) happens
+// inside that one transaction.
+//
+// A code pays out of our own pocket, not out of the redeemer's checkout, so
+// the identity check is the whole of the security: the credits — or the gifted
+// month of access — go to the SIGNED-IN account and nowhere else, never to an
+// email or a session id someone typed.
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const CORS = {
@@ -62,7 +66,7 @@ Deno.serve(async (req: Request) => {
     const userId = userData?.user?.id ?? null;
     if (!userId) return json({ error: "sign_in_required" }, 401);
 
-    const redeemed = await admin.rpc("credits_redeem_promo", {
+    const redeemed = await admin.rpc("credits_redeem_code", {
       p_user_id: userId,
       p_code: code,
     });
@@ -70,13 +74,31 @@ Deno.serve(async (req: Request) => {
       console.error("credits-promo rpc", redeemed.error);
       return json({ error: "internal" }, 500);
     }
-    const result = redeemed.data as { ok?: boolean; error?: string; credits?: number; balance?: number };
+    const result = redeemed.data as {
+      ok?: boolean;
+      error?: string;
+      kind?: string;
+      credits?: number;
+      balance?: number;
+      tier?: string;
+      sub_days?: number;
+      access_until?: string;
+    };
     if (result?.ok !== true) {
       // 200 with a reason: these are all answers to a legitimate question, and
       // the client shows a different line for each.
-      return json({ error: result?.error ?? "not_found" });
+      return json({ error: result?.error ?? "not_found", kind: result?.kind ?? null });
     }
-    return json({ ok: true, credits: result.credits ?? 0, balance: result.balance ?? null });
+    return json({
+      ok: true,
+      kind: result.kind ?? "promo",
+      credits: result.credits ?? 0,
+      balance: result.balance ?? null,
+      // Gift-only extras; absent for promo codes.
+      tier: result.tier ?? null,
+      sub_days: result.sub_days ?? 0,
+      access_until: result.access_until ?? null,
+    });
   } catch (err) {
     console.error("credits-promo error", err);
     return json({ error: "internal" }, 500);

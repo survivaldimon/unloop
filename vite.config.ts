@@ -18,16 +18,17 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      // Five HTML entries, one shared bundle: "/" = the tests catalogue (also
+      // Six HTML entries, one shared bundle: "/" = the tests catalogue (also
       // reachable at /tests, which the per-test OG pages live under), "/photo"
       // = the photo read, "/loop" = quiz, "/account" = the balance screen
-      // sign-in links come back to.
+      // sign-in links come back to, "/gift" = buying and claiming a gift.
       input: {
         main: "index.html",
         photo: "photo/index.html",
         loop: "loop/index.html",
         tests: "tests/index.html",
         account: "account/index.html",
+        gift: "gift/index.html",
       },
     },
   },

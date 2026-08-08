@@ -27,11 +27,13 @@ import {
   type PackId,
 } from "../lib/credits";
 import { CREDITS_COPY } from "../lib/creditsCopy";
+import { fetchMyGifts, giftsEnabled, type MyGift } from "../lib/gifts";
 import { openCheckout, paymentsEnabled } from "../lib/payments";
 import { track } from "../lib/analytics";
 import { fetchMySessions, type CompletedTestSession } from "../lib/tests";
 import { supabase } from "../lib/supabase";
 import LogoMark from "../components/LogoMark";
+import MyGifts from "../components/MyGifts";
 import NavMenu from "../components/NavMenu";
 import TopUpModal from "../components/TopUpModal";
 import { TEST_CATALOGUE, loadTest } from "../tests/registry";
@@ -68,6 +70,7 @@ export default function AccountApp() {
   const [ledger, setLedger] = useState<LedgerEntry[]>([]);
   const [reads, setReads] = useState<PastRead[]>([]);
   const [tests, setTests] = useState<CompletedTestSession[]>([]);
+  const [gifts, setGifts] = useState<MyGift[]>([]);
   // Profile names live inside each test's content chunk; loaded lazily for the
   // tests actually taken, and the list renders fine while (or if) they miss.
   const [testContent, setTestContent] = useState<Record<string, PsychTest>>({});
@@ -168,18 +171,20 @@ export default function AccountApp() {
     const info = await fetchAccount();
     setAccount(info);
     if (info) {
-      const [b, l, r, t, s] = await Promise.all([
+      const [b, l, r, t, s, g] = await Promise.all([
         fetchMyBalance(),
         fetchLedger(),
         fetchReads(),
         fetchMySessions(),
         fetchMySubscription(),
+        fetchMyGifts(),
       ]);
       setBalance(b);
       setLedger(l);
       setReads(r);
       setTests(t);
       setSub(s);
+      setGifts(g);
       void loadTestContent(t);
     }
     setReady(true);
@@ -377,33 +382,57 @@ export default function AccountApp() {
       {sub?.active ? (
         <div className="rounded-xl border border-brass/50 p-4">
           <p className="font-display text-[16px] font-medium italic">
-            {sub.plan === "yearly" ? subUi.accPlanYearly : subUi.accPlanMonthly}
+            {sub.gift
+              ? subUi.accGiftPlan
+              : sub.plan === "yearly"
+                ? subUi.accPlanYearly
+                : subUi.accPlanMonthly}
           </p>
           <p className="mt-1 text-[12px] leading-relaxed text-mist">
-            {sub.status === "past_due"
-              ? subUi.accPastDue
-              : sub.trial && sub.trialEndsAt
-                ? subUi.accTrial(fmtDate(sub.trialEndsAt, lang))
-                : sub.cancelAtPeriodEnd && sub.periodEnd
-                  ? subUi.accEnds(fmtDate(sub.periodEnd, lang))
-                  : sub.periodEnd
-                    ? subUi.accRenews(fmtDate(sub.periodEnd, lang))
-                    : null}
+            {sub.gift
+              ? sub.periodEnd
+                ? subUi.accGiftEnds(fmtDate(sub.periodEnd, lang))
+                : null
+              : sub.status === "past_due"
+                ? subUi.accPastDue
+                : sub.trial && sub.trialEndsAt
+                  ? subUi.accTrial(fmtDate(sub.trialEndsAt, lang))
+                  : sub.cancelAtPeriodEnd && sub.periodEnd
+                    ? subUi.accEnds(fmtDate(sub.periodEnd, lang))
+                    : sub.periodEnd
+                      ? subUi.accRenews(fmtDate(sub.periodEnd, lang))
+                      : null}
           </p>
           <div className="mt-2.5 flex flex-col gap-1 text-[12px] text-mist">
             <span>{subUi.accQuotaChat(sub.questionsUsed, SUB_QUOTAS.questions_per_30d)}</span>
             <span>{subUi.accQuotaPhoto(sub.photosUsed, SUB_QUOTAS.photos_per_30d)}</span>
             <span className="text-mist/70">{subUi.accQuotaNote}</span>
           </div>
-          <a
-            href={POLAR_PORTAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-3 inline-block rounded-lg border border-brass/50 px-3 py-2 text-[13px] text-brass-2 no-underline transition hover:border-brass"
-          >
-            {subUi.accManage}
-          </a>
-          <p className="mt-1.5 text-[11px] leading-relaxed text-mist/70">{subUi.accManageNote}</p>
+          {/* A gift has no Polar customer behind it: there is nothing to manage
+              and nothing to cancel, so the portal link would be a dead end. */}
+          {sub.gift ? (
+            <p className="mt-3 text-[11px] leading-relaxed text-mist/70">{subUi.accGiftNote}</p>
+          ) : (
+            <>
+              <a
+                href={POLAR_PORTAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-block rounded-lg border border-brass/50 px-3 py-2 text-[13px] text-brass-2 no-underline transition hover:border-brass"
+              >
+                {subUi.accManage}
+              </a>
+              <p className="mt-1.5 text-[11px] leading-relaxed text-mist/70">
+                {subUi.accManageNote}
+              </p>
+              {/* Paid plan in front, gifted month queued behind it. */}
+              {sub.giftUntil && (
+                <p className="mt-2 text-[11px] leading-relaxed text-brass-2">
+                  {subUi.accGiftBanked(fmtDate(sub.giftUntil, lang))}
+                </p>
+              )}
+            </>
+          )}
         </div>
       ) : (
         <div>
@@ -491,6 +520,10 @@ export default function AccountApp() {
       </section>
 
       {subscriptionBlock}
+
+      {/* The durable copy of every code this account bought — the answer to
+          "I closed the tab and lost the gift I paid for". */}
+      {giftsEnabled && <MyGifts gifts={gifts} lang={lang} giveHref="/gift/" />}
 
       {passwordBlock}
 

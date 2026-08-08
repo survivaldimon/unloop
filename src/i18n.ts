@@ -96,6 +96,7 @@ export interface UiStrings {
     quiz: string;
     tests: string;
     portrait: string;
+    gift: string;
     account: string;
     /** Landing-footer lines: an exit for people the funnel isn't converting —
      *  never competing with the funnel's own CTA above them. */
@@ -244,6 +245,7 @@ export const UI: Record<Lang, UiStrings> = {
       quiz: "Relationship quiz",
       tests: "Psychology tests",
       portrait: "Composite portrait",
+      gift: "Give a gift",
       account: "Account",
       teaserFromPhoto: "No photo at hand? Seven short psychology tests, free to take.",
       teaserFromQuiz: "Want a shorter mirror first? Seven psychology tests, free to take.",
@@ -388,6 +390,7 @@ export const UI: Record<Lang, UiStrings> = {
       quiz: "Квиз об отношениях",
       tests: "Психотесты",
       portrait: "Сводный портрет",
+      gift: "Подарить",
       account: "Аккаунт",
       teaserFromPhoto: "Нет фото под рукой? Есть семь коротких психотестов — бесплатно.",
       teaserFromQuiz: "Хочешь зеркало покороче? Семь психотестов — бесплатно.",

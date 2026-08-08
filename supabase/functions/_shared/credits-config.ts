@@ -145,3 +145,79 @@ export const RETAKE_COOLDOWN_HOURS = 72;
 export function isSubPlanId(v: unknown): v is SubPlanId {
   return v === "monthly" || v === "yearly";
 }
+
+// ---------------------------------------------------------------------------
+// Gifts (docs/gifts.md)
+// ---------------------------------------------------------------------------
+
+export type GiftTierId = "read" | "pack" | "plus_month";
+
+export interface GiftTier {
+  id: GiftTierId;
+  usd: number;
+  /** Credits the recipient gets on redemption; 0 for the subscription gift. */
+  credits: number;
+  /** Days of Looplore+ access on redemption; 0 for the credit gifts. */
+  subDays: number;
+  /** Env/Vault secret name holding this tier's Polar product id. */
+  productSecret: string;
+}
+
+/**
+ * Prices mirror the credit rail exactly (Mini $3.49 / Starter $9.99 / monthly
+ * $9.90) — a gift must never be a different price for the same thing. The
+ * Polar products are separate one-time products all the same: the checkout
+ * page has to say "gift", and gift revenue stays separable in Polar's reports.
+ */
+export const GIFT_TIERS: Record<GiftTierId, GiftTier> = {
+  read: {
+    id: "read",
+    usd: 3.49,
+    credits: 100,
+    subDays: 0,
+    productSecret: "POLAR_GIFT_READ_ID",
+  },
+  pack: {
+    id: "pack",
+    usd: 9.99,
+    credits: 1000,
+    subDays: 0,
+    productSecret: "POLAR_GIFT_PACK_ID",
+  },
+  /**
+   * Not a real Polar subscription — those live on the payer's card and cannot
+   * be pointed at someone else's account. Redemption writes a self-expiring
+   * entitlement row instead (founder's decision 07.08.2026), so the recipient
+   * gets the whole of Looplore+ for 30 days with no card and no auto-renewal.
+   */
+  plus_month: {
+    id: "plus_month",
+    usd: 9.9,
+    credits: 0,
+    subDays: 30,
+    productSecret: "POLAR_GIFT_PLUS_ID",
+  },
+} as const;
+
+/** How long a gift code stays redeemable after payment. */
+export const GIFT_VALID_DAYS = 365;
+
+/** Codes are typed off a card: GIFT + 10 chars, no ambiguous glyphs (I/O/0/1). */
+export const GIFT_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+export const GIFT_CODE_BODY_LENGTH = 10;
+
+/** Caps on the buyer's note, which lands on a public claim page and the card. */
+export const GIFT_MESSAGE_MAX = 240;
+export const GIFT_FROM_MAX = 40;
+
+export function isGiftTierId(v: unknown): v is GiftTierId {
+  return v === "read" || v === "pack" || v === "plus_month";
+}
+
+/** Display form of a stored code: GIFTABCDE12345 → GIFT-ABCDE-12345. */
+export function formatGiftCode(code: string): string {
+  const clean = code.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!clean.startsWith("GIFT") || clean.length !== 4 + GIFT_CODE_BODY_LENGTH) return clean;
+  const body = clean.slice(4);
+  return `GIFT-${body.slice(0, 5)}-${body.slice(5)}`;
+}

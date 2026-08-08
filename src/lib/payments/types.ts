@@ -15,6 +15,14 @@ export interface CheckoutOptions {
   plan?: "monthly" | "yearly";
   /** Funnel the purchase belongs to (credits/subscription checkouts). */
   funnel?: "quiz" | "photoread" | "tests";
+  /** Gift being bought (gift-checkout only): tier plus the buyer's note. */
+  gift?: { tier: string; message?: string | null; fromName?: string | null };
+  /**
+   * The checkout session as the server created it, before the overlay opens.
+   * Gifts need it: the code is minted with the session and this is the only
+   * moment it reaches the buyer's browser.
+   */
+  onSession?: (session: { id: string | null; code?: string }) => void;
   /**
    * Fires when the provider reports a successful payment client-side.
    * Payment is only *trusted* once the webhook sets paid_at in Supabase —

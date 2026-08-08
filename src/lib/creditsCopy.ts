@@ -67,12 +67,19 @@ export interface CreditsCopy {
     applying: string;
     /** Amounts here are author-chosen, so RU says "кр" and dodges plurals. */
     ok: (credits: number) => string;
+    /** The same box also takes gift codes (docs/gifts.md §5). */
+    okGiftSub: (days: number) => string;
     notFound: string;
     expired: string;
     exhausted: string;
     already: string;
     signIn: string;
     failed: string;
+    /** Gift-only outcomes; a promo code never produces them. */
+    notPaid: string;
+    revoked: string;
+    taken: string;
+    ownGift: string;
     /** No account yet — the field collects the email itself rather than refusing. */
     needEmail: string;
     emailPlaceholder: string;
@@ -111,6 +118,16 @@ export interface CreditsCopy {
     accManageNote: string;
     accNone: string;
     accSubscribe: string;
+    /**
+     * Gifted access (docs/gifts.md §6): a plan with no card behind it. There is
+     * no Polar customer to send anyone to, and nothing to cancel — saying so
+     * plainly is the whole point of telling it apart from a paid plan.
+     */
+    accGiftPlan: string;
+    accGiftEnds: (date: string) => string;
+    accGiftNote: string;
+    /** A paying subscriber who was ALSO given a month: it waits its turn. */
+    accGiftBanked: (date: string) => string;
     /** "Dynamics" — factor trajectories across retakes (Looplore+ perk). */
     dynTitle: string;
     dynTeaser: (attempts: number) => string;
@@ -180,17 +197,22 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       empty: "Nothing yet — your first question starts the thread.",
     },
     promo: {
-      link: "Have a promo code?",
-      placeholder: "PROMO CODE",
+      link: "Have a code?",
+      placeholder: "CODE",
       apply: "Apply",
       applying: "Checking…",
       ok: (credits) => `+${credits} cr on your balance`,
+      okGiftSub: (days) => `Looplore+ is yours for ${days} days`,
       notFound: "No such code.",
       expired: "This code has expired.",
       exhausted: "This code has been used up.",
       already: "You've already used this code.",
       signIn: "Enter your email first — the credits need an account to land on.",
       failed: "Couldn't check the code. Try again.",
+      notPaid: "The payment for this gift hasn't come through yet. Try again in a minute.",
+      revoked: "This gift was cancelled and the payment returned.",
+      taken: "Someone has already claimed this gift.",
+      ownGift: "This gift was bought from your account — it is meant for someone else.",
       needEmail: "Credits need an account to land on. Leave your email and the code applies.",
       emailPlaceholder: "you@example.com",
       parked: "Code saved. Open the sign-in link we emailed you and the credits land.",
@@ -222,6 +244,12 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       accManageNote: "Cancel or change your card on the secure Polar portal — sign in there with this email.",
       accNone: "No subscription — reads are paid per piece from your balance.",
       accSubscribe: "Try Looplore+ · 3 days free",
+      accGiftPlan: "Looplore+ · a gift",
+      accGiftEnds: (date) => `Runs until ${date}`,
+      accGiftNote:
+        "Nothing renews and no card was taken — it simply ends. You can subscribe any time before or after.",
+      accGiftBanked: (date) =>
+        `A gifted month is waiting behind this one — it starts when this period ends and runs to ${date}.`,
       dynTitle: "Your dynamics",
       dynTeaser: (attempts) =>
         `You've taken this test ${attempts} times — Looplore+ charts how your scores moved between attempts.`,
@@ -294,17 +322,22 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       empty: "Пока пусто — первый вопрос начнёт разговор.",
     },
     promo: {
-      link: "Есть промокод?",
-      placeholder: "ПРОМОКОД",
+      link: "Есть код?",
+      placeholder: "КОД",
       apply: "Применить",
       applying: "Проверяем…",
       ok: (credits) => `+${credits} кр на баланс`,
+      okGiftSub: (days) => `Looplore+ твой на ${days} дней`,
       notFound: "Такого кода нет.",
       expired: "Срок кода истёк.",
       exhausted: "Код уже разобрали.",
       already: "Ты уже использовал этот код.",
       signIn: "Сначала оставь email — кредитам нужен аккаунт, куда лечь.",
       failed: "Не получилось проверить код. Попробуй ещё раз.",
+      notPaid: "Оплата этого подарка ещё не дошла. Попробуй через минуту.",
+      revoked: "Подарок отменён, оплата возвращена.",
+      taken: "Этот подарок уже кто-то забрал.",
+      ownGift: "Этот подарок куплен с твоего аккаунта — он для другого человека.",
       needEmail: "Кредитам нужен аккаунт, куда лечь. Оставь почту — и код применится.",
       emailPlaceholder: "you@example.com",
       parked: "Код сохранён. Открой ссылку для входа из письма — кредиты придут.",
@@ -336,6 +369,12 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       accManageNote: "Отмена и смена карты — на защищённом портале Polar; войди там по этому email.",
       accNone: "Подписки нет — разборы оплачиваются поштучно с баланса.",
       accSubscribe: "Попробовать Looplore+ · 3 дня бесплатно",
+      accGiftPlan: "Looplore+ · подарок",
+      accGiftEnds: (date) => `Работает до ${date}`,
+      accGiftNote:
+        "Ничего не продлевается, карту никто не спрашивал — просто закончится. Подписаться можно когда угодно, до или после.",
+      accGiftBanked: (date) =>
+        `Подаренный месяц ждёт своей очереди — начнётся, когда закончится этот период, и продлится до ${date}.`,
       dynTitle: "Твоя динамика",
       dynTeaser: (attempts) =>
         `Ты проходил этот тест ${attempts} раза(-раз) — Looplore+ показывает график, как менялись твои шкалы между попытками.`,

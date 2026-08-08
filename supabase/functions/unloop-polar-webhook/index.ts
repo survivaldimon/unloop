@@ -6,7 +6,13 @@
 // Per the Standard Webhooks spec the HMAC key is the secret's raw bytes
 // (Polar's polar_whs_… string used as-is, NOT base64-decoded).
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { CREDIT_PACKS, isPackId } from "../_shared/credits-config.ts";
+import {
+  CREDIT_PACKS,
+  GIFT_TIERS,
+  GIFT_VALID_DAYS,
+  isGiftTierId,
+  isPackId,
+} from "../_shared/credits-config.ts";
 
 const SIGNATURE_TOLERANCE_SECONDS = 300;
 
@@ -369,6 +375,111 @@ async function handleRefund(
 }
 
 /**
+ * A refunded gift (docs/gifts.md §7). The refund payload carries none of our
+ * checkout metadata, so the order id is the only handle — which is exactly what
+ * looplore_gift_revoke takes. Unclaimed codes die on the spot; a code the
+ * recipient already redeemed is only FLAGGED, never clawed back: they did
+ * nothing wrong, and "your gift was taken away because someone else asked for
+ * their money back" is not a message we send (founder's decision 07.08.2026).
+ * The arbitrage that would otherwise open — buy, redeem, refund, keep — is
+ * closed at the other end, by refusing to let a buyer redeem their own gift.
+ *
+ * Returns null when this order had no gifts, so the caller falls through to the
+ * credit-pack refund path.
+ */
+async function handleGiftRefund(
+  admin: ReturnType<typeof createClient>,
+  order: Record<string, unknown>,
+): Promise<Record<string, unknown> | null> {
+  const orderId = typeof order.id === "string" ? order.id : null;
+  if (!orderId) return null;
+
+  const revoked = await admin.rpc("looplore_gift_revoke", { p_order_id: orderId });
+  // A read/write failure must retry (500) rather than leave a refunded gift
+  // standing — throwing lands in the outer catch, which answers 500.
+  if (revoked.error) {
+    console.error("gift revoke failed", orderId, revoked.error);
+    throw revoked.error;
+  }
+  const result = revoked.data as { affected?: number; revoked?: number; flagged?: number };
+  if (!result || (result.affected ?? 0) === 0) return null;
+  if ((result.flagged ?? 0) > 0) {
+    // Loud on purpose: this is the one gift case that wants a human to look.
+    console.error(
+      "gift refunded after redemption — recipient keeps it, review manually",
+      orderId,
+      result.flagged,
+    );
+  }
+  return { ok: true, gift_refund: true, ...result };
+}
+
+/**
+ * A paid gift order (docs/gifts.md §4): the code was minted when the checkout
+ * was created and has been inert since — this is what brings it to life. The
+ * denomination comes from OUR config keyed by the tier in metadata, never from
+ * anything the client could have influenced, exactly like credit packs.
+ */
+async function handleGiftOrder(
+  admin: ReturnType<typeof createClient>,
+  order: Record<string, unknown> & { customer?: { email?: unknown } },
+  metadata: Record<string, unknown>,
+): Promise<Record<string, unknown>> {
+  const orderId =
+    (typeof order.id === "string" && order.id) ||
+    (typeof order.checkout_id === "string" && order.checkout_id) ||
+    null;
+  const code = typeof metadata.gift_code === "string" ? metadata.gift_code : null;
+  const tier = isGiftTierId(metadata.tier) ? GIFT_TIERS[metadata.tier] : null;
+  // None of these three can be fixed by retrying — acknowledge and shout.
+  if (!orderId) {
+    console.error("gift order without id");
+    return { ok: false, reason: "missing_order_id" };
+  }
+  if (!code || !tier) {
+    console.error("gift order without code/tier", orderId, metadata.tier);
+    return { ok: false, reason: "missing_gift_metadata" };
+  }
+
+  // Best effort: the buyer's account is where /account/ lists the codes they
+  // bought. A gift works without one — the code itself is the bearer.
+  const buyerId = await resolveCreditsUser(admin, metadata, order);
+  const buyerEmail =
+    typeof order?.customer?.email === "string" && order.customer.email
+      ? order.customer.email
+      : null;
+
+  const activated = await admin.rpc("looplore_gift_activate", {
+    p_code: code,
+    p_tier: tier.id,
+    p_credits: tier.credits,
+    p_sub_days: tier.subDays,
+    p_order_id: orderId,
+    p_amount_usd: tier.usd,
+    p_buyer_user_id: buyerId,
+    p_buyer_email: buyerEmail,
+    p_valid_days: GIFT_VALID_DAYS,
+  });
+  if (activated.error || (activated.data as { ok?: boolean })?.ok !== true) {
+    // 500 → Polar retries; the upsert makes retries safe, and a buyer who paid
+    // must not be left holding a dead code.
+    console.error("gift activate failed", orderId, activated.error ?? activated.data);
+    throw new Error("gift_activate_failed");
+  }
+
+  // A gift is real revenue, unlike the promo codes it shares a rail with.
+  await sendMetaPurchase(admin, {
+    sessionId: orderId,
+    email: buyerEmail,
+    order,
+    paidAt: (order.created_at as string) ?? new Date().toISOString(),
+    eventId: `purchase_${orderId}`,
+  });
+
+  return { ok: true, gift: true, tier: tier.id };
+}
+
+/**
  * Looplore+ lifecycle (docs/subscription-economy.md §9): every subscription.*
  * event carries the full Polar subscription object — we upsert the latest
  * payload per provider_sub_id and looplore_subscriptions becomes the
@@ -468,7 +579,13 @@ Deno.serve(async (req: Request) => {
     // (A refunded subscription order finds no credit grants and no-ops here;
     // access ends via subscription.revoked, not via the refund.)
     if (event?.type === "order.refunded") {
-      return json(await handleRefund(admin, event.data ?? {}));
+      const refunded = event.data ?? {};
+      // Gifts first: they leave no credit grants behind, so the pack path
+      // below would read the order as "nothing to claw" and let a refunded
+      // code stay redeemable.
+      const giftResult = await handleGiftRefund(admin, refunded);
+      if (giftResult) return json(giftResult);
+      return json(await handleRefund(admin, refunded));
     }
 
     // Looplore+ lifecycle → entitlement table.
@@ -510,6 +627,14 @@ Deno.serve(async (req: Request) => {
       }
       // $0 orders (trial start) are not purchases — PostHog covers trial starts.
       return json({ ok: true, subscription_order: true });
+    }
+
+    // --- Gifts (gift-checkout stamps kind="gift" + the minted code) ---------
+    // Before the credits branch and before the legacy fall-through: a gift
+    // grants nobody credits at purchase time — the recipient does that later,
+    // by redeeming.
+    if (metadata.kind === "gift") {
+      return json(await handleGiftOrder(admin, order, metadata));
     }
 
     // --- Credit packs (credits-polar-checkout stamps kind="credits") --------

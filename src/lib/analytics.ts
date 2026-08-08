@@ -191,7 +191,20 @@ export type AnalyticsEvent =
   | "sub_checkout_open"
   | "sub_started"
   // Daily loop (stage D): the visit claim and its 7-day streak reward.
-  | "daily_claim";
+  | "daily_claim"
+  // Gifting (docs/gifts.md §8). The purchase half is real revenue, so
+  // unlock_click carries funnel:"gift" and forwards InitiateCheckout like every
+  // other checkout — but gift_purchase stays PostHog-only for the usual reason:
+  // Meta's Purchase comes from the webhook's Conversions API event keyed
+  // purchase_<order_id>. The redemption half never reaches Meta at all: a
+  // claimed gift moves credits, not money, exactly like a promo code.
+  | "gift_view"
+  | "gift_tier_select"
+  | "gift_checkout_open"
+  | "gift_purchase"
+  | "gift_card_share"
+  | "gift_claim_view"
+  | "gift_redeem";
 
 export function track(
   event: AnalyticsEvent,

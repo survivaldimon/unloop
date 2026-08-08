@@ -282,14 +282,35 @@ export async function askQuestion(args: {
   }
 }
 
+/**
+ * One box, two rails: hand-made promo codes and bought gifts redeem through
+ * the same call (docs/gifts.md §5). `gift` and the tier-specific extras are
+ * absent for promo codes; the four gift-only errors never occur for them.
+ */
 export type PromoResult =
-  | { kind: "ok"; credits: number; balance: number | null }
+  | {
+      kind: "ok";
+      credits: number;
+      balance: number | null;
+      gift?: boolean;
+      /** Days of Looplore+ a subscription gift just granted (0 otherwise). */
+      subDays?: number;
+      accessUntil?: string | null;
+    }
   | { kind: "not_found" }
   | { kind: "expired" }
   | { kind: "exhausted" }
   | { kind: "already" }
   | { kind: "throttled" }
   | { kind: "sign_in" }
+  /** Gift-only: the order has not been paid yet (webhook still in flight). */
+  | { kind: "not_paid" }
+  /** Gift-only: the buyer's money came back before anyone claimed it. */
+  | { kind: "revoked" }
+  /** Gift-only: someone else got there first. */
+  | { kind: "taken" }
+  /** Gift-only: you cannot claim a gift bought from your own account. */
+  | { kind: "own_gift" }
   | { kind: "failed" };
 
 /** Everything except a transport failure is a final answer worth showing. */
@@ -298,8 +319,10 @@ function isFinalPromoResult(result: PromoResult): boolean {
 }
 
 /**
- * Redeem a promo code for credits. The credits land on the SIGNED-IN account —
- * functions.invoke attaches its JWT — so a code is worthless without one.
+ * Redeem a code — promo or gift — for credits or gifted access. It lands on the
+ * SIGNED-IN account (functions.invoke attaches its JWT), so a code is worthless
+ * without one; that identity check is the whole of the security, since no
+ * checkout of the redeemer's stands behind it.
  */
 export async function redeemPromo(code: string): Promise<PromoResult> {
   if (!creditsEnabled || !supabase) return { kind: "failed" };
@@ -308,13 +331,24 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
     if (!current.session) return { kind: "sign_in" };
     const res = await supabase.functions.invoke("credits-promo", { body: { code } });
     const data = res.data as
-      | { ok?: boolean; credits?: number; balance?: number; error?: string }
+      | {
+          ok?: boolean;
+          kind?: string;
+          credits?: number;
+          balance?: number;
+          sub_days?: number;
+          access_until?: string | null;
+          error?: string;
+        }
       | null;
     if (data?.ok === true) {
       return {
         kind: "ok",
         credits: typeof data.credits === "number" ? data.credits : 0,
         balance: typeof data.balance === "number" ? data.balance : null,
+        gift: data.kind === "gift",
+        subDays: typeof data.sub_days === "number" ? data.sub_days : 0,
+        accessUntil: typeof data.access_until === "string" ? data.access_until : null,
       };
     }
     switch (data?.error) {
@@ -330,6 +364,14 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
         return { kind: "sign_in" };
       case "not_found":
         return { kind: "not_found" };
+      case "not_paid":
+        return { kind: "not_paid" };
+      case "revoked":
+        return { kind: "revoked" };
+      case "taken":
+        return { kind: "taken" };
+      case "own_gift":
+        return { kind: "own_gift" };
       default:
         return { kind: "failed" };
     }
@@ -341,19 +383,24 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
 const PROMO_PENDING_KEY = "looplore_promo_pending_v1";
 
 /**
- * A code can arrive in the link (?promo=…) long before there is an account to
- * pay it into — the account appears at the email step. Park it and redeem on
- * the first visit where a session exists; the URL is cleaned either way so a
- * shared screenshot doesn't carry it around.
+ * A code can arrive in the link (?promo=… / ?gift=…) long before there is an
+ * account to pay it into — the account appears at the email step. Park it and
+ * redeem on the first visit where a session exists; the URL is cleaned either
+ * way so a shared screenshot doesn't carry it around.
+ *
+ * (The gift page's own ?g=… is deliberately NOT captured here: it belongs to
+ * the claim screen, which shows what the gift is before asking anyone to sign
+ * in. This is the fallback for a gift link pasted anywhere else.)
  */
 export function capturePromoFromUrl(): void {
   if (!creditsEnabled) return;
   try {
     const url = new URL(window.location.href);
-    const code = url.searchParams.get("promo");
+    const code = url.searchParams.get("promo") ?? url.searchParams.get("gift");
     if (!code) return;
     parkPromo(code);
     url.searchParams.delete("promo");
+    url.searchParams.delete("gift");
     window.history.replaceState({}, "", url.toString());
   } catch {
     // no storage / exotic URL — the code is simply lost, never fatal
@@ -421,6 +468,15 @@ export interface MySubscription {
   periodEnd: string | null;
   photosUsed: number;
   questionsUsed: number;
+  /**
+   * Access that came from a gift, not a card (docs/gifts.md §6). `gift` says
+   * the CURRENT access is the gifted one — there is no Polar customer behind
+   * it, so no portal link and no cancel. `giftUntil` stands on its own: a
+   * paying subscriber who was given a month sees their own plan, with the gift
+   * waiting behind it.
+   */
+  gift: boolean;
+  giftUntil: string | null;
 }
 
 const NO_SUB: MySubscription = {
@@ -433,6 +489,8 @@ const NO_SUB: MySubscription = {
   periodEnd: null,
   photosUsed: 0,
   questionsUsed: 0,
+  gift: false,
+  giftUntil: null,
 };
 
 /** Signed-in user's Looplore+ state; inactive when signed out / flag off. */
@@ -459,6 +517,8 @@ export async function fetchMySubscription(): Promise<MySubscription> {
       periodEnd: str(d.period_end),
       photosUsed: num(d.photos_used),
       questionsUsed: num(d.questions_used),
+      gift: d.gift === true,
+      giftUntil: str(d.gift_until),
     };
   } catch {
     return NO_SUB;

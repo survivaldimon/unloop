@@ -18,6 +18,13 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
       ...(opts.packId ? { pack_id: opts.packId } : {}),
       ...(opts.plan ? { plan: opts.plan } : {}),
       ...(opts.funnel ? { funnel: opts.funnel } : {}),
+      ...(opts.gift
+        ? {
+            tier: opts.gift.tier,
+            message: opts.gift.message ?? null,
+            from_name: opts.gift.fromName ?? null,
+          }
+        : {}),
       // Meta ad-click cookies ride along into order metadata so the webhook's
       // server-side Purchase event can be attributed to the ad click.
       fbp: getFbp(),
@@ -27,6 +34,13 @@ async function openCheckout(opts: CheckoutOptions): Promise<void> {
   if (error || typeof data?.url !== "string") {
     throw new Error("polar checkout session failed");
   }
+
+  // Before the overlay: whatever the server minted alongside the session (the
+  // gift code) has to reach the caller even if the buyer never pays.
+  opts.onSession?.({
+    id: typeof data.id === "string" ? data.id : null,
+    ...(typeof data.code === "string" ? { code: data.code } : {}),
+  });
 
   // Lazy chunk: the embed code is only fetched when a checkout actually opens.
   const { PolarEmbedCheckout } = await import("@polar-sh/checkout/embed");
