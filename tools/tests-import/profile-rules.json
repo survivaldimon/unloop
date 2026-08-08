@@ -319,5 +319,29 @@
       { "poles": ["thinking", "feeling"], "letters": ["T", "F"] },
       { "poles": ["judging", "perceiving"], "letters": ["J", "P"] }
     ]
+  },
+  "disc_personality_v1": {
+    "$note": "Перенос determineProfile() из disc_personality_data.dart один в один: сначала разброс (@range < 20 → сбалансированный), затем отрыв лидера от второго (@diff12 > 15 → однофакторный профиль), иначе пара из двух верхних. Пара выражена УПОРЯДОЧЕННО — 12 правил вида «лидер >= @top1, второй >= @top2», по два на каждый из шести парных профилей. Наивная запись «оба >= @top2» неверна: при ничьей второго места в пару попадал фактор, не являющийся лидером (d60/i65/s65/c80 давало IS вместо CI) — синтетика поймала 1015 расхождений на 200k. Порядок правил — лидер в порядке объявления факторов D,I,S,C, внутри лидера второй в том же порядке: так воспроизводится стабильная сортировка Dart, и ничьи решаются одинаково. profile_balanced достижим (ветка разброса), это не пустой ввод — в отличие от одноимённого профиля в self_confidence_multiscale_v1.",
+    "mode": "rules",
+    "fallback": "profile_balanced",
+    "rules": [
+      { "when": [["@range", "<", 20]], "profile": "profile_balanced" },
+      { "when": [["@diff12", ">", 15], ["dominance", ">=", "@top1"]], "profile": "profile_d_dominant" },
+      { "when": [["@diff12", ">", 15], ["influence", ">=", "@top1"]], "profile": "profile_i_dominant" },
+      { "when": [["@diff12", ">", 15], ["steadiness", ">=", "@top1"]], "profile": "profile_s_dominant" },
+      { "when": [["@diff12", ">", 15], ["conscientiousness", ">=", "@top1"]], "profile": "profile_c_dominant" },
+      { "when": [["dominance", ">=", "@top1"], ["influence", ">=", "@top2"]], "profile": "profile_di_inspirational" },
+      { "when": [["dominance", ">=", "@top1"], ["steadiness", ">=", "@top2"]], "profile": "profile_ds_driver" },
+      { "when": [["dominance", ">=", "@top1"], ["conscientiousness", ">=", "@top2"]], "profile": "profile_dc_challenger" },
+      { "when": [["influence", ">=", "@top1"], ["dominance", ">=", "@top2"]], "profile": "profile_di_inspirational" },
+      { "when": [["influence", ">=", "@top1"], ["steadiness", ">=", "@top2"]], "profile": "profile_is_supporter" },
+      { "when": [["influence", ">=", "@top1"], ["conscientiousness", ">=", "@top2"]], "profile": "profile_ic_assessor" },
+      { "when": [["steadiness", ">=", "@top1"], ["dominance", ">=", "@top2"]], "profile": "profile_ds_driver" },
+      { "when": [["steadiness", ">=", "@top1"], ["influence", ">=", "@top2"]], "profile": "profile_is_supporter" },
+      { "when": [["steadiness", ">=", "@top1"], ["conscientiousness", ">=", "@top2"]], "profile": "profile_sc_coordinator" },
+      { "when": [["conscientiousness", ">=", "@top1"], ["dominance", ">=", "@top2"]], "profile": "profile_dc_challenger" },
+      { "when": [["conscientiousness", ">=", "@top1"], ["influence", ">=", "@top2"]], "profile": "profile_ic_assessor" },
+      { "when": [["conscientiousness", ">=", "@top1"], ["steadiness", ">=", "@top2"]], "profile": "profile_sc_coordinator" }
+    ]
   }
 }

@@ -139,7 +139,13 @@ for (const file of files) {
   for (const [fid, map] of Object.entries(test.factorWeights ?? {})) check(map, `factorWeights.${fid}`);
 
   const after = JSON.stringify(test, null, 2) + "\n";
-  if (after !== before) {
+  // Дрейф — это содержимое, а не переводы строк: Windows-чекаут
+  // (core.autocrlf=true, .gitattributes нет) кладёт файлы с CRLF, а stringify
+  // даёт LF. Без нормализации --check ложно объявлял дрейф во всех 19 тестах,
+  // а запись переписывала их ради одних EOL. Настоящий дрейф ловится
+  // по-прежнему. Фикс перенесён точечно из claude/great-boyd-bb0d68 — сама
+  // ветка от 05.08, до этапа 4, и мержем откатила бы 4784 строки.
+  if (after !== before.replace(/\r\n/g, "\n")) {
     touched++;
     if (CHECK) errors.push(`${file}: не применено (дрейф от fixes-слоя)`);
     else fs.writeFileSync(p, after);
