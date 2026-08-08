@@ -60,6 +60,8 @@ interface PhotoCopyShape {
     minor: string;
     nsfw: string;
     declined: string;
+    too_large: string;
+    rate_limited: string;
     failed: string;
   };
 
@@ -105,6 +107,7 @@ interface PhotoCopyShape {
     dropTag: string;
     writing: string;
     reportError: string;
+    reportSignIn: string;
     retake: string;
     disclaimer: string;
   };
@@ -196,6 +199,8 @@ const EN: PhotoCopyShape = {
     minor: "One of these photos looks like it may show someone under 18. We only read photos of adults.",
     nsfw: "One of these photos is a bit much for us. Try ones with more clothes on.",
     declined: "The read didn't come through for this photo. Try a different one.",
+    too_large: "These photos add up to more than we can read at once. Try again with fewer.",
+    rate_limited: "That's a lot of reads in a short time. Give it an hour and come back.",
     failed: "Something broke on our side. Give it another try in a moment.",
   },
 
@@ -266,6 +271,8 @@ const EN: PhotoCopyShape = {
     dropTag: "drop",
     writing: "Writing the case file…",
     reportError: "The full read didn't come through. Try again in a moment.",
+    reportSignIn:
+      "This read belongs to your account. Open the sign-in link we emailed you, then come back — nothing is lost.",
     retake: "Read another photo",
     disclaimer:
       "The Outside View is an entertainment product: deduction from photos — hypotheses to test, not facts or diagnoses.",
@@ -358,6 +365,8 @@ const RU: PhotoCopyShape = {
     minor: "Похоже, на одном из фото человек младше 18. Мы разбираем только фото совершеннолетних.",
     nsfw: "Одно из этих фото слишком откровенное. Попробуй что-то более одетое.",
     declined: "Разбор не получился для этого фото. Попробуй другое.",
+    too_large: "Эти фото вместе весят больше, чем мы можем разобрать за раз. Попробуй меньше.",
+    rate_limited: "Многовато разборов за короткое время. Загляни через час.",
     failed: "Что-то сломалось на нашей стороне. Попробуй ещё раз через минуту.",
   },
 
@@ -428,6 +437,8 @@ const RU: PhotoCopyShape = {
     dropTag: "аутсайдер",
     writing: "Пишу досье…",
     reportError: "Полный разбор не получился. Попробуй ещё раз через минуту.",
+    reportSignIn:
+      "Этот разбор привязан к твоему аккаунту. Открой ссылку для входа из письма и вернись — ничего не потеряется.",
     retake: "Разобрать другое фото",
     disclaimer:
       "The Outside View — развлекательный продукт: дедукция по фото — гипотезы для проверки, а не факты или диагнозы.",

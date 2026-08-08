@@ -58,6 +58,7 @@ export interface CreditsCopy {
     send: (cost: number) => string;
     thinking: string;
     error: string;
+    signIn: string;
     empty: string;
   };
   promo: {
@@ -177,6 +178,8 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       send: (cost) => `Ask · ${cost} cr`,
       thinking: "Reading your question…",
       error: "The answer didn't come through. Ask again — a retry is free.",
+      signIn:
+        "Questions are charged to the account this read belongs to. Open the sign-in link we emailed you and ask again — nothing is lost.",
       empty: "Nothing yet — your first question starts the thread.",
     },
     promo: {
@@ -291,6 +294,8 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       send: (cost) => `Спросить · ${cost} кр`,
       thinking: "Читаю вопрос…",
       error: "Ответ не дошёл. Спроси ещё раз — повтор бесплатный.",
+      signIn:
+        "Вопросы списываются со счёта, которому принадлежит разбор. Открой ссылку для входа из письма и спроси снова — ничего не потеряется.",
       empty: "Пока пусто — первый вопрос начнёт разговор.",
     },
     promo: {

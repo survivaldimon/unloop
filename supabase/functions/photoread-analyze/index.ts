@@ -1,5 +1,6 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { rateLimit, throttleKey } from "../_shared/caller.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -8,6 +9,31 @@ const CORS = {
 
 const TEASER_MODEL = "claude-haiku-4-5";
 const MAX_PHOTOS = 6;
+
+// Everything below is the money gate (audit 07.08.2026 §2.1). This function is
+// the only paid one with no account and no payment in front of it: two vision
+// calls and up to a set of full-size uploads, reachable with the public anon
+// key and a fresh crypto.randomUUID(). Product decision 07.08.2026 was to keep
+// the funnel anonymous (an account before the upload costs conversion at the
+// top), so the spend is bounded by ceilings instead.
+//
+// Per-image size was already capped; the SET was not — six of the largest
+// allowed images is ~15 MB of base64 and six images of vision input per call.
+// Sized against what the client actually produces: src/photo/resize.ts ships
+// 1400px JPEG q0.85, so a busy six-photo set lands near 5-6 MB. 9 MB leaves
+// that real headroom while still refusing the 15 MB worst case.
+const MAX_SET_B64_CHARS = 9_000_000;
+
+// Two ceilings per IP, because the two abuse shapes differ: a burst (script in
+// a loop) and a slow drip (same script, patient). A real visitor analyzes one
+// set, occasionally retries or tries a second photo — well under both.
+const IP_HOURLY = 6;
+const IP_DAILY = 20;
+// Key-independent circuit breaker: a stripped X-Forwarded-For or a botnet gets
+// past the per-IP ceilings, this one it cannot. Sized far above any realistic
+// day of the Э9 ad window, so it only ever trips on abuse or a genuine surge —
+// and it logs loudly either way, because the two look identical from here.
+const GLOBAL_DAILY = 1500;
 
 type Lang = "en" | "ru";
 const LANGS = new Set(["en", "ru"]);
@@ -204,6 +230,12 @@ Deno.serve(async (req: Request) => {
     ) {
       return json({ error: "bad_request" }, 400);
     }
+    // Per-image limits pass; the set as a whole is the thing that costs money.
+    // Its own reason code: retrying the identical set can never succeed, so
+    // "something broke, try again" would be a lie — the fix is fewer photos.
+    if ((images as string[]).reduce((sum, img) => sum + img.length, 0) > MAX_SET_B64_CHARS) {
+      return json({ error: "rejected", reason: "too_large" }, 422);
+    }
     // Third-party uploads require the explicit responsibility confirmation.
     if (subject === "other" && !consentThirdParty) {
       return json({ error: "consent_required" }, 400);
@@ -214,6 +246,28 @@ Deno.serve(async (req: Request) => {
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
+
+    // Ceilings before the first token of vision spend. Every call is charged
+    // against them, including a retry on an existing session id: the cost is
+    // in the call, not in the row it eventually writes.
+    //
+    // Per-IP first, on purpose. A check that PASSES records an attempt (a
+    // refused one writes nothing), so asking the global one first would let a
+    // single blocked IP burn the day's global budget on calls the per-IP check
+    // rejects anyway — turning the circuit breaker into a way to lock everyone
+    // else out.
+    const ip = throttleKey(req);
+    if (
+      !(await rateLimit(admin, "photo_ip_h", ip, IP_HOURLY, "1 hour")) ||
+      !(await rateLimit(admin, "photo_ip_d", ip, IP_DAILY, "24 hours"))
+    ) {
+      return json({ error: "rate_limited" }, 429);
+    }
+    if (!(await rateLimit(admin, "photo_global", "all", GLOBAL_DAILY, "24 hours"))) {
+      console.error("photoread-analyze global daily cap reached");
+      return json({ error: "rate_limited" }, 429);
+    }
+
     const apiKey = await getApiKey(admin);
     if (!apiKey) return json({ error: "llm_not_configured" }, 500);
     const anthropic = new Anthropic({ apiKey });

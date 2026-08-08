@@ -230,12 +230,17 @@ async function recordCheckoutClaim(
  */
 function materializePhotoReport(sessionId: string): void {
   const anonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  // Service-role bearer, not anon: since the §2.1 IDOR fix, spending on a
+  // claimed session needs the owner's JWT, and a buyer who closed the tab has
+  // no session for us to borrow. The service-role key is how this call says
+  // "this is the server, and Polar already signed for the purchase".
+  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? anonKey;
   const materialize = fetch(
     `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
     {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${anonKey}`,
+        Authorization: `Bearer ${serviceKey}`,
         apikey: anonKey,
         "Content-Type": "application/json",
       },

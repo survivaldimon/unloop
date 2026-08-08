@@ -432,6 +432,13 @@ export default function TestsApp() {
       setReportView("paywall");
       return;
     }
+    // Owned by an account this device isn't signed into. The email step is
+    // already the "connect this device" surface — it mails a sign-in link for
+    // an address that has an account, which is exactly this case.
+    if (result.kind === "signin") {
+      setReportView("email");
+      return;
+    }
     setReportView("error");
   };
 

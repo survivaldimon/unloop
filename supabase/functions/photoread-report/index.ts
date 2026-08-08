@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { requireSessionOwner, spendAlreadySettled } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 const CORS = {
@@ -477,6 +478,22 @@ Deno.serve(async (req: Request) => {
     if (await getCreditsEnabled(admin)) {
       if (!row.paid_at) {
         if (!row.user_id) return json({ error: "payment_required" }, 402);
+        // Only the owner may spend the owner's balance (audit 07.08.2026 §2.1).
+        // Inside the !paid_at branch on purpose: a grandfathered session and a
+        // cached report (returned above) still open from an emailed ?p= link on
+        // a signed-out device. The webhook's background materialize call is the
+        // internal caller requireSessionOwner lets through — the buyer who
+        // closed the tab has no session to present, and Polar already signed
+        // for the purchase.
+        //
+        // Skipped when the read is already paid for: the key below is
+        // idempotent, so re-running it costs nothing, and a buyer opening
+        // their ?p= email on a signed-out phone after a failed materialize
+        // must still get the read they bought.
+        if (!(await spendAlreadySettled(admin, `report:${sessionId.toLowerCase()}`))) {
+          const gate = await requireSessionOwner(admin, req, row.user_id as string);
+          if (!gate.ok) return json({ error: gate.error }, gate.status);
+        }
         // Looplore+ includes 4 photo reads per rolling 30 days (vision calls
         // are the priciest LLM line — the quota keeps it bounded). Over quota
         // the normal credit price applies, no hard wall.

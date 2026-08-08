@@ -93,7 +93,7 @@ export default function PhotoApp() {
   const [photoCount, setPhotoCount] = useState(saved?.photoCount ?? 1);
   const [report, setReport] = useState<AnyPhotoReport | null>(null);
   const [reportLoading, setReportLoading] = useState(false);
-  const [reportError, setReportError] = useState(false);
+  const [reportError, setReportError] = useState<false | "failed" | "sign_in">(false);
   const [rejectReason, setRejectReason] = useState<RejectReason | null>(null);
   const [payState, setPayState] = useState<PayState>("idle");
   const [myBalance, setMyBalance] = useState<number | null>(null);
@@ -152,6 +152,13 @@ export default function PhotoApp() {
             }
             refreshBalance();
           });
+        // Fourth job since the send gate tightened: visitors whose email
+        // already had an account never got their result email at the email
+        // step. Now that they are signed in, it can go out — the function
+        // dedups per session, so an already-sent one is a no-op. Fired
+        // separately from the promo chain: a promo rejection must not
+        // swallow the email with it.
+        void sendPhotoResultEmail();
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
@@ -247,29 +254,33 @@ export default function PhotoApp() {
     setStep("teaser");
     track("email_submitted", { funnel: "photo" });
     identifyEmail(value);
+    // Keep the address on the row regardless: the payment webhook matches
+    // orders by it even when no account ever forms.
+    void savePhotoSession({ email: value, stage: "email", lang });
     // Silent account: the balance needs an owner before the paywall shows up.
     if (creditsEnabled) {
       void ensureAccount(value).then((status) => {
         // A known email gets a real magic link instead of a silent session —
         // the paywall says so rather than quietly dropping the balance.
         setAccountNotice(status === "ready" ? null : status);
+        // No session, no result email: photoread-send-result mails the signed-in
+        // account's own address and nothing else. These visitors get theirs when
+        // the magic link brings them back (see the sign-in effect above).
         if (status !== "ready") return;
-        void linkSession("photoread", getPhotoSessionId())
+        void linkSession("photoread", getPhotoSessionId()).then(() => {
+          // Independent of the promo chain below, which can reject.
+          void sendPhotoResultEmail();
           // The account only exists now, so this is where a ?promo= code from
           // the landing link finally has somewhere to land.
-          .then(() => redeemPendingPromo())
-          .then((promo) => {
+          return redeemPendingPromo().then((promo) => {
             if (promo?.kind === "ok") {
               track("promo_redeem", { funnel: "photo", credits: promo.credits, source: "link" });
             }
             refreshBalance();
           });
+        });
       });
     }
-    // The send function only mails addresses already stored on the session, so save first.
-    void savePhotoSession({ email: value, stage: "email", lang }).then(() =>
-      sendPhotoResultEmail(value),
-    );
   };
 
   const loadReport = () => {
@@ -278,7 +289,9 @@ export default function PhotoApp() {
     void fetchPhotoReport().then((res) => {
       setReportLoading(false);
       if (res.kind === "ok") setReport(res.report);
-      else setReportError(true);
+      // A read owned by an account this device isn't signed into is not a
+      // failure — it is one magic link away, and the copy says so.
+      else setReportError(res.kind === "sign_in_required" ? "sign_in" : "failed");
       // The report call is what debits the 95 credits — re-read the chip.
       refreshBalance();
     });

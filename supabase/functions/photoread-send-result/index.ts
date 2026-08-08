@@ -1,12 +1,16 @@
-// "Your read" email for the photo funnel. Modeled on unloop-send-result v6:
-// sends ONLY to the address already stored on the session row, only once per
-// session (result_email_sent_at). Content comes from the row's teaser jsonb —
-// the client sends nothing but { session_id, email }, so the payload can't be
-// spoofed. Third-person voice (v2 decision 26.07.2026). Language comes from
-// the session row (not a client-supplied body param, unlike unloop-send-result)
-// — this is the reading's original language, not the recipient's current
-// toggle state, which matters on a repeat deep-link open.
+// "Your read" email for the photo funnel. Content comes from the row's teaser
+// jsonb — the client supplies no copy at all, so the payload can't be spoofed —
+// and it goes out once per session (result_email_sent_at). Third-person voice
+// (v2 decision 26.07.2026). Language comes from the session row, i.e. the
+// reading's original language rather than the recipient's current toggle,
+// which matters on a repeat deep-link open.
+//
+// The recipient used to be "whatever address sits on the session row", which
+// an anonymous caller could set on a session id of their own making — the same
+// recipient-choice hole the audit (07.08.2026 §2.1) called out in
+// unloop-send-result. It is now the authenticated caller's own address.
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { bearerToken, rateLimit, throttleKey } from "../_shared/caller.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -20,6 +24,11 @@ const DEFAULT_SITE_URL = "https://looplore.app/";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// Belt to the auth gate's braces (mirrors unloop-send-result): one account
+// cannot turn its own inbox into a send loop, one IP cannot cycle accounts.
+const USER_DAILY = 5;
+const IP_HOURLY = 10;
 
 type Lang = "en" | "ru";
 const LANGS = new Set(["en", "ru"]);
@@ -248,13 +257,8 @@ Deno.serve(async (req: Request) => {
 
   try {
     const body = await req.json();
-    const { session_id, email } = body ?? {};
-    if (
-      typeof session_id !== "string" ||
-      !UUID_RE.test(session_id) ||
-      typeof email !== "string" ||
-      !EMAIL_RE.test(email)
-    ) {
+    const { session_id } = body ?? {};
+    if (typeof session_id !== "string" || !UUID_RE.test(session_id)) {
       return json({ error: "bad_request" }, 400);
     }
     const sessionId = session_id.toLowerCase();
@@ -264,74 +268,124 @@ Deno.serve(async (req: Request) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
-    // Only send to the address this session actually captured, and only once per session.
+    // The recipient is the calling account's own address — the request cannot
+    // name one, and neither can the session row.
+    const jwt = bearerToken(req);
+    const { data: userData } = jwt
+      ? await admin.auth.getUser(jwt)
+      : { data: { user: null } };
+    const user = userData?.user ?? null;
+    const recipient = typeof user?.email === "string" ? user.email : "";
+    if (!user || !EMAIL_RE.test(recipient)) return json({ error: "auth_required" }, 401);
+
     const { data: session } = await admin
       .from("photoread_sessions")
-      .select("email, result_email_sent_at, teaser, lang")
+      .select("user_id, result_email_sent_at, teaser, lang")
       .eq("id", sessionId)
       .maybeSingle();
-    if (!session || (session.email ?? "").toLowerCase() !== email.toLowerCase()) {
-      return json({ error: "email_mismatch" }, 403);
+    if (!session) return json({ error: "not_found" }, 404);
+    // Unowned is the normal race with the silent signup's link-session call;
+    // owned by somebody else would mail one reader another reader's read.
+    if (session.user_id && session.user_id !== user.id) {
+      return json({ error: "not_owner" }, 403);
     }
+    // Cheap early exit; the atomic claim below is the real dedup.
     if (session.result_email_sent_at) {
       return json({ ok: true, deduped: true });
     }
 
-    // The reading's own language, not whatever the recipient's browser/toggle
-    // is set to right now — the teaser text below was generated in this
-    // language and can't be relabeled.
-    const lang: Lang = LANGS.has(session.lang) ? (session.lang as Lang) : "en";
-    const copy = COPY[lang];
-
-    const teaser = (session.teaser ?? null) as {
-      observations?: unknown;
-      locked_hint?: unknown;
-    } | null;
-    const observations = (Array.isArray(teaser?.observations) ? teaser.observations : [])
-      .filter((o): o is string => typeof o === "string" && o.length > 0)
-      .slice(0, 3)
-      .map((o) => o.slice(0, 400));
-    const lockedHint =
-      typeof teaser?.locked_hint === "string" ? teaser.locked_hint.slice(0, 400) : "";
-    if (observations.length === 0 || !lockedHint) {
-      return json({ error: "not_ready" }, 409);
-    }
-
-    const apiKey = await getResendKey(admin);
-    if (!apiKey) {
-      return json({ error: "email_not_configured" }, 500);
-    }
-
-    // Deep link: ?p=<session id> restores this photo reading on whatever
-    // device the email is opened on (?s= is the quiz's parameter, not ours).
-    const siteBase = Deno.env.get("PHOTOREAD_SITE_URL") || DEFAULT_SITE_URL;
-    const siteUrl = `${siteBase}${siteBase.includes("?") ? "&" : "?"}p=${sessionId}`;
-    const from = Deno.env.get("RESEND_FROM") || DEFAULT_FROM;
-
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from,
-        to: [email],
-        subject: copy.subject,
-        html: renderHtml(copy, lang, observations, lockedHint, siteUrl),
-        text: renderText(copy, observations, lockedHint, siteUrl),
-      }),
-    });
-
-    if (!res.ok) {
-      console.error("resend error", res.status, await res.text());
-      return json({ error: "send_failed" }, 502);
-    }
-    const sent = await res.json();
-
-    await admin
+    // Claim the one send this session gets, before anything else can spend on
+    // its behalf. The funnel reaches here twice at once by design (the email
+    // step and the sign-in listener fire independently), and a read-then-write
+    // dedup lets both through.
+    //
+    // Ceilings come AFTER it for the same reason: budget should be charged to
+    // the call that will really send, not to the one that lost the race.
+    const { data: claimed } = await admin
       .from("photoread_sessions")
       .update({ result_email_sent_at: new Date().toISOString() })
-      .eq("id", sessionId);
+      .eq("id", sessionId)
+      .is("result_email_sent_at", null)
+      .select("id");
+    if (!claimed || claimed.length === 0) {
+      return json({ ok: true, deduped: true });
+    }
 
-    return json({ ok: true, id: sent?.id ?? null });
+    // From here on the claim is held, so every exit — including a thrown
+    // fetch — has to give it back, or the session is stranded as "sent" with
+    // nothing delivered and no way to retry.
+    let delivered = false;
+    try {
+      if (
+        !(await rateLimit(admin, "mail_user_d", user.id, USER_DAILY, "24 hours")) ||
+        !(await rateLimit(admin, "mail_ip_h", throttleKey(req), IP_HOURLY, "1 hour"))
+      ) {
+        return json({ error: "rate_limited" }, 429);
+      }
+
+      // The reading's own language, not whatever the recipient's browser/toggle
+      // is set to right now — the teaser text below was generated in this
+      // language and can't be relabeled.
+      const lang: Lang = LANGS.has(session.lang) ? (session.lang as Lang) : "en";
+      const copy = COPY[lang];
+
+      const teaser = (session.teaser ?? null) as {
+        observations?: unknown;
+        locked_hint?: unknown;
+      } | null;
+      const observations = (Array.isArray(teaser?.observations) ? teaser.observations : [])
+        .filter((o): o is string => typeof o === "string" && o.length > 0)
+        .slice(0, 3)
+        .map((o) => o.slice(0, 400));
+      const lockedHint =
+        typeof teaser?.locked_hint === "string" ? teaser.locked_hint.slice(0, 400) : "";
+      if (observations.length === 0 || !lockedHint) {
+        return json({ error: "not_ready" }, 409);
+      }
+
+      const apiKey = await getResendKey(admin);
+      if (!apiKey) return json({ error: "email_not_configured" }, 500);
+
+      // Deep link: ?p=<session id> restores this photo reading on whatever
+      // device the email is opened on (?s= is the quiz's parameter, not ours).
+      const siteBase = Deno.env.get("PHOTOREAD_SITE_URL") || DEFAULT_SITE_URL;
+      const siteUrl = `${siteBase}${siteBase.includes("?") ? "&" : "?"}p=${sessionId}`;
+      const from = Deno.env.get("RESEND_FROM") || DEFAULT_FROM;
+
+      const res = await fetch(RESEND_ENDPOINT, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from,
+          to: [recipient],
+          subject: copy.subject,
+          html: renderHtml(copy, lang, observations, lockedHint, siteUrl),
+          text: renderText(copy, observations, lockedHint, siteUrl),
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("resend error", res.status, await res.text());
+        return json({ error: "send_failed" }, 502);
+      }
+      const sent = await res.json();
+      delivered = true;
+      // No stamp needed here — claiming the slot above already wrote it.
+      return json({ ok: true, id: sent?.id ?? null });
+    } finally {
+      // Guarded: a throw in here would replace the real response (including a
+      // successful one) with a 500 from the outer catch.
+      if (!delivered) {
+        try {
+          await admin
+            .from("photoread_sessions")
+            .update({ result_email_sent_at: null })
+            .eq("id", sessionId);
+        } catch (releaseErr) {
+          console.error("photoread-send-result release", sessionId, releaseErr);
+        }
+      }
+    }
   } catch (err) {
     console.error("photoread-send-result error", err);
     return json({ error: "internal" }, 500);

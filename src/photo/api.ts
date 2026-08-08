@@ -146,7 +146,14 @@ export function isLegacyReport(report: AnyPhotoReport): report is PhotoReportLeg
   return !("deductions" in report);
 }
 
-export type RejectReason = "no_person" | "minor" | "nsfw" | "declined" | "failed";
+export type RejectReason =
+  | "no_person"
+  | "minor"
+  | "nsfw"
+  | "declined"
+  | "too_large"
+  | "rate_limited"
+  | "failed";
 
 export type AnalyzeResult =
   | { kind: "ok"; teaser: PhotoTeaserData; fitnessMode: boolean; photoCount: number }
@@ -155,16 +162,28 @@ export type AnalyzeResult =
 /**
  * Edge functions are called with raw fetch (not functions.invoke) because the
  * funnel branches on status codes and error bodies (422 + reason, 402, 410).
+ *
+ * `authed` sends the signed-in user's access token instead of the anon key.
+ * Required by everything that spends or mails: since the 07.08.2026 audit fix,
+ * the session UUID alone reads a report but no longer buys one. Falls back to
+ * the anon key when signed out — the server answers 401 and the caller turns
+ * that into the sign-in prompt, which is more honest than failing silently here.
  */
 async function callFn(
   name: string,
   body: unknown,
+  authed = false,
 ): Promise<{ status: number; data: Record<string, unknown> | null }> {
   if (!FN_URL || !ANON_KEY) return { status: 0, data: null };
+  let token = ANON_KEY;
+  if (authed && supabase) {
+    const { data: current } = await supabase.auth.getSession();
+    token = current.session?.access_token ?? ANON_KEY;
+  }
   const res = await fetch(`${FN_URL}/functions/v1/${name}`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${ANON_KEY}`,
+      Authorization: `Bearer ${token}`,
       apikey: ANON_KEY,
       "Content-Type": "application/json",
     },
@@ -206,9 +225,14 @@ export async function analyzePhotos(args: {
       const reason = (data?.reason as RejectReason) ?? "declined";
       return {
         kind: "rejected",
-        reason: ["no_person", "minor", "nsfw"].includes(reason) ? reason : "declined",
+        reason: ["no_person", "minor", "nsfw", "too_large"].includes(reason)
+          ? reason
+          : "declined",
       };
     }
+    // The analyze ceilings (photoread-analyze) — worth its own sentence, since
+    // "try again in a moment" is the one thing that will not help.
+    if (status === 429) return { kind: "rejected", reason: "rate_limited" };
     return { kind: "rejected", reason: "failed" };
   } catch {
     return { kind: "rejected", reason: "failed" };
@@ -218,18 +242,24 @@ export async function analyzePhotos(args: {
 export type ReportResult =
   | { kind: "ok"; report: AnyPhotoReport }
   | { kind: "payment_required" }
+  | { kind: "sign_in_required" }
   | { kind: "expired" }
   | { kind: "failed" };
 
 export async function fetchPhotoReport(): Promise<ReportResult> {
   try {
-    const { status, data } = await callFn("photoread-report", {
-      session_id: getPhotoSessionId(),
-    });
+    const { status, data } = await callFn(
+      "photoread-report",
+      { session_id: getPhotoSessionId() },
+      true,
+    );
     if (status === 200 && data?.first_impression) {
       return { kind: "ok", report: data as unknown as AnyPhotoReport };
     }
     if (status === 402) return { kind: "payment_required" };
+    // The read is bought (or buyable) but this device isn't signed in as its
+    // owner — the balance is real, the proof of ownership is missing.
+    if (status === 401 || status === 403) return { kind: "sign_in_required" };
     if (status === 410) return { kind: "expired" };
     return { kind: "failed" };
   } catch {
@@ -259,16 +289,14 @@ export async function savePhotoSession(data: {
 }
 
 /**
- * Fire-and-forget "your read" email. The edge function only mails the address
- * already stored on the session row (and only once), so call this after the
- * savePhotoSession({ email }) write has landed.
+ * Fire-and-forget "your read" email. The edge function mails the signed-in
+ * account's own address (and only once per session), so this needs the silent
+ * signup to have landed — call it from the account-ready path, not straight
+ * off the email input.
  */
-export async function sendPhotoResultEmail(email: string): Promise<void> {
+export async function sendPhotoResultEmail(): Promise<void> {
   try {
-    await callFn("photoread-send-result", {
-      session_id: getPhotoSessionId(),
-      email,
-    });
+    await callFn("photoread-send-result", { session_id: getPhotoSessionId() }, true);
   } catch {
     // non-fatal
   }

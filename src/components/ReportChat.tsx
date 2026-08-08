@@ -39,7 +39,7 @@ export default function ReportChat({
   const [entries, setEntries] = useState<PendingEntry[]>([]);
   const [value, setValue] = useState("");
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<false | "failed" | "sign_in">(false);
   const endRef = useRef<HTMLDivElement | null>(null);
   // A failed send keeps its msg_id so the retry reuses the idempotency key —
   // "a retry is free" must be literally true even if the spend already landed.
@@ -81,8 +81,10 @@ export default function ReportChat({
     if (result.kind === "insufficient") {
       onInsufficient(result.balance);
     } else {
+      // Keep the msg_id either way: the spend is idempotent on it, so a retry
+      // after signing in charges the same question once, not twice.
       retryRef.current = { q: question, id: msgId };
-      setError(true);
+      setError(result.kind === "sign_in_required" ? "sign_in" : "failed");
     }
   };
 
@@ -134,7 +136,11 @@ export default function ReportChat({
           {ui.send(CREDIT_COSTS.chat_question)}
         </button>
       </form>
-      {error && <p className="mt-2 text-xs text-ember">{ui.error}</p>}
+      {error && (
+        <p className="mt-2 text-xs text-ember">
+          {error === "sign_in" ? ui.signIn : ui.error}
+        </p>
+      )}
     </section>
   );
 }

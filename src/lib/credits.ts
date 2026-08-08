@@ -262,9 +262,17 @@ export type AskResult =
   | { kind: "ok"; answer: string; balance: number | null }
   | { kind: "insufficient"; balance: number }
   | { kind: "locked" }
+  | { kind: "sign_in_required" }
   | { kind: "failed" };
 
-/** One chat question = one idempotent 5-credit spend (msg_id minted client-side). */
+/**
+ * One chat question = one idempotent 5-credit spend (msg_id minted client-side).
+ *
+ * Signed with the user's own access token: the msg_id is client-minted, so
+ * before the 07.08.2026 audit fix anyone holding a leaked ?s= link could mint
+ * fresh ids and drain the session owner's balance question by question. The
+ * server now insists the caller IS the owner.
+ */
 export async function askQuestion(args: {
   funnel: Funnel;
   sessionId: string;
@@ -272,12 +280,14 @@ export async function askQuestion(args: {
   msgId: string;
   lang: "en" | "ru";
 }): Promise<AskResult> {
-  if (!creditsEnabled || !FN_URL || !ANON_KEY) return { kind: "failed" };
+  if (!creditsEnabled || !FN_URL || !ANON_KEY || !supabase) return { kind: "failed" };
   try {
+    const { data: current } = await supabase.auth.getSession();
+    const token = current.session?.access_token ?? ANON_KEY;
     const res = await fetch(`${FN_URL}/functions/v1/looplore-chat`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${ANON_KEY}`,
+        Authorization: `Bearer ${token}`,
         apikey: ANON_KEY,
         "Content-Type": "application/json",
       },
@@ -309,6 +319,8 @@ export async function askQuestion(args: {
       };
     }
     if (res.status === 409) return { kind: "locked" };
+    // Their credits, their chat — but this device can't prove it is them.
+    if (res.status === 401 || res.status === 403) return { kind: "sign_in_required" };
     return { kind: "failed" };
   } catch {
     return { kind: "failed" };
