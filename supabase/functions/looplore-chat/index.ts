@@ -1,12 +1,15 @@
 // Follow-up chat about an unlocked read (docs/credits-economy.md §6.4, §10;
 // the tests branch: docs/tests-monetization.md §3).
 // One question = one credit spend (idempotent on the client-minted msg_id, so
-// network retries never double-charge). Capability model matches the rest of
-// the app: possession of the session UUID both reads the report and spends
-// from the session owner's balance.
+// network retries never double-charge). Possession of the session UUID reads
+// the report; asking a question spends the OWNER's balance, so it needs the
+// owner's JWT — this was the sharpest of the §2.1 IDOR findings (07.08.2026),
+// because msg_id is client-minted and every fresh UUID was another 5 credits
+// off a leaked ?s= link's owner, with no ceiling.
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { requireSessionOwner } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 // The seven test content files ride into the bundle (≈660KB, the size
@@ -247,6 +250,11 @@ Deno.serve(async (req: Request) => {
     // The session owner pays. Legacy paid sessions without an owner get one the
     // moment they buy any pack (webhook links user_id) — until then: 402.
     if (!row.user_id) return json({ error: "payment_required", balance: 0 }, 402);
+
+    // …and only the owner may make them pay. Every branch below this line
+    // debits or consumes quota, so the gate sits above all of them.
+    const gate = await requireSessionOwner(admin, req, row.user_id as string);
+    if (!gate.ok) return json({ error: gate.error }, gate.status);
 
     // Looplore+ covers the first N questions per rolling 30 days as zero-delta
     // included rows (same q:{msg_id} keyspace — a question can never be both

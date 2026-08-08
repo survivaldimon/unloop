@@ -1,4 +1,5 @@
-import type { QuizQuestion } from "../types";
+// Explicit .ts extension — imported by the unloop-send-result edge function too.
+import type { QuizQuestion } from "../types.ts";
 
 /**
  * 32 screens: 4 context + 28 scored.

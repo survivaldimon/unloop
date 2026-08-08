@@ -21,6 +21,8 @@ export const useLang = () => useContext(LangContext);
 
 export interface UiStrings {
   title: string;
+  /** Shown when the personal chapters belong to an account this device isn't signed into. */
+  reportSignIn: string;
   landing: {
     h1a: string;
     h1b: string;
@@ -108,6 +110,8 @@ export interface UiStrings {
 export const UI: Record<Lang, UiStrings> = {
   en: {
     title: "Looplore — Why do your relationships end the same way?",
+    reportSignIn:
+      "Your personal chapters belong to your account. Open the sign-in link we emailed you and reload this page — nothing is lost.",
     landing: {
       h1a: "You don't have bad luck in love.",
       h1b: "You have a loop.",
@@ -252,6 +256,8 @@ export const UI: Record<Lang, UiStrings> = {
   },
   ru: {
     title: "Looplore — Почему твои отношения заканчиваются одинаково?",
+    reportSignIn:
+      "Личные главы привязаны к твоему аккаунту. Открой ссылку для входа из письма и обнови страницу — ничего не потеряется.",
     landing: {
       h1a: "Дело не в том, что тебе не везёт.",
       h1b: "Дело в замкнутом круге.",

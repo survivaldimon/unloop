@@ -72,25 +72,20 @@ export async function saveSession(data: {
   }
 }
 
-/** Fire-and-forget "your result" email via the send-result edge function; silent no-op without a backend. */
-export async function sendResultEmail(args: {
-  email: string;
-  lang: "en" | "ru";
-  patternName: string;
-  tagline: string;
-  insights: string[];
-}): Promise<void> {
+/**
+ * Fire-and-forget "your result" email; silent no-op without a backend.
+ *
+ * Body is just the session and the language now: since the 07.08.2026 audit
+ * fix the function mails the signed-in account's own address and builds the
+ * copy from the session's own result, so there is nothing left for the client
+ * to supply — and nothing left for an attacker to supply either. Call it only
+ * once the silent signup has produced a session (functions.invoke sends its JWT).
+ */
+export async function sendResultEmail(lang: "en" | "ru"): Promise<void> {
   if (!supabase) return;
   try {
     await supabase.functions.invoke("unloop-send-result", {
-      body: {
-        session_id: getSessionId(),
-        email: args.email,
-        lang: args.lang,
-        pattern_name: args.patternName,
-        tagline: args.tagline,
-        insights: args.insights,
-      },
+      body: { session_id: getSessionId(), lang },
     });
   } catch {
     // non-fatal
@@ -119,11 +114,16 @@ export interface LlmChapters {
   outside: string;
 }
 
-/** Calls the generate-report edge function; returns null on any failure so the UI can fall back. */
+/**
+ * Calls the generate-report edge function. Returns null on any failure so the
+ * UI can fall back to the static chapters — except for "this device is not
+ * signed in as the session's owner", which is worth saying out loud rather
+ * than rendering a report with two chapters quietly missing.
+ */
 export async function generateLlmChapters(
   result: ScoreResult,
   lang: "en" | "ru" = "en",
-): Promise<LlmChapters | null> {
+): Promise<LlmChapters | "sign_in_required" | null> {
   if (!supabase) return null;
   try {
     const { data, error } = await supabase.functions.invoke("unloop-generate-report", {
@@ -139,6 +139,9 @@ export async function generateLlmChapters(
         goal: result.goal,
       },
     });
+    // FunctionsHttpError carries the status; anything else stays a soft null.
+    const status = (error as { context?: { status?: number } } | null)?.context?.status;
+    if (status === 401 || status === 403) return "sign_in_required";
     if (error || !data?.personalRead || !data?.outside) return null;
     return data as LlmChapters;
   } catch {
