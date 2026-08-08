@@ -3,12 +3,16 @@
  * (docs/subscription-economy.md §9). The flow in each function becomes:
  *
  *   const sub = await getSubState(admin, userId);
- *   if (canInclude(sub, "included_test_report")) {
- *     const inc = await includedSpend(admin, userId, "included_test_report", key, ref);
- *     if (inc.ok) { …generate without debiting… }
- *   } else {
- *     …existing credits_spend path…
+ *   let covered = false;
+ *   if (canInclude(sub, "included_photo")) {
+ *     const inc = await includedSpend(admin, userId, "included_photo", key, ref);
+ *     if (!inc.ok && !inc.overQuota) return 500;   // infra fault, not a price
+ *     covered = inc.ok;                            // …generate without debiting…
  *   }
+ *   if (!covered) { …existing credits_spend path… }
+ *
+ * Kinds without a quota (reports, portrait, insight) can never come back
+ * overQuota, so for those the `if (!inc.ok) return 500` shape stays correct.
  *
  * Included rows share the ledger's idempotency keyspace with paid spends, so
  * the same report can never be paid twice (in either order), and retries stay
@@ -83,9 +87,22 @@ export type IncludedKind =
   | "included_portrait";
 
 /**
- * Whether this action is covered by the subscription right now. Reports and
- * the portrait are unconditionally included while active; photo and chat are
- * quota-checked (over quota → caller falls back to the credit price).
+ * What each kind is allowed per rolling 30 days; absent = unlimited while the
+ * subscription is active (reports, portrait, daily insight). The numbers live
+ * in credits-config.ts, the enforcement in SQL — this map just carries the
+ * ceiling to the RPC that applies it.
+ */
+const QUOTA: Partial<Record<IncludedKind, number>> = {
+  included_photo: SUB_QUOTAS.photos_per_30d,
+  included_question: SUB_QUOTAS.questions_per_30d,
+};
+
+/**
+ * Cheap pre-check: is this action plausibly covered right now? ADVISORY only —
+ * the usage it reads was fetched before the caller did its work, so two
+ * concurrent requests can both see room. The real ceiling is applied inside
+ * credits_included, under the same lock as the row that consumes it; treat an
+ * `overQuota` result from includedSpend as the authoritative answer.
  */
 export function canInclude(sub: SubState, kind: IncludedKind): boolean {
   if (!sub.active) return false;
@@ -99,6 +116,13 @@ export function canInclude(sub: SubState, kind: IncludedKind): boolean {
 export interface IncludedResult {
   ok: boolean;
   duplicate: boolean;
+  /**
+   * The quota ran out between canInclude and here. NOT a failure: the caller
+   * must fall back to the normal credit price, exactly as if canInclude had
+   * returned false. Distinct from ok=false with overQuota=false, which is an
+   * infrastructure fault and must not silently become a debit.
+   */
+  overQuota: boolean;
 }
 
 /** Zero-delta ledger row marking included consumption. Idempotent on p_key. */
@@ -116,13 +140,17 @@ export async function includedSpend(
     p_key: key,
     p_ref: ref ?? null,
     p_meta: meta ?? null,
+    p_quota: QUOTA[kind] ?? null,
   });
-  if (error || !data || (data as Record<string, unknown>).ok !== true) {
+  const row = (data ?? {}) as Record<string, unknown>;
+  if (error || row.ok !== true) {
+    if (row.error === "over_quota") return { ok: false, duplicate: false, overQuota: true };
     if (error) console.error("credits_included failed", kind, key, error);
-    return { ok: false, duplicate: false };
+    return { ok: false, duplicate: false, overQuota: false };
   }
   return {
     ok: true,
-    duplicate: (data as Record<string, unknown>).duplicate === true,
+    duplicate: row.duplicate === true,
+    overQuota: false,
   };
 }

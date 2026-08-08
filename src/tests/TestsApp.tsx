@@ -28,6 +28,7 @@ import {
   CREDIT_COSTS,
   CREDIT_PACKS,
   capturePromoFromUrl,
+  claimPurchaseSession,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
@@ -431,6 +432,13 @@ export default function TestsApp() {
       setReportView("paywall");
       return;
     }
+    // Owned by an account this device isn't signed into. The email step is
+    // already the "connect this device" surface — it mails a sign-in link for
+    // an address that has an account, which is exactly this case.
+    if (result.kind === "signin") {
+      setReportView("email");
+      return;
+    }
     setReportView("error");
   };
 
@@ -471,6 +479,10 @@ export default function TestsApp() {
   const awaitTopUp = (before: number, done: () => void) => {
     const startedAt = Date.now();
     const tick = async () => {
+      // A first-time buyer reaches here signed out (the email step no longer
+      // hands out sessions), and fetchMyBalance needs one. The checkout they
+      // just completed is the proof that mints it.
+      await claimPurchaseSession();
       const value = await fetchMyBalance();
       if (value !== null && value > before) {
         setBalance(value);

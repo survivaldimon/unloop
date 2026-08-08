@@ -1,4 +1,5 @@
-import type { PatternId } from "../../types";
+// Explicit .ts extension — imported by the unloop-send-result edge function too.
+import type { PatternId } from "../../types.ts";
 
 /**
  * Russian text overlay for patterns. Structure/ids stay in ../patterns.ts — this file is text only.

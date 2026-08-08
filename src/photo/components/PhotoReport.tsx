@@ -263,7 +263,8 @@ export default function PhotoReport({
 }: {
   report: AnyPhotoReport | null;
   loading: boolean;
-  error: boolean;
+  /** false, "failed", or "sign_in" — the read is theirs but this device can't prove it. */
+  error: false | "failed" | "sign_in";
   onRetry: () => void;
   useCase: PhotoUseCase;
   subject: PhotoSubject;
@@ -312,7 +313,9 @@ export default function PhotoReport({
 
       {error && !loading && (
         <div className="mt-10 text-center">
-          <p className="text-[14px] text-ember">{ui.reportError}</p>
+          <p className="text-[14px] text-ember">
+            {error === "sign_in" ? ui.reportSignIn : ui.reportError}
+          </p>
           <button className="btn-ghost mt-4" onClick={onRetry}>
             Retry
           </button>

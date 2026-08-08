@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { requireSessionOwner, spendAlreadySettled } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 const CORS = {
@@ -195,6 +196,18 @@ Deno.serve(async (req: Request) => {
       if (!existing?.paid_at) {
         if (!existing?.user_id) {
           return json({ error: "payment_required" }, 402);
+        }
+        // Only the owner may spend the owner's balance (audit 07.08.2026 §2.1).
+        // Inside the !paid_at branch on purpose: a grandfathered session and a
+        // cached report (returned above) still open from an emailed ?s= link on
+        // a signed-out device — neither of those spends anything.
+        //
+        // Skipped when the report is already paid for: the key below covers
+        // both languages, so the second language (and any retry) costs nothing
+        // and stays open on the session UUID like the cached one above.
+        if (!(await spendAlreadySettled(admin, `report:${session_id}`))) {
+          const gate = await requireSessionOwner(admin, req, existing.user_id as string);
+          if (!gate.ok) return json({ error: gate.error }, gate.status);
         }
         // Looplore+ includes the quiz report (same content class as a test
         // report) — zero-delta included row under the same idempotency key.

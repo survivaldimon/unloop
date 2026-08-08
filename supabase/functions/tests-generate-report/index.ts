@@ -1,6 +1,7 @@
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { requireSessionOwner, spendAlreadySettled } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 // The LLM payload is built by pure functions in _shared so the L3 robot can
 // test the exact feed the model sees (docs/tests-spec-and-robot.md).
@@ -253,9 +254,19 @@ Deno.serve(async (req: Request) => {
     }
 
     // Gates: a report reads a finished result, and only an account can pay —
-    // 402 sends the front into the email step.
+    // 402 sends the front into the email step. Past this point the call always
+    // costs the owner (credits or a subscription slot), so the caller has to be
+    // the owner: a leaked session UUID reads the cached report above, it does
+    // not buy a new one (audit 07.08.2026 §2.1).
     if (!row.completed_at) return json({ error: "not_completed" }, 409);
     if (!row.user_id) return json({ error: "payment_required" }, 402);
+    // Skipped when the report is already paid for: treport:{id} covers both
+    // languages, so a language toggle on a signed-out device regenerates the
+    // other side for free, exactly as it did before the gate.
+    if (!(await spendAlreadySettled(admin, `treport:${sessionId}`))) {
+      const gate = await requireSessionOwner(admin, req, row.user_id as string);
+      if (!gate.ok) return json({ error: gate.error }, gate.status);
+    }
 
     const test = TESTS[row.test_id];
     if (!test) {

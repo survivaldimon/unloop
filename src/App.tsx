@@ -15,6 +15,7 @@ import {
   CREDIT_COSTS,
   CREDIT_PACKS,
   capturePromoFromUrl,
+  claimPurchaseSession,
   creditsEnabled,
   ensureAccount,
   fetchMyBalance,
@@ -40,8 +41,6 @@ import {
   type LlmChapters,
 } from "./lib/supabase";
 import { identifyEmail, refreshSessionContext, setAnalyticsContext, track } from "./lib/analytics";
-import { fillSlots } from "./content/patterns";
-import { getPattern } from "./content/localized";
 import { detectLang, persistLang, LangContext, UI, type Lang } from "./i18n";
 
 type Step = "landing" | "quiz" | "analyzing" | "email" | "teaser" | "report";
@@ -75,12 +74,20 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(saved?.unlocked ?? false);
   const [llm, setLlm] = useState<LlmChapters | null>(null);
   const [llmLoading, setLlmLoading] = useState(false);
+  // The personal chapters belong to an account this device isn't signed into.
+  // The static report still renders — this just stops the two missing chapters
+  // from looking like a silent bug.
+  const [llmSignIn, setLlmSignIn] = useState(false);
   const [payState, setPayState] = useState<PayState>("idle");
   const [myBalance, setMyBalance] = useState<number | null>(null);
   const [accountNotice, setAccountNotice] = useState<AccountStatus | null>(null);
   const [topUpCost, setTopUpCost] = useState<number | null>(null);
   const [topUpBusy, setTopUpBusy] = useState(false);
   const pollTimer = useRef<number | null>(null);
+  // The sign-in listener is mounted once with [] deps, so it would otherwise
+  // mail the result in whatever language the first render guessed.
+  const langRef = useRef(lang);
+  langRef.current = lang;
 
   const result = useMemo(
     () =>
@@ -134,6 +141,13 @@ export default function App() {
             }
             refreshBalance();
           });
+        // Fourth job since the send gate tightened: visitors whose email
+        // already had an account never got their result email at the email
+        // step. Now that they are signed in, it can go out — the function
+        // dedups per session, so an already-sent one is a no-op. Fired
+        // separately from the promo chain: a promo rejection must not
+        // swallow the email with it.
+        void sendResultEmail(langRef.current);
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
@@ -194,7 +208,8 @@ export default function App() {
         const restoredResult = score(restored.answers, lang);
         setLlmLoading(true);
         void generateLlmChapters(restoredResult, lang).then((chapters) => {
-          setLlm(chapters);
+          setLlmSignIn(chapters === "sign_in_required");
+          setLlm(typeof chapters === "string" ? null : chapters);
           setLlmLoading(false);
         });
       }
@@ -219,37 +234,35 @@ export default function App() {
     setStep("teaser");
     track("email_submitted");
     identifyEmail(value);
+    // The row carries the address regardless: the payment webhook matches
+    // orders by it even when no account ever forms. It also carries the
+    // answers the result email is now rendered from, server-side.
+    if (result) {
+      void saveSession({ answers, result, email: value, stage: "email" });
+    }
     // Silent account: the balance needs an owner before the paywall shows up.
     if (creditsEnabled) {
       void ensureAccount(value).then((status) => {
         // A known email gets a real magic link instead of a silent session —
         // the paywall says so rather than quietly dropping the balance.
         setAccountNotice(status === "ready" ? null : status);
+        // No session, no result email: unloop-send-result mails the signed-in
+        // account's own address and nothing else. These visitors get theirs
+        // when the magic link brings them back (see the sign-in effect above).
         if (status !== "ready") return;
-        void linkSession("quiz", getSessionId())
+        void linkSession("quiz", getSessionId()).then(() => {
+          // Independent of the promo chain below, which can reject.
+          void sendResultEmail(lang);
           // The account only exists now, so this is where a ?promo= code from
           // the landing link finally has somewhere to land.
-          .then(() => redeemPendingPromo())
-          .then((promo) => {
+          return redeemPendingPromo().then((promo) => {
             if (promo?.kind === "ok") {
               track("promo_redeem", { credits: promo.credits, source: "link" });
             }
             refreshBalance();
           });
+        });
       });
-    }
-    if (result) {
-      const pattern = getPattern(lang, result.pattern);
-      // The send function only mails addresses already stored on the session, so save first.
-      void saveSession({ answers, result, email: value, stage: "email" }).then(() =>
-        sendResultEmail({
-          email: value,
-          lang,
-          patternName: pattern.name,
-          tagline: pattern.tagline,
-          insights: pattern.teaserInsights.map((line) => fillSlots(line, result.quotes, lang)),
-        }),
-      );
     }
   };
 
@@ -261,7 +274,8 @@ export default function App() {
       void saveSession({ answers, result, email, stage: "unlocked" });
       setLlmLoading(true);
       void generateLlmChapters(result, lang).then((chapters) => {
-        setLlm(chapters);
+        setLlmSignIn(chapters === "sign_in_required");
+        setLlm(typeof chapters === "string" ? null : chapters);
         setLlmLoading(false);
         // The generation call is what debits the 95 credits — re-read the chip.
         refreshBalance();
@@ -290,6 +304,10 @@ export default function App() {
     setPayState("confirming");
     const startedAt = Date.now();
     const tick = async () => {
+      // The buyer may have arrived here signed out — the email step no longer
+      // hands out sessions. Their completed checkout mints one, so the balance
+      // chip and the account page work the moment the report unlocks.
+      await claimPurchaseSession();
       if (await checkUnlocked()) {
         unlockPaid(packId);
         return;
@@ -535,6 +553,11 @@ export default function App() {
             }}
             onSubscribe={startSubscribe}
           />
+        )}
+        {step === "report" && result && unlocked && llmSignIn && (
+          <p className="mx-auto mb-6 max-w-xl text-center text-[13px] text-ember">
+            {UI[lang].reportSignIn}
+          </p>
         )}
         {step === "report" && result && unlocked && (
           <Report

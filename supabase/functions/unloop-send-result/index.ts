@@ -1,4 +1,27 @@
+// One-time "your result" email for the quiz.
+//
+// This function used to be an open relay from a verified domain (audit
+// 07.08.2026 §2.1): the subject line and the whole body arrived in the request
+// body, and the only recipient check was "matches the email stored on the
+// session" — a field any anonymous caller could write on a session id they
+// minted themselves, via unloop_save_session(p_email…). Two rules now hold it
+// shut, and both matter:
+//
+//   * the recipient is the AUTHENTICATED caller's own address, never the
+//     request's and never the session row's;
+//   * the content is derived from the session (pattern + answers) against the
+//     same content modules the app renders — nothing user-supplied reaches the
+//     subject or the body. photoread-send-result was already built this way;
+//     this is the quiz catching up.
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { bearerToken, rateLimit, throttleKey } from "../_shared/caller.ts";
+// Same source of truth the site renders, so the email can never drift from the
+// pattern page it links to (looplore-chat imports the test content the same way).
+import { fillSlots, PATTERNS } from "../../../src/content/patterns.ts";
+import { patternsRu } from "../../../src/content/ru/patterns.ts";
+import { QUESTIONS } from "../../../src/content/questions.ts";
+import { questionsRu } from "../../../src/content/ru/questions.ts";
+import type { PatternId } from "../../../src/types.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -11,6 +34,48 @@ const DEFAULT_FROM = "Looplore <hello@looplore.app>";
 const DEFAULT_SITE_URL = "https://looplore.app/";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// Belt to the auth gate's braces: one account cannot turn its own inbox into a
+// send loop, and one IP cannot cycle accounts to do it either.
+const USER_DAILY = 5;
+const IP_HOURLY = 10;
+
+/** getPattern() from src/content/localized.ts, narrowed to the email's fields. */
+function patternFor(
+  lang: "en" | "ru",
+  id: string,
+): { name: string; tagline: string; teaserInsights: string[] } | null {
+  const base = PATTERNS[id as PatternId];
+  if (!base) return null;
+  const ru = lang === "ru" ? patternsRu[id as PatternId] : undefined;
+  return {
+    name: ru?.name ?? base.name,
+    tagline: ru?.tagline ?? base.tagline,
+    teaserInsights: ru?.teaserInsights ?? base.teaserInsights,
+  };
+}
+
+/**
+ * The quote pass of score() in src/lib/scoring.ts: each answered question that
+ * carries a quoteKey contributes the chosen option's quoted wording. Missing
+ * answers simply fall through to fillSlots' generic phrasing.
+ */
+function quotesFrom(answers: unknown, lang: "en" | "ru"): Record<string, string> {
+  const map = (answers ?? {}) as Record<string, unknown>;
+  const quotes: Record<string, string> = {};
+  for (const q of QUESTIONS) {
+    if (!q.quoteKey) continue;
+    const chosen = map[q.id];
+    if (typeof chosen !== "string") continue;
+    const opt = q.options.find((o) => o.id === chosen);
+    if (!opt) continue;
+    const ruQuote = lang === "ru" ? questionsRu[q.id]?.options[opt.id]?.quote : undefined;
+    const quote = ruQuote ?? opt.quote;
+    if (quote) quotes[q.quoteKey] = quote;
+  }
+  return quotes;
+}
 
 interface Copy {
   subject: (patternName: string) => string;
@@ -229,80 +294,126 @@ Deno.serve(async (req: Request) => {
 
   try {
     const body = await req.json();
-    const { session_id, email, pattern_name, tagline, insights } = body ?? {};
+    const sessionId =
+      typeof body?.session_id === "string" ? body.session_id.toLowerCase() : "";
     const lang: "en" | "ru" = body?.lang === "ru" ? "ru" : "en";
-
-    if (
-      typeof session_id !== "string" ||
-      typeof email !== "string" ||
-      !EMAIL_RE.test(email) ||
-      typeof pattern_name !== "string" ||
-      pattern_name.length === 0 ||
-      pattern_name.length > 60 ||
-      typeof tagline !== "string" ||
-      tagline.length > 200 ||
-      !Array.isArray(insights) ||
-      insights.length === 0 ||
-      insights.length > 3 ||
-      insights.some((i: unknown) => typeof i !== "string" || (i as string).length > 400)
-    ) {
-      return json({ error: "bad_request" }, 400);
-    }
+    if (!UUID_RE.test(sessionId)) return json({ error: "bad_request" }, 400);
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
-    // Only send to the address this session actually captured, and only once per session.
+    // The recipient, and the only one this function will ever accept: the
+    // address on the calling account. Not the request's, not the session's.
+    const jwt = bearerToken(req);
+    const { data: userData } = jwt
+      ? await admin.auth.getUser(jwt)
+      : { data: { user: null } };
+    const user = userData?.user ?? null;
+    const recipient = typeof user?.email === "string" ? user.email : "";
+    if (!user || !EMAIL_RE.test(recipient)) return json({ error: "auth_required" }, 401);
+
     const { data: session } = await admin
       .from("unloop_sessions")
-      .select("email, result_email_sent_at")
-      .eq("id", session_id)
+      .select("user_id, pattern, answers, result_email_sent_at")
+      .eq("id", sessionId)
       .maybeSingle();
-    if (!session || (session.email ?? "").toLowerCase() !== email.toLowerCase()) {
-      return json({ error: "email_mismatch" }, 403);
+    if (!session) return json({ error: "not_found" }, 404);
+    // Unowned is the normal case: the funnel fires this while the silent
+    // signup's link-session call is still in flight. Owned by someone else is
+    // not — that would mail one reader another reader's result.
+    if (session.user_id && session.user_id !== user.id) {
+      return json({ error: "not_owner" }, 403);
     }
+    // Dedup before the ceilings, so a retried send never burns quota.
     if (session.result_email_sent_at) {
       return json({ ok: true, deduped: true });
     }
-
-    const apiKey = await getResendKey(admin);
-    if (!apiKey) {
-      return json({ error: "email_not_configured" }, 500);
-    }
-
-    const copy = COPY[lang];
-    // Deep link: ?s=<session id> lets the site restore this session's result
-    // on whatever device the email is opened on.
-    const siteBase = Deno.env.get("UNLOOP_SITE_URL") || DEFAULT_SITE_URL;
-    const siteUrl = `${siteBase}${siteBase.includes("?") ? "&" : "?"}s=${session_id}`;
-    const from = Deno.env.get("RESEND_FROM") || DEFAULT_FROM;
-
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from,
-        to: [email],
-        subject: copy.subject(pattern_name),
-        html: renderHtml(copy, pattern_name, tagline, insights, siteUrl),
-        text: renderText(copy, pattern_name, tagline, insights, siteUrl),
-      }),
-    });
-
-    if (!res.ok) {
-      console.error("resend error", res.status, await res.text());
-      return json({ error: "send_failed" }, 502);
-    }
-    const sent = await res.json();
-
-    await admin
+    // Claim the one send this session gets, before anything else can spend on
+    // its behalf. The funnel reaches here twice at once by design (the email
+    // step and the sign-in listener fire independently), and a read-then-write
+    // dedup lets both through — so the atomic claim, not the read above, is
+    // what actually makes this once-per-session.
+    //
+    // Ceilings come AFTER it for the same reason: budget should be charged to
+    // the call that will really send, not to the one that lost the race.
+    const { data: claimed } = await admin
       .from("unloop_sessions")
       .update({ result_email_sent_at: new Date().toISOString() })
-      .eq("id", session_id);
+      .eq("id", sessionId)
+      .is("result_email_sent_at", null)
+      .select("id");
+    if (!claimed || claimed.length === 0) {
+      return json({ ok: true, deduped: true });
+    }
 
-    return json({ ok: true, id: sent?.id ?? null });
+    // From here on the claim is held, so every exit — including a thrown
+    // fetch — has to give it back, or the session is stranded as "sent" with
+    // nothing delivered and no way to retry.
+    let delivered = false;
+    try {
+      if (
+        !(await rateLimit(admin, "mail_user_d", user.id, USER_DAILY, "24 hours")) ||
+        !(await rateLimit(admin, "mail_ip_h", throttleKey(req), IP_HOURLY, "1 hour"))
+      ) {
+        return json({ error: "rate_limited" }, 429);
+      }
+
+      // Content: from the session's own result, through the site's content
+      // modules. A session with no scored pattern has nothing to mail yet.
+      const pattern =
+        typeof session.pattern === "string" ? patternFor(lang, session.pattern) : null;
+      if (!pattern) return json({ error: "not_ready" }, 409);
+      const quotes = quotesFrom(session.answers, lang);
+      const insights = pattern.teaserInsights
+        .slice(0, 3)
+        .map((line) => fillSlots(line, quotes, lang));
+
+      const apiKey = await getResendKey(admin);
+      if (!apiKey) return json({ error: "email_not_configured" }, 500);
+
+      const copy = COPY[lang];
+      // Deep link: ?s=<session id> lets the site restore this session's result
+      // on whatever device the email is opened on.
+      const siteBase = Deno.env.get("UNLOOP_SITE_URL") || DEFAULT_SITE_URL;
+      const siteUrl = `${siteBase}${siteBase.includes("?") ? "&" : "?"}s=${sessionId}`;
+      const from = Deno.env.get("RESEND_FROM") || DEFAULT_FROM;
+
+      const res = await fetch(RESEND_ENDPOINT, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from,
+          to: [recipient],
+          subject: copy.subject(pattern.name),
+          html: renderHtml(copy, pattern.name, pattern.tagline, insights, siteUrl),
+          text: renderText(copy, pattern.name, pattern.tagline, insights, siteUrl),
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("resend error", res.status, await res.text());
+        return json({ error: "send_failed" }, 502);
+      }
+      const sent = await res.json();
+      delivered = true;
+      // No stamp needed here — claiming the slot above already wrote it.
+      return json({ ok: true, id: sent?.id ?? null });
+    } finally {
+      // Guarded: a throw in here would replace the real response (including a
+      // successful one) with a 500 from the outer catch.
+      if (!delivered) {
+        try {
+          await admin
+            .from("unloop_sessions")
+            .update({ result_email_sent_at: null })
+            .eq("id", sessionId);
+        } catch (releaseErr) {
+          console.error("unloop-send-result release", sessionId, releaseErr);
+        }
+      }
+    }
   } catch (err) {
     console.error("unloop-send-result error", err);
     return json({ error: "internal" }, 500);

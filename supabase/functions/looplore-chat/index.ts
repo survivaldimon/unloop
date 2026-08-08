@@ -1,12 +1,15 @@
 // Follow-up chat about an unlocked read (docs/credits-economy.md §6.4, §10;
 // the tests branch: docs/tests-monetization.md §3).
 // One question = one credit spend (idempotent on the client-minted msg_id, so
-// network retries never double-charge). Capability model matches the rest of
-// the app: possession of the session UUID both reads the report and spends
-// from the session owner's balance.
+// network retries never double-charge). Possession of the session UUID reads
+// the report; asking a question spends the OWNER's balance, so it needs the
+// owner's JWT — this was the sharpest of the §2.1 IDOR findings (07.08.2026),
+// because msg_id is client-minted and every fresh UUID was another 5 credits
+// off a leaked ?s= link's owner, with no ceiling.
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
+import { requireSessionOwner } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
 
 // The seven test content files ride into the bundle (≈660KB, the size
@@ -248,6 +251,11 @@ Deno.serve(async (req: Request) => {
     // moment they buy any pack (webhook links user_id) — until then: 402.
     if (!row.user_id) return json({ error: "payment_required", balance: 0 }, 402);
 
+    // …and only the owner may make them pay. Every branch below this line
+    // debits or consumes quota, so the gate sits above all of them.
+    const gate = await requireSessionOwner(admin, req, row.user_id as string);
+    if (!gate.ok) return json({ error: gate.error }, gate.status);
+
     // Looplore+ covers the first N questions per rolling 30 days as zero-delta
     // included rows (same q:{msg_id} keyspace — a question can never be both
     // included and debited). Over quota, or no subscription → credit price.
@@ -255,6 +263,7 @@ Deno.serve(async (req: Request) => {
     let balance: number | null = null;
     let duplicate = false;
     let chargedCredits = 0;
+    let covered = false;
     if (canInclude(sub, "included_question")) {
       const inc = await includedSpend(
         admin,
@@ -265,16 +274,22 @@ Deno.serve(async (req: Request) => {
         null,
       );
       // Infra failure must not silently fall through to a debit the
-      // subscriber didn't expect — 500 and let the client retry.
-      if (!inc.ok) return json({ error: "internal" }, 500);
-      duplicate = inc.duplicate;
-      const { data: acc } = await admin
-        .from("looplore_credit_accounts")
-        .select("balance")
-        .eq("user_id", row.user_id)
-        .maybeSingle();
-      balance = typeof acc?.balance === "number" ? acc.balance : null;
-    } else {
+      // subscriber didn't expect — 500 and let the client retry. Running out
+      // of quota inside the RPC is a different answer: the authoritative one,
+      // since canInclude read usage before this request did its work.
+      if (!inc.ok && !inc.overQuota) return json({ error: "internal" }, 500);
+      covered = inc.ok;
+      if (covered) {
+        duplicate = inc.duplicate;
+        const { data: acc } = await admin
+          .from("looplore_credit_accounts")
+          .select("balance")
+          .eq("user_id", row.user_id)
+          .maybeSingle();
+        balance = typeof acc?.balance === "number" ? acc.balance : null;
+      }
+    }
+    if (!covered) {
       const spend = await admin.rpc("credits_spend", {
         p_user_id: row.user_id,
         p_amount: CREDIT_COSTS.chat_question,

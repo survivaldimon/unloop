@@ -448,6 +448,7 @@ export type TestReportResult =
       mismatch: boolean;
     }
   | { kind: "payment"; balance: number | null }
+  | { kind: "signin" }
   | { kind: "failed" };
 
 /**
@@ -462,11 +463,17 @@ export async function fetchTestReport(
   sessionId: string,
   lang: string,
 ): Promise<TestReportResult> {
+  if (!supabase) return { kind: "failed" };
   try {
-    const { status, data } = await callTestsFn("tests-generate-report", {
-      session_id: sessionId,
-      lang,
-    });
+    // Signed with the user's own token: a claimed session's report is bought
+    // with that account's credits, and since the 07.08.2026 audit fix the
+    // server checks who is asking before it charges anyone (§2.1).
+    const { data: current } = await supabase.auth.getSession();
+    const { status, data } = await callTestsFn(
+      "tests-generate-report",
+      { session_id: sessionId, lang },
+      current.session?.access_token,
+    );
     if (status === 200) {
       const chapters = parseChapters(data);
       if (chapters) {
@@ -480,6 +487,8 @@ export async function fetchTestReport(
         balance: typeof data?.balance === "number" ? data.balance : null,
       };
     }
+    // The session belongs to an account this device isn't signed into.
+    if (status === 401 || status === 403) return { kind: "signin" };
     return { kind: "failed" };
   } catch {
     return { kind: "failed" };

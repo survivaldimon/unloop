@@ -1,4 +1,7 @@
-import type { PatternId } from "../types";
+// Explicit .ts extension: this module is also imported by the
+// unloop-send-result edge function, and Deno does not resolve extensionless
+// specifiers (same reason src/tests/engine.ts writes them that way).
+import type { PatternId } from "../types.ts";
 
 export interface LoopStep {
   label: string;
