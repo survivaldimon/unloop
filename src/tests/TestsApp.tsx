@@ -68,6 +68,7 @@ import {
   type ReportChapter,
 } from "../lib/tests";
 import TestCatalogue from "./components/TestCatalogue";
+import StartHere from "./components/StartHere";
 import PortraitCard from "./components/PortraitCard";
 import PortraitScreen, { type PortraitStage } from "./components/PortraitScreen";
 import ReportChapters from "./components/ReportChapters";
@@ -866,17 +867,23 @@ export default function TestsApp() {
                 </p>
               </button>
             )}
+            <StartHere onPick={(id) => void open(id)} isDone={(id) => statusOf(id) === "done"} />
             <TestCatalogue onPick={(id) => void open(id)} statusOf={statusOf} />
-            {completedTests > 0 && (
-              <div className="mt-2">
-                <PortraitCard
-                  completed={completedTests}
-                  purchasedWith={portraitOwnedAt}
-                  onOpen={openPortrait}
-                  onPickTest={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                />
-              </div>
-            )}
+            {/*
+              Shown from zero tests on (K1a). It used to appear only once
+              something was finished, which meant the one sequence the catalogue
+              has — three tests, then the portrait — was invisible to exactly
+              the visitor who needed a reason to take a second test. Below the
+              gate the card is a signpost, not a paywall.
+            */}
+            <div className="mt-2">
+              <PortraitCard
+                completed={completedTests}
+                purchasedWith={portraitOwnedAt}
+                onOpen={openPortrait}
+                onPickTest={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              />
+            </div>
           </>
         )}
 

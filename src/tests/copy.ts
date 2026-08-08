@@ -6,6 +6,56 @@
 import type { Lang } from "../i18n";
 
 /**
+ * The catalogue headline spells its number out ("Nineteen ways to read
+ * yourself") — that voice is worth keeping, but the number moves every batch,
+ * so it cannot stay a literal. Covers the range the catalogue will plausibly
+ * live in and falls back to digits rather than breaking.
+ */
+const ONES_EN = [
+  "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+  "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+  "seventeen", "eighteen", "nineteen",
+];
+const TENS_EN = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+function spellEn(n: number): string {
+  if (n < 20) return ONES_EN[n] ?? String(n);
+  if (n > 99) return String(n);
+  const tens = TENS_EN[Math.floor(n / 10)];
+  const ones = ONES_EN[n % 10];
+  return ones ? `${tens}-${ones}` : tens;
+}
+
+const ONES_RU = [
+  "", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять",
+  "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
+  "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать",
+];
+const TENS_RU = ["", "", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
+
+function spellRu(n: number): string {
+  if (n < 20) return ONES_RU[n] ?? String(n);
+  if (n > 99) return String(n);
+  const tens = TENS_RU[Math.floor(n / 10)];
+  const ones = ONES_RU[n % 10];
+  return ones ? `${tens} ${ones}` : tens;
+}
+
+/**
+ * Russian counted-noun agreement: 1 способ, 2–4 способа, 5–20 способов, and
+ * again by the last digit above that. The catalogue was getting this wrong on
+ * question counts ("24 вопросов" on six of nineteen cards).
+ */
+function pluralRu(n: number, one: string, few: string, many: string): string {
+  const mod100 = n % 100;
+  if (mod100 >= 11 && mod100 <= 14) return many;
+  const mod10 = n % 10;
+  if (mod10 === 1) return one;
+  if (mod10 >= 2 && mod10 <= 4) return few;
+  return many;
+}
+
+/**
  * Chapter one is named after the *type* of test, not the test — four shapes
  * across seven tests (docs/tests-monetization.md §2). The rest of the skeleton
  * is identical everywhere, which is why only this one branches.
@@ -32,13 +82,46 @@ interface TestsCopyShape {
   title: string;
   catalogue: {
     kicker: string;
-    h1: string;
+    /** Takes the catalogue size — it grows every batch, so it cannot be a constant. */
+    h1: (total: number) => string;
     body: string;
     minutes: (n: number) => string;
     questions: (n: number) => string;
     start: string;
     resume: string;
     done: string;
+    /** Shelf headings, keyed by the categoryId the extraction assigns. */
+    shelves: Record<string, string>;
+    /** Fallback heading for a category nobody has named yet (K1c adds tests). */
+    shelfOther: string;
+    /** Sort control above the shelves. */
+    sortBy: string;
+    sortSuggested: string;
+    sortShortest: string;
+    /** Real counts only — rendered only above the floor in socialProof.ts. */
+    taken: (n: number) => string;
+    trending: string;
+  };
+  /** The router in front of the shelf: two questions, then one test. */
+  startHere: {
+    kicker: string;
+    title: string;
+    body: string;
+    cta: string;
+    skip: string;
+    /** Q1 — what brought you here. */
+    intentQuestion: string;
+    intents: Record<string, string>;
+    /** Q2 — how long you have. */
+    timeQuestion: string;
+    timeShort: string;
+    timeAny: string;
+    /** The pick. */
+    pickKicker: string;
+    pickBody: string;
+    pickCta: string;
+    again: string;
+    browse: string;
   };
   runner: {
     back: string;
@@ -96,6 +179,8 @@ interface TestsCopyShape {
     /** At or above it: the plain count, because more tests is the good news. */
     progressDone: (done: number) => string;
     ctaLocked: string;
+    /** Same button with nothing finished yet — "one more" would be a lie at zero. */
+    ctaFirst: string;
     ctaBuy: (credits: number) => string;
     ctaOpen: string;
     ctaUpdate: (credits: number) => string;
@@ -132,13 +217,52 @@ const EN: TestsCopyShape = {
   title: "Tests — Looplore",
   catalogue: {
     kicker: "Nº 01 · Tests",
-    h1: "Nineteen ways to read yourself",
+    h1: (total) => {
+      const word = spellEn(total);
+      return `${word.charAt(0).toUpperCase()}${word.slice(1)} ways to read yourself`;
+    },
     body: "Short, honest, no horoscopes. Each one adds to the same portrait — the more you take, the sharper it gets.",
     minutes: (n) => `${n} min`,
-    questions: (n) => `${n} questions`,
+    questions: (n) => `${n} question${n === 1 ? "" : "s"}`,
     start: "Take it",
     resume: "Continue",
     done: "Retake",
+    shelves: {
+      relationships: "Close relationships",
+      emotional: "How you feel",
+      personality: "What you're made of",
+      intelligence: "How you read people",
+    },
+    shelfOther: "More",
+    sortBy: "Sort",
+    sortSuggested: "Suggested",
+    sortShortest: "Shortest first",
+    taken: (n) => `${n.toLocaleString("en-US")}+ taken`,
+    trending: "Most taken this week",
+  },
+  startHere: {
+    kicker: "New here?",
+    title: "Start with one",
+    body: "Two questions, and we'll pick the test that fits where you are right now. Or skip and browse everything.",
+    cta: "Pick one for me",
+    skip: "Browse all tests",
+    intentQuestion: "What's on your mind?",
+    intents: {
+      relationships: "Someone I'm close to",
+      friends: "My friends and who I keep around",
+      self: "What I'm actually like",
+      energy: "Where my energy goes",
+      habits: "My phone, my attention, my time",
+      work: "Work and what I'm worth at it",
+    },
+    timeQuestion: "How long have you got?",
+    timeShort: "Ten minutes or less",
+    timeAny: "However long it takes",
+    pickKicker: "Start here",
+    pickBody: "Best first read for what you said. Everything else stays on the shelf.",
+    pickCta: "Take this one",
+    again: "Ask me again",
+    browse: "See all tests",
   },
   runner: {
     back: "Back",
@@ -207,6 +331,7 @@ const EN: TestsCopyShape = {
     progress: (done, required) => `${done} of ${required} tests`,
     progressDone: (done) => `across ${done} tests`,
     ctaLocked: "Take one more",
+    ctaFirst: "Take your first",
     ctaBuy: (credits) => `Composite portrait — ${credits} cr`,
     ctaOpen: "Open the portrait",
     ctaUpdate: (credits) => `Update — ${credits} cr`,
@@ -252,13 +377,53 @@ const RU: TestsCopyShape = {
   title: "Тесты — Looplore",
   catalogue: {
     kicker: "Nº 01 · Тесты",
-    h1: "Девятнадцать способов прочитать себя",
+    h1: (total) => {
+      const word = spellRu(total);
+      const noun = pluralRu(total, "способ", "способа", "способов");
+      return `${word.charAt(0).toUpperCase()}${word.slice(1)} ${noun} прочитать себя`;
+    },
     body: "Коротко, честно, без гороскопов. Каждый добавляет к одному портрету — чем больше пройдёшь, тем он точнее.",
     minutes: (n) => `${n} мин`,
-    questions: (n) => `${n} вопросов`,
+    questions: (n) => `${n} ${pluralRu(n, "вопрос", "вопроса", "вопросов")}`,
     start: "Пройти",
     resume: "Продолжить",
     done: "Пройти заново",
+    shelves: {
+      relationships: "Близкие отношения",
+      emotional: "Как ты себя чувствуешь",
+      personality: "Из чего ты сделан",
+      intelligence: "Как ты считываешь людей",
+    },
+    shelfOther: "Ещё",
+    sortBy: "Порядок",
+    sortSuggested: "По умолчанию",
+    sortShortest: "Сначала короткие",
+    taken: (n) => `${n.toLocaleString("ru-RU")}+ ${pluralRu(n, "прошёл", "прошли", "прошли")}`,
+    trending: "Чаще всего проходят на этой неделе",
+  },
+  startHere: {
+    kicker: "Первый раз здесь?",
+    title: "Начни с одного",
+    body: "Два вопроса — и подберём тест под то, где ты сейчас. Или пропусти и смотри всё сам.",
+    cta: "Подбери мне тест",
+    skip: "Смотреть все тесты",
+    intentQuestion: "Что тебя сейчас занимает?",
+    intents: {
+      relationships: "Близкий человек",
+      friends: "Друзья и круг общения",
+      self: "Какой я на самом деле",
+      energy: "Куда уходят силы",
+      habits: "Телефон, внимание, время",
+      work: "Работа и чего я в ней стою",
+    },
+    timeQuestion: "Сколько есть времени?",
+    timeShort: "Десять минут или меньше",
+    timeAny: "Сколько понадобится",
+    pickKicker: "Начни отсюда",
+    pickBody: "Лучший первый заход под то, что ты выбрал. Остальное никуда не денется.",
+    pickCta: "Пройти этот",
+    again: "Спроси заново",
+    browse: "Все тесты",
   },
   runner: {
     back: "Назад",
@@ -327,6 +492,7 @@ const RU: TestsCopyShape = {
     progress: (done, required) => `пройдено ${done} из ${required}`,
     progressDone: (done) => `по ${done} тестам`,
     ctaLocked: "Пройти ещё один",
+    ctaFirst: "Пройти первый",
     ctaBuy: (credits) => `Сводный портрет — ${credits} кр`,
     ctaOpen: "Открыть портрет",
     ctaUpdate: (credits) => `Обновить — ${credits} кр`,

@@ -38,6 +38,17 @@ const metaPattern = (attr, name) =>
 const metaTag = (attr, name, content) =>
   `<meta ${attr}="${name}" content="${escapeHtml(content)}" />`;
 
+/**
+ * Inserts tags the template has no slot for. Every per-test page is a copy of
+ * the same /tests shell, so without a canonical of its own each one would
+ * declare — or be guessed into — the same URL, and nineteen pages would compete
+ * as duplicates of one. K1b.
+ */
+function injectHead(html, tags) {
+  if (!html.includes("</head>")) throw new Error("tests-og: no </head> in dist/tests/index.html");
+  return html.replace("</head>", `${tags}\n  </head>`);
+}
+
 const catalogue = JSON.parse(
   await readFile(path.join(ROOT, "src", "content", "tests", "index.json"), "utf8"),
 );
@@ -59,6 +70,24 @@ for (const test of catalogue) {
   ]) {
     html = stamp(html, metaPattern(attr, name), metaTag(attr, name, content));
   }
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    name: test.title.en,
+    description,
+    url,
+    educationalLevel: "beginner",
+    numberOfQuestions: test.questionCount,
+    isAccessibleForFree: true,
+    publisher: { "@type": "Organization", name: "Looplore", url: "https://looplore.app/" },
+  };
+
+  html = injectHead(
+    html,
+    `    <link rel="canonical" href="${escapeHtml(url)}" />\n` +
+      `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`,
+  );
 
   const dir = path.join(DIST_TESTS, test.id);
   await mkdir(dir, { recursive: true });
