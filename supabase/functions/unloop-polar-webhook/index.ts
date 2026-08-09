@@ -190,14 +190,16 @@ async function sendMetaPurchase(
     const testCode = await getSecret(admin, "META_TEST_EVENT_CODE");
     if (testCode) body.test_event_code = testCode;
 
-    const res = await fetch(
-      `${META_GRAPH}/${pixelId}/events?access_token=${encodeURIComponent(token)}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      },
-    );
+    // The CAPI token travels in the body, not the query string: Graph accepts
+    // both, and a URL parameter is the one that ends up copied into request
+    // logs, error traces and metrics (аудит 07.08.2026 §2.3).
+    body.access_token = token;
+
+    const res = await fetch(`${META_GRAPH}/${pixelId}/events`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
     if (!res.ok) {
       console.error("meta capi purchase failed", res.status, await res.text());
     }
@@ -239,15 +241,20 @@ function materializePhotoReport(sessionId: string): void {
   // Service-role bearer, not anon: since the §2.1 IDOR fix, spending on a
   // claimed session needs the owner's JWT, and a buyer who closed the tab has
   // no session for us to borrow. The service-role key is how this call says
-  // "this is the server, and Polar already signed for the purchase".
-  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? anonKey;
+  // "this is the server, and Polar already signed for the purchase" — an
+  // internal hop should not present as a public client (аудит 07.08.2026 §3.3),
+  // and it survives an anon-key rotation and any anon-level throttling.
+  // No anon fallback: after the IDOR fix an anon bearer cannot spend, so
+  // falling back would turn a missing secret into a silent 402 instead of a
+  // loud failure.
+  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
   const materialize = fetch(
     `${Deno.env.get("SUPABASE_URL")}/functions/v1/photoread-report`,
     {
       method: "POST",
       headers: {
         Authorization: `Bearer ${serviceKey}`,
-        apikey: anonKey,
+        apikey: anonKey || serviceKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ session_id: sessionId }),

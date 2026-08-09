@@ -33,3 +33,7 @@ jobs:
       - run: npm run tests:audit
       - run: npm run tests:lint
       - run: npm run tests:feed-invariants
+      # Ни один серверный секрет не должен доехать до бандла: проверяются env-
+      # файлы (VITE_-имя, звучащее как секрет) и собранный dist (Supabase-JWT с
+      # ролью не anon, префиксы ключей Anthropic/Polar/Resend). Аудит §3.3.
+      - run: npm run check:secrets

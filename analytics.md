@@ -33,12 +33,12 @@
 | `quiz_start` | клик по CTA на лендинге | — |
 | `question_answered` | выбор ответа | `question_id` (q1…q32), `block` (1–8), `index` (1–32, порядковый номер) |
 | `insight_view` | показ инсайт-чекпоинта | `block` |
-| `quiz_complete` | ответ на последний экран | `pattern` |
-| `email_submitted` | отправка email | — (email уходит в профиль person, не в событие) |
+| `quiz_complete` | ответ на последний экран | — |
+| `email_submitted` | отправка email | — (сам адрес в PostHog не уходит вовсе, см. врезку ниже) |
 | `email_skipped` | клик «пропустить» | — |
-| `teaser_view` | показ тизера | `pattern` |
+| `teaser_view` | показ тизера | — |
 | `unlock_click` | клик «открыть полный разбор» (при включённых платежах = старт чекаута Paddle) | — |
-| `report_view` | показ отчёта | `pattern` |
+| `report_view` | показ отчёта | — |
 | `lang_switch` | переключение языка | `to` (`en`/`ru`) |
 | `purchase` | вебхук подтвердил оплату (поллинг увидел `paid_at`) | — |
 
@@ -49,15 +49,25 @@
 | `tests_catalogue_view` | показ каталога `/tests` — при заходе, возврате кнопкой «назад» и выходе из теста в каталог. Диплинк `?t=<id>` сразу в тест это событие **не** шлёт | — |
 | `test_start` | открытие теста (клик в каталоге или диплинк) | `test_id`, `test_session_id` |
 | `test_question_answered` | каждый ответ на вопрос | `test_id`, `test_session_id`, `question_id`, `index` (1-based порядковый номер), `total` (вопросов в тесте) |
-| `test_complete` | ответ на последний вопрос, результат посчитан | `test_id`, `test_session_id`, `profile_id` |
+| `test_complete` | ответ на последний вопрос, результат посчитан | `test_id`, `test_session_id` |
 
 - `test_session_id` — это `looplore_test_sessions.id` в Supabase: событие можно сджойнить с ответами и результатом теста. Подмешивается в каждое событие теста отдельно, потому что super-prop `session_db_id` указывает на **квизовую** сессию, а не на тестовую.
 - Событие на каждый вопрос — сознательно: кривая доходимости по вопросам решает, резать ли длинные тесты (60–80 вопросов). Объём не страшен: даже длинный тест ≈ 80 событий, при лимите 1 млн/мес это ~12 000 полных прохождений только на тестах.
 - `tests_catalogue_view` дополнительно уходит в Meta как `ViewContent` (content_category `tests`) — см. [meta-ads.md](meta-ads.md).
 
+> **Приватность (решение основателя 07.08.2026, S3 — «привести потоки под
+> текущий Privacy»):** в аналитику не уходят **психо-метки** и **сырой email**.
+> Убраны: super-prop `pattern`, свойство `pattern` у `quiz_complete`/
+> `teaser_view`/`report_view`/`share`, `profile_id` у `test_complete`/
+> `test_share`, свойство `email` у `posthog.identify`, а также `pattern` в
+> Meta-событиях `QuizComplete`/`ViewContent`. Privacy описывает аналитику как
+> «шаги воронки, страницы, устройство и браузер» — теперь так и есть.
+> Результат по-прежнему сджойнивается **на своей стороне** через
+> `session_db_id` / `test_session_id`. Новых событий с меткой результата не
+> заводить. Подробности: `docs/security-s3-report.md` §1.5.
+
 Ко **всем** событиям автоматически подмешиваются super-props:
 - `lang` — текущий язык (`en`/`ru`);
-- `pattern` — паттерн пользователя (появляется после завершения квиза);
 - `session_db_id` — id строки в таблице `sessions` Supabase (можно связать событие с ответами);
 - `utm_source` / `utm_medium` / `utm_campaign` / `utm_content` / `utm_term` — из ссылки объявления, если пришли с рекламы (см. meta-ads.md) — воронку можно разбивать по кампаниям и креативам.
 
@@ -111,13 +121,13 @@
 
 Покажет две воронки рядом: en против ru. Если ru конвертит заметно хуже — проблема в переводах/тоне, а не в продукте.
 
-### 4. Конверсия тизера по паттернам (1 минута)
+### 4. Конверсия тизера по паттернам — **больше не через PostHog**
 
-1. **New insight → Funnels**: `teaser_view` → `unlock_click`.
-2. **Breakdown → Event properties → `pattern`**.
-3. Save как «Unlock rate by pattern» → Add to dashboard.
-
-Видно, какой из паттернов «цепляет» сильнее — под слабые можно переписать текст тизера.
+Разбивка по `pattern` из аналитики убрана (см. врезку про приватность выше).
+Тот же вопрос — «какой паттерн цепляет сильнее» — считается на своей стороне:
+`session_db_id` события джойнится с `unloop_sessions.pattern`, а факт анлока —
+с `looplore_credit_ledger` по ключу `report:<session_id>`. Разово это SQL по
+прод-базе, регулярно — отдельный вью, если понадобится.
 
 ### 5. Воронка тестов (3 минуты)
 
@@ -142,5 +152,5 @@
 
 - Модуль: [src/lib/analytics.ts](src/lib/analytics.ts) — единственная точка входа (`track`, `setAnalyticsContext`, `identifyEmail`). Без `VITE_POSTHOG_KEY` все функции — no-op, по образцу [src/lib/supabase.ts](src/lib/supabase.ts).
 - Autocapture и автоматический pageview выключены — шлём только события из таблицы выше, данные чистые.
-- Email не пишется в события — только в профиль person (`identify`), при этом distinct_id = тот же uuid, что и `sessions.id` в Supabase.
+- Email не уходит в PostHog вообще (с 07.08.2026): `identify` только промотирует посетителя в person-профиль, distinct_id = тот же uuid, что и `sessions.id` в Supabase. Адрес есть в своей БД и в Meta — там только SHA-256-хэшем.
 - В dev-режиме ключ не подхватывается (он только в `.env.production`) — локальная разработка не мусорит в статистику.

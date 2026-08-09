@@ -8,6 +8,7 @@ export default function EmailCapture({
   body,
   submitLabel,
   skipLabel,
+  notice,
 }: {
   onSubmit: (email: string) => void;
   onSkip: () => void;
@@ -21,6 +22,8 @@ export default function EmailCapture({
   body?: string;
   submitLabel?: string;
   skipLabel?: string;
+  /** What happened after the last submit — shown under the form. */
+  notice?: string | null;
 }) {
   const ui = t(useLang()).email;
   const [value, setValue] = useState("");
@@ -52,6 +55,7 @@ export default function EmailCapture({
           {submitLabel ?? ui.submit}
         </button>
       </form>
+      {notice && <p className="rise rise-2 -mt-3 text-[13px] leading-relaxed text-brass-2">{notice}</p>}
       <button
         className="rise rise-3 text-sm text-mist/60 underline-offset-4 hover:underline"
         onClick={onSkip}

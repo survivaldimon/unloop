@@ -1,7 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Раньше стоял `push: branches: [main]` — деплой стартовал параллельно с CI и
+# красный main всё равно уезжал в прод (аудит 07.08.2026 §3.3). Теперь триггер —
+# ЗАВЕРШЁНИЕ прогона CI на main, и джоба выполняется только при conclusion ==
+# success. Ручной запуск (workflow_dispatch) остаётся аварийным люком.
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -17,11 +23,18 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # workflow_run по умолчанию чекаутит верхушку ветки, а не тот коммит,
+      # который прошёл CI — на быстрой серии пушей это выкатило бы непроверенное.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22

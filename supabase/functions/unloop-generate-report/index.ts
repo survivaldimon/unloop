@@ -96,6 +96,51 @@ Chapter 1 — personalRead ('Your personal read'): open with what their specific
 
 Chapter 2 — outside ('How it reads from their side'): describe how this exact pattern is experienced by a partner over time — early appeal, growing strain, the misread. Use their quoted behaviors where natural. End with one sentence that reframes the partner's retreat or confusion without blaming either side. 2-3 short paragraphs, ~150 words.`;
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/**
+ * Everything below travels from the client straight into the prompt, so it is
+ * bounded here rather than trusted (аудит 07.08.2026 §2.3 «Prompt injection в
+ * unloop-generate-report»). The tests and photo funnels never had this problem:
+ * their prompts are built server-side from catalogue text keyed by answer id
+ * (_shared/report-payload.ts). The quiz predates that design and still ships
+ * its own scored strings, so the guard is a whitelist plus hard caps: five
+ * known quote slots, short values, and no unbounded field anywhere.
+ */
+const QUOTE_KEYS = new Set([
+  "silence_thought",
+  "distance_feeling",
+  "first_move",
+  "ending",
+  "fear",
+]);
+/** Real values are answer-option phrases — a few dozen characters at most. */
+const MAX_FIELD = 200;
+
+const short = (value: unknown): string | null =>
+  typeof value === "string" && value.trim() ? value.trim().slice(0, MAX_FIELD) : null;
+
+/** 0-100 axis score, or null when the client sent something that isn't one. */
+const axis = (value: unknown): number | null =>
+  typeof value === "number" && Number.isFinite(value)
+    ? Math.min(100, Math.max(0, Math.round(value)))
+    : null;
+
+function safeQuotes(value: unknown): Record<string, string> {
+  const out: Record<string, string> = {};
+  if (!value || typeof value !== "object" || Array.isArray(value)) return out;
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (!QUOTE_KEYS.has(key)) continue;
+    const text = short(raw);
+    if (text) out[key] = text;
+  }
+  return out;
+}
+
+/** Own-property lookup: "constructor"/"__proto__" must not resolve to a pattern. */
+const patternMeta = (value: unknown) =>
+  typeof value === "string" && Object.hasOwn(PATTERN_META, value) ? PATTERN_META[value] : null;
+
 const LANG_SUFFIX: Record<string, string> = {
   en: "\n\nWrite both chapters in English.",
   ru: "\n\nОбе главы напиши по-русски, на «ты». Пиши как сильный русский автор поп-психологии, а не как переводчик: короткие фразы, живой разговорный ритм, никакого канцелярита, причастных цепочек и дословных калек с английского. Перечитай мысленно каждую фразу: если так не скажет живой человек — переформулируй. Цитаты ответов пользователя уже на русском — вплетай их дословно и так, чтобы падежи и род сходились. Название паттерна используй русское (поле nameRu).",
@@ -165,10 +210,13 @@ Deno.serve(async (req: Request) => {
     const body = await req.json();
     const { session_id, pattern, secondary, anx, avo, quotes, status, goal } = body ?? {};
     const lang = body?.lang === "ru" ? "ru" : "en";
-    const meta = PATTERN_META[pattern as string];
-    if (!meta || typeof session_id !== "string") {
+    const meta = patternMeta(pattern);
+    // session_id is a table key AND the idempotency key of the spend below, so
+    // it gets the same UUID check every other function applies to it.
+    if (!meta || typeof session_id !== "string" || !UUID_RE.test(session_id)) {
       return json({ error: "bad_request" }, 400);
     }
+    const sessionId = session_id.toLowerCase();
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -179,7 +227,7 @@ Deno.serve(async (req: Request) => {
     const { data: existing } = await admin
       .from("unloop_sessions")
       .select("report, paid_at, user_id")
-      .eq("id", session_id)
+      .eq("id", sessionId)
       .maybeSingle();
 
     // A cached report was already paid for (or predates the gate) — serve it.
@@ -217,8 +265,8 @@ Deno.serve(async (req: Request) => {
             admin,
             existing.user_id,
             "included_report",
-            `report:${session_id}`,
-            session_id,
+            `report:${sessionId}`,
+            sessionId,
             null,
           );
           if (!inc.ok) return json({ error: "internal" }, 500);
@@ -227,8 +275,8 @@ Deno.serve(async (req: Request) => {
             p_user_id: existing.user_id,
             p_amount: CREDIT_COSTS.report_quiz,
             p_kind: "spend_report",
-            p_key: `report:${session_id}`,
-            p_ref: session_id,
+            p_key: `report:${sessionId}`,
+            p_ref: sessionId,
             p_meta: null,
           });
           if (spend.error || spend.data?.ok !== true) {
@@ -247,17 +295,17 @@ Deno.serve(async (req: Request) => {
     }
     const anthropic = new Anthropic({ apiKey });
 
-    const secondaryMeta = secondary ? PATTERN_META[secondary as string] : null;
+    const secondaryMeta = patternMeta(secondary);
     const userPayload = {
       pattern: { id: pattern, ...meta },
       secondary_streak: secondaryMeta
         ? { id: secondary, name: secondaryMeta.name, nameRu: secondaryMeta.nameRu, essence: secondaryMeta.essence }
         : null,
-      anxiety_0_100: anx,
-      avoidance_0_100: avo,
-      relationship_status: status || "unknown",
-      stated_goal: goal || "unknown",
-      their_quoted_answers: quotes ?? {},
+      anxiety_0_100: axis(anx),
+      avoidance_0_100: axis(avo),
+      relationship_status: short(status) ?? "unknown",
+      stated_goal: short(goal) ?? "unknown",
+      their_quoted_answers: safeQuotes(quotes),
     };
 
     const response = await anthropic.messages.create({
@@ -289,7 +337,7 @@ Deno.serve(async (req: Request) => {
     await admin
       .from("unloop_sessions")
       .update({ report: merged, updated_at: new Date().toISOString() })
-      .eq("id", session_id);
+      .eq("id", sessionId);
 
     return json(report);
   } catch (err) {

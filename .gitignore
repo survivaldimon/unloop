@@ -3,8 +3,20 @@ dist
 # dev-only test assets for the photo funnel (never ship a face in the repo)
 public/photoread-test*.webp
 supabase/.temp
+# Env files. `.env.production` is committed ON PURPOSE — every value in it is
+# public by design (Supabase anon key, PostHog project key, Meta pixel id) and
+# GitHub Pages builds have nowhere else to read them from. Everything else with
+# secrets in it stays out, and the rule that keeps this safe is NOT this file:
+#
+#   NEVER give a server secret a VITE_ prefix.
+#
+# Vite inlines every VITE_ variable into the client bundle, so such a secret
+# ships to every visitor whether or not the file is committed. Server secrets
+# live in Supabase Vault and are read through unloop_get_secret.
+# `npm run check:secrets` (blocking in CI) enforces both ends of that rule.
 .env
-.env.local
+.env.*
+!.env.production
 *.local
 .DS_Store
 tsconfig.tsbuildinfo

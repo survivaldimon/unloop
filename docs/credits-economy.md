@@ -159,10 +159,12 @@ create table credit_ledger (
 - Новая функция `looplore-chat`: спенд 5/вопрос, `key='q:{question_id}'`, история в таблице `chat_messages`.
 - Новая функция `daily-insight`: claim (+10, идемпотентен на дату) выполняется при заходе; спенд 10 — при запросе инсайта; результат кэшируется в `daily_insights (user_id, date unique)`.
 - Флаг `CREDITS_ENABLED` (Vault/env): off = старый пейволл и старая логика целиком. Мгновенный откат.
+- **Квиз: скелет бесплатный, персонализация платная** (решение основателя 07.08.2026, аудит §2.3 / `docs/security-s3-report.md` §2). Статический скелет разбора и generic-fallback главы бандлятся клиенту, `unlocked` — флаг в `localStorage`: флип флага показывает эту статику. Так и задумано — платное здесь это **персональные LLM-главы** (I и II), они за 402-гейтом `unloop-generate-report` и без оплаты недоступны. Серверный гейт на статику квиза сознательно НЕ делаем. Тесты и фото устроены иначе: у них весь разбор серверный, и обойти его нечем — эту схему не регрессировать.
 
 ## 11. Аналитика
 
 PostHog: `paywall_view`, `pack_select`, `checkout_open`, `purchase {pack, value, bonus}`, `credits_spend {kind}`, `balance_zero`, `topup_view`, `topup_purchase`, `chat_question`, `daily_claim`, `insight_view`, `upsell_view`, `upsell_purchase`, `promo_redeem {credits, source}`, подарки — `gift_view`, `gift_tier_select`, `gift_checkout_open`, `gift_purchase`, `gift_card_share`, `gift_claim_view`, `gift_redeem` (§5.2, полный список в `docs/gifts.md` §8).
+**Приватность потоков (решение основателя 07.08.2026, S3 §13):** в аналитику не уходят ни сырой email (PostHog идентифицирует по псевдонимному `session_db_id`; Meta получает только SHA-256-хэш при покупке), ни психо-метки — паттерн квиза убран и из свойств событий PostHog, и из Meta-событий `QuizComplete`/`ViewContent`. Срез по паттернам делается на своей стороне через `session_db_id` → `unloop_sessions.pattern`. Новые события с меткой результата не заводить (подарочные события выше меток результата не несут).
 Meta: `InitiateCheckout`, `Purchase` (value = пак). AOV в Meta станет переменным — это ок, событий Purchase станет больше (top-ups), сигнал для оптимизации плотнее.
 Ключевые метрики запуска: конверсия пейволл→покупка (vs текущая), микс Mini/Starter/Big в первых покупках, доля top-up в выручке, D1/D7 return (claim), вопросов на покупателя, каннибализация разборов дневным грантом.
 

@@ -903,10 +903,12 @@ export default function TestsApp() {
             onFinish={async (answers) => {
               writeAnswers(step.test.id, answers);
               const { outcome, completion } = await completeTest(step.test, answers, lang);
+              // No profile_id: the tests funnel's equivalent of the quiz's
+              // pattern, and analytics stops at funnel steps (S3 §13). The
+              // outcome is joinable on our side via test_session_id.
               track("test_complete", {
                 test_id: step.test.id,
                 test_session_id: getTestSessionId(step.test.id),
-                profile_id: outcome.profileId ?? "none",
               });
               setAttemptUnsaved(completion === "cooldown");
               setAnswersDate(fmtDate(new Date().toISOString(), lang));

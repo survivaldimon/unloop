@@ -36,7 +36,24 @@ export interface UiStrings {
     checkpoint: (n: number) => string;
   };
   analyzing: string[];
-  email: { title: string; body: string; submit: string; skip: string };
+  email: {
+    title: string;
+    body: string;
+    submit: string;
+    skip: string;
+    /**
+     * A ?s= link whose session an account already claimed: the UUID stopped
+     * being proof of ownership (migration 20260807160000_session_read_privacy),
+     * so the same step doubles as the sign-in door.
+     */
+    lockedTitle: string;
+    lockedBody: string;
+    lockedSubmit: string;
+    lockedSkip: string;
+    lockedSent: string;
+    lockedWrong: string;
+    lockedError: string;
+  };
   axes: { anx: string; avo: string };
   teaser: {
     kicker: string;
@@ -140,6 +157,16 @@ export const UI: Record<Lang, UiStrings> = {
       body: "Where should we send a copy of your results? You'll see them on the next screen either way — the email is a backup, not a hostage.",
       submit: "Show my results →",
       skip: "Skip — just show me",
+      lockedTitle: "This result is saved to an account.",
+      lockedBody:
+        "The link on its own no longer opens it — that's what keeps your answers yours. Enter the email you saved it with and we'll send a sign-in link.",
+      lockedSubmit: "Send me a sign-in link →",
+      lockedSkip: "Take the quiz again instead",
+      lockedSent: "Check your inbox — the link opens this result right here.",
+      lockedWrong:
+        "You're signed in, but this result belongs to a different account. Use the email it was saved with.",
+      lockedError:
+        "The sign-in link wouldn't send. Write to support@looplore.app and we'll open it by hand.",
     },
     axes: { anx: "anxiety", avo: "avoidance" },
     teaser: {
@@ -287,6 +314,16 @@ export const UI: Record<Lang, UiStrings> = {
       body: "Куда прислать копию разбора? Сам результат покажем на следующем экране в любом случае — почта нужна только для копии.",
       submit: "Показать результат →",
       skip: "Пропустить и посмотреть сразу",
+      lockedTitle: "Этот результат сохранён в аккаунте.",
+      lockedBody:
+        "Одной ссылки для него больше недостаточно — так твои ответы остаются твоими. Введи почту, на которую сохраняли, и мы пришлём ссылку для входа.",
+      lockedSubmit: "Прислать ссылку для входа →",
+      lockedSkip: "Лучше пройти тест заново",
+      lockedSent: "Посмотри почту — по ссылке результат откроется прямо здесь.",
+      lockedWrong:
+        "Вход выполнен, но этот результат принадлежит другому аккаунту. Войди с той почтой, на которую он сохранён.",
+      lockedError:
+        "Письмо со ссылкой не ушло. Напиши на support@looplore.app — откроем руками.",
     },
     axes: { anx: "тревожность", avo: "избегание" },
     teaser: {
