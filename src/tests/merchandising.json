@@ -1,0 +1,78 @@
+{
+  "text_conflict_communication": {
+    "intents": ["relationships"],
+    "themes": ["conflict", "communication"]
+  },
+  "attachment_styles_v1": {
+    "intents": ["relationships", "self"],
+    "themes": ["attachment", "personality"]
+  },
+  "friendship_red_flags_v1": {
+    "intents": ["friends"],
+    "themes": ["friendship", "boundaries"]
+  },
+  "love_languages_v1": {
+    "intents": ["relationships"],
+    "themes": ["communication", "attachment"]
+  },
+  "toxic_patterns": {
+    "intents": ["relationships", "self"],
+    "themes": ["conflict", "communication"]
+  },
+  "ipip_big_five": {
+    "intents": ["self"],
+    "themes": ["personality"]
+  },
+  "sixteen_types": {
+    "intents": ["self"],
+    "themes": ["personality"]
+  },
+  "friendship_psychology_v1": {
+    "intents": ["friends"],
+    "themes": ["friendship", "personality"]
+  },
+  "values_priorities_v1": {
+    "intents": ["energy", "self"],
+    "themes": ["values", "energy"]
+  },
+  "imposter_syndrome": {
+    "intents": ["work", "self"],
+    "themes": ["confidence", "emotions"]
+  },
+  "social_battery_v1": {
+    "intents": ["energy", "friends"],
+    "themes": ["energy", "personality"]
+  },
+  "boundaries_people_pleasing": {
+    "intents": ["relationships", "self"],
+    "themes": ["boundaries", "communication"]
+  },
+  "fomo_social_comparison_v1": {
+    "intents": ["habits"],
+    "themes": ["focus", "emotions"]
+  },
+  "burnout_diagnostic_v1": {
+    "intents": ["energy", "work"],
+    "themes": ["energy", "emotions"]
+  },
+  "digital_detox_test": {
+    "intents": ["habits"],
+    "themes": ["focus", "energy"]
+  },
+  "romantic_potential_v1": {
+    "intents": ["relationships"],
+    "themes": ["attachment", "values"]
+  },
+  "relationship_compatibility_v1": {
+    "intents": ["relationships"],
+    "themes": ["attachment", "values"]
+  },
+  "emotional_intelligence": {
+    "intents": ["self"],
+    "themes": ["emotions", "communication"]
+  },
+  "self_confidence_multiscale_v1": {
+    "intents": ["work", "self"],
+    "themes": ["confidence", "personality"]
+  }
+}

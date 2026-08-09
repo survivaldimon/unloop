@@ -57,7 +57,7 @@ export default function PortraitCard({
         </button>
       ) : (
         <button className="btn-ghost mt-4" onClick={onPickTest}>
-          {ui.ctaLocked}
+          {completed === 0 ? ui.ctaFirst : ui.ctaLocked}
         </button>
       )}
     </section>

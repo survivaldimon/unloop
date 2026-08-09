@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node tools/generate-test-og.mjs",
+    "build": "tsc -b && vite build && node tools/generate-test-og.mjs && node tools/generate-seo.mjs",
     "preview": "vite preview",
     "tests:build": "node tools/tests-import/to-canonical.mjs",
     "tests:verify": "node tools/tests-import/verify-engine.mjs",
@@ -15,6 +15,7 @@
     "tests:share-lint": "node tools/tests-audit/lint-share-cards.mjs",
     "tests:feeds": "node tools/tests-audit/feed-snapshot.mjs",
     "tests:feed-invariants": "node tools/tests-audit/feed-invariants.mjs",
+    "tests:merch": "node tools/tests-audit/catalogue-meta.mjs",
     "tests:portrait-sim": "node tools/tests-audit/portrait-feed.mjs",
     "check:secrets": "node tools/check-bundle-secrets.mjs"
   },

@@ -33,6 +33,10 @@ jobs:
       - run: npm run tests:audit
       - run: npm run tests:lint
       - run: npm run tests:feed-invariants
+      # K1a: редакторский слой каталога (src/tests/merchandising.json) пишется
+      # руками, а сам каталог генерируется — расходятся они молча, поэтому
+      # проверка блокирующая.
+      - run: npm run tests:merch
       # Ни один серверный секрет не должен доехать до бандла: проверяются env-
       # файлы (VITE_-имя, звучащее как секрет) и собранный dist (Supabase-JWT с
       # ролью не anon, префиксы ключей Anthropic/Polar/Resend). Аудит §3.3.
