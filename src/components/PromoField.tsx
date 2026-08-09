@@ -40,6 +40,8 @@ export default function PromoField({
         return ui.exhausted;
       case "already":
         return ui.already;
+      case "own_code":
+        return ui.ownCode;
       case "sign_in":
         return ui.signIn;
       case "not_paid":
@@ -65,10 +67,13 @@ export default function PromoField({
     if (r.kind === "ok") {
       setValue("");
       setNeedEmail(false);
+      // source separates a friend's invite code from a campaign code — the two
+      // answer different questions about where growth comes from. A gift is its
+      // own event, so it never has to fight for room in this one.
       track(r.gift ? "gift_redeem" : "promo_redeem", {
         credits: r.credits,
         sub_days: r.subDays ?? 0,
-        source: "code_field",
+        source: r.referral ? "referral" : "code_field",
       });
       onRedeemed(r.balance);
     }

@@ -83,6 +83,8 @@ Deno.serve(async (req: Request) => {
       tier?: string;
       sub_days?: number;
       access_until?: string;
+      /** The code was somebody's personal invite code (docs/referrals-compare.md §6). */
+      referral?: boolean;
     };
     if (result?.ok !== true) {
       // 200 with a reason: these are all answers to a legitimate question, and
@@ -98,6 +100,7 @@ Deno.serve(async (req: Request) => {
       tier: result.tier ?? null,
       sub_days: result.sub_days ?? 0,
       access_until: result.access_until ?? null,
+      referral: result.referral === true,
     });
   } catch (err) {
     console.error("credits-promo error", err);

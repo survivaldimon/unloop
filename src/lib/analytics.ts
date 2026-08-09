@@ -210,7 +210,17 @@ export type AnalyticsEvent =
   | "gift_purchase"
   | "gift_card_share"
   | "gift_claim_view"
-  | "gift_redeem";
+  | "gift_redeem"
+  // Compare loop and referral codes (docs/referrals-compare.md §5). PostHog
+  // only — a comparison is free, so there is nothing for Meta to optimize on.
+  // The K-factor reads off these four: invites made → links opened → joins,
+  // with the reward's own reason on the join so farming attempts are visible.
+  | "compare_invite_create"
+  | "compare_invite_share"
+  | "compare_invite_open"
+  | "compare_join"
+  | "referral_code_view"
+  | "referral_code_share";
 
 export function track(
   event: AnalyticsEvent,

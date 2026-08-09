@@ -35,6 +35,7 @@ import { supabase } from "../lib/supabase";
 import LogoMark from "../components/LogoMark";
 import MyGifts from "../components/MyGifts";
 import NavMenu from "../components/NavMenu";
+import ReferralCode from "../components/ReferralCode";
 import TopUpModal from "../components/TopUpModal";
 import { TEST_CATALOGUE, loadTest } from "../tests/registry";
 import type { PsychTest } from "../tests/types";
@@ -518,6 +519,10 @@ export default function AccountApp() {
           </a>
         )}
       </section>
+
+      {/* Next to the balance, because that is what it fills — and the friend's
+          half of it is the cheapest way anybody gets here. */}
+      <ReferralCode />
 
       {subscriptionBlock}
 

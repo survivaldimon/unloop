@@ -74,6 +74,8 @@ export interface CreditsCopy {
     expired: string;
     exhausted: string;
     already: string;
+    /** Your own invite code (docs/referrals-compare.md §6) — not a wrong code. */
+    ownCode: string;
     signIn: string;
     failed: string;
     /** Gift-only outcomes; a promo code never produces them. */
@@ -210,6 +212,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       expired: "This code has expired.",
       exhausted: "This code has been used up.",
       already: "You've already used this code.",
+      ownCode: "That's your own invite code — it's for friends.",
       signIn: "Enter your email first — the credits need an account to land on.",
       failed: "Couldn't check the code. Try again.",
       notPaid: "The payment for this gift hasn't come through yet. Try again in a minute.",
@@ -337,6 +340,7 @@ export const CREDITS_COPY: Record<Lang, CreditsCopy> = {
       expired: "Срок кода истёк.",
       exhausted: "Код уже разобрали.",
       already: "Ты уже использовал этот код.",
+      ownCode: "Это твой собственный код-приглашение — он для друзей.",
       signIn: "Сначала оставь email — кредитам нужен аккаунт, куда лечь.",
       failed: "Не получилось проверить код. Попробуй ещё раз.",
       notPaid: "Оплата этого подарка ещё не дошла. Попробуй через минуту.",

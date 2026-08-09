@@ -19,6 +19,8 @@ interface ImportMetaEnv {
   readonly VITE_POSTHOG_HOST?: string;
   /** Meta (Facebook) Pixel id; absent = pixel is a no-op */
   readonly VITE_META_PIXEL_ID?: string;
+  /** "true" shows the compare loop and invite codes (docs/referrals-compare.md) */
+  readonly VITE_REFERRALS_ENABLED?: string;
 }
 
 interface ImportMeta {

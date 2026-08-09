@@ -351,6 +351,11 @@ export type PromoResult =
       kind: "ok";
       credits: number;
       balance: number | null;
+      /**
+       * The code was somebody's personal invite code, so the other side got
+       * paid too (docs/referrals-compare.md §6).
+       */
+      referral: boolean;
       gift?: boolean;
       /** Days of Looplore+ a subscription gift just granted (0 otherwise). */
       subDays?: number;
@@ -360,6 +365,8 @@ export type PromoResult =
   | { kind: "expired" }
   | { kind: "exhausted" }
   | { kind: "already" }
+  /** Redeeming your own invite code — a real code, just not for you. */
+  | { kind: "own_code" }
   | { kind: "throttled" }
   | { kind: "sign_in" }
   /** Gift-only: the order has not been paid yet (webhook still in flight). */
@@ -398,6 +405,7 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
           sub_days?: number;
           access_until?: string | null;
           error?: string;
+          referral?: boolean;
         }
       | null;
     if (data?.ok === true) {
@@ -405,6 +413,7 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
         kind: "ok",
         credits: typeof data.credits === "number" ? data.credits : 0,
         balance: typeof data.balance === "number" ? data.balance : null,
+        referral: data.referral === true,
         gift: data.kind === "gift",
         subDays: typeof data.sub_days === "number" ? data.sub_days : 0,
         accessUntil: typeof data.access_until === "string" ? data.access_until : null,
@@ -417,6 +426,8 @@ export async function redeemPromo(code: string): Promise<PromoResult> {
         return { kind: "exhausted" };
       case "already_redeemed":
         return { kind: "already" };
+      case "own_code":
+        return { kind: "own_code" };
       case "throttled":
         return { kind: "throttled" };
       case "sign_in_required":
