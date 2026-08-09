@@ -112,6 +112,22 @@ interface PhotoCopyShape {
     disclaimer: string;
   };
 
+  /**
+   * The share card. It carries the read's own archetype label and the five
+   * scales — never the photo: a read can be about someone else, and their face
+   * is not ours to put on a shareable image.
+   */
+  share: {
+    overline: string;
+    card: string;
+    story: string;
+    sendLink: string;
+    saved: string;
+    linkCopied: string;
+    cardCta: string;
+    storyCta: string;
+  };
+
   email: { title: string; body: string };
 }
 
@@ -278,6 +294,17 @@ const EN: PhotoCopyShape = {
       "The Outside View is an entertainment product: deduction from photos — hypotheses to test, not facts or diagnoses.",
   },
 
+  share: {
+    overline: "Photo read",
+    card: "Share the card",
+    story: "Story cut",
+    sendLink: "Send the link",
+    saved: "Card saved · link copied",
+    linkCopied: "Link copied — paste it anywhere",
+    cardCta: "What does your photo give away?",
+    storyCta: "Guess my read",
+  },
+
   email: {
     title: "Where should we send the read?",
     body: "The teaser is ready now; the link lets you reopen this reading on any device. No newsletters, no spam — one email with the result.",
@@ -442,6 +469,17 @@ const RU: PhotoCopyShape = {
     retake: "Разобрать другое фото",
     disclaimer:
       "The Outside View — развлекательный продукт: дедукция по фото — гипотезы для проверки, а не факты или диагнозы.",
+  },
+
+  share: {
+    overline: "Фото-разбор",
+    card: "Поделиться карточкой",
+    story: "Для сторис",
+    sendLink: "Ссылкой",
+    saved: "Карточка сохранена · ссылка скопирована",
+    linkCopied: "Ссылка скопирована — вставь куда угодно",
+    cardCta: "А что выдаёт твоё фото?",
+    storyCta: "Угадай мой разбор",
   },
 
   email: {

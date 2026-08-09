@@ -136,6 +136,8 @@ export type AnalyticsEvent =
   | "photo_reject"
   | "photo_teaser_view"
   | "photo_report_view"
+  // Share card under a finished read; same format/method props as test_share.
+  | "photo_share"
   // Credit economy (docs/credits-economy.md §11). credits_purchase is
   // deliberately PostHog-only: the Meta Purchase for packs comes from the
   // webhook's Conversions API event (event_id = purchase_<order_id>), so the
@@ -158,8 +160,10 @@ export type AnalyticsEvent =
   | "test_start"
   | "test_question_answered"
   | "test_complete"
-  // Share from the result screen — fires only once a share actually happened;
-  // method says which path delivered it (native sheet vs clipboard fallback).
+  // Share from the result screen — fires only once a share actually happened.
+  // `format` is card / story / link and `method` the path that delivered it
+  // (native sheet, PNG download, clipboard). Sliced by test_id, this is the
+  // answer to "which of the nineteen tests do people actually pass on".
   | "test_share"
   // The save-results card under a finished test. email_submitted itself is
   // shared with the funnels and travels with funnel:"tests".
@@ -174,6 +178,8 @@ export type AnalyticsEvent =
   | "test_report_unlock"
   | "portrait_teaser_view"
   | "portrait_unlock"
+  // Share card off an assembled portrait; carries the test count it spans.
+  | "portrait_share"
   | "test_retake"
   // Server recompute disagreed with the locally scored result (§6) — either
   // engine drift or a doctored outcome; interesting as a signal either way.

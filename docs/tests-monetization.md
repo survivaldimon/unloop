@@ -194,6 +194,8 @@
 
 PostHog, всюду с property `test_id`: `test_report_teaser_view` (пейволл разбора показан), `test_report_unlock` (спенд прошёл), `chat_question {funnel:'tests'}` (событие уже есть), `portrait_teaser_view`, `portrait_unlock`, `test_retake`, `test_outcome_mismatch` (§6). Meta не трогаем: Purchase уже стреляет на покупке паков из вебхука — плотность сигнала растёт сама.
 
+Шеринг (G1, 07.08.2026): `test_share` получил property `format` — `card` (пост-карточка 1080×1350), `story` (сторис-вырез 1080×1920), `link` (только ссылка, остаётся для результата без профиля); `method` — `web_share` / `download` / `share_sheet` / `clipboard`. Стреляет ТОЛЬКО по факту доставки: закрытый шер-шит шером не считается. Плюс `photo_share` (property `sid`) и `portrait_share` (property `completed_tests`) — те же `format`/`method`. Срез `test_share` по `test_id` — прямой ответ на «какие из 19 тестов реально передают дальше», то есть на чём строить рекламу Э9.
+
 Метрики первой недели: конверсия результат→разбор по тестам (граница §2 подобрана правильно, если она не хуже квизовой пейволл→покупка), доля дошедших до гейта портрета, attach rate портрета, second-purchase квиз+attachment (§7).
 
 ### Деплой (только после «го», отдельным одобрением)

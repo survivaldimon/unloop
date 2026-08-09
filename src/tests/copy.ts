@@ -59,6 +59,22 @@ interface TestsCopyShape {
     shareText: (args: { title: string; profile: string | null }) => string;
     disclaimer: string;
   };
+  /**
+   * The share card (audit §4.1: the catalogue's viral loop). `cardCta` and
+   * `storyCta` are printed on the image itself, so they carry no claim about
+   * the person — an invitation and a dare, nothing else.
+   */
+  share: {
+    card: string;
+    story: string;
+    sendLink: string;
+    saved: string;
+    linkCopied: string;
+    cardCta: string;
+    storyCta: string;
+    /** The portrait spans tests, so its card has no profile to lead with. */
+    portrait: { name: string; line: string; caption: string };
+  };
   /** Paid report: the honest teaser, the chapters, the cross-links after purchase. */
   report: {
     teaserKicker: string;
@@ -160,6 +176,20 @@ const EN: TestsCopyShape = {
         ? `I got “${profile}” on “${title}”. Your turn:`
         : `“${title}” — worth your next coffee break:`,
     disclaimer: "This is an educational test — a mirror, not a diagnosis.",
+  },
+  share: {
+    card: "Share the card",
+    story: "Story cut",
+    sendLink: "Send the link",
+    saved: "Card saved · link copied",
+    linkCopied: "Link copied — paste it anywhere",
+    cardCta: "Your turn",
+    storyCta: "Guess my result",
+    portrait: {
+      name: "One portrait, every test",
+      line: "Each test adds a line. Together they say what none of them says alone.",
+      caption: "tests",
+    },
   },
   report: {
     teaserKicker: "The full read",
@@ -280,6 +310,20 @@ const RU: TestsCopyShape = {
         ? `Мой результат в тесте «${title}» — ${profile}. Теперь ты:`
         : `«${title}» — стоит семи минут:`,
     disclaimer: "Это образовательный тест — зеркало, а не диагноз.",
+  },
+  share: {
+    card: "Поделиться карточкой",
+    story: "Для сторис",
+    sendLink: "Ссылкой",
+    saved: "Карточка сохранена · ссылка скопирована",
+    linkCopied: "Ссылка скопирована — вставь куда угодно",
+    cardCta: "Теперь ты",
+    storyCta: "Угадай мой результат",
+    portrait: {
+      name: "Один портрет по всем тестам",
+      line: "Каждый тест добавляет линию. Вместе они говорят то, чего не скажет ни один по отдельности.",
+      caption: "тестов",
+    },
   },
   report: {
     teaserKicker: "Полный разбор",
