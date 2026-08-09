@@ -14,10 +14,13 @@
 -- three more single-purpose tables would be worse than one scoped table whose
 -- rows are indistinguishable except by a scope string.
 --
--- Posture, deliberately DIFFERENT from looplore_test_session_throttle: an
--- unknown key is let through here too, but every caller layers a second,
--- key-independent ceiling on top (a global daily cap), so a stripped
--- X-Forwarded-For buys an attacker the global budget, not an unlimited one.
+-- Posture: callers never hand this function a blank key — _shared/caller.ts
+-- turns an unreadable address into a shared "unknown" bucket, so an attacker
+-- who strips X-Forwarded-For lands in one crowded bucket rather than being
+-- waved through. The blank-key branch below is therefore a dead defensive
+-- path, kept so a future caller that forgets cannot fail open silently on the
+-- SQL side too. photoread-analyze layers a second, key-independent daily
+-- ceiling on top regardless.
 
 -- ---------------------------------------------------------------------------
 -- 1. Attempt log
