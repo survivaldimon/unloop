@@ -43,7 +43,7 @@ export interface UiStrings {
     skip: string;
     /**
      * A ?s= link whose session an account already claimed: the UUID stopped
-     * being proof of ownership (migration 20260807160000_session_read_privacy),
+     * being proof of ownership (migration 20260808140000_session_read_privacy),
      * so the same step doubles as the sign-in door.
      */
     lockedTitle: string;

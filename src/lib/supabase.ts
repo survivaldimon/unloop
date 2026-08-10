@@ -36,7 +36,7 @@ export type AdoptedSession =
  * this device and returns its server-side state. Possession of the session UUID
  * is the capability — but only while the session is still anonymous. Once an
  * account claims it, the RPC answers "locked" and the funnel asks for the email
- * instead (migration 20260807160000_session_read_privacy.sql).
+ * instead (migration 20260808140000_session_read_privacy.sql).
  */
 export async function adoptSession(id: string): Promise<AdoptedSession | null> {
   if (!supabase) return null;

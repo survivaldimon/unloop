@@ -207,7 +207,7 @@ export interface SessionCreditState {
   /**
    * Owner-only, so a leaked ?s=/?p= link no longer reports how much money sits
    * on the account behind it: null whenever the caller isn't signed in as the
-   * session's owner (migration 20260807160000_session_read_privacy.sql).
+   * session's owner (migration 20260808140000_session_read_privacy.sql).
    */
   balance: number | null;
   /** Server's one-bit verdict that the owner can afford this funnel's read. */

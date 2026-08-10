@@ -276,7 +276,7 @@ export async function loadTestSession(sessionId: string): Promise<StoredSession 
   if (error || !data) return null;
   const row = data as StoredSession & { has_report?: boolean; locked?: boolean };
   // Claimed by an account and this caller isn't it: the bare UUID stopped
-  // being a read capability (migration 20260807160000_session_read_privacy).
+  // being a read capability (migration 20260808140000_session_read_privacy).
   // Same shape as "no row" — openFromLink already falls back to local answers.
   if (row.locked) return null;
   return { ...row, hasReport: Boolean(row.hasReport ?? row.has_report) };

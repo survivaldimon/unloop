@@ -17,7 +17,7 @@ approval-first — прод-деплой, миграции и настройки
 
 ### 1.1. Приватность: чтение сессий (пункты 1–2)
 
-**Миграция `20260807160000_session_read_privacy.sql`** — приводит четыре
+**Миграция `20260808140000_session_read_privacy.sql`** — приводит четыре
 читающих anon-RPC к одному правилу:
 
 > **UUID сессии — capability только пока сессия ничья.** Появился `user_id` —
@@ -117,7 +117,7 @@ magic-link → человек продолжает анонимно, а вебх
 на `workflow_run.head_sha` (иначе на быстрой серии пушей выкатился бы не тот
 коммит, что прошёл проверки). `workflow_dispatch` остаётся аварийным люком.
 
-**Миграция `20260807150000_legacy_funnel_rpcs.sql`** — шесть RPC жили только в
+**Миграция `20260808130000_legacy_funnel_rpcs.sql`** — шесть RPC жили только в
 проде: `unloop_save_session`, `photoread_save_session`, `unloop_get_paid_status`,
 `photoread_get_paid_status`, `photoread_get_session`, `unloop_get_secret`. Сняты
 с прода дословно (`pg_get_functiondef`), применение — no-op.
@@ -194,8 +194,8 @@ generic и всё равно скачан каждым, платная перс�
 
 1. **Мерж ветки в main** → CI → Pages (деплой теперь сам дождётся зелёного CI).
 2. **Две миграции** (в порядке номеров):
-   - `20260807150000_legacy_funnel_rpcs.sql` — no-op, фиксация статус-кво;
-   - `20260807160000_session_read_privacy.sql` — меняет поведение четырёх RPC.
+   - `20260808130000_legacy_funnel_rpcs.sql` — no-op, фиксация статус-кво;
+   - `20260808140000_session_read_privacy.sql` — меняет поведение четырёх RPC.
    Обе `create or replace`, откат — переприменить предыдущие определения
    (они в этих же файлах / в `20260727120000` и `20260728160000`).
 3. **Редеплой шести edge-функций**: `unloop-generate-report`,

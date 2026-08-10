@@ -36,12 +36,19 @@
 
 -- Same drop-and-recreate as previous kind migrations: the CHECK must carry the
 -- FULL list, or every previously valid kind starts failing inserts.
+--
+-- `grant_gift` is in this list because gifts (docs/gifts.md) shipped to prod on
+-- 08.08, after this migration was written. Dropping and recreating the CHECK
+-- from a list that predates them would have quietly outlawed every gift
+-- redemption. Whoever adds the next kind: read the LIVE constraint first
+-- (pg_get_constraintdef on looplore_credit_ledger_kind_check), not this file.
 alter table public.looplore_credit_ledger
   drop constraint if exists looplore_credit_ledger_kind_check;
 alter table public.looplore_credit_ledger
   add constraint looplore_credit_ledger_kind_check check (kind in (
     'purchase', 'bonus_timer',
-    'grant_signup', 'grant_daily', 'grant_streak', 'grant_promo', 'grant_referral',
+    'grant_signup', 'grant_daily', 'grant_streak', 'grant_promo',
+    'grant_gift', 'grant_referral',
     'spend_report', 'spend_photo', 'spend_question', 'spend_insight',
     'spend_test_report', 'spend_portrait',
     'included_report', 'included_photo', 'included_question', 'included_insight',
