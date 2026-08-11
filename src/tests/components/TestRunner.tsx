@@ -123,7 +123,9 @@ function QuestionCard({
   selected: string | undefined;
   onSelect: (answerId: string) => void;
 }) {
-  const letters = lang === "ru" ? "абвгде" : "abcdef";
+  // Восемь: реалистичная палитра сценария — 5–7 действий плюс «ничего из
+  // этого» (стандарт §4.1), и на каждое нужна своя буква.
+  const letters = lang === "ru" ? "абвгдежз" : "abcdefgh";
   const ui = testsCopy(lang).runner;
   const g = (text: string) => gendered(text, gender);
 

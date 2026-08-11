@@ -65,6 +65,22 @@ const SLANG = [
 const PAREN_REMARK =
   /\((?=[^)]*\b(злю|злит|обиж|обид|бешу|беси|внутри|на самом деле|хотя|притвор|делаю вид|специально|назло|пусть|запомн)\b)[^)]{0,120}\)/i;
 
+/**
+ * Признание скрытого мотива без скобок — та же болезнь, что R, но хвостом
+ * через тире: «…— хотя деньги есть», «…— пусть подумает», «…а выводы сделаю
+ * про себя». Респондент читает такой вариант как «поставь себе диагноз
+ * добровольно» и не выбирает его, из-за чего стиль умирает в распределении.
+ */
+const MOTIVE_TAIL =
+  /(?:—|-|,)\s*(?:а\s+)?(?:хотя|пусть|назло|специально|чтобы\s+(?:он|она|они|ему|ей|им)\b|выводы\b|посмотрим,\s*кто)\b/i;
+
+/**
+ * Усилители, которыми «плохой» вариант сам себя маркирует как плохой (§2.1):
+ * карикатурный напор никто не выбирает, и стиль вымирает.
+ */
+const CARICATURE =
+  /\b(вс[её] как есть|вс[её],? что думаю|не выдержу|так не оставлю|чтобы\s+(?:прожгло|запомнилось)|сколько можно|да ты (?:чё|что))\b/i;
+
 const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F000}-\u{1F0FF}]/u;
 
 /** Русские глаголы прошедшего времени м.р. — кандидаты на шаблон рода (§5.2). */
@@ -102,6 +118,7 @@ const plain = (s) => s.replace(/\{([^{}|]*)\|[^{}|]*\}/g, "$1");
 for (const test of tests) {
   const v2 = Boolean(test.validity); // переработан по стандарту
   const info = { v2, scenarioQuestions: 0, actionQuestions: 0, optOutQuestions: 0, hidden: 0 };
+  const quoteShare = {}; // фактор → сколько его вариантов оформлены прямой речью
 
   // ── P/R/E/G: тексты ──────────────────────────────────────────────────────
   for (const [path, lang, raw] of walkStrings(test)) {
@@ -138,6 +155,25 @@ for (const test of tests) {
     // E: эмодзи в варианте от лица респондента (в ситуации — можно)
     for (const a of scored) {
       if (EMOJI.test(a.text.ru)) add(test.id, "E", `${q.id}/${a.id}: эмодзи в варианте ответа`);
+      const tail = a.text.ru.match(MOTIVE_TAIL);
+      if (tail) add(test.id, "R", `${q.id}/${a.id}: признание мотива «${tail[0].trim()}» — «${a.text.ru.slice(0, 60)}»`);
+      const caricature = a.text.ru.match(CARICATURE);
+      if (caricature) add(test.id, "C", `${q.id}/${a.id}: усилитель «${caricature[0]}» — вариант сам себя маркирует`);
+    }
+
+    // Q: кавычки как метка «правильного» варианта. Если реплики в кавычках
+    // достаются одному стилю, ключ читается по форме, а не по смыслу.
+    // Вопросы, где прямой речи нет ни у кого (палитры чувств), пропускаются:
+    // там форма варианта не различает ничего.
+    if (v2 && test.scoring === "answer_weights" && scored.some((a) => /[«"']/.test(a.text.ru))) {
+      for (const a of scored) {
+        const quoted = /[«"']/.test(a.text.ru);
+        for (const f of Object.keys(a.weights ?? {})) {
+          if (test.validity?.factors?.includes(f)) continue;
+          (quoteShare[f] ??= { quoted: 0, total: 0 }).total += 1;
+          if (quoted) quoteShare[f].quoted += 1;
+        }
+      }
     }
 
     // L: перекос длин внутри вопроса. Градуированные лестницы (shuffle:false —
@@ -204,15 +240,46 @@ for (const test of tests) {
     }
   }
 
+  // ── Q: доля прямой речи по факторам ──────────────────────────────────────
+  const quoted = Object.entries(quoteShare).filter(([, s]) => s.total >= 5);
+  if (quoted.length > 1) {
+    info.quoteShare = Object.fromEntries(
+      quoted.map(([f, s]) => [f, Math.round((s.quoted / s.total) * 100) / 100]),
+    );
+    const shares = quoted.map(([, s]) => s.quoted / s.total);
+    const spread = Math.max(...shares) - Math.min(...shares);
+    if (spread > 0.5) {
+      const top = quoted.reduce((a, b) => (b[1].quoted / b[1].total > a[1].quoted / a[1].total ? b : a));
+      add(
+        test.id,
+        "Q",
+        `разброс доли прямой речи ${spread.toFixed(2)} (максимум у ${top[0]}) — ключ читается по форме варианта`,
+      );
+    }
+  }
+
   // ── V: валидностный слой объявлен, но не наполнен ────────────────────────
   if (v2) {
     const lieFactor = test.validity.lie?.factor;
     if (lieFactor) {
-      const lieItems = test.questions.filter((q) =>
+      const lieQuestions = test.questions.filter((q) =>
         q.answers.some((a) => Object.keys(a.weights ?? {}).includes(lieFactor)),
-      ).length;
-      info.hidden = lieItems;
-      if (lieItems < 4) add(test.id, "V", `L-шкала на ${lieItems} айтемах — нужно ≥4 (§6.1)`);
+      );
+      info.hidden = lieQuestions.length;
+      if (lieQuestions.length < 4) {
+        add(test.id, "V", `L-шкала на ${lieQuestions.length} айтемах — нужно ≥4 (§6.1)`);
+      }
+      // Односторонняя L-шкала обнуляется стратегией «везде отвечаю "неверно"»:
+      // часть айтемов обязана быть обратной (согласие = честность).
+      const reversedLie = lieQuestions.filter((q) => {
+        const first = q.answers[0];
+        const last = q.answers[q.answers.length - 1];
+        return (first.weights?.[lieFactor] ?? 0) < (last.weights?.[lieFactor] ?? 0);
+      }).length;
+      info.reversedLie = reversedLie;
+      if (lieQuestions.length >= 4 && (reversedLie === 0 || reversedLie === lieQuestions.length)) {
+        add(test.id, "V", `все ${lieQuestions.length} L-айтемов в одну сторону — шкала обнуляется одной стратегией (§6.1)`);
+      }
     }
     if (test.validity.optOut && info.actionQuestions > 0 && info.optOutQuestions < info.actionQuestions) {
       add(
@@ -240,9 +307,11 @@ for (const test of tests) {
 const CLASS_NAMES = {
   P: "Мат и грубая брань",
   S: "Сленг ленты",
-  R: "Скобочные ремарки о чувствах",
+  R: "Ремарки и признания мотива",
+  C: "Карикатурные усилители",
   L: "Перекос длин вариантов",
   K: "Ключ читается по длине",
+  Q: "Ключ читается по прямой речи",
   O: "Нет «ничего из этого»",
   V: "Дыры в валидностном слое",
   G: "Незакрытый род",

@@ -66,8 +66,8 @@
     {
       "id": "g",
       "text": {
-        "ru": "Один вопрос до старта: как к тебе обращаться в вопросах и результатах?",
-        "en": "One thing before we start: how should the test address you?"
+        "ru": "Сначала одно уточнение: как к тебе обращаться дальше?",
+        "en": "One quick thing: how should the test address you?"
       },
       "factorId": null,
       "isReversed": false,
@@ -107,7 +107,6 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
           "ru": "За час до встречи друг пишет:\n\n«Слушай, прости, сегодня не получится. Давай перенесём?»",
@@ -120,10 +119,10 @@
       },
       "answers": [
         {
-          "id": "s1f_0",
+          "id": "s1f_a",
           "text": {
             "ru": "Ничего особенного — перенесём и перенесём",
-            "en": "Nothing much — we'll just reschedule"
+            "en": "Nothing much — we’ll just reschedule"
           },
           "score": 0,
           "weights": {
@@ -131,10 +130,21 @@
           }
         },
         {
-          "id": "s1f_1",
+          "id": "s1f_b",
           "text": {
-            "ru": "Лёгкую досаду — планы всё-таки",
-            "en": "Mild annoyance — I did have plans"
+            "ru": "Обрадуюсь: вечер неожиданно освободился",
+            "en": "Relief, honestly: my evening just opened up"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s1f_c",
+          "text": {
+            "ru": "Забеспокоюсь: третья отмена — вдруг у него беда",
+            "en": "Worry: a third cancellation — maybe something’s wrong with them"
           },
           "score": 0,
           "weights": {
@@ -142,10 +152,21 @@
           }
         },
         {
-          "id": "s1f_2",
+          "id": "s1f_d",
+          "text": {
+            "ru": "Досаду: я под эту встречу {строил|строила} день",
+            "en": "Frustration: I built my day around this"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
+          }
+        },
+        {
+          "id": "s1f_e",
           "text": {
             "ru": "Обиду: со мной, получается, так можно",
-            "en": "Hurt: apparently I'm the one it's okay to do this to"
+            "en": "Hurt: apparently I’m the one it’s okay to do this to"
           },
           "score": 0,
           "weights": {
@@ -153,10 +174,10 @@
           }
         },
         {
-          "id": "s1f_3",
+          "id": "s1f_f",
           "text": {
-            "ru": "Разозлюсь всерьёз",
-            "en": "Genuinely angry"
+            "ru": "Злость: третий раз — это уже не случайность",
+            "en": "Anger: three times isn’t an accident anymore"
           },
           "score": 0,
           "weights": {
@@ -167,7 +188,7 @@
           "id": "s1f_u",
           "text": {
             "ru": "Не пойму, что чувствую",
-            "en": "I won't be sure what I feel"
+            "en": "I won’t be sure what I feel"
           },
           "score": 0,
           "weights": {
@@ -188,8 +209,8 @@
         {
           "id": "s1a_1",
           "text": {
-            "ru": "«Окей, давай» — и правда без осадка",
-            "en": "\"Okay, sure\" — and honestly no residue"
+            "ru": "«Окей, давай» — и всё",
+            "en": "“Okay, sure” — and that’s it"
           },
           "score": 0,
           "weights": {
@@ -198,6 +219,17 @@
         },
         {
           "id": "s1a_2",
+          "text": {
+            "ru": "Спрошу, что случилось: три отмены подряд — вдруг беда",
+            "en": "Ask what’s going on: three cancellations in a row — maybe something’s wrong"
+          },
+          "score": 0,
+          "weights": {
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s1a_3",
           "text": {
             "ru": "Перенесу, но скажу: третий раз за месяц — это много",
             "en": "Reschedule, but say it: three times in a month is a lot"
@@ -208,10 +240,10 @@
           }
         },
         {
-          "id": "s1a_3",
+          "id": "s1a_4",
           "text": {
-            "ru": "Выскажу всё как есть: предупреждать за час — неуважение",
-            "en": "Let it out: an hour's notice is disrespectful"
+            "ru": "Напишу, что за час предупреждать — так себе",
+            "en": "Write that an hour’s notice is pretty weak"
           },
           "score": 0,
           "weights": {
@@ -219,10 +251,10 @@
           }
         },
         {
-          "id": "s1a_4",
+          "id": "s1a_5",
           "text": {
-            "ru": "Отвечу коротким «ок» — и звать буду заметно реже",
-            "en": "Reply with a short “ok” — and invite them noticeably less"
+            "ru": "Отвечу коротким «ок» — а звать буду уже реже",
+            "en": "Reply with a short “ok” — and invite them less from now on"
           },
           "score": 0,
           "weights": {
@@ -231,10 +263,10 @@
           }
         },
         {
-          "id": "s1a_5",
+          "id": "s1a_6",
           "text": {
-            "ru": "Отшучусь: «с тебя кофе за моральный ущерб» — и перенесу",
-            "en": "Joke it off: \"you owe me a coffee for damages\" — and reschedule"
+            "ru": "Отшучусь: «с тебя кофе за моральный ущерб»",
+            "en": "Joke it off: “you owe me a coffee for damages”"
           },
           "score": 0,
           "weights": {
@@ -266,16 +298,15 @@
     {
       "id": "s2f",
       "text": {
-        "ru": "Насколько это вообще событие для тебя?",
+        "ru": "Насколько для тебя это вообще событие?",
         "en": "How much of an event is this for you?"
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
-          "ru": "В общем чате договариваются о встрече. Один из компании пишет про тебя:\n\n«Только давайте без опозданий, а то знаем мы кое-кого 😄»",
-          "en": "The group chat is planning a get-together. One of the crew writes about you:\n\n\"Just no showing up late this time, we all know someone 😄\""
+          "ru": "Компания планирует встречу в общем чате. Кто-то пишет про тебя:\n\n«Только давайте без опозданий, а то знаем мы кое-кого 😄»",
+          "en": "The group chat is planning a get-together. Someone writes about you:\n\n“Just no showing up late this time, we all know someone 😄”"
         },
         "context": {
           "ru": "В чате девять человек, сообщение прочитали все.",
@@ -284,10 +315,10 @@
       },
       "answers": [
         {
-          "id": "s2f_0",
+          "id": "s2f_a",
           "text": {
-            "ru": "Вообще не событие — обычный подкол",
-            "en": "Not an event at all — a regular jab"
+            "ru": "Ничего — обычный подкол",
+            "en": "Nothing — a regular jab"
           },
           "score": 0,
           "weights": {
@@ -295,7 +326,18 @@
           }
         },
         {
-          "id": "s2f_1",
+          "id": "s2f_b",
+          "text": {
+            "ru": "Смешно: за мной правда такое водится",
+            "en": "Funny: I do actually have that habit"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s2f_c",
           "text": {
             "ru": "Слегка кольнуло, через минуту забуду",
             "en": "A small sting, forgotten in a minute"
@@ -306,10 +348,10 @@
           }
         },
         {
-          "id": "s2f_2",
+          "id": "s2f_d",
           "text": {
-            "ru": "Неприятно: не люблю быть предметом шуток при всех",
-            "en": "Unpleasant: I don't like being the joke in front of everyone"
+            "ru": "Неприятно: не люблю, когда шутят про меня при всех",
+            "en": "Unpleasant: I don’t like being joked about in front of everyone"
           },
           "score": 0,
           "weights": {
@@ -317,14 +359,25 @@
           }
         },
         {
-          "id": "s2f_3",
+          "id": "s2f_e",
           "text": {
-            "ru": "Задело сильно — буду прокручивать весь вечер",
-            "en": "It lands hard — I'll be replaying it all evening"
+            "ru": "Задело — буду прокручивать это весь вечер",
+            "en": "It landed — I’ll be replaying it all evening"
           },
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s2f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -352,8 +405,8 @@
         {
           "id": "s2a_2",
           "text": {
-            "ru": "Отвечу прямо: «я уже полгода прихожу вовремя»",
-            "en": "Say it straight: “I’ve been on time for six months”"
+            "ru": "«Я, между прочим, полгода прихожу вовремя»",
+            "en": "“For the record, I’ve been on time for six months”"
           },
           "score": 0,
           "weights": {
@@ -363,8 +416,8 @@
         {
           "id": "s2a_3",
           "text": {
-            "ru": "Подколю в ответ, но ощутимо больнее — чтобы запомнилось",
-            "en": "Jab back, but noticeably harder — so it's remembered"
+            "ru": "Подколю в ответ — но так, чтобы запомнилось",
+            "en": "Jab back — but so it sticks"
           },
           "score": 0,
           "weights": {
@@ -374,8 +427,19 @@
         {
           "id": "s2a_4",
           "text": {
-            "ru": "Промолчу — и обсуждать эту встречу больше не стану",
-            "en": "Say nothing — and drop out of planning the meet-up"
+            "ru": "Отвечу по делу — во сколько и где — а подкол пропущу",
+            "en": "Answer the logistics — when and where — and let the jab pass"
+          },
+          "score": 0,
+          "weights": {
+            "style_withdraw": 0.7
+          }
+        },
+        {
+          "id": "s2a_5",
+          "text": {
+            "ru": "Напишу «ага» и в этот чат до вечера не вернусь",
+            "en": "Write “yeah” and stay out of that chat till evening"
           },
           "score": 0,
           "weights": {
@@ -383,10 +447,10 @@
           }
         },
         {
-          "id": "s2a_5",
+          "id": "s2a_6",
           "text": {
-            "ru": "Отмечу сообщение смеющимся смайлом, а выводы сделаю про себя",
-            "en": "React with a laughing emoji, and keep my conclusions to myself"
+            "ru": "Поставлю смеющуюся реакцию и отвечу подчёркнуто коротко",
+            "en": "React with a laughing emoji and reply pointedly short"
           },
           "score": 0,
           "weights": {
@@ -405,8 +469,8 @@
       ],
       "scenario": {
         "situation": {
-          "ru": "В общем чате договариваются о встрече. Один из компании пишет про тебя:\n\n«Только давайте без опозданий, а то знаем мы кое-кого 😄»",
-          "en": "The group chat is planning a get-together. One of the crew writes about you:\n\n\"Just no showing up late this time, we all know someone 😄\""
+          "ru": "Компания планирует встречу в общем чате. Кто-то пишет про тебя:\n\n«Только давайте без опозданий, а то знаем мы кое-кого 😄»",
+          "en": "The group chat is planning a get-together. Someone writes about you:\n\n“Just no showing up late this time, we all know someone 😄”"
         },
         "context": {
           "ru": "В чате девять человек, сообщение прочитали все.",
@@ -490,10 +554,10 @@
       },
       "answers": [
         {
-          "id": "s3f_0",
+          "id": "s3f_a",
           "text": {
             "ru": "Занят человек. Сторис — не показатель",
-            "en": "They're busy. Stories prove nothing"
+            "en": "They’re busy. Stories prove nothing"
           },
           "score": 0,
           "weights": {
@@ -501,10 +565,21 @@
           }
         },
         {
-          "id": "s3f_1",
+          "id": "s3f_b",
+          "text": {
+            "ru": "Может, и не {открывал|открывала} чат — сторис постят мимо переписки",
+            "en": "Maybe they never opened the chat — stories post without it"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s3f_c",
           "text": {
             "ru": "Странно, но ладно — подожду ещё",
-            "en": "Odd, but fine — I'll wait a bit more"
+            "en": "Odd, but fine — I’ll wait a bit more"
           },
           "score": 0,
           "weights": {
@@ -512,10 +587,10 @@
           }
         },
         {
-          "id": "s3f_2",
+          "id": "s3f_d",
           "text": {
-            "ru": "Похоже, мой вопрос неудобный — вот и тянет",
-            "en": "My question must be inconvenient — that's why the stalling"
+            "ru": "Похоже, вопрос неудобный — вот и тянет с ответом",
+            "en": "The question must be inconvenient — hence the stalling"
           },
           "score": 0,
           "weights": {
@@ -523,14 +598,25 @@
           }
         },
         {
-          "id": "s3f_3",
+          "id": "s3f_e",
           "text": {
             "ru": "Меня демонстративно игнорируют",
-            "en": "I'm being pointedly ignored"
+            "en": "I’m being pointedly ignored"
           },
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s3f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -547,8 +633,8 @@
         {
           "id": "s3a_1",
           "text": {
-            "ru": "Ничего — дождусь: не всё отвечается сразу",
-            "en": "Nothing — I'll wait it out: not everything gets answered instantly"
+            "ru": "Ничего — подожду: не на всё отвечают сразу",
+            "en": "Nothing — I’ll wait: not everything gets an instant answer"
           },
           "score": 0,
           "weights": {
@@ -558,8 +644,8 @@
         {
           "id": "s3a_2",
           "text": {
-            "ru": "Напомню один раз: «глянь сообщение, для меня это важно»",
-            "en": "One reminder: \"check my message, it matters to me\""
+            "ru": "Наберу — в переписке это тянуть незачем",
+            "en": "Call — no point dragging this out in text"
           },
           "score": 0,
           "weights": {
@@ -569,8 +655,31 @@
         {
           "id": "s3a_3",
           "text": {
-            "ru": "Напишу «ну да, сторис важнее» — пусть прочитает и подумает",
-            "en": "Write \"right, stories come first\" — let them read it and think"
+            "ru": "Спрошу коротко: «у тебя всё нормально?»",
+            "en": "Ask, briefly: “is everything okay with you?”"
+          },
+          "score": 0,
+          "weights": {
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s3a_4",
+          "text": {
+            "ru": "«Глянь сообщение, для меня это важно»",
+            "en": "“Check my message, it matters to me”"
+          },
+          "score": 0,
+          "weights": {
+            "style_pressure": 0.4,
+            "style_direct": 0.6
+          }
+        },
+        {
+          "id": "s3a_5",
+          "text": {
+            "ru": "«Ну да, сторис важнее» — и закрою чат",
+            "en": "“Right, stories come first” — and close the chat"
           },
           "score": 0,
           "weights": {
@@ -578,10 +687,10 @@
           }
         },
         {
-          "id": "s3a_4",
+          "id": "s3a_6",
           "text": {
-            "ru": "Скажу всё, что думаю: мы договаривались предупреждать",
-            "en": "Say everything I think: we agreed to give a heads-up"
+            "ru": "«Мы вроде договаривались предупреждать»",
+            "en": "“I thought we agreed to give a heads-up”"
           },
           "score": 0,
           "weights": {
@@ -589,10 +698,10 @@
           }
         },
         {
-          "id": "s3a_5",
+          "id": "s3a_7",
           "text": {
-            "ru": "Тоже пропаду из сети — посмотрим, кто напишет первым",
-            "en": "Go offline myself — let's see who writes first"
+            "ru": "Тоже уйду из сети до вечера",
+            "en": "Go offline myself until the evening"
           },
           "score": 0,
           "weights": {
@@ -629,7 +738,6 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
           "ru": "В споре партнёр пишет:\n\n«С тобой невозможно разговаривать. Ты всегда так реагируешь.»",
@@ -642,7 +750,7 @@
       },
       "answers": [
         {
-          "id": "s4f_0",
+          "id": "s4f_a",
           "text": {
             "ru": "Ничего — в споре и не такое говорят",
             "en": "Nothing — people say worse in arguments"
@@ -653,10 +761,10 @@
           }
         },
         {
-          "id": "s4f_1",
+          "id": "s4f_b",
           "text": {
-            "ru": "Досада: мы опять съехали с темы",
-            "en": "Frustration: we've slid off the topic again"
+            "ru": "Укол узнавания: может, и правда я так реагирую",
+            "en": "A flicker of recognition: maybe I do react like that"
           },
           "score": 0,
           "weights": {
@@ -664,10 +772,21 @@
           }
         },
         {
-          "id": "s4f_2",
+          "id": "s4f_c",
+          "text": {
+            "ru": "Досаду: мы опять съехали с темы",
+            "en": "Frustration: we’ve slid off the topic again"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
+          }
+        },
+        {
+          "id": "s4f_d",
           "text": {
             "ru": "Несправедливость: «всегда» — нечестный приём",
-            "en": "Injustice: \"always\" is a cheap move"
+            "en": "Injustice: “always” is a cheap move"
           },
           "score": 0,
           "weights": {
@@ -675,10 +794,10 @@
           }
         },
         {
-          "id": "s4f_3",
+          "id": "s4f_e",
           "text": {
-            "ru": "Злость или бессилие — такое выбивает надолго",
-            "en": "Anger or helplessness — this knocks me out for a while"
+            "ru": "Злость или бессилие — такое выбивает из колеи",
+            "en": "Anger or helplessness — this knocks me sideways"
           },
           "score": 0,
           "weights": {
@@ -689,7 +808,7 @@
           "id": "s4f_u",
           "text": {
             "ru": "Не пойму, что чувствую",
-            "en": "I won't be sure what I feel"
+            "en": "I won’t be sure what I feel"
           },
           "score": 0,
           "weights": {
@@ -710,8 +829,8 @@
         {
           "id": "s4a_1",
           "text": {
-            "ru": "«Давай без «всегда». Что не так конкретно сейчас?»",
-            "en": "\"Let's drop the 'always'. What exactly is wrong right now?\""
+            "ru": "«Давай без „всегда“. Что не так именно сейчас?»",
+            "en": "“Let’s drop the ‘always’. What exactly is wrong right now?”"
           },
           "score": 0,
           "weights": {
@@ -721,8 +840,8 @@
         {
           "id": "s4a_2",
           "text": {
-            "ru": "«А ты послушай, как со мной разговариваешь ты!»",
-            "en": "\"And you should hear how YOU talk to me!\""
+            "ru": "«А ты себя послушай, как ты со мной говоришь!»",
+            "en": "“Listen to yourself, the way you talk to me!”"
           },
           "score": 0,
           "weights": {
@@ -744,8 +863,8 @@
         {
           "id": "s4a_4",
           "text": {
-            "ru": "Извинюсь и сглажу: спор не стоит испорченного вечера",
-            "en": "Apologize and smooth it over: the argument isn't worth a ruined evening"
+            "ru": "Извинюсь и переведу тему: вечер дороже этого спора",
+            "en": "Apologize and change the subject: the evening is worth more than this"
           },
           "score": 0,
           "weights": {
@@ -755,13 +874,24 @@
         {
           "id": "s4a_5",
           "text": {
-            "ru": "Скажу вслух: «остыну и вернусь через час»",
-            "en": "Say it out loud: “I’ll cool off and be back in an hour”"
+            "ru": "«Давай не в переписке — позвони»",
+            "en": "“Not over text — call me”"
           },
           "score": 0,
           "weights": {
-            "style_direct": 0.7,
-            "style_withdraw": 0.3
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s4a_6",
+          "text": {
+            "ru": "Напишу прямо: «остыну и вернусь через час»",
+            "en": "Write it plainly: “I’ll cool off and come back in an hour”"
+          },
+          "score": 0,
+          "weights": {
+            "style_withdraw": 0.7,
+            "style_direct": 0.3
           }
         },
         {
@@ -788,8 +918,8 @@
     {
       "id": "l2",
       "text": {
-        "ru": "Я всегда отвечаю на сообщения сразу, даже когда мне совсем некогда.",
-        "en": "I always reply to messages immediately, even when I truly have no time."
+        "ru": "Случалось, что я {обещал|обещала} ответить на сообщение — и {забывал|забывала}.",
+        "en": "It has happened that I promised to reply to a message — and forgot."
       },
       "factorId": null,
       "isReversed": false,
@@ -803,7 +933,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 3
+            "validity_lie": 0
           }
         },
         {
@@ -814,7 +944,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 2
+            "validity_lie": 1
           }
         },
         {
@@ -825,7 +955,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 1
+            "validity_lie": 2
           }
         },
         {
@@ -836,7 +966,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 0
+            "validity_lie": 3
           }
         }
       ]
@@ -849,23 +979,22 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
           "ru": "Близкий друг переживает тяжёлый период и часто пишет по ночам — длинно, о том, как всё навалилось. Сегодня телефон снова разбудил тебя в два часа ночи.",
           "en": "A close friend is going through a rough patch and often texts at night — long messages about how it's all piling up. Tonight your phone woke you at 2 a.m. again."
         },
         "context": {
-          "ru": "Угрозы жизни нет: тяжело, но не экстренно. Завтра тебе рано вставать.",
-          "en": "Nothing life-threatening: heavy, but not an emergency. You're up early tomorrow."
+          "ru": "Ничего опасного: другу тяжело, но не экстренно. Завтра тебе рано вставать.",
+          "en": "Nothing dangerous: it’s heavy for them, but not an emergency. You’re up early tomorrow."
         }
       },
       "answers": [
         {
-          "id": "s5f_0",
+          "id": "s5f_a",
           "text": {
             "ru": "Спокойствие: прочитаю утром",
-            "en": "Calm: I'll read it in the morning"
+            "en": "Calm: I’ll read it in the morning"
           },
           "score": 0,
           "weights": {
@@ -873,7 +1002,18 @@
           }
         },
         {
-          "id": "s5f_1",
+          "id": "s5f_b",
+          "text": {
+            "ru": "Тревогу: два ночи — вдруг случилось серьёзное",
+            "en": "Alarm: 2 a.m. — what if something real happened"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
+          }
+        },
+        {
+          "id": "s5f_c",
           "text": {
             "ru": "Сочувствие пополам с лёгким раздражением",
             "en": "Sympathy mixed with mild irritation"
@@ -884,10 +1024,10 @@
           }
         },
         {
-          "id": "s5f_2",
+          "id": "s5f_d",
           "text": {
-            "ru": "Раздражение: мой сон — не расходный материал",
-            "en": "Irritation: my sleep isn't a consumable"
+            "ru": "Раздражение: мой сон тоже чего-то стоит",
+            "en": "Irritation: my sleep is worth something too"
           },
           "score": 0,
           "weights": {
@@ -895,7 +1035,7 @@
           }
         },
         {
-          "id": "s5f_3",
+          "id": "s5f_e",
           "text": {
             "ru": "И злость, и вину за эту злость — разом",
             "en": "Anger, and guilt about the anger — both at once"
@@ -903,6 +1043,17 @@
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s5f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -920,7 +1071,7 @@
           "id": "s5a_1",
           "text": {
             "ru": "Отвечу сейчас — мне не сложно, а другу важно",
-            "en": "Reply now — it's no trouble for me, and it matters to them"
+            "en": "Reply now — no trouble for me, and it matters to them"
           },
           "score": 0,
           "weights": {
@@ -930,8 +1081,20 @@
         {
           "id": "s5a_2",
           "text": {
-            "ru": "Отвечу одной строкой: «я рядом, обсудим утром» — и досплю",
-            "en": "One line: \"I'm here, let's talk in the morning\" — and back to sleep"
+            "ru": "Наберу: раз пишет ночью, значит, правда плохо",
+            "en": "Call: writing at night means it’s really bad"
+          },
+          "score": 0,
+          "weights": {
+            "style_yield": 0.8,
+            "style_direct": 0.2
+          }
+        },
+        {
+          "id": "s5a_3",
+          "text": {
+            "ru": "«Я рядом, обсудим утром» — и досплю",
+            "en": "“I’m here, let’s talk in the morning” — and back to sleep"
           },
           "score": 0,
           "weights": {
@@ -940,10 +1103,21 @@
           }
         },
         {
-          "id": "s5a_3",
+          "id": "s5a_4",
           "text": {
-            "ru": "Утром отвечу и предложу: ночью — только звонок",
-            "en": "Answer in the morning and propose: at night, call only"
+            "ru": "Утром отвечу — но заметно короче обычного",
+            "en": "Answer in the morning — noticeably shorter than usual"
+          },
+          "score": 0,
+          "weights": {
+            "style_indirect": 1
+          }
+        },
+        {
+          "id": "s5a_5",
+          "text": {
+            "ru": "Отвечу утром и попрошу: ночью — лучше звонить",
+            "en": "Answer in the morning and ask: at night, better to call"
           },
           "score": 0,
           "weights": {
@@ -951,7 +1125,7 @@
           }
         },
         {
-          "id": "s5a_4",
+          "id": "s5a_6",
           "text": {
             "ru": "Не отвечу и выключу уведомления до утра",
             "en": "Don’t reply and mute notifications till morning"
@@ -962,10 +1136,10 @@
           }
         },
         {
-          "id": "s5a_5",
+          "id": "s5a_7",
           "text": {
-            "ru": "Напишу как есть: будить человека в два ночи — перебор",
-            "en": "Say it as it is: waking someone at 2 a.m. is too much"
+            "ru": "Напишу, что два ночи — не время для таких разговоров",
+            "en": "Write that 2 a.m. isn’t the time for this"
           },
           "score": 0,
           "weights": {
@@ -988,8 +1162,8 @@
           "en": "A close friend is going through a rough patch and often texts at night — long messages about how it's all piling up. Tonight your phone woke you at 2 a.m. again."
         },
         "context": {
-          "ru": "Угрозы жизни нет: тяжело, но не экстренно. Завтра тебе рано вставать.",
-          "en": "Nothing life-threatening: heavy, but not an emergency. You're up early tomorrow."
+          "ru": "Ничего опасного: другу тяжело, но не экстренно. Завтра тебе рано вставать.",
+          "en": "Nothing dangerous: it’s heavy for them, but not an emergency. You’re up early tomorrow."
         }
       }
     },
@@ -1007,13 +1181,13 @@
           "en": "At 10:04 p.m. a colleague writes in the work chat:\n\n\"Please look over the document before morning — it's due tomorrow.\""
         },
         "context": {
-          "ru": "Рабочий день давно закончился. О сверхурочных никто не договаривался.",
-          "en": "The workday ended long ago. Nobody agreed to overtime."
+          "ru": "Рабочий день давно закончился. Про переработки речи не было.",
+          "en": "The workday ended long ago. Overtime was never discussed."
         }
       },
       "answers": [
         {
-          "id": "s6f_0",
+          "id": "s6f_a",
           "text": {
             "ru": "Бывает. Аврал есть аврал",
             "en": "Happens. A crunch is a crunch"
@@ -1024,7 +1198,18 @@
           }
         },
         {
-          "id": "s6f_1",
+          "id": "s6f_b",
+          "text": {
+            "ru": "Готовность выручить: сам {бывал|бывала} в таком",
+            "en": "Willingness to help: I’ve been in that spot"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s6f_c",
           "text": {
             "ru": "Неудачно вышло — день-то закончился",
             "en": "Bad timing — the day is over"
@@ -1035,7 +1220,7 @@
           }
         },
         {
-          "id": "s6f_2",
+          "id": "s6f_d",
           "text": {
             "ru": "Опять моё время считают бесплатным",
             "en": "Once again my time is counted as free"
@@ -1046,7 +1231,7 @@
           }
         },
         {
-          "id": "s6f_3",
+          "id": "s6f_e",
           "text": {
             "ru": "Это уже наглость",
             "en": "This is plain audacity"
@@ -1054,6 +1239,17 @@
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s6f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -1070,8 +1266,8 @@
         {
           "id": "s6a_1",
           "text": {
-            "ru": "Посмотрю документ — двадцать минут меня не разрушат",
-            "en": "Look the document over — twenty minutes won't break me"
+            "ru": "Отвечу «гляну» — от двадцати минут не убудет",
+            "en": "Reply “I’ll take a look” — twenty minutes won’t hurt"
           },
           "score": 0,
           "weights": {
@@ -1081,8 +1277,8 @@
         {
           "id": "s6a_2",
           "text": {
-            "ru": "Отвечу: «сегодня нет, посмотрю утром первым делом»",
-            "en": "Reply: “not today — first thing in the morning”"
+            "ru": "Спрошу: «что там конкретно и насколько горит?»",
+            "en": "Ask: “what exactly is it, and how urgent?”"
           },
           "score": 0,
           "weights": {
@@ -1092,8 +1288,19 @@
         {
           "id": "s6a_3",
           "text": {
-            "ru": "Прочитаю сейчас, а отвечать буду только утром",
-            "en": "Read it now, but answer only in the morning"
+            "ru": "«Сегодня уже нет, посмотрю утром первым делом»",
+            "en": "“Not tonight — first thing in the morning”"
+          },
+          "score": 0,
+          "weights": {
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s6a_4",
+          "text": {
+            "ru": "Отвечу утром: «только сейчас увидел{|а}»",
+            "en": "Answer in the morning: “only seeing this now”"
           },
           "score": 0,
           "weights": {
@@ -1101,10 +1308,10 @@
           }
         },
         {
-          "id": "s6a_4",
+          "id": "s6a_5",
           "text": {
-            "ru": "Отмечу лайком — а открывать не стану",
-            "en": "React with a thumbs-up — and never open it"
+            "ru": "Поставлю лайк — а открывать не стану",
+            "en": "Give it a thumbs-up — and never open it"
           },
           "score": 0,
           "weights": {
@@ -1112,10 +1319,10 @@
           }
         },
         {
-          "id": "s6a_5",
+          "id": "s6a_6",
           "text": {
-            "ru": "Напишу, что о таком просят в рабочее время",
-            "en": "Write that this kind of ask belongs in working hours"
+            "ru": "Напишу прямо: такие просьбы — в рабочее время",
+            "en": "Write it plainly: asks like this belong in working hours"
           },
           "score": 0,
           "weights": {
@@ -1138,16 +1345,16 @@
           "en": "At 10:04 p.m. a colleague writes in the work chat:\n\n\"Please look over the document before morning — it's due tomorrow.\""
         },
         "context": {
-          "ru": "Рабочий день давно закончился. О сверхурочных никто не договаривался.",
-          "en": "The workday ended long ago. Nobody agreed to overtime."
+          "ru": "Рабочий день давно закончился. Про переработки речи не было.",
+          "en": "The workday ended long ago. Overtime was never discussed."
         }
       }
     },
     {
       "id": "l3",
       "text": {
-        "ru": "В споре я всегда сразу признаю свою неправоту, как только её понимаю.",
-        "en": "In an argument, I always admit I'm wrong the moment I realize it."
+        "ru": "В споре я всегда сразу признаю ошибку, как только её замечаю.",
+        "en": "In an argument I always admit my mistake the moment I notice it."
       },
       "factorId": null,
       "isReversed": false,
@@ -1207,20 +1414,19 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
-          "ru": "Друг зовёт тебя на мероприятие, которое тебе не интересно. На твоё «не хочется» приходит:\n\n«Да ладно, со мной сходишь! Я уже на нас двоих рассчитываю.»",
-          "en": "A friend invites you to an event you're not into. Your \"I'd rather not\" gets this:\n\n\"Come on, you'll go with me! I'm already counting on the two of us.\""
+          "ru": "Друг зовёт тебя туда, куда тебе совсем неинтересно. На твоё «не хочется» приходит:\n\n«Да ладно, со мной сходишь! Я уже на нас двоих рассчитываю.»",
+          "en": "A friend invites you somewhere you have zero interest in. Your “I’d rather not” gets this:\n\n“Come on, you’ll go with me! I’m already counting on the two of us.”"
         },
         "context": {
-          "ru": "Твой отказ уже прозвучал один раз.",
-          "en": "You've already said no once."
+          "ru": "Ты уже один раз {сказал|сказала} «нет».",
+          "en": "You’ve already said no once."
         }
       },
       "answers": [
         {
-          "id": "s7f_0",
+          "id": "s7f_a",
           "text": {
             "ru": "Ничего, обычные уговоры",
             "en": "Nothing — the usual coaxing"
@@ -1231,7 +1437,18 @@
           }
         },
         {
-          "id": "s7f_1",
+          "id": "s7f_b",
+          "text": {
+            "ru": "Вину: на меня же {рассчитывали|рассчитывали}",
+            "en": "Guilt: they were counting on me"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 2
+          }
+        },
+        {
+          "id": "s7f_c",
           "text": {
             "ru": "Неловкость — отказывать неприятно",
             "en": "Awkwardness — refusing feels bad"
@@ -1242,10 +1459,10 @@
           }
         },
         {
-          "id": "s7f_2",
+          "id": "s7f_d",
           "text": {
             "ru": "Давление: моё «нет» будто не считается",
-            "en": "Pressure: my \"no\" apparently doesn't count"
+            "en": "Pressure: my “no” apparently doesn’t count"
           },
           "score": 0,
           "weights": {
@@ -1253,10 +1470,10 @@
           }
         },
         {
-          "id": "s7f_3",
+          "id": "s7f_e",
           "text": {
-            "ru": "Злость: почему приходится обороняться",
-            "en": "Anger: why am I having to defend myself"
+            "ru": "Злость: почему я {должен|должна} оправдываться",
+            "en": "Anger: why am I the one explaining myself"
           },
           "score": 0,
           "weights": {
@@ -1267,7 +1484,7 @@
           "id": "s7f_u",
           "text": {
             "ru": "Не пойму, что чувствую",
-            "en": "I won't be sure what I feel"
+            "en": "I won’t be sure what I feel"
           },
           "score": 0,
           "weights": {
@@ -1279,8 +1496,8 @@
     {
       "id": "s7a",
       "text": {
-        "ru": "Как, по-твоему, поступит большинство твоих знакомых на твоём месте?",
-        "en": "In your place, what would most people you know do?"
+        "ru": "Что ответишь?",
+        "en": "What do you reply?"
       },
       "factorId": null,
       "isReversed": false,
@@ -1288,63 +1505,74 @@
         {
           "id": "s7a_1",
           "text": {
-            "ru": "Согласятся: сходить проще, чем объяснять",
-            "en": "Agree to go: easier than explaining"
+            "ru": "Отвечу «ладно, схожу» — другу важно, а мне не принципиально",
+            "en": "Reply “fine, I’ll come” — it matters to them, not to me"
           },
           "score": 0,
           "weights": {
-            "style_yield": 0.5
+            "style_yield": 1
           }
         },
         {
           "id": "s7a_2",
           "text": {
-            "ru": "Спокойно повторят «нет» — без оправданий",
-            "en": "Calmly repeat the \"no\" — without excuses"
+            "ru": "Объясню честно: мне это правда не интересно",
+            "en": "Explain honestly: it’s genuinely not my thing"
           },
           "score": 0,
           "weights": {
-            "style_direct": 0.5
+            "style_direct": 1
           }
         },
         {
           "id": "s7a_3",
           "text": {
-            "ru": "Скажут «посмотрим» — а в день встречи просто не придут",
-            "en": "Say \"we'll see\" — then simply not show up"
+            "ru": "Откажусь, но предложу другое: «туда не пойду, давай в другой раз куда-нибудь»",
+            "en": "Say no but offer something else: “not that one — let’s do something else sometime”"
           },
           "score": 0,
           "weights": {
-            "style_indirect": 0.5
+            "style_direct": 1
           }
         },
         {
           "id": "s7a_4",
           "text": {
-            "ru": "Ответят резко: «сколько можно давить?»",
-            "en": "Snap back: \"how long are you going to push?\""
+            "ru": "Скажу «посмотрим» — а в день встречи не пойду",
+            "en": "Say “we’ll see” — and not show up on the day"
           },
           "score": 0,
           "weights": {
-            "style_pressure": 0.5
+            "style_indirect": 1
           }
         },
         {
           "id": "s7a_5",
           "text": {
-            "ru": "Перестанут отвечать, пока тема не затихнет",
+            "ru": "Напишу, что уже {ответил|ответила} нет и повторять надоело",
+            "en": "Write that I already said no and I’m done repeating it"
+          },
+          "score": 0,
+          "weights": {
+            "style_pressure": 1
+          }
+        },
+        {
+          "id": "s7a_6",
+          "text": {
+            "ru": "Перестану отвечать, пока тема не затихнет",
             "en": "Stop replying until the topic dies down"
           },
           "score": 0,
           "weights": {
-            "style_withdraw": 0.5
+            "style_withdraw": 1
           }
         },
         {
           "id": "s7a_x",
           "text": {
-            "ru": "Не возьмусь угадывать",
-            "en": "I wouldn't venture a guess"
+            "ru": "Ничего из этого не похоже на меня",
+            "en": "None of these sounds like me"
           },
           "score": 0,
           "optOut": true
@@ -1352,12 +1580,12 @@
       ],
       "scenario": {
         "situation": {
-          "ru": "Друг зовёт тебя на мероприятие, которое тебе не интересно. На твоё «не хочется» приходит:\n\n«Да ладно, со мной сходишь! Я уже на нас двоих рассчитываю.»",
-          "en": "A friend invites you to an event you're not into. Your \"I'd rather not\" gets this:\n\n\"Come on, you'll go with me! I'm already counting on the two of us.\""
+          "ru": "Друг зовёт тебя туда, куда тебе совсем неинтересно. На твоё «не хочется» приходит:\n\n«Да ладно, со мной сходишь! Я уже на нас двоих рассчитываю.»",
+          "en": "A friend invites you somewhere you have zero interest in. Your “I’d rather not” gets this:\n\n“Come on, you’ll go with me! I’m already counting on the two of us.”"
         },
         "context": {
-          "ru": "Твой отказ уже прозвучал один раз.",
-          "en": "You've already said no once."
+          "ru": "Ты уже один раз {сказал|сказала} «нет».",
+          "en": "You’ve already said no once."
         }
       }
     },
@@ -1369,7 +1597,6 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
           "ru": "За день от мамы пришло девять сообщений: «Ты как?», «Почему не отвечаешь?», «Я волнуюсь». У тебя был плотный день, и до телефона руки дошли только сейчас.",
@@ -1382,7 +1609,7 @@
       },
       "answers": [
         {
-          "id": "s8f_0",
+          "id": "s8f_a",
           "text": {
             "ru": "Спокойствие: волнуется — значит, любит",
             "en": "Calm: she worries because she cares"
@@ -1393,10 +1620,10 @@
           }
         },
         {
-          "id": "s8f_1",
+          "id": "s8f_b",
           "text": {
-            "ru": "Усталость от самого потока",
-            "en": "Tiredness at the sheer stream of it"
+            "ru": "Вину: она правда волновалась, а я не {написал|написала}",
+            "en": "Guilt: she really was worried, and I didn’t write"
           },
           "score": 0,
           "weights": {
@@ -1404,25 +1631,47 @@
           }
         },
         {
-          "id": "s8f_2",
+          "id": "s8f_c",
           "text": {
-            "ru": "Раздражение: я не {пропадал|пропадала} — я просто {жил|жила} свой день",
-            "en": "Irritation: I wasn't missing — I was just living my day"
+            "ru": "Испуг: а вдруг у неё что-то случилось",
+            "en": "Fear: what if something happened to her"
           },
           "score": 0,
           "weights": {
-            "reactivity": 2
+            "reactivity": 1
           }
         },
         {
-          "id": "s8f_3",
+          "id": "s8f_d",
           "text": {
-            "ru": "Духоту: как будто я всё время что-то {должен|должна}",
-            "en": "Suffocation: as if I permanently owe something"
+            "ru": "Усталость от этого потока",
+            "en": "Tiredness at this stream of messages"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
+          }
+        },
+        {
+          "id": "s8f_e",
+          "text": {
+            "ru": "Как будто душно: я всё время что-то {должен|должна}",
+            "en": "Like the air’s gone: I permanently owe something"
           },
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s8f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -1444,8 +1693,8 @@
           },
           "score": 0,
           "weights": {
-            "style_direct": 0.7,
-            "style_yield": 0.3
+            "style_yield": 0.7,
+            "style_direct": 0.3
           }
         },
         {
@@ -1462,8 +1711,20 @@
         {
           "id": "s8a_3",
           "text": {
-            "ru": "Напишу: «жив, просто занят. Срочное — звони»",
-            "en": "Write: “alive, just busy. If it’s urgent — call”"
+            "ru": "Отвечу «всё хорошо» и на остальные девять не отвечу",
+            "en": "Reply “all good” and leave the other nine"
+          },
+          "score": 0,
+          "weights": {
+            "style_indirect": 0.6,
+            "style_withdraw": 0.4
+          }
+        },
+        {
+          "id": "s8a_4",
+          "text": {
+            "ru": "«Я в порядке. Срочное — звонком, остальное отвечу вечером»",
+            "en": "“I’m fine. Urgent things — call; the rest I answer in the evening”"
           },
           "score": 0,
           "weights": {
@@ -1471,10 +1732,10 @@
           }
         },
         {
-          "id": "s8a_4",
+          "id": "s8a_5",
           "text": {
-            "ru": "Отвечу односложно и уберу чат в архив до вечера",
-            "en": "Reply in one word and archive the chat till evening"
+            "ru": "Отвечу «ок» и уберу чат в архив до завтра",
+            "en": "Reply “ok” and archive the chat till tomorrow"
           },
           "score": 0,
           "weights": {
@@ -1482,10 +1743,10 @@
           }
         },
         {
-          "id": "s8a_5",
+          "id": "s8a_6",
           "text": {
-            "ru": "Не выдержу: «мам, девять сообщений — это слишком»",
-            "en": "Lose it a little: “Mom, nine messages is too many”"
+            "ru": "«Мам, девять сообщений за день — это перебор»",
+            "en": "“Mom, nine messages in a day is too much”"
           },
           "score": 0,
           "weights": {
@@ -1516,8 +1777,8 @@
     {
       "id": "l4",
       "text": {
-        "ru": "Мне ни разу не случалось продержать сообщение без ответа дольше одного дня.",
-        "en": "I have never once left a message unanswered for more than a day."
+        "ru": "Бывало, что в переписке я {преувеличивал|преувеличивала}, чтобы меня лучше поняли.",
+        "en": "There have been times I exaggerated in a chat so I’d be understood better."
       },
       "factorId": null,
       "isReversed": false,
@@ -1531,7 +1792,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 3
+            "validity_lie": 0
           }
         },
         {
@@ -1542,7 +1803,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 2
+            "validity_lie": 1
           }
         },
         {
@@ -1553,7 +1814,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 1
+            "validity_lie": 2
           }
         },
         {
@@ -1564,7 +1825,7 @@
           },
           "score": 0,
           "weights": {
-            "validity_lie": 0
+            "validity_lie": 3
           }
         }
       ]
@@ -1579,8 +1840,8 @@
       "isReversed": false,
       "scenario": {
         "situation": {
-          "ru": "Приятель, с которым вы общаетесь нечасто, пишет:\n\n«Выручи до зарплаты, а? Немного не хватает.»",
-          "en": "An acquaintance you don't talk to often writes:\n\n\"Help me out till payday? I'm a bit short.\""
+          "ru": "Приятель, с которым ты общаешься нечасто, пишет:\n\n«Выручи до зарплаты, а? Немного не хватает.»",
+          "en": "An acquaintance you don’t talk to often writes:\n\n“Help me out till payday? I’m a bit short.”"
         },
         "context": {
           "ru": "Прошлый долг этот человек так и не вернул.",
@@ -1589,7 +1850,7 @@
       },
       "answers": [
         {
-          "id": "s9f_0",
+          "id": "s9f_a",
           "text": {
             "ru": "Обычная просьба — у всех бывает",
             "en": "An ordinary ask — happens to everyone"
@@ -1600,10 +1861,21 @@
           }
         },
         {
-          "id": "s9f_1",
+          "id": "s9f_b",
+          "text": {
+            "ru": "Сочувствие: значит, правда прижало",
+            "en": "Sympathy: things must really be tight"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s9f_c",
           "text": {
             "ru": "Неловко: и дать не хочется, и отказывать неудобно",
-            "en": "Awkward: I don't want to give, and refusing is uncomfortable"
+            "en": "Awkward: I don’t want to give, and refusing is uncomfortable"
           },
           "score": 0,
           "weights": {
@@ -1611,7 +1883,7 @@
           }
         },
         {
-          "id": "s9f_2",
+          "id": "s9f_d",
           "text": {
             "ru": "Сначала старый долг, потом разговоры",
             "en": "Old debt first, conversations later"
@@ -1622,14 +1894,25 @@
           }
         },
         {
-          "id": "s9f_3",
+          "id": "s9f_e",
           "text": {
-            "ru": "Меня явно держат за удобный вариант",
-            "en": "I'm clearly being kept as the convenient option"
+            "ru": "Меня явно держат за удобного человека",
+            "en": "I’m clearly being kept as the convenient one"
           },
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s9f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -1646,8 +1929,8 @@
         {
           "id": "s9a_1",
           "text": {
-            "ru": "Дам — в конце концов, не обеднею",
-            "en": "Lend it — I won't go broke, after all"
+            "ru": "Отвечу «скину» — в конце концов, не обеднею",
+            "en": "Reply “sending it” — I won’t go broke after all"
           },
           "score": 0,
           "weights": {
@@ -1657,8 +1940,8 @@
         {
           "id": "s9a_2",
           "text": {
-            "ru": "Откажу прямо: прошлый долг так и не вернулся",
-            "en": "Refuse outright: the last loan never came back"
+            "ru": "Спрошу, сколько нужно и что случилось",
+            "en": "Ask how much, and what happened"
           },
           "score": 0,
           "weights": {
@@ -1668,8 +1951,42 @@
         {
           "id": "s9a_3",
           "text": {
-            "ru": "Отвечу: «конечно — сразу после прошлого раза»",
-            "en": "Reply: \"of course — right after the last one\""
+            "ru": "Дам немного и без расчёта на возврат — считай, подарок",
+            "en": "Give a little and write it off — call it a gift"
+          },
+          "score": 0,
+          "weights": {
+            "style_yield": 1
+          }
+        },
+        {
+          "id": "s9a_4",
+          "text": {
+            "ru": "«Извини, сейчас не могу»",
+            "en": "“Sorry, I can’t right now”"
+          },
+          "score": 0,
+          "weights": {
+            "style_withdraw": 0.5,
+            "style_direct": 0.5
+          }
+        },
+        {
+          "id": "s9a_5",
+          "text": {
+            "ru": "«Прошлый долг мне так и не вернули — больше не даю»",
+            "en": "“The last loan was never paid back — I don’t lend anymore”"
+          },
+          "score": 0,
+          "weights": {
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s9a_6",
+          "text": {
+            "ru": "Отвечу: «конечно — как только вернёшь прошлое»",
+            "en": "Reply: “sure — as soon as you return the last one”"
           },
           "score": 0,
           "weights": {
@@ -1677,25 +1994,14 @@
           }
         },
         {
-          "id": "s9a_4",
+          "id": "s9a_7",
           "text": {
-            "ru": "Отвечу, что сейчас нечем — хотя деньги есть",
-            "en": "Say I’ve got nothing spare — though I do"
+            "ru": "Прочитаю и отвечу что-нибудь потом",
+            "en": "Read it and answer something later"
           },
           "score": 0,
           "weights": {
             "style_withdraw": 1
-          }
-        },
-        {
-          "id": "s9a_5",
-          "text": {
-            "ru": "Напомню про старый долг всё и сразу",
-            "en": "Bring up the old debt — all of it, at once"
-          },
-          "score": 0,
-          "weights": {
-            "style_pressure": 1
           }
         },
         {
@@ -1710,8 +2016,8 @@
       ],
       "scenario": {
         "situation": {
-          "ru": "Приятель, с которым вы общаетесь нечасто, пишет:\n\n«Выручи до зарплаты, а? Немного не хватает.»",
-          "en": "An acquaintance you don't talk to often writes:\n\n\"Help me out till payday? I'm a bit short.\""
+          "ru": "Приятель, с которым ты общаешься нечасто, пишет:\n\n«Выручи до зарплаты, а? Немного не хватает.»",
+          "en": "An acquaintance you don’t talk to often writes:\n\n“Help me out till payday? I’m a bit short.”"
         },
         "context": {
           "ru": "Прошлый долг этот человек так и не вернул.",
@@ -1727,23 +2033,22 @@
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
-          "ru": "В чате квартиры сосед пишет:\n\n«Чья посуда в раковине вторые сутки? Невозможно уже.»\n\nПосуда твоя.",
-          "en": "In the flat's group chat a flatmate writes:\n\n\"Whose dishes have been in the sink for two days? This is getting impossible.\"\n\nThe dishes are yours."
+          "ru": "В чате квартиры кто-то из соседей пишет:\n\n«Чья посуда в раковине вторые сутки? Невозможно уже.»\n\nПосуда твоя.",
+          "en": "In the flat’s group chat one of the flatmates writes:\n\n“Whose dishes have been in the sink for two days? This is getting impossible.”\n\nThe dishes are yours."
         },
         "context": {
-          "ru": "Обычно посуду ты моешь; это редкий случай.",
-          "en": "You normally do your dishes; this is a rare lapse."
+          "ru": "Обычно ты моешь за собой сразу — это редкий случай.",
+          "en": "You normally wash up right away — this is a rare lapse."
         }
       },
       "answers": [
         {
-          "id": "s10f_0",
+          "id": "s10f_a",
           "text": {
             "ru": "Ничего: посуда моя, вопрос по делу",
-            "en": "Nothing: they're my dishes, fair point"
+            "en": "Nothing: they’re my dishes, fair point"
           },
           "score": 0,
           "weights": {
@@ -1751,10 +2056,10 @@
           }
         },
         {
-          "id": "s10f_1",
+          "id": "s10f_b",
           "text": {
-            "ru": "Неловкость",
-            "en": "Embarrassment"
+            "ru": "Неловкость — {забыл|забыла}, а заметили все",
+            "en": "Embarrassment — I forgot, and everyone noticed"
           },
           "score": 0,
           "weights": {
@@ -1762,10 +2067,10 @@
           }
         },
         {
-          "id": "s10f_2",
+          "id": "s10f_c",
           "text": {
-            "ru": "Укол: можно же было написать лично, не на всех",
-            "en": "A sting: this could've been a private message, not a public one"
+            "ru": "Укол: можно было написать лично, а не при всех",
+            "en": "A sting: this could have been a private message, not a public one"
           },
           "score": 0,
           "weights": {
@@ -1773,10 +2078,10 @@
           }
         },
         {
-          "id": "s10f_3",
+          "id": "s10f_d",
           "text": {
             "ru": "Злость: тон такой, будто я главная проблема квартиры",
-            "en": "Anger: the tone paints me as the flat's main problem"
+            "en": "Anger: the tone paints me as the flat’s main problem"
           },
           "score": 0,
           "weights": {
@@ -1787,7 +2092,7 @@
           "id": "s10f_u",
           "text": {
             "ru": "Не пойму, что чувствую",
-            "en": "I won't be sure what I feel"
+            "en": "I won’t be sure what I feel"
           },
           "score": 0,
           "weights": {
@@ -1809,7 +2114,7 @@
           "id": "s10a_1",
           "text": {
             "ru": "Отвечу «моя, уже мою» — и правда помою",
-            "en": "Reply \"mine, on it\" — and actually wash them"
+            "en": "Reply “mine, on it” — and actually wash them"
           },
           "score": 0,
           "weights": {
@@ -1819,32 +2124,30 @@
         {
           "id": "s10a_2",
           "text": {
-            "ru": "Молча помою и в чате ничего писать не стану",
-            "en": "Wash them quietly and write nothing in the chat"
+            "ru": "«Моя, извини — {замотался|замоталась}. Сейчас помою»",
+            "en": "“Mine, sorry — I got swamped. Washing them now”"
           },
           "score": 0,
           "weights": {
-            "style_withdraw": 0.5,
-            "style_yield": 0.5
+            "style_yield": 1
           }
         },
         {
           "id": "s10a_3",
           "text": {
-            "ru": "Отвечу: «а твоя обувь месяц в коридоре — ничего?»",
-            "en": "Reply: “and your shoes, a month in the hallway — fine?”"
+            "ru": "Молча помою и в чате ничего писать не стану",
+            "en": "Wash them quietly and write nothing in the chat"
           },
           "score": 0,
           "weights": {
-            "style_pressure": 0.6,
-            "style_indirect": 0.4
+            "style_withdraw": 1
           }
         },
         {
           "id": "s10a_4",
           "text": {
-            "ru": "Помою и попрошу такое писать мне лично",
-            "en": "Wash them and ask that this come to me directly"
+            "ru": "Помою — и попрошу в следующий раз писать мне лично",
+            "en": "Wash them — and ask that next time this comes to me directly"
           },
           "score": 0,
           "weights": {
@@ -1854,8 +2157,20 @@
         {
           "id": "s10a_5",
           "text": {
-            "ru": "Помою — но пару дней буду отвечать соседу подчёркнуто сухо",
-            "en": "Wash them — and answer that flatmate pointedly dryly for a couple of days"
+            "ru": "Спрошу про его обувь, которая месяц стоит в коридоре",
+            "en": "Ask about the shoes that have sat in the hallway for a month"
+          },
+          "score": 0,
+          "weights": {
+            "style_pressure": 0.6,
+            "style_indirect": 0.4
+          }
+        },
+        {
+          "id": "s10a_6",
+          "text": {
+            "ru": "Помою — но пару дней буду отвечать в чате сухо",
+            "en": "Wash them — and answer dryly in that chat for a couple of days"
           },
           "score": 0,
           "weights": {
@@ -1874,20 +2189,20 @@
       ],
       "scenario": {
         "situation": {
-          "ru": "В чате квартиры сосед пишет:\n\n«Чья посуда в раковине вторые сутки? Невозможно уже.»\n\nПосуда твоя.",
-          "en": "In the flat's group chat a flatmate writes:\n\n\"Whose dishes have been in the sink for two days? This is getting impossible.\"\n\nThe dishes are yours."
+          "ru": "В чате квартиры кто-то из соседей пишет:\n\n«Чья посуда в раковине вторые сутки? Невозможно уже.»\n\nПосуда твоя.",
+          "en": "In the flat’s group chat one of the flatmates writes:\n\n“Whose dishes have been in the sink for two days? This is getting impossible.”\n\nThe dishes are yours."
         },
         "context": {
-          "ru": "Обычно посуду ты моешь; это редкий случай.",
-          "en": "You normally do your dishes; this is a rare lapse."
+          "ru": "Обычно ты моешь за собой сразу — это редкий случай.",
+          "en": "You normally wash up right away — this is a rare lapse."
         }
       }
     },
     {
       "id": "s11f",
       "text": {
-        "ru": "Как прочитается это «Ок.»?",
-        "en": "How does that \"Ok.\" read to you?"
+        "ru": "Как ты прочитаешь это «Ок.»?",
+        "en": "How do you read that “Ok.”?"
       },
       "factorId": null,
       "isReversed": false,
@@ -1903,7 +2218,7 @@
       },
       "answers": [
         {
-          "id": "s11f_0",
+          "id": "s11f_a",
           "text": {
             "ru": "Нейтрально: ок значит ок",
             "en": "Neutral: ok means ok"
@@ -1914,10 +2229,21 @@
           }
         },
         {
-          "id": "s11f_1",
+          "id": "s11f_b",
+          "text": {
+            "ru": "Скорее облегчение: разговор наконец закрыт",
+            "en": "Relief, more than anything: the conversation is finally closed"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s11f_c",
           "text": {
             "ru": "Суховато, но додумывать не стану",
-            "en": "A bit dry, but I won't read into it"
+            "en": "A bit dry, but I won’t read into it"
           },
           "score": 0,
           "weights": {
@@ -1925,7 +2251,7 @@
           }
         },
         {
-          "id": "s11f_2",
+          "id": "s11f_d",
           "text": {
             "ru": "Как дверь, закрытая перед носом",
             "en": "Like a door closed in my face"
@@ -1936,14 +2262,25 @@
           }
         },
         {
-          "id": "s11f_3",
+          "id": "s11f_e",
           "text": {
-            "ru": "Как способ показать, что всё сказанное мной ничего не стоит",
-            "en": "Like a way of showing everything I said is worth nothing"
+            "ru": "Как знак, что всё, что я {написал|написала}, — впустую",
+            "en": "Like a sign that everything I wrote counted for nothing"
           },
           "score": 0,
           "weights": {
             "reactivity": 3
+          }
+        },
+        {
+          "id": "s11f_u",
+          "text": {
+            "ru": "Не пойму, что чувствую",
+            "en": "I won’t be sure what I feel"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 1
           }
         }
       ]
@@ -1960,16 +2297,39 @@
         {
           "id": "s11a_1",
           "text": {
-            "ru": "Ничего: главное сказано, пусть переварит",
-            "en": "Nothing: the main thing's been said — let it digest"
+            "ru": "Отвечу «ок» и правда закрою тему",
+            "en": "Reply “ok” and actually let it go"
           },
           "score": 0,
           "weights": {
-            "style_yield": 0.3
+            "style_yield": 1
           }
         },
         {
           "id": "s11a_2",
+          "text": {
+            "ru": "Ничего не напишу — {сказал|сказала} главное, дальше не моё дело",
+            "en": "Write nothing — I said the main thing, the rest isn’t mine to do"
+          },
+          "score": 0,
+          "weights": {
+            "style_withdraw": 0.5,
+            "style_yield": 0.5
+          }
+        },
+        {
+          "id": "s11a_3",
+          "text": {
+            "ru": "Наберу: в переписке это уже не решается",
+            "en": "Call: this isn’t getting solved over text"
+          },
+          "score": 0,
+          "weights": {
+            "style_direct": 1
+          }
+        },
+        {
+          "id": "s11a_4",
           "text": {
             "ru": "Спрошу: это «принято» или «тема закрыта»?",
             "en": "Ask: is that “understood” or “topic closed”?"
@@ -1980,10 +2340,22 @@
           }
         },
         {
-          "id": "s11a_3",
+          "id": "s11a_5",
+          "text": {
+            "ru": "Подожду до вечера и спрошу спокойно",
+            "en": "Wait till evening and ask calmly"
+          },
+          "score": 0,
+          "weights": {
+            "style_withdraw": 0.5,
+            "style_direct": 0.5
+          }
+        },
+        {
+          "id": "s11a_6",
           "text": {
             "ru": "Отвечу зеркально — таким же «Ок.»",
-            "en": "Mirror it — with the exact same \"Ok.\""
+            "en": "Mirror it — with the exact same “Ok.”"
           },
           "score": 0,
           "weights": {
@@ -1991,10 +2363,10 @@
           }
         },
         {
-          "id": "s11a_4",
+          "id": "s11a_7",
           "text": {
-            "ru": "Так не оставлю: на длинное сообщение так не отвечают",
-            "en": "Not letting it stand: long messages deserve more"
+            "ru": "Скажу, что «ок» на такое сообщение — несерьёзно",
+            "en": "Say that “ok” to a message like that isn’t serious"
           },
           "score": 0,
           "weights": {
@@ -2025,25 +2397,24 @@
     {
       "id": "s12f",
       "text": {
-        "ru": "Что будет первым?",
-        "en": "What comes first?"
+        "ru": "Что почувствуешь первым?",
+        "en": "What do you feel first?"
       },
       "factorId": null,
       "isReversed": false,
-      "shuffle": false,
       "scenario": {
         "situation": {
-          "ru": "Ты узнаёшь: то, что ты {рассказал|рассказала} другу один на один, друг пересказал в общей компании. До тебя это дошло через третьего человека.",
-          "en": "You find out: something you told a friend one-on-one got retold to the wider circle. It reached you through a third person."
+          "ru": "То, что ты {рассказал|рассказала} другу один на один, знает уже вся компания. До тебя это дошло через третьего человека.",
+          "en": "Something you told a friend one-on-one is now known to the whole circle. It reached you through a third person."
         },
         "context": {
-          "ru": "Это не тайна жизни и смерти — но ты прямо {просил|просила} оставить это между вами.",
-          "en": "Not a life-and-death secret — but you explicitly asked to keep it between you two."
+          "ru": "Это не страшная тайна — но ты прямо {просил|просила} оставить это между вами.",
+          "en": "Not a terrible secret — but you explicitly asked to keep it between you two."
         }
       },
       "answers": [
         {
-          "id": "s12f_0",
+          "id": "s12f_a",
           "text": {
             "ru": "Спокойствие: ничего страшного не разошлось",
             "en": "Calm: nothing damaging got out"
@@ -2054,7 +2425,18 @@
           }
         },
         {
-          "id": "s12f_1",
+          "id": "s12f_b",
+          "text": {
+            "ru": "Сомнение: может, до меня дошло криво",
+            "en": "Doubt: maybe it reached me distorted"
+          },
+          "score": 0,
+          "weights": {
+            "reactivity": 0
+          }
+        },
+        {
+          "id": "s12f_c",
           "text": {
             "ru": "Неприятный осадок",
             "en": "An unpleasant aftertaste"
@@ -2065,9 +2447,9 @@
           }
         },
         {
-          "id": "s12f_2",
+          "id": "s12f_d",
           "text": {
-            "ru": "Обида: я же прямо {просил|просила}",
+            "ru": "Обиду: я же прямо {просил|просила}",
             "en": "Hurt: I explicitly asked"
           },
           "score": 0,
@@ -2076,7 +2458,7 @@
           }
         },
         {
-          "id": "s12f_3",
+          "id": "s12f_e",
           "text": {
             "ru": "Ощущение предательства",
             "en": "A sense of betrayal"
@@ -2090,7 +2472,7 @@
           "id": "s12f_u",
           "text": {
             "ru": "Не пойму, что чувствую",
-            "en": "I won't be sure what I feel"
+            "en": "I won’t be sure what I feel"
           },
           "score": 0,
           "weights": {
@@ -2102,8 +2484,8 @@
     {
       "id": "s12a",
       "text": {
-        "ru": "Как поступит большинство людей из твоего окружения, узнав такое?",
-        "en": "Finding that out, what would most people around you do?"
+        "ru": "Что сделаешь?",
+        "en": "What do you do?"
       },
       "factorId": null,
       "isReversed": false,
@@ -2111,63 +2493,76 @@
         {
           "id": "s12a_1",
           "text": {
-            "ru": "Пойдут и скажут прямо: договаривались же — между нами",
-            "en": "Go say it straight: we agreed — this stays between us"
+            "ru": "Сначала выясню, так ли всё было: через третьего часто доходит криво",
+            "en": "First find out what actually happened: third-hand stories arrive crooked"
           },
           "score": 0,
           "weights": {
-            "style_direct": 0.5
+            "style_direct": 1
           }
         },
         {
           "id": "s12a_2",
           "text": {
-            "ru": "Промолчат — но личного этому человеку больше не расскажут",
-            "en": "Say nothing — but never share anything personal with that person again"
+            "ru": "Спрошу без наезда: «слушай, ты про это рассказывал?»",
+            "en": "Ask without an edge: “hey, did you tell people about that?”"
           },
           "score": 0,
           "weights": {
-            "style_withdraw": 0.5
+            "style_direct": 1
           }
         },
         {
           "id": "s12a_3",
           "text": {
-            "ru": "При случае выскажут так, чтобы прожгло",
-            "en": "At the right moment, say it so it burns"
+            "ru": "«Мы вроде договаривались, что это между нами»",
+            "en": "“I thought we agreed this stays between us”"
           },
           "score": 0,
           "weights": {
-            "style_pressure": 0.5
+            "style_pressure": 0.5,
+            "style_direct": 0.5
           }
         },
         {
           "id": "s12a_4",
           "text": {
-            "ru": "Отзеркалят той же монетой при первом удобном случае",
-            "en": "Repay in kind at the first convenient opportunity"
+            "ru": "Промолчу — но личного этому человеку больше не расскажу",
+            "en": "Say nothing — but never tell them anything personal again"
           },
           "score": 0,
           "weights": {
-            "style_indirect": 0.5
+            "style_withdraw": 1
           }
         },
         {
           "id": "s12a_5",
           "text": {
-            "ru": "Спустят на тормозах: с кем не бывает",
+            "ru": "Отвечу, что спасибо за огласку — учту на будущее",
+            "en": "Say thanks for the publicity — noted for next time"
+          },
+          "score": 0,
+          "weights": {
+            "style_pressure": 0.5,
+            "style_indirect": 0.5
+          }
+        },
+        {
+          "id": "s12a_6",
+          "text": {
+            "ru": "Спущу на тормозах: с кем не бывает",
             "en": "Let it slide: could happen to anyone"
           },
           "score": 0,
           "weights": {
-            "style_yield": 0.5
+            "style_yield": 1
           }
         },
         {
           "id": "s12a_x",
           "text": {
-            "ru": "Не возьмусь угадывать",
-            "en": "I wouldn't venture a guess"
+            "ru": "Ничего из этого не похоже на меня",
+            "en": "None of these sounds like me"
           },
           "score": 0,
           "optOut": true
@@ -2175,12 +2570,12 @@
       ],
       "scenario": {
         "situation": {
-          "ru": "Ты узнаёшь: то, что ты {рассказал|рассказала} другу один на один, друг пересказал в общей компании. До тебя это дошло через третьего человека.",
-          "en": "You find out: something you told a friend one-on-one got retold to the wider circle. It reached you through a third person."
+          "ru": "То, что ты {рассказал|рассказала} другу один на один, знает уже вся компания. До тебя это дошло через третьего человека.",
+          "en": "Something you told a friend one-on-one is now known to the whole circle. It reached you through a third person."
         },
         "context": {
-          "ru": "Это не тайна жизни и смерти — но ты прямо {просил|просила} оставить это между вами.",
-          "en": "Not a life-and-death secret — but you explicitly asked to keep it between you two."
+          "ru": "Это не страшная тайна — но ты прямо {просил|просила} оставить это между вами.",
+          "en": "Not a terrible secret — but you explicitly asked to keep it between you two."
         }
       }
     }
@@ -2253,12 +2648,12 @@
         "en": "In Plain Text"
       },
       "description": {
-        "ru": "Ты называешь, что не так, и остаёшься в разговоре. Звучит просто — и это самый редкий ответ в переписках.",
-        "en": "You name what's wrong and stay in the conversation. Sounds simple — and it's the rarest reply in any chat."
+        "ru": "Ты называешь, что не так, и не уходишь из разговора. Звучит просто — и это редко кому даётся.",
+        "en": "You name what’s wrong and you don’t leave the conversation. Sounds simple — and few people manage it."
       },
       "whyThisProfile": {
-        "ru": "Прямой ход — твой ведущий стиль: в ситуациях, где он был доступен, ты {выбирал|выбирала} его чаще любого другого, с заметным отрывом от второго. Назвать, что задело, без атаки и без исчезновения. Вторая половина твоей формулы — шкала «насколько задевает» ниже: прямота при спокойном внутреннем фоне — это устойчивость; прямота, когда внутри штормит, — это смелость, и она дороже.",
-        "en": "The direct move is your lead style: where it was on the table, you picked it more than any other, with a clear margin over the runner-up. Naming what stung — without attacking and without vanishing. The second half of your formula is the \"how much it stings\" scale below: directness on a calm inner background is steadiness; directness while it storms inside is courage, and that one costs more."
+        "ru": "Прямой ход набрал у тебя больше всех — и с запасом. Назвать, что задело, — не нападая и не исчезая. Вторая половина твоей формулы — шкала «насколько задевает» ниже: прямота, когда внутри спокойно, — это устойчивость; прямота, когда внутри штормит, — смелость, и она дороже.",
+        "en": "The direct move scored highest for you — with room to spare. Naming what stung, without attacking and without vanishing. The second half of your formula is the “how much it stings” scale below: directness while calm inside is steadiness; directness while it storms inside is courage, and that costs more."
       },
       "strengths": {
         "ru": [
@@ -2276,13 +2671,13 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Правильные слова в неправильный момент всё равно бьют: прямота без таймига — это удар.",
+          "Правильные слова в неправильный момент всё равно бьют: прямота без чувства момента — это удар.",
           "Ты ждёшь своей скорости от людей, которым прямота не давалась никогда.",
           "Ровный тон читается как холод: слышно, что ты {прав|права}, и не слышно, что тебе не всё равно.",
           "Тебе легко закрыть вопрос у себя — и не заметить, что у собеседника он ещё открыт."
         ],
         "en": [
-          "The right words at the wrong moment still land as a blow: directness without timing is a hit.",
+          "The right words at the wrong moment still land as a blow: directness without a sense of timing is a hit.",
           "You expect your speed from people directness never came easily to.",
           "A level tone reads as cold: they hear that you're right and don't hear that you care.",
           "It's easy for you to close the matter on your side — and miss that it's still open on theirs."
@@ -2321,8 +2716,8 @@
         "en": "In conflict you go forward: answer at once, say it stronger, concede nothing. The winning works. It's expensive."
       },
       "whyThisProfile": {
-        "ru": "Напор — твой ведущий стиль: там, где он был доступен, ты {выбирал|выбирала} его чаще прочих, с заметным отрывом. Ответить сразу и в полную силу, чтобы не осталось вопросов, кто прав. Теперь посмотри на шкалу «насколько задевает» ниже. Если она высокая — твой напор чаще всего оборона, которая включается раньше, чем ты решаешь, нужна ли она. Если низкая — это привычка вести разговор с позиции силы даже там, где никто не нападал.",
-        "en": "Pressure is your lead style: where it was available, you picked it more than the rest, by a clear margin. Answer immediately and at full strength, so there's no question who's right. Now look at the \"how much it stings\" scale below. If it's high, your force is mostly a defense that fires before you've decided it's needed. If it's low, it's a habit of talking from strength even where nobody attacked."
+        "ru": "Напор оторвался от остальных стилей на голову. Ответить сразу и в полную силу, чтобы не осталось вопросов, кто прав. Теперь посмотри на шкалу «насколько задевает» ниже. Если она высокая — твой напор чаще всего оборона, которая включается раньше, чем ты решаешь, нужна ли она. Если низкая — это привычка вести разговор с позиции силы даже там, где никто не нападал.",
+        "en": "Pressure pulled clear of the other styles by a head. Answer at once and at full strength, so there’s no question who’s right. Now look at the “how much it stings” scale below. If it’s high, your force is mostly a defense that fires before you’ve decided you need it. If it’s low, it’s a habit of talking from strength even where nobody attacked."
       },
       "strengths": {
         "ru": [
@@ -2342,13 +2737,13 @@
         "ru": [
           "Написанное сгоряча остаётся написанным: твоё «отпустило через час» человек перечитывает месяцами.",
           "С тобой начинают осторожничать — и ты слышишь всё меньше правды.",
-          "Ты выигрываешь обмен репликами и проигрываешь отношения; счёт замечаешь позже.",
+          "Ты выигрываешь обмен репликами и проигрываешь отношения — и понимаешь это позже.",
           "За напором не видно, что тебе больно: люди видят атаку — и отвечают на атаку."
         ],
         "en": [
           "What's written in heat stays written: your \"it passed in an hour\" gets reread for months.",
           "People start treading carefully around you — and you hear less and less truth.",
-          "You win the exchange and lose the relationship; you notice the score later.",
+          "You win the exchange and lose the relationship — and you realize it later.",
           "The force hides the hurt: people see an attack — and answer the attack."
         ]
       },
@@ -2356,17 +2751,17 @@
         "ru": [
           "Резкий ответ пиши в заметки, не в чат. Через час отправишь то, что останется, — обычно это четверть.",
           "Меняй «ты вечно» на «мне обидно»: второе — правда, первое — оружие.",
-          "Выучи свои условия: голод, усталость, дедлайн. Взрыв приходит по расписанию — расписание можно знать заранее."
+          "Запомни свои состояния: голод, усталость, дедлайн. Взрыв приходит по расписанию — расписание можно знать заранее."
         ],
         "en": [
           "Write the sharp reply in your notes, not the chat. In an hour, send what's left — usually a quarter.",
           "Swap \"you always\" for \"that hurt\": the second is true, the first is a weapon.",
-          "Learn your conditions: hunger, fatigue, deadline. The blow-up runs on a schedule — and the schedule can be known."
+          "Learn your states: hunger, fatigue, deadline. The blow-up runs on a schedule — and the schedule can be known in advance."
         ]
       },
       "tryToday": {
-        "ru": "Захочется ответить жёстко — напиши это в заметки и поставь таймер на час. Отправь только то, под чем подпишешься через час.",
-        "en": "When you want to hit back today, write it in your notes and set a one-hour timer. Send only what you'd still sign an hour later."
+        "ru": "Сегодня в любом споре один раз спроси «что ты имеешь в виду?» вместо ответа. Одного раза хватит.",
+        "en": "In any argument today, ask “what do you mean?” once instead of answering. Once is enough."
       },
       "inspiringConclusion": {
         "ru": "За твоим напором почти всегда стоит «услышьте меня». Это можно сказать словами — и тогда правда слышат.",
@@ -2385,21 +2780,21 @@
         "en": "When it heats up, you disappear: don't reply, put it off, step out. From outside it looks like calm. From inside it's a way to survive."
       },
       "whyThisProfile": {
-        "ru": "Уход — твой ведущий стиль: где он был возможен, ты {выбирал|выбирала} его чаще любого другого, с заметным отрывом. Оставить на потом, ответить завтра, не ответить совсем. Так обычно отвечает человек, которого опыт научил: разговор не чинит, а ломает. Тогда молчание правда было дешевле — сейчас оно просто переносит счёт на потом. Сверь со шкалой «насколько задевает» ниже: если она высокая, внутри у тебя буря, которой снаружи не видно, и твою тишину читают как равнодушие — ровно наоборот.",
-        "en": "Withdrawal is your lead style: where it was possible, you picked it more than any other, by a clear margin. Leave it for later, answer tomorrow, don't answer at all. That's usually the answer of someone experience has taught that talking doesn't fix things — it breaks them. Back then silence really was cheaper; now it just moves the bill to later. Check the \"how much it stings\" scale below: if it's high, there's a storm inside that nobody sees, and your silence gets read as indifference — the exact opposite."
+        "ru": "Уход — то, к чему ты возвращаешься чаще всего. Оставить на потом, ответить завтра, не ответить совсем. Так обычно отвечает человек, которого опыт научил: от разговора становится хуже, а не лучше. Тогда молчание правда было дешевле — сейчас оно просто откладывает разговор. Сверь со шкалой «насколько задевает» ниже: если она высокая, внутри у тебя буря, которой снаружи не видно, и твою тишину читают как равнодушие — ровно наоборот.",
+        "en": "Withdrawal is what you keep coming back to. Leave it for later, answer tomorrow, don’t answer at all. That’s usually the answer of someone experience taught that talking makes things worse, not better. Silence really was cheaper then — now it just postpones the conversation. Check the “how much it stings” scale below: if it’s high, there’s a storm inside nobody sees, and your quiet reads as indifference — the exact opposite."
       },
       "strengths": {
         "ru": [
           "Ты не отправляешь того, что нельзя забрать назад.",
-          "Ты не подкармливаешь скандал — без тебя он гаснет быстрее.",
+          "Ты не подливаешь масла — без тебя скандал гаснет быстрее.",
           "Пауза у тебя настоящая: ты действительно думаешь, а не заряжаешь следующий удар.",
-          "Ты чувствуешь опасные разговоры заранее — иначе тебе не от чего было бы уходить."
+          "Ты чувствуешь опасный разговор заранее — раньше, чем он начался."
         ],
         "en": [
           "You don't send what can't be taken back.",
-          "You don't feed the blaze — without you it burns out faster.",
+          "You don’t pour fuel on it — the blaze burns out faster without you.",
           "Your pause is real: you actually think, rather than loading the next hit.",
-          "You sense dangerous conversations early — otherwise there'd be nothing to walk away from."
+          "You sense a dangerous conversation early — before it has started."
         ]
       },
       "vulnerabilities": {
@@ -2433,8 +2828,8 @@
         "en": "Answer one message that's been hanging for a while. One line is enough — no need to apologize for the gap."
       },
       "inspiringConclusion": {
-        "ru": "Молчание когда-то тебя защищало, и это было разумно. Теперь сил у тебя больше, чем тогда, — и одна честная строка защищает лучше тишины.",
-        "en": "Silence protected you once, and that was sensible. You have more strength now than you did then — and one honest line protects better than quiet."
+        "ru": "Молчание не раз тебя выручало, и это было разумно. Сил у тебя теперь больше, чем тогда, — и одна честная строка защищает лучше тишины.",
+        "en": "Silence has bailed you out more than once, and that was sensible. You have more strength now than you did then — and one honest line protects better than quiet."
       }
     },
     "the_yield": {
@@ -2445,36 +2840,36 @@
         "en": "Anything but a Fight"
       },
       "description": {
-        "ru": "Ты соглашаешься, сглаживаешь, идёшь навстречу — и мир сохраняется. Вопрос только в том, по чьей цене.",
+        "ru": "Ты соглашаешься, сглаживаешь, идёшь навстречу — и мир сохраняется. Вопрос только в том, за чей счёт.",
         "en": "You agree, you smooth it over, you meet people halfway — and the peace holds. The only question is at whose expense."
       },
       "whyThisProfile": {
-        "ru": "Уступка — твой ведущий стиль: где она была возможна, ты {выбирал|выбирала} её чаще всего, с заметным отрывом. Согласиться, помочь, не заострять — отношения целее, вечер спокойнее. Это красивый стиль, пока он выбор, а не рефлекс. Посмотри на шкалу «насколько задевает» ниже. Если она низкая — ты действительно гибкий человек, которому многое не стоит нервов, и это сила. Если высокая — ты платишь за чужой комфорт своим, и счёт растёт молча.",
-        "en": "Yielding is your lead style: where it was possible, you picked it most often, by a clear margin. Agree, help out, don't sharpen it — the relationship stays whole, the evening stays calm. It's a beautiful style as long as it's a choice and not a reflex. Look at the \"how much it stings\" scale below. If it's low, you're genuinely flexible — a lot of things simply don't cost you nerves, and that's strength. If it's high, you're paying for other people's comfort with your own, and the bill grows quietly."
+        "ru": "Уступка в твоих ответах встречается чаще любого другого хода. Согласиться, помочь, не заострять — отношения целее, вечер спокойнее. Это красивый стиль, пока он выбор, а не рефлекс. Посмотри на шкалу «насколько задевает» ниже. Если она низкая — ты действительно гибкий человек, которому многое не стоит нервов, и это сила. Если высокая — ты платишь за чужой комфорт своим, и цена растёт молча.",
+        "en": "Yielding shows up in your answers more than any other move. Agree, help out, don’t sharpen it — the relationship stays whole, the evening stays calm. It’s a beautiful style as long as it’s a choice and not a reflex. Look at the “how much it stings” scale below. If it’s low, you’re genuinely flexible — plenty of things simply don’t cost you nerves, and that’s strength. If it’s high, you’re paying for other people’s comfort with your own, and the price grows quietly."
       },
       "strengths": {
         "ru": [
           "С тобой легко: ты не превращаешь мелочь в разбирательство.",
           "Ты замечаешь, что нужно другому, раньше, чем тебя попросят.",
-          "Ты умеешь уступать искренне — без счёта, который потом предъявишь.",
+          "Ты умеешь уступать искренне — не выставляя потом счёт.",
           "Отношения с тобой переживают то, на чём другие ломаются."
         ],
         "en": [
           "You're easy to be with: you don't turn small things into proceedings.",
           "You notice what someone needs before they ask.",
-          "You can yield sincerely — without an invoice presented later.",
+          "You can yield sincerely — without presenting a bill afterwards.",
           "Relationships with you survive what breaks other people's."
         ]
       },
       "vulnerabilities": {
         "ru": [
-          "Твоё «да» перестаёт быть информацией: за ним не видно, где тебе на самом деле «нет».",
+          "Твоё «да» перестаёт что-либо значить: за ним не видно, где на самом деле «нет».",
           "Люди привыкают к твоей уступчивости — и перестают спрашивать, как тебе.",
           "Обида за несказанные «нет» копится и портит отношения изнутри, тихо.",
           "В важном ты рискуешь оказаться там, куда никогда не {хотел|хотела}: туда ведут маленькие «ладно»."
         ],
         "en": [
-          "Your \"yes\" stops being information: nobody can see where it's actually a \"no\".",
+          "Your “yes” stops meaning anything: nobody can see where it’s actually a “no”.",
           "People get used to your yielding — and stop asking how it is for you.",
           "Resentment over unsaid \"no\"s accumulates and corrodes the relationship from inside, quietly.",
           "In the big things you risk ending up where you never wanted to be: little \"fine\"s lead there."
@@ -2484,17 +2879,17 @@
         "ru": [
           "Раздели: уступаю, потому что не важно, — или потому что страшно? Первое оставь, со вторым разбирайся.",
           "Начни с малых «нет» там, где ставки копеечные: отказ тренируется, как мышца.",
-          "Уступая в важном, называй цену вслух: «хорошо, сделаем по-твоему, но мне это стоит выходных». Пусть уступка будет видимой."
+          "Уступая в важном, называй цену вслух: «хорошо, сделаем по-твоему, но мне это стоит выходных»."
         ],
         "en": [
           "Separate the two: am I yielding because it doesn't matter — or because I'm scared? Keep the first, work on the second.",
-          "Start with small \"no\"s where the stakes are pennies: refusal trains like a muscle.",
-          "When you yield on something big, name the price out loud: \"fine, we'll do it your way — it costs me my weekend.\" Let the concession be visible."
+          "Start with small “no”s where the stakes are pennies: refusal trains like a muscle.",
+          "When you yield on something big, name the price out loud: “fine, we’ll do it your way — it costs me my weekend”."
         ]
       },
       "tryToday": {
-        "ru": "Один раз сегодня скажи «мне так неудобно» вместо «да ладно, ничего страшного» — и посмотри, что случится. Скорее всего — ничего страшного.",
-        "en": "Once today, say \"that doesn't work for me\" instead of \"it's fine, no big deal\" — and watch what happens. Most likely: no big deal."
+        "ru": "Один раз сегодня скажи «мне так не подходит» вместо «да ладно, ничего страшного» — и посмотри, что случится. Скорее всего — ничего страшного.",
+        "en": "Once today, say “that doesn’t work for me” instead of “it’s fine, no big deal” — and watch what happens. Most likely: no big deal."
       },
       "inspiringConclusion": {
         "ru": "Беречь отношения — редкий дар. Он станет вдвое сильнее, когда в списке людей, которых ты бережёшь, появишься ты.",
@@ -2513,20 +2908,20 @@
         "en": "You don't fight in the open. You reply later than usual, drier than usual — and the other person works out for themselves that something's off."
       },
       "whyThisProfile": {
-        "ru": "Обходной манёвр — твой ведущий стиль: где он был доступен, ты {выбирал|выбирала} его чаще других, с заметным отрывом. Сарказм, зеркальное «Ок.», пауза, которую нельзя предъявить. Так выходит, когда злость есть, а открытый конфликт кажется слишком опасным или слишком дорогим: наказание доставлено, руки чистые. Цена в том, что до человека доходит только половина сообщения — та, где ему неприятно; за что именно — он не знает, и починить не может. Если шкала «насколько задевает» ниже высокая — внутри у тебя куда больше, чем видно снаружи.",
-        "en": "The indirect move is your lead style: where it was available, you picked it more than the others, by a clear margin. Sarcasm, a mirrored \"Ok.\", a pause that can't be held against you. That's what happens when the anger is there but open conflict feels too dangerous or too expensive: the punishment is delivered, the hands stay clean. The price is that only half the message arrives — the half where it stings; what it's for, they don't know, so they can't fix it. If the \"how much it stings\" scale below is high, there's far more inside you than shows."
+        "ru": "Обходной манёвр опередил остальные стили с большим запасом. Сарказм, зеркальное «Ок.», пауза, которую нельзя предъявить. Так выходит, когда злость есть, а открытый конфликт кажется слишком опасным или слишком дорогим: наказание случилось, а руки чистые. Цена в том, что до человека доходит только половина сообщения — та, где ему неприятно; за что именно — он не знает и исправить не может. Если шкала «насколько задевает» ниже высокая — внутри у тебя куда больше, чем видно снаружи.",
+        "en": "The indirect move outpaced the other styles by a wide margin. Sarcasm, a mirrored “Ok.”, a pause nobody can hold against you. That’s what happens when the anger is there but open conflict feels too dangerous or too expensive: the punishment lands and your hands stay clean. The price is that only half the message arrives — the half that stings; what it’s for they don’t know and can’t fix. If the “how much it stings” scale below is high, there’s far more inside you than shows."
       },
       "strengths": {
         "ru": [
           "Ты владеешь собой: сорваться и наговорить — не твой сценарий.",
-          "Ты точно чувствуешь, где у людей тонко, — в мирное время этот же радар делает тебя внимательным собеседником.",
-          "Ты не выносишь ссоры на публику.",
+          "Ты точно чувствуешь, где у людей тонко, — в мирное время этот же радар делает тебя {внимательным|внимательной} {собеседником|собеседницей}.",
+          "Ты не устраиваешь сцен при всех.",
           "Твоё недовольство дозировано: ты умеешь показать «минус один градус» там, где другие рубят связь."
         ],
         "en": [
           "You keep hold of yourself: blowing up and saying too much isn't your script.",
-          "You sense exactly where people are thin-skinned — in peacetime the same radar makes you an attentive companion.",
-          "You don't take fights public.",
+          "You sense exactly where people are thin-skinned — in peacetime that same radar makes you an attentive companion.",
+          "You don’t make scenes in public.",
           "Your displeasure comes in doses: you can show \"one degree colder\" where others cut the line."
         ]
       },
@@ -2535,24 +2930,24 @@
           "Человек чувствует наказание, но не знает, за что, — значит, не может исправить, даже если хочет.",
           "Формально ссоры не было — а отношения тем временем остывают насовсем.",
           "Проблема не решается никогда: она ведь ни разу не названа вслух.",
-          "Рано или поздно тебя начинают читать как неискреннего человека — и это клеймо держится дольше любой ссоры."
+          "Рано или поздно тебя начинают считать неискренним — и это держится дольше любой ссоры."
         ],
         "en": [
           "They feel the punishment but don't know what it's for — so they can't fix it even if they want to.",
           "Formally there was no fight — while the relationship quietly cools for good.",
           "The problem never gets solved: it's never once been named out loud.",
-          "Sooner or later people start reading you as insincere — and that label outlasts any fight."
+          "Sooner or later people start seeing you as insincere — and that outlasts any fight."
         ]
       },
       "recommendations": {
         "ru": [
           "Говори то, что шифруешь: пауза значит «мне обидно», сарказм — «я злюсь». Попробуй сказать это теми же словами.",
-          "Пауза, о которой предупредили, — законный ход. Пауза-наказание — нет. Разница — одна строка: «мне нужно время».",
+          "Прежде чем ответить сухо, назови причину — иначе её додумают за тебя, и обычно в худшую сторону.",
           "Перед отправкой колкости спроси себя: я хочу, чтобы человек понял, — или чтобы ему стало неприятно? Честный ответ обычно неудобен."
         ],
         "en": [
           "Say the thing you're encoding: the pause means \"that hurt\", the sarcasm means \"I'm angry\". Try saying it in those words.",
-          "A pause you announced is a legitimate move. A pause as punishment isn't. The difference is one line: \"I need time.\"",
+          "Before answering dryly, name the reason — otherwise it gets filled in for you, usually with the worst version.",
           "Before sending the barb, ask yourself: do I want them to understand — or to feel bad? The honest answer is usually the uncomfortable one."
         ]
       },
@@ -2573,12 +2968,12 @@
         "en": "Depends on the Day"
       },
       "description": {
-        "ru": "Единого стиля нет: где-то прямота, где-то тишина, где-то уступка. Вопрос не в том, какой ты. Вопрос — кто выбирает: ты или страх.",
-        "en": "No single style: directness here, silence there, a concession elsewhere. The question isn't what you're like. The question is who's choosing — you, or fear."
+        "ru": "Единого стиля нет: где-то прямота, где-то тишина, где-то уступка. Вопрос не в том, {какой|какая} ты. Вопрос — кто выбирает: ты или страх.",
+        "en": "No single style: directness here, silence there, a concession elsewhere. The question isn’t what you’re like. The question is who’s choosing — you, or fear."
       },
       "whyThisProfile": {
-        "ru": "Ни один стиль не набрал решающего перевеса: твой самый частый выбор не оторвался от второго. Это не «тест не смог» — это самостоятельный результат. Гибкость хороша, когда стиль под ситуацию выбираешь ты, и плоха, когда стиль выбирает за тебя расстановка сил: с безопасными людьми — прямота, с теми, кого страшно потерять, — уступки и шифры. Посмотри на два верхних стиля в цифрах ниже — это твоя рабочая пара; шкала «насколько задевает» подскажет, из спокойствия эта гибкость или из настороженности.",
-        "en": "No style took a decisive lead: your most frequent pick never broke away from the runner-up. That's not \"the test failed\" — it's a result in its own right. Flexibility is good when you pick the style to fit the situation, and bad when the balance of power picks it for you: directness with safe people, concessions and code with the ones you're afraid to lose. Look at your top two styles in the numbers below — that's your working pair; the \"how much it stings\" scale will tell you whether the flexibility comes from calm or from wariness."
+        "ru": "Ни один стиль не набрал решающего перевеса: твой самый частый выбор лишь немного опередил следующий. Это не «тест не смог» — это самостоятельный результат. Гибкость хороша, когда стиль под ситуацию выбираешь ты, и плоха, когда стиль выбирает за тебя расстановка сил: с безопасными людьми — прямота, с теми, кого страшно потерять, — уступки и намёки. Посмотри на два верхних стиля в цифрах ниже — это твоя рабочая пара; шкала «насколько задевает» подскажет, из спокойствия эта гибкость или из настороженности.",
+        "en": "No style took a decisive lead: your most frequent choice edged out the next one only slightly. That isn’t “the test failed” — it’s a result of its own. Flexibility is good when you pick the style to fit the situation, and bad when the balance of power picks it for you: directness with safe people, concessions and hints with the ones you’re afraid to lose. Look at your top two styles in the numbers below — that’s your working pair; the “how much it stings” scale will tell you whether this flexibility comes from calm or from wariness."
       },
       "strengths": {
         "ru": [
@@ -2594,24 +2989,24 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Людям рядом трудно предсказать тебя — и понять, всерьёз ты или нет.",
+          "Людям рядом трудно понять, чего от тебя ждать, — и когда ты говоришь всерьёз.",
           "Стиль часто выбирает не ситуация, а страх: чем важнее человек, тем меньше прямоты ему достаётся.",
           "С самыми близкими ты можешь говорить хуже всего — именно там, где потерять страшнее."
         ],
         "en": [
-          "People around you struggle to predict you — and to tell when you mean it.",
+          "People around you struggle to know what to expect — and when you mean it.",
           "It's often not the situation choosing the style but fear: the more someone matters, the less directness they get.",
           "You may talk worst with the people closest to you — exactly where losing them is scariest."
         ]
       },
       "recommendations": {
         "ru": [
-          "Разложи людей по стилям: с кем ты прямой, с кем пропадаешь, с кем уступаешь. Закономерность обычно не про них — про твой страх потерять.",
+          "Пересчитай своих людей по стилям: с кем ты {прямой|прямая}, от кого пропадаешь, кому уступаешь. Закономерность обычно не про них — про твой страх потерять.",
           "Выбери одного важного человека и один стиль — прямой. Один человек, не все сразу.",
           "Перед сложным ответом спроси себя: я сейчас выбираю ход — или прячусь за привычный?"
         ],
         "en": [
-          "Sort your people by style: who gets the directness, who gets the vanishing, who gets the concessions. The pattern is usually not about them — it's about your fear of losing them.",
+          "Sort your people by style: who gets your directness, who you vanish on, who you concede to. The pattern usually isn’t about them — it’s about your fear of losing them.",
           "Pick one important person and one style — the direct one. One person, not everyone at once.",
           "Before a difficult reply, ask yourself: am I choosing a move — or hiding behind a habitual one?"
         ]
@@ -2627,7 +3022,7 @@
     }
   },
   "profileSelection": {
-    "$note": "Пороги калиброваны персонной симуляцией 11.08.2026 (N=8000, scratchpad sim-v2): top1 ≥ 40 → именной; top1 ≥ 34 ∧ diff12 ≥ 10 → именной; иначе mixed. Распределение: mixed 25.3 / indirect 20.3 / direct 19.1 / pressure 12.1 / withdraw 11.8 / yield 11.4 — коридоры спеки держатся, мёртвых профилей нет, L-шкала ≥70 флажит 8.4% сессий. 12 голосов-действий, знаменатели стилей 10–12, вторичные ключи 0.3–0.5 сглаживают сетку. Реактивность и validity_lie в ранжировании не участвуют (rankOver). Перекалибровка — по первым 200 прод-сессиям.",
+    "$note": "Пороги калиброваны персонной симуляцией 11.08.2026 после слепой считки (N=8000, двухшаговая модель выбора: сначала стиль по склонности, потом реплика внутри стиля — одношаговая завышала стили с большим числом вариантов). top1 ≥ 38 → именной; top1 ≥ 28 ∧ diff12 ≥ 8 → именной; иначе mixed. Распределение: mixed 22.3 / direct 18.7 / indirect 15.8 / yield 15.0 / withdraw 14.3 / pressure 13.9 — все коридоры спеки держатся, мёртвых профилей нет; L-шкала флажит 8.3% сессий. Реактивность и validity_lie в ранжировании не участвуют (rankOver). Перекалибровка — по первым 200 прод-сессиям.",
     "mode": "rules",
     "fallback": "the_mixed",
     "rankOver": [
@@ -2643,7 +3038,7 @@
           [
             "@top1",
             ">=",
-            40
+            38
           ]
         ],
         "profile": {
@@ -2661,12 +3056,12 @@
           [
             "@top1",
             ">=",
-            34
+            28
           ],
           [
             "@diff12",
             ">=",
-            10
+            8
           ]
         ],
         "profile": {
