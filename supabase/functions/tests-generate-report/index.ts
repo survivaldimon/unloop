@@ -35,8 +35,10 @@ import selfConfidenceMultiscale from "../../../src/content/tests/self_confidence
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
 import socialBattery from "../../../src/content/tests/social_battery_v1.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
+import textConflictV2 from "../../../src/content/tests/text_conflict_communication_v2.json" with { type: "json" };
 import toxicPatterns from "../../../src/content/tests/toxic_patterns.json" with { type: "json" };
 import valuesPriorities from "../../../src/content/tests/values_priorities_v1.json" with { type: "json" };
+import catalogue from "../../../src/content/tests/index.json" with { type: "json" };
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -66,6 +68,7 @@ const TESTS: Record<string, PsychTest> = Object.fromEntries(
     sixteenTypes,
     socialBattery,
     textConflict,
+    textConflictV2,
     toxicPatterns,
     valuesPriorities,
   ].map((raw) => {
@@ -73,6 +76,12 @@ const TESTS: Record<string, PsychTest> = Object.fromEntries(
     return [test.id, test] as const;
   }),
 );
+
+// The "where to look next" chapter suggests only what the catalogue sells:
+// retired versions (text_conflict_communication v1) stay registered for their
+// stored sessions but never come up as a recommendation.
+const CATALOGUE_IDS = new Set((catalogue as Array<{ id: string }>).map((e) => e.id));
+const SUGGESTIBLE = Object.values(TESTS).filter((t) => CATALOGUE_IDS.has(t.id));
 
 // ─────────────────────────────────────────────────── chapter titles (ours)
 
@@ -408,7 +417,7 @@ Deno.serve(async (req: Request) => {
     if (!apiKey) return json({ error: "llm_not_configured" }, 500);
     const anthropic = new Anthropic({ apiKey });
 
-    const payload = buildPayload(test, recomputed, profile, answers, lang, Object.values(TESTS));
+    const payload = buildPayload(test, recomputed, profile, answers, lang, SUGGESTIBLE);
     const response = await anthropic.messages.create({
       model: REPORT_MODEL,
       // ~550-750 words across five chapters; RU runs well over EN in tokens.

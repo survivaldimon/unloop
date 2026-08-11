@@ -17,10 +17,25 @@ const catalogue = JSON.parse(readFileSync(join(DIR, "index.json"), "utf8"));
 // ───────────────────────────── engine replica (mirrors src/tests/engine.ts) ──
 function answerRange(question) {
   let min = Infinity, max = -Infinity;
-  for (const a of question.answers) { if (a.score < min) min = a.score; if (a.score > max) max = a.score; }
+  for (const a of question.answers) {
+    if (a.optOut) continue; // opt-out держится вне шкалы (engine.ts answerRange)
+    if (a.score < min) min = a.score;
+    if (a.score > max) max = a.score;
+  }
   return { min, max };
 }
 const round1 = (v) => Math.round(v * 10) / 10;
+
+// answer_weights: максимум очков фактора среди ответов вопроса (engine.ts questionFactorMax)
+function questionFactorMax(question, factor) {
+  let max = 0;
+  for (const a of question.answers) {
+    if (a.optOut) continue;
+    const pts = a.weights?.[factor];
+    if (pts !== undefined && pts > max) max = pts;
+  }
+  return max;
+}
 
 function scoreFactors(test, answers) {
   const raw = {}, max = {};
@@ -29,8 +44,9 @@ function scoreFactors(test, answers) {
     const order = test.factorOrder ?? test.factorIds;
     let answered = 0;
     for (const q of test.questions) {
+      if (q.demographic) continue;
       const a = q.answers.find((x) => x.id === answers[q.id]);
-      if (!a) continue;
+      if (!a || a.optOut) continue;
       const f = order[a.score];
       if (f === undefined || !(f in raw)) continue;
       raw[f] += 1; answered += 1;
@@ -39,10 +55,26 @@ function scoreFactors(test, answers) {
     for (const f of test.factorIds) pct[f] = answered > 0 ? round1((raw[f] / answered) * 100) : 0;
     return pct;
   }
+  if (test.scoring === "answer_weights") {
+    for (const q of test.questions) {
+      if (q.demographic) continue;
+      const a = q.answers.find((x) => x.id === answers[q.id]);
+      if (!a || a.optOut) continue;
+      for (const f of test.factorIds) {
+        const reach = questionFactorMax(q, f);
+        if (reach <= 0) continue;
+        raw[f] += Math.min(a.weights?.[f] ?? 0, reach);
+        max[f] += reach;
+      }
+    }
+    const pct = {};
+    for (const f of test.factorIds) pct[f] = max[f] > 0 ? round1((raw[f] / max[f]) * 100) : 0;
+    return pct;
+  }
   for (const q of test.questions) {
     if (!q.factorId || !(q.factorId in raw)) continue;
     const a = q.answers.find((x) => x.id === answers[q.id]);
-    if (!a) continue;
+    if (!a || a.optOut) continue;
     const { min, max: hi } = answerRange(q);
     const score = q.isReversed ? min + hi - a.score : a.score;
     raw[q.factorId] += score - min;
@@ -57,8 +89,25 @@ function scoreScaleTotals(test, answers) {
   const weighted = {}, maxWeighted = {};
   const order = test.factorOrder ?? test.factorIds;
   for (const q of test.questions) {
+    if (q.demographic) continue;
     const a = q.answers.find((x) => x.id === answers[q.id]);
-    if (!a) continue;
+    if (!a || a.optOut) continue;
+    if (test.scoring === "answer_weights") {
+      // Стреляют только факторы, НАЗВАННЫЕ в выбранном ответе (engine.ts).
+      for (const [f, pts] of Object.entries(a.weights ?? {})) {
+        const fw = test.factorWeights?.[f];
+        if (!fw) continue;
+        const reach = questionFactorMax(q, f);
+        const normalized = reach > 0 ? Math.min(pts, reach) / reach : 0;
+        for (const [scale, w] of Object.entries(fw)) {
+          const directed = w < 0 ? 1 - normalized : normalized;
+          const m = Math.abs(w);
+          weighted[scale] = (weighted[scale] ?? 0) + directed * m;
+          maxWeighted[scale] = (maxWeighted[scale] ?? 0) + m;
+        }
+      }
+      continue;
+    }
     let qw, normalized;
     if (test.scoring === "answer_factor") {
       qw = test.factorWeights?.[order[a.score]];
@@ -126,14 +175,27 @@ function selectProfile(test, p, scaleScores) {
     }
     return { profileId: code in test.profiles ? code : null, typeCode: code };
   }
-  for (const rule of sel.rules) if (matches(rule.when, p, sel.derived)) return { profileId: resolveOutcome(rule.profile, p, sel.fallback) };
+  // rankOver: правила ранжируют только по заявленному подмножеству (engine.ts)
+  let ranked = p;
+  if (sel.rankOver && sel.rankOver.length > 0) {
+    ranked = {};
+    for (const f of sel.rankOver) if (f in p) ranked[f] = p[f];
+  }
+  for (const rule of sel.rules) if (matches(rule.when, ranked, sel.derived)) return { profileId: resolveOutcome(rule.profile, ranked, sel.fallback) };
   return { profileId: sel.fallback };
 }
 function scoreTest(test, answers) {
   const factorPercentages = scoreFactors(test, answers);
   const scaleTotals = scoreScaleTotals(test, answers);
   const scaleScores = normalizeScaleTotals(scaleTotals);
-  const { profileId, typeCode } = selectProfile(test, factorPercentages, scaleScores);
+  // Скрытые валидностные факторы в выбор профиля не входят (engine.ts selectablePercentages)
+  let selectable = factorPercentages;
+  const hidden = test.validity?.factors;
+  if (hidden && hidden.length > 0) {
+    selectable = {};
+    for (const [f, v] of Object.entries(factorPercentages)) if (!hidden.includes(f)) selectable[f] = v;
+  }
+  const { profileId, typeCode } = selectProfile(test, selectable, scaleScores);
   return { factorPercentages, scaleTotals, scaleScores, profileId, typeCode };
 }
 
@@ -185,7 +247,23 @@ for (const test of tests) {
     const key = `${min}..${max}(${q.answers.length})`;
     info.answerScales[key] = (info.answerScales[key] ?? 0) + 1;
 
-    if (test.scoring !== "answer_factor") {
+    if (test.scoring === "answer_weights") {
+      // Свои инварианты: score здесь плейсхолдер, смысл несут weights.
+      for (const a of q.answers) {
+        if (q.demographic || a.optOut) {
+          if (a.weights && Object.keys(a.weights).length > 0)
+            problem(test.id, "aw_nonscoring_has_weights", `${q.id}/${a.id}`);
+          continue;
+        }
+        const entries = Object.entries(a.weights ?? {});
+        if (entries.length === 0) problem(test.id, "aw_answer_no_weights", `${q.id}/${a.id}`);
+        for (const [f, pts] of entries) {
+          if (!test.factorIds.includes(f)) problem(test.id, "aw_unknown_factor", `${q.id}/${a.id} -> ${f}`);
+          if (typeof pts !== "number" || pts < 0) problem(test.id, "aw_bad_points", `${q.id}/${a.id}/${f}=${pts}`);
+        }
+      }
+      if (q.isReversed) problem(test.id, "reversed_answer_weights", q.id);
+    } else if (test.scoring !== "answer_factor") {
       if (q.factorId) {
         if (!test.factorIds.includes(q.factorId)) problem(test.id, "unknown_factorId", `${q.id} -> ${q.factorId}`);
         info.factorQuestionCounts[q.factorId] = (info.factorQuestionCounts[q.factorId] ?? 0) + 1;
@@ -203,12 +281,41 @@ for (const test of tests) {
     }
   }
 
+  // answer_weights: сколько вопросов предлагает каждый фактор (для отчёта и factor_no_questions)
+  if (test.scoring === "answer_weights") {
+    for (const f of test.factorIds) {
+      let offered = 0;
+      for (const q of test.questions) {
+        if (q.demographic) continue;
+        if (questionFactorMax(q, f) > 0) offered += 1;
+      }
+      info.factorQuestionCounts[f] = offered;
+      if (offered === 0) problem(test.id, "factor_no_questions", f);
+    }
+  }
+
   // factor bookkeeping
   for (const f of test.factorIds) {
     if (!test.factorNames?.[f]) problem(test.id, "missing_factor_name", f);
     if (test.scoring === "likert" && !info.factorQuestionCounts[f]) problem(test.id, "factor_no_questions", f);
   }
   if (test.factorOrder) for (const f of test.factorOrder) if (!test.factorIds.includes(f)) problem(test.id, "order_unknown_factor", f);
+
+  // validity / rankOver configs (стандарт v2): ссылки только на существующее
+  if (test.validity) {
+    for (const f of test.validity.factors ?? []) {
+      if (!test.factorIds.includes(f)) problem(test.id, "validity_unknown_factor", f);
+    }
+    const lie = test.validity.lie;
+    if (lie && !(test.validity.factors ?? []).includes(lie.factor))
+      problem(test.id, "validity_lie_not_hidden", lie.factor);
+  }
+  if (test.profileSelection.mode === "rules" && test.profileSelection.rankOver) {
+    for (const f of test.profileSelection.rankOver) {
+      if (!test.factorIds.includes(f)) problem(test.id, "rankOver_unknown_factor", f);
+      if (test.validity?.factors?.includes(f)) problem(test.id, "rankOver_hidden_factor", f);
+    }
+  }
 
   // weights audit
   const weightKeys = Object.keys(test.weights ?? {});
@@ -227,7 +334,11 @@ for (const test of tests) {
       if (!test.factorIds.includes(f)) problem(test.id, "factorWeights_unknown_factor", f);
       for (const s of Object.keys(scales)) info.scaleIds.add(s);
     }
-    for (const f of test.factorIds) if (!test.factorWeights[f]) problem(test.id, "factor_no_weights", f);
+    for (const f of test.factorIds) {
+      // Валидностные факторы (шкала лжи) сознательно не касаются сквозного слоя.
+      if (test.validity?.factors?.includes(f)) continue;
+      if (!test.factorWeights[f]) problem(test.id, "factor_no_weights", f);
+    }
   }
 
   // profile selection audit
@@ -270,7 +381,11 @@ for (const test of tests) {
           referenced.add(p);
           if (!test.profiles[p]) problem(test.id, "byTop_missing_profile", p);
         }
-        for (const f of test.factorIds) if (!(f in rule.profile.byTop)) problem(test.id, "byTop_gap", `factor ${f} falls to fallback`);
+        {
+          // byTop покрывает то, по чему реально ранжируем: rankOver, если объявлен.
+          const rankSet = sel.rankOver && sel.rankOver.length > 0 ? sel.rankOver : test.factorIds;
+          for (const f of rankSet) if (!(f in rule.profile.byTop)) problem(test.id, "byTop_gap", `factor ${f} falls to fallback`);
+        }
       } else {
         for (const [pair, p] of Object.entries(rule.profile.combo)) {
           referenced.add(p);

@@ -33,6 +33,11 @@ jobs:
       - run: npm run tests:audit
       - run: npm run tests:lint
       - run: npm run tests:feed-invariants
+      # Контент-линт стандарта переработки (docs/tests-rework-standard.md §8,
+      # шаг 3): мат блокирует на любом тесте, остальные классы — на тестах,
+      # уже переработанных по стандарту. Что проверяемо машиной, до ревью не
+      # доходит.
+      - run: npm run tests:content-lint
       # K1a: редакторский слой каталога (src/tests/merchandising.json) пишется
       # руками, а сам каталог генерируется — расходятся они молча, поэтому
       # проверка блокирующая.

@@ -45,13 +45,25 @@ export function displayAnswers(
   question: TestQuestion,
   sessionId: string,
 ): TestAnswer[] {
-  if (test.scoring !== "answer_factor") return question.answers;
+  if (test.scoring !== "answer_factor" && test.scoring !== "answer_weights") {
+    return question.answers;
+  }
+  // Graded ladders and validity items opt out per question — there the order
+  // carries meaning the way a likert scale does. Demographic questions have
+  // nothing to hide either.
+  if (question.shuffle === false || question.demographic) return question.answers;
+
+  // The opt-out stays pinned last: «ничего из этого» is furniture, not an
+  // option competing for a position — shuffling it into the middle would read
+  // as a bug and bury the honest exit.
+  const pool = question.answers.filter((a) => !a.optOut);
+  const pinned = question.answers.filter((a) => a.optOut);
 
   const random = mulberry32(hashSeed(`${sessionId}:${question.id}`));
-  const shuffled = [...question.answers];
+  const shuffled = [...pool];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return shuffled;
+  return pinned.length > 0 ? [...shuffled, ...pinned] : shuffled;
 }

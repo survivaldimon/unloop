@@ -21,6 +21,7 @@ import type {
   TestAnswers,
   TestOutcome,
   TestQuestion,
+  ValidityOutcome,
 } from "./types.ts";
 
 /**
@@ -41,10 +42,28 @@ function answerRange(question: TestQuestion): { min: number; max: number } {
   let min = Infinity;
   let max = -Infinity;
   for (const answer of question.answers) {
+    // An opt-out is a non-answer: letting its placeholder score into the range
+    // would stretch the scale of every honest answer around it.
+    if (answer.optOut) continue;
     if (answer.score < min) min = answer.score;
     if (answer.score > max) max = answer.score;
   }
   return { min, max };
+}
+
+/**
+ * `answer_weights`: the most points any answer of this question gives the
+ * factor. Zero means the question doesn't offer the factor at all, so it must
+ * stay out of that factor's denominator.
+ */
+function questionFactorMax(question: TestQuestion, factor: string): number {
+  let max = 0;
+  for (const answer of question.answers) {
+    if (answer.optOut) continue;
+    const pts = answer.weights?.[factor];
+    if (pts !== undefined && pts > max) max = pts;
+  }
+  return max;
 }
 
 const round1 = (value: number) => Math.round(value * 10) / 10;
@@ -71,8 +90,9 @@ export function scoreFactors(test: PsychTest, answers: TestAnswers): Record<stri
     const order = test.factorOrder ?? test.factorIds;
     let answered = 0;
     for (const question of test.questions) {
+      if (question.demographic) continue;
       const answer = question.answers.find((a) => a.id === answers[question.id]);
-      if (!answer) continue;
+      if (!answer || answer.optOut) continue;
       const factor = order[answer.score];
       if (factor === undefined || !(factor in raw)) continue;
       raw[factor] += 1;
@@ -85,10 +105,33 @@ export function scoreFactors(test: PsychTest, answers: TestAnswers): Record<stri
     return percentages;
   }
 
+  if (test.scoring === "answer_weights") {
+    // Earned over reachable, per factor — a style's percentage reads as "how
+    // often it was picked when it was on the table", so palettes are free to
+    // vary between questions without one style paying for being offered less.
+    for (const question of test.questions) {
+      if (question.demographic) continue;
+      const answer = question.answers.find((a) => a.id === answers[question.id]);
+      // Opt-out: the question leaves every denominator, same as unanswered.
+      if (!answer || answer.optOut) continue;
+      for (const factor of test.factorIds) {
+        const reachable = questionFactorMax(question, factor);
+        if (reachable <= 0) continue;
+        raw[factor] += Math.min(answer.weights?.[factor] ?? 0, reachable);
+        max[factor] += reachable;
+      }
+    }
+    const percentages: Record<string, number> = {};
+    for (const factor of test.factorIds) {
+      percentages[factor] = max[factor] > 0 ? round1((raw[factor] / max[factor]) * 100) : 0;
+    }
+    return percentages;
+  }
+
   for (const question of test.questions) {
     if (!question.factorId || !(question.factorId in raw)) continue;
     const answer = question.answers.find((a) => a.id === answers[question.id]);
-    if (!answer) continue;
+    if (!answer || answer.optOut) continue;
     const { min, max: hi } = answerRange(question);
     const score = question.isReversed ? min + hi - answer.score : answer.score;
     raw[question.factorId] += score - min;
@@ -114,8 +157,30 @@ export function scoreScaleTotals(test: PsychTest, answers: TestAnswers): ScaleTo
   const order = test.factorOrder ?? test.factorIds;
 
   for (const question of test.questions) {
+    if (question.demographic) continue;
     const answer = question.answers.find((a) => a.id === answers[question.id]);
-    if (!answer) continue;
+    if (!answer || answer.optOut) continue;
+
+    if (test.scoring === "answer_weights") {
+      // Only the factors the chosen answer NAMES fire — an explicit
+      // `{reactivity: 0}` reports calm into reactivity's scales at strength 0,
+      // while a style the author left off the answer stays silent everywhere
+      // (the answer_factor rule, graded). Each firing factor spends its full
+      // weight-set once per question.
+      for (const [factor, pts] of Object.entries(answer.weights ?? {})) {
+        const factorScales = test.factorWeights?.[factor];
+        if (!factorScales) continue;
+        const reachable = questionFactorMax(question, factor);
+        const normalized = reachable > 0 ? Math.min(pts, reachable) / reachable : 0;
+        for (const [scale, weight] of Object.entries(factorScales)) {
+          const directed = weight < 0 ? 1 - normalized : normalized;
+          const magnitude = Math.abs(weight);
+          weighted[scale] = (weighted[scale] ?? 0) + directed * magnitude;
+          maxWeighted[scale] = (maxWeighted[scale] ?? 0) + magnitude;
+        }
+      }
+      continue;
+    }
 
     let questionWeights: Record<string, number> | undefined;
     let normalized: number;
@@ -269,12 +334,74 @@ export function selectProfile(
     return { profileId: code in test.profiles ? code : null, typeCode: code };
   }
 
+  // Reactivity-style factors are measured and shown but don't compete for the
+  // profile: rules rank only over the declared subset.
+  let ranked = percentages;
+  if (selection.rankOver && selection.rankOver.length > 0) {
+    ranked = {};
+    for (const factor of selection.rankOver) {
+      if (factor in percentages) ranked[factor] = percentages[factor];
+    }
+  }
+
   for (const rule of selection.rules) {
-    if (matches(rule.when, percentages, selection.derived)) {
-      return { profileId: resolveOutcome(rule.profile, percentages, selection.fallback) };
+    if (matches(rule.when, ranked, selection.derived)) {
+      return { profileId: resolveOutcome(rule.profile, ranked, selection.fallback) };
     }
   }
   return { profileId: selection.fallback };
+}
+
+// ─────────────────────────────────────────────────────── validity
+
+/**
+ * The credibility read of one session, when the test declares a validity
+ * config. Never a refusal: a flagged result still shows — with a caveat.
+ */
+export function scoreValidity(
+  test: PsychTest,
+  answers: TestAnswers,
+  factorPercentages: Record<string, number>,
+): ValidityOutcome | null {
+  const config = test.validity;
+  if (!config) return null;
+
+  const lieScore = config.lie ? (factorPercentages[config.lie.factor] ?? 0) : null;
+
+  let optOutShare: number | null = null;
+  if (config.optOut) {
+    let offered = 0;
+    let taken = 0;
+    for (const question of test.questions) {
+      if (question.demographic || !question.answers.some((a) => a.optOut)) continue;
+      const answer = question.answers.find((a) => a.id === answers[question.id]);
+      if (!answer) continue;
+      offered += 1;
+      if (answer.optOut) taken += 1;
+    }
+    optOutShare = offered > 0 ? Math.round((taken / offered) * 1000) / 1000 : 0;
+  }
+
+  const reasons: ValidityOutcome["reasons"] = [];
+  if (config.lie && lieScore !== null && lieScore >= config.lie.threshold) reasons.push("lie");
+  if (config.optOut && optOutShare !== null && optOutShare >= config.optOut.maxShare) {
+    reasons.push("opt_out");
+  }
+  return { lieScore, optOutShare, flagged: reasons.length > 0, reasons };
+}
+
+/** Percentages without the hidden validity factors — what profiles rank over. */
+export function selectablePercentages(
+  test: PsychTest,
+  factorPercentages: Record<string, number>,
+): Record<string, number> {
+  const hidden = test.validity?.factors;
+  if (!hidden || hidden.length === 0) return factorPercentages;
+  const visible: Record<string, number> = {};
+  for (const [factor, value] of Object.entries(factorPercentages)) {
+    if (!hidden.includes(factor)) visible[factor] = value;
+  }
+  return visible;
 }
 
 // ─────────────────────────────────────────────────────── entry point
@@ -283,7 +410,14 @@ export function scoreTest(test: PsychTest, answers: TestAnswers): TestOutcome {
   const factorPercentages = scoreFactors(test, answers);
   const scaleTotals = scoreScaleTotals(test, answers);
   const scaleScores = normalizeScaleTotals(scaleTotals);
-  const { profileId, typeCode } = selectProfile(test, factorPercentages, scaleScores);
+  // The lie scale must not be able to become "@top1" or shift a derived
+  // average, so profile rules only ever see the visible factors.
+  const { profileId, typeCode } = selectProfile(
+    test,
+    selectablePercentages(test, factorPercentages),
+    scaleScores,
+  );
+  const validity = scoreValidity(test, answers, factorPercentages);
 
   return {
     testId: test.id,
@@ -296,5 +430,6 @@ export function scoreTest(test: PsychTest, answers: TestAnswers): TestOutcome {
     scaleScores,
     profileId,
     ...(typeCode ? { typeCode } : {}),
+    ...(validity ? { validity } : {}),
   };
 }

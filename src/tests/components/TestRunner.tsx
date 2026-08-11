@@ -3,6 +3,7 @@ import { useLang } from "../../i18n";
 import { track } from "../../lib/analytics";
 import { getTestSessionId } from "../../lib/tests";
 import { testsCopy } from "../copy";
+import { gendered, genderOf, type Gender } from "../gendered";
 import { displayAnswers } from "../shuffle";
 import type { PsychTest, TestAnswer, TestAnswers, TestQuestion } from "../types";
 
@@ -97,6 +98,7 @@ export default function TestRunner({
         question={question}
         answers={displayAnswers(test, question, getTestSessionId(test.id))}
         lang={lang}
+        gender={genderOf(test, answers)}
         selected={answers[question.id]}
         onSelect={select}
       />
@@ -108,6 +110,7 @@ function QuestionCard({
   question,
   answers,
   lang,
+  gender,
   selected,
   onSelect,
 }: {
@@ -115,11 +118,14 @@ function QuestionCard({
   /** Already in display order — scenario tests arrive shuffled per session. */
   answers: TestAnswer[];
   lang: "en" | "ru";
+  /** From the demographic question, once answered — resolves {муж|жен} inline. */
+  gender: Gender;
   selected: string | undefined;
   onSelect: (answerId: string) => void;
 }) {
   const letters = lang === "ru" ? "абвгде" : "abcdef";
   const ui = testsCopy(lang).runner;
+  const g = (text: string) => gendered(text, gender);
 
   return (
     <div className="flex flex-1 flex-col gap-7 py-8">
@@ -127,14 +133,14 @@ function QuestionCard({
       {question.scenario && (
         <div className="rise rounded-2xl border border-paper/10 bg-ink-2/70 p-4">
           <p className="text-[15px] leading-relaxed whitespace-pre-line text-paper/90">
-            {question.scenario.situation[lang]}
+            {g(question.scenario.situation[lang])}
           </p>
           {question.scenario.context && (
             <>
               <hr className="hairline my-3" />
               <p className="text-[13px] leading-relaxed text-mist">
                 <span className="overline-label mr-2 text-brass/70">{ui.context}</span>
-                {question.scenario.context[lang]}
+                {g(question.scenario.context[lang])}
               </p>
             </>
           )}
@@ -142,7 +148,7 @@ function QuestionCard({
       )}
 
       <h2 className="font-display rise rise-1 text-[1.7rem] leading-snug font-semibold">
-        {question.text[lang]}
+        {g(question.text[lang])}
       </h2>
 
       <div className="flex flex-col gap-3">
@@ -157,7 +163,7 @@ function QuestionCard({
             <span className="opt-letter" aria-hidden="true">
               {letters[i]}
             </span>
-            <span>{answer.text[lang]}</span>
+            <span>{g(answer.text[lang])}</span>
           </button>
         ))}
       </div>

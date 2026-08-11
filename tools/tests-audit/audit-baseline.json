@@ -1,9 +1,14 @@
 {
-  "$comment": "Принятые исключения структурного аудита (audit.mjs, блокирующий с этапа 4, 05.08.2026). Каждая запись — осознанно принятая проблема: kind|test|detail обязаны совпасть точно. sixteen_types: factorNames для EI/SN/TF/JP отсутствуют осознанно — с этапа 3 биполярные тесты вообще не шлют factor_percentages в LLM-фиды, бесплатный экран считает пары из шкал полюсов; завести имена = возить мёртвый контент. Убирать запись — вместе с фиксом.",
+  "$comment": "Принятые исключения структурного аудита (audit.mjs, блокирующий с этапа 4, 05.08.2026). Каждая запись — осознанно принятая проблема: kind|test|detail обязаны совпасть точно. sixteen_types: factorNames для EI/SN/TF/JP отсутствуют осознанно — с этапа 3 биполярные тесты вообще не шлют factor_percentages в LLM-фиды, бесплатный экран считает пары из шкал полюсов; завести имена = возить мёртвый контент. text_conflict_communication: v1 выведен из каталога переработкой 11.08.2026 (эталон v2 по docs/tests-rework-standard.md), файл и лоадер живут ради старых сессий и их купленных разборов. Убирать запись — вместе с фиксом.",
   "accepted": [
     { "kind": "missing_factor_name", "test": "sixteen_types", "detail": "EI" },
     { "kind": "missing_factor_name", "test": "sixteen_types", "detail": "SN" },
     { "kind": "missing_factor_name", "test": "sixteen_types", "detail": "TF" },
-    { "kind": "missing_factor_name", "test": "sixteen_types", "detail": "JP" }
+    { "kind": "missing_factor_name", "test": "sixteen_types", "detail": "JP" },
+    {
+      "kind": "not_in_catalogue",
+      "test": "text_conflict_communication",
+      "detail": "file exists but not in index.json"
+    }
   ]
 }

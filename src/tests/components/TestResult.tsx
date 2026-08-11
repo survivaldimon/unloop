@@ -6,6 +6,7 @@ import { getTestSessionId } from "../../lib/tests";
 import { buildBreakdown } from "../breakdown";
 import { testsCopy } from "../copy";
 import { showsFreeBreakdown } from "../freeTier";
+import { gendered, type Gender } from "../gendered";
 import { buildTestCardSpec, buildTestShareUrl } from "../shareSpec";
 import type { PsychTest, TestOutcome } from "../types";
 
@@ -18,6 +19,7 @@ import type { PsychTest, TestOutcome } from "../types";
 export default function TestResult({
   test,
   outcome,
+  gender = null,
   onRetake,
   onCatalogue,
   report,
@@ -26,6 +28,8 @@ export default function TestResult({
 }: {
   test: PsychTest;
   outcome: TestOutcome;
+  /** Demographic pick of this session — resolves {муж|жен} in profile texts. */
+  gender?: Gender;
   onRetake: () => void;
   onCatalogue: () => void;
   /** The monetization block: teaser + CTA, paywall, or the purchased chapters. */
@@ -40,6 +44,7 @@ export default function TestResult({
   const ui = copy.result;
   const profile = outcome.profileId ? test.profiles[outcome.profileId] : undefined;
   const [shareToast, setShareToast] = useState<string | null>(null);
+  const g = (text: string) => gendered(text, gender);
 
   const breakdown = showsFreeBreakdown(test.id) ? buildBreakdown(test, outcome, lang) : [];
 
@@ -96,7 +101,7 @@ export default function TestResult({
             )}
           </h1>
           <p className="rise rise-2 mt-3 text-[16px] leading-relaxed text-mist">
-            {profile.description[lang]}
+            {g(profile.description[lang])}
           </p>
         </>
       ) : (
@@ -113,10 +118,18 @@ export default function TestResult({
         </p>
       )}
 
+      {/* The credibility caveat (стандарт §6.5): the result still shows — this
+          says, warmly, how literally to take it. Never a refusal. */}
+      {outcome.validity?.flagged && (
+        <p className="mt-5 rounded-2xl border border-brass/25 bg-brass/[0.06] p-4 text-[13px] leading-relaxed text-mist">
+          {outcome.validity.reasons.includes("lie") ? ui.validityLie : ui.validityOptOut}
+        </p>
+      )}
+
       {profile?.whyThisProfile?.[lang] && (
         <Section title={ui.whyThis}>
           <p className="text-[15px] leading-relaxed text-mist">
-            {profile.whyThisProfile[lang]}
+            {g(profile.whyThisProfile[lang])}
           </p>
         </Section>
       )}
@@ -124,7 +137,7 @@ export default function TestResult({
       {/* Safety copy, free on every test and in every state (§2). */}
       {profile?.supportNote?.[lang] && (
         <p className="mt-6 rounded-2xl border border-paper/15 bg-paper/[0.04] p-4 text-[14px] leading-relaxed whitespace-pre-line text-mist">
-          {profile.supportNote[lang]}
+          {g(profile.supportNote[lang])}
         </p>
       )}
 

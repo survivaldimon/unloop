@@ -12,6 +12,7 @@
     "tests:fixtures": "node tools/tests-import/generate-fixtures.mjs",
     "tests:audit": "node tools/tests-audit/audit.mjs --l0",
     "tests:lint": "node tools/tests-audit/lint-weights.mjs",
+    "tests:content-lint": "node tools/tests-audit/lint-content.mjs",
     "tests:share-lint": "node tools/tests-audit/lint-share-cards.mjs",
     "tests:feeds": "node tools/tests-audit/feed-snapshot.mjs",
     "tests:feed-invariants": "node tools/tests-audit/feed-invariants.mjs",

@@ -42,6 +42,7 @@ import selfConfidenceMultiscale from "../../../src/content/tests/self_confidence
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
 import socialBattery from "../../../src/content/tests/social_battery_v1.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
+import textConflictV2 from "../../../src/content/tests/text_conflict_communication_v2.json" with { type: "json" };
 import toxicPatterns from "../../../src/content/tests/toxic_patterns.json" with { type: "json" };
 import valuesPriorities from "../../../src/content/tests/values_priorities_v1.json" with { type: "json" };
 import catalogue from "../../../src/content/tests/index.json" with { type: "json" };
@@ -80,6 +81,7 @@ for (const raw of [
   sixteenTypes,
   socialBattery,
   textConflict,
+  textConflictV2,
   toxicPatterns,
   valuesPriorities,
 ]) {

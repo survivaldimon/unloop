@@ -1,17 +1,17 @@
 [
   {
-    "id": "text_conflict_communication",
+    "id": "text_conflict_communication_v2",
     "title": {
       "ru": "Конфликты в переписке",
       "en": "Texting Conflicts"
     },
     "description": {
-      "ru": "20 реальных ситуаций из переписок — и то, как ты на них отвечаешь",
-      "en": "20 real texting situations — and how you answer them"
+      "ru": "12 ситуаций из переписки, каждая в два хода: что почувствуешь и что сделаешь. Пять стилей реакции, шкала «насколько задевает» — и честная пометка, если ответы вышли слишком правильными.",
+      "en": "12 texting situations, each in two moves: what you'd feel and what you'd do. Five reaction styles, a \"how much it stings\" scale — and an honest note if your answers come out too perfect."
     },
     "categoryId": "relationships",
-    "estimatedMinutes": 7,
-    "questionCount": 20
+    "estimatedMinutes": 8,
+    "questionCount": 29
   },
   {
     "id": "attachment_styles_v1",

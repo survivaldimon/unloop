@@ -12,9 +12,14 @@
 // DISAGREEMENTS between tests and the strongest overall scales — plus the
 // four type axes as pair balances (poles are never readable by modulus).
 import { normalizeScaleTotals } from "../../../src/tests/engine.ts";
+import { genderedDeep, genderOf, type Gender } from "../../../src/tests/gendered.ts";
 import type { PsychTest, ScaleTotals, TestAnswers, TestOutcome } from "../../../src/tests/types.ts";
 import { pairBalances, type Lang } from "./report-payload.ts";
-import { analyzeResponsePattern, RESPONSE_QUALITY_WARNING } from "./response-quality.ts";
+import {
+  analyzeResponsePattern,
+  RESPONSE_QUALITY_WARNING,
+  VALIDITY_WARNING,
+} from "./response-quality.ts";
 
 /** One participating session, already re-scored from its raw answers (§6). */
 export interface PortraitSession {
@@ -67,8 +72,24 @@ export function contributingItems(test: PsychTest, answers: TestAnswers): Record
   const counts: Record<string, number> = {};
   const order = test.factorOrder ?? test.factorIds;
   for (const question of test.questions) {
+    if (question.demographic) continue;
     const answer = question.answers.find((a) => a.id === answers[question.id]);
-    if (!answer) continue;
+    if (!answer || answer.optOut) continue;
+    if (test.scoring === "answer_weights") {
+      // Mirror of the engine: only the factors the chosen answer names fire,
+      // so only their weight-sets count as touched by this question.
+      const seen = new Set<string>();
+      for (const factor of Object.keys(answer.weights ?? {})) {
+        const factorScales = test.factorWeights?.[factor];
+        if (!factorScales) continue;
+        for (const scale of Object.keys(factorScales)) {
+          if (seen.has(scale)) continue;
+          seen.add(scale);
+          counts[scale] = (counts[scale] ?? 0) + 1;
+        }
+      }
+      continue;
+    }
     const weights =
       test.scoring === "answer_factor"
         ? test.factorWeights?.[order[answer.score]]
@@ -131,20 +152,24 @@ export function buildPortraitInput({ sessions, tests, catalogue, lang }: Portrai
     // A straight-line session still joins the composition (решение 05.08), but
     // its entry carries the warning so the model weighs that test lightly.
     const pattern = analyzeResponsePattern(test, answers);
+    // Same contract for the declared validity layer of reworked tests.
+    const validityNotes = (outcome.validity?.reasons ?? []).map((r) => VALIDITY_WARNING[r]);
+    const hidden = test.validity?.factors ?? [];
     return {
       test: test.title[lang],
       profile: profile?.name[lang] ?? null,
       ...(summary ? { profile_summary: summary } : {}),
       ...(pattern.straightLine ? { response_quality: RESPONSE_QUALITY_WARNING } : {}),
+      ...(validityNotes.length > 0 ? { validity_notes: validityNotes } : {}),
       ...(outcome.typeCode ? { type_code: outcome.typeCode } : {}),
       ...(test.scoring === "bipolar"
         ? { pair_balances: pairBalances(test, outcome) }
         : {
             factor_percentages: Object.fromEntries(
-              Object.entries(outcome.factorPercentages).map(([id, pct]) => [
-                test.factorNames[id]?.[lang] ?? id,
-                pct,
-              ]),
+              Object.entries(outcome.factorPercentages)
+                // The lie scale is an instrument, not a trait (report feed rule).
+                .filter(([id]) => !hidden.includes(id))
+                .map(([id, pct]) => [test.factorNames[id]?.[lang] ?? id, pct]),
             ),
           }),
       taken_on: completedAt.slice(0, 10),
@@ -246,7 +271,19 @@ export function buildPortraitInput({ sessions, tests, catalogue, lang }: Portrai
   const takenIds = new Set(sessions.map((s) => s.testId));
   const testsNotTaken = catalogue.filter((t) => !takenIds.has(t.id)).map((t) => t.title[lang]);
 
-  return {
+  // The demographic pick of the newest session that has one: the portrait
+  // addresses the person directly, so RU grammar needs it. Sessions arrive
+  // latest-first (the map insertion order the function builds).
+  let gender: Gender = null;
+  for (const { testId, answers } of sessions) {
+    const g = genderOf(tests[testId], answers);
+    if (g) {
+      gender = g;
+      break;
+    }
+  }
+
+  const payload = {
     tests_taken: testsPayload,
     ...(contested.length || strongest.length
       ? {
@@ -258,6 +295,9 @@ export function buildPortraitInput({ sessions, tests, catalogue, lang }: Portrai
       : {}),
     ...(typeAxes.length ? { type_axes: typeAxes } : {}),
     ...(notableSingles.length ? { notable_single_test_scales: notableSingles } : {}),
+    ...(gender ? { address_user_as: gender === "f" ? "female" : "male" } : {}),
     tests_not_taken: testsNotTaken,
   };
+  // No raw {муж|жен} markup may reach the model (report feed rule).
+  return genderedDeep(payload, gender);
 }

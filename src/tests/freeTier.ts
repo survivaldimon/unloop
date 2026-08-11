@@ -22,6 +22,9 @@
 const FREE_BREAKDOWN: Record<string, boolean> = {
   // 39% "Ghost" — the best screenshot in the set.
   text_conflict_communication: true,
+  // The v2 rework keeps the share hook: five styles + the reactivity bar are
+  // the screenshot; the paid read builds on the feel×action pairs behind them.
+  text_conflict_communication_v2: true,
   // Same shape as the quiz's ANX/AVO — a recognizable, shareable format.
   attachment_styles_v1: true,
   // Five bars on the most research-backed test: hiding them would dent the

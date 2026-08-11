@@ -41,7 +41,11 @@ const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   self_confidence_multiscale_v1: () => import("../content/tests/self_confidence_multiscale_v1.json"),
   sixteen_types: () => import("../content/tests/sixteen_types.json"),
   social_battery_v1: () => import("../content/tests/social_battery_v1.json"),
+  // v1 stays loadable for stored sessions and their paid reports; the
+  // catalogue (index.json) only lists v2.
   text_conflict_communication: () => import("../content/tests/text_conflict_communication.json"),
+  text_conflict_communication_v2: () =>
+    import("../content/tests/text_conflict_communication_v2.json"),
   toxic_patterns: () => import("../content/tests/toxic_patterns.json"),
   values_priorities_v1: () => import("../content/tests/values_priorities_v1.json"),
 };

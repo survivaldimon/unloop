@@ -141,6 +141,9 @@ interface TestsCopyShape {
     /** The message that travels with the link: invite to take, not to look. */
     shareText: (args: { title: string; profile: string | null }) => string;
     disclaimer: string;
+    /** Validity caveats (стандарт §6.5): warm, non-accusing, result still shown. */
+    validityLie: string;
+    validityOptOut: string;
   };
   /**
    * The share card (audit §4.1: the catalogue's viral loop). `cardCta` and
@@ -300,6 +303,10 @@ const EN: TestsCopyShape = {
         ? `I got “${profile}” on “${title}”. Your turn:`
         : `“${title}” — worth your next coffee break:`,
     disclaimer: "This is an educational test — a mirror, not a diagnosis.",
+    validityLie:
+      "Heads up: your answers came out “too perfect” — that happens when we want to show our best side, and everyone does sometimes. Read this result as a portrait of who you'd like to be. For the everyday you, retake it another day, answering how it usually goes rather than how it should go.",
+    validityOptOut:
+      "On many questions none of the options felt like you — so this result is drawn with a thinner line than usual. Treat it as a sketch. If most situations here simply aren't your kind of conflict, that's a real answer too: maybe another test on the shelf will read you better.",
   },
   share: {
     card: "Share the card",
@@ -475,6 +482,10 @@ const RU: TestsCopyShape = {
         ? `Мой результат в тесте «${title}» — ${profile}. Теперь ты:`
         : `«${title}» — стоит семи минут:`,
     disclaimer: "Это образовательный тест — зеркало, а не диагноз.",
+    validityLie:
+      "Небольшая оговорка: твои ответы получились «слишком правильными» — так бывает, когда хочется показать себя с лучшей стороны, и это случается со всеми. Читай этот результат как портрет того, каким тебе хочется быть. А для портрета «как обычно выходит» пройди тест в другой день, отвечая не как надо, а как получается.",
+    validityOptOut:
+      "На многих вопросах тебе не подошёл ни один вариант — поэтому результат нарисован более тонкой линией, чем обычно. Отнесись к нему как к наброску. А если большинство этих ситуаций для тебя вообще не конфликт — это тоже честный ответ: возможно, точнее прочитает другой тест с полки.",
   },
   share: {
     card: "Поделиться карточкой",

@@ -74,8 +74,15 @@ export function loadFixtures() {
   return fixtures;
 }
 
-export const CATALOGUE_OF = (tests) =>
-  Object.values(tests).map((t) => ({ id: t.id, title: t.title }));
+// index.json — настоящий драйвер каталога: снятые с полки версии (v1 флагмана)
+// живут файлами ради старых сессий, но в каталоге, композициях и «what to take
+// next» не участвуют — ровно как в продовых функциях.
+export const CATALOGUE_OF = (tests) => {
+  const listed = new Set(load(path.join(CONTENT, "index.json")).map((e) => e.id));
+  return Object.values(tests)
+    .filter((t) => listed.has(t.id))
+    .map((t) => ({ id: t.id, title: t.title }));
+};
 
 /**
  * The three portrait compositions the snapshots (and invariants) run on. The
@@ -99,7 +106,10 @@ export function portraitCompositions(tests, fixtures, scoreTest) {
   ];
   const five = [...trio, ["ipip_big_five", "middle"], ["social_battery_v1", "ladder"]];
   const rotation = ["middle", "ladder", "all_max", "all_min"];
-  const full19 = Object.keys(tests)
+  // Полный каталог — только то, что в index.json: у выведенной v1 и её замены
+  // одинаковый title, и композиция с обеими путала бы карты «title → тест».
+  const full19 = CATALOGUE_OF(tests)
+    .map((t) => t.id)
     .sort()
     .map((id, i) => [id, rotation[i % rotation.length]]);
   return {

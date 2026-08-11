@@ -11,7 +11,12 @@ import type {
   TestOutcome,
   TestProfileContent,
 } from "../../../src/tests/types.ts";
-import { analyzeResponsePattern, RESPONSE_QUALITY_WARNING } from "./response-quality.ts";
+import { genderedDeep, genderOf } from "../../../src/tests/gendered.ts";
+import {
+  analyzeResponsePattern,
+  RESPONSE_QUALITY_WARNING,
+  VALIDITY_WARNING,
+} from "./response-quality.ts";
 
 export type Lang = "en" | "ru";
 
@@ -25,6 +30,7 @@ export type ReportKind = "scenario" | "levels" | "bipolar" | "spectrum";
 
 export const REPORT_KIND: Record<string, ReportKind> = {
   text_conflict_communication: "scenario",
+  text_conflict_communication_v2: "scenario",
   toxic_patterns: "levels",
   friendship_red_flags_v1: "levels",
   sixteen_types: "bipolar",
@@ -49,8 +55,16 @@ export function reportKind(test: PsychTest): ReportKind {
   const known = REPORT_KIND[test.id];
   if (known) return known;
   if (test.scoring === "bipolar") return "bipolar";
-  if (test.scoring === "answer_factor") return "scenario";
+  if (test.scoring === "answer_factor" || test.scoring === "answer_weights") return "scenario";
   return "spectrum";
+}
+
+/** Is every point of this answer aimed at hidden validity factors? */
+function validityOnly(test: PsychTest, weights: Record<string, number> | undefined): boolean {
+  const hidden = test.validity?.factors;
+  if (!hidden || !weights) return false;
+  const keys = Object.keys(weights);
+  return keys.length > 0 && keys.every((factor) => hidden.includes(factor));
 }
 
 // ─────────────────────────────────────────────────────────── prompt payload
@@ -79,8 +93,12 @@ export function expandAnswers(test: PsychTest, answers: TestAnswers, lang: Lang)
   const order = test.factorOrder ?? test.factorIds;
   const lines: AnswerLine[] = [];
   for (const question of test.questions) {
+    // The gender pick travels as its own payload field; lie-scale items must
+    // not reach the model as personality evidence to quote back.
+    if (question.demographic) continue;
     const chosen = question.answers.find((a) => a.id === answers[question.id]);
     if (!chosen) continue;
+    if (validityOnly(test, chosen.weights)) continue;
 
     const line: AnswerLine = {
       question: question.text[lang],
@@ -94,6 +112,22 @@ export function expandAnswers(test: PsychTest, answers: TestAnswers, lang: Lang)
     if (test.scoring === "answer_factor") {
       const style = test.factorNames[order[chosen.score]];
       if (style) line.voted_for = style[lang];
+    } else if (test.scoring === "answer_weights") {
+      // An opt-out has no vote — the picked text («ничего из этого») already
+      // says everything the model should know about this line.
+      if (!chosen.optOut) {
+        let dominant: string | null = null;
+        let dominantPts = 0;
+        for (const [factor, pts] of Object.entries(chosen.weights ?? {})) {
+          if (test.validity?.factors.includes(factor)) continue;
+          if (dominant === null || pts > dominantPts) {
+            dominant = factor;
+            dominantPts = pts;
+          }
+        }
+        const style = dominant ? test.factorNames[dominant] : undefined;
+        if (style) line.voted_for = style[lang];
+      }
     } else {
       if (question.factorId) {
         line.measures = test.factorNames[question.factorId]?.[lang] ?? question.factorId;
@@ -101,6 +135,7 @@ export function expandAnswers(test: PsychTest, answers: TestAnswers, lang: Lang)
       let min = Infinity;
       let max = -Infinity;
       for (const a of question.answers) {
+        if (a.optOut) continue;
         if (a.score < min) min = a.score;
         if (a.score > max) max = a.score;
       }
@@ -108,8 +143,13 @@ export function expandAnswers(test: PsychTest, answers: TestAnswers, lang: Lang)
       // reverses (questions with a factor). Factorless questions (bipolar
       // poles) are read raw by the weights, so their raw extreme stands.
       const mirror = question.isReversed && question.factorId !== null;
-      if (max > min && chosen.score === max) line.quote_candidate = mirror ? "min" : "max";
-      else if (max > min && chosen.score === min) line.quote_candidate = mirror ? "max" : "min";
+      if (chosen.optOut) {
+        // no quote_candidate: an opt-out sits outside the scale entirely
+      } else if (max > min && chosen.score === max) {
+        line.quote_candidate = mirror ? "min" : "max";
+      } else if (max > min && chosen.score === min) {
+        line.quote_candidate = mirror ? "max" : "min";
+      }
     }
     lines.push(line);
   }
@@ -178,9 +218,13 @@ export function buildPayload(
   // "extreme introversion"), and a pole means nothing by modulus — the pair
   // balances already carry everything readable (аудит §2/§4).
   const bipolar = test.scoring === "bipolar";
+  const hidden = test.validity?.factors ?? [];
   const factors = bipolar
     ? null
     : Object.entries(outcome.factorPercentages)
+        // The lie scale is a credibility instrument, not a trait — as a bar it
+        // would read as "you scored 63% Honesty".
+        .filter(([id]) => !hidden.includes(id))
         .sort((a, b) => b[1] - a[1])
         .map(([id, percent]) => ({
           id,
@@ -191,18 +235,28 @@ export function buildPayload(
   // Straight-line sessions are still sold (решение 05.08), but the model must
   // know the numbers are low-signal — the warning rides only when flagged.
   const pattern = analyzeResponsePattern(test, answers);
+  // Same contract for the declared validity layer of reworked tests.
+  const validityNotes = (outcome.validity?.reasons ?? []).map((r) => VALIDITY_WARNING[r]);
+  const gender = genderOf(test, answers);
 
-  return {
+  const payload = {
     test: { id: test.id, title: test.title[lang] },
     profile: profileSkeleton(profile, lang),
     ...(outcome.typeCode ? { type_code: outcome.typeCode, pair_balances: balances } : {}),
     ...(factors ? { factor_percentages: factors } : {}),
     ...(bipolar ? {} : { scale_scores_0_100: scaleDigest(outcome.scaleScores) }),
     ...(pattern.straightLine ? { response_quality: RESPONSE_QUALITY_WARNING } : {}),
+    ...(validityNotes.length > 0 ? { validity_notes: validityNotes } : {}),
+    // The report addresses the person directly, so grammatical gender matters
+    // in RU; null means "wasn't asked or didn't say" → masculine-as-neutral.
+    ...(gender ? { address_user_as: gender === "f" ? "female" : "male" } : {}),
     answered: `${outcome.answered} of ${test.questions.length}`,
     their_answers: expandAnswers(test, answers, lang),
     other_tests: allTests
       .filter((t) => t.id !== test.id)
       .map((t) => ({ id: t.id, title: t.title[lang], description: t.description[lang] })),
   };
+  // Resolve {муж|жен} templates everywhere at once — the model must never see
+  // raw markup, and non-template strings pass through untouched.
+  return genderedDeep(payload, gender);
 }

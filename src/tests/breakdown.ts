@@ -46,6 +46,11 @@ export function buildBreakdown(
     });
   }
   return Object.entries(outcome.factorPercentages)
+    // Validity factors are instruments, not results: a «Шкала лжи 63%» bar on
+    // the screen (or the share card, or a friend comparison) would be reading
+    // the thermometer to the patient. One filter here covers all three
+    // surfaces that build their rows from this function.
+    .filter(([id]) => !test.validity?.factors.includes(id))
     .sort((a, b) => b[1] - a[1])
     .map(([id, value]) => ({
       id,

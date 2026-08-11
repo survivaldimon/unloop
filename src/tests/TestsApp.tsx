@@ -95,6 +95,7 @@ import TestResult from "./components/TestResult";
 import TestRunner from "./components/TestRunner";
 import { testsCopy } from "./copy";
 import { scoreTest } from "./engine";
+import { genderOf, type Gender } from "./gendered";
 import { TEST_CATALOGUE, loadTest } from "./registry";
 import type { PsychTest, TestAnswers, TestOutcome } from "./types";
 
@@ -103,7 +104,8 @@ type Step =
   /** An invite link landed on a test this device hasn't taken: consent first. */
   | { name: "compareIntro"; test: PsychTest }
   | { name: "running"; test: PsychTest }
-  | { name: "result"; test: PsychTest; outcome: TestOutcome }
+  /** `gender` — the demographic pick, resolved from the same answers map. */
+  | { name: "result"; test: PsychTest; outcome: TestOutcome; gender: Gender }
   | { name: "portrait" };
 
 /** Where the paid read of the current session is in its life. */
@@ -272,7 +274,12 @@ export default function TestsApp() {
         // which clears the answers first. Not a start — no test_start here.
         const saved = readAnswers(testId);
         if (test.questions.every((q) => saved[q.id])) {
-          setStep({ name: "result", test, outcome: scoreTest(test, saved) });
+          setStep({
+            name: "result",
+            test,
+            outcome: scoreTest(test, saved),
+            gender: genderOf(test, saved),
+          });
           return;
         }
         // An unused invite for this test: the consent screen comes before the
@@ -316,7 +323,12 @@ export default function TestsApp() {
         setAnswersDate(fmtDate(stored?.completedAt ?? null, lang));
         if (stored?.hasReport) markReportUnlocked(sessionId);
         if (test.questions.every((q) => answers[q.id])) {
-          setStep({ name: "result", test, outcome: scoreTest(test, answers) });
+          setStep({
+            name: "result",
+            test,
+            outcome: scoreTest(test, answers),
+            gender: genderOf(test, answers),
+          });
           return;
         }
         setStep({ name: "running", test });
@@ -1008,7 +1020,12 @@ export default function TestsApp() {
               });
               setAttemptUnsaved(completion === "cooldown");
               setAnswersDate(fmtDate(new Date().toISOString(), lang));
-              setStep({ name: "result", test: step.test, outcome });
+              setStep({
+                name: "result",
+                test: step.test,
+                outcome,
+                gender: genderOf(step.test, answers),
+              });
               refreshCompleted();
               // Already signed in → the finished session attaches itself and
               // the save card stays hidden.
@@ -1069,6 +1086,7 @@ export default function TestsApp() {
             <TestResult
               test={step.test}
               outcome={step.outcome}
+              gender={step.gender}
               onCatalogue={toCatalogue}
               onRetake={() => onRetake(step.test)}
               report={reportBlock(step.test)}

@@ -66,18 +66,26 @@ export function analyzeResponsePattern(test: PsychTest, answers: TestAnswers): R
   let extremes = 0;
 
   for (const question of test.questions) {
+    // A demographic pick is profile data, not response behavior.
+    if (question.demographic) continue;
     const index = question.answers.findIndex((a) => a.id === answers[question.id]);
     if (index < 0) continue;
     positions.push(index);
-    if (test.scoring === "answer_factor") continue;
+    // In both by-answer modes the score is an index/placeholder, not an
+    // intensity — variance and extremes would be reading tea leaves.
+    if (test.scoring === "answer_factor" || test.scoring === "answer_weights") continue;
+    const chosen = question.answers[index];
+    // Opt-outs carry no score and sit outside the range on purpose.
+    if (chosen.optOut) continue;
     let min = Infinity;
     let max = -Infinity;
     for (const a of question.answers) {
+      if (a.optOut) continue;
       if (a.score < min) min = a.score;
       if (a.score > max) max = a.score;
     }
     if (max <= min) continue;
-    const score = question.answers[index].score;
+    const score = chosen.score;
     normScores.push((score - min) / (max - min));
     if (score === min || score === max) extremes++;
   }
@@ -116,3 +124,13 @@ export function analyzeResponsePattern(test: PsychTest, answers: TestAnswers): R
  */
 export const RESPONSE_QUALITY_WARNING =
   "suspected straight-line responding (uniform answer pattern) — treat this session's numbers as low-credibility";
+
+/**
+ * Same contract for the validity layer of reworked tests (стандарт §6): the
+ * result still ships, the model reads it as a self-ideal rather than a habit.
+ */
+export const VALIDITY_WARNING: Record<"lie" | "opt_out", string> = {
+  lie: "the social-desirability scale is elevated — answers look idealized; read the result as the person's self-ideal, not their everyday behavior, and say so gently",
+  opt_out:
+    "a large share of questions got «none of these fits me» — coverage is thin; hedge conclusions and avoid strong claims",
+};

@@ -22,7 +22,10 @@ const feeds = await compileFeeds();
 const tests = loadTests();
 const fixtures = loadFixtures();
 const catalogue = CATALOGUE_OF(tests);
-const allTests = Object.values(tests);
+// «Соседние тесты» в фидах — только каталожные: снятая v1 не предлагается
+// (SUGGESTIBLE в tests-generate-report), хотя её сессии по-прежнему скорятся.
+const catalogueIds = new Set(catalogue.map((t) => t.id));
+const allTests = Object.values(tests).filter((t) => catalogueIds.has(t.id));
 
 const buildReport = V1
   ? (t, o, p, a, l) => ref.buildPayloadV1(t, o, p, a, l, allTests)
@@ -60,11 +63,15 @@ function deriveStraightLine(test, answers) {
   const norm = [];
   let extremes = 0;
   for (const q of test.questions) {
+    if (q.demographic) continue; // выбор пола — не ответное поведение
     const idx = q.answers.findIndex((a) => a.id === answers[q.id]);
     if (idx < 0) continue;
     positions.push(idx);
-    if (test.scoring === "answer_factor") continue;
-    const scores = q.answers.map((a) => a.score);
+    // в обоих по-ответных режимах score — индекс/плейсхолдер, не интенсивность
+    if (test.scoring === "answer_factor" || test.scoring === "answer_weights") continue;
+    if (q.answers[idx].optOut) continue; // opt-out вне шкалы
+    const scored = q.answers.filter((a) => !a.optOut);
+    const scores = scored.map((a) => a.score);
     const min = Math.min(...scores);
     const max = Math.max(...scores);
     if (max <= min) continue;
@@ -127,7 +134,8 @@ for (const [testId, cases] of Object.entries(fixtures)) {
       }
 
       // quote_candidate is directional BY FACTOR (independent re-derivation).
-      if (test.scoring !== "answer_factor") {
+      // Оба по-ответных режима его не носят: score там не интенсивность.
+      if (test.scoring !== "answer_factor" && test.scoring !== "answer_weights") {
         const byQuestion = new Map(test.questions.map((q) => [q.text[lang], q]));
         for (const line of payload.their_answers) {
           const q = byQuestion.get(line.question);
@@ -159,8 +167,21 @@ for (const [testId, cases] of Object.entries(fixtures)) {
 
       // Structure: nothing the prompt names may arrive empty.
       assertNoEmptySections(payload, "payload", ctx);
-      assertThat(payload.their_answers.length === outcome.answered, "answers-complete", ctx);
-      assertThat(payload.other_tests.length === allTests.length - 1, "other-tests-complete", ctx);
+      // their_answers несёт всё отвеченное, КРОМЕ демографии (едет отдельным
+      // полем) и чисто валидностных айтемов (модель не должна цитировать
+      // L-шкалу как личность) — независимый пересчёт по сырому JSON.
+      const expectedLines = test.questions.filter((q) => {
+        const chosen = q.answers.find((a) => a.id === c.answers[q.id]);
+        if (!chosen || q.demographic) return false;
+        const hiddenFactors = test.validity?.factors ?? [];
+        const keys = Object.keys(chosen.weights ?? {});
+        const validityOnly = keys.length > 0 && keys.every((f) => hiddenFactors.includes(f));
+        return !validityOnly;
+      }).length;
+      assertThat(payload.their_answers.length === expectedLines, "answers-complete", ctx);
+      // Ретired-тест сам не входит в allTests — сравниваем с точным фильтром.
+      const expectedOthers = allTests.filter((t) => t.id !== test.id).length;
+      assertThat(payload.other_tests.length === expectedOthers, "other-tests-complete", ctx);
 
       const tokens = JSON.stringify(payload, null, 2).length / 4;
       maxReportTokens = Math.max(maxReportTokens, tokens);

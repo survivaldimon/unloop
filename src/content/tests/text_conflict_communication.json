@@ -125,8 +125,8 @@
         {
           "id": "2b",
           "text": {
-            "ru": "«А ты вечно тупишь и говоришь хуйню, но я молчу 🙂»",
-            "en": "'And you're always stupid and say bs, but I stay quiet 🙂'"
+            "ru": "«А ты вечно говоришь глупости, но я же молчу 🙂»",
+            "en": "'And you talk nonsense all the time, but I keep quiet 🙂'"
           },
           "score": 1
         },
@@ -610,8 +610,8 @@
         {
           "id": "11c",
           "text": {
-            "ru": "«Эх, сам в жопе сейчас, извини 😬» (хотя это неправда)",
-            "en": "'Eh, broke myself right now, sorry 😬' (though not true)"
+            "ru": "«Эх, у самого сейчас пусто, извини 😬» (хотя это неправда)",
+            "en": "'Eh, I'm cleaned out myself right now, sorry 😬' (though not true)"
           },
           "score": 2
         },
@@ -920,8 +920,8 @@
         {
           "id": "17b",
           "text": {
-            "ru": "«Вы просто тупые и не понимаете юмор»",
-            "en": "'You're just dumb and don't understand humor'"
+            "ru": "«Вы просто не понимаете юмор»",
+            "en": "'You just don't get the joke'"
           },
           "score": 1
         },
@@ -1079,8 +1079,8 @@
         {
           "id": "20b",
           "text": {
-            "ru": "«Заебал! Я сплю! Иди спать тоже!»",
-            "en": "'Fed up! I'm sleeping! Go sleep too!'"
+            "ru": "«Достал! Я сплю! Иди спать тоже!»",
+            "en": "'Enough! I'm sleeping! Go to sleep too!'"
           },
           "score": 1
         },
