@@ -12,7 +12,11 @@
  * EN strings simply contain no templates.
  */
 
-import type { PsychTest, TestAnswers } from "./types";
+// Explicit .ts extension, same as engine.ts: both Э7 edge functions import this
+// module under Deno, which resolves specifiers literally (the SPA build accepts
+// it either way). Without it the CLI bundler warns and the file is only saved by
+// the import being type-only.
+import type { PsychTest, TestAnswers } from "./types.ts";
 
 export type Gender = "m" | "f" | null;
 
