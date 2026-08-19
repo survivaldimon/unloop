@@ -61,7 +61,8 @@ function pluralRu(n: number, one: string, few: string, many: string): string {
  * is identical everywhere, which is why only this one branches.
  */
 const FIRST_CHAPTER_EN: Record<string, string> = {
-  text_conflict_communication: "Your answers, read back",
+  text_conflict_communication: "Your style up close",
+  text_conflict_communication_v2: "Your style up close",
   friendship_red_flags_v1: "What your level is made of",
   toxic_patterns: "What your level is made of",
   sixteen_types: "Your code and its close calls",
@@ -70,7 +71,8 @@ const FIRST_CHAPTER_EN: Record<string, string> = {
 };
 
 const FIRST_CHAPTER_RU: Record<string, string> = {
-  text_conflict_communication: "Разбор твоих ответов",
+  text_conflict_communication: "Твой стиль вблизи",
+  text_conflict_communication_v2: "Твой стиль вблизи",
   friendship_red_flags_v1: "Из чего складывается твой уровень",
   toxic_patterns: "Из чего складывается твой уровень",
   sixteen_types: "Твой код и его спорные буквы",
@@ -133,6 +135,12 @@ interface TestsCopyShape {
     kicker: string;
     whyThis: string;
     breakdown: string;
+    /** Compatibility block (§7a.3) — free, and the strongest share hook of the screen. */
+    pairing: string;
+    pairingEasy: string;
+    pairingSparks: string;
+    /** Bridges the block into the existing compare loop. */
+    pairingInvite: string;
     retake: string;
     toCatalogue: string;
     saving: string;
@@ -177,8 +185,14 @@ interface TestsCopyShape {
     retry: string;
     /** Heading over the one-small-thing line inside the moves chapter. */
     tryToday: string;
-    /** Chapter titles for the teaser: 1 is per-test (§2), 2–5 are the skeleton. */
-    chapters: (testId: string) => string[];
+    /** Heading over the "leave this as it is" line of the moves chapter (§7a.2). */
+    keepAsIs: string;
+    /**
+     * Chapter titles for the teaser: 1 is per-test (§2), the rest are the
+     * skeleton. `withPairing` adds the compatibility chapter, which exists
+     * only where the profile carries a pairing block (§7a.3).
+     */
+    chapters: (testId: string, withPairing?: boolean) => string[];
     crossCatalogue: string;
     crossCatalogueCta: string;
     crossQuiz: string;
@@ -293,6 +307,10 @@ const EN: TestsCopyShape = {
     kicker: "Your result",
     whyThis: "Why this one",
     breakdown: "The numbers",
+    pairing: "Who you click with, who you spark with",
+    pairingEasy: "Usually easy",
+    pairingSparks: "Usually sparks",
+    pairingInvite: "Sparks isn’t incompatible — it’s a difference worth saying out loud.",
     retake: "Take it again",
     toCatalogue: "All tests",
     saving: "Saving…",
@@ -326,7 +344,7 @@ const EN: TestsCopyShape = {
     teaserKicker: "The full read",
     teaserTitle: "Written from your answers, not your profile",
     teaserBody:
-      "Five chapters about what you actually answered: the choices you made, how they land on the other side, what they cost you, and what to do differently. Yours only — nobody else's result reads like it.",
+      "Chapters on how this actually works in you: what your answers add up to, how it lands from the other side, where it helps and where it gets in the way. Yours only — nobody else's result reads like it.",
     sealedTag: "sealed",
     cta: (credits) => `Full read — ${credits} cr`,
     chapterCaption: (n) => `Chapter ${n}`,
@@ -334,12 +352,14 @@ const EN: TestsCopyShape = {
     loading: "Writing your read…",
     error: "The read didn't come through. Try again — you've already paid for it.",
     retry: "Try again",
-    tryToday: "Try today",
-    chapters: (testId) => [
+    tryToday: "You could try today",
+    keepAsIs: "Worth leaving alone",
+    chapters: (testId, withPairing) => [
       FIRST_CHAPTER_EN[testId] ?? "Your layout",
       "How it looks from outside",
-      "Where it costs you",
-      "What to do with it",
+      ...(withPairing ? ["Who you click with, who you spark with"] : []),
+      "Where it helps and where it gets in the way",
+      "If you want to change something",
       "Where to look next",
     ],
     crossCatalogue: "Each test you take sharpens the same portrait.",
@@ -472,6 +492,10 @@ const RU: TestsCopyShape = {
     kicker: "Твой результат",
     whyThis: "Почему именно этот",
     breakdown: "Цифры",
+    pairing: "С кем легко, с кем искрит",
+    pairingEasy: "Обычно легко",
+    pairingSparks: "Обычно искрит",
+    pairingInvite: "«Искрит» — это не «несовместимы», а разница, которую стоит назвать вслух.",
     retake: "Пройти заново",
     toCatalogue: "Все тесты",
     saving: "Сохраняем…",
@@ -505,7 +529,7 @@ const RU: TestsCopyShape = {
     teaserKicker: "Полный разбор",
     teaserTitle: "По твоим ответам, а не по названию профиля",
     teaserBody:
-      "Пять глав про то, что ты на самом деле ответил: какие выборы сделал, как они читаются с другой стороны, во что обходятся и что с этим делать. Только твой — ни у кого другого он так не читается.",
+      "Главы про то, как это устроено именно у тебя: что складывается из твоих ответов, как это читается с другой стороны, где помогает и где мешает. Только твой — ни у кого другого он так не читается.",
     sealedTag: "закрыто",
     cta: (credits) => `Полный разбор — ${credits} кр`,
     chapterCaption: (n) => `Глава ${n}`,
@@ -513,12 +537,14 @@ const RU: TestsCopyShape = {
     loading: "Пишем твой разбор…",
     error: "Разбор не дошёл. Попробуй ещё раз — он уже оплачен.",
     retry: "Попробовать снова",
-    tryToday: "Попробуй сегодня",
-    chapters: (testId) => [
+    tryToday: "Можно попробовать сегодня",
+    keepAsIs: "Это менять не обязательно",
+    chapters: (testId, withPairing) => [
       FIRST_CHAPTER_RU[testId] ?? "Твой расклад",
       "Как это выглядит снаружи",
-      "Где это стоит тебе дорого",
-      "Что с этим делать",
+      ...(withPairing ? ["С кем легко, с кем искрит"] : []),
+      "Где помогает, а где мешает",
+      "Если захочешь что-то поменять",
       "Куда смотреть дальше",
     ],
     crossCatalogue: "Каждый следующий тест уточняет один и тот же портрет.",

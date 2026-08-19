@@ -11,18 +11,37 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 import { CREDIT_COSTS } from "../_shared/credits-config.ts";
 import { requireSessionOwner } from "../_shared/caller.ts";
 import { canInclude, getSubState, includedSpend } from "../_shared/subscriptions.ts";
+// The chat now carries the reader's own answers (§7a.1): the paid read stopped
+// retelling them, so "why did you conclude that" has to be answerable here.
+import { expandAnswers } from "../_shared/report-payload.ts";
+import { genderedDeep, genderOf } from "../../../src/tests/gendered.ts";
+import type { PsychTest, TestAnswers } from "../../../src/tests/types.ts";
 
-// The seven test content files ride into the bundle (≈660KB, the size
-// docs/tests-monetization.md §6 accepts) so titles, factor labels and profile
-// names come from the same source the app renders. Only those small fields
-// reach the prompt — the unlocked report has already digested the raw answers.
+// The whole catalogue rides into the bundle, as it already does in
+// tests-generate-report, so titles, factor labels and profile names come from
+// the same source the app renders. Until 19.08.2026 only the seven launch
+// tests were registered here: every later test — including the reworked
+// flagship — degraded silently to raw factor ids and a nameless profile.
 import attachmentStyles from "../../../src/content/tests/attachment_styles_v1.json" with { type: "json" };
+import boundariesPeoplePleasing from "../../../src/content/tests/boundaries_people_pleasing.json" with { type: "json" };
+import burnoutDiagnostic from "../../../src/content/tests/burnout_diagnostic_v1.json" with { type: "json" };
+import digitalDetox from "../../../src/content/tests/digital_detox_test.json" with { type: "json" };
+import emotionalIntelligence from "../../../src/content/tests/emotional_intelligence.json" with { type: "json" };
+import fomoSocialComparison from "../../../src/content/tests/fomo_social_comparison_v1.json" with { type: "json" };
+import friendshipPsychology from "../../../src/content/tests/friendship_psychology_v1.json" with { type: "json" };
 import friendshipRedFlags from "../../../src/content/tests/friendship_red_flags_v1.json" with { type: "json" };
+import imposterSyndrome from "../../../src/content/tests/imposter_syndrome.json" with { type: "json" };
 import ipipBigFive from "../../../src/content/tests/ipip_big_five.json" with { type: "json" };
 import loveLanguages from "../../../src/content/tests/love_languages_v1.json" with { type: "json" };
+import relationshipCompatibility from "../../../src/content/tests/relationship_compatibility_v1.json" with { type: "json" };
+import romanticPotential from "../../../src/content/tests/romantic_potential_v1.json" with { type: "json" };
+import selfConfidenceMultiscale from "../../../src/content/tests/self_confidence_multiscale_v1.json" with { type: "json" };
 import sixteenTypes from "../../../src/content/tests/sixteen_types.json" with { type: "json" };
+import socialBattery from "../../../src/content/tests/social_battery_v1.json" with { type: "json" };
 import textConflict from "../../../src/content/tests/text_conflict_communication.json" with { type: "json" };
+import textConflictV2 from "../../../src/content/tests/text_conflict_communication_v2.json" with { type: "json" };
 import toxicPatterns from "../../../src/content/tests/toxic_patterns.json" with { type: "json" };
+import valuesPriorities from "../../../src/content/tests/values_priorities_v1.json" with { type: "json" };
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -60,7 +79,11 @@ Rules: answer the actual question from the read's material; no judgments of attr
 
 const TESTS_SYSTEM = `You are the voice of Looplore, answering a reader's follow-up question about their psychological test result and the personal analysis they unlocked (pop-psychology self-knowledge, entertainment and self-reflection — not therapy, not a clinical assessment).
 
-You are given their unlocked analysis, their test profile and their factor percentages. Ground every answer in THAT material. Voice: warm but unsentimental, precise, a little literary — the same perceptive friend who wrote the analysis. Second person.
+You are given their unlocked analysis, their test profile, their factor percentages and their own answers to the test, question by question. Ground every answer in THAT material. Voice: warm but unsentimental, precise, a little literary — the same perceptive friend who wrote the analysis. Second person.
+
+The analysis deliberately states conclusions and quotes almost nothing, so this is where the evidence lives: when they ask why something was concluded, or push back on it, show them the specific choices behind it — quote their own answer verbatim, in quotation marks, and name what it pointed at. Two or three are usually enough; a wall of their answers read back is not an answer.
+
+Hold the same frame the analysis holds: you describe how this person works so THEY can decide what to do with it. Never imply something is wrong with them, never hand out homework, and keep every downside attached to its condition — who and when it costs them, and where it costs nothing.
 
 Rules: answer the actual question; reference their specific profile, percentages and analysis details where they help; no clinical jargon, no diagnosis, no medication or medical advice; if asked for therapy/medical/crisis help, say plainly this is a self-reflection product and a licensed professional is the right place — warmly, one sentence, then still give what reflection you safely can. Never invent facts about the reader beyond the provided data. 120-220 words. Plain text, no markdown, no lists unless truly natural.`;
 
@@ -89,12 +112,25 @@ const TEST_CONTENT: Record<string, TestChatContent> = Object.fromEntries(
   (
     [
       attachmentStyles,
+      boundariesPeoplePleasing,
+      burnoutDiagnostic,
+      digitalDetox,
+      emotionalIntelligence,
+      fomoSocialComparison,
+      friendshipPsychology,
       friendshipRedFlags,
+      imposterSyndrome,
       ipipBigFive,
       loveLanguages,
+      relationshipCompatibility,
+      romanticPotential,
+      selfConfidenceMultiscale,
       sixteenTypes,
+      socialBattery,
       textConflict,
+      textConflictV2,
       toxicPatterns,
+      valuesPriorities,
     ] as unknown as TestChatContent[]
   ).map((t) => [t.id, t]),
 );
@@ -102,13 +138,17 @@ const TEST_CONTENT: Record<string, TestChatContent> = Object.fromEntries(
 const pick = (loc: Localized | undefined, lang: "en" | "ru"): string | null =>
   loc?.[lang] ?? loc?.en ?? null;
 
-// Chat context per docs/tests-monetization.md §3: the unlocked report, the
-// profile's name and description, factor percentages, and nothing else — raw
-// answers stay out, the report has already digested them. The row's outcome is
-// trusted only because chat is gated on a bought report, whose generation
-// recomputed these numbers from the answers and wrote them back server-side.
+// Chat context: the unlocked report, the profile's name and description,
+// factor percentages, and — since 19.08.2026 — the reader's raw answers.
+// docs/tests-monetization.md §3 used to keep answers out on the grounds that
+// the report had digested them; §7a.1 reversed that, because the report now
+// writes conclusions and deliberately quotes almost nothing, which makes this
+// the only place a "why did you decide that" question can be answered with the
+// actual choice. The row's outcome is trusted only because chat is gated on a
+// bought report, whose generation recomputed these numbers from the answers
+// and wrote them back server-side.
 function testsChatContext(
-  row: { report: unknown; test_id?: string; outcome?: unknown },
+  row: { report: unknown; test_id?: string; outcome?: unknown; answers?: unknown },
   lang: "en" | "ru",
 ) {
   const content = row.test_id ? TEST_CONTENT[row.test_id] : undefined;
@@ -154,7 +194,13 @@ function testsChatContext(
     };
   }
 
-  return {
+  // Unregistered test ids still answer from the report alone, as before.
+  const test = content as unknown as PsychTest | undefined;
+  const answers = (row.answers ?? {}) as TestAnswers;
+  const gender = test?.questions ? genderOf(test, answers) : null;
+  const theirAnswers = test?.questions ? expandAnswers(test, answers, lang) : null;
+
+  const context = {
     // The session language's chapters when cached; otherwise whatever exists.
     report: report?.[lang] ?? report,
     test: pick(content?.title, lang) ?? row.test_id ?? null,
@@ -165,7 +211,12 @@ function testsChatContext(
     },
     ...(outcome.typeCode ? { type_code: outcome.typeCode } : {}),
     ...numbers,
+    ...(theirAnswers && theirAnswers.length > 0 ? { their_answers: theirAnswers } : {}),
+    ...(gender ? { address_user_as: gender === "f" ? "female" : "male" } : {}),
   };
+  // The model must never see raw {муж|жен} markup — same contract as both
+  // report feeds. Strings without templates pass through untouched.
+  return genderedDeep(context, gender);
 }
 
 const secretCache = new Map<string, string>();
@@ -231,7 +282,7 @@ Deno.serve(async (req: Request) => {
       funnel === "photoread"
         ? "report, user_id, context"
         : funnel === "tests"
-          ? "report, user_id, test_id, outcome"
+          ? "report, user_id, test_id, outcome, answers"
           : "report, user_id, pattern, anx, avo";
     const { data: row, error: rowError } = await admin
       .from(table)

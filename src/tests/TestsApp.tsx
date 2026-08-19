@@ -806,8 +806,17 @@ export default function TestsApp() {
     />
   );
 
+  /**
+   * Does this result get the compatibility chapter (§7a.3)? Read off the
+   * content rather than a list of test ids, so a reworked test starts showing
+   * the chapter the moment its profiles carry `pairing` — the teaser and the
+   * generated report must never disagree about how many chapters there are.
+   */
+  const hasPairing = (test: PsychTest, outcome: TestOutcome) =>
+    Boolean(outcome.profileId && test.profiles[outcome.profileId]?.pairing);
+
   /** The monetization block under a free result: one CTA, then what it opens. */
-  const reportBlock = (test: PsychTest) => {
+  const reportBlock = (test: PsychTest, outcome: TestOutcome) => {
     if (!creditsEnabled) return null;
     const sessionId = getTestSessionId(test.id);
     // An attempt the server refused to store (24h cooldown) has nothing for a
@@ -831,6 +840,7 @@ export default function TestsApp() {
         <ReportTeaser
           testId={test.id}
           sessionId={sessionId}
+          hasPairing={hasPairing(test, outcome)}
           onUnlock={() => void startReportUnlock(test.id)}
         />
       );
@@ -838,7 +848,7 @@ export default function TestsApp() {
     return (
       <>
         <ReportChapters
-          titles={ui.report.chapters(test.id)}
+          titles={ui.report.chapters(test.id, hasPairing(test, outcome))}
           chapters={chapters}
           answersDate={answersDate}
           loading={reportView === "loading"}
@@ -851,6 +861,7 @@ export default function TestsApp() {
             retry: ui.report.retry,
             answersFrom: ui.report.answersFrom,
             tryToday: ui.report.tryToday,
+            keepAsIs: ui.report.keepAsIs,
           }}
         />
         {reportView === "ready" && (
@@ -1089,7 +1100,7 @@ export default function TestsApp() {
               gender={step.gender}
               onCatalogue={toCatalogue}
               onRetake={() => onRetake(step.test)}
-              report={reportBlock(step.test)}
+              report={reportBlock(step.test, step.outcome)}
               retakeNote={retakeNote}
               cooldownNote={attemptUnsaved ? ui.cooldown.notSaved : null}
             />

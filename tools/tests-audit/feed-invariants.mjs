@@ -179,6 +179,40 @@ for (const [testId, cases] of Object.entries(fixtures)) {
         return !validityOnly;
       }).length;
       assertThat(payload.their_answers.length === expectedLines, "answers-complete", ctx);
+      // Блок совместимости (стандарт §7a.3) доезжает целиком и именами, а не
+      // id: строка про «the_withdraw» ушла бы читателю ровно в таком виде.
+      // Расхождение числа строк = ссылка на несуществующий профиль в контенте.
+      const pairing = profile.pairing;
+      assertThat(
+        Boolean(pairing) === ("pairing" in payload),
+        "pairing-reaches-feed",
+        `${ctx}: content ${pairing ? "has" : "has no"} pairing, feed ${"pairing" in payload ? "has" : "has not"}`,
+      );
+      if (pairing) {
+        const sides = [
+          ["easy_with", pairing.easy],
+          ["sparks_with", pairing.sparks],
+        ];
+        for (const [key, rows] of sides) {
+          assertThat(
+            payload.pairing[key].length === rows.length,
+            "pairing-complete",
+            `${ctx}: ${key} ${payload.pairing[key].length} of ${rows.length} — ссылка на несуществующий профиль`,
+          );
+          for (const line of payload.pairing[key]) {
+            assertThat(!SNAKE.test(line.type), "no-snake-in-names", `${ctx}: pairing type "${line.type}"`);
+          }
+        }
+        // Пара «искрит» без строки о том, что у неё получается, — приговор.
+        for (const line of payload.pairing.sparks_with) {
+          assertThat(
+            typeof line.works_when === "string" && line.works_when.length > 0,
+            "sparks-carry-upside",
+            `${ctx}: «${line.type}» без works_when`,
+          );
+        }
+      }
+
       // Ретired-тест сам не входит в allTests — сравниваем с точным фильтром.
       const expectedOthers = allTests.filter((t) => t.id !== test.id).length;
       assertThat(payload.other_tests.length === expectedOthers, "other-tests-complete", ctx);

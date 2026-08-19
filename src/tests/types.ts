@@ -128,6 +128,22 @@ export type ProfileSelection =
     }
   | { mode: "bipolar"; dimensions: BipolarDimension[] };
 
+/**
+ * One line of the compatibility block (стандарт §7a.3): this type next to
+ * another type of the same test. `upside` exists only on the "sparks" side and
+ * is not decoration — the rule is that no pair is left as a verdict: people
+ * read these lines about their actual partner, so every friction line owes
+ * them what the pair gets when the difference is named out loud.
+ */
+export interface ProfilePairing {
+  /** Id of the other profile — of THIS test. Self-pairing is required. */
+  profile: string;
+  /** One sentence: what happens between these two. */
+  note: Localized;
+  /** Sparks only: what the pair gets once the difference is named. */
+  upside?: Localized | null;
+}
+
 export interface TestProfileContent {
   id: string;
   icon?: string | null;
@@ -145,6 +161,13 @@ export interface TestProfileContent {
    * are reachable — this is where that gets said plainly, with a way out.
    */
   supportNote?: Localized | null;
+  /**
+   * "Who you click with, who you spark with" — free on the result screen, and
+   * the material the paid read personalizes under the reader's actual mix
+   * (§7a.3). Typologies and scenario tests only: "who does a high burnout
+   * level get along with" is not a question, so level tests leave this null.
+   */
+  pairing?: { easy: ProfilePairing[]; sparks: ProfilePairing[] } | null;
 }
 
 /**

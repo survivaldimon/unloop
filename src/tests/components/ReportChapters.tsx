@@ -8,6 +8,8 @@ export interface ChapterLabels {
   answersFrom: (date: string) => string;
   /** Heading over the one-small-thing line of the moves chapter. */
   tryToday: string;
+  /** Heading over the "leave this alone" line of the moves chapter (§7a.2). */
+  keepAsIs: string;
 }
 
 /**
@@ -123,6 +125,14 @@ export default function ReportChapters({
                 </li>
               ))}
             </ol>
+          )}
+          {chapter.keepAsIs && (
+            <div className="mt-4 border-l-2 border-paper/20 pl-3.5">
+              <p className="text-[11px] tracking-[0.12em] text-mist uppercase">
+                {labels.keepAsIs}
+              </p>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-paper/90">{chapter.keepAsIs}</p>
+            </div>
           )}
           {chapter.tryToday && (
             <div className="mt-5 rounded-xl border border-brass/30 p-4">
