@@ -416,8 +416,8 @@
         {
           "id": "s2a_3",
           "text": {
-            "ru": "Подколю в ответ — но так, чтобы запомнилось",
-            "en": "Jab back — but so it sticks"
+            "ru": "Подколю в ответ — на ту же тему, но острее",
+            "en": "Jab back — same subject, sharper"
           },
           "score": 0,
           "weights": {
@@ -2671,37 +2671,99 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Правильные слова в неправильный момент всё равно бьют: прямота без чувства момента — это удар.",
-          "Ты ждёшь своей скорости от людей, которым прямота не давалась никогда.",
-          "Ровный тон читается как холод: слышно, что ты {прав|права}, и не слышно, что тебе не всё равно.",
-          "Тебе легко закрыть вопрос у себя — и не заметить, что у собеседника он ещё открыт."
+          "Те же слова в час ночи — уже другие слова: человеку на взводе прямота читается как удар, в спокойном разговоре — как ясность.",
+          "Ты ждёшь своей скорости от людей, которым прямота не давалась никогда. С такими же прямыми это не мешает вовсе.",
+          "Ровный тон легко принять за холод: слышно, что ты {прав|права}, и не слышно, что тебе не всё равно. Кому-то этого и не нужно, кому-то — важнее самой правоты.",
+          "Тебе легко закрыть вопрос у себя и не заметить, что у собеседника он ещё открыт. С теми, кто говорит об этом сам, вопрос не возникает."
         ],
         "en": [
-          "The right words at the wrong moment still land as a blow: directness without a sense of timing is a hit.",
-          "You expect your speed from people directness never came easily to.",
-          "A level tone reads as cold: they hear that you're right and don't hear that you care.",
-          "It's easy for you to close the matter on your side — and miss that it's still open on theirs."
+          "The same words at 1 a.m. are different words: to someone already on edge, directness lands as a hit; in a calm conversation it lands as clarity.",
+          "You expect your own speed from people directness never came easily to. With other straight talkers it costs you nothing.",
+          "A level tone is easy to mistake for coldness: they hear that you're right and don't hear that you care. Some people don't need to hear it; for others it matters more than the being-right part.",
+          "It's easy for you to close a matter on your side and miss that it's still open on theirs. With people who say so themselves, this never comes up."
         ]
       },
       "recommendations": {
         "ru": [
-          "Проверяй момент, а не только формулировку: те же слова в час ночи — уже другие слова.",
-          "Добавляй одну фразу о том, что человек тебе важен. Тебе кажется, это очевидно. Это не очевидно.",
-          "Спрашивай, закрыта ли тема, вместо того чтобы считать её закрытой."
+          "Момент решает не меньше формулировки — если разговор идёт тяжелее обычного, это первое, на что можно посмотреть.",
+          "Одна фраза о том, что человек тебе важен, меняет, как читается всё остальное. Тебе кажется, это очевидно; чаще всего — нет.",
+          "Вопрос «тема закрыта?» стоит секунды и снимает половину недоразумений — если они у тебя вообще случаются.",
+          "А сама прямота менять не просит. Это не нехватка такта, это редкий способ обращаться с людьми честно, и большинству разговоров он экономит недели."
         ],
         "en": [
-          "Check the moment, not just the wording: the same words at 1 a.m. are different words.",
-          "Add one sentence saying the person matters to you. You assume it's implied. It isn't.",
-          "Ask whether the matter is closed instead of assuming it is."
+          "Timing decides as much as wording — when a conversation goes harder than usual, that's the first place to look.",
+          "One line saying the person matters to you changes how everything else reads. You assume it's obvious. Usually it isn't.",
+          "\"Are we done with this?\" costs a second and clears half of all misunderstandings — if you have any to clear.",
+          "The directness itself isn't asking to be changed. It isn't a shortage of tact, it's a rare way of handling people honestly, and it saves most conversations weeks."
         ]
       },
       "tryToday": {
-        "ru": "В следующем непростом разговоре добавь к своей прямоте один вопрос: «а как это выглядит с твоей стороны?» — и дослушай ответ до конца.",
-        "en": "In your next hard conversation, add one question to your directness: \"how does this look from your side?\" — and hear the answer out."
+        "ru": "Если захочется попробовать: в следующем непростом разговоре к прямоте можно добавить один вопрос — «а как это выглядит с твоей стороны?». Иногда ответ оказывается неожиданным.",
+        "en": "If you feel like trying something: in your next hard conversation, directness can carry one extra question — \"how does this look from your side?\" Sometimes the answer is not what you expected."
       },
       "inspiringConclusion": {
-        "ru": "Прямота у тебя уже есть. Осталось помнить, что у большинства её нет: то, что для тебя «просто сказать», для других — прыжок.",
-        "en": "You already have the directness. Just remember most people don't: what's \"just saying it\" for you is a leap for them."
+        "ru": "Прямота у тебя уже есть, и это не мелочь: то, что для тебя «просто сказать», для многих рядом — настоящий прыжок.",
+        "en": "You already have the directness, and that's not a small thing: what's \"just saying it\" for you is a genuine leap for a lot of people around you."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "С таким же прямым конфликт длится ровно столько, сколько нужно, чтобы оба сказали. Со стороны похоже на ссору, на деле — самый короткий путь: к вечеру уже неважно, с чего началось.",
+              "en": "With another straight talker a conflict lasts exactly as long as it takes you both to say it. From outside it looks like a fight; in practice it's the shortest route — by evening nobody cares how it started."
+            }
+          },
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "С «Напроломом» ты один из немногих, кто не пугается: он идёт вперёд, ты не уходишь и не отвечаешь тем же напором — обычно на этом накал и заканчивается. Такие люди часто держатся именно за прямых друзей.",
+              "en": "With Full Force you're one of the few who doesn't flinch: they come forward, you neither vanish nor match the force — and that's usually where the heat runs out. People like that tend to hold on to their straight-talking friends."
+            }
+          },
+          {
+            "profile": "the_mixed",
+            "note": {
+              "ru": "Рядом с тобой у «По обстоятельствам» включается прямая версия: ты не наказываешь за честность, и это считывается быстро. С прямыми такие люди часто говорят свободнее всего.",
+              "en": "Next to you, Depends on the Day switches into its direct setting: you don't punish honesty, and that reads fast. People of that type often speak most freely with straight talkers."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "Классическая пара: ты идёшь решать сейчас, он выходит из чата — и чем настойчивее ты, тем дальше он. При этом оба уверены, что спасают разговор.",
+              "en": "The classic pair: you go to settle it now, they leave the chat — and the harder you push, the further they go. Both of you are convinced you're saving the conversation."
+            },
+            "upside": {
+              "ru": "Работает, когда у паузы есть срок: «мне нужен вечер, вернусь завтра». Тебе достаточно знать, что разговор будет, ему — что за ним не бегут.",
+              "en": "It works when the pause has an end: \"I need the evening, I'll come back tomorrow.\" You need to know the conversation will happen; they need to know nobody's chasing."
+            }
+          },
+          {
+            "profile": "the_yield",
+            "note": {
+              "ru": "Он соглашается быстрее, чем успевает понять, согласен ли. Ты принимаешь «да» за ответ — и узнаёшь правду через месяц, из совсем другого разговора.",
+              "en": "They agree faster than they can work out whether they do. You take the yes at face value — and learn the truth a month later, in a completely different conversation."
+            },
+            "upside": {
+              "ru": "Меняется от одного вопроса: «а что бы ты выбрал, если бы меня тут не было?» С такими людьми честный ответ обычно приходит вторым, не первым.",
+              "en": "One question turns it around: \"what would you pick if I weren't here?\" With people like this the honest answer usually comes second, not first."
+            }
+          },
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Ты называешь вещи, в ответ получаешь «всё нормально» ровным тоном — и остаёшься с фактом, что что-то не так, без единой зацепки. Это злит сильнее открытой ссоры.",
+              "en": "You name things and get \"everything's fine\" in a flat tone — left with the fact that something's wrong and nothing to hold on to. It's more maddening than an open fight."
+            },
+            "upside": {
+              "ru": "Если у человека есть время ответить не сразу, шифр обычно распадается: ему нужна не безнаказанность, а уверенность, что за прямые слова не прилетит.",
+              "en": "Given time to answer later rather than instantly, the code usually falls apart: what they need isn't impunity, it's a guarantee that saying it plainly won't cost them."
+            }
+          }
+        ]
       }
     },
     "the_pressure": {
@@ -2712,8 +2774,8 @@
         "en": "Full Force"
       },
       "description": {
-        "ru": "В конфликте ты идёшь вперёд: ответить сразу, сказать сильнее, не уступить. Побеждать получается. Дорого.",
-        "en": "In conflict you go forward: answer at once, say it stronger, concede nothing. The winning works. It's expensive."
+        "ru": "В конфликте ты идёшь вперёд: ответить сразу, сказать сильнее, не уступить. Спор ты чаще всего выигрываешь. Что останется после спора — зависит от того, с кем.",
+        "en": "In a conflict you go forward: answer now, say it harder, don't give ground. You usually win the argument. What's left afterwards depends on who you were arguing with."
       },
       "whyThisProfile": {
         "ru": "Напор оторвался от остальных стилей на голову. Ответить сразу и в полную силу, чтобы не осталось вопросов, кто прав. Теперь посмотри на шкалу «насколько задевает» ниже. Если она высокая — твой напор чаще всего оборона, которая включается раньше, чем ты решаешь, нужна ли она. Если низкая — это привычка вести разговор с позиции силы даже там, где никто не нападал.",
@@ -2735,37 +2797,99 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Написанное сгоряча остаётся написанным: твоё «отпустило через час» человек перечитывает месяцами.",
-          "С тобой начинают осторожничать — и ты слышишь всё меньше правды.",
-          "Ты выигрываешь обмен репликами и проигрываешь отношения — и понимаешь это позже.",
-          "За напором не видно, что тебе больно: люди видят атаку — и отвечают на атаку."
+          "Написанное сгоряча остаётся написанным: у тебя отпускает через час, человек перечитывает месяцами. С теми, кто отвечает так же быстро, это проходит бесследно.",
+          "Люди начинают осторожничать, и правды вокруг тебя становится меньше. Заметно это не в ссорах, а в мелочах, о которых тебе перестают рассказывать.",
+          "В обмене репликами ты выигрываешь, и это редко совпадает с тем, чтобы выиграл разговор. Там, где важен результат, а не правота, разница стоит дороже всего.",
+          "За напором не видно, что тебе больно: видят атаку и отвечают на атаку. Те, кто знает тебя давно, различают; новые люди — нет."
         ],
         "en": [
-          "What's written in heat stays written: your \"it passed in an hour\" gets reread for months.",
-          "People start treading carefully around you — and you hear less and less truth.",
-          "You win the exchange and lose the relationship — and you realize it later.",
-          "The force hides the hurt: people see an attack — and answer the attack."
+          "What's sent in the heat stays sent: you're over it in an hour, they reread it for months. With people who fire back just as fast it leaves no trace.",
+          "People start being careful, and there's less truth around you. It shows not in fights but in the small things they stop telling you.",
+          "You win the exchange, and that rarely coincides with the conversation being won. Where the outcome matters more than being right, the difference is expensive.",
+          "The force hides that you're hurt: people see an attack and answer an attack. Those who've known you a long time can tell the difference; new people can't."
         ]
       },
       "recommendations": {
         "ru": [
-          "Резкий ответ пиши в заметки, не в чат. Через час отправишь то, что останется, — обычно это четверть.",
-          "Меняй «ты вечно» на «мне обидно»: второе — правда, первое — оружие.",
-          "Запомни свои состояния: голод, усталость, дедлайн. Взрыв приходит по расписанию — расписание можно знать заранее."
+          "Резкий ответ можно сначала написать в заметки. Через час обычно остаётся четверть — и это как раз та четверть, которую стоило отправить.",
+          "«Ты вечно» и «мне обидно» — про одно и то же, но приходят по-разному: второе трудно оспорить, первое трудно не оспорить.",
+          "Взрыв часто приходит по расписанию: голод, усталость, дедлайн. Это расписание можно знать заранее — не чтобы себя сдерживать, а чтобы не удивляться.",
+          "А сам напор менять не обязательно. Есть разговоры, где выигрывает тот, кто не побоялся повысить ставку, и в них ты сильнее многих."
         ],
         "en": [
-          "Write the sharp reply in your notes, not the chat. In an hour, send what's left — usually a quarter.",
-          "Swap \"you always\" for \"that hurt\": the second is true, the first is a weapon.",
-          "Learn your states: hunger, fatigue, deadline. The blow-up runs on a schedule — and the schedule can be known in advance."
+          "A sharp answer can go into notes first. An hour later about a quarter of it survives — and that quarter was the part worth sending.",
+          "\"You always\" and \"that hurt\" are about the same thing and land differently: the second is hard to argue with, the first is hard not to.",
+          "The blow-up often runs on a schedule: hunger, tiredness, a deadline. That schedule can be known in advance — not to hold yourself back, just to stop being surprised.",
+          "The force itself doesn't have to change. Some conversations are won by whoever wasn't afraid to raise the stakes, and in those you're stronger than most."
         ]
       },
       "tryToday": {
-        "ru": "Сегодня в любом споре один раз спроси «что ты имеешь в виду?» вместо ответа. Одного раза хватит.",
-        "en": "In any argument today, ask “what do you mean?” once instead of answering. Once is enough."
+        "ru": "Если захочется попробовать: один раз в споре можно ответить вопросом «что ты имеешь в виду?» вместо ответа. Одного раза хватает, чтобы увидеть разницу.",
+        "en": "If you feel like trying something: once in an argument, \"what do you mean by that?\" can go where your answer would have. Once is enough to see the difference."
       },
       "inspiringConclusion": {
-        "ru": "За твоим напором почти всегда стоит «услышьте меня». Это можно сказать словами — и тогда правда слышат.",
-        "en": "Behind your force there's almost always \"hear me\". It can be said in words — and then you actually get heard."
+        "ru": "За напором почти всегда стоит «услышьте меня», и близкие это слышат. Остальным то же самое можно сказать словами — получается неожиданно легко.",
+        "en": "Behind the force there's almost always \"hear me\", and the people close to you do hear it. Everyone else can be told the same thing in words — which turns out to be surprisingly easy."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "С «Прямым текстом» получается разговор, а не поединок: он не отвечает напором и не исчезает, поэтому твоя скорость никого не сносит.",
+              "en": "With In Plain Text you get a conversation rather than a duel: they neither match the force nor disappear, so your speed knocks nobody over."
+            }
+          },
+          {
+            "profile": "the_yield",
+            "note": {
+              "ru": "Открытых конфликтов между вами почти не бывает — он уступает раньше, чем спор начнётся. Честно про цену: тишина здесь не значит согласие, счёт копится и будет показан позже.",
+              "en": "Open conflict between you is rare — they give way before the argument starts. The honest part: silence here isn't agreement, the tab is running and you'll be shown it later."
+            }
+          },
+          {
+            "profile": "the_mixed",
+            "note": {
+              "ru": "С «По обстоятельствам» ты обычно получаешь то, что просишь: человек подстраивается. Отношения от этого не портятся — просто половина его мнений остаётся при нём.",
+              "en": "With Depends on the Day you usually get what you ask for: they adapt. It doesn't damage anything — half of their opinions simply stay with them."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "Два напора — это гонка: каждый следующий ответ на градус сильнее, потому что уступить первым значит проиграть. Через двадцать минут спор уже не о том, с чего начинался.",
+              "en": "Two forward gears make a race: every next answer a degree hotter, because giving way first means losing. Twenty minutes in, the argument is no longer about what started it."
+            },
+            "upside": {
+              "ru": "У такой пары есть редкое преимущество: обоим не страшно сказать правду в лицо. Хватает одного правила про паузу — не выяснять на голодный желудок и не дописывать после полуночи.",
+              "en": "That pair has something rare: neither of you is afraid of the truth to your face. One rule about pauses covers it — nothing settled on an empty stomach, nothing typed after midnight."
+            }
+          },
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "Самая тяжёлая пара из шести: чем сильнее ты давишь, тем надёжнее он исчезает, а тишина заводит тебя ещё больше. Оба делают ровно то, чего другой не выдерживает.",
+              "en": "The hardest of the six: the harder you push, the more reliably they vanish, and the silence winds you up further. Each of you does exactly what the other can't take."
+            },
+            "upside": {
+              "ru": "Работает здесь только срок вместо погони: он называет, когда вернётся, ты не догоняешь до этого времени. Скучно, зато выдерживают оба.",
+              "en": "The only thing that works is a deadline instead of a chase: they say when they'll be back, you don't chase until then. Boring, and both of you survive it."
+            }
+          },
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Ты бьёшь в лоб, в ответ получаешь «да всё в порядке» и холод на неделю. Ты не понимаешь, за что, он не признаёт, что за что-то, — обиды копятся без единого выясненного эпизода.",
+              "en": "You go head-on and get \"no, everything's fine\" plus a week of cold. You don't know what for, they won't admit it's for anything — resentment piles up without a single episode ever being settled."
+            },
+            "upside": {
+              "ru": "Разворачивается, если спрашивать тише, чем хочется: на прямой напор такой человек закрывается, на спокойный вопрос отвечает почти всегда.",
+              "en": "It turns around if you ask more quietly than you want to: head-on force closes this person; a calm question almost always gets answered."
+            }
+          }
+        ]
       }
     },
     "the_withdraw": {
@@ -2799,37 +2923,88 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Проблема не выходит из чата вместе с тобой — она ждёт и растёт.",
-          "Твоё молчание дописывают за тебя, и почти всегда — худшую версию.",
-          "Тебя считают {равнодушным|равнодушной} ровно тогда, когда тебе больнее всего.",
-          "Невысказанное копится месяцами и выходит потом — сразу за полгода."
+          "Из чата ты выходишь, а вопрос остаётся там же и ждёт. С мелочами это работает — они правда рассасываются сами; с важным не работает никогда.",
+          "Твоё молчание дописывают за тебя, и обычно худшей версией. Близкие читают паузу верно, остальные — как равнодушие.",
+          "Тебя считают {равнодушным|равнодушной} ровно тогда, когда тебе больнее всего: снаружи буря и её отсутствие выглядят одинаково.",
+          "Невысказанное копится и выходит потом сразу за полгода — обычно на человеке, который к этим полугода отношения не имеет. Там, где ты правда {отпустил|отпустила}, не копится ничего."
         ],
         "en": [
-          "The problem doesn't leave the chat with you — it waits, and it grows.",
-          "People finish your silence for you, and almost always with the worst version.",
-          "You get read as indifferent at exactly the moments you hurt the most.",
-          "The unsaid piles up for months and then comes out — six months' worth at once."
+          "You leave the chat; the matter stays there and waits. With small things that works — they really do dissolve. With big ones it never does.",
+          "People finish your silence for you, usually with the worst version. Those close to you read the pause right; everyone else reads indifference.",
+          "You get taken for someone who doesn't care exactly when it hurts most: from outside, a storm and no storm look the same.",
+          "What goes unsaid accumulates and comes out later, half a year at once — usually on a person who had nothing to do with that half year. Where you genuinely let it go, nothing accumulates at all."
         ]
       },
       "recommendations": {
         "ru": [
-          "Замени исчезновение на одну строку: «мне нужно время, отвечу завтра». Это не разговор — это пауза вслух, и читается она совсем иначе.",
-          "Тренируйся на дешёвом: отвечай сразу на лёгкие сообщения, пока это не требует смелости.",
-          "Если текст не идёт — запиши голосовое: там не нужно выбирать формулировку."
+          "Исчезновение и пауза выглядят одинаково только изнутри. Снаружи «мне нужно время, отвечу завтра» — совсем другое сообщение, чем тишина.",
+          "Лёгкие сообщения — дешёвый тренажёр: там ответ ничего не стоит, а привычка отвечать сразу нарабатывается именно на них.",
+          "Когда текст не идёт, голосовое иногда проще: в нём не нужно выбирать формулировку.",
+          "А само умение не отправлять сгоряча менять не надо: половина людей отдала бы многое за эту паузу."
         ],
         "en": [
-          "Swap the vanishing for one line: \"I need time, I'll answer tomorrow.\" It's not a conversation — it's a pause said out loud, and it reads completely differently.",
-          "Train on the cheap ones: answer easy messages at once, while it takes no courage.",
-          "When text won't come, record a voice note: no wording to choose there."
+          "Vanishing and pausing look identical only from the inside. From outside, \"I need some time, I'll answer tomorrow\" is a completely different message than silence.",
+          "Easy messages are cheap practice: answering costs nothing there, and that's exactly where the habit of answering at all gets built.",
+          "When text won't come, a voice note is sometimes easier — no wording to choose.",
+          "The knack for not sending things in the heat doesn't need changing: half the world would trade a lot for that pause."
         ]
       },
       "tryToday": {
-        "ru": "Ответь на одно сообщение, которое давно висит. Одной строки достаточно — извиняться за паузу не обязательно.",
-        "en": "Answer one message that's been hanging for a while. One line is enough — no need to apologize for the gap."
+        "ru": "Если захочется попробовать: можно ответить на одно сообщение, которое давно висит. Одной строки достаточно, извиняться за паузу не обязательно.",
+        "en": "If you feel like trying something: one message that's been hanging can get an answer. A single line is enough, and the pause doesn't need an apology."
       },
       "inspiringConclusion": {
-        "ru": "Молчание не раз тебя выручало, и это было разумно. Сил у тебя теперь больше, чем тогда, — и одна честная строка защищает лучше тишины.",
-        "en": "Silence has bailed you out more than once, and that was sensible. You have more strength now than you did then — and one honest line protects better than quiet."
+        "ru": "Молчание не раз тебя выручало, и тогда оно правда было дешевле разговора. Сейчас выбор шире: тишина никуда не делась, а рядом с ней появилась одна честная строка.",
+        "en": "Silence has bailed you out more than once, and back then it really was cheaper than talking. Now the choice is wider: the silence is still there, and next to it sits one honest line."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "С таким же скандалов не будет никогда: оба чувствуют, когда лучше отойти. Обратная сторона честная — то, что отложили оба, само не возвращается.",
+              "en": "With another one of you there'll never be a scene: you both feel when to step back. The honest flip side is that what you both postponed doesn't come back on its own."
+            }
+          },
+          {
+            "profile": "the_yield",
+            "note": {
+              "ru": "Вы бережёте друг друга: он не давит, ты не {обязан|обязана} отвечать немедленно. Снаружи это самая спокойная пара из шести.",
+              "en": "You spare each other: they don't push, you're not required to answer instantly. From outside this is the calmest of the six pairs."
+            }
+          },
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Вы говорите на одном языке пауз: оба умеете сказать многое, ничего не написав. Друг друга это не раздражает — вы оба всё считываете.",
+              "en": "You speak the same language of pauses: both of you can say a lot without writing anything. Between you it isn't irritating — you both read it fine."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "Ему нужно закрыть вопрос сейчас, тебе — не находиться в нём сейчас. Его настойчивость ты читаешь как атаку, твою паузу он — как «тебе всё равно».",
+              "en": "They need the matter closed now; you need to not be in it now. You read their insistence as an attack, they read your pause as \"you don't care\"."
+            },
+            "upside": {
+              "ru": "Одна строка меняет всё: «мне нужно время, отвечу завтра». Такому человеку нужен не разговор немедленно, а знание, что он будет.",
+              "en": "One line changes it: \"I need some time, I'll answer tomorrow.\" What they need isn't the conversation right now, it's knowing there will be one."
+            }
+          },
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "Он идёт вперёд, ты исчезаешь, и каждый следующий круг быстрее: чем громче он, тем дальше ты, чем дальше ты, тем громче он.",
+              "en": "They come forward, you vanish, and every lap runs faster: the louder they get, the further you go; the further you go, the louder they get."
+            },
+            "upside": {
+              "ru": "Пара выдерживает, когда у паузы есть срок: такой человек умеет ждать, если знает сколько. Бесконечную тишину не выдерживает никто.",
+              "en": "The pair holds when the pause has an end: this person can wait if they know how long. Nobody can hold out against open-ended silence."
+            }
+          }
+        ]
       }
     },
     "the_yield": {
@@ -2863,37 +3038,88 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Твоё «да» перестаёт что-либо значить: за ним не видно, где на самом деле «нет».",
-          "Люди привыкают к твоей уступчивости — и перестают спрашивать, как тебе.",
-          "Обида за несказанные «нет» копится и портит отношения изнутри, тихо.",
-          "В важном ты рискуешь оказаться там, куда никогда не {хотел|хотела}: туда ведут маленькие «ладно»."
+          "Твоё «да» со временем перестаёт нести информацию: за ним не видно, где на самом деле «нет». Тем, кто переспрашивает, это не мешает; остальные верят с первого раза.",
+          "К уступчивости привыкают быстро и перестают спрашивать, как тебе. Это редко злой умысел — людям просто не приходит в голову, что там был выбор.",
+          "Обида за несказанные «нет» копится тихо и выходит не там, где возникла. Пока уступки мелкие, копить нечего; заметно становится на том, что для тебя правда важно.",
+          "Из маленьких «ладно» складывается большое направление, и в важном ты можешь оказаться там, куда никогда не {хотел|хотела}. В мелочах цена этого нулевая."
         ],
         "en": [
-          "Your “yes” stops meaning anything: nobody can see where it’s actually a “no”.",
-          "People get used to your yielding — and stop asking how it is for you.",
-          "Resentment over unsaid \"no\"s accumulates and corrodes the relationship from inside, quietly.",
-          "In the big things you risk ending up where you never wanted to be: little \"fine\"s lead there."
+          "Your yes stops carrying information: you can't see through it to where the no actually is. People who ask twice aren't affected; everyone else believes it the first time.",
+          "People get used to your flexibility fast and stop asking how it sits with you. It's rarely malice — it simply doesn't occur to them there was a choice.",
+          "Resentment over the unsaid no builds quietly and surfaces somewhere other than where it started. While the concessions are small there's nothing to build; it shows up on the things that actually matter to you.",
+          "Small \"fine, okay\"s add up to a direction, and in something that matters you can end up where you never wanted to be. In small things this costs nothing at all."
         ]
       },
       "recommendations": {
         "ru": [
-          "Раздели: уступаю, потому что не важно, — или потому что страшно? Первое оставь, со вторым разбирайся.",
-          "Начни с малых «нет» там, где ставки копеечные: отказ тренируется, как мышца.",
-          "Уступая в важном, называй цену вслух: «хорошо, сделаем по-твоему, но мне это стоит выходных»."
+          "Между «мне правда не важно» и «мне страшно» разница видна по одному признаку: вспоминаешь ли ты об этом на следующий день.",
+          "Отказ тренируется на копеечных ставках — там, где ничего не решается: кафе, время встречи, чей фильм.",
+          "Цену уступки можно называть вслух, не отменяя саму уступку: «давай по-твоему, но это мои выходные». Это не спор, это информация.",
+          "А готовность идти навстречу менять не надо: на ней держится половина отношений, которые у других ломаются."
         ],
         "en": [
-          "Separate the two: am I yielding because it doesn't matter — or because I'm scared? Keep the first, work on the second.",
-          "Start with small “no”s where the stakes are pennies: refusal trains like a muscle.",
-          "When you yield on something big, name the price out loud: “fine, we’ll do it your way — it costs me my weekend”."
+          "The difference between \"I genuinely don't mind\" and \"I'm scared to say no\" shows in one thing: whether you're still thinking about it the next day.",
+          "Refusing gets practised at penny stakes — where nothing is decided: the café, the time, whose film.",
+          "The price of giving way can be said out loud without taking the giving-way back: \"fine, your way, but that's my weekend.\" It isn't an argument, it's information.",
+          "The willingness to meet people halfway doesn't need changing: it's what holds up half the relationships that break for other people."
         ]
       },
       "tryToday": {
-        "ru": "Один раз сегодня скажи «мне так не подходит» вместо «да ладно, ничего страшного» — и посмотри, что случится. Скорее всего — ничего страшного.",
-        "en": "Once today, say “that doesn’t work for me” instead of “it’s fine, no big deal” — and watch what happens. Most likely: no big deal."
+        "ru": "Если захочется попробовать: один раз вместо «да ладно, ничего страшного» можно сказать «мне так не подходит». Чаще всего дальше действительно ничего страшного.",
+        "en": "If you feel like trying something: once, instead of \"it's fine, don't worry about it\", there's \"that doesn't work for me\". Most of the time what follows really is nothing to worry about."
       },
       "inspiringConclusion": {
-        "ru": "Беречь отношения — редкий дар. Он станет вдвое сильнее, когда в списке людей, которых ты бережёшь, появишься ты.",
-        "en": "Protecting relationships is a rare gift. It doubles in power the day your own name shows up on the list of people you protect."
+        "ru": "Беречь отношения — редкое умение, и оно у тебя есть. Список людей, которых ты бережёшь, тоже твой: кого в него включать, решаешь ты.",
+        "en": "Protecting a relationship is a rare skill, and you have it. The list of people you protect is yours too — who goes on it is your call."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "Ты уступаешь, он ведёт — конфликтов почти нет. Честно про цену: ему легко не заметить, что решения давно принимает он один, а тебя не спрашивают, потому что ты всегда «не против».",
+              "en": "You give way, they lead — almost no conflict. The honest price: it's easy for them to miss that they've been making every decision alone, and that nobody asks you because you're always fine with it."
+            }
+          },
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "Он не давит, ты не {обязан|обязана} спорить: рядом с ним не нужно защищаться. Самая тихая пара из шести.",
+              "en": "They don't push, you don't have to argue: around them there's nothing to defend. The quietest of the six pairs."
+            }
+          },
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Открытых столкновений между вами не бывает: он не называет, ты не споришь. Со стороны — образцовый мир; внутри — двое, каждый из которых ждёт, что другой заговорит первым.",
+              "en": "Open collisions don't happen: they don't name it, you don't argue. From outside, exemplary peace; inside, two people each waiting for the other to speak first."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "Он верит твоему «да» буквально — и потом искренне не понимает, откуда взялась обида, которой он ни разу не слышал.",
+              "en": "They take your yes literally — and then genuinely don't understand where the resentment came from, since they never once heard it."
+            },
+            "upside": {
+              "ru": "Это как раз тот тип, которому можно сказать «нет» без последствий: прямые люди не наказывают за прямоту, а чаще бывают благодарны.",
+              "en": "This is exactly the type you can say no to without consequences: straight talkers don't punish directness, more often they're grateful for it."
+            }
+          },
+          {
+            "profile": "the_yield",
+            "note": {
+              "ru": "Двое уступающих — это вечер, который уходит на «как ты хочешь» — «нет, как ты хочешь». Смешно первые полгода, потом оба обнаруживают, что живут по расписанию, которого никто не выбирал.",
+              "en": "Two accommodators make an evening spent on \"whatever you want\" — \"no, whatever you want\". It's funny for the first six months, then you both notice you're living on a schedule neither of you chose."
+            },
+            "upside": {
+              "ru": "Зато это пара, где легко ввести одно правило: каждый называет своё желание вслух до того, как спросит про чужое. Обоим это даётся тяжело — и оба понимают, почему.",
+              "en": "It's also the pair where one rule is easy to install: each names their own want out loud before asking about the other's. It's hard for both of you — and you both know exactly why."
+            }
+          }
+        ]
       }
     },
     "the_indirect": {
@@ -2927,37 +3153,99 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Человек чувствует наказание, но не знает, за что, — значит, не может исправить, даже если хочет.",
-          "Формально ссоры не было — а отношения тем временем остывают насовсем.",
-          "Проблема не решается никогда: она ведь ни разу не названа вслух.",
-          "Рано или поздно тебя начинают считать неискренним — и это держится дольше любой ссоры."
+          "Человек чувствует, что наказан, но не знает, за что, — значит, не может это исправить, даже когда хочет. С теми, кто читает полутона, способ работает; с прямолинейными пропадает вхолостую.",
+          "Формально ссоры не было, и решать нечего. С тем, кто сам придёт выяснять, это проходит; с тем, кто ждёт первого шага, отношения остывают без единого эпизода, на который можно показать.",
+          "Проблема не уходит: её ни разу не назвали, поэтому она возвращается тем же способом. Разовое раздражение так и правда гаснет — повторяющееся нет.",
+          "Со временем рядом появляется ощущение, что с тобой не всё говорится вслух. У далёких знакомых оно ни на что не влияет, у близких держится дольше любой открытой ссоры."
         ],
         "en": [
-          "They feel the punishment but don't know what it's for — so they can't fix it even if they want to.",
-          "Formally there was no fight — while the relationship quietly cools for good.",
-          "The problem never gets solved: it's never once been named out loud.",
-          "Sooner or later people start seeing you as insincere — and that outlasts any fight."
+          "The other person feels punished without knowing what for — so they can't fix it, even when they want to. With people who read subtext it works; with literal people it fires blank.",
+          "Formally there was no fight and nothing to settle. With someone who comes to sort it out anyway it passes; with someone waiting for the first move, the relationship cools without a single episode anyone can point at.",
+          "The problem doesn't leave: it was never named, so it comes back the same way. A one-off irritation really does burn out like this; a recurring one doesn't.",
+          "Over time a sense settles in that not everything gets said to you out loud. With people at a distance it changes nothing; with the close ones it lasts longer than any open fight."
         ]
       },
       "recommendations": {
         "ru": [
-          "Говори то, что шифруешь: пауза значит «мне обидно», сарказм — «я злюсь». Попробуй сказать это теми же словами.",
-          "Прежде чем ответить сухо, назови причину — иначе её додумают за тебя, и обычно в худшую сторону.",
-          "Перед отправкой колкости спроси себя: я хочу, чтобы человек понял, — или чтобы ему стало неприятно? Честный ответ обычно неудобен."
+          "Пауза значит «мне обидно», сухой тон — «я злюсь». Это уже готовые фразы: их можно произнести теми же словами, которыми ты о них думаешь.",
+          "Причина, названная до сухого ответа, экономит неделю: без неё её додумают, и обычно в худшую сторону.",
+          "Перед колкостью есть честный вопрос: я хочу, чтобы человек понял, или чтобы стало неприятно ему? Оба ответа бывают правдой.",
+          "А выдержку менять не надо: не срываться и не рубить связь с полуоборота — это то, чего половине людей не хватает."
         ],
         "en": [
-          "Say the thing you're encoding: the pause means \"that hurt\", the sarcasm means \"I'm angry\". Try saying it in those words.",
-          "Before answering dryly, name the reason — otherwise it gets filled in for you, usually with the worst version.",
-          "Before sending the barb, ask yourself: do I want them to understand — or to feel bad? The honest answer is usually the uncomfortable one."
+          "The pause means \"that hurt\", the flat tone means \"I'm angry\". Those are finished sentences already — they can be said in the same words you think them in.",
+          "A reason given before the flat answer saves a week: without it they'll invent one, usually a worse one.",
+          "There's an honest question before the jab: do I want them to understand, or do I want them to feel bad? Both answers are sometimes true.",
+          "The self-control doesn't need changing: not blowing up and not cutting people off on the spot is what half the world is short of."
         ]
       },
       "tryToday": {
-        "ru": "Если сегодня потянет ответить сухо или с подколом — напиши вместо этого четыре слова: «мне это было неприятно».",
-        "en": "If today you feel the pull to answer dry or with a barb — write four words instead: \"that didn't feel good\"."
+        "ru": "Если захочется попробовать: там, где потянет ответить сухо, можно написать четыре слова — «мне это было неприятно». Дальше объяснять не обязательно.",
+        "en": "If you feel like trying something: where the flat answer is coming, four words fit instead — \"that didn't feel good\". Nothing after that has to be explained."
       },
       "inspiringConclusion": {
-        "ru": "Ты уже умеешь главное — не взрываться. Осталось добавить к выдержке адрес: кому и за что. Прямота только выглядит риском — стоит она дешевле недели шифровок.",
-        "en": "You already have the hard part — not exploding. What's left is giving your restraint an address: who, and what for. Directness only looks like a risk — it costs less than a week of encryption."
+        "ru": "Главное ты уже умеешь — не взрываться. Прямота рядом с этим выглядит риском, хотя обычно стоит дешевле недели шифровок; и начать с неё можно на ком-то одном.",
+        "en": "You already do the hard part — you don't blow up. Next to that, directness looks like a risk, though it usually costs less than a week of encoding; and it can start with one person."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_yield",
+            "note": {
+              "ru": "Он не спорит, ты не обостряешь — открытых конфликтов между вами не будет. Обратная сторона: разговора о том, что не так, тоже не будет.",
+              "en": "They don't argue, you don't escalate — there'll be no open conflict between you. The flip side: there'll be no conversation about what's wrong either."
+            }
+          },
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "Вы понимаете паузы друг друга без перевода: оба умеете сказать многое, ничего не написав.",
+              "en": "You understand each other's pauses without translation: both of you can say a lot without writing anything."
+            }
+          },
+          {
+            "profile": "the_mixed",
+            "note": {
+              "ru": "«По обстоятельствам» подстраивается под тебя и считывает полутона, поэтому рядом с ним твой способ общаться работает так, как задуман.",
+              "en": "Depends on the Day adapts to you and reads the half-tones, so next to them your way of communicating works the way it's meant to."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Двое между строк — это холодная война на два фронта: оба наказывают тоном, оба не признают, что наказывают, и каждый уверен, что виноват второй. Такое тянется месяцами.",
+              "en": "Two between-the-liners make a two-front cold war: both punish by tone, both deny they're punishing, and each is sure the other one is at fault. It runs for months."
+            },
+            "upside": {
+              "ru": "Зато у вас редкое преимущество: вы оба понимаете шифр — значит, можете договориться расшифровывать вслух. Фраза «скажи прямо, я не обижусь» работает сразу на обоих.",
+              "en": "You do have something rare: you both understand the code, which means you can agree to decode out loud. \"Just say it, I won't take it badly\" works on both of you at once."
+            }
+          },
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "Он называет вещи вслух и ждёт того же, а получает «всё нормально» ровным тоном. Он давит вопросами, ты уходишь глубже в намёки.",
+              "en": "They name things out loud and expect the same, and get \"everything's fine\" in a flat tone. They press with questions, you go further into hints."
+            },
+            "upside": {
+              "ru": "Из всех шести это самый безопасный человек для прямой фразы: прямые не мстят за честность, она им и нужна.",
+              "en": "Of all six, this is the safest person to be blunt with: straight talkers don't retaliate for honesty, honesty is the thing they're after."
+            }
+          },
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "Он идёт напролом, ты отвечаешь холодом — и он не понимает, за что. Его напор растёт, твой шифр становится плотнее.",
+              "en": "They come at it head-on, you answer with cold — and they can't tell what for. Their force grows, your code gets denser."
+            },
+            "upside": {
+              "ru": "Ему достаточно узнать причину: получив прямую претензию, «Напролом» обычно быстро отходит — куда быстрее, чем от недели холода.",
+              "en": "All they need is the reason: given a plain complaint, Full Force usually cools down fast — far faster than after a week of cold."
+            }
+          }
+        ]
       }
     },
     "the_mixed": {
@@ -2989,35 +3277,86 @@
       },
       "vulnerabilities": {
         "ru": [
-          "Людям рядом трудно понять, чего от тебя ждать, — и когда ты говоришь всерьёз.",
-          "Стиль часто выбирает не ситуация, а страх: чем важнее человек, тем меньше прямоты ему достаётся.",
-          "С самыми близкими ты можешь говорить хуже всего — именно там, где потерять страшнее."
+          "Рядом с тобой трудно предсказать, чего ждать и когда ты говоришь всерьёз. Людям, которые сами гибкие, это не мешает; тем, кому нужна опора, мешает заметно.",
+          "Стиль иногда выбирает не ситуация, а страх: чем важнее человек, тем меньше прямоты ему достаётся. Проверить просто — по тому, с кем ты {говорил|говорила} честнее всего за последний месяц.",
+          "С самыми близкими разговор может даваться хуже всего — именно там, где терять страшнее. С людьми, которых не боишься потерять, у тебя обычно получается легко."
         ],
         "en": [
-          "People around you struggle to know what to expect — and when you mean it.",
-          "It's often not the situation choosing the style but fear: the more someone matters, the less directness they get.",
-          "You may talk worst with the people closest to you — exactly where losing them is scariest."
+          "It's hard to predict what to expect from you, and when you mean it. People who are flexible themselves don't mind; people who need something solid mind a lot.",
+          "Sometimes the style is picked by fear rather than by the situation: the more important the person, the less directness they get. Easy to check — by who you were most honest with this past month.",
+          "The conversation can be hardest with the people closest to you — exactly where there's more to lose. With people you're not afraid of losing it usually comes easily."
         ]
       },
       "recommendations": {
         "ru": [
-          "Пересчитай своих людей по стилям: с кем ты {прямой|прямая}, от кого пропадаешь, кому уступаешь. Закономерность обычно не про них — про твой страх потерять.",
-          "Выбери одного важного человека и один стиль — прямой. Один человек, не все сразу.",
-          "Перед сложным ответом спроси себя: я сейчас выбираю ход — или прячусь за привычный?"
+          "Своих людей можно разложить по стилям: с кем ты {прямой|прямая}, от кого пропадаешь, кому уступаешь. Закономерность обычно говорит не о них.",
+          "Один важный человек и один стиль — этого достаточно, чтобы понять, как оно работает. Все сразу не нужны.",
+          "Перед сложным ответом есть развилка: я выбираю ход — или беру привычный, потому что он под рукой? Второе тоже нормально, просто это другое решение.",
+          "А саму гибкость менять незачем: пять стилей в руках — это больше, чем у большинства, и прямой среди них тоже есть."
         ],
         "en": [
-          "Sort your people by style: who gets your directness, who you vanish on, who you concede to. The pattern usually isn’t about them — it’s about your fear of losing them.",
-          "Pick one important person and one style — the direct one. One person, not everyone at once.",
-          "Before a difficult reply, ask yourself: am I choosing a move — or hiding behind a habitual one?"
+          "Your people can be sorted by style: who you're direct with, who you disappear on, who you give way to. The pattern usually says something about you, not them.",
+          "One important person and one style is enough to see how it works. You don't need all of them at once.",
+          "There's a fork before a hard answer: am I choosing a move, or taking the familiar one because it's nearest? The second is fine too — it's just a different decision.",
+          "The flexibility itself doesn't need changing: five styles in hand is more than most people have, and the direct one is among them."
         ]
       },
       "tryToday": {
-        "ru": "Вспомни, с кем ты в последний раз {ответил|ответила} уклончиво вместо прямого. Напиши этому человеку то, что тогда не {сказал|сказала}.",
-        "en": "Think of the last person you answered evasively instead of straight. Write them the thing you didn't say then."
+        "ru": "Если захочется попробовать: можно вспомнить, кому ты в последний раз {ответил|ответила} уклончиво, и написать этому человеку то, что тогда не {сказал|сказала}.",
+        "en": "If you feel like trying something: there's the person you last answered evasively — and the thing you didn't say to them then."
       },
       "inspiringConclusion": {
-        "ru": "Гибкость минус страх — это мастерство. Страх уходит по одному разговору за раз — и первый можно провести сегодня.",
-        "en": "Flexibility minus fear is mastery. Fear leaves one conversation at a time — and the first one can happen today."
+        "ru": "Гибкость без страха — это мастерство. Разницу между выбранным ходом и привычным видно только изнутри, и видно её только тебе.",
+        "en": "Flexibility minus fear is skill. The difference between a move you chose and a move you defaulted to is visible only from the inside — and only to you."
+      },
+      "pairing": {
+        "easy": [
+          {
+            "profile": "the_direct",
+            "note": {
+              "ru": "Рядом с «Прямым текстом» тебе легче всего быть прямым: он не наказывает за честность и не заставляет угадывать. С такими людьми ты часто говоришь свободнее всего.",
+              "en": "Next to In Plain Text you find it easiest to be direct: they don't punish honesty and don't make you guess. With people like that you often speak most freely."
+            }
+          },
+          {
+            "profile": "the_pressure",
+            "note": {
+              "ru": "Ты подстраиваешься быстрее, чем он успевает надавить, поэтому ссор почти нет. Честно про цену: половина твоих мнений остаётся при тебе, и он о них не узнаёт.",
+              "en": "You adapt faster than they can push, so there's almost no fighting. The honest price: half your opinions stay with you, and they never find out about them."
+            }
+          },
+          {
+            "profile": "the_indirect",
+            "note": {
+              "ru": "Ты хорошо считываешь полутона, поэтому его намёки для тебя не загадка — там, где другие теряются, ты понимаешь с первого сообщения.",
+              "en": "You read half-tones well, so their hints aren't a puzzle to you — where other people get lost, you get it from the first message."
+            }
+          }
+        ],
+        "sparks": [
+          {
+            "profile": "the_mixed",
+            "note": {
+              "ru": "Двое подстраивающихся — и никто не говорит первым: каждый ждёт сигнала от другого и отражает его. Разговор о важном может не случиться годами, при полном отсутствии ссор.",
+              "en": "Two adapters and nobody speaks first: each waits for the other's signal and mirrors it. The conversation that matters can go unheld for years, with zero fights on the record."
+            },
+            "upside": {
+              "ru": "Зато у вас нет борьбы за власть в разговоре. Достаточно, чтобы кто-то один назвал своё желание первым, — второй почти всегда отвечает тем же.",
+              "en": "On the other hand there's no power struggle in the conversation. It's enough for one of you to name a want first — the other almost always answers in kind."
+            }
+          },
+          {
+            "profile": "the_withdraw",
+            "note": {
+              "ru": "Ты подстраиваешься под того, кто исчезает, — и разговор перестаёт существовать: ты ждёшь его хода, он ждёт, что всё уляжется само.",
+              "en": "You adapt to someone who disappears — and the conversation stops existing: you wait for their move, they wait for it to settle on its own."
+            },
+            "upside": {
+              "ru": "Здесь помогает срок вслух: не «ну ладно», а «вернёмся к этому завтра». Ему это привычно и не страшно, тебе — снимает необходимость угадывать.",
+              "en": "A spoken deadline helps: not \"okay then\" but \"let's come back to this tomorrow\". It's familiar and unthreatening for them, and it saves you from guessing."
+            }
+          }
+        ]
       }
     }
   },

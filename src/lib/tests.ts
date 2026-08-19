@@ -342,8 +342,14 @@ export interface ReportStep {
 export interface ReportChapter {
   title: string;
   body: string;
-  /** "What to do with it" arrives as moves rather than prose (§2). */
+  /** "If you want to change something" arrives as moves rather than prose (§2). */
   steps?: ReportStep[];
+  /**
+   * The one thing worth leaving exactly as it is (стандарт §7a.2.5). Not
+   * decoration: without it a list of moves reads as a list of faults, however
+   * softly each line is worded.
+   */
+  keepAsIs?: string;
   tryToday?: string;
 }
 
@@ -379,12 +385,14 @@ function parseChapters(data: Record<string, unknown> | null): ReportChapter[] | 
         | string
         | undefined;
       const steps = parseSteps(row.steps);
+      const keepAsIs = typeof row.keepAsIs === "string" ? row.keepAsIs : undefined;
       const tryToday = typeof row.tryToday === "string" ? row.tryToday : undefined;
       if (!body && !steps && !tryToday) return null;
       return {
         title: typeof row.title === "string" ? row.title : "",
         body: body ?? "",
         ...(steps ? { steps } : {}),
+        ...(keepAsIs ? { keepAsIs } : {}),
         ...(tryToday ? { tryToday } : {}),
       };
     })

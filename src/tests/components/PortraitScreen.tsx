@@ -113,6 +113,7 @@ export default function PortraitScreen({
               retry: ui.retry,
               answersFrom: ui.generatedOn,
               tryToday: testsCopy(lang).report.tryToday,
+              keepAsIs: testsCopy(lang).report.keepAsIs,
             }}
           />
         </div>

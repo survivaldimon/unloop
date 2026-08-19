@@ -188,6 +188,31 @@ export function pairBalances(test: PsychTest, outcome: TestOutcome) {
   });
 }
 
+/**
+ * The compatibility block resolved into names (§7a.3): the model must never
+ * see profile ids, and a line about "the_withdraw" would reach the reader as
+ * exactly that. Missing ids are dropped rather than passed through — a typo in
+ * content becomes one missing pair, not a chapter about a type that isn't in
+ * the test.
+ */
+function pairingLines(test: PsychTest, profile: TestProfileContent, lang: Lang) {
+  const pairing = profile.pairing;
+  if (!pairing) return null;
+  const side = (rows: typeof pairing.easy) =>
+    rows.flatMap((row) => {
+      const other = test.profiles[row.profile];
+      if (!other) return [];
+      return [
+        {
+          type: other.name[lang],
+          why: row.note[lang],
+          ...(row.upside ? { works_when: row.upside[lang] } : {}),
+        },
+      ];
+    });
+  return { easy_with: side(pairing.easy), sparks_with: side(pairing.sparks) };
+}
+
 export function profileSkeleton(profile: TestProfileContent, lang: Lang) {
   const skeleton: Record<string, unknown> = {
     id: profile.id,
@@ -239,9 +264,12 @@ export function buildPayload(
   const validityNotes = (outcome.validity?.reasons ?? []).map((r) => VALIDITY_WARNING[r]);
   const gender = genderOf(test, answers);
 
+  const pairing = pairingLines(test, profile, lang);
+
   const payload = {
     test: { id: test.id, title: test.title[lang] },
     profile: profileSkeleton(profile, lang),
+    ...(pairing ? { pairing } : {}),
     ...(outcome.typeCode ? { type_code: outcome.typeCode, pair_balances: balances } : {}),
     ...(factors ? { factor_percentages: factors } : {}),
     ...(bipolar ? {} : { scale_scores_0_100: scaleDigest(outcome.scaleScores) }),

@@ -19,16 +19,19 @@ export default function ReportTeaser({
   testId,
   sessionId,
   onUnlock,
+  hasPairing = false,
   busy = false,
 }: {
   testId: string;
   sessionId: string;
   onUnlock: () => void;
+  /** Does this reader's profile carry a compatibility block? (§7a.3) */
+  hasPairing?: boolean;
   busy?: boolean;
 }) {
   const lang = useLang();
   const ui = testsCopy(lang).report;
-  const chapters = ui.chapters(testId);
+  const chapters = ui.chapters(testId, hasPairing);
 
   useEffect(() => {
     track("test_report_teaser_view", { test_id: testId, test_session_id: sessionId });

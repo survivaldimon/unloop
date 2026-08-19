@@ -159,6 +159,50 @@ export default function TestResult({
         </Section>
       )}
 
+      {/* Compatibility, free (стандарт §7a.3). It sits above the paywall on
+          purpose: it is the strongest thing on this screen to send to somebody
+          ("and what are you?"), and it feeds the compare loop, which otherwise
+          needs the friend to sit through the whole test first. The paid read
+          keeps its own version — the same types read through this person's
+          actual factor mix, which a static block cannot do. */}
+      {profile?.pairing && (
+        <Section title={ui.pairing}>
+          <div className="flex flex-col gap-5">
+            {(
+              [
+                ["easy", ui.pairingEasy, profile.pairing.easy],
+                ["sparks", ui.pairingSparks, profile.pairing.sparks],
+              ] as const
+            ).map(([side, label, rows]) => (
+              <div key={side}>
+                <p className="text-[11px] tracking-[0.12em] text-mist/70 uppercase">{label}</p>
+                <ul className="mt-2 flex flex-col gap-3">
+                  {rows.map((row) => {
+                    const other = test.profiles[row.profile];
+                    if (!other) return null;
+                    return (
+                      <li key={row.profile}>
+                        <p className="text-[14px] leading-relaxed text-paper/90">
+                          <span className="font-semibold text-paper">{other.name[lang]}</span>
+                          {" — "}
+                          {g(row.note[lang])}
+                        </p>
+                        {row.upside?.[lang] && (
+                          <p className="mt-1 text-[13px] leading-relaxed text-mist">
+                            {g(row.upside[lang])}
+                          </p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+            <p className="text-[12px] leading-relaxed text-mist/70">{ui.pairingInvite}</p>
+          </div>
+        </Section>
+      )}
+
       {/* The one CTA on the free screen, and everything it grows into (§7). */}
       {report && <div className="mt-9">{report}</div>}
 
